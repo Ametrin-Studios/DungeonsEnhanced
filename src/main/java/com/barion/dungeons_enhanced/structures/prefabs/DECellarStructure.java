@@ -6,38 +6,38 @@ import com.legacy.structure_gel.worldgen.GelPlacementSettings;
 import com.legacy.structure_gel.worldgen.structure.GelConfigStructure;
 import com.legacy.structure_gel.worldgen.structure.GelStructureStart;
 import com.legacy.structure_gel.worldgen.structure.GelTemplateStructurePiece;
+import javafx.geometry.BoundingBox;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mirror;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
-import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.util.registry.DynamicRegistries;
 import net.minecraft.world.IServerWorld;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.template.PlacementSettings;
 import net.minecraft.world.gen.feature.template.TemplateManager;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 import java.util.List;
 import java.util.Random;
 
-public class DECellarStructure extends GelConfigStructure<NoFeatureConfig> {
+public class DECellarStructure extends GelConfigStructure<NoneFeatureConfiguration> {
     protected ResourceLocation MainPiece;
     protected ResourceLocation Cellar;
     public BlockPos Offset;
     protected int CellarOffset;
     public DECellarStructure(String resourceTop, String resourceBottom, BlockPos offset, int cellarOffset, ConfigTemplates.StructureConfig config){
-        super(NoFeatureConfig.CODEC, config);
+        super(NoneFeatureConfiguration.CODEC, config);
         setLakeProof(true);
         MainPiece = DEStructures.locate(resourceTop);
         Cellar = DEStructures.locate(resourceBottom);
@@ -45,19 +45,19 @@ public class DECellarStructure extends GelConfigStructure<NoFeatureConfig> {
         CellarOffset = cellarOffset;
     }
     public DECellarStructure(String resource, BlockPos offset, ConfigTemplates.StructureConfig config){
-        super(NoFeatureConfig.CODEC, config);
+        super(NoneFeatureConfiguration.CODEC, config);
         setLakeProof(true);
         MainPiece = DEStructures.locate(resource);
         Cellar = null;
         Offset = offset;
     }
     public DECellarStructure(ConfigTemplates.StructureConfig config){
-        super(NoFeatureConfig.CODEC, config);
+        super(NoneFeatureConfiguration.CODEC, config);
         setLakeProof(true);
     }
 
     @Override
-    protected boolean isFeatureChunk(ChunkGenerator chunkGen, BiomeProvider biomeProvider, long seed, SharedSeedRandom sharedSeedRand, int chunkPosX, int chunkPosZ, Biome biomeIn, ChunkPos chunkPos, NoFeatureConfig config) {
+    protected boolean isFeatureChunk(ChunkGenerator chunkGen, BiomeProvider biomeProvider, long seed, SharedSeedRandom sharedSeedRand, int chunkPosX, int chunkPosZ, Biome biomeIn, ChunkPos chunkPos, NoneFeatureConfiguration config) {
         int x = chunkPosX * 16;
         int z = chunkPosZ * 16;
         int y = chunkGen.getBaseHeight(x, z, Heightmap.Type.WORLD_SURFACE_WG);
@@ -69,17 +69,17 @@ public class DECellarStructure extends GelConfigStructure<NoFeatureConfig> {
     }
 
     @Override
-    public IStartFactory<NoFeatureConfig> getStartFactory() {
+    public IStartFactory<NoneFeatureConfiguration> getStartFactory() {
         return Start::new;
     }
 
-    public class Start extends GelStructureStart<NoFeatureConfig> {
-        public Start(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ, MutableBoundingBox boundsIn, int referenceIn, long seed) {
+    public class Start extends GelStructureStart<NoneFeatureConfiguration> {
+        public Start(Structure<NoneFeatureConfiguration> structureIn, int chunkX, int chunkZ, BoundingBox boundsIn, int referenceIn, long seed) {
             super(structureIn, chunkX, chunkZ, boundsIn, referenceIn, seed);
         }
 
         @Override
-        public void generatePieces(DynamicRegistries registry, ChunkGenerator chunkGen, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn, NoFeatureConfig configIn) {
+        public void generatePieces(DynamicRegistries registry, ChunkGenerator chunkGen, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn, NoneFeatureConfiguration configIn) {
             int x = chunkX * 16 + Offset.getX();
             int z = chunkZ * 16 + Offset.getZ();
             int y = chunkGen.getBaseHeight(x, z, Heightmap.Type.WORLD_SURFACE_WG) + Offset.getY();
@@ -127,7 +127,7 @@ public class DECellarStructure extends GelConfigStructure<NoFeatureConfig> {
         }
 
         @Override
-        protected void handleDataMarker(String key, BlockPos pos, IServerWorld world, Random rnd, MutableBoundingBox bounds) {
+        protected void handleDataMarker(String key, BlockPos pos, IServerWorld world, Random rnd, BoundingBox box) {
         }
     }
     protected static BlockPos Offset(int x, int y, int z){
