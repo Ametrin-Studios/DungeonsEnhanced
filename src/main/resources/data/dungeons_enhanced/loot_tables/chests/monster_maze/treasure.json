@@ -3,7 +3,7 @@
   "pools": [
     {
       "rolls": {
-        "min": 5,
+        "min": 7,
         "max": 10
       },
       "entries": [
@@ -81,20 +81,20 @@
     },
     {
       "rolls": {
-        "min": 4,
-        "max": 6
+        "min": 2,
+        "max": 4
       },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:gold_ingot",
-          "weight": 1,
+          "weight": 2,
           "functions": [
             {
               "function": "set_count",
               "count": {
-                "min": 1,
-                "max": 1
+                "min": 3,
+                "max": 4
               }
             }
           ]
@@ -138,7 +138,7 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:diamond",
-          "weight": 1,
+          "weight": 2,
           "functions": [
             {
               "function": "set_count",
