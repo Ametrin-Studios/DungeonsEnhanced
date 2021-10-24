@@ -10,14 +10,14 @@ public class DEEvents {
     @SubscribeEvent
     protected static void biomeLoad(final BiomeLoadingEvent event){
         DEEvents.event = event;
-        addToBiomes(DEStructures.BattleTower);
+        addToBiomes(DEStructures.TowerOfTheUndead);
         addToBiomes(DEStructures.Castle);
         addToBiomes(DEStructures.CastleB);
         addToBiomes(DEStructures.DesertTemple);
         addToBiomes(DEStructures.DesertTomb);
         addToBiomes(DEStructures.DruidCircle);
         addToBiomes(DEStructures.DungeonVariant);
-        addToBiomes(DEStructures.FlyingDutchman);
+        //addToBiomes(DEStructures.FlyingDutchman);
         addToBiomes(DEStructures.HayStorage);
         addToBiomes(DEStructures.IcePit);
         addToBiomes(DEStructures.JungleMonument);

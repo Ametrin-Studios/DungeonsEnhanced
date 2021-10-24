@@ -1,30 +1,6 @@
 package com.barion.dungeons_enhanced.structures;
 
-import com.barion.dungeons_enhanced.*;
-import com.barion.dungeons_enhanced.structures.prefabs.DESimpleStructure;
-import com.legacy.structure_gel.worldgen.structure.GelConfigStructure;
-import com.legacy.structure_gel.worldgen.structure.GelStructureStart;
-import com.legacy.structure_gel.worldgen.structure.GelTemplateStructurePiece;
-import net.minecraft.block.Blocks;
-import net.minecraft.loot.RandomValueRange;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.Rotation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.util.registry.DynamicRegistries;
-import net.minecraft.world.IServerWorld;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.ChunkGenerator;
-import net.minecraft.world.gen.Heightmap;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.structure.Structure;
-import net.minecraft.world.gen.feature.structure.StructurePiece;
-import net.minecraft.world.gen.feature.template.TemplateManager;
-
-import java.util.List;
-import java.util.Random;
-
+/*
 public class DEFlyingDutchman extends GelConfigStructure<NoFeatureConfig> {
 
     public DEFlyingDutchman() {
@@ -78,4 +54,4 @@ public class DEFlyingDutchman extends GelConfigStructure<NoFeatureConfig> {
              DungeonsEnhanced.LOGGER.info(key);
          }
      }
-}
+}*/

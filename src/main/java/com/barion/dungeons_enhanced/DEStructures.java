@@ -2,7 +2,10 @@ package com.barion.dungeons_enhanced;
 
 import com.barion.dungeons_enhanced.structures.*;
 import com.barion.dungeons_enhanced.structures.pools.DEMonsterMazePool;
-import com.barion.dungeons_enhanced.structures.prefabs.*;
+import com.barion.dungeons_enhanced.structures.prefabs.DECellar;
+import com.barion.dungeons_enhanced.structures.prefabs.DECellarStructure;
+import com.barion.dungeons_enhanced.structures.prefabs.DESimpleStructure;
+import com.barion.dungeons_enhanced.structures.prefabs.DEUndergroundStructure;
 import com.legacy.structure_gel.access_helpers.JigsawAccessHelper;
 import com.legacy.structure_gel.registrars.GelStructureRegistrar;
 import com.legacy.structure_gel.registrars.StructureRegistrar2;
@@ -23,14 +26,14 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 @Mod.EventBusSubscriber(modid = DungeonsEnhanced.Mod_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DEStructures {
-    public static final StructureRegistrar2<NoFeatureConfig, DEBattleTower> BattleTower = register("battle_tower", new DEBattleTower(), DESimpleStructure.Piece::new);
+    public static final StructureRegistrar2<NoFeatureConfig, DETowerOfTheUndead> TowerOfTheUndead = register("tower_of_the_undead", new DETowerOfTheUndead(), DESimpleStructure.Piece::new);
     public static final StructureRegistrar2<NoFeatureConfig, DECastle> Castle = register("castle", new DECastle(), DECellarStructure.Piece::new);
     public static final StructureRegistrar2<NoFeatureConfig, DECellar> CastleB = GelStructureRegistrar.of(new ResourceLocation(""), new DECellar("castle/bottom", Offset(0, -5, 0), Castle, DEConfig.COMMON.castle), DECellar.Piece::new, NoFeatureConfig.INSTANCE, Decoration.SURFACE_STRUCTURES).handle();
     public static final StructureRegistrar2<NoFeatureConfig, DEDesertTemple> DesertTemple = register("desert_temple", new DEDesertTemple(), DESimpleStructure.Piece::new);
     public static final StructureRegistrar2<NoFeatureConfig, DEDesertTomb> DesertTomb = register("desert_tomb", new DEDesertTomb(), DESimpleStructure.Piece::new);
     public static final StructureRegistrar2<NoFeatureConfig, DEDruidCircle> DruidCircle = register("druid_circle", new DEDruidCircle(), DECellarStructure.Piece::new);
     public static final StructureRegistrar2<NoFeatureConfig, DEDungeonVariant> DungeonVariant = register("dungeon_variant", new DEDungeonVariant(), DEUndergroundStructure.Piece::new, Decoration.UNDERGROUND_STRUCTURES);
-    public static final StructureRegistrar2<NoFeatureConfig, DEFlyingDutchman> FlyingDutchman = register("flying_dutchman", new DEFlyingDutchman(), DEFlyingDutchman.Piece::new, Decoration.SURFACE_STRUCTURES);
+    //public static final StructureRegistrar2<NoFeatureConfig, DEFlyingDutchman> FlyingDutchman = register("flying_dutchman", new DEFlyingDutchman(), DEFlyingDutchman.Piece::new, Decoration.SURFACE_STRUCTURES);
     public static final StructureRegistrar2<NoFeatureConfig, DEHayStorage> HayStorage = register("hay_storage", new DEHayStorage(), DESimpleStructure.Piece::new);
     public static final StructureRegistrar2<NoFeatureConfig, DEIcePit> IcePit = register("ice_pit", new DEIcePit(), DESimpleStructure.Piece::new);
     public static final StructureRegistrar2<NoFeatureConfig, DEJungleMonument> JungleMonument = register("jungle_monument", new DEJungleMonument(), DESimpleStructure.Piece::new);
@@ -52,20 +55,19 @@ public class DEStructures {
     public static void onRegistry(final RegistryEvent.Register<Structure<?>> event){
         IForgeRegistry<Structure<?>> registry = event.getRegistry();
 
-        BattleTower.handleForge(registry);
         Castle.handleForge(registry);
         CastleB.handleForge(registry);
         RuinedHouse.handleForge(registry);
         RuinedBarn.handleForge(registry);
         DesertTemple.handleForge(registry);
         DesertTomb.handleForge(registry);
+        DungeonVariant.handleForge(registry);
         DruidCircle.handleForge(registry);
-        FlyingDutchman.handleForge(registry);
+        //FlyingDutchman.handleForge(registry);
         HayStorage.handleForge(registry);
         IcePit.handleForge(registry);
         JungleMonument.handleForge(registry);
         LargeDungeon.handleForge(registry);
-        DungeonVariant.handleForge(registry);
         MinersHouse.handleForge(registry);
         MobTower.handleForge(registry);
         MonsterMaze.handleForge(registry);
@@ -73,11 +75,12 @@ public class DEStructures {
         PillagerCamp.handleForge(registry);
         Stables.handleForge(registry);
         TallWitchHut.handleForge(registry);
+        TowerOfTheUndead.handleForge(registry);
         TreeHouse.handleForge(registry);
         WatchTower.handleForge(registry);
         WitchTower.handleForge(registry);
 
-        genFloor(RuinedHouse, RuinedBarn, DruidCircle, BattleTower, HayStorage, DruidCircle, MinersHouse, MobTower, MushroomHouse, WatchTower, WitchTower, Castle, PillagerCamp, TreeHouse);
+        genFloor(RuinedHouse, RuinedBarn, DruidCircle, TowerOfTheUndead, HayStorage, DruidCircle, MinersHouse, MobTower, MushroomHouse, WatchTower, WitchTower, Castle, PillagerCamp, TreeHouse);
 
         DEMonsterMazePool.init();
     }
