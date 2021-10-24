@@ -1,0 +1,40 @@
+modLoader="javafml" #mandatory
+loaderVersion="[36,)" #mandatory A version range to match for said mod loader - for regular FML @Mod it will be the forge version
+license="All rights reserved"
+issueTrackerURL="https://www.curseforge.com/minecraft/mc-mods/dungeonsenhanced/issues" #optional
+
+[[mods]] #mandatory A list of mods - how many allowed here is determined by the individual mod loader
+modId="dungeons_enhanced" #mandatory
+version="${file.jarVersion}" #mandatory
+displayName="Dungeons Enhanced" #mandatory
+#updateJSONURL="https://change.me.example.invalid/updates.json" #optional See the JSON update specification https://mcforge.readthedocs.io/en/latest/gettingstarted/autoupdate/
+displayURL="https://www.curseforge.com/minecraft/mc-mods/dungeonsenhanced" #optional A URL for the "homepage" for this mod
+logoFile="dungeons_enhanced.png"
+credits="Thanks Modding Legacy for their great Structure Gel API" #optional
+authors="Barion, Mo" #optional
+# The description text for the mod (multi line!) (#mandatory)
+description='''
+Ever felt a bit boring at visiting the same jungle Temple for years?
+You already know too good where the traps are and what loot you can find.
+We decided to add Variants to existing Vanilla Structures.
+But Variants aren't enough, aren't they? So we´re also adding new ones for you to explore!
+'''
+
+[[dependencies.dungeons_enhanced]] #optional
+    modId="forge" #mandatory
+    mandatory=true #mandatory   Does this dependency have to exist - if not, ordering below must be specified
+    versionRange="[36,)" #mandatory
+    ordering="NONE" # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
+    side="BOTH" #BOTH, CLIENT or SERVER
+[[dependencies.dungeons_enhanced]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.5,1.17)" # declares a minimum of the current minecraft version up to but not including the next major version
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.dungeons_enhanced]]
+    modId="structure_gel"
+    mandatory=true
+    versionRange="[1.7.+,]"
+    ordering="NONE"
+    side="BOTH"
