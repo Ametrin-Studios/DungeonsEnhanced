@@ -9,7 +9,7 @@ version="${file.jarVersion}" #mandatory
 displayName="Dungeons Enhanced" #mandatory
 #updateJSONURL="https://change.me.example.invalid/updates.json" #optional See the JSON update specification https://mcforge.readthedocs.io/en/latest/gettingstarted/autoupdate/
 displayURL="https://www.curseforge.com/minecraft/mc-mods/dungeonsenhanced" #optional A URL for the "homepage" for this mod
-logoFile="dungeons_enhanced.png"
+logoFile="logo.png"
 credits="Thanks Modding Legacy for their great Structure Gel API" #optional
 authors="Barion, Mo" #optional
 # The description text for the mod (multi line!) (#mandatory)
