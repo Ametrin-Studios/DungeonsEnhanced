@@ -70,7 +70,7 @@ public class DEUndergroundStructure extends GelConfigStructure<NoFeatureConfig> 
         public void generatePieces(DynamicRegistries registry, ChunkGenerator chunkGen, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn, NoFeatureConfig configIn) {
             int x = chunkX * 16 + Offset.getX();
             int z = chunkZ * 16 + Offset.getZ();
-            int maxY = chunkGen.getBaseHeight(x, z, Heightmap.Type.MOTION_BLOCKING);
+            int maxY = chunkGen.getBaseHeight(x, z, Heightmap.Type.WORLD_SURFACE_WG);
             if(maxY >= 55)
                 maxY = 55;
             int y = Math.abs(this.random.nextInt(Math.max(8, maxY))) + Offset.getY();
