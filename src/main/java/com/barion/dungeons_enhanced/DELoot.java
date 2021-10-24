@@ -1,6 +1,6 @@
 package com.barion.dungeons_enhanced;
 
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
 
 public class DELoot {
 

@@ -1,18 +1,18 @@
 package com.barion.dungeons_enhanced.structures.prefabs;
 
 import com.barion.dungeons_enhanced.DEStructures;
+import com.legacy.structure_gel.api.structure.GelConfigStructure;
 import com.legacy.structure_gel.registrars.StructureRegistrar2;
 import com.legacy.structure_gel.util.ConfigTemplates;
 import com.legacy.structure_gel.worldgen.GelPlacementSettings;
-import com.legacy.structure_gel.worldgen.structure.GelConfigStructure;
 import com.legacy.structure_gel.worldgen.structure.GelStructureStart;
 import com.legacy.structure_gel.worldgen.structure.GelTemplateStructurePiece;
+import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mirror;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.SharedSeedRandom;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.util.registry.DynamicRegistries;
@@ -26,17 +26,18 @@ import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.template.PlacementSettings;
 import net.minecraft.world.gen.feature.template.TemplateManager;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 import java.util.List;
 import java.util.Random;
 
-public class DECellar extends GelConfigStructure<NoFeatureConfig> {
+public class DECellar extends GelConfigStructure<NoneFeatureConfiguration> {
     protected ResourceLocation Piece;
     public BlockPos Offset;
     protected DECellarStructure Parent;
 
     public <S extends DECellarStructure> DECellar(String resource, BlockPos offset, StructureRegistrar2<NoFeatureConfig, S> parent, ConfigTemplates.StructureConfig config) {
-        super(NoFeatureConfig.CODEC, config);
+        super(NoneFeatureConfiguration.CODEC, config);
         Piece = DEStructures.locate(resource);
         Parent = parent.getStructure();
         Offset = Parent.Offset.offset(offset);

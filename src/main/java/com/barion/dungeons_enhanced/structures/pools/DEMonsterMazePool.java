@@ -1,12 +1,12 @@
 package com.barion.dungeons_enhanced.structures.pools;
 
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
-import com.legacy.structure_gel.worldgen.jigsaw.JigsawPoolBuilder;
-import com.legacy.structure_gel.worldgen.jigsaw.JigsawRegistryHelper;
-import net.minecraft.world.gen.feature.jigsaw.JigsawPattern;
+import com.legacy.structure_gel.api.structure.jigsaw.JigsawPoolBuilder;
+import com.legacy.structure_gel.api.structure.jigsaw.JigsawRegistryHelper;
+import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
 
 public class DEMonsterMazePool {
-    public static final JigsawPattern Root;
+    public static final StructureTemplatePool Root;
 
     public DEMonsterMazePool(){
 
