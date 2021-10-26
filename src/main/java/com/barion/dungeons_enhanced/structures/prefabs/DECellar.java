@@ -1,9 +1,9 @@
 package com.barion.dungeons_enhanced.structures.prefabs;
 
 import com.barion.dungeons_enhanced.DEStructures;
+import com.legacy.structure_gel.api.config.StructureConfig;
+import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
 import com.legacy.structure_gel.api.structure.GelConfigStructure;
-import com.legacy.structure_gel.registrars.StructureRegistrar2;
-import com.legacy.structure_gel.util.ConfigTemplates;
 import com.legacy.structure_gel.worldgen.GelPlacementSettings;
 import com.legacy.structure_gel.worldgen.structure.GelStructureStart;
 import com.legacy.structure_gel.worldgen.structure.GelTemplateStructurePiece;
@@ -13,19 +13,21 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.SharedSeedRandom;
-import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.util.registry.DynamicRegistries;
 import net.minecraft.world.IServerWorld;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.provider.BiomeProvider;
-import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
-import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.template.PlacementSettings;
 import net.minecraft.world.gen.feature.template.TemplateManager;
+import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.LevelHeightAccessor;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.BiomeSource;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 import java.util.List;
@@ -36,7 +38,7 @@ public class DECellar extends GelConfigStructure<NoneFeatureConfiguration> {
     public BlockPos Offset;
     protected DECellarStructure Parent;
 
-    public <S extends DECellarStructure> DECellar(String resource, BlockPos offset, StructureRegistrar2<NoFeatureConfig, S> parent, ConfigTemplates.StructureConfig config) {
+    public <S extends DECellarStructure> DECellar(String resource, BlockPos offset, StructureRegistrar<NoneFeatureConfiguration, S> parent, StructureConfig config) {
         super(NoneFeatureConfiguration.CODEC, config);
         Piece = DEStructures.locate(resource);
         Parent = parent.getStructure();
@@ -44,22 +46,27 @@ public class DECellar extends GelConfigStructure<NoneFeatureConfiguration> {
     }
 
     @Override
-    protected boolean isFeatureChunk(ChunkGenerator chunkGen, BiomeProvider biomeProvider, long seed, SharedSeedRandom sharedSeedRand, int chunkPosX, int chunkPosZ, Biome biomeIn, ChunkPos chunkPos, NoFeatureConfig config) {
+    protected boolean isFeatureChunk(ChunkGenerator chunkGen, BiomeSource biomeSource, long seed, WorldgenRandom rand, ChunkPos chunkPos, Biome biome, ChunkPos potentialChunkPos, NoneFeatureConfiguration config, LevelHeightAccessor level) {
+        return Parent.isFeatureChunk(chunkGen, biomeSource, seed, rand, chunkPos, biome, potentialChunkPos, config, level);
+    }
+
+    @Override
+    protected boolean isFeatureChunk(ChunkGenerator chunkGen, BiomeProvider biomeProvider, long seed, SharedSeedRandom sharedSeedRand, int chunkPosX, int chunkPosZ, Biome biomeIn, ChunkPos chunkPos, NoneFeatureConfiguration config) {
         return Parent.isFeatureChunk(chunkGen, biomeProvider, seed, sharedSeedRand, chunkPosX, chunkPosZ, biomeIn, chunkPos, config);
     }
 
     @Override
-    public IStartFactory<NoFeatureConfig> getStartFactory() {
+    public IStartFactory<NoneFeatureConfiguration> getStartFactory() {
         return Start::new;
     }
 
-    public class Start extends GelStructureStart<NoFeatureConfig> {
-        public Start(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ, MutableBoundingBox boundsIn, int referenceIn, long seed){
+    public class Start extends GelStructureStart<NoneFeatureConfiguration> {
+        public Start(Structure<NoneFeatureConfiguration> structureIn, int chunkX, int chunkZ, MutableBoundingBox boundsIn, int referenceIn, long seed){
             super(structureIn, chunkX, chunkZ, boundsIn, referenceIn, seed);
         }
 
         @Override
-        public void generatePieces(DynamicRegistries registry, ChunkGenerator chunkGen, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn, NoFeatureConfig configIn) {
+        public void generatePieces(DynamicRegistries registry, ChunkGenerator chunkGen, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn, NoneFeatureConfiguration configIn) {
             int x = chunkX * 16 + Offset.getX();
             int z = chunkZ * 16 + Offset.getZ();
             int y = chunkGen.getBaseHeight(x, z, Heightmap.Type.WORLD_SURFACE_WG) + Offset.getY();
