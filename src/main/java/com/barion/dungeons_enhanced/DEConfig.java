@@ -55,7 +55,7 @@ public class DEConfig {
             large_dungeon = Configs("Large Dungeon", 34, 0.35, true, "#structure_gel:neutral_temp, #structure_gel:cold, !#structure_gel:mountain", Dimension.OVERWORLD);
             miners_house = Configs("Miners House", 24, 0.8, true, "minecraft:badlands, minecraft:badlands_plateau", Dimension.OVERWORLD);
             mob_tower = Configs("Mob Tower", 31, 0.45, true, "#structure_gel:neutral_temp, #structure_gel:swamp", Dimension.OVERWORLD);
-            monster_maze = Configs("Monster Maze", 15, 0.5, true, "#structure_gel:spooky, #structure_gel:pumpkin, !#structure_gel:sandy", Dimension.OVERWORLD);
+            monster_maze = Configs("Monster Maze", 39, 0.35, true, "#structure_gel:spooky, #structure_gel:pumpkin, !#structure_gel:sandy", Dimension.OVERWORLD);
             mushroom_house = Configs("Mushroom House", 15, 0.9, true, "minecraft:mushroom_fields, minecraft:mushroom_field_shore", Dimension.OVERWORLD);
             pillager_camp = Configs("Pillager Camp", 49, 0.35, true, "#structure_gel:neutral_temp, !#structure_gel:mountain, !#structure_gel:wooded", Dimension.OVERWORLD);
             ruined_barn = Configs("Ruined Barn", 25, 0.6, true, "#structure_gel:wooded, #structure_gel:birch_forest", Dimension.OVERWORLD);
