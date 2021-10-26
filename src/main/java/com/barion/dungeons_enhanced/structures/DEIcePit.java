@@ -4,11 +4,11 @@ import com.barion.dungeons_enhanced.DEConfig;
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.structures.prefabs.DESimpleStructure;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.Rotation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.gen.feature.structure.StructurePiece;
-import net.minecraft.world.gen.feature.template.TemplateManager;
+import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.levelgen.structure.StructurePiece;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 
 import java.util.List;
 import java.util.Random;
@@ -22,15 +22,15 @@ public class DEIcePit extends DESimpleStructure {
     }
 
     @Override
-    public void assemble(TemplateManager templateManager, BlockPos pos, Rotation rotation, List<StructurePiece> structurePieces, Random rand) {
-        structurePieces.add(new DESimpleStructure.Piece(templateManager, MainPiece, pos, rotation));
+    public void assemble(StructureManager structureManager, BlockPos pos, Rotation rotation, List<StructurePiece> structurePieces, Random rand) {
+        structurePieces.add(new DESimpleStructure.Piece(structureManager, MainPiece, pos, rotation));
         int offsetY = -6;
         int type = rand.nextInt(Pieces.length);
         DungeonsEnhanced.LOGGER.debug(type);
         if(type == 2){
             offsetY = -11;
         }
-        structurePieces.add(new DESimpleStructure.Piece(templateManager, Pieces[type], pos.offset(-17, offsetY,-17), rotation));
+        structurePieces.add(new DESimpleStructure.Piece(structureManager, Pieces[type], pos.offset(-17, offsetY,-17), rotation));
     }
 
     @Override

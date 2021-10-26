@@ -24,18 +24,16 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.IForgeRegistry;
 
-;
-
 @Mod.EventBusSubscriber(modid = DungeonsEnhanced.Mod_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DEStructures {
     public static final StructureRegistrar<NoneFeatureConfiguration, DEBattleTower> BattleTower = register("battle_tower", new DEBattleTower(), DESimpleStructure.Piece::new);
     public static final StructureRegistrar<NoneFeatureConfiguration, DECastle> Castle = register("castle", new DECastle(), DECellarStructure.Piece::new);
-    public static final StructureRegistrar<NoneFeatureConfiguration, DECellar> CastleB = GelStructureRegistrar.of(new ResourceLocation(""), new DECellar("castle/bottom", Offset(0, -5, 0), Castle, DEConfig.COMMON.castle), DECellar.Piece::new, NoneFeatureConfiguration.INSTANCE, GenerationStep.Decoration.SURFACE_STRUCTURES).handle();
+    public static final StructureRegistrar<NoneFeatureConfiguration, DECellar> CastleB = GelStructureRegistrar.of(new ResourceLocation(""), new DECellar("castle/bottom", Offset(0, -5, 0), Castle), DECellar.Piece::new, NoneFeatureConfiguration.INSTANCE, GenerationStep.Decoration.SURFACE_STRUCTURES);
     public static final StructureRegistrar<NoneFeatureConfiguration, DEDesertTemple> DesertTemple = register("desert_temple", new DEDesertTemple(), DESimpleStructure.Piece::new);
     public static final StructureRegistrar<NoneFeatureConfiguration, DEDesertTomb> DesertTomb = register("desert_tomb", new DEDesertTomb(), DESimpleStructure.Piece::new);
     public static final StructureRegistrar<NoneFeatureConfiguration, DEDruidCircle> DruidCircle = register("druid_circle", new DEDruidCircle(), DECellarStructure.Piece::new);
     public static final StructureRegistrar<NoneFeatureConfiguration, DEDungeonVariant> DungeonVariant = register("dungeon_variant", new DEDungeonVariant(), DEUndergroundStructure.Piece::new, GenerationStep.Decoration.UNDERGROUND_STRUCTURES);
-    public static final StructureRegistrar<NoneFeatureConfiguration, DEFlyingDutchman> FlyingDutchman = register("flying_dutchman", new DEFlyingDutchman(), DEFlyingDutchman.Piece::new, GenerationStep.Decoration.SURFACE_STRUCTURES);
+    //public static final StructureRegistrar<NoneFeatureConfiguration, DEFlyingDutchman> FlyingDutchman = register("flying_dutchman", new DEFlyingDutchman(), DEFlyingDutchman.Piece::new, GenerationStep.Decoration.SURFACE_STRUCTURES);
     public static final StructureRegistrar<NoneFeatureConfiguration, DEHayStorage> HayStorage = register("hay_storage", new DEHayStorage(), DESimpleStructure.Piece::new);
     public static final StructureRegistrar<NoneFeatureConfiguration, DEIcePit> IcePit = register("ice_pit", new DEIcePit(), DESimpleStructure.Piece::new);
     public static final StructureRegistrar<NoneFeatureConfiguration, DEJungleMonument> JungleMonument = register("jungle_monument", new DEJungleMonument(), DESimpleStructure.Piece::new);
@@ -65,7 +63,7 @@ public class DEStructures {
         DesertTemple.handleForge(registry);
         DesertTomb.handleForge(registry);
         DruidCircle.handleForge(registry);
-        FlyingDutchman.handleForge(registry);
+        //FlyingDutchman.handleForge(registry);
         HayStorage.handleForge(registry);
         IcePit.handleForge(registry);
         JungleMonument.handleForge(registry);
@@ -82,7 +80,7 @@ public class DEStructures {
         WatchTower.handleForge(registry);
         WitchTower.handleForge(registry);
 
-        genFloor(RuinedHouse, RuinedBarn, DruidCircle, BattleTower, HayStorage, DruidCircle, MinersHouse, MobTower, MushroomHouse, WatchTower, WitchTower, Castle, PillagerCamp, TreeHouse);
+        noiseAffecting(RuinedHouse, RuinedBarn, DruidCircle, BattleTower, HayStorage, DruidCircle, MinersHouse, MobTower, MushroomHouse, WatchTower, WitchTower, Castle, PillagerCamp, TreeHouse);
 
         DEMonsterMazePool.init();
     }
@@ -100,7 +98,7 @@ public class DEStructures {
 
     public static ResourceLocation locate(String key){ return new ResourceLocation(DungeonsEnhanced.Mod_ID, key);}
 
-    private static void genFloor(StructureRegistrar... structureRegs){
+    private static void noiseAffecting(StructureRegistrar... structureRegs){
         for (StructureRegistrar structure: structureRegs) {
             StructureAccessHelper.addNoiseAffectingStructures(structure.getStructure());
         }

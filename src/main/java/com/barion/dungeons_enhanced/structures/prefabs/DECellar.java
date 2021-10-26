@@ -7,7 +7,9 @@ import com.legacy.structure_gel.api.structure.GelTemplateStructurePiece;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.Vec3i;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
@@ -93,6 +95,10 @@ public class DECellar extends GelConfigStructure<NoneFeatureConfiguration> {
 
         public Piece(StructureManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation) {
             this(structureManager, templateName, pos, rotation, 0);
+        }
+
+        public Piece(ServerLevel serverLevel, CompoundTag compoundTag) {
+            super(DEStructures.CastleB.getPieceType(), compoundTag, serverLevel);
         }
 
         @Override

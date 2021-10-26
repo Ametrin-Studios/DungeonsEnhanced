@@ -1,5 +1,5 @@
 package com.barion.dungeons_enhanced.structures;
-
+/*
 import com.barion.dungeons_enhanced.*;
 import com.barion.dungeons_enhanced.structures.prefabs.DESimpleStructure;
 import com.legacy.structure_gel.worldgen.structure.GelConfigStructure;
@@ -78,4 +78,4 @@ public class DEFlyingDutchman extends GelConfigStructure<NoFeatureConfig> {
              DungeonsEnhanced.LOGGER.info(key);
          }
      }
-}
+}*/
