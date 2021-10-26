@@ -4,12 +4,10 @@ import com.barion.dungeons_enhanced.DEStructures;
 import com.legacy.structure_gel.api.config.StructureConfig;
 import com.legacy.structure_gel.api.structure.GelConfigStructure;
 import com.legacy.structure_gel.api.structure.GelTemplateStructurePiece;
-import com.legacy.structure_gel.worldgen.GelPlacementSettings;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.RegistryAccess;
+import net.minecraft.core.Vec3i;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.Mirror;
-import net.minecraft.world.gen.feature.template.PlacementSettings;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
@@ -17,6 +15,7 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeSource;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -27,7 +26,9 @@ import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.StructureStart;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 import java.util.Random;
 
@@ -74,7 +75,7 @@ public class DECellarStructure extends GelConfigStructure<NoneFeatureConfigurati
 
 
     @Override
-    public IStartFactory<NoneFeatureConfiguration> getStartFactory() {
+    public StructureStartFactory<NoneFeatureConfiguration> getStartFactory() {
         return Start::new;
     }
 
@@ -83,7 +84,7 @@ public class DECellarStructure extends GelConfigStructure<NoneFeatureConfigurati
             super(structureFeature, pos, reference, seed);
         }
 
-        @Override
+        @Override @ParametersAreNonnullByDefault
         public void generatePieces(RegistryAccess registry, ChunkGenerator chunkGen, StructureManager structureManager, ChunkPos chunkPos, Biome biome, NoneFeatureConfiguration config, LevelHeightAccessor heightAccessor) {
             int x = chunkPos.x * 16 + Offset.getX();
             int z = chunkPos.z * 16 + Offset.getZ();
@@ -117,18 +118,15 @@ public class DECellarStructure extends GelConfigStructure<NoneFeatureConfigurati
         }
 
         @Override
-        public PlacementSettings createPlacementSettings(StructureManager templateManager) {
-            BlockPos sizePos = templateManager.get(this.name).getSize();
+        public StructurePlaceSettings getPlaceSettings(StructureManager templateManager) {
+            Vec3i sizePos = templateManager.get(this.makeTemplateLocation()).get().getSize();
             BlockPos centerPos = new BlockPos(sizePos.getX() / 2, 0, sizePos.getZ() / 2);
-            return new GelPlacementSettings().setMaintainWater(false).setRotation(this.rotation).setMirror(Mirror.NONE).setRotationPivot(centerPos);
+            return new StructurePlaceSettings().setKeepLiquids(false).setRotation(this.rotation).setMirror(Mirror.NONE).setRotationPivot(centerPos);
         }
 
-        @Override
-        public void addProcessors(StructureManager templateManager, PlacementSettings placementSettings) {
-            super.addProcessors(templateManager, placementSettings);
-        }
 
-        @Override
+
+        @Override @ParametersAreNonnullByDefault
         protected void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor accessor, Random rnd, BoundingBox p_73687_) {
 
         }

@@ -1,35 +1,32 @@
 package com.barion.dungeons_enhanced.structures.prefabs;
 
 import com.barion.dungeons_enhanced.DEStructures;
-import com.legacy.structure_gel.api.config.StructureConfig;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
 import com.legacy.structure_gel.api.structure.GelConfigStructure;
-import com.legacy.structure_gel.worldgen.GelPlacementSettings;
-import com.legacy.structure_gel.worldgen.structure.GelStructureStart;
-import com.legacy.structure_gel.worldgen.structure.GelTemplateStructurePiece;
+import com.legacy.structure_gel.api.structure.GelTemplateStructurePiece;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.core.Vec3i;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.Mirror;
-import net.minecraft.util.Rotation;
-import net.minecraft.util.SharedSeedRandom;
-import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.util.registry.DynamicRegistries;
-import net.minecraft.world.IServerWorld;
-import net.minecraft.world.biome.provider.BiomeProvider;
-import net.minecraft.world.gen.Heightmap;
-import net.minecraft.world.gen.feature.structure.Structure;
-import net.minecraft.world.gen.feature.structure.StructurePiece;
-import net.minecraft.world.gen.feature.template.PlacementSettings;
-import net.minecraft.world.gen.feature.template.TemplateManager;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelHeightAccessor;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeSource;
+import net.minecraft.world.level.block.Mirror;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
+import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.level.levelgen.structure.StructurePiece;
+import net.minecraft.world.level.levelgen.structure.StructureStart;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 import java.util.Random;
 
@@ -38,8 +35,8 @@ public class DECellar extends GelConfigStructure<NoneFeatureConfiguration> {
     public BlockPos Offset;
     protected DECellarStructure Parent;
 
-    public <S extends DECellarStructure> DECellar(String resource, BlockPos offset, StructureRegistrar<NoneFeatureConfiguration, S> parent, StructureConfig config) {
-        super(NoneFeatureConfiguration.CODEC, config);
+    public <S extends DECellarStructure> DECellar(String resource, BlockPos offset, StructureRegistrar<NoneFeatureConfiguration, S> parent) {
+        super(NoneFeatureConfiguration.CODEC, parent.getStructure().getConfig());
         Piece = DEStructures.locate(resource);
         Parent = parent.getStructure();
         Offset = Parent.Offset.offset(offset);
@@ -51,32 +48,33 @@ public class DECellar extends GelConfigStructure<NoneFeatureConfiguration> {
     }
 
     @Override
-    protected boolean isFeatureChunk(ChunkGenerator chunkGen, BiomeProvider biomeProvider, long seed, SharedSeedRandom sharedSeedRand, int chunkPosX, int chunkPosZ, Biome biomeIn, ChunkPos chunkPos, NoneFeatureConfiguration config) {
-        return Parent.isFeatureChunk(chunkGen, biomeProvider, seed, sharedSeedRand, chunkPosX, chunkPosZ, biomeIn, chunkPos, config);
+    public boolean isAllowedNearWorldSpawn() {
+        return true;
     }
 
     @Override
-    public IStartFactory<NoneFeatureConfiguration> getStartFactory() {
+    public StructureStartFactory<NoneFeatureConfiguration> getStartFactory() {
         return Start::new;
     }
 
-    public class Start extends GelStructureStart<NoneFeatureConfiguration> {
-        public Start(Structure<NoneFeatureConfiguration> structureIn, int chunkX, int chunkZ, MutableBoundingBox boundsIn, int referenceIn, long seed){
-            super(structureIn, chunkX, chunkZ, boundsIn, referenceIn, seed);
+    public class Start extends StructureStart<NoneFeatureConfiguration> {
+
+        public Start(StructureFeature<NoneFeatureConfiguration> structureFeature, ChunkPos chunkPos, int reference, long seed) {
+            super(structureFeature, chunkPos, reference, seed);
         }
 
-        @Override
-        public void generatePieces(DynamicRegistries registry, ChunkGenerator chunkGen, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn, NoneFeatureConfiguration configIn) {
-            int x = chunkX * 16 + Offset.getX();
-            int z = chunkZ * 16 + Offset.getZ();
-            int y = chunkGen.getBaseHeight(x, z, Heightmap.Type.WORLD_SURFACE_WG) + Offset.getY();
+        @Override @ParametersAreNonnullByDefault
+        public void generatePieces(RegistryAccess registry, ChunkGenerator chunkGen, StructureManager structureManager, ChunkPos chunkPos, Biome biome, NoneFeatureConfiguration config, LevelHeightAccessor heightAccessor) {
+            int x = chunkPos.x * 16 + Offset.getX();
+            int z = chunkPos.z * 16 + Offset.getZ();
+            int y = chunkGen.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, heightAccessor) + Offset.getY();
             Rotation rotation = Rotation.getRandom(this.random);
-            assemble(templateManagerIn, new BlockPos(x, y, z), rotation, this.pieces);
-            this.calculateBoundingBox();
+            assemble(structureManager, new BlockPos(x, y, z), rotation, this.pieces);
+            this.createBoundingBox();
         }
     }
 
-    public void assemble(TemplateManager templateManager, BlockPos pos, Rotation rotation, List<StructurePiece> structurePieces){
+    public void assemble(StructureManager templateManager, BlockPos pos, Rotation rotation, List<StructurePiece> structurePieces){
         structurePieces.add(new DECellarStructure.Piece(templateManager, Piece, pos, rotation));
     }
 
@@ -86,34 +84,27 @@ public class DECellar extends GelConfigStructure<NoneFeatureConfiguration> {
     }
 
     public static class Piece extends GelTemplateStructurePiece {
-        public Piece(TemplateManager templateManager, ResourceLocation location, BlockPos pos, Rotation rotation, int componentType){
-            super(DEStructures.CastleB.getPieceType(), location, componentType);
-            this.templatePosition = pos;
+        public Piece(StructureManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation, int componentType) {
+            super(DEStructures.CastleB.getPieceType(), componentType, structureManager, templateName, pos);
+            templatePosition = pos;
             this.rotation = rotation;
-            this.setupTemplate(templateManager);
+            setupPlaceSettings(structureManager);
         }
-        public Piece(TemplateManager templateManager, ResourceLocation location, BlockPos pos, Rotation rotation) {
-            this(templateManager, location, pos, rotation, 0);
-        }
-        public Piece(TemplateManager templateManager, CompoundNBT nbtCompound) {
-            super(DEStructures.CastleB.getPieceType(), nbtCompound);
-            this.setupTemplate(templateManager);
+
+        public Piece(StructureManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation) {
+            this(structureManager, templateName, pos, rotation, 0);
         }
 
         @Override
-        public PlacementSettings createPlacementSettings(TemplateManager templateManager) {
-            BlockPos sizePos = templateManager.get(this.name).getSize();
+        protected StructurePlaceSettings getPlaceSettings(StructureManager structureManager) {
+            Vec3i sizePos = structureManager.get(this.makeTemplateLocation()).get().getSize();
             BlockPos centerPos = new BlockPos(sizePos.getX() / 2, 0, sizePos.getZ() / 2);
-            return new GelPlacementSettings().setMaintainWater(false).setRotation(this.rotation).setMirror(Mirror.NONE).setRotationPivot(centerPos);
+            return new StructurePlaceSettings().setKeepLiquids(false).setRotation(this.rotation).setMirror(Mirror.NONE).setRotationPivot(centerPos);
         }
 
-        @Override
-        public void addProcessors(TemplateManager templateManager, PlacementSettings placementSettings) {
-            super.addProcessors(templateManager, placementSettings);
-        }
+        @Override @ParametersAreNonnullByDefault
+        protected void handleDataMarker(String p_73683_, BlockPos p_73684_, ServerLevelAccessor p_73685_, Random p_73686_, BoundingBox p_73687_) {
 
-        @Override
-        protected void handleDataMarker(String key, BlockPos pos, IServerWorld world, Random rnd, MutableBoundingBox bounds) {
         }
     }
 }
