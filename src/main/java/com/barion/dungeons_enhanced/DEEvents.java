@@ -17,7 +17,7 @@ public class DEEvents {
         addToBiomes(DEStructures.DesertTomb);
         addToBiomes(DEStructures.DruidCircle);
         addToBiomes(DEStructures.DungeonVariant);
-        addToBiomes(DEStructures.FlyingDutchman);
+        //addToBiomes(DEStructures.FlyingDutchman);
         addToBiomes(DEStructures.HayStorage);
         addToBiomes(DEStructures.IcePit);
         addToBiomes(DEStructures.JungleMonument);

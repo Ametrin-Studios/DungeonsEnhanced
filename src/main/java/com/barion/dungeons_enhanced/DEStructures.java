@@ -21,10 +21,8 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.IForgeRegistry;
 
-@Mod.EventBusSubscriber(modid = DungeonsEnhanced.Mod_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DEStructures {
     public static final StructureRegistrar<NoneFeatureConfiguration, DEBattleTower> BattleTower = register("battle_tower", new DEBattleTower(), DESimpleStructure.Piece::new);
     public static final StructureRegistrar<NoneFeatureConfiguration, DECastle> Castle = register("castle", new DECastle(), DECellarStructure.Piece::new);
