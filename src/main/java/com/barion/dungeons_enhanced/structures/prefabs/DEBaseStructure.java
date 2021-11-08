@@ -159,5 +159,9 @@ public class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration
         return chunkGen.getBaseColumn(x, z, heightAccessor).getBlockState(new BlockPos(x, y, z)).getBlock();
     }
 
+    protected static BlockPos Offset(int x, int y, int z){
+        return new BlockPos(x, y, z);
+    }
+
     public enum GenerationType {onGround, inAir, undergound}
 }
