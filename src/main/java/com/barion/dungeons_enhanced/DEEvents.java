@@ -8,9 +8,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 public class DEEvents {
     private static BiomeLoadingEvent event;
     @SubscribeEvent
-    protected static void biomeLoad(final BiomeLoadingEvent event){
+    private static void biomeLoad(final BiomeLoadingEvent event){
         DEEvents.event = event;
-        addToBiomes(DEStructures.BattleTower);
         addToBiomes(DEStructures.Castle);
         addToBiomes(DEStructures.CastleB);
         addToBiomes(DEStructures.DesertTemple);
@@ -32,6 +31,7 @@ public class DEEvents {
         addToBiomes(DEStructures.Stables);
         addToBiomes(DEStructures.TallWitchHut);
         addToBiomes(DEStructures.TreeHouse);
+        addToBiomes(DEStructures.TowerOfTheUndead);
         addToBiomes(DEStructures.WatchTower);
         addToBiomes(DEStructures.WitchTower);
     }

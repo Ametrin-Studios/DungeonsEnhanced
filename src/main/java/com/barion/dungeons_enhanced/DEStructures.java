@@ -24,7 +24,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public class DEStructures {
-    public static final StructureRegistrar<NoneFeatureConfiguration, DEBattleTower> BattleTower = register("battle_tower", new DEBattleTower(), DESimpleStructure.Piece::new);
     public static final StructureRegistrar<NoneFeatureConfiguration, DECastle> Castle = register("castle", new DECastle(), DECellarStructure.Piece::new);
     public static final StructureRegistrar<NoneFeatureConfiguration, DECellar> CastleB = GelStructureRegistrar.of(new ResourceLocation(""), new DECellar("castle/bottom", Offset(0, -5, 0), Castle), DECellar.Piece::new, NoneFeatureConfiguration.INSTANCE, GenerationStep.Decoration.SURFACE_STRUCTURES);
     public static final StructureRegistrar<NoneFeatureConfiguration, DEDesertTemple> DesertTemple = register("desert_temple", new DEDesertTemple(), DESimpleStructure.Piece::new);
@@ -46,6 +45,7 @@ public class DEStructures {
     public static final StructureRegistrar<NoneFeatureConfiguration, DEStables> Stables = register("stables", new DEStables(), DESimpleStructure.Piece::new);
     public static final StructureRegistrar<NoneFeatureConfiguration, DETallWitchHut> TallWitchHut = register("tall_witch_hut", new DETallWitchHut(), DESimpleStructure.Piece::new);
     public static final StructureRegistrar<NoneFeatureConfiguration, DETreeHouse> TreeHouse = register("tree_house", new DETreeHouse(), DESimpleStructure.Piece::new);
+    public static final StructureRegistrar<NoneFeatureConfiguration, DETowerOfTheUndead> TowerOfTheUndead = register("tower_of_the_undead", new DETowerOfTheUndead(), DESimpleStructure.Piece::new);
     public static final StructureRegistrar<NoneFeatureConfiguration, DEWatchTower> WatchTower = register("watch_tower", new DEWatchTower(), DESimpleStructure.Piece::new);
     public static final StructureRegistrar<NoneFeatureConfiguration, DEWitchTower> WitchTower = register("witch_tower", new DEWitchTower(), DESimpleStructure.Piece::new);
 
@@ -53,7 +53,6 @@ public class DEStructures {
     public static void onRegistry(final RegistryEvent.Register<StructureFeature<?>> event){
         IForgeRegistry<StructureFeature<?>> registry = event.getRegistry();
 
-        BattleTower.handleForge(registry);
         Castle.handleForge(registry);
         CastleB.handleForge(registry);
         RuinedHouse.handleForge(registry);
@@ -75,10 +74,11 @@ public class DEStructures {
         Stables.handleForge(registry);
         TallWitchHut.handleForge(registry);
         TreeHouse.handleForge(registry);
+        TowerOfTheUndead.handleForge(registry);
         WatchTower.handleForge(registry);
         WitchTower.handleForge(registry);
 
-        noiseAffecting(RuinedHouse, RuinedBarn, DruidCircle, BattleTower, HayStorage, DruidCircle, MinersHouse, MobTower, MushroomHouse, WatchTower, WitchTower, Castle, PillagerCamp, TreeHouse);
+        noiseAffecting(RuinedHouse, RuinedBarn, DruidCircle, TowerOfTheUndead, HayStorage, DruidCircle, MinersHouse, MobTower, MushroomHouse, WatchTower, WitchTower, Castle, PillagerCamp, TreeHouse);
 
         DEMonsterMazePool.init();
     }

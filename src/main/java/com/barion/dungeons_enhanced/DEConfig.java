@@ -14,13 +14,12 @@ public class DEConfig {
     }
 
     public static class Common {
-        private ForgeConfigSpec.Builder builder;
+        private final ForgeConfigSpec.Builder builder;
         public final StructureConfig castle;
         public final StructureConfig ruined_house;
         public final StructureConfig ruined_barn;
-        public final StructureConfig battle_Tower;
         public final StructureConfig druid_circle;
-        public final StructureConfig flying_dutchman;
+        //public final StructureConfig flying_dutchman;
         public final StructureConfig hay_Storage;
         public final StructureConfig ice_pit;
         public final StructureConfig jungle_monument;
@@ -35,19 +34,19 @@ public class DEConfig {
         public final StructureConfig pillager_camp;
         public final StructureConfig stables;
         public final StructureConfig tall_witch_hut;
+        public final StructureConfig tower_of_the_undead;
         public final StructureConfig tree_house;
         public final StructureConfig watch_tower;
         public final StructureConfig witch_tower;
 
         protected Common(ForgeConfigSpec.Builder builder) {
             this.builder = builder;
-            battle_Tower = Configs("Battle Tower", 43, 35, true, "#structure_gel:neutral_temp, #structure_gel:savanna, !#structure_gel:mountain");
             castle = Configs("Castle", 57, 25, true, "#structure_gel:cold, #structure_gel:snowy, !#structure_gel:mountain, !#structure_gel:snowy_mountain");
             desert_temple = Configs("Desert Temple", 32, 60, true, "minecraft:desert");
             desert_tomb = Configs("Desert Tomb", 17, 65, true, "minecraft:desert");
             druid_circle = Configs("Druid Circle", 39, 40, true, "#structure_gel:neutral_temp, !#structure_gel:wooded");
             dungeon_variant = Configs("Dungeon Variant", 12, 80, false, "");
-            flying_dutchman = Configs("Flying Dutchman", 23, 0, false, "");
+            //flying_dutchman = Configs("Flying Dutchman", 23, 0, false, "");
             hay_Storage = Configs("Hay Storage", 24, 85, true, "#structure_gel:savanna");
             ice_pit = Configs("Ice Pit", 35, 70, true, "#structure_gel:snowy, #structure_gel:frozen, !#structure_gel:snowy_mountain, !#structure_gel:mountain");
             jungle_monument = Configs("Jungle Monument", 20, 70, true, "#structure_gel:jungle, !#structure_gel:bamboo_jungle");
@@ -61,6 +60,7 @@ public class DEConfig {
             ruined_house = Configs("Ruined House", 22, 50, true, "#structure_gel:neutral_temp");
             stables = Configs("Stables", 46, 32, true, "#structure_gel:neutral_temp, !#structure_gel:mountain, !#structure_gel:wooded");
             tall_witch_hut = Configs("Tall Witch Hut", 18, 60, true, "#structure_gel:humid, !#structure_gel:tropical, !#structure_gel:jungle, #structure_gel:pumpkin");
+            tower_of_the_undead = Configs("Tower of the Undead", 43, 35, true, "#structure_gel:neutral_temp, #structure_gel:savanna, !#structure_gel:mountain");
             tree_house = Configs("Tree House", 25, 40, true, "#forge:jungle");
             watch_tower = Configs("Watch Tower", 33, 35, true, "#structure_gel:cold, #structure_gel:snowy");
             witch_tower = Configs("Witch Tower", 21, 50, true, "#structure_gel:spruce_forest, #structure_gel:large_spruce_forest");
