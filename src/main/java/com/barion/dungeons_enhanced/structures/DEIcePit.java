@@ -14,16 +14,14 @@ import java.util.List;
 import java.util.Random;
 
 public class DEIcePit extends DESimpleStructure {
+    private final ResourceLocation Entrance = DEStructures.locate("ice_pit/top");
     public DEIcePit(){
-        super(DEConfig.COMMON.ice_pit);
-        MainPiece = DEStructures.locate("ice_pit/top");
-        Pieces = new ResourceLocation[] {DEStructures.locate("ice_pit/var1"), DEStructures.locate("ice_pit/var2"), DEStructures.locate("ice_pit/var3")};
-        Offset = Offset(-4,-25,-4);
+        super(DEConfig.COMMON.ice_pit, Offset(-4, -25, -4), "ice_pit/var1", "ice_pit/var2", "ice_pit/var3");
     }
 
     @Override
     public void assemble(StructureManager structureManager, BlockPos pos, Rotation rotation, List<StructurePiece> structurePieces, Random rand) {
-        structurePieces.add(new DESimpleStructure.Piece(structureManager, MainPiece, pos, rotation));
+        structurePieces.add(new DESimpleStructure.Piece(structureManager, Entrance, pos, rotation));
         int offsetY = -6;
         int type = rand.nextInt(Pieces.length);
         DungeonsEnhanced.LOGGER.debug(type);
@@ -31,10 +29,5 @@ public class DEIcePit extends DESimpleStructure {
             offsetY = -11;
         }
         structurePieces.add(new DESimpleStructure.Piece(structureManager, Pieces[type], pos.offset(-17, offsetY,-17), rotation));
-    }
-
-    @Override
-    public int getSeed() {
-        return 571368;
     }
 }

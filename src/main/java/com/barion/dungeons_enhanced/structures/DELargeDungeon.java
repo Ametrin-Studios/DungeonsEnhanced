@@ -18,7 +18,7 @@ public class DELargeDungeon extends DESimpleStructure {
     private final ResourceLocation MainPiece = DEStructures.locate("large_dungeon/main");
 
     public DELargeDungeon(){
-        super(DEConfig.COMMON.large_dungeon);
+        super(DEConfig.COMMON.large_dungeon, BlockPos.ZERO);
     }
 
     @Override

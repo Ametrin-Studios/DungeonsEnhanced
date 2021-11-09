@@ -11,11 +11,4 @@ public class DECastle extends DECellarStructure {
         MainPiece = DEStructures.locate("castle/top");
         Offset = Offset(-16, 0, -16);
     }
-
-
-
-    @Override
-    public int getSeed() {
-        return 1194;
-    }
 }
