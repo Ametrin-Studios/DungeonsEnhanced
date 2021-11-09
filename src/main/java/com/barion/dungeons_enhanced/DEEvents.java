@@ -8,7 +8,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 public class DEEvents {
     private static BiomeLoadingEvent event;
     @SubscribeEvent
-    private static void biomeLoad(final BiomeLoadingEvent event){
+    public static void biomeLoad(final BiomeLoadingEvent event){
         DEEvents.event = event;
         addToBiomes(DEStructures.Castle);
         addToBiomes(DEStructures.CastleB);
