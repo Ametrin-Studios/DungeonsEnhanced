@@ -7,7 +7,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.Rotation;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 
 public class DESimpleStructure extends DEBaseStructure {
@@ -20,14 +19,9 @@ public class DESimpleStructure extends DEBaseStructure {
         super(config, GenerationType.onGround, offset, resources);
     }
 
-    @Override
-    public StructureStartFactory<NoneFeatureConfiguration> getStartFactory() {
-        return Start::new;
-    }
-
     public static class Piece extends DEBaseStructure.Piece {
         public Piece(StructureManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation, int componentType) {
-            super(DEStructures.RuinedHouse.getPieceType(), structureManager, templateName, pos, rotation, componentType);
+            super(DEStructures.RuinedHouse.getPieceType(), componentType, structureManager, templateName, pos, rotation);
         }
 
         public Piece(StructureManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation) {
@@ -35,7 +29,7 @@ public class DESimpleStructure extends DEBaseStructure {
         }
 
         public Piece(ServerLevel level, CompoundTag nbt) {
-            super(DEStructures.RuinedHouse.getPieceType(), level, nbt);
+            super(DEStructures.RuinedHouse.getPieceType(), nbt, level);
         }
     }
 }

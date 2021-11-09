@@ -39,7 +39,7 @@ public class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration
     protected ChunkGenerator chunkGen;
     protected LevelHeightAccessor heightAccessor;
     public BlockPos Offset = BlockPos.ZERO;
-    protected ResourceLocation[] Pieces = null;
+    protected ResourceLocation[] Pieces;
     private final GenerationType generationType;
 
     public DEBaseStructure(StructureConfig config, GenerationType generation, BlockPos offset, String... resources) {
@@ -49,13 +49,15 @@ public class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration
         for(int i = 0; i < resources.length; i++){
             Pieces[i] = DEStructures.locate(resources[i]);
         }
-        Offset = offset;
+        if(offset != null) {
+            Offset = offset;
+        }
         setLakeProof(true);
     }
 
     @Override
     public StructureStartFactory<NoneFeatureConfiguration> getStartFactory() {
-        return null;
+        return Start::new;
     }
 
     @Override
@@ -127,25 +129,22 @@ public class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration
     }
 
     public static class Piece extends GelTemplateStructurePiece {
-        public Piece(StructurePieceType pieceType, StructureManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation, int componentType) {
-            super(pieceType, componentType, structureManager, templateName, pos);
+        public Piece(StructurePieceType pieceType, int componentType, StructureManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation) {
+            super(pieceType, componentType, structureManager, templateName, getPlaceSettings(structureManager, templateName, pos, rotation), pos);
             templatePosition = pos;
             this.rotation = rotation;
-            setupPlaceSettings(structureManager);
         }
 
         public Piece(StructurePieceType pieceType, StructureManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation) {
-            this(pieceType, structureManager, templateName, pos, rotation, 0);
+            this(pieceType, 0, structureManager, templateName, pos, rotation);
         }
 
-        public Piece(StructurePieceType pieceType, ServerLevel level, CompoundTag nbt) {
-            super(pieceType, nbt, level);
-            setupPlaceSettings(level.getStructureManager());
+        public Piece(StructurePieceType pieceType, CompoundTag nbt, ServerLevel level) {
+            super(pieceType, nbt, level, (name) -> getPlaceSettings(level.getStructureManager(), name, new BlockPos(nbt.getInt("TPX"), nbt.getInt("TPY"), nbt.getInt("TPZ")), Rotation.valueOf(nbt.getString("Rot"))));
         }
 
-        @Override
-        protected StructurePlaceSettings getPlaceSettings(StructureManager structureManager) {
-            Vec3i size = structureManager.get(this.makeTemplateLocation()).get().getSize();
+        protected static StructurePlaceSettings getPlaceSettings(StructureManager structureManager, ResourceLocation name, BlockPos pos, Rotation rotation) {
+            Vec3i size = structureManager.get(name).get().getSize();
             return new StructurePlaceSettings().setKeepLiquids(false).setRotationPivot(new BlockPos(size.getX()/2, 0, size.getZ()/2));
         }
 

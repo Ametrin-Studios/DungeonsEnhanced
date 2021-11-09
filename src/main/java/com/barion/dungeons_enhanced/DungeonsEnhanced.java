@@ -10,8 +10,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @Mod(DungeonsEnhanced.Mod_ID)
-public class DungeonsEnhanced
-{
+public class DungeonsEnhanced{
     public static final String Mod_ID = "dungeons_enhanced";
     public static final Logger LOGGER = LogManager.getLogger();
 
@@ -19,10 +18,7 @@ public class DungeonsEnhanced
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DEConfig.COMMON_SPEC);
         final IEventBus forgeBus = MinecraftForge.EVENT_BUS;
         forgeBus.register(this);
-        forgeBus.register(DEEvents.class);
         forgeBus.register(DEStructures.class);
-
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
     }
-
 }

@@ -20,13 +20,13 @@ public class DEUndergroundStructure extends DEBaseStructure {
 
     public static class Piece extends DEBaseStructure.Piece {
         public Piece(StructureManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation, int componentType){
-            super(DEStructures.DungeonVariant.getPieceType(), structureManager, templateName, pos, rotation, componentType);
+            super(DEStructures.DungeonVariant.getPieceType(), componentType, structureManager, templateName, pos, rotation);
         }
         public Piece(StructureManager structureManager, ResourceLocation location, BlockPos pos, Rotation rotation) {
             this(structureManager, location, pos, rotation, 0);
         }
         public Piece(ServerLevel level, CompoundTag nbt) {
-            super(DEStructures.DungeonVariant.getPieceType(), level, nbt);
+            super(DEStructures.DungeonVariant.getPieceType(), nbt, level);
         }
     }
 }
