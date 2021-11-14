@@ -85,7 +85,7 @@ public class DEStructures {
     public static void onRegistry(final RegistryEvent.Register<StructureFeature<?>> event){
         IForgeRegistry<StructureFeature<?>> registry = event.getRegistry();
 
-        DungeonsEnhanced.LOGGER.info("handled");
+        DungeonsEnhanced.LOGGER.info("handled Structure");
 
         DEMonsterMazePool.init();
 

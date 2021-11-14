@@ -5,6 +5,7 @@ import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.legacy.structure_gel.api.config.StructureConfig;
 import com.legacy.structure_gel.api.structure.GelConfigStructure;
 import com.legacy.structure_gel.api.structure.GelTemplateStructurePiece;
+import com.legacy.structure_gel.api.structure.processor.RemoveGelStructureProcessor;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.Vec3i;
@@ -28,6 +29,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.StructureStart;
+import net.minecraft.world.level.levelgen.structure.templatesystem.BlockIgnoreProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 
@@ -106,7 +108,7 @@ public class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration
                     y = minY + random.nextInt(maxY - minY);
                     DungeonsEnhanced.LOGGER.info(y);
                 }
-            } else if(generationType == GenerationType.undergound){
+            } else if(generationType == GenerationType.underground){
                 int minY = 10;
                 int maxY = chunkGen.getBaseHeight(x, z, Heightmap.Types.OCEAN_FLOOR_WG, heightAccessor);
                 if(maxY >= 55)
@@ -145,7 +147,10 @@ public class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration
 
         protected static StructurePlaceSettings getPlaceSettings(StructureManager structureManager, ResourceLocation name, BlockPos pos, Rotation rotation) {
             Vec3i size = structureManager.get(name).get().getSize();
-            return new StructurePlaceSettings().setKeepLiquids(false).setRotationPivot(new BlockPos(size.getX()/2, 0, size.getZ()/2));
+            StructurePlaceSettings settings = new StructurePlaceSettings().setKeepLiquids(false).setRotationPivot(new BlockPos(size.getX()/2, 0, size.getZ()/2).rotate(rotation));
+            settings.addProcessor(BlockIgnoreProcessor.STRUCTURE_AND_AIR);
+            settings.addProcessor(RemoveGelStructureProcessor.INSTANCE);
+            return settings;
         }
 
         @Override @ParametersAreNonnullByDefault
@@ -162,5 +167,5 @@ public class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration
         return new BlockPos(x, y, z);
     }
 
-    public enum GenerationType {onGround, inAir, undergound}
+    public enum GenerationType {onGround, inAir, underground}
 }

@@ -15,7 +15,7 @@ public class DEUndergroundStructure extends DEBaseStructure {
         this(config, offset, resource);
     }
     public DEUndergroundStructure(StructureConfig config, BlockPos offset, String... resources){
-        super(config, GenerationType.undergound, offset, resources);
+        super(config, GenerationType.underground, offset, resources);
     }
 
     public static class Piece extends DEBaseStructure.Piece {
