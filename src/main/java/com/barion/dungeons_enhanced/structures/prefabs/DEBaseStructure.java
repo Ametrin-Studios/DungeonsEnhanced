@@ -56,6 +56,10 @@ public class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration
         }
         setLakeProof(true);
     }
+    public DEBaseStructure(StructureConfig config, GenerationType generationType){
+        super(NoneFeatureConfiguration.CODEC, config);
+        this.generationType = generationType;
+    }
 
     @Override
     public StructureStartFactory<NoneFeatureConfiguration> getStartFactory() {
@@ -73,13 +77,15 @@ public class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration
             int x = chunkPos.x * 16;
             int z = chunkPos.z * 16;
             int y = chunkGen.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, heightAccessor);
+            int tempY = y + 3;
             if(getBlockAt(x, y-1, z) == Blocks.WATER){
                 return false;
             }
-            if(getBlockAt(x+3, y+3, z) != Blocks.AIR || getBlockAt(x+3, y-3, z) != Blocks.AIR || getBlockAt(x, y-3, z-3) != Blocks.AIR || getBlockAt(x, y-3, z+3) != Blocks.AIR){
+            if(getBlockAt(x+3, tempY, z) != Blocks.AIR || getBlockAt(x-3, tempY, z) != Blocks.AIR || getBlockAt(x, tempY, z+3) != Blocks.AIR || getBlockAt(x, tempY, z-3) != Blocks.AIR){
                 return false;
             }
-            if(getBlockAt(x+3, y+3, z) == Blocks.AIR || getBlockAt(x+3, y-3, z) == Blocks.AIR || getBlockAt(x, y-3, z-3) == Blocks.AIR || getBlockAt(x, y-3, z+3) == Blocks.AIR){
+            tempY = y-3;
+            if(getBlockAt(x+3, tempY, z) == Blocks.AIR || getBlockAt(x-3, tempY, z) == Blocks.AIR || getBlockAt(x, tempY, z+3) == Blocks.AIR || getBlockAt(x, tempY, z-3) == Blocks.AIR){
                 return false;
             }
         }
