@@ -26,7 +26,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 6,
+          "weight": 4,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -39,6 +39,22 @@
             }
           ],
           "name": "minecraft:bone"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 6,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 2.0,
+                "max": 4.0
+              },
+              "add": false
+            }
+          ],
+          "name": "minecraft:pumpkin_seeds"
         },
         {
           "type": "minecraft:item",
@@ -74,7 +90,55 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 6,
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1.0,
+                "max": 3.0
+              },
+              "add": false
+            }
+          ],
+          "name": "minecraft:egg"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 4,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1.0,
+                "max": 3.0
+              },
+              "add": false
+            }
+          ],
+          "name": "minecraft:sugar"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1.0,
+                "max": 2.0
+              },
+              "add": false
+            }
+          ],
+          "name": "minecraft:sugar_cane"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 4,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -98,6 +162,38 @@
             }
           ],
           "name": "minecraft:gold_block"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1.0,
+              "add": false
+            }
+          ],
+          "name": "minecraft:pumpkin"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1.0,
+              "add": false
+            },
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "type": "minecraft:uniform",
+                "min": 6.0,
+                "max": 14.0
+              },
+              "treasure": false
+            }
+          ],
+          "name": "minecraft:book"
         },
         {
           "type": "minecraft:item",
