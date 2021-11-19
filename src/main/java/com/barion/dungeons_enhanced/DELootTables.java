@@ -2,6 +2,7 @@ package com.barion.dungeons_enhanced;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.loot.ChestLoot;
 import net.minecraft.data.loot.LootTableProvider;
@@ -17,6 +18,7 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 import java.util.Map;
 import java.util.function.BiConsumer;
@@ -33,24 +35,33 @@ public class DELootTables extends LootTableProvider {
         return ImmutableList.of(Pair.of(DEStructureLootTables::new, LootContextParamSets.CHEST));
     }
 
-    @Override
+    @Override @ParametersAreNonnullByDefault
     protected void validate(Map<ResourceLocation, LootTable> map, ValidationContext validationContext) {
         map.forEach((p_218436_2_, p_218436_3_) -> LootTables.validate(validationContext, p_218436_2_, p_218436_3_));
     }
 
     public static class DEStructureLootTables extends ChestLoot {
-        @Override
+        @Override @ParametersAreNonnullByDefault
         public void accept(BiConsumer<ResourceLocation, LootTable.Builder> lootTable) {
             super.accept(lootTable);
             lootTable.accept(location("flying_dutchman"), LootTable.lootTable()
-                    .withPool(LootPool.lootPool().setRolls(UniformGenerator.between(5, 6))
-                            .add(LootItem.lootTableItem(Items.DIAMOND).setWeight(1).apply(SetItemCountFunction.setCount(UniformGenerator.between(1,2))))
-                            .add(LootItem.lootTableItem(Items.BONE).setWeight(6).apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 3))))
+                    .withPool(LootPool.lootPool().setRolls(UniformGenerator.between(5, 9))
+                            .add(LootItem.lootTableItem(Items.DIAMOND).setWeight(2).apply(SetItemCountFunction.setCount(UniformGenerator.between(1,1))))
+                            .add(LootItem.lootTableItem(Items.NAUTILUS_SHELL).setWeight(2).apply(SetItemCountFunction.setCount(UniformGenerator.between(1,1))))
+                            .add(LootItem.lootTableItem(Items.BONE).setWeight(8).apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 3))))
+                            .add(LootItem.lootTableItem(Items.FIRE_CHARGE).setWeight(4).apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 3))))
+                            .add(LootItem.lootTableItem(Items.EMERALD).setWeight(4).apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 3))))
+                            .add(LootItem.lootTableItem(Items.COOKED_COD).setWeight(5).apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 3))))
+                            .add(LootItem.lootTableItem(Items.COOKED_SALMON).setWeight(5).apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 3))))
+                            .add(LootItem.lootTableItem(Items.SKULL_BANNER_PATTERN).setWeight(1).apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 1))))
+                            .add(LootItem.lootTableItem(Items.TURTLE_EGG).setWeight(1).apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 1))))
+                            .add(LootItem.lootTableItem(Items.GOLD_BLOCK).setWeight(1).apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 1))))
                             .add(LootItem.lootTableItem(Items.ARROW).setWeight(4).apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 3))))
-                            .add(LootItem.lootTableItem(Items.KELP).setWeight(5).apply(SetItemCountFunction.setCount(UniformGenerator.between(1,3))))
-                            .add(LootItem.lootTableItem(Items.ROTTEN_FLESH).setWeight(4).apply(SetItemCountFunction.setCount(UniformGenerator.between(1,3))))
-                            .add(LootItem.lootTableItem(Items.GOLD_INGOT).setWeight(1).apply(SetItemCountFunction.setCount(UniformGenerator.between(2,3))))
-                            .add(LootItem.lootTableItem(Items.SUSPICIOUS_STEW).setWeight(3).apply(SetItemCountFunction.setCount(UniformGenerator.between(1,2))))));
+                            .add(LootItem.lootTableItem(Items.STRING).setWeight(4).apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 3))))
+                            .add(LootItem.lootTableItem(Items.KELP).setWeight(8).apply(SetItemCountFunction.setCount(UniformGenerator.between(1,3))))
+                            .add(LootItem.lootTableItem(Items.ROTTEN_FLESH).setWeight(6).apply(SetItemCountFunction.setCount(UniformGenerator.between(1,3))))
+                            .add(LootItem.lootTableItem(Items.GOLD_INGOT).setWeight(3).apply(SetItemCountFunction.setCount(UniformGenerator.between(2,3))))
+                            .add(LootItem.lootTableItem(Items.SUSPICIOUS_STEW).setWeight(4).apply(SetItemCountFunction.setCount(UniformGenerator.between(1,2))))));
 
             lootTable.accept(location("monster_maze/church"), LootTable.lootTable()
                     .withPool(LootPool.lootPool().setRolls(UniformGenerator.between(5, 6))
