@@ -90,7 +90,7 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.5-36.2.8'
+    minecraft 'net.minecraftforge:forge:1.16.5-36.2.16'
     implementation fg.deobf("com.legacy:structure-gel:1.16.5-1.7.+")
 }
 
