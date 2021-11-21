@@ -21,7 +21,7 @@ public class DESimpleStructure extends DEBaseStructure {
 
     public static class Piece extends DEBaseStructure.Piece {
         public Piece(StructureManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation, int componentType) {
-            super(DEStructures.RuinedHouse.getPieceType(), componentType, structureManager, templateName, pos, rotation);
+            super(DEStructures.RuinedStructure.getPieceType(), componentType, structureManager, templateName, pos, rotation);
         }
 
         public Piece(StructureManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation) {
@@ -29,7 +29,7 @@ public class DESimpleStructure extends DEBaseStructure {
         }
 
         public Piece(ServerLevel level, CompoundTag nbt) {
-            super(DEStructures.RuinedHouse.getPieceType(), nbt, level);
+            super(DEStructures.RuinedStructure.getPieceType(), nbt, level);
         }
     }
 }

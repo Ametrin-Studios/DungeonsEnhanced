@@ -40,8 +40,7 @@ public class DEStructures {
     public static final StructureRegistrar<JigsawConfiguration, DEMonsterMaze> MonsterMaze;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEMushroomHouse> MushroomHouse;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEPillagerCamp> PillagerCamp;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DERuinedBarn> RuinedBarn;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DERuinedHouse> RuinedHouse;
+    public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> RuinedStructure;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEStables> Stables;
     public static final StructureRegistrar<NoneFeatureConfiguration, DETallWitchHut> TallWitchHut;
     public static final StructureRegistrar<NoneFeatureConfiguration, DETreeHouse> TreeHouse;
@@ -67,11 +66,10 @@ public class DEStructures {
         LargeDungeon = GelStructureRegistrar.of(locate("large_dungeon"), new DELargeDungeon(), DESimpleStructure.Piece::new, NoneFeatureConfiguration.INSTANCE, GenerationStep.Decoration.SURFACE_STRUCTURES);
         MinersHouse = register("miners_house", new DEMinersHouse(), DESimpleStructure.Piece::new);
         MobTower = register("mob_tower", new DEMobTower(), DESimpleStructure.Piece::new);
-        MonsterMaze = register("monster_maze", new DEMonsterMaze(), DEMonsterMazePool.Root, DEMonsterMaze.Piece::new, GenerationStep.Decoration.SURFACE_STRUCTURES);
+        MonsterMaze = registerJigsaw("monster_maze", new DEMonsterMaze(), DEMonsterMazePool.Root, DEMonsterMaze.Piece::new, GenerationStep.Decoration.SURFACE_STRUCTURES);
         MushroomHouse = register("mushroom_house", new DEMushroomHouse(), DESimpleStructure.Piece::new);
         PillagerCamp = register("pillager_camp", new DEPillagerCamp(), DESimpleStructure.Piece::new);
-        RuinedBarn = register("ruined_barn", new DERuinedBarn(), DESimpleStructure.Piece::new);
-        RuinedHouse = register("ruined_house", new DERuinedHouse(), DESimpleStructure.Piece::new);
+        RuinedStructure = register("ruined_structure", new DESimpleStructure(DEConfig.COMMON.ruined_structure, Offset(-5, 0, -5), "ruined/house", "ruined/house2", "ruined/barn"), DESimpleStructure.Piece::new);
         Stables = register("stables", new DEStables(), DESimpleStructure.Piece::new);
         TallWitchHut = register("tall_witch_hut", new DETallWitchHut(), DESimpleStructure.Piece::new);
         TreeHouse = register("tree_house", new DETreeHouse(), DESimpleStructure.Piece::new);
@@ -89,8 +87,7 @@ public class DEStructures {
 
         Castle.handleForge(registry);
         CastleB.handleForge(registry);
-        RuinedHouse.handleForge(registry);
-        RuinedBarn.handleForge(registry);
+        RuinedStructure.handleForge(registry);
         DesertTemple.handleForge(registry);
         DesertTomb.handleForge(registry);
         DruidCircle.handleForge(registry);
@@ -112,7 +109,7 @@ public class DEStructures {
         WatchTower.handleForge(registry);
         WitchTower.handleForge(registry);
 
-        noiseAffecting(RuinedHouse, RuinedBarn, DruidCircle, TowerOfTheUndead, HayStorage, DruidCircle, MinersHouse, MobTower, MushroomHouse, WatchTower, WitchTower, Castle, PillagerCamp, TreeHouse);
+        noiseAffecting(RuinedStructure, DruidCircle, TowerOfTheUndead, HayStorage, DruidCircle, MinersHouse, MobTower, MushroomHouse, WatchTower, WitchTower, Castle, PillagerCamp, TreeHouse);
     }
 
     private static  <S extends GelConfigStructure<NoneFeatureConfiguration>> StructureRegistrar<NoneFeatureConfiguration, S> register(String locate, S structure, StructurePieceType piece){
@@ -122,7 +119,7 @@ public class DEStructures {
         return GelStructureRegistrar.of(locate(locate), structure, piece, NoneFeatureConfiguration.INSTANCE, decoration);
     }
 
-    private static  <S extends GelConfigJigsawStructure> StructureRegistrar<JigsawConfiguration, S> register(String locate, S structure, StructureTemplatePool root, StructurePieceType piece, GenerationStep.Decoration decoration){
+    private static  <S extends GelConfigJigsawStructure> StructureRegistrar<JigsawConfiguration, S> registerJigsaw(String locate, S structure, StructureTemplatePool root, StructurePieceType piece, GenerationStep.Decoration decoration){
         return GelStructureRegistrar.of(locate(locate), structure, piece, new JigsawConfiguration(() -> root, 7), decoration);
     }
 

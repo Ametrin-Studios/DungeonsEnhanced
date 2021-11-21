@@ -42,7 +42,7 @@ public class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration
     protected LevelHeightAccessor heightAccessor;
     public BlockPos Offset = BlockPos.ZERO;
     protected ResourceLocation[] Pieces;
-    private final GenerationType generationType;
+    protected final GenerationType generationType;
 
     public DEBaseStructure(StructureConfig config, GenerationType generation, BlockPos offset, String... resources) {
         super(NoneFeatureConfiguration.CODEC, config);
@@ -160,9 +160,7 @@ public class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration
         }
 
         @Override @ParametersAreNonnullByDefault
-        protected void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor world, Random rnd, BoundingBox box) {
-
-        }
+        protected void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor world, Random rnd, BoundingBox box) {}
     }
 
     protected Block getBlockAt(int x, int y, int z){

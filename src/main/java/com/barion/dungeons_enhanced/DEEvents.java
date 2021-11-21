@@ -26,8 +26,7 @@ public class DEEvents {
         addToBiomes(DEStructures.MonsterMaze);
         addToBiomes(DEStructures.MushroomHouse);
         addToBiomes(DEStructures.PillagerCamp);
-        addToBiomes(DEStructures.RuinedBarn);
-        addToBiomes(DEStructures.RuinedHouse);
+        addToBiomes(DEStructures.RuinedStructure);
         addToBiomes(DEStructures.Stables);
         addToBiomes(DEStructures.TallWitchHut);
         addToBiomes(DEStructures.TreeHouse);
