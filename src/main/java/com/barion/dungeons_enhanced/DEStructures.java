@@ -125,8 +125,8 @@ public class DEStructures {
 
     public static ResourceLocation locate(String key){ return new ResourceLocation(DungeonsEnhanced.Mod_ID, key);}
 
-    private static void noiseAffecting(StructureRegistrar... structureRegs){
-        for (StructureRegistrar structure: structureRegs) {
+    private static void noiseAffecting(StructureRegistrar<?, ?>... structureRegs){
+        for (StructureRegistrar<?, ?> structure: structureRegs) {
             StructureAccessHelper.addNoiseAffectingStructures(structure.getStructure());
         }
     }
