@@ -20,7 +20,7 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(16)
 
 //println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
-    mappings channel: 'official', version: '1.17.1'
+    mappings channel: 'official', version: mc_version
 
     runs {
         client {
@@ -90,7 +90,7 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.17.1-37.1.0'
+    minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
     implementation fg.deobf("com.legacy:structure-gel:1.17.1-2.0.+")
 }
 
