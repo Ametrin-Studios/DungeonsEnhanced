@@ -1,7 +1,6 @@
 package com.barion.dungeons_enhanced.structures;
 
 import com.barion.dungeons_enhanced.DEConfig;
-import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.structures.prefabs.DESimpleStructure;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
@@ -12,13 +11,15 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureMana
 import java.util.List;
 import java.util.Random;
 
+import static com.barion.dungeons_enhanced.DEUtil.locate;
+
 public class DELargeDungeon extends DESimpleStructure {
-    private final ResourceLocation Top = DEStructures.locate("large_dungeon/top");
-    private final ResourceLocation Stairs = DEStructures.locate("large_dungeon/stairs");
-    private final ResourceLocation MainPiece = DEStructures.locate("large_dungeon/main");
+    private final ResourceLocation Top = locate("large_dungeon/top");
+    private final ResourceLocation Stairs = locate("large_dungeon/stairs");
+    private final ResourceLocation MainPiece = locate("large_dungeon/main");
 
     public DELargeDungeon(){
-        super(DEConfig.COMMON.large_dungeon, BlockPos.ZERO);
+        super(DEConfig.COMMON.large_dungeon);
     }
 
     @Override

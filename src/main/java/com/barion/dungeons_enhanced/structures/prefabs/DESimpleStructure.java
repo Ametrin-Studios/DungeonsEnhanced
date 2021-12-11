@@ -11,11 +11,11 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureMana
 
 public class DESimpleStructure extends DEBaseStructure {
 
-    public DESimpleStructure(String resource, BlockPos offset, StructureConfig config){
-        this(config, offset, resource);
+    public DESimpleStructure(StructureConfig config, DEPiece... resources){
+        super(config, GenerationType.onGround, resources);
     }
 
-    public DESimpleStructure(StructureConfig config, BlockPos offset, String... resources){
+    public DESimpleStructure(StructureConfig config, BlockPos offset, DEPiece... resources){
         super(config, GenerationType.onGround, offset, resources);
     }
 

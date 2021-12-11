@@ -2,16 +2,12 @@ package com.barion.dungeons_enhanced;
 
 import com.barion.dungeons_enhanced.structures.*;
 import com.barion.dungeons_enhanced.structures.pools.DEMonsterMazePool;
-import com.barion.dungeons_enhanced.structures.prefabs.DECellar;
-import com.barion.dungeons_enhanced.structures.prefabs.DECellarStructure;
-import com.barion.dungeons_enhanced.structures.prefabs.DESimpleStructure;
-import com.barion.dungeons_enhanced.structures.prefabs.DEUndergroundStructure;
+import com.barion.dungeons_enhanced.structures.prefabs.*;
 import com.legacy.structure_gel.api.registry.registrar.GelStructureRegistrar;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
 import com.legacy.structure_gel.api.structure.GelConfigJigsawStructure;
 import com.legacy.structure_gel.api.structure.GelConfigStructure;
 import com.legacy.structure_gel.api.structure.StructureAccessHelper;
-import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
@@ -22,6 +18,9 @@ import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePo
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
+
+import static com.barion.dungeons_enhanced.DEUtil.Offset;
+import static com.barion.dungeons_enhanced.DEUtil.locate;
 
 public class DEStructures {
     public static final StructureRegistrar<NoneFeatureConfiguration, DECastle> Castle;
@@ -48,13 +47,11 @@ public class DEStructures {
     public static final StructureRegistrar<NoneFeatureConfiguration, DEWatchTower> WatchTower;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEWitchTower> WitchTower;
 
-    public DEStructures(){
-
-    }
+    public DEStructures(){}
 
     static {
         Castle = register("castle", new DECastle(), DECellarStructure.Piece::new);
-        CastleB = GelStructureRegistrar.of(new ResourceLocation(""), new DECellar("castle/bottom", Offset(0, -5, 0), Castle), DECellar.Piece::new, NoneFeatureConfiguration.INSTANCE, GenerationStep.Decoration.SURFACE_STRUCTURES);
+        CastleB = GelStructureRegistrar.of(new ResourceLocation(""), new DECellar(new DEPiece("castle/bottom", Offset(0, -5, 0)), Castle), DECellar.Piece::new, NoneFeatureConfiguration.INSTANCE, GenerationStep.Decoration.SURFACE_STRUCTURES);
         DesertTemple = register("desert_temple", new DEDesertTemple(), DESimpleStructure.Piece::new);
         DesertTomb = register("desert_tomb", new DEDesertTomb(), DESimpleStructure.Piece::new);
         DruidCircle = register("druid_circle", new DEDruidCircle(), DECellarStructure.Piece::new);
@@ -69,7 +66,7 @@ public class DEStructures {
         MonsterMaze = registerJigsaw("monster_maze", new DEMonsterMaze(), DEMonsterMazePool.Root, DEMonsterMaze.Piece::new, GenerationStep.Decoration.SURFACE_STRUCTURES);
         MushroomHouse = register("mushroom_house", new DEMushroomHouse(), DESimpleStructure.Piece::new);
         PillagerCamp = register("pillager_camp", new DEPillagerCamp(), DESimpleStructure.Piece::new);
-        RuinedStructure = register("ruined_structure", new DESimpleStructure(DEConfig.COMMON.ruined_structure, Offset(-5, 0, -5), "ruined/house", "ruined/house2", "ruined/barn"), DESimpleStructure.Piece::new);
+        RuinedStructure = register("ruined_structure", new DESimpleStructure(DEConfig.COMMON.ruined_structure, new DEPiece("ruined/house", Offset(-5, 0, -5)), new DEPiece("ruined/house2", Offset(-5, 0, -5)), new DEPiece("ruined/barn", Offset(-5, 0, -5))), DESimpleStructure.Piece::new);
         Stables = register("stables", new DEStables(), DESimpleStructure.Piece::new);
         TallWitchHut = register("tall_witch_hut", new DETallWitchHut(), DESimpleStructure.Piece::new);
         TreeHouse = register("tree_house", new DETreeHouse(), DESimpleStructure.Piece::new);
@@ -123,15 +120,9 @@ public class DEStructures {
         return GelStructureRegistrar.of(locate(locate), structure, piece, new JigsawConfiguration(() -> root, 7), decoration);
     }
 
-    public static ResourceLocation locate(String key){ return new ResourceLocation(DungeonsEnhanced.Mod_ID, key);}
-
     private static void noiseAffecting(StructureRegistrar<?, ?>... structureRegs){
         for (StructureRegistrar<?, ?> structure: structureRegs) {
             StructureAccessHelper.addNoiseAffectingStructures(structure.getStructure());
         }
-    }
-
-    private static BlockPos Offset(int x, int y, int z){
-        return new BlockPos(x, y, z);
     }
 }

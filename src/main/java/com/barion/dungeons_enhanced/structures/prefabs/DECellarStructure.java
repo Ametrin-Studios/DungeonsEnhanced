@@ -14,24 +14,23 @@ import java.util.List;
 import java.util.Random;
 
 public class DECellarStructure extends DEBaseStructure {
-    protected ResourceLocation Cellar = null;
-    protected int CellarOffset;
+    protected DEPiece Cellar;
 
-    public DECellarStructure(String resourceTop, String resourceBottom, BlockPos offset, int cellarOffset, StructureConfig config){
-        this(resourceTop, offset, config);
-        Cellar = DEStructures.locate(resourceBottom);
-        CellarOffset = cellarOffset;
+    public DECellarStructure(DEPiece resourceTop, DEPiece resourceBottom, StructureConfig config){
+        this(config, resourceTop);
+        Cellar = resourceBottom;
     }
-    public DECellarStructure(String resource, BlockPos offset, StructureConfig config){
-        super(config, GenerationType.onGround, offset, resource);
+    public DECellarStructure(StructureConfig config, DEPiece resource){
+        super(config, GenerationType.onGround, resource);
         Cellar = null;
     }
 
     @Override
     public void assemble(StructureManager structureManager, BlockPos pos, Rotation rotation, List<StructurePiece> structurePieces, Random rand) {
-        structurePieces.add(new DECellarStructure.Piece(structureManager, Pieces[0], pos, rotation));
+        pos = pos.offset(Variants[0].Offset);
+        structurePieces.add(new DECellarStructure.Piece(structureManager, Variants[0].Resource, pos, rotation));
         if (Cellar != null) {
-            structurePieces.add(new DECellarStructure.Piece(structureManager, Cellar, pos.offset(0, CellarOffset, 0), rotation));
+            structurePieces.add(new DECellarStructure.Piece(structureManager, Cellar.Resource, pos.offset(Cellar.Offset), rotation));
         }
     }
 

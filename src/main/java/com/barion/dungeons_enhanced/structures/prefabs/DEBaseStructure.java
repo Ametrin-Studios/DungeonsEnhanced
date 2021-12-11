@@ -1,6 +1,5 @@
 package com.barion.dungeons_enhanced.structures.prefabs;
 
-import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.legacy.structure_gel.api.config.StructureConfig;
 import com.legacy.structure_gel.api.structure.GelConfigStructure;
@@ -32,42 +31,46 @@ import net.minecraft.world.level.levelgen.structure.StructureStart;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockIgnoreProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
+import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 public class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration> {
     protected ChunkGenerator chunkGen;
     protected LevelHeightAccessor heightAccessor;
-    public BlockPos Offset = BlockPos.ZERO;
-    protected ResourceLocation[] Pieces;
+    protected DEPiece[] Variants;
     protected final GenerationType generationType;
 
-    public DEBaseStructure(StructureConfig config, GenerationType generation, BlockPos offset, String... resources) {
-        super(NoneFeatureConfiguration.CODEC, config);
-        generationType = generation;
-        Pieces = new ResourceLocation[resources.length];
-        for(int i = 0; i < resources.length; i++){
-            Pieces[i] = DEStructures.locate(resources[i]);
-        }
-        if(offset != null) {
-            Offset = offset;
-        }
-        setLakeProof(true);
+    public DEBaseStructure(StructureConfig config, GenerationType generation, DEPiece... resources) {
+        this(config, generation);
+        Variants = resources;
     }
+
+    public DEBaseStructure(StructureConfig config, GenerationType generation, BlockPos offset, DEPiece... resources) {
+        this(config, generation);
+        for(int i=0; i < resources.length; i++){
+            resources[i].Offset = offset;
+        }
+        Variants = resources;
+    }
+
     public DEBaseStructure(StructureConfig config, GenerationType generationType){
         super(NoneFeatureConfiguration.CODEC, config);
         this.generationType = generationType;
+        setLakeProof(true);
     }
 
-    @Override
+    @Override @Nonnull
     public StructureStartFactory<NoneFeatureConfiguration> getStartFactory() {
         return Start::new;
     }
 
     @Override
-    public boolean isAllowedNearWorldSpawn() { return true; }
+    public boolean isAllowedNearWorldSpawn() {return true;}
 
     @Override
     protected boolean isFeatureChunk(ChunkGenerator chunkGen, BiomeSource biomeSource, long seed, WorldgenRandom rand, ChunkPos chunkPos, Biome biome, ChunkPos potentialChunkPos, NoneFeatureConfiguration config, LevelHeightAccessor heightAccessor) {
@@ -100,13 +103,13 @@ public class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration
 
         @Override @ParametersAreNonnullByDefault
         public void generatePieces(RegistryAccess registry, ChunkGenerator chunkGen, StructureManager structureManager, ChunkPos chunkPos, Biome biome, NoneFeatureConfiguration config, LevelHeightAccessor heightAccessor) {
-            int x = chunkPos.x * 16 + Offset.getX();
-            int z = chunkPos.z * 16 + Offset.getZ();
-            int y = Offset.getY();
+            int x = chunkPos.x * 16;
+            int z = chunkPos.z * 16;
+            int y = 0;
             if(generationType == GenerationType.onGround) {
-                y = chunkGen.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, heightAccessor) + Offset.getY();
+                y = chunkGen.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, heightAccessor);
             } else if(generationType == GenerationType.inAir){
-                int minY = chunkGen.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, heightAccessor) + Offset.getY() + 50;
+                int minY = chunkGen.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, heightAccessor) + 50;
                 int maxY = 220;
                 if(minY > maxY){
                     y = maxY;
@@ -119,7 +122,7 @@ public class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration
                 int maxY = chunkGen.getBaseHeight(x, z, Heightmap.Types.OCEAN_FLOOR_WG, heightAccessor);
                 if(maxY >= 55)
                     maxY = 55;
-                y = Math.abs(this.random.nextInt(maxY)) + Offset.getY();
+                y = Math.abs(this.random.nextInt(maxY));
                 if(y < minY){
                     y = minY;
                 }
@@ -131,9 +134,9 @@ public class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration
     }
 
     public void assemble(StructureManager structureManager, BlockPos pos, Rotation rotation, List<StructurePiece> structurePieces, Random rand){
-        int i = rand.nextInt(Pieces.length);
+        int i = rand.nextInt(Variants.length);
         DungeonsEnhanced.LOGGER.info(i);
-        structurePieces.add(new DESimpleStructure.Piece(structureManager, Pieces[i], pos, rotation));
+        structurePieces.add(new DESimpleStructure.Piece(structureManager, Variants[i].Resource, pos.offset(Variants[i].Offset), rotation));
     }
 
     public static class Piece extends GelTemplateStructurePiece {
@@ -152,7 +155,11 @@ public class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration
         }
 
         protected static StructurePlaceSettings getPlaceSettings(StructureManager structureManager, ResourceLocation name, BlockPos pos, Rotation rotation) {
-            Vec3i size = structureManager.get(name).get().getSize();
+            Optional<StructureTemplate> temp = structureManager.get(name);
+            Vec3i size = Vec3i.ZERO;
+            if(temp.isPresent()) {
+                size = temp.get().getSize();
+            }
             StructurePlaceSettings settings = new StructurePlaceSettings().setKeepLiquids(false).setRotationPivot(new BlockPos(size.getX()/2, 0, size.getZ()/2).rotate(rotation));
             settings.addProcessor(BlockIgnoreProcessor.STRUCTURE_AND_AIR);
             settings.addProcessor(RemoveGelStructureProcessor.INSTANCE);
@@ -165,10 +172,6 @@ public class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration
 
     protected Block getBlockAt(int x, int y, int z){
         return chunkGen.getBaseColumn(x, z, heightAccessor).getBlockState(new BlockPos(x, y, z)).getBlock();
-    }
-
-    protected static BlockPos Offset(int x, int y, int z){
-        return new BlockPos(x, y, z);
     }
 
     public enum GenerationType {onGround, inAir, underground}

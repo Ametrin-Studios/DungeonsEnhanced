@@ -11,10 +11,10 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureMana
 
 public class DEUndergroundStructure extends DEBaseStructure {
 
-    public DEUndergroundStructure(String resource, BlockPos offset, StructureConfig config){
-        this(config, offset, resource);
+    public DEUndergroundStructure(StructureConfig config, DEPiece... resources){
+        super(config, GenerationType.underground, resources);
     }
-    public DEUndergroundStructure(StructureConfig config, BlockPos offset, String... resources){
+    public DEUndergroundStructure(StructureConfig config, BlockPos offset, DEPiece... resources){
         super(config, GenerationType.underground, offset, resources);
     }
 
