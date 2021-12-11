@@ -15,6 +15,6 @@ public class DataGenerators {
         DataGenerator generator = event.getGenerator();
         ExistingFileHelper fileHelper = event.getExistingFileHelper();
 
-        generator.addProvider(new DELootTables(generator));
+        generator.addProvider(new DELootGenerator(generator));
     }
 }
