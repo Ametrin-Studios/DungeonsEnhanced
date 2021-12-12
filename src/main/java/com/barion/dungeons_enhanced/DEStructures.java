@@ -35,7 +35,6 @@ public class DEStructures {
     public static final StructureRegistrar<NoneFeatureConfiguration, DEJungleMonument> JungleMonument;
     public static final StructureRegistrar<NoneFeatureConfiguration, DELargeDungeon> LargeDungeon;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEMinersHouse> MinersHouse;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DEMobTower> MobTower;
     public static final StructureRegistrar<JigsawConfiguration, DEMonsterMaze> MonsterMaze;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEMushroomHouse> MushroomHouse;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEPillagerCamp> PillagerCamp;
@@ -62,7 +61,6 @@ public class DEStructures {
         JungleMonument = register("jungle_monument", new DEJungleMonument(), DESimpleStructure.Piece::new);
         LargeDungeon = GelStructureRegistrar.of(locate("large_dungeon"), new DELargeDungeon(), DESimpleStructure.Piece::new, NoneFeatureConfiguration.INSTANCE, GenerationStep.Decoration.SURFACE_STRUCTURES);
         MinersHouse = register("miners_house", new DEMinersHouse(), DESimpleStructure.Piece::new);
-        MobTower = register("mob_tower", new DEMobTower(), DESimpleStructure.Piece::new);
         MonsterMaze = registerJigsaw("monster_maze", new DEMonsterMaze(), DEMonsterMazePool.Root, DEMonsterMaze.Piece::new, GenerationStep.Decoration.SURFACE_STRUCTURES);
         MushroomHouse = register("mushroom_house", new DEMushroomHouse(), DESimpleStructure.Piece::new);
         PillagerCamp = register("pillager_camp", new DEPillagerCamp(), DESimpleStructure.Piece::new);
@@ -95,7 +93,6 @@ public class DEStructures {
         LargeDungeon.handleForge(registry);
         DungeonVariant.handleForge(registry);
         MinersHouse.handleForge(registry);
-        MobTower.handleForge(registry);
         MonsterMaze.handleForge(registry);
         MushroomHouse.handleForge(registry);
         PillagerCamp.handleForge(registry);
@@ -106,18 +103,18 @@ public class DEStructures {
         WatchTower.handleForge(registry);
         WitchTower.handleForge(registry);
 
-        noiseAffecting(RuinedStructure, DruidCircle, TowerOfTheUndead, HayStorage, DruidCircle, MinersHouse, MobTower, MushroomHouse, WatchTower, WitchTower, Castle, PillagerCamp, TreeHouse);
+        noiseAffecting(RuinedStructure, DruidCircle, TowerOfTheUndead, HayStorage, DruidCircle, MinersHouse, MushroomHouse, WatchTower, WitchTower, Castle, PillagerCamp, TreeHouse);
     }
 
-    private static  <S extends GelConfigStructure<NoneFeatureConfiguration>> StructureRegistrar<NoneFeatureConfiguration, S> register(String locate, S structure, StructurePieceType piece){
-        return GelStructureRegistrar.of(locate(locate), structure, piece, NoneFeatureConfiguration.INSTANCE, GenerationStep.Decoration.SURFACE_STRUCTURES);
+    private static  <S extends GelConfigStructure<NoneFeatureConfiguration>> StructureRegistrar<NoneFeatureConfiguration, S> register(String registryName, S structure, StructurePieceType piece){
+        return GelStructureRegistrar.of(locate(registryName), structure, piece, NoneFeatureConfiguration.INSTANCE, GenerationStep.Decoration.SURFACE_STRUCTURES);
     }
-    private static  <S extends GelConfigStructure<NoneFeatureConfiguration>> StructureRegistrar<NoneFeatureConfiguration, S> register(String locate, S structure, StructurePieceType piece, GenerationStep.Decoration decoration){
-        return GelStructureRegistrar.of(locate(locate), structure, piece, NoneFeatureConfiguration.INSTANCE, decoration);
+    private static  <S extends GelConfigStructure<NoneFeatureConfiguration>> StructureRegistrar<NoneFeatureConfiguration, S> register(String registryName, S structure, StructurePieceType piece, GenerationStep.Decoration decoration){
+        return GelStructureRegistrar.of(locate(registryName), structure, piece, NoneFeatureConfiguration.INSTANCE, decoration);
     }
 
-    private static  <S extends GelConfigJigsawStructure> StructureRegistrar<JigsawConfiguration, S> registerJigsaw(String locate, S structure, StructureTemplatePool root, StructurePieceType piece, GenerationStep.Decoration decoration){
-        return GelStructureRegistrar.of(locate(locate), structure, piece, new JigsawConfiguration(() -> root, 7), decoration);
+    private static  <S extends GelConfigJigsawStructure> StructureRegistrar<JigsawConfiguration, S> registerJigsaw(String registryName, S structure, StructureTemplatePool root, StructurePieceType piece, GenerationStep.Decoration decoration){
+        return GelStructureRegistrar.of(locate(registryName), structure, piece, new JigsawConfiguration(() -> root, 7), decoration);
     }
 
     private static void noiseAffecting(StructureRegistrar<?, ?>... structureRegs){

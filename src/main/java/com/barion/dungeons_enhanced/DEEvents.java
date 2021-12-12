@@ -22,7 +22,6 @@ public class DEEvents {
         addToBiomes(DEStructures.JungleMonument);
         addToBiomes(DEStructures.LargeDungeon);
         addToBiomes(DEStructures.MinersHouse);
-        addToBiomes(DEStructures.MobTower);
         addToBiomes(DEStructures.MonsterMaze);
         addToBiomes(DEStructures.MushroomHouse);
         addToBiomes(DEStructures.PillagerCamp);

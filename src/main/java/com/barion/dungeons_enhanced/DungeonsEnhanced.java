@@ -16,7 +16,7 @@ public class DungeonsEnhanced{
 
     public DungeonsEnhanced() {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DEConfig.COMMON_SPEC);
-        IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
+        final IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
         final IEventBus forgeBus = MinecraftForge.EVENT_BUS;
         forgeBus.register(this);
         modBus.register(DEStructures.class);

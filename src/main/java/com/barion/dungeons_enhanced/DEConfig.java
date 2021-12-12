@@ -27,7 +27,6 @@ public class DEConfig {
         public final StructureConfig desert_tomb;
         public final StructureConfig dungeon_variant;
         public final StructureConfig miners_house;
-        public final StructureConfig mob_tower;
         public final StructureConfig monster_maze;
         public final StructureConfig mushroom_house;
         public final StructureConfig pillager_camp;
@@ -51,14 +50,13 @@ public class DEConfig {
             jungle_monument = Configs("Jungle Monument", 20, 70, true, "#structure_gel:jungle", "!#structure_gel:bamboo_jungle");
             large_dungeon = Configs("Large Dungeon", 34, 35, true, "#structure_gel:neutral_temp", "#structure_gel:cold", "!#structure_gel:mountain");
             miners_house = Configs("Miners House", 24, 80, true, "minecraft:badlands", "minecraft:badlands_plateau");
-            mob_tower = Configs("Mob Tower", 31, 45, true, "#structure_gel:neutral_temp", "#structure_gel:swamp");
             monster_maze = Configs("Monster Maze", 15, 50, true, "#structure_gel:spooky", "#structure_gel:pumpkin", "!#structure_gel:sandy");
             mushroom_house = Configs("Mushroom House", 15, 90, true, "minecraft:mushroom_fields", "minecraft:mushroom_field_shore");
             pillager_camp = Configs("Pillager Camp", 49, 35, true, "#structure_gel:neutral_temp", "!#structure_gel:mountain", "!#structure_gel:wooded");
             ruined_structure = Configs("Ruined Structures", 22, 50, true, "#structure_gel:neutral_temp");
             stables = Configs("Stables", 46, 32, true, "#structure_gel:neutral_temp", "!#structure_gel:mountain", "!#structure_gel:wooded");
             tall_witch_hut = Configs("Tall Witch Hut", 18, 60, true, "#structure_gel:humid", "!#structure_gel:tropical", "!#structure_gel:jungle", "#structure_gel:pumpkin");
-            tower_of_the_undead = Configs("Tower of the Undead", 43, 35, true, "#structure_gel:neutral_temp", "#structure_gel:savanna", "!#structure_gel:mountain");
+            tower_of_the_undead = Configs("Tower of the Undead", 37, 35, true, "#structure_gel:neutral_temp", "#structure_gel:savanna", "!#structure_gel:mountain", "#structure_gel:swamp");
             tree_house = Configs("Tree House", 25, 40, true, "#forge:jungle");
             watch_tower = Configs("Watch Tower", 33, 35, true, "#structure_gel:cold", "#structure_gel:snowy");
             witch_tower = Configs("Witch Tower", 21, 50, true, "#structure_gel:spruce_forest", "#structure_gel:large_spruce_forest");
