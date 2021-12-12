@@ -135,7 +135,6 @@ public class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration
 
     public void assemble(StructureManager structureManager, BlockPos pos, Rotation rotation, List<StructurePiece> structurePieces, Random rand){
         int i = rand.nextInt(Variants.length);
-        DungeonsEnhanced.LOGGER.info(i);
         structurePieces.add(new DESimpleStructure.Piece(structureManager, Variants[i].Resource, pos.offset(Variants[i].Offset), rotation));
     }
 
