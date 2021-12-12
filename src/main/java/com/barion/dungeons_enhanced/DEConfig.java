@@ -50,7 +50,7 @@ public class DEConfig {
             jungle_monument = Configs("Jungle Monument", 20, 70, true, "#structure_gel:jungle", "!#structure_gel:bamboo_jungle");
             large_dungeon = Configs("Large Dungeon", 34, 35, true, "#structure_gel:neutral_temp", "#structure_gel:cold", "!#structure_gel:mountain");
             miners_house = Configs("Miners House", 24, 80, true, "minecraft:badlands", "minecraft:badlands_plateau");
-            monster_maze = Configs("Monster Maze", 15, 50, true, "#structure_gel:spooky", "#structure_gel:pumpkin", "!#structure_gel:sandy");
+            monster_maze = Configs("Monster Maze", 34, 50, true, "#structure_gel:spooky", "#structure_gel:pumpkin", "!#structure_gel:sandy");
             mushroom_house = Configs("Mushroom House", 15, 90, true, "minecraft:mushroom_fields", "minecraft:mushroom_field_shore");
             pillager_camp = Configs("Pillager Camp", 49, 35, true, "#structure_gel:neutral_temp", "!#structure_gel:mountain", "!#structure_gel:wooded");
             ruined_structure = Configs("Ruined Structures", 22, 50, true, "#structure_gel:neutral_temp");

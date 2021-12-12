@@ -40,8 +40,6 @@ public class DEMonsterMaze extends GelConfigJigsawStructure {
         }
 
         @Override
-        public void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor serverLevelAccessor, Random random, BoundingBox boundingBox) {
-
-        }
+        public void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor serverLevelAccessor, Random random, BoundingBox boundingBox) {}
     }
 }

@@ -114,7 +114,7 @@ public class DEStructures {
     }
 
     private static  <S extends GelConfigJigsawStructure> StructureRegistrar<JigsawConfiguration, S> registerJigsaw(String registryName, S structure, StructureTemplatePool root, StructurePieceType piece, GenerationStep.Decoration decoration){
-        return GelStructureRegistrar.of(locate(registryName), structure, piece, new JigsawConfiguration(() -> root, 7), decoration);
+        return GelStructureRegistrar.of(locate(registryName), structure, piece, new JigsawConfiguration(() -> root, 8), decoration);
     }
 
     private static void noiseAffecting(StructureRegistrar<?, ?>... structureRegs){
