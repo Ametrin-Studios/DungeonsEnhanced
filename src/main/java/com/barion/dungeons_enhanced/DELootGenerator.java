@@ -22,6 +22,7 @@ import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.NumberProvider;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
+import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 import java.util.Map;
@@ -34,7 +35,7 @@ public class DELootGenerator extends LootTableProvider {
         super(generator);
     }
 
-    @Override
+    @Override @Nonnull
     protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> getTables() {
         return ImmutableList.of(Pair.of(DEStructureLootTables::new, LootContextParamSets.CHEST));
     }
@@ -50,10 +51,10 @@ public class DELootGenerator extends LootTableProvider {
             super.accept(lootTable);
             lootTable.accept(location("flying_dutchman"), LootTable.lootTable()
                     .withPool(LootPool.lootPool().setRolls(lootNumber(7, 9))
-                            .add(lootItem(Items.SKULL_BANNER_PATTERN, 1, lootNumber(1)))
-                            .add(lootItem(Items.NAUTILUS_SHELL, 2, lootNumber(1)))
-                            .add(lootItem(Items.TURTLE_EGG, 1, lootNumber(1)))
-                            .add(lootItem(Items.DIAMOND, 2, lootNumber(1)))
+                            .add(lootItem(Items.SKULL_BANNER_PATTERN, 1, one()))
+                            .add(lootItem(Items.NAUTILUS_SHELL, 2, one()))
+                            .add(lootItem(Items.TURTLE_EGG, 1, one()))
+                            .add(lootItem(Items.DIAMOND, 2, one()))
                             .add(lootItem(Items.ROTTEN_FLESH, 8, lootNumber(2, 5)))
                             .add(lootItem(Items.BONE, 8, lootNumber(1, 4)))
                             .add(lootItem(Items.FIRE_CHARGE, 4, lootNumber(1, 3)))
@@ -62,12 +63,12 @@ public class DELootGenerator extends LootTableProvider {
                             .add(lootItem(Items.COOKED_SALMON, 5, lootNumber(1, 3)))
                             .add(lootItem(Items.ARROW, 4, lootNumber(2, 4)))
                             .add(lootItem(Items.STRING, 5, lootNumber(1, 4)))
-                            .add(enchantedLootItem(Items.BOOK, 1, lootNumber(6, 14), lootNumber(1)))
+                            .add(enchantedLootItem(Items.BOOK, 1, lootNumber(6, 14), one()))
                             .add(lootItem(Items.KELP, 8, lootNumber(2, 5)))
                             .add(lootItem(Items.GOLD_INGOT, 3, lootNumber(1, 2)))
-                            .add(lootItem(Items.GOLD_BLOCK, 1, lootNumber(1)))
+                            .add(lootItem(Items.GOLD_BLOCK, 1, one()))
                             .add(lootItem(Items.SUSPICIOUS_STEW, 3, lootNumber(1, 2)))
-                            .add(lootItem(Items.SPYGLASS, 1, lootNumber(1)))));
+                            .add(lootItem(Items.SPYGLASS, 1, one()))));
 
             lootTable.accept(location("monster_maze/church"), LootTable.lootTable()
                     .withPool(LootPool.lootPool().setRolls(lootNumber(5, 7))
@@ -80,9 +81,9 @@ public class DELootGenerator extends LootTableProvider {
                             .add(lootItem(Items.SUGAR, 4, lootNumber(1, 3)))
                             .add(lootItem(Items.SUGAR_CANE, 2, lootNumber(1, 2)))
                             .add(lootItem(Items.GOLD_NUGGET, 4, lootNumber(4, 10)))
-                            .add(lootItem(Items.GOLD_BLOCK, 1, lootNumber(1)))
-                            .add(lootItem(Items.PUMPKIN, 2, lootNumber(1)))
-                            .add(enchantedLootItem(Items.BOOK, 1, lootNumber(6, 14), lootNumber(1)))
+                            .add(lootItem(Items.GOLD_BLOCK, 1, one()))
+                            .add(lootItem(Items.PUMPKIN, 2, one()))
+                            .add(enchantedLootItem(Items.BOOK, 1, lootNumber(6, 14), one()))
                             .add(lootItem(Items.GOLD_INGOT, 4, lootNumber(2, 3)))));
 
             lootTable.accept(location("monster_maze/treasure"), LootTable.lootTable()
@@ -93,68 +94,86 @@ public class DELootGenerator extends LootTableProvider {
                             .add(lootItem(Items.EXPERIENCE_BOTTLE, 1, lootNumber(2, 3)))
                             .add(lootItem(Items.COBWEB, 2, lootNumber(1, 2)))
                             .add(lootItem(Items.SLIME_BALL, 2, lootNumber(1, 2)))
-                            .add(lootItem(Items.CLOCK, 1, lootNumber(1)))
-                            .add(lootItem(Items.COMPASS, 1, lootNumber(1)))
+                            .add(lootItem(Items.CLOCK, 1, one()))
+                            .add(lootItem(Items.COMPASS, 1, one()))
                             .add(lootItem(Items.MAP, 2, lootNumber(1, 2)))
                             .add(lootItem(Items.EMERALD, 2, lootNumber(1, 2)))
                             .add(lootItem(Items.IRON_NUGGET, 2, lootNumber(2, 5)))
                             .add(lootItem(Items.GOLD_NUGGET, 2, lootNumber(2, 5))))
-                    .withPool(LootPool.lootPool().setRolls(lootNumber(3, 5))
+                    .withPool(LootPool.lootPool().setRolls(lootNumber(4, 6))
                             .add(lootItem(Items.GOLD_INGOT, 2, lootNumber(2, 4)))
-                            .add(lootItem(Items.DIAMOND, 2, lootNumber(1)))
+                            .add(lootItem(Items.EXPERIENCE_BOTTLE, 3, one()))
+                            .add(lootItem(Items.DIAMOND, 2, one()))
                             .add(lootItem(Items.GOLD_BLOCK, 2, lootNumber(1, 2)))
-                            .add(enchantedLootItem(Items.BOOK, 2, lootNumber(10, 22), lootNumber(1)))
-                            .add(enchantedLootItem(Items.BOW, 1, lootNumber(0, 12), lootNumber(1)))
-                            .add(enchantedLootItem(Items.CROSSBOW, 1, lootNumber(0, 12), lootNumber(1)))
-                            .add(enchantedLootItem(Items.DIAMOND_HELMET, 1, lootNumber(0, 12), lootNumber(1)))
-                            .add(enchantedLootItem(Items.DIAMOND_CHESTPLATE, 1, lootNumber(0, 12), lootNumber(1)))
-                            .add(enchantedLootItem(Items.DIAMOND_LEGGINGS, 1, lootNumber(0, 12), lootNumber(1)))
-                            .add(enchantedLootItem(Items.DIAMOND_BOOTS, 1, lootNumber(0, 12), lootNumber(1))))
+                            .add(enchantedLootItem(Items.BOOK, 2, lootNumber(10, 22), one()))
+                            .add(enchantedLootItem(Items.BOW, 1, lootNumber(0, 12), one()))
+                            .add(enchantedLootItem(Items.CROSSBOW, 1, lootNumber(0, 12), one()))
+                            .add(enchantedLootItem(Items.DIAMOND_HELMET, 1, lootNumber(0, 12), one()))
+                            .add(enchantedLootItem(Items.DIAMOND_CHESTPLATE, 1, lootNumber(0, 12), one()))
+                            .add(enchantedLootItem(Items.DIAMOND_LEGGINGS, 1, lootNumber(0, 12), one()))
+                            .add(enchantedLootItem(Items.DIAMOND_BOOTS, 1, lootNumber(0, 12), one())))
                     .withPool(LootPool.lootPool().setRolls(lootNumber(0, 1))
-                            .add(lootItem(Items.MUSIC_DISC_11, 1, lootNumber(1)))
-                            .add(lootItem(Items.MUSIC_DISC_13, 1, lootNumber(1)))
-                            .add(lootItem(Items.MUSIC_DISC_BLOCKS, 1, lootNumber(1)))
-                            .add(lootItem(Items.MUSIC_DISC_CAT, 1, lootNumber(1)))
-                            .add(lootItem(Items.MUSIC_DISC_CHIRP, 1, lootNumber(1)))
-                            .add(lootItem(Items.MUSIC_DISC_FAR, 1, lootNumber(1)))
-                            .add(lootItem(Items.MUSIC_DISC_MALL, 1, lootNumber(1)))
-                            .add(lootItem(Items.MUSIC_DISC_MELLOHI, 1, lootNumber(1)))
-                            .add(lootItem(Items.MUSIC_DISC_STAL, 1, lootNumber(1)))
-                            .add(lootItem(Items.MUSIC_DISC_STRAD, 1, lootNumber(1)))
-                            .add(lootItem(Items.MUSIC_DISC_WARD, 1, lootNumber(1)))));
+                            .add(lootItem(Items.MUSIC_DISC_11, 1, one()))
+                            .add(lootItem(Items.MUSIC_DISC_13, 1, one()))
+                            .add(lootItem(Items.MUSIC_DISC_BLOCKS, 1, one()))
+                            .add(lootItem(Items.MUSIC_DISC_CAT, 1, one()))
+                            .add(lootItem(Items.MUSIC_DISC_CHIRP, 1, one()))
+                            .add(lootItem(Items.MUSIC_DISC_FAR, 1, one()))
+                            .add(lootItem(Items.MUSIC_DISC_MALL, 1, one()))
+                            .add(lootItem(Items.MUSIC_DISC_MELLOHI, 1, one()))
+                            .add(lootItem(Items.MUSIC_DISC_STAL, 1, one()))
+                            .add(lootItem(Items.MUSIC_DISC_STRAD, 1, one()))
+                            .add(lootItem(Items.MUSIC_DISC_WARD, 1, one()))));
+
+            lootTable.accept(location("monster_maze/prison"), LootTable.lootTable()
+                    .withPool(LootPool.lootPool().setRolls(lootNumber(10, 16))
+                            .add(lootItem(Items.PAPER, 2, one()))
+                            .add(lootItem(Items.CHAIN, 2, one()))
+                            .add(lootItem(Items.ROTTEN_FLESH, 3, one()))
+                            .add(lootItem(Items.POTATO, 2, one()))
+                            .add(lootItem(Items.POISONOUS_POTATO, 2, one()))
+                            .add(lootItem(Items.STRING, 2, one()))
+                            .add(lootItem(Items.BONE, 3, one()))
+                            .add(lootItem(Items.SUSPICIOUS_STEW, 2, one()))
+                            .add(lootItem(Items.BOWL, 2, one())))
+                    .withPool(LootPool.lootPool().setRolls(lootNumber(0, 1))
+                            .add(enchantedLootItem(Items.STONE_PICKAXE, 4, lootNumber(6, 13), one()))
+                            .add(enchantedLootItem(Items.GOLDEN_PICKAXE, 3, lootNumber(6, 13), one()))
+                            .add(enchantedLootItem(Items.IRON_PICKAXE, 2, lootNumber(6, 13), one()))
+                            .add(enchantedLootItem(Items.DIAMOND_PICKAXE, 1, lootNumber(6, 13), one()))));
 
             lootTable.accept(location("tower_of_the_undead/treasure"), LootTable.lootTable()
                     .withPool(LootPool.lootPool().setRolls(lootNumber(10, 18))
                             .add(lootItem(Items.GOLD_NUGGET, 5, lootNumber(1, 2)))
-                            .add(lootItem(Items.GOLD_INGOT, 3, lootNumber(1)))
+                            .add(lootItem(Items.GOLD_INGOT, 3, one()))
                             .add(lootItem(Items.IRON_NUGGET, 4, lootNumber(1, 2)))
-                            .add(lootItem(Items.IRON_INGOT, 2, lootNumber(1)))
-                            .add(lootItem(Items.GOLDEN_CARROT, 2, lootNumber(1)))
+                            .add(lootItem(Items.IRON_INGOT, 2, one()))
+                            .add(lootItem(Items.GOLDEN_CARROT, 2, one()))
                             .add(lootItem(Items.WHEAT_SEEDS, 8, lootNumber(1, 3)))
                             .add(lootItem(Items.WHEAT, 6, lootNumber(1, 3)))
                             .add(lootItem(Items.STRING, 6, lootNumber(1, 3)))
                             .add(lootItem(Items.BONE, 7, lootNumber(1, 3)))
                             .add(lootItem(Items.ROTTEN_FLESH, 10, lootNumber(1, 3)))
-                            .add(lootItem(Items.IRON_AXE, 1, lootNumber(1)))
-                            .add(lootItem(Items.IRON_SWORD, 1, lootNumber(1)))
-                            .add(lootItem(Items.CROSSBOW, 1, lootNumber(1)))
-                            .add(lootItem(Items.COBWEB, 4, lootNumber(1)))
-                            .add(lootItem(Items.GOLDEN_APPLE, 2, lootNumber(1)))
+                            .add(lootItem(Items.IRON_AXE, 1, one()))
+                            .add(lootItem(Items.IRON_SWORD, 1, one()))
+                            .add(lootItem(Items.CROSSBOW, 1, one()))
+                            .add(lootItem(Items.COBWEB, 4, one()))
+                            .add(lootItem(Items.GOLDEN_APPLE, 2, one()))
                             .add(lootItem(Items.ARROW, 6, lootNumber(2, 3))))
                     .withPool(LootPool.lootPool().setRolls(lootNumber(1, 3))
-                            .add(lootItem(Items.LEATHER_HELMET, 3, lootNumber(1)))
-                            .add(lootItem(Items.LEATHER_CHESTPLATE, 3, lootNumber(1)))
-                            .add(lootItem(Items.LEATHER_LEGGINGS, 3, lootNumber(1)))
-                            .add(lootItem(Items.LEATHER_BOOTS, 3, lootNumber(1)))
-                            .add(lootItem(Items.CHAINMAIL_HELMET, 2, lootNumber(1)))
-                            .add(lootItem(Items.CHAINMAIL_CHESTPLATE, 2, lootNumber(1)))
-                            .add(lootItem(Items.CHAINMAIL_LEGGINGS, 2, lootNumber(1)))
-                            .add(lootItem(Items.CHAINMAIL_BOOTS, 2, lootNumber(1)))
-                            .add(lootItem(Items.IRON_HELMET, 1, lootNumber(1)))
-                            .add(lootItem(Items.IRON_CHESTPLATE, 1, lootNumber(1)))
-                            .add(lootItem(Items.IRON_LEGGINGS, 1, lootNumber(1)))
-                            .add(enchantedLootItem(Items.BOOK, 1, lootNumber(4, 10), lootNumber(1)))
-                            .add(lootItem(Items.IRON_BOOTS, 1, lootNumber(1)))));
+                            .add(lootItem(Items.LEATHER_HELMET, 3, one()))
+                            .add(lootItem(Items.LEATHER_CHESTPLATE, 3, one()))
+                            .add(lootItem(Items.LEATHER_LEGGINGS, 3, one()))
+                            .add(lootItem(Items.LEATHER_BOOTS, 3, one()))
+                            .add(lootItem(Items.CHAINMAIL_HELMET, 2, one()))
+                            .add(lootItem(Items.CHAINMAIL_CHESTPLATE, 2, one()))
+                            .add(lootItem(Items.CHAINMAIL_LEGGINGS, 2, one()))
+                            .add(lootItem(Items.CHAINMAIL_BOOTS, 2, one()))
+                            .add(lootItem(Items.IRON_HELMET, 1, one()))
+                            .add(lootItem(Items.IRON_CHESTPLATE, 1, one()))
+                            .add(lootItem(Items.IRON_LEGGINGS, 1, one()))
+                            .add(enchantedLootItem(Items.BOOK, 1, lootNumber(4, 10), one()))
+                            .add(lootItem(Items.IRON_BOOTS, 1, one()))));
         }
 
         private LootPoolEntryContainer.Builder<?> lootItem(Item item, int weight, NumberProvider amount){
@@ -165,12 +184,8 @@ public class DELootGenerator extends LootTableProvider {
             return LootItem.lootTableItem(item).setWeight(weight).apply(SetItemCountFunction.setCount(amount)).apply(EnchantWithLevelsFunction.enchantWithLevels(enchant));
         }
 
-        private LootPoolEntryContainer.Builder<?> lootPotion(Item item, int weight, NumberProvider amount){
-            return LootItem.lootTableItem(item).setWeight(weight).apply(SetItemCountFunction.setCount(amount));
-        }
-
-        private NumberProvider lootNumber(int amount){
-            return ConstantValue.exactly(amount);
+        private NumberProvider one(){
+            return ConstantValue.exactly(1);
         }
 
         private NumberProvider lootNumber(int minAmount, int maxAmount){

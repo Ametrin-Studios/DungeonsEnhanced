@@ -195,8 +195,8 @@
     {
       "rolls": {
         "type": "minecraft:uniform",
-        "min": 3.0,
-        "max": 5.0
+        "min": 4.0,
+        "max": 6.0
       },
       "bonus_rolls": 0.0,
       "entries": [
@@ -215,6 +215,18 @@
             }
           ],
           "name": "minecraft:gold_ingot"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1.0,
+              "add": false
+            }
+          ],
+          "name": "minecraft:experience_bottle"
         },
         {
           "type": "minecraft:item",
