@@ -136,13 +136,17 @@ public class DELootGenerator extends LootTableProvider {
                             .add(lootItem(Items.POISONOUS_POTATO, 2, one()))
                             .add(lootItem(Items.STRING, 2, one()))
                             .add(lootItem(Items.BONE, 3, one()))
+                            .add(lootItem(Items.MAP, 1, one()))
+                            .add(lootItem(Items.LEAD, 1, one()))
+                            .add(lootItem(Items.MUSHROOM_STEW, 1, one()))
+                            .add(lootItem(Items.CANDLE, 1, one()))
                             .add(suspiciousStew(2, one()))
                             .add(lootItem(Items.BOWL, 2, one())))
                     .withPool(LootPool.lootPool().setRolls(lootNumber(0, 1))
-                            .add(enchantedLootItem(Items.STONE_PICKAXE, 4, lootNumber(6, 13), one()))
-                            .add(enchantedLootItem(Items.GOLDEN_PICKAXE, 3, lootNumber(6, 13), one()))
-                            .add(enchantedLootItem(Items.IRON_PICKAXE, 2, lootNumber(6, 13), one()))
-                            .add(enchantedLootItem(Items.DIAMOND_PICKAXE, 1, lootNumber(6, 13), one()))));
+                            .add(enchantedLootItem(Items.STONE_PICKAXE, 4, lootNumber(5, 10), one()))
+                            .add(enchantedLootItem(Items.GOLDEN_PICKAXE, 3, lootNumber(5, 10), one()))
+                            .add(enchantedLootItem(Items.IRON_PICKAXE, 2, lootNumber(5, 10), one()))
+                            .add(enchantedLootItem(Items.DIAMOND_PICKAXE, 1, lootNumber(5, 10), one()))));
 
             lootTable.accept(location("tower_of_the_undead/treasure"), LootTable.lootTable()
                     .withPool(LootPool.lootPool().setRolls(lootNumber(10, 18))
@@ -176,6 +180,26 @@ public class DELootGenerator extends LootTableProvider {
                             .add(lootItem(Items.IRON_LEGGINGS, 1, one()))
                             .add(enchantedLootItem(Items.BOOK, 1, lootNumber(4, 10), one()))
                             .add(lootItem(Items.IRON_BOOTS, 1, one()))));
+
+            lootTable.accept(location("witch_tower"), LootTable.lootTable()
+                    .withPool(LootPool.lootPool().setRolls(lootNumber(7, 10))
+                            .add(lootItem(Items.SPIDER_EYE, 1, lootNumber(2, 3)))
+                            .add(lootItem(Items.GUNPOWDER, 1, lootNumber(1, 2)))
+                            .add(lootItem(Items.REDSTONE, 1, lootNumber(1, 2)))
+                            .add(lootItem(Items.RABBIT_HIDE, 1, lootNumber(1, 2)))
+                            .add(lootItem(Items.BEETROOT_SOUP, 1, lootNumber(1, 2)))
+                            .add(lootItem(Items.EXPERIENCE_BOTTLE, 1, lootNumber(0, 1)))
+                            .add(lootItem(Items.LEAD, 1, lootNumber(0, 1)))
+                            .add(lootItem(Items.CLOCK, 1, lootNumber(0, 1)))
+                            .add(lootItem(Items.SUGAR, 1, lootNumber(1, 2)))
+                            .add(lootItem(Items.PAPER, 1, lootNumber(1, 3)))
+                            .add(lootItem(Items.STRING, 2, lootNumber(2, 3)))
+                            .add(lootItem(Items.BOOK, 1, one())))
+                    .withPool(LootPool.lootPool().setRolls(lootNumber(2, 4))
+                            .add(enchantedLootItem(Items.RABBIT_FOOT, 1, lootNumber(6, 13), one()))
+                            .add(enchantedLootItem(Items.NAME_TAG, 1, lootNumber(6, 13), one()))
+                            .add(enchantedLootItem(Items.GOLDEN_APPLE, 1, lootNumber(6, 13), one()))
+                            .add(enchantedLootItem(Items.BOOK, 1, lootNumber(6, 13), one()))));
         }
 
         private LootPoolEntryContainer.Builder<?> lootItem(Item item, int weight, NumberProvider amount){
@@ -192,6 +216,10 @@ public class DELootGenerator extends LootTableProvider {
 
         private NumberProvider one(){
             return ConstantValue.exactly(1);
+        }
+
+        private NumberProvider lootNumber(int amount){
+            return ConstantValue.exactly(amount);
         }
 
         private NumberProvider lootNumber(int minAmount, int maxAmount){
