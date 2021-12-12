@@ -6,6 +6,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.loot.ChestLoot;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -16,6 +17,7 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
 import net.minecraft.world.level.storage.loot.functions.EnchantWithLevelsFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.functions.SetStewEffectFunction;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
@@ -67,7 +69,7 @@ public class DELootGenerator extends LootTableProvider {
                             .add(lootItem(Items.KELP, 8, lootNumber(2, 5)))
                             .add(lootItem(Items.GOLD_INGOT, 3, lootNumber(1, 2)))
                             .add(lootItem(Items.GOLD_BLOCK, 1, one()))
-                            .add(lootItem(Items.SUSPICIOUS_STEW, 3, lootNumber(1, 2)))
+                            .add(suspiciousStew(3, lootNumber(1, 2)))
                             .add(lootItem(Items.SPYGLASS, 1, one()))));
 
             lootTable.accept(location("monster_maze/church"), LootTable.lootTable()
@@ -134,7 +136,7 @@ public class DELootGenerator extends LootTableProvider {
                             .add(lootItem(Items.POISONOUS_POTATO, 2, one()))
                             .add(lootItem(Items.STRING, 2, one()))
                             .add(lootItem(Items.BONE, 3, one()))
-                            .add(lootItem(Items.SUSPICIOUS_STEW, 2, one()))
+                            .add(suspiciousStew(2, one()))
                             .add(lootItem(Items.BOWL, 2, one())))
                     .withPool(LootPool.lootPool().setRolls(lootNumber(0, 1))
                             .add(enchantedLootItem(Items.STONE_PICKAXE, 4, lootNumber(6, 13), one()))
@@ -182,6 +184,10 @@ public class DELootGenerator extends LootTableProvider {
 
         private LootPoolEntryContainer.Builder<?> enchantedLootItem(Item item, int weight, NumberProvider enchant, NumberProvider amount){
             return LootItem.lootTableItem(item).setWeight(weight).apply(SetItemCountFunction.setCount(amount)).apply(EnchantWithLevelsFunction.enchantWithLevels(enchant));
+        }
+
+        private LootPoolEntryContainer.Builder<?> suspiciousStew(int weight, NumberProvider amount){
+            return LootItem.lootTableItem(Items.SUSPICIOUS_STEW).setWeight(weight).apply(SetItemCountFunction.setCount(amount)).apply(SetStewEffectFunction.stewEffect().withEffect(MobEffects.NIGHT_VISION, UniformGenerator.between(7.0F, 10.0F)).withEffect(MobEffects.JUMP, UniformGenerator.between(7.0F, 10.0F)).withEffect(MobEffects.WEAKNESS, UniformGenerator.between(6.0F, 8.0F)).withEffect(MobEffects.BLINDNESS, UniformGenerator.between(5.0F, 7.0F)).withEffect(MobEffects.POISON, UniformGenerator.between(10.0F, 20.0F)).withEffect(MobEffects.SATURATION, UniformGenerator.between(7.0F, 10.0F)));
         }
 
         private NumberProvider one(){
