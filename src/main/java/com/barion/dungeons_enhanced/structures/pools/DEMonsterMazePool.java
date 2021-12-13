@@ -22,7 +22,8 @@ public class DEMonsterMazePool {
         JigsawPoolBuilder RoomTunnels = poolBuilder.clone().names("tunnels/room1", "tunnels/room2", "tunnels/room3");
         JigsawPoolBuilder ShortTunnels = poolBuilder.clone().names("tunnels/small1", "tunnels/small2", "tunnels/small3");
         JigsawPoolBuilder LongTunnels = poolBuilder.clone().names("tunnels/big1", "tunnels/big2", "tunnels/big3", "tunnels/big4", "tunnels/big5");
-        JigsawPoolBuilder LongStairs = poolBuilder.clone().names("stairs/big1", "stairs/big2", "stairs/big3");
+        JigsawPoolBuilder StartStairs = poolBuilder.clone().names("stairs/big1", "stairs/big2");
+        JigsawPoolBuilder Stairs = poolBuilder.clone().names("stairs/big1", "stairs/big2", "stairs/big3");
         JigsawPoolBuilder Rooms = poolBuilder.clone().names("big_room", "church", "prison", "room1", "storage", "brewery");
         JigsawPoolBuilder Boss = poolBuilder.clone().names("boss");
 
@@ -31,7 +32,8 @@ public class DEMonsterMazePool {
         registry.register("tunnels/room", RoomTunnels.build());
         registry.register("tunnels/small", ShortTunnels.build());
         registry.register("tunnels/big", LongTunnels.build());
-        registry.register("stairs", LongStairs.build());
+        registry.register("start_stairs", StartStairs.build());
+        registry.register("stairs", Stairs.build());
         registry.register("rooms", Rooms.build());
         registry.register("boss", Boss.build());
 
