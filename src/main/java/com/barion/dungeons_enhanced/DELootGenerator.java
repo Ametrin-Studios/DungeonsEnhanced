@@ -148,6 +148,23 @@ public class DELootGenerator extends LootTableProvider {
                             .add(enchantedLootItem(Items.IRON_PICKAXE, 2, lootNumber(5, 10), one()))
                             .add(enchantedLootItem(Items.DIAMOND_PICKAXE, 1, lootNumber(5, 10), one()))));
 
+            lootTable.accept(location("monster_maze/brewery"), LootTable.lootTable()
+                    .withPool(LootPool.lootPool().setRolls(lootNumber(7, 11))
+                            .add(lootItem(Items.REDSTONE, 2, one()))
+                            .add(lootItem(Items.SUGAR, 2, one()))
+                            .add(lootItem(Items.GLOWSTONE_DUST, 2, one()))
+                            .add(lootItem(Items.SPIDER_EYE, 2, one()))
+                            .add(lootItem(Items.POISONOUS_POTATO, 1, one()))
+                            .add(lootItem(Items.RABBIT_FOOT, 1, one()))
+                            .add(lootItem(Items.BROWN_MUSHROOM, 2, one()))
+                            .add(lootItem(Items.AMETHYST_SHARD, 2, one()))
+                            .add(lootItem(Items.GLISTERING_MELON_SLICE, 1, one()))
+                            .add(lootItem(Items.PHANTOM_MEMBRANE, 1, one()))
+                            .add(lootItem(Items.GOLDEN_CARROT, 2, one()))
+                            .add(lootItem(Items.FERMENTED_SPIDER_EYE, 2, one()))
+                            .add(lootItem(Items.GUNPOWDER, 2, one()))
+                            .add(lootItem(Items.SCUTE, 2, one()))));
+
             lootTable.accept(location("tower_of_the_undead/treasure"), LootTable.lootTable()
                     .withPool(LootPool.lootPool().setRolls(lootNumber(10, 18))
                             .add(lootItem(Items.GOLD_NUGGET, 5, lootNumber(1, 2)))
