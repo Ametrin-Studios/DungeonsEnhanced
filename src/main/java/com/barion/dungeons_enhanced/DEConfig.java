@@ -16,7 +16,7 @@ public class DEConfig {
     }
 
     public static class Common {
-        private ForgeConfigSpec.Builder builder;
+        private final ForgeConfigSpec.Builder builder;
         public final StructureConfig castle;
         public final StructureConfig ruined_house;
         public final StructureConfig ruined_barn;

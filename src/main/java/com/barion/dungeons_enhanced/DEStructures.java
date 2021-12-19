@@ -98,8 +98,8 @@ public class DEStructures {
 
     public static ResourceLocation locate(String key){ return new ResourceLocation(DungeonsEnhanced.Mod_ID, key);}
 
-    private static void genFloor(StructureRegistrar2... structureRegs){
-        for (StructureRegistrar2 structure: structureRegs) {
+    private static void genFloor(StructureRegistrar2<?,?>... structureRegs){
+        for (StructureRegistrar2<?,?> structure: structureRegs) {
             JigsawAccessHelper.addIllagerStructures(structure.getStructure());
         }
     }

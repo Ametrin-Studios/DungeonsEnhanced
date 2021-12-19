@@ -10,6 +10,7 @@ import net.minecraft.loot.*;
 import net.minecraft.loot.functions.SetCount;
 import net.minecraft.util.ResourceLocation;
 
+import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.Map;
 import java.util.function.BiConsumer;
@@ -21,19 +22,19 @@ public class DELootTables extends LootTableProvider {
         super(generator);
     }
 
-    @Override
+    @Override @Nonnull
     protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootParameterSet>> getTables() {
         return ImmutableList.of(Pair.of(DEStructureLootTables::new, LootParameterSets.CHEST));
     }
 
     @Override
-    protected void validate(Map<ResourceLocation, LootTable> map, ValidationTracker validationTracker) {
+    protected void validate(Map<ResourceLocation, LootTable> map, @Nonnull ValidationTracker validationTracker) {
         map.forEach((p_218436_2_, p_218436_3_) -> LootTableManager.validate(validationTracker, p_218436_2_, p_218436_3_));
     }
 
     public static class DEStructureLootTables extends ChestLootTables{
         @Override
-        public void accept(BiConsumer<ResourceLocation, LootTable.Builder> lootTable) {
+        public void accept(@Nonnull BiConsumer<ResourceLocation, LootTable.Builder> lootTable) {
             super.accept(lootTable);
             lootTable.accept(location("flying_dutchman"), LootTable.lootTable()
                     .withPool(LootPool.lootPool().setRolls(RandomValueRange.between(5, 6))

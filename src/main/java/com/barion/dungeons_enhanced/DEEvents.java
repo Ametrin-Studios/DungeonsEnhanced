@@ -2,41 +2,45 @@ package com.barion.dungeons_enhanced;
 
 import com.legacy.structure_gel.access_helpers.BiomeAccessHelper;
 import com.legacy.structure_gel.registrars.StructureRegistrar2;
+import com.legacy.structure_gel.worldgen.structure.GelStructure;
+import net.minecraft.world.gen.feature.IFeatureConfig;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+
+import java.util.Objects;
 
 public class DEEvents {
     private static BiomeLoadingEvent event;
     @SubscribeEvent
     protected static void biomeLoad(final BiomeLoadingEvent event){
         DEEvents.event = event;
-        addToBiomes(DEStructures.TowerOfTheUndead);
-        addToBiomes(DEStructures.Castle);
-        addToBiomes(DEStructures.CastleB);
-        addToBiomes(DEStructures.DesertTemple);
-        addToBiomes(DEStructures.DesertTomb);
-        addToBiomes(DEStructures.DruidCircle);
-        addToBiomes(DEStructures.DungeonVariant);
+        addToBiome(DEStructures.TowerOfTheUndead);
+        addToBiome(DEStructures.Castle);
+        addToBiome(DEStructures.CastleB);
+        addToBiome(DEStructures.DesertTemple);
+        addToBiome(DEStructures.DesertTomb);
+        addToBiome(DEStructures.DruidCircle);
+        addToBiome(DEStructures.DungeonVariant);
         //addToBiomes(DEStructures.FlyingDutchman);
-        addToBiomes(DEStructures.HayStorage);
-        addToBiomes(DEStructures.IcePit);
-        addToBiomes(DEStructures.JungleMonument);
-        addToBiomes(DEStructures.LargeDungeon);
-        addToBiomes(DEStructures.MinersHouse);
-        addToBiomes(DEStructures.MobTower);
-        addToBiomes(DEStructures.MonsterMaze);
-        addToBiomes(DEStructures.MushroomHouse);
-        addToBiomes(DEStructures.PillagerCamp);
-        addToBiomes(DEStructures.RuinedBarn);
-        addToBiomes(DEStructures.RuinedHouse);
-        addToBiomes(DEStructures.Stables);
-        addToBiomes(DEStructures.TallWitchHut);
-        addToBiomes(DEStructures.TreeHouse);
-        addToBiomes(DEStructures.WatchTower);
-        addToBiomes(DEStructures.WitchTower);
+        addToBiome(DEStructures.HayStorage);
+        addToBiome(DEStructures.IcePit);
+        addToBiome(DEStructures.JungleMonument);
+        addToBiome(DEStructures.LargeDungeon);
+        addToBiome(DEStructures.MinersHouse);
+        addToBiome(DEStructures.MobTower);
+        addToBiome(DEStructures.MonsterMaze);
+        addToBiome(DEStructures.MushroomHouse);
+        addToBiome(DEStructures.PillagerCamp);
+        addToBiome(DEStructures.RuinedBarn);
+        addToBiome(DEStructures.RuinedHouse);
+        addToBiome(DEStructures.Stables);
+        addToBiome(DEStructures.TallWitchHut);
+        addToBiome(DEStructures.TreeHouse);
+        addToBiome(DEStructures.WatchTower);
+        addToBiome(DEStructures.WitchTower);
     }
 
-    private static <T extends StructureRegistrar2>void addToBiomes(T structure){
-        BiomeAccessHelper.addStructureIfAllowed(event, structure.getStructureFeature());
+    private static <C extends IFeatureConfig, S extends GelStructure<C>, T extends StructureRegistrar2<C, S>>void addToBiome(T structure){
+        BiomeAccessHelper.addStructureIfAllowed(event, Objects.requireNonNull(structure.getStructureFeature()));
     }
 }

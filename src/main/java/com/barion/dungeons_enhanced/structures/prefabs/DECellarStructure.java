@@ -28,7 +28,10 @@ import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.template.PlacementSettings;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 public class DECellarStructure extends GelConfigStructure<NoFeatureConfig> {
@@ -68,17 +71,19 @@ public class DECellarStructure extends GelConfigStructure<NoFeatureConfig> {
         return super.isFeatureChunk(chunkGen, biomeProvider, seed, sharedSeedRand, chunkPosX, chunkPosZ, biomeIn, chunkPos, config);
     }
 
-    @Override
+    @Override @Nonnull
     public IStartFactory<NoFeatureConfig> getStartFactory() {
         return Start::new;
     }
+    @Override
+    public boolean isAllowedNearWorldSpawn() {return true;}
 
     public class Start extends GelStructureStart<NoFeatureConfig> {
         public Start(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ, MutableBoundingBox boundsIn, int referenceIn, long seed) {
             super(structureIn, chunkX, chunkZ, boundsIn, referenceIn, seed);
         }
 
-        @Override
+        @Override @ParametersAreNonnullByDefault
         public void generatePieces(DynamicRegistries registry, ChunkGenerator chunkGen, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn, NoFeatureConfig configIn) {
             int x = chunkX * 16 + Offset.getX();
             int z = chunkZ * 16 + Offset.getZ();
@@ -116,7 +121,7 @@ public class DECellarStructure extends GelConfigStructure<NoFeatureConfig> {
 
         @Override
         public PlacementSettings createPlacementSettings(TemplateManager templateManager) {
-            BlockPos sizePos = templateManager.get(this.name).getSize();
+            BlockPos sizePos = Objects.requireNonNull(templateManager.get(this.name)).getSize();
             BlockPos centerPos = new BlockPos(sizePos.getX() / 2, 0, sizePos.getZ() / 2);
             return new GelPlacementSettings().setMaintainWater(false).setRotation(this.rotation).setMirror(Mirror.NONE).setRotationPivot(centerPos);
         }
@@ -126,9 +131,8 @@ public class DECellarStructure extends GelConfigStructure<NoFeatureConfig> {
             super.addProcessors(templateManager, placementSettings);
         }
 
-        @Override
-        protected void handleDataMarker(String key, BlockPos pos, IServerWorld world, Random rnd, MutableBoundingBox bounds) {
-        }
+        @Override @ParametersAreNonnullByDefault
+        protected void handleDataMarker(String key, BlockPos pos, IServerWorld world, Random rnd, MutableBoundingBox bounds){}
     }
     protected static BlockPos Offset(int x, int y, int z){
         return new BlockPos(x, y, z);
