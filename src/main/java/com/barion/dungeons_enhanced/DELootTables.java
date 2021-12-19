@@ -29,13 +29,12 @@ public class DELootTables extends LootTableProvider {
 
     @Override
     protected void validate(Map<ResourceLocation, LootTable> map, @Nonnull ValidationTracker validationTracker) {
-        map.forEach((p_218436_2_, p_218436_3_) -> LootTableManager.validate(validationTracker, p_218436_2_, p_218436_3_));
+        map.forEach((location, lootTable) -> LootTableManager.validate(validationTracker, location, lootTable));
     }
 
     public static class DEStructureLootTables extends ChestLootTables{
         @Override
         public void accept(@Nonnull BiConsumer<ResourceLocation, LootTable.Builder> lootTable) {
-            super.accept(lootTable);
             lootTable.accept(location("flying_dutchman"), LootTable.lootTable()
                     .withPool(LootPool.lootPool().setRolls(RandomValueRange.between(5, 6))
                             .add(ItemLootEntry.lootTableItem(Items.DIAMOND).setWeight(1).apply(SetCount.setCount(RandomValueRange.between(1,2))))
