@@ -8,6 +8,6 @@ import static com.barion.dungeons_enhanced.DEUtil.Offset;
 
 public class DEDungeonVariant extends DEUndergroundStructure {
     public DEDungeonVariant(){
-        super(DEConfig.COMMON.dungeon_variant, Offset(-6, 0, -6), new DEPiece("dungeon_variant/zombie"), new DEPiece("dungeon_variant/skeleton"), new DEPiece("dungeon_variant/spider"));
+        super(DEConfig.COMMON.dungeon_variant, Offset(-6, 0, -6), true, new DEPiece("dungeon_variant/zombie"), new DEPiece("dungeon_variant/skeleton"), new DEPiece("dungeon_variant/spider"));
     }
 }

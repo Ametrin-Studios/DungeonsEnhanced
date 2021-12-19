@@ -15,7 +15,7 @@ import static com.barion.dungeons_enhanced.DEUtil.Offset;
 
 public class DETowerOfTheUndead extends DESimpleStructure {
     public DETowerOfTheUndead(){
-        super(DEConfig.COMMON.tower_of_the_undead, new DEPiece("tower_of_the_undead/big", Offset(-7, 0, -7)), new DEPiece("tower_of_the_undead/small", Offset(-5, 0, -5)));
+        super(DEConfig.COMMON.tower_of_the_undead, true, new DEPiece("tower_of_the_undead/big", Offset(-7, 0, -7)), new DEPiece("tower_of_the_undead/small", Offset(-5, 0, -5)));
     }
 
     @Override

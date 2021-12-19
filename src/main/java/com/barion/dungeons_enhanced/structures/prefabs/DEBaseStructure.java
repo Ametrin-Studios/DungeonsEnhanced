@@ -44,23 +44,28 @@ public class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration
     protected LevelHeightAccessor heightAccessor;
     protected DEPiece[] Variants;
     protected final GenerationType generationType;
+    protected int maxWeight;
+    protected boolean generateNearWorldSpawn;
 
-    public DEBaseStructure(StructureConfig config, GenerationType generation, DEPiece... resources) {
-        this(config, generation);
+    public DEBaseStructure(StructureConfig config, GenerationType generation, boolean generateNearWorldSpawn, DEPiece... resources) {
+        this(config, generation, generateNearWorldSpawn);
         Variants = resources;
+        maxWeight = getMaxWeight();
     }
 
-    public DEBaseStructure(StructureConfig config, GenerationType generation, BlockPos offset, DEPiece... resources) {
-        this(config, generation);
-        for(int i=0; i < resources.length; i++){
-            resources[i].Offset = offset;
+    public DEBaseStructure(StructureConfig config, GenerationType generation, BlockPos offset, boolean generateNearWorldSpawn, DEPiece... resources) {
+        this(config, generation, generateNearWorldSpawn);
+        for(DEPiece resource : resources){
+            resource.Offset = offset;
         }
         Variants = resources;
+        maxWeight = getMaxWeight();
     }
 
-    public DEBaseStructure(StructureConfig config, GenerationType generationType){
+    public DEBaseStructure(StructureConfig config, GenerationType generationType, boolean generateNearWorldSpawn){
         super(NoneFeatureConfiguration.CODEC, config);
         this.generationType = generationType;
+        this.generateNearWorldSpawn = generateNearWorldSpawn;
         setLakeProof(true);
     }
 
@@ -70,7 +75,7 @@ public class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration
     }
 
     @Override
-    public boolean isAllowedNearWorldSpawn() {return true;}
+    public boolean isAllowedNearWorldSpawn() {return generateNearWorldSpawn;}
 
     @Override
     protected boolean isFeatureChunk(ChunkGenerator chunkGen, BiomeSource biomeSource, long seed, WorldgenRandom rand, ChunkPos chunkPos, Biome biome, ChunkPos potentialChunkPos, NoneFeatureConfiguration config, LevelHeightAccessor heightAccessor) {
@@ -134,8 +139,28 @@ public class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration
     }
 
     public void assemble(StructureManager structureManager, BlockPos pos, Rotation rotation, List<StructurePiece> structurePieces, Random rand){
-        int i = rand.nextInt(Variants.length);
-        structurePieces.add(new DESimpleStructure.Piece(structureManager, Variants[i].Resource, pos.offset(Variants[i].Offset), rotation));
+        int piece = 0;
+        if(Variants.length > 1) {
+            int i = rand.nextInt(maxWeight+1);
+            DungeonsEnhanced.LOGGER.info(i);
+            for (int j = 0; j < Variants.length; j++) {
+                if (Variants[j].Weight >= i) {
+                    piece = j;
+                    break;
+                } else {
+                    i -= Variants[j].Weight;
+                }
+            }
+        }
+        structurePieces.add(new DESimpleStructure.Piece(structureManager, Variants[piece].Resource, pos.offset(Variants[piece].Offset), rotation));
+    }
+
+    protected int getMaxWeight() {
+        int i = 0;
+        for (DEPiece piece : Variants){
+            i += piece.Weight;
+        }
+        return i;
     }
 
     public static class Piece extends GelTemplateStructurePiece {

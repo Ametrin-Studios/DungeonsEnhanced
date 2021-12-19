@@ -11,11 +11,11 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureMana
 
 public class DEUndergroundStructure extends DEBaseStructure {
 
-    public DEUndergroundStructure(StructureConfig config, DEPiece... resources){
-        super(config, GenerationType.underground, resources);
+    public DEUndergroundStructure(StructureConfig config, boolean generateNearSpawn, DEPiece... resources){
+        super(config, GenerationType.underground, generateNearSpawn, resources);
     }
-    public DEUndergroundStructure(StructureConfig config, BlockPos offset, DEPiece... resources){
-        super(config, GenerationType.underground, offset, resources);
+    public DEUndergroundStructure(StructureConfig config, BlockPos offset, boolean generateNearSpawn, DEPiece... resources){
+        super(config, GenerationType.underground, offset, generateNearSpawn, resources);
     }
 
     public static class Piece extends DEBaseStructure.Piece {

@@ -8,6 +8,6 @@ import static com.barion.dungeons_enhanced.DEUtil.Offset;
 
 public class DETallWitchHut extends DESimpleStructure {
     public DETallWitchHut(){
-        super(DEConfig.COMMON.tall_witch_hut, new DEPiece("tall_witch_hut", Offset(-3,-3,-4)));
+        super(DEConfig.COMMON.tall_witch_hut, true, new DEPiece("tall_witch_hut", Offset(-3,-3,-4)));
     }
 }

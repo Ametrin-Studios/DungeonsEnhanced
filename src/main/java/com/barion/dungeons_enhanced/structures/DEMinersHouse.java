@@ -8,6 +8,6 @@ import static com.barion.dungeons_enhanced.DEUtil.Offset;
 
 public class DEMinersHouse extends DESimpleStructure {
     public DEMinersHouse(){
-        super(DEConfig.COMMON.miners_house, new DEPiece("miners_house", Offset(-5, 0, -5)));
+        super(DEConfig.COMMON.miners_house, true, new DEPiece("miners_house", Offset(-5, 0, -5)));
     }
 }

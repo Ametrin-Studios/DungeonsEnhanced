@@ -8,6 +8,6 @@ import static com.barion.dungeons_enhanced.DEUtil.Offset;
 
 public class DEDruidCircle extends DECellarStructure {
     public DEDruidCircle(){
-        super(new DEPiece("druid_circle/top", Offset(-7, 0, -7)), new DEPiece("druid_circle/bottom", Offset(0, -1, 0)), DEConfig.COMMON.druid_circle);
+        super(new DEPiece("druid_circle/top", Offset(-7, 0, -7)), new DEPiece("druid_circle/bottom", Offset(0, -1, 0)), true, DEConfig.COMMON.druid_circle);
     }
 }

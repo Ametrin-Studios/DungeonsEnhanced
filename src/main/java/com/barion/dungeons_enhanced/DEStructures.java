@@ -64,7 +64,7 @@ public class DEStructures {
         MonsterMaze = registerJigsaw("monster_maze", new DEMonsterMaze(), DEMonsterMazePool.Root, DEMonsterMaze.Piece::new, GenerationStep.Decoration.SURFACE_STRUCTURES);
         MushroomHouse = register("mushroom_house", new DEMushroomHouse(), DESimpleStructure.Piece::new);
         PillagerCamp = register("pillager_camp", new DEPillagerCamp(), DESimpleStructure.Piece::new);
-        RuinedStructure = register("ruined_structure", new DESimpleStructure(DEConfig.COMMON.ruined_structure, new DEPiece("ruined/house", Offset(-5, 0, -5)), new DEPiece("ruined/house2", Offset(-5, 0, -5)), new DEPiece("ruined/barn", Offset(-5, 0, -5))), DESimpleStructure.Piece::new);
+        RuinedStructure = register("ruined_structure", new DESimpleStructure(DEConfig.COMMON.ruined_structure, true, new DEPiece("ruined/house", Offset(-5, 0, -5)), new DEPiece("ruined/house2", Offset(-5, 0, -5)), new DEPiece("ruined/barn", Offset(-5, 0, -5))), DESimpleStructure.Piece::new);
         Stables = register("stables", new DEStables(), DESimpleStructure.Piece::new);
         TallWitchHut = register("tall_witch_hut", new DETallWitchHut(), DESimpleStructure.Piece::new);
         TreeHouse = register("tree_house", new DETreeHouse(), DESimpleStructure.Piece::new);

@@ -19,7 +19,7 @@ import static com.barion.dungeons_enhanced.DEUtil.locate;
 public class DEIcePit extends DESimpleStructure {
     private final ResourceLocation Entrance = locate("ice_pit/top");
     public DEIcePit(){
-        super(DEConfig.COMMON.ice_pit, Offset(-4, -25, -4), new DEPiece("ice_pit/var1"), new DEPiece("ice_pit/var2"), new DEPiece("ice_pit/var3"));
+        super(DEConfig.COMMON.ice_pit, Offset(-4, -25, -4), false, new DEPiece("ice_pit/var1"), new DEPiece("ice_pit/var2"), new DEPiece("ice_pit/var3"));
     }
 
     @Override

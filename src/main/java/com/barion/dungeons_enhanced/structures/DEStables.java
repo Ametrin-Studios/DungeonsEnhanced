@@ -8,6 +8,6 @@ import static com.barion.dungeons_enhanced.DEUtil.Offset;
 
 public class DEStables extends DESimpleStructure {
     public DEStables() {
-        super(DEConfig.COMMON.stables, new DEPiece("stables", Offset(-8,-6,-13)));
+        super(DEConfig.COMMON.stables, false, new DEPiece("stables", Offset(-8,-6,-13)));
     }
 }

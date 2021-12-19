@@ -8,6 +8,6 @@ import static com.barion.dungeons_enhanced.DEUtil.Offset;
 
 public class DETreeHouse extends DESimpleStructure {
     public DETreeHouse(){
-        super(DEConfig.COMMON.tree_house, new DEPiece("tree_house", Offset(-9,0,-10)));
+        super(DEConfig.COMMON.tree_house, true, new DEPiece("tree_house", Offset(-9,0,-10)));
     }
 }

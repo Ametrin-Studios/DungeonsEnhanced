@@ -16,12 +16,12 @@ import java.util.Random;
 public class DECellarStructure extends DEBaseStructure {
     protected DEPiece Cellar;
 
-    public DECellarStructure(DEPiece resourceTop, DEPiece resourceBottom, StructureConfig config){
-        this(config, resourceTop);
+    public DECellarStructure(DEPiece resourceTop, DEPiece resourceBottom, boolean generateNearSpawn, StructureConfig config){
+        this(config, generateNearSpawn, resourceTop);
         Cellar = resourceBottom;
     }
-    public DECellarStructure(StructureConfig config, DEPiece resource){
-        super(config, GenerationType.onGround, resource);
+    public DECellarStructure(StructureConfig config, boolean generateNearSpawn, DEPiece resource){
+        super(config, GenerationType.onGround, generateNearSpawn, resource);
         Cellar = null;
     }
 

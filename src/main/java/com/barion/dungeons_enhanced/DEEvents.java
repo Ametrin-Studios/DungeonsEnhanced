@@ -2,6 +2,9 @@ package com.barion.dungeons_enhanced;
 
 import com.legacy.structure_gel.api.biome.BiomeAccessHelper;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
+import com.legacy.structure_gel.api.structure.base.IConfigStructure;
+import net.minecraft.world.level.levelgen.feature.StructureFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -34,7 +37,7 @@ public class DEEvents {
         addToBiomes(DEStructures.WitchTower);
     }
 
-    private static <T extends StructureRegistrar>void addToBiomes(T structure){
+    private static <C extends FeatureConfiguration, S extends StructureFeature<C> & IConfigStructure, T extends StructureRegistrar<C,S>>void addToBiomes(T structure){
         BiomeAccessHelper.addStructureIfAllowed(event, structure.getStructureFeature());
     }
 }

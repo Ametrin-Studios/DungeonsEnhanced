@@ -8,6 +8,6 @@ import static com.barion.dungeons_enhanced.DEUtil.Offset;
 
 public class DEPillagerCamp extends DESimpleStructure {
     public DEPillagerCamp(){
-        super(DEConfig.COMMON.pillager_camp, new DEPiece("pillager_camp", Offset(-9,0,-14)));
+        super(DEConfig.COMMON.pillager_camp, true, new DEPiece("pillager_camp", Offset(-9,0,-14)));
     }
 }

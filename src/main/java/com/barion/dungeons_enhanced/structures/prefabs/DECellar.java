@@ -24,7 +24,7 @@ public class DECellar extends DEBaseStructure {
     protected DECellarStructure Parent;
 
     public <S extends DECellarStructure> DECellar(DEPiece resource, StructureRegistrar<NoneFeatureConfiguration, S> parent) {
-        super(parent.getStructure().getConfig(), parent.getStructure().generationType, resource);
+        super(parent.getStructure().getConfig(), parent.getStructure().generationType, parent.getStructure().isAllowedNearWorldSpawn(), resource);
         Parent = parent.getStructure();
     }
 

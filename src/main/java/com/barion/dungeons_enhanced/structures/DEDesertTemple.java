@@ -18,7 +18,7 @@ public class DEDesertTemple extends DESimpleStructure {
     private final ResourceLocation Bottom = locate("desert_temple/down");
 
     public DEDesertTemple(){
-        super(DEConfig.COMMON.desert_temple, new DEPiece("desert_temple/main"));
+        super(DEConfig.COMMON.desert_temple, false, new DEPiece("desert_temple/main"));
     }
 
     @Override

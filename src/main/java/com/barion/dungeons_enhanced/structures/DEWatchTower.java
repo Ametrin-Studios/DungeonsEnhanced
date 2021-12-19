@@ -8,6 +8,6 @@ import static com.barion.dungeons_enhanced.DEUtil.Offset;
 
 public class DEWatchTower extends DESimpleStructure {
     public DEWatchTower(){
-        super(DEConfig.COMMON.watch_tower, new DEPiece("watch_tower", Offset(-4,0,-4)));
+        super(DEConfig.COMMON.watch_tower, true, new DEPiece("watch_tower", Offset(-4,0,-4)));
     }
 }

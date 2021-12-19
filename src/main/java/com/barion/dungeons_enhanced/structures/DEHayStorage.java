@@ -8,6 +8,6 @@ import static com.barion.dungeons_enhanced.DEUtil.Offset;
 
 public class DEHayStorage extends DESimpleStructure {
     public DEHayStorage(){
-        super(DEConfig.COMMON.hay_Storage, new DEPiece("hay_storage", Offset(-7,0,-7)));
+        super(DEConfig.COMMON.hay_Storage, true, new DEPiece("hay_storage", Offset(-7,0,-7)));
     }
 }

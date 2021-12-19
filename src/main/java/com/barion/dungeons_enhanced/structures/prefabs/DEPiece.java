@@ -8,11 +8,16 @@ import static com.barion.dungeons_enhanced.DEUtil.locate;
 public class DEPiece {
     public final ResourceLocation Resource;
     public BlockPos Offset;
-    public DEPiece(String resource, BlockPos offset){
+    public int Weight;
+    public DEPiece(String resource, BlockPos offset, int weight){
         Resource = locate(resource);
         Offset = offset;
+        Weight = weight;
     }
-    public DEPiece(String resource){
-        this(resource, BlockPos.ZERO);
-    }
+
+    public DEPiece(String resource){this(resource, BlockPos.ZERO);}
+
+    public DEPiece(String resource, int weight){this(resource, BlockPos.ZERO, weight);}
+
+    public DEPiece(String resource, BlockPos offset) {this(resource, offset, 1);}
 }

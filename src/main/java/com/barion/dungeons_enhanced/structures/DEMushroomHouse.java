@@ -8,6 +8,6 @@ import static com.barion.dungeons_enhanced.DEUtil.Offset;
 
 public class DEMushroomHouse extends DESimpleStructure {
     public DEMushroomHouse(){
-        super(DEConfig.COMMON.mushroom_house, new DEPiece("mushroom_house", Offset(-7,0,-7)));
+        super(DEConfig.COMMON.mushroom_house, true, new DEPiece("mushroom_house", Offset(-7,0,-7)));
     }
 }

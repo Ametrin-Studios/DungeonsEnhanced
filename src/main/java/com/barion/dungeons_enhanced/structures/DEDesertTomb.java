@@ -8,6 +8,6 @@ import static com.barion.dungeons_enhanced.DEUtil.Offset;
 
 public class DEDesertTomb extends DESimpleStructure {
     public DEDesertTomb(){
-        super( DEConfig.COMMON.desert_tomb, new DEPiece("desert_tomb", Offset(-10, -6, -10)));
+        super( DEConfig.COMMON.desert_tomb, true, new DEPiece("desert_tomb", Offset(-10, -6, -10)));
     }
 }

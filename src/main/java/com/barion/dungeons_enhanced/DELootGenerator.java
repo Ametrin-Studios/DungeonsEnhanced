@@ -44,12 +44,12 @@ public class DELootGenerator extends LootTableProvider {
 
     @Override @ParametersAreNonnullByDefault
     protected void validate(Map<ResourceLocation, LootTable> map, ValidationContext validationContext) {
-        map.forEach((x, y) -> LootTables.validate(validationContext, x, y));
+        map.forEach((location, lootTable) -> LootTables.validate(validationContext, location, lootTable));
     }
 
     public static class DEStructureLootTables extends ChestLoot {
         @Override @ParametersAreNonnullByDefault
-        public void accept(BiConsumer<ResourceLocation, LootTable.Builder> lootTable) {
+        public void accept(BiConsumer<ResourceLocation, LootTable.Builder> lootTable){
             lootTable.accept(location("flying_dutchman"), LootTable.lootTable()
                     .withPool(LootPool.lootPool().setRolls(lootNumber(7, 9))
                             .add(lootItem(Items.SKULL_BANNER_PATTERN, 1, one()))
@@ -280,7 +280,7 @@ public class DELootGenerator extends LootTableProvider {
             return LootItem.lootTableItem(item).setWeight(weight).apply(SetItemCountFunction.setCount(amount)).apply(EnchantWithLevelsFunction.enchantWithLevels(enchant));
         }
         private LootPoolEntryContainer.Builder<?> suspiciousStew(int weight, NumberProvider amount){
-            return LootItem.lootTableItem(Items.SUSPICIOUS_STEW).setWeight(weight).apply(SetItemCountFunction.setCount(amount)).apply(SetStewEffectFunction.stewEffect().withEffect(MobEffects.NIGHT_VISION, UniformGenerator.between(7.0F, 10.0F)).withEffect(MobEffects.JUMP, UniformGenerator.between(7.0F, 10.0F)).withEffect(MobEffects.WEAKNESS, UniformGenerator.between(6.0F, 8.0F)).withEffect(MobEffects.BLINDNESS, UniformGenerator.between(5.0F, 7.0F)).withEffect(MobEffects.POISON, UniformGenerator.between(10.0F, 20.0F)).withEffect(MobEffects.SATURATION, UniformGenerator.between(7.0F, 10.0F)));
+            return LootItem.lootTableItem(Items.SUSPICIOUS_STEW).setWeight(weight).apply(SetItemCountFunction.setCount(amount)).apply(SetStewEffectFunction.stewEffect().withEffect(MobEffects.NIGHT_VISION, lootNumber(7, 10)).withEffect(MobEffects.JUMP, lootNumber(7, 10)).withEffect(MobEffects.WEAKNESS, lootNumber(6, 8)).withEffect(MobEffects.BLINDNESS, lootNumber(5, 7)).withEffect(MobEffects.POISON, lootNumber(10, 20)).withEffect(MobEffects.SATURATION, lootNumber(7, 10)));
         }
 
         private NumberProvider one(){

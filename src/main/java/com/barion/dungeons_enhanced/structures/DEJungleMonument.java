@@ -8,6 +8,6 @@ import static com.barion.dungeons_enhanced.DEUtil.Offset;
 
 public class DEJungleMonument extends DESimpleStructure {
     public DEJungleMonument(){
-        super(DEConfig.COMMON.jungle_monument, new DEPiece("jungle_monument", Offset(-12,-9,-12)));
+        super(DEConfig.COMMON.jungle_monument, false, new DEPiece("jungle_monument", Offset(-12,-9,-12)));
     }
 }
