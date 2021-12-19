@@ -12,7 +12,6 @@ import com.legacy.structure_gel.registrars.StructureRegistrar2;
 import com.legacy.structure_gel.worldgen.jigsaw.GelConfigJigsawStructure;
 import com.legacy.structure_gel.worldgen.structure.GelConfigStructure;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.gen.GenerationStage.Decoration;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.jigsaw.JigsawPattern;
@@ -24,11 +23,13 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.IForgeRegistry;
 
+import static com.barion.dungeons_enhanced.DEUtil.Offset;
+
 @Mod.EventBusSubscriber(modid = DungeonsEnhanced.Mod_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DEStructures {
     public static final StructureRegistrar2<NoFeatureConfig, DETowerOfTheUndead> TowerOfTheUndead = register("tower_of_the_undead", new DETowerOfTheUndead(), DESimpleStructure.Piece::new);
     public static final StructureRegistrar2<NoFeatureConfig, DECastle> Castle = register("castle", new DECastle(), DECellarStructure.Piece::new);
-    public static final StructureRegistrar2<NoFeatureConfig, DECellar> CastleB = GelStructureRegistrar.of(new ResourceLocation(""), new DECellar("castle/bottom", Offset(0, -5, 0), Castle, DEConfig.COMMON.castle), DECellar.Piece::new, NoFeatureConfig.INSTANCE, Decoration.SURFACE_STRUCTURES).handle();
+    public static final StructureRegistrar2<NoFeatureConfig, DECellar> CastleB = GelStructureRegistrar.of(locate(""), new DECellar("castle/bottom", Offset(0, -5, 0), Castle, DEConfig.COMMON.castle), DECellar.Piece::new, NoFeatureConfig.INSTANCE, Decoration.SURFACE_STRUCTURES).handle();
     public static final StructureRegistrar2<NoFeatureConfig, DEDesertTemple> DesertTemple = register("desert_temple", new DEDesertTemple(), DESimpleStructure.Piece::new);
     public static final StructureRegistrar2<NoFeatureConfig, DEDesertTomb> DesertTomb = register("desert_tomb", new DEDesertTomb(), DESimpleStructure.Piece::new);
     public static final StructureRegistrar2<NoFeatureConfig, DEDruidCircle> DruidCircle = register("druid_circle", new DEDruidCircle(), DECellarStructure.Piece::new);
@@ -102,9 +103,5 @@ public class DEStructures {
         for (StructureRegistrar2<?,?> structure: structureRegs) {
             JigsawAccessHelper.addIllagerStructures(structure.getStructure());
         }
-    }
-
-    private static BlockPos Offset(int x, int y, int z){
-        return new BlockPos(x, y, z);
     }
 }
