@@ -14,7 +14,7 @@ apply plugin: 'maven-publish'
 
 version = '2.0'
 group = 'com.barion.dungeons_enhanced'
-archivesBaseName = "dungeons_enhanced-1.17.1"
+archivesBaseName = "dungeons_enhanced-${mc_version}"
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(16)
 

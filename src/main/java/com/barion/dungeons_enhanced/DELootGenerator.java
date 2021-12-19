@@ -50,7 +50,6 @@ public class DELootGenerator extends LootTableProvider {
     public static class DEStructureLootTables extends ChestLoot {
         @Override @ParametersAreNonnullByDefault
         public void accept(BiConsumer<ResourceLocation, LootTable.Builder> lootTable) {
-            super.accept(lootTable);
             lootTable.accept(location("flying_dutchman"), LootTable.lootTable()
                     .withPool(LootPool.lootPool().setRolls(lootNumber(7, 9))
                             .add(lootItem(Items.SKULL_BANNER_PATTERN, 1, one()))
