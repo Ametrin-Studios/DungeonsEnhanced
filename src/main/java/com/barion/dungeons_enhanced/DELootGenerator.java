@@ -56,6 +56,7 @@ public class DELootGenerator extends LootTableProvider {
                             .add(lootItem(Items.SKULL_BANNER_PATTERN, 1, one()))
                             .add(lootItem(Items.NAUTILUS_SHELL, 2, one()))
                             .add(lootItem(Items.TURTLE_EGG, 1, one()))
+                            .add(lootItem(Items.EXPERIENCE_BOTTLE, 1, one()))
                             .add(lootItem(Items.DIAMOND, 2, one()))
                             .add(lootItem(Items.ROTTEN_FLESH, 8, lootNumber(2, 5)))
                             .add(lootItem(Items.BONE, 8, lootNumber(1, 4)))
@@ -93,7 +94,6 @@ public class DELootGenerator extends LootTableProvider {
                             .add(lootItem(Items.BONE, 3, lootNumber(2, 4)))
                             .add(lootItem(Items.ROTTEN_FLESH, 4, lootNumber(1, 2)))
                             .add(lootItem(Items.STRING, 3, lootNumber(1, 2)))
-                            .add(lootItem(Items.EXPERIENCE_BOTTLE, 1, lootNumber(2, 3)))
                             .add(lootItem(Items.COBWEB, 2, lootNumber(1, 2)))
                             .add(lootItem(Items.SLIME_BALL, 2, lootNumber(1, 2)))
                             .add(lootItem(Items.CLOCK, 1, one()))
@@ -149,13 +149,14 @@ public class DELootGenerator extends LootTableProvider {
                             .add(enchantedLootItem(Items.DIAMOND_PICKAXE, 1, lootNumber(5, 10), one()))));
 
             lootTable.accept(location("monster_maze/brewery"), LootTable.lootTable()
-                    .withPool(LootPool.lootPool().setRolls(lootNumber(7, 11))
+                    .withPool(LootPool.lootPool().setRolls(lootNumber(10, 15))
                             .add(lootItem(Items.REDSTONE, 2, one()))
                             .add(lootItem(Items.SUGAR, 2, one()))
                             .add(lootItem(Items.GLOWSTONE_DUST, 2, one()))
                             .add(lootItem(Items.SPIDER_EYE, 2, one()))
                             .add(lootItem(Items.POISONOUS_POTATO, 1, one()))
                             .add(lootItem(Items.RABBIT_FOOT, 1, one()))
+                            .add(lootItem(Items.EXPERIENCE_BOTTLE, 1, one()))
                             .add(lootItem(Items.BROWN_MUSHROOM, 2, one()))
                             .add(lootItem(Items.AMETHYST_SHARD, 2, one()))
                             .add(lootItem(Items.GLISTERING_MELON_SLICE, 1, one()))
@@ -187,6 +188,7 @@ public class DELootGenerator extends LootTableProvider {
                     .withPool(LootPool.lootPool().setRolls(lootNumber(10, 18))
                             .add(lootItem(Items.GOLD_NUGGET, 5, lootNumber(1, 2)))
                             .add(lootItem(Items.GOLD_INGOT, 3, one()))
+                            .add(lootItem(Items.EXPERIENCE_BOTTLE, 3, one()))
                             .add(lootItem(Items.IRON_NUGGET, 4, lootNumber(1, 2)))
                             .add(lootItem(Items.IRON_INGOT, 2, one()))
                             .add(lootItem(Items.GOLDEN_CARROT, 2, one()))
@@ -198,6 +200,7 @@ public class DELootGenerator extends LootTableProvider {
                             .add(lootItem(Items.IRON_AXE, 1, one()))
                             .add(lootItem(Items.IRON_SWORD, 1, one()))
                             .add(lootItem(Items.CROSSBOW, 1, one()))
+                            .add(lootItem(Items.MAP, 1, one()))
                             .add(lootItem(Items.COBWEB, 4, one()))
                             .add(lootItem(Items.GOLDEN_APPLE, 2, one()))
                             .add(lootItem(Items.ARROW, 6, lootNumber(2, 3))))
@@ -229,6 +232,7 @@ public class DELootGenerator extends LootTableProvider {
                             .add(lootItem(Items.STRING, 8, lootNumber(1, 3)))
                             .add(lootItem(Items.BREAD, 4, lootNumber(1, 3)))
                             .add(suspiciousStew(1, one()))
+                            .add(lootItem(Items.MAP, 2, one()))
                             .add(lootItem(Items.LEATHER_HELMET, 1, one()))
                             .add(lootItem(Items.LEATHER_CHESTPLATE, 1, one()))
                             .add(lootItem(Items.LEATHER_LEGGINGS, 1, one()))
@@ -273,11 +277,9 @@ public class DELootGenerator extends LootTableProvider {
         private LootPoolEntryContainer.Builder<?> lootItem(Item item, int weight, NumberProvider amount){
             return LootItem.lootTableItem(item).setWeight(weight).apply(SetItemCountFunction.setCount(amount));
         }
-
         private LootPoolEntryContainer.Builder<?> enchantedLootItem(Item item, int weight, NumberProvider enchant, NumberProvider amount){
             return LootItem.lootTableItem(item).setWeight(weight).apply(SetItemCountFunction.setCount(amount)).apply(EnchantWithLevelsFunction.enchantWithLevels(enchant));
         }
-
         private LootPoolEntryContainer.Builder<?> suspiciousStew(int weight, NumberProvider amount){
             return LootItem.lootTableItem(Items.SUSPICIOUS_STEW).setWeight(weight).apply(SetItemCountFunction.setCount(amount)).apply(SetStewEffectFunction.stewEffect().withEffect(MobEffects.NIGHT_VISION, UniformGenerator.between(7.0F, 10.0F)).withEffect(MobEffects.JUMP, UniformGenerator.between(7.0F, 10.0F)).withEffect(MobEffects.WEAKNESS, UniformGenerator.between(6.0F, 8.0F)).withEffect(MobEffects.BLINDNESS, UniformGenerator.between(5.0F, 7.0F)).withEffect(MobEffects.POISON, UniformGenerator.between(10.0F, 20.0F)).withEffect(MobEffects.SATURATION, UniformGenerator.between(7.0F, 10.0F)));
         }
@@ -285,11 +287,9 @@ public class DELootGenerator extends LootTableProvider {
         private NumberProvider one(){
             return ConstantValue.exactly(1);
         }
-
         private NumberProvider lootNumber(int amount){
             return ConstantValue.exactly(amount);
         }
-
         private NumberProvider lootNumber(int minAmount, int maxAmount){
             return UniformGenerator.between(minAmount, maxAmount);
         }

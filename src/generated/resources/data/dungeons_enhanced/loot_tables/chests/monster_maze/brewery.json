@@ -4,8 +4,8 @@
     {
       "rolls": {
         "type": "minecraft:uniform",
-        "min": 7.0,
-        "max": 11.0
+        "min": 10.0,
+        "max": 15.0
       },
       "bonus_rolls": 0.0,
       "entries": [
@@ -78,6 +78,17 @@
             }
           ],
           "name": "minecraft:rabbit_foot"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1.0,
+              "add": false
+            }
+          ],
+          "name": "minecraft:experience_bottle"
         },
         {
           "type": "minecraft:item",

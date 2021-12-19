@@ -59,21 +59,6 @@
         },
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 2.0,
-                "max": 3.0
-              },
-              "add": false
-            }
-          ],
-          "name": "minecraft:experience_bottle"
-        },
-        {
-          "type": "minecraft:item",
           "weight": 2,
           "functions": [
             {
