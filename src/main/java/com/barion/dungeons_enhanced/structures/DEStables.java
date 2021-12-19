@@ -22,7 +22,12 @@ import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.template.PlacementSettings;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.Objects;
 import java.util.Random;
+
+import static com.barion.dungeons_enhanced.DEUtil.Offset;
 
 public class DEStables extends DESimpleStructure {
     public DEStables() {
@@ -31,7 +36,7 @@ public class DEStables extends DESimpleStructure {
         Offset = Offset(-8,-6,-13);
     }
 
-    @Override
+    @Override @Nonnull
     public IStartFactory<NoFeatureConfig> getStartFactory() {
         return Start::new;
     }
@@ -41,7 +46,7 @@ public class DEStables extends DESimpleStructure {
             super(structureIn, chunkX, chunkZ, boundsIn, referenceIn, seed);
         }
 
-        @Override
+        @Override @ParametersAreNonnullByDefault
         public void generatePieces(DynamicRegistries registry, ChunkGenerator chunkGen, TemplateManager templateManagerIn, int chunkX, int chunkZ, Biome biomeIn, NoFeatureConfig configIn) {
             int x = chunkX * 16 + Offset.getX();
             int z = chunkZ * 16 + Offset.getZ();
@@ -75,7 +80,7 @@ public class DEStables extends DESimpleStructure {
 
         @Override
         public PlacementSettings createPlacementSettings(TemplateManager templateManager) {
-            BlockPos sizePos = templateManager.get(this.name).getSize();
+            BlockPos sizePos = Objects.requireNonNull(templateManager.get(this.name)).getSize();
             BlockPos centerPos = new BlockPos(sizePos.getX() / 2, 0, sizePos.getZ() / 2);
             return new GelPlacementSettings().setMaintainWater(false).setRotation(this.rotation).setMirror(Mirror.NONE).setRotationPivot(centerPos);
         }
@@ -85,7 +90,7 @@ public class DEStables extends DESimpleStructure {
             super.addProcessors(templateManager, placementSettings);
         }
 
-        @Override
+        @Override @ParametersAreNonnullByDefault
         protected void handleDataMarker(String key, BlockPos pos, IServerWorld world, Random rnd, MutableBoundingBox bounds) {
 
         }

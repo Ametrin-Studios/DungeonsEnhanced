@@ -13,6 +13,8 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 import java.util.List;
 import java.util.Random;
 
+import static com.barion.dungeons_enhanced.DEUtil.Offset;
+
 public class DEIcePit extends DESimpleStructure {
     public DEIcePit(){
         super(DEConfig.COMMON.ice_pit);

@@ -147,7 +147,4 @@ public class DESimpleStructure extends GelConfigStructure<NoFeatureConfig> {
     public Block getBlockAt(int x, int y, int z){
         return chunkGen.getBaseColumn(x, z).getBlockState(new BlockPos(x, y, z)).getBlock();
     }
-    protected static BlockPos Offset(int x, int y, int z){
-        return new BlockPos(x, y, z);
-    }
 }

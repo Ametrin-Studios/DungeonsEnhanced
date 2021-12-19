@@ -123,7 +123,4 @@ public class DEUndergroundStructure extends GelConfigStructure<NoFeatureConfig> 
         @Override @ParametersAreNonnullByDefault
         protected void handleDataMarker(String key, BlockPos pos, IServerWorld world, Random rnd, MutableBoundingBox bounds){}
     }
-    protected static BlockPos Offset(int x, int y, int z){
-        return new BlockPos(x, y, z);
-    }
 }

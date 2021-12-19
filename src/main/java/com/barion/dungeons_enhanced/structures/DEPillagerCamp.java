@@ -4,6 +4,8 @@ import com.barion.dungeons_enhanced.DEConfig;
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.structures.prefabs.DESimpleStructure;
 
+import static com.barion.dungeons_enhanced.DEUtil.Offset;
+
 public class DEPillagerCamp extends DESimpleStructure {
     public DEPillagerCamp(){
         super(DEConfig.COMMON.pillager_camp);

@@ -4,6 +4,8 @@ import com.barion.dungeons_enhanced.DEConfig;
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.structures.prefabs.DECellarStructure;
 
+import static com.barion.dungeons_enhanced.DEUtil.Offset;
+
 public class DEDruidCircle extends DECellarStructure {
     public DEDruidCircle(){
         super(DEConfig.COMMON.druid_circle);
