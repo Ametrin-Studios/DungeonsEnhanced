@@ -8,6 +8,6 @@ import static com.barion.dungeons_enhanced.DEUtil.Offset;
 
 public class DEWitchTower extends DESimpleStructure {
     public DEWitchTower() {
-        super(DEConfig.COMMON.witch_tower, new DEPiece("witch_tower", Offset(-5,0,-5)));
+        super(DEConfig.COMMON.witch_tower, new DEPiece("witch_tower/normal", Offset(-5,0,-5)));
     }
 }
