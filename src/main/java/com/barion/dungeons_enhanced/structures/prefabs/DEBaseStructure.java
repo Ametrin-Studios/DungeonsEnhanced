@@ -45,16 +45,16 @@ public class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration
     protected DEPiece[] Variants;
     protected final GenerationType generationType;
     protected int maxWeight;
-    protected boolean generateNearWorldSpawn;
+    protected boolean generateNearSpawn;
 
-    public DEBaseStructure(StructureConfig config, GenerationType generation, boolean generateNearWorldSpawn, DEPiece... resources) {
-        this(config, generation, generateNearWorldSpawn);
+    public DEBaseStructure(StructureConfig config, GenerationType generation, boolean generateNearSpawn, DEPiece... resources) {
+        this(config, generation, generateNearSpawn);
         Variants = resources;
         maxWeight = getMaxWeight();
     }
 
-    public DEBaseStructure(StructureConfig config, GenerationType generation, BlockPos offset, boolean generateNearWorldSpawn, DEPiece... resources) {
-        this(config, generation, generateNearWorldSpawn);
+    public DEBaseStructure(StructureConfig config, GenerationType generation, BlockPos offset, boolean generateNearSpawn, DEPiece... resources) {
+        this(config, generation, generateNearSpawn);
         for(DEPiece resource : resources){
             resource.Offset = offset;
         }
@@ -65,7 +65,7 @@ public class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration
     public DEBaseStructure(StructureConfig config, GenerationType generationType, boolean generateNearWorldSpawn){
         super(NoneFeatureConfiguration.CODEC, config);
         this.generationType = generationType;
-        this.generateNearWorldSpawn = generateNearWorldSpawn;
+        this.generateNearSpawn = generateNearWorldSpawn;
         setLakeProof(true);
     }
 
@@ -75,7 +75,7 @@ public class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration
     }
 
     @Override
-    public boolean isAllowedNearWorldSpawn() {return generateNearWorldSpawn;}
+    public boolean isAllowedNearWorldSpawn() {return generateNearSpawn;}
 
     @Override
     protected boolean isFeatureChunk(ChunkGenerator chunkGen, BiomeSource biomeSource, long seed, WorldgenRandom rand, ChunkPos chunkPos, Biome biome, ChunkPos potentialChunkPos, NoneFeatureConfiguration config, LevelHeightAccessor heightAccessor) {
@@ -85,15 +85,18 @@ public class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration
             int x = chunkPos.x * 16;
             int z = chunkPos.z * 16;
             int y = chunkGen.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, heightAccessor);
-            int tempY = y + 3;
             if(getBlockAt(x, y-1, z) == Blocks.WATER){
+                DungeonsEnhanced.LOGGER.info("Structure Canceled because Water");
                 return false;
             }
+            int tempY = y+3;
             if(getBlockAt(x+3, tempY, z) != Blocks.AIR || getBlockAt(x-3, tempY, z) != Blocks.AIR || getBlockAt(x, tempY, z+3) != Blocks.AIR || getBlockAt(x, tempY, z-3) != Blocks.AIR){
+                DungeonsEnhanced.LOGGER.info("Structure Canceled because Cliff");
                 return false;
             }
             tempY = y-3;
             if(getBlockAt(x+3, tempY, z) == Blocks.AIR || getBlockAt(x-3, tempY, z) == Blocks.AIR || getBlockAt(x, tempY, z+3) == Blocks.AIR || getBlockAt(x, tempY, z-3) == Blocks.AIR){
+                DungeonsEnhanced.LOGGER.info("Structure Canceled because Cliff");
                 return false;
             }
         }
@@ -120,7 +123,6 @@ public class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration
                     y = maxY;
                 } else {
                     y = minY + random.nextInt(maxY - minY);
-                    DungeonsEnhanced.LOGGER.info(y);
                 }
             } else if(generationType == GenerationType.underground){
                 int minY = 10;
@@ -142,7 +144,6 @@ public class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration
         int piece = 0;
         if(Variants.length > 1) {
             int i = rand.nextInt(maxWeight+1);
-            DungeonsEnhanced.LOGGER.info(i);
             for (int j = 0; j < Variants.length; j++) {
                 if (Variants[j].Weight >= i) {
                     piece = j;

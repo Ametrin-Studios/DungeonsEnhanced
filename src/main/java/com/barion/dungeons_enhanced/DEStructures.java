@@ -42,9 +42,9 @@ public class DEStructures {
     public static final StructureRegistrar<NoneFeatureConfiguration, DEStables> Stables;
     public static final StructureRegistrar<NoneFeatureConfiguration, DETallWitchHut> TallWitchHut;
     public static final StructureRegistrar<NoneFeatureConfiguration, DETreeHouse> TreeHouse;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DETowerOfTheUndead> TowerOfTheUndead;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DEWatchTower> WatchTower;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DEWitchTower> WitchTower;
+    public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> TowerOfTheUndead;
+    public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> WatchTower;
+    public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> WitchTower;
 
     public DEStructures(){}
 
@@ -68,11 +68,10 @@ public class DEStructures {
         Stables = register("stables", new DEStables(), DESimpleStructure.Piece::new);
         TallWitchHut = register("tall_witch_hut", new DETallWitchHut(), DESimpleStructure.Piece::new);
         TreeHouse = register("tree_house", new DETreeHouse(), DESimpleStructure.Piece::new);
-        TowerOfTheUndead = register("tower_of_the_undead", new DETowerOfTheUndead(), DESimpleStructure.Piece::new);
-        WatchTower = register("watch_tower", new DEWatchTower(), DESimpleStructure.Piece::new);
-        WitchTower = register("witch_tower", new DEWitchTower(), DESimpleStructure.Piece::new);
+        TowerOfTheUndead = register("tower_of_the_undead", new DESimpleStructure(DEConfig.COMMON.tower_of_the_undead, true, new DEPiece("tower_of_the_undead/big", Offset(-7, 0, -7), 2), new DEPiece("tower_of_the_undead/small", Offset(-5, 0, -5), 3)), DESimpleStructure.Piece::new);
+        WatchTower = register("watch_tower", new DESimpleStructure(DEConfig.COMMON.watch_tower, true, new DEPiece("watch_tower", Offset(-4,0,-4))), DESimpleStructure.Piece::new);
+        WitchTower = register("witch_tower", new DESimpleStructure(DEConfig.COMMON.witch_tower, true, new DEPiece("witch_tower/normal", Offset(-6,0,-5), 3), new DEPiece("witch_tower/big", Offset(-7,0,-7), 1)), DESimpleStructure.Piece::new);
     }
-
 
     @SubscribeEvent
     public static void onRegistry(final RegistryEvent.Register<StructureFeature<?>> event){
