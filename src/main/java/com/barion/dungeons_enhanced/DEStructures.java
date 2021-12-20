@@ -20,7 +20,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 
 import static com.barion.dungeons_enhanced.DEUtil.Offset;
-import static com.barion.dungeons_enhanced.DEUtil.locate;
+import static com.barion.dungeons_enhanced.DEUtil.createRegistryName;
 
 public class DEStructures {
     public static final StructureRegistrar<NoneFeatureConfiguration, DECastle> Castle;
@@ -29,7 +29,7 @@ public class DEStructures {
     public static final StructureRegistrar<NoneFeatureConfiguration, DEDesertTomb> DesertTomb;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEDruidCircle> DruidCircle;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEDungeonVariant> DungeonVariant;
-    //public static final StructureRegistrar<NoneFeatureConfiguration, DEFlyingDutchman> FlyingDutchman;
+    //public static final StructureRegistrar<NoneFeatureConfiguration, DEFloatingStructure> FlyingDutchman;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEHayStorage> HayStorage;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEIcePit> IcePit;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEJungleMonument> JungleMonument;
@@ -50,16 +50,16 @@ public class DEStructures {
 
     static {
         Castle = register("castle", new DECastle(), DECellarStructure.Piece::new);
-        CastleB = GelStructureRegistrar.of(new ResourceLocation(""), new DECellar(new DEPiece("castle/bottom", Offset(0, -5, 0)), Castle), DECellar.Piece::new, NoneFeatureConfiguration.INSTANCE, GenerationStep.Decoration.SURFACE_STRUCTURES);
+        CastleB = GelStructureRegistrar.of(new ResourceLocation(""), new DECellar(Castle, new DEPiece("castle/bottom1", Offset(0, -5, 0)), new DEPiece("castle/bottom2", Offset(0, -5, 0))), DECellar.Piece::new, NoneFeatureConfiguration.INSTANCE, GenerationStep.Decoration.SURFACE_STRUCTURES);
         DesertTemple = register("desert_temple", new DEDesertTemple(), DESimpleStructure.Piece::new);
         DesertTomb = register("desert_tomb", new DEDesertTomb(), DESimpleStructure.Piece::new);
         DruidCircle = register("druid_circle", new DEDruidCircle(), DECellarStructure.Piece::new);
         DungeonVariant = register("dungeon_variant", new DEDungeonVariant(), DEUndergroundStructure.Piece::new, GenerationStep.Decoration.UNDERGROUND_STRUCTURES);
-        //FlyingDutchman = register("flying_dutchman", new DEFlyingDutchman(), DEFlyingDutchman.Piece::new, GenerationStep.Decoration.SURFACE_STRUCTURES);
+        //FlyingDutchman = register("flying_dutchman", new DEFloatingStructure(DEConfig.COMMON.flying_dutchman, false, new DEPiece("flying_dutchman", Offset(-4, 0, -15))), DEFloatingStructure.Piece::new);
         HayStorage = register("hay_storage", new DEHayStorage(), DESimpleStructure.Piece::new);
         IcePit = register("ice_pit", new DEIcePit(), DESimpleStructure.Piece::new);
         JungleMonument = register("jungle_monument", new DEJungleMonument(), DESimpleStructure.Piece::new);
-        LargeDungeon = GelStructureRegistrar.of(locate("large_dungeon"), new DELargeDungeon(), DESimpleStructure.Piece::new, NoneFeatureConfiguration.INSTANCE, GenerationStep.Decoration.SURFACE_STRUCTURES);
+        LargeDungeon = GelStructureRegistrar.of(createRegistryName("large_dungeon"), new DELargeDungeon(), DESimpleStructure.Piece::new, NoneFeatureConfiguration.INSTANCE, GenerationStep.Decoration.SURFACE_STRUCTURES);
         MinersHouse = register("miners_house", new DEMinersHouse(), DESimpleStructure.Piece::new);
         MonsterMaze = registerJigsaw("monster_maze", new DEMonsterMaze(), DEMonsterMazePool.Root, DEMonsterMaze.Piece::new, GenerationStep.Decoration.SURFACE_STRUCTURES);
         MushroomHouse = register("mushroom_house", new DEMushroomHouse(), DESimpleStructure.Piece::new);
@@ -102,18 +102,19 @@ public class DEStructures {
         WatchTower.handleForge(registry);
         WitchTower.handleForge(registry);
 
-        noiseAffecting(RuinedStructure, DruidCircle, TowerOfTheUndead, HayStorage, DruidCircle, MinersHouse, MushroomHouse, WatchTower, WitchTower, Castle, PillagerCamp, TreeHouse);
+        DungeonsEnhanced.LOGGER.info("Structures Loaded");
+        noiseAffecting(RuinedStructure, DruidCircle, TowerOfTheUndead, HayStorage, DruidCircle, MinersHouse, MushroomHouse, WatchTower, WitchTower, Castle, PillagerCamp, TreeHouse, MonsterMaze);
     }
 
     private static  <S extends GelConfigStructure<NoneFeatureConfiguration>> StructureRegistrar<NoneFeatureConfiguration, S> register(String registryName, S structure, StructurePieceType piece){
-        return GelStructureRegistrar.of(locate(registryName), structure, piece, NoneFeatureConfiguration.INSTANCE, GenerationStep.Decoration.SURFACE_STRUCTURES);
+        return GelStructureRegistrar.of(createRegistryName(registryName), structure, piece, NoneFeatureConfiguration.INSTANCE, GenerationStep.Decoration.SURFACE_STRUCTURES);
     }
     private static  <S extends GelConfigStructure<NoneFeatureConfiguration>> StructureRegistrar<NoneFeatureConfiguration, S> register(String registryName, S structure, StructurePieceType piece, GenerationStep.Decoration decoration){
-        return GelStructureRegistrar.of(locate(registryName), structure, piece, NoneFeatureConfiguration.INSTANCE, decoration);
+        return GelStructureRegistrar.of(createRegistryName(registryName), structure, piece, NoneFeatureConfiguration.INSTANCE, decoration);
     }
 
     private static  <S extends GelConfigJigsawStructure> StructureRegistrar<JigsawConfiguration, S> registerJigsaw(String registryName, S structure, StructureTemplatePool root, StructurePieceType piece, GenerationStep.Decoration decoration){
-        return GelStructureRegistrar.of(locate(registryName), structure, piece, new JigsawConfiguration(() -> root, 8), decoration);
+        return GelStructureRegistrar.of(createRegistryName(registryName), structure, piece, new JigsawConfiguration(() -> root, 8), decoration);
     }
 
     private static void noiseAffecting(StructureRegistrar<?, ?>... structureRegs){

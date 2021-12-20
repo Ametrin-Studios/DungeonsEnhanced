@@ -11,12 +11,12 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureMana
 import java.util.List;
 import java.util.Random;
 
-import static com.barion.dungeons_enhanced.DEUtil.locate;
+import static com.barion.dungeons_enhanced.DEUtil.createRegistryName;
 
 public class DELargeDungeon extends DESimpleStructure {
-    private final ResourceLocation Top = locate("large_dungeon/top");
-    private final ResourceLocation Stairs = locate("large_dungeon/stairs");
-    private final ResourceLocation MainPiece = locate("large_dungeon/main");
+    private final ResourceLocation Top = createRegistryName("large_dungeon/top");
+    private final ResourceLocation Stairs = createRegistryName("large_dungeon/stairs");
+    private final ResourceLocation MainPiece = createRegistryName("large_dungeon/main");
 
     public DELargeDungeon(){
         super(DEConfig.COMMON.large_dungeon, true);

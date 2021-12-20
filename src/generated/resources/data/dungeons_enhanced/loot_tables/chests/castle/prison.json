@@ -19,7 +19,7 @@
               "add": false
             }
           ],
-          "name": "minecraft:paper"
+          "name": "minecraft:chain"
         },
         {
           "type": "minecraft:item",
@@ -31,7 +31,7 @@
               "add": false
             }
           ],
-          "name": "minecraft:chain"
+          "name": "minecraft:paper"
         },
         {
           "type": "minecraft:item",
@@ -44,18 +44,6 @@
             }
           ],
           "name": "minecraft:rotten_flesh"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 2,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
-            }
-          ],
-          "name": "minecraft:potato"
         },
         {
           "type": "minecraft:item",
@@ -95,6 +83,7 @@
         },
         {
           "type": "minecraft:item",
+          "weight": 2,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -102,40 +91,7 @@
               "add": false
             }
           ],
-          "name": "minecraft:map"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
-            }
-          ],
-          "name": "minecraft:lead"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
-            }
-          ],
-          "name": "minecraft:mushroom_stew"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
-            }
-          ],
-          "name": "minecraft:candle"
+          "name": "minecraft:bowl"
         },
         {
           "type": "minecraft:item",
@@ -204,7 +160,6 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 2,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -212,80 +167,7 @@
               "add": false
             }
           ],
-          "name": "minecraft:bowl"
-        }
-      ]
-    },
-    {
-      "rolls": {
-        "type": "minecraft:uniform",
-        "min": 0.0,
-        "max": 1.0
-      },
-      "bonus_rolls": 0.0,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "weight": 4,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
-            },
-            {
-              "function": "minecraft:enchant_with_levels",
-              "levels": {
-                "type": "minecraft:uniform",
-                "min": 5.0,
-                "max": 10.0
-              },
-              "treasure": false
-            }
-          ],
-          "name": "minecraft:stone_pickaxe"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 3,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
-            },
-            {
-              "function": "minecraft:enchant_with_levels",
-              "levels": {
-                "type": "minecraft:uniform",
-                "min": 5.0,
-                "max": 10.0
-              },
-              "treasure": false
-            }
-          ],
-          "name": "minecraft:golden_pickaxe"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 2,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
-            },
-            {
-              "function": "minecraft:enchant_with_levels",
-              "levels": {
-                "type": "minecraft:uniform",
-                "min": 5.0,
-                "max": 10.0
-              },
-              "treasure": false
-            }
-          ],
-          "name": "minecraft:iron_pickaxe"
+          "name": "minecraft:chainmail_helmet"
         },
         {
           "type": "minecraft:item",
@@ -294,18 +176,31 @@
               "function": "minecraft:set_count",
               "count": 1.0,
               "add": false
-            },
-            {
-              "function": "minecraft:enchant_with_levels",
-              "levels": {
-                "type": "minecraft:uniform",
-                "min": 5.0,
-                "max": 10.0
-              },
-              "treasure": false
             }
           ],
-          "name": "minecraft:diamond_pickaxe"
+          "name": "minecraft:chainmail_chestplate"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1.0,
+              "add": false
+            }
+          ],
+          "name": "minecraft:chainmail_leggings"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1.0,
+              "add": false
+            }
+          ],
+          "name": "minecraft:chainmail_boots"
         }
       ]
     }

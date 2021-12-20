@@ -8,6 +8,6 @@ import static com.barion.dungeons_enhanced.DEUtil.Offset;
 
 public class DECastle extends DECellarStructure {
     public DECastle(){
-        super(DEConfig.COMMON.castle, false, new DEPiece("castle/top", Offset(-16, 0, -16)));
+        super(DEConfig.COMMON.castle, false, new DEPiece("castle/top1", Offset(-16, 0, -16)), new DEPiece("castle/top2", Offset(-15, 0, -21)));
     }
 }

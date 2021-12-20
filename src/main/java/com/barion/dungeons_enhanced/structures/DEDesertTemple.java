@@ -12,10 +12,10 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureMana
 import java.util.List;
 import java.util.Random;
 
-import static com.barion.dungeons_enhanced.DEUtil.locate;
+import static com.barion.dungeons_enhanced.DEUtil.createRegistryName;
 
 public class DEDesertTemple extends DESimpleStructure {
-    private final ResourceLocation Bottom = locate("desert_temple/down");
+    private final ResourceLocation Bottom = createRegistryName("desert_temple/down");
 
     public DEDesertTemple(){
         super(DEConfig.COMMON.desert_temple, false, new DEPiece("desert_temple/main"));

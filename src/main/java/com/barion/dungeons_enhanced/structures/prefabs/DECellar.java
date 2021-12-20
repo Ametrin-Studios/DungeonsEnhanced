@@ -23,7 +23,7 @@ import java.util.Random;
 public class DECellar extends DEBaseStructure {
     protected DECellarStructure Parent;
 
-    public <S extends DECellarStructure> DECellar(DEPiece resource, StructureRegistrar<NoneFeatureConfiguration, S> parent) {
+    public <S extends DECellarStructure> DECellar(StructureRegistrar<NoneFeatureConfiguration, S> parent, DEPiece... resource) {
         super(parent.getStructure().getConfig(), parent.getStructure().generationType, parent.getStructure().isAllowedNearWorldSpawn(), resource);
         Parent = parent.getStructure();
     }
@@ -38,7 +38,8 @@ public class DECellar extends DEBaseStructure {
 
     @Override
     public void assemble(StructureManager structureManager, BlockPos pos, Rotation rotation, List<StructurePiece> structurePieces, Random rand) {
-        structurePieces.add(new Piece(structureManager, Variants[0].Resource, pos.offset(Parent.Variants[0].Offset).offset(Variants[0].Offset), rotation));
+        int var = Parent.lastPiece;
+        structurePieces.add(new Piece(structureManager, Variants[var].Resource, pos.offset(Parent.Variants[var].Offset).offset(Variants[var].Offset), rotation));
     }
 
     @Override

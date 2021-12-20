@@ -2,11 +2,13 @@ package com.barion.dungeons_enhanced.structures.prefabs;
 
 import com.barion.dungeons_enhanced.DEStructures;
 import com.legacy.structure_gel.api.config.StructureConfig;
+import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 
@@ -14,23 +16,38 @@ import java.util.List;
 import java.util.Random;
 
 public class DECellarStructure extends DEBaseStructure {
-    protected DEPiece Cellar;
+    protected DEPiece CellarPiece;
+    protected StructureRegistrar<NoneFeatureConfiguration, ?> CellarStructure;
+    public int lastPiece;
 
     public DECellarStructure(DEPiece resourceTop, DEPiece resourceBottom, boolean generateNearSpawn, StructureConfig config){
-        this(config, generateNearSpawn, resourceTop);
-        Cellar = resourceBottom;
+        super(config, GenerationType.onGround, generateNearSpawn, resourceTop);
+        CellarPiece = resourceBottom;
     }
-    public DECellarStructure(StructureConfig config, boolean generateNearSpawn, DEPiece resource){
-        super(config, GenerationType.onGround, generateNearSpawn, resource);
-        Cellar = null;
+    public <S extends DECellar> DECellarStructure(StructureConfig config, boolean generateNearSpawn, DEPiece... resources){
+        super(config, GenerationType.onGround, generateNearSpawn, resources);
+        CellarPiece = null;
     }
 
     @Override
     public void assemble(StructureManager structureManager, BlockPos pos, Rotation rotation, List<StructurePiece> structurePieces, Random rand) {
-        pos = pos.offset(Variants[0].Offset);
-        structurePieces.add(new DECellarStructure.Piece(structureManager, Variants[0].Resource, pos, rotation));
-        if (Cellar != null) {
-            structurePieces.add(new DECellarStructure.Piece(structureManager, Cellar.Resource, pos.offset(Cellar.Offset), rotation));
+        int piece = 0;
+        if(Variants.length > 1) {
+            int i = rand.nextInt(maxWeight+1);
+            for (int j = 0; j < Variants.length; j++) {
+                if (Variants[j].Weight >= i) {
+                    piece = j;
+                    break;
+                } else {
+                    i -= Variants[j].Weight;
+                }
+            }
+        }
+        lastPiece = piece;
+        pos = pos.offset(Variants[piece].Offset);
+        structurePieces.add(new DECellarStructure.Piece(structureManager, Variants[piece].Resource, pos, rotation));
+        if (CellarPiece != null) {
+            structurePieces.add(new DECellarStructure.Piece(structureManager, CellarPiece.Resource, pos.offset(CellarPiece.Offset), rotation));
         }
     }
 

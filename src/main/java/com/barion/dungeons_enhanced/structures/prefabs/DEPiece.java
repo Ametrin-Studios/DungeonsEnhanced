@@ -3,14 +3,14 @@ package com.barion.dungeons_enhanced.structures.prefabs;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 
-import static com.barion.dungeons_enhanced.DEUtil.locate;
+import static com.barion.dungeons_enhanced.DEUtil.createRegistryName;
 
 public class DEPiece {
     public final ResourceLocation Resource;
     public BlockPos Offset;
     public int Weight;
     public DEPiece(String resource, BlockPos offset, int weight){
-        Resource = locate(resource);
+        Resource = createRegistryName(resource);
         Offset = offset;
         Weight = weight;
     }

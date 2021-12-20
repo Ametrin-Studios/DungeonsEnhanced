@@ -62,7 +62,7 @@ public class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration
         maxWeight = getMaxWeight();
     }
 
-    public DEBaseStructure(StructureConfig config, GenerationType generationType, boolean generateNearWorldSpawn){
+    private DEBaseStructure(StructureConfig config, GenerationType generationType, boolean generateNearWorldSpawn){
         super(NoneFeatureConfiguration.CODEC, config);
         this.generationType = generationType;
         this.generateNearSpawn = generateNearWorldSpawn;
