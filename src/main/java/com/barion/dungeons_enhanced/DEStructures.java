@@ -38,7 +38,7 @@ public class DEStructures {
     public static final StructureRegistrar<JigsawConfiguration, DEMonsterMaze> MonsterMaze;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEMushroomHouse> MushroomHouse;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEPillagerCamp> PillagerCamp;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> RuinedStructure;
+    public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> RuinedBuilding;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEStables> Stables;
     public static final StructureRegistrar<NoneFeatureConfiguration, DETallWitchHut> TallWitchHut;
     public static final StructureRegistrar<NoneFeatureConfiguration, DETreeHouse> TreeHouse;
@@ -64,7 +64,7 @@ public class DEStructures {
         MonsterMaze = registerJigsaw("monster_maze", new DEMonsterMaze(), DEMonsterMazePool.Root, DEMonsterMaze.Piece::new, GenerationStep.Decoration.SURFACE_STRUCTURES);
         MushroomHouse = register("mushroom_house", new DEMushroomHouse(), DESimpleStructure.Piece::new);
         PillagerCamp = register("pillager_camp", new DEPillagerCamp(), DESimpleStructure.Piece::new);
-        RuinedStructure = register("ruined_structure", new DESimpleStructure(DEConfig.COMMON.ruined_structure, true, new DEPiece("ruined/house", Offset(-5, 0, -5)), new DEPiece("ruined/house2", Offset(-5, 0, -5)), new DEPiece("ruined/barn", Offset(-5, 0, -5))), DESimpleStructure.Piece::new);
+        RuinedBuilding = register("ruined_building", new DESimpleStructure(DEConfig.COMMON.ruined_building, true, new DEPiece("ruined/house", Offset(-5, 0, -5)), new DEPiece("ruined/house2", Offset(-5, 0, -5)), new DEPiece("ruined/barn", Offset(-5, 0, -5))), DESimpleStructure.Piece::new);
         Stables = register("stables", new DEStables(), DESimpleStructure.Piece::new);
         TallWitchHut = register("tall_witch_hut", new DETallWitchHut(), DESimpleStructure.Piece::new);
         TreeHouse = register("tree_house", new DETreeHouse(), DESimpleStructure.Piece::new);
@@ -81,7 +81,7 @@ public class DEStructures {
 
         Castle.handleForge(registry);
         CastleB.handleForge(registry);
-        RuinedStructure.handleForge(registry);
+        RuinedBuilding.handleForge(registry);
         DesertTemple.handleForge(registry);
         DesertTomb.handleForge(registry);
         DruidCircle.handleForge(registry);
@@ -103,7 +103,7 @@ public class DEStructures {
         WitchTower.handleForge(registry);
 
         DungeonsEnhanced.LOGGER.info("Structures Loaded");
-        noiseAffecting(RuinedStructure, DruidCircle, TowerOfTheUndead, HayStorage, DruidCircle, MinersHouse, MushroomHouse, WatchTower, WitchTower, Castle, PillagerCamp, TreeHouse, MonsterMaze);
+        noiseAffecting(RuinedBuilding, DruidCircle, TowerOfTheUndead, HayStorage, DruidCircle, MinersHouse, MushroomHouse, WatchTower, WitchTower, Castle, PillagerCamp, TreeHouse, MonsterMaze);
     }
 
     private static  <S extends GelConfigStructure<NoneFeatureConfiguration>> StructureRegistrar<NoneFeatureConfiguration, S> register(String registryName, S structure, StructurePieceType piece){

@@ -30,7 +30,7 @@ public class DEEvents {
             addToBiomes(DEStructures.MonsterMaze);
             addToBiomes(DEStructures.MushroomHouse);
             addToBiomes(DEStructures.PillagerCamp);
-            addToBiomes(DEStructures.RuinedStructure);
+            addToBiomes(DEStructures.RuinedBuilding);
             addToBiomes(DEStructures.Stables);
             addToBiomes(DEStructures.TallWitchHut);
             addToBiomes(DEStructures.TreeHouse);

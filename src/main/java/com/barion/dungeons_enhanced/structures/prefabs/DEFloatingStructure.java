@@ -16,7 +16,7 @@ public class DEFloatingStructure extends DEBaseStructure{
 
     public static class Piece extends DEBaseStructure.Piece {
         public Piece(StructureManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation, int componentType) {
-            super(DEStructures.RuinedStructure.getPieceType(), componentType, structureManager, templateName, pos, rotation);
+            super(DEStructures.RuinedBuilding.getPieceType(), componentType, structureManager, templateName, pos, rotation);
         }
 
         public Piece(StructureManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation) {
@@ -24,7 +24,7 @@ public class DEFloatingStructure extends DEBaseStructure{
         }
 
         public Piece(ServerLevel level, CompoundTag nbt) {
-            super(DEStructures.RuinedStructure.getPieceType(), nbt, level);
+            super(DEStructures.RuinedBuilding.getPieceType(), nbt, level);
         }
     }
 }

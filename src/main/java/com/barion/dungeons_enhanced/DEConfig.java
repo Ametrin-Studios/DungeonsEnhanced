@@ -16,7 +16,7 @@ public class DEConfig {
     public static class Common {
         private final ForgeConfigSpec.Builder builder;
         public final StructureConfig castle;
-        public final StructureConfig ruined_structure;
+        public final StructureConfig ruined_building;
         public final StructureConfig druid_circle;
         //public final StructureConfig flying_dutchman;
         public final StructureConfig hay_Storage;
@@ -53,7 +53,7 @@ public class DEConfig {
             monster_maze = Configs("Monster Maze", 34, 50, true, "#structure_gel:spooky", "#structure_gel:pumpkin", "!#structure_gel:sandy");
             mushroom_house = Configs("Mushroom House", 15, 90, true, "minecraft:mushroom_fields", "minecraft:mushroom_field_shore");
             pillager_camp = Configs("Pillager Camp", 49, 35, true, "#structure_gel:neutral_temp", "!#structure_gel:mountain", "!#structure_gel:wooded");
-            ruined_structure = Configs("Ruined Structures", 22, 50, true, "#structure_gel:neutral_temp");
+            ruined_building = Configs("Ruined Structures", 22, 50, true, "#structure_gel:neutral_temp");
             stables = Configs("Stables", 46, 32, true, "#structure_gel:neutral_temp", "!#structure_gel:mountain", "!#structure_gel:wooded");
             tall_witch_hut = Configs("Tall Witch Hut", 18, 60, true, "#structure_gel:humid", "!#structure_gel:tropical", "!#structure_gel:jungle", "#structure_gel:pumpkin");
             tower_of_the_undead = Configs("Tower of the Undead", 37, 35, true, "#structure_gel:neutral_temp", "#structure_gel:savanna", "!#structure_gel:mountain", "#structure_gel:swamp");
