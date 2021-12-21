@@ -12,8 +12,8 @@ public class DEUtil{
     public static ResourceLocation createRegistryName(String key){ return new ResourceLocation(DungeonsEnhanced.Mod_ID, key);}
     public static BlockPos Offset(int x, int y, int z){return new BlockPos(x, y, z);}
 
-    public class Processors {
-        public static final StructureProcessorList AirToCobweb = register("air_to_cobweb", new RandomBlockSwapProcessor(Blocks.AIR, Blocks.COBWEB));
+    public static class Processors {
+        public static final StructureProcessorList AirToCobweb = register("air_to_cobweb", new RandomBlockSwapProcessor(Blocks.AIR, 0.02f, Blocks.COBWEB));
 
         private static StructureProcessorList register(String key, StructureProcessor processor){
             return RegistryHelper.registerProcessor(createRegistryName(key), processor);

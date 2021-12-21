@@ -51,7 +51,7 @@ public class DELootGenerator extends LootTableProvider {
         @Override @ParametersAreNonnullByDefault
         public void accept(BiConsumer<ResourceLocation, LootTable.Builder> lootTable){
             {lootTable.accept(location("flying_dutchman"), LootTable.lootTable()
-                    .withPool(LootPool.lootPool().setRolls(lootNumber(7, 9))
+                    .withPool(lootPool(lootNumber(7, 9))
                             .add(lootItem(Items.SKULL_BANNER_PATTERN, 1, one()))
                             .add(lootItem(Items.NAUTILUS_SHELL, 2, one()))
                             .add(lootItem(Items.TURTLE_EGG, 1, one()))
@@ -71,7 +71,6 @@ public class DELootGenerator extends LootTableProvider {
                             .add(lootItem(Items.GOLD_BLOCK, 1, one()))
                             .add(suspiciousStew(3, lootNumber(1, 2)))
                             .add(lootItem(Items.SPYGLASS, 1, one()))));} // Flying Dutchman
-
             {lootTable.accept(location("monster_maze/church"), LootTable.lootTable()
                     .withPool(LootPool.lootPool().setRolls(lootNumber(5, 7))
                             .add(lootItem(Items.DIAMOND, 1, lootNumber(1, 2)))
@@ -182,7 +181,6 @@ public class DELootGenerator extends LootTableProvider {
                             .add(lootItem(Items.WHITE_CANDLE, 1, one()))
                             .add(lootItem(Items.YELLOW_CANDLE, 1, one()))
                             .add(lootItem(Items.CANDLE, 1, one()))));} // Monster Maze
-
             {lootTable.accept(location("tower_of_the_undead/treasure"), LootTable.lootTable()
                     .withPool(LootPool.lootPool().setRolls(lootNumber(10, 18))
                             .add(lootItem(Items.GOLD_NUGGET, 5, lootNumber(1, 2)))
@@ -217,7 +215,6 @@ public class DELootGenerator extends LootTableProvider {
                             .add(lootItem(Items.IRON_LEGGINGS, 1, one()))
                             .add(enchantedLootItem(Items.BOOK, 1, lootNumber(4, 10), one()))
                             .add(lootItem(Items.IRON_BOOTS, 1, one()))));} // Tower of the Undead
-
             {lootTable.accept(location("watch_tower"), LootTable.lootTable()
                         .withPool(LootPool.lootPool().setRolls(lootNumber(4, 10))
                                 .add(lootItem(Items.CHAIN, 5, lootNumber(1, 3)))
@@ -253,7 +250,6 @@ public class DELootGenerator extends LootTableProvider {
                                 .add(lootItem(Items.CHAINMAIL_BOOTS, 1, one())))
                         .withPool(LootPool.lootPool().setRolls(one())
                                 .add(lootItem(Items.SPYGLASS, 1, one()))));} // Watch Tower
-
             {lootTable.accept(location("witch_tower"), LootTable.lootTable()
                     .withPool(LootPool.lootPool().setRolls(lootNumber(7, 10))
                             .add(lootItem(Items.SPIDER_EYE, 1, lootNumber(2, 3)))
@@ -273,7 +269,6 @@ public class DELootGenerator extends LootTableProvider {
                             .add(lootItem(Items.NAME_TAG, 1, one()))
                             .add(lootItem(Items.GOLDEN_APPLE, 1, one()))
                             .add(enchantedLootItem(Items.BOOK, 1, lootNumber(6, 13), one()))));} // Witch Tower
-
             {lootTable.accept(location("castle/armory"), LootTable.lootTable()
                     .withPool(LootPool.lootPool().setRolls(lootNumber(2,3))
                             .add(lootItem(Items.DIAMOND, 2, one()))
@@ -373,7 +368,7 @@ public class DELootGenerator extends LootTableProvider {
                                 .add(lootItem(Items.ENCHANTED_GOLDEN_APPLE, 3, one()))));
 
                 lootTable.accept(location("castle/kitchen"), LootTable.lootTable()
-                        .withPool(LootPool.lootPool().setRolls(lootNumber(7,13))
+                        .withPool(LootPool.lootPool().setRolls(lootNumber(10,19))
                                 .add(lootItem(Items.GOLDEN_CARROT, 3, one()))
                                 .add(lootItem(Items.GOLDEN_APPLE, 1, one()))
                                 .add(lootItem(Items.BREAD, 6, one()))
@@ -457,7 +452,27 @@ public class DELootGenerator extends LootTableProvider {
                                 .add(enchantedLootItem(Items.DIAMOND_HELMET, 5, lootNumber(0, 10), one()))
                                 .add(enchantedLootItem(Items.DIAMOND_CHESTPLATE, 3, lootNumber(0, 10), one()))
                                 .add(enchantedLootItem(Items.DIAMOND_LEGGINGS, 3, lootNumber(0, 10), one()))
-                                .add(enchantedLootItem(Items.DIAMOND_BOOTS, 2, lootNumber(0, 10), one()))));} //Castle
+                                .add(enchantedLootItem(Items.DIAMOND_BOOTS, 2, lootNumber(0, 10), one()))));} // Castle
+            {lootTable.accept(location("desert_tomb"), LootTable.lootTable()
+                    .withPool(lootPool(lootNumber(4, 6))
+                            .add(lootItem(Items.GOLD_NUGGET, 5, lootNumber(4, 7)))
+                            .add(lootItem(Items.GOLD_INGOT, 2, lootNumber(1, 3)))
+                            .add(lootItem(Items.GOLDEN_APPLE, 1, one()))
+                            .add(lootItem(Items.ROTTEN_FLESH, 10, lootNumber(2, 5)))
+                            .add(lootItem(Items.STRING, 7, lootNumber(2, 4)))
+                            .add(lootItem(Items.GUNPOWDER, 7, lootNumber(2, 4)))
+                            .add(lootItem(Items.REDSTONE, 4, lootNumber(2, 3)))
+                            .add(lootItem(Items.SADDLE, 1, one()))
+                            .add(lootItem(Items.SAND, 15, lootNumber(2, 5))))
+                    .withPool(lootPool(lootNumber(0,1))
+                            .add(enchantedLootItem(Items.BOOK, 1, lootNumber(5,18), one()))
+                            .add(enchantedLootItem(Items.GOLDEN_SWORD, 1, lootNumber(0,7), one()))
+                            .add(enchantedLootItem(Items.GOLDEN_PICKAXE, 1, lootNumber(0,7), one()))
+                            .add(enchantedLootItem(Items.GOLDEN_AXE, 1, lootNumber(0,7), one()))
+                            .add(enchantedLootItem(Items.GOLDEN_HELMET, 1, lootNumber(0,7), one()))
+                            .add(enchantedLootItem(Items.GOLDEN_CHESTPLATE, 1, lootNumber(0,7), one()))
+                            .add(enchantedLootItem(Items.GOLDEN_LEGGINGS, 1, lootNumber(0,7), one()))
+                            .add(enchantedLootItem(Items.GOLDEN_BOOTS, 1, lootNumber(0,7), one()))));} // Desert Tomb
         }
 
         private LootPoolEntryContainer.Builder<?> lootItem(Item item, int weight, NumberProvider amount){
@@ -478,6 +493,10 @@ public class DELootGenerator extends LootTableProvider {
         }
         private NumberProvider lootNumber(int minAmount, int maxAmount){
             return UniformGenerator.between(minAmount, maxAmount);
+        }
+
+        private LootPool.Builder lootPool(NumberProvider rolls){
+            return LootPool.lootPool().setRolls(rolls);
         }
 
         private static ResourceLocation location(String name){

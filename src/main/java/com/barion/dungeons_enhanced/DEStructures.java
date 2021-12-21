@@ -26,7 +26,7 @@ public class DEStructures {
     public static final StructureRegistrar<NoneFeatureConfiguration, DECastle> Castle;
     public static final StructureRegistrar<NoneFeatureConfiguration, DECellar> CastleB;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEDesertTemple> DesertTemple;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DEDesertTomb> DesertTomb;
+    public static final StructureRegistrar<JigsawConfiguration, DEDesertTomb> DesertTomb;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEDruidCircle> DruidCircle;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEDungeonVariant> DungeonVariant;
     //public static final StructureRegistrar<NoneFeatureConfiguration, DEFloatingStructure> FlyingDutchman;
@@ -52,7 +52,7 @@ public class DEStructures {
         Castle = register("castle", new DECastle(), DECellarStructure.Piece::new);
         CastleB = GelStructureRegistrar.of(new ResourceLocation(""), new DECellar(Castle, new DEPiece("castle/bottom1", Offset(0, -5, 0)), new DEPiece("castle/bottom2", Offset(0, -5, 0))), DECellar.Piece::new, NoneFeatureConfiguration.INSTANCE, GenerationStep.Decoration.SURFACE_STRUCTURES);
         DesertTemple = register("desert_temple", new DEDesertTemple(), DESimpleStructure.Piece::new);
-        DesertTomb = register("desert_tomb", new DEDesertTomb(), DESimpleStructure.Piece::new);
+        DesertTomb = registerJigsaw("desert_tomb", new DEDesertTomb(), DEDesertTomb.Pool.Root, 4, DEDesertTomb.Piece::new);
         DruidCircle = register("druid_circle", new DEDruidCircle(), DECellarStructure.Piece::new);
         DungeonVariant = register("dungeon_variant", new DEDungeonVariant(), DEUndergroundStructure.Piece::new, GenerationStep.Decoration.UNDERGROUND_STRUCTURES);
         //FlyingDutchman = register("flying_dutchman", new DEFloatingStructure(DEConfig.COMMON.flying_dutchman, false, new DEPiece("flying_dutchman", Offset(-4, 0, -15))), DEFloatingStructure.Piece::new);
@@ -61,7 +61,7 @@ public class DEStructures {
         JungleMonument = register("jungle_monument", new DEJungleMonument(), DESimpleStructure.Piece::new);
         LargeDungeon = GelStructureRegistrar.of(createRegistryName("large_dungeon"), new DELargeDungeon(), DESimpleStructure.Piece::new, NoneFeatureConfiguration.INSTANCE, GenerationStep.Decoration.SURFACE_STRUCTURES);
         MinersHouse = register("miners_house", new DEMinersHouse(), DESimpleStructure.Piece::new);
-        MonsterMaze = registerJigsaw("monster_maze", new DEMonsterMaze(), DEMonsterMazePool.Root, DEMonsterMaze.Piece::new, GenerationStep.Decoration.SURFACE_STRUCTURES);
+        MonsterMaze = registerJigsaw("monster_maze", new DEMonsterMaze(), DEMonsterMazePool.Root, 9, DEMonsterMaze.Piece::new);
         MushroomHouse = register("mushroom_house", new DEMushroomHouse(), DESimpleStructure.Piece::new);
         PillagerCamp = register("pillager_camp", new DEPillagerCamp(), DESimpleStructure.Piece::new);
         RuinedBuilding = register("ruined_building", new DESimpleStructure(DEConfig.COMMON.ruined_building, true, new DEPiece("ruined/house", Offset(-5, 0, -5)), new DEPiece("ruined/house2", Offset(-5, 0, -5)), new DEPiece("ruined/barn", Offset(-5, 0, -5))), DESimpleStructure.Piece::new);
@@ -78,6 +78,7 @@ public class DEStructures {
         IForgeRegistry<StructureFeature<?>> registry = event.getRegistry();
 
         DEMonsterMazePool.init();
+        DEDesertTomb.Pool.init();
 
         Castle.handleForge(registry);
         CastleB.handleForge(registry);
@@ -113,8 +114,8 @@ public class DEStructures {
         return GelStructureRegistrar.of(createRegistryName(registryName), structure, piece, NoneFeatureConfiguration.INSTANCE, decoration);
     }
 
-    private static  <S extends GelConfigJigsawStructure> StructureRegistrar<JigsawConfiguration, S> registerJigsaw(String registryName, S structure, StructureTemplatePool root, StructurePieceType piece, GenerationStep.Decoration decoration){
-        return GelStructureRegistrar.of(createRegistryName(registryName), structure, piece, new JigsawConfiguration(() -> root, 8), decoration);
+    private static  <S extends GelConfigJigsawStructure> StructureRegistrar<JigsawConfiguration, S> registerJigsaw(String registryName, S structure, StructureTemplatePool root, Integer level, StructurePieceType piece){
+        return GelStructureRegistrar.of(createRegistryName(registryName), structure, piece, new JigsawConfiguration(() -> root, level), GenerationStep.Decoration.SURFACE_STRUCTURES);
     }
 
     private static void noiseAffecting(StructureRegistrar<?, ?>... structureRegs){

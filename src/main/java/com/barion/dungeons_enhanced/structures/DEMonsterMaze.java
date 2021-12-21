@@ -21,6 +21,7 @@ import java.util.Random;
 public class DEMonsterMaze extends GelConfigJigsawStructure {
     public DEMonsterMaze(){
         super(JigsawConfiguration.CODEC, DEConfig.COMMON.monster_maze, -17, true, true);
+
     }
 
     @Override
