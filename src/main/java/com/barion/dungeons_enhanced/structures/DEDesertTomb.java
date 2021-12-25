@@ -26,9 +26,11 @@ import java.util.Random;
 
 public class DEDesertTomb extends GelConfigJigsawStructure {
     public DEDesertTomb(){
-        super(JigsawConfiguration.CODEC, DEConfig.COMMON.desert_tomb, 70, true, true);
+        super(JigsawConfiguration.CODEC, DEConfig.COMMON.desert_tomb, 0, true, true);
     }
 
+    @Override
+    public boolean isAllowedNearWorldSpawn() {return true;}
     @Override
     public JigsawPlacement.PieceFactory getPieceType() {return Piece::new;}
 
@@ -59,7 +61,7 @@ public class DEDesertTomb extends GelConfigJigsawStructure {
             registry.register("down", poolBuilder.clone().names("down").build());
             registry.register("trap", poolBuilder.clone().names("trap").build());
             registry.register("cross", poolBuilder.clone().names("t-cross").build());
-            registry.register("main", poolBuilder.clone().names(ImmutableMap.of("tunnel", 4, "t-cross", 3, "room", 3, "tomb", 2, "exit", 1)).build());
+            registry.register("main", poolBuilder.clone().names(ImmutableMap.of("tunnel", 5, "t-cross", 4, "room", 4, "tomb", 3, "exit", 2)).build());
         }
     }
 }

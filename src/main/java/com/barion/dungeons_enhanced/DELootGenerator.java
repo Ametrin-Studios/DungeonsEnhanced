@@ -15,6 +15,7 @@ import net.minecraft.world.level.storage.loot.LootTables;
 import net.minecraft.world.level.storage.loot.ValidationContext;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
+import net.minecraft.world.level.storage.loot.functions.EnchantRandomlyFunction;
 import net.minecraft.world.level.storage.loot.functions.EnchantWithLevelsFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.functions.SetStewEffectFunction;
@@ -41,7 +42,6 @@ public class DELootGenerator extends LootTableProvider {
     protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> getTables() {
         return ImmutableList.of(Pair.of(DEStructureLootTables::new, LootContextParamSets.CHEST));
     }
-
     @Override @ParametersAreNonnullByDefault
     protected void validate(Map<ResourceLocation, LootTable> map, ValidationContext validationContext) {
         map.forEach((location, lootTable) -> LootTables.validate(validationContext, location, lootTable));
@@ -473,6 +473,57 @@ public class DELootGenerator extends LootTableProvider {
                             .add(enchantedLootItem(Items.GOLDEN_CHESTPLATE, 1, lootNumber(0,7), one()))
                             .add(enchantedLootItem(Items.GOLDEN_LEGGINGS, 1, lootNumber(0,7), one()))
                             .add(enchantedLootItem(Items.GOLDEN_BOOTS, 1, lootNumber(0,7), one()))));} // Desert Tomb
+            {lootTable.accept(location("large_dungeon"), LootTable.lootTable()
+                    .withPool(lootPool(lootNumber(8,14))
+                            .add(lootItem(Items.IRON_INGOT, 3, one()))
+                            .add(lootItem(Items.IRON_NUGGET, 6, lootNumber(1,3)))
+                            .add(lootItem(Items.GOLD_INGOT, 3, one()))
+                            .add(lootItem(Items.GOLD_NUGGET, 6, lootNumber(1,3)))
+                            .add(lootItem(Items.ROTTEN_FLESH, 13, one()))
+                            .add(lootItem(Items.BONE, 10, one()))
+                            .add(lootItem(Items.BROWN_MUSHROOM, 4, one()))
+                            .add(lootItem(Items.RED_MUSHROOM, 4, one()))
+                            .add(lootItem(Items.CARROT, 4, one()))
+                            .add(lootItem(Items.POTATO, 4, one()))
+                            .add(lootItem(Items.POISONOUS_POTATO, 6, one()))
+                            .add(lootItem(Items.STRING, 7, one()))
+                            .add(suspiciousStew(3, one()))
+                            .add(lootItem(Items.SPIDER_EYE, 3, one())))
+                    .withPool(lootPool(lootNumber(0,2))
+                            .add(lootItem(Items.DIAMOND, 2, one()))
+                            .add(lootItem(Items.GOLDEN_APPLE, 2, one()))
+                            .add(enchantedLootItem(Items.IRON_HELMET, 2, lootNumber(4,12), one()))
+                            .add(enchantedLootItem(Items.IRON_CHESTPLATE, 2, lootNumber(4,12), one()))
+                            .add(enchantedLootItem(Items.IRON_LEGGINGS, 2, lootNumber(4,12), one()))
+                            .add(enchantedLootItem(Items.IRON_BOOTS, 2, lootNumber(4,12), one()))
+                            .add(lootItem(Items.DIAMOND_AXE, 1, one()))
+                            .add(lootItem(Items.DIAMOND_SWORD, 1, one()))
+                            .add(lootItem(Items.DIAMOND_PICKAXE, 1, one()))
+                            .add(lootItem(Items.DIAMOND_HELMET, 1, one()))
+                            .add(lootItem(Items.DIAMOND_CHESTPLATE, 1, one()))
+                            .add(lootItem(Items.DIAMOND_LEGGINGS, 1, one()))
+                            .add(lootItem(Items.DIAMOND_BOOTS, 1, one()))));} // Large Dungeon
+            {lootTable.accept(location("ruined_building"), LootTable.lootTable()
+                    .withPool(lootPool(lootNumber(2,4))
+                            .add(lootItem(Items.IRON_NUGGET, 6, lootNumber(2,5)))
+                            .add(lootItem(Items.IRON_INGOT, 2, one()))
+                            .add(lootItem(Items.GOLD_NUGGET, 4, lootNumber(1,5)))
+                            .add(lootItem(Items.CAKE, 1, one()))
+                            .add(lootItem(Items.GOLDEN_APPLE, 1, one())))
+                    .withPool(lootPool(lootNumber(6, 10))
+                            .add(lootItem(Items.STICK, 6, lootNumber(1,3)))
+                            .add(lootItem(Items.PAPER, 2, lootNumber(1,2)))
+                            .add(lootItem(Items.BOOK, 1, one()))
+                            .add(lootItem(Items.ROTTEN_FLESH, 10, lootNumber(2,5)))
+                            .add(suspiciousStew(2, one()))
+                            .add(lootItem(Items.WHEAT, 5, lootNumber(1,3)))
+                            .add(lootItem(Items.WHEAT_SEEDS, 8, lootNumber(1,5)))
+                            .add(lootItem(Items.MELON_SEEDS, 5, lootNumber(1,3)))
+                            .add(lootItem(Items.POTATO, 4, lootNumber(1,2)))
+                            .add(lootItem(Items.POISONOUS_POTATO, 6, lootNumber(1,3)))
+                            .add(lootItem(Items.CARROT, 4, lootNumber(1,3)))
+                            .add(lootItem(Items.PUMPKIN_SEEDS, 5, lootNumber(1,4)))
+                            .add(lootItem(Items.GOLDEN_CARROT, 1, one()))));} // Ruined Building
         }
 
         private LootPoolEntryContainer.Builder<?> lootItem(Item item, int weight, NumberProvider amount){
@@ -480,6 +531,9 @@ public class DELootGenerator extends LootTableProvider {
         }
         private LootPoolEntryContainer.Builder<?> enchantedLootItem(Item item, int weight, NumberProvider enchant, NumberProvider amount){
             return LootItem.lootTableItem(item).setWeight(weight).apply(SetItemCountFunction.setCount(amount)).apply(EnchantWithLevelsFunction.enchantWithLevels(enchant));
+        }
+        private LootPoolEntryContainer.Builder<?> enchantedLootItem(Item item, int weight, NumberProvider amount){
+            return LootItem.lootTableItem(item).setWeight(weight).apply(SetItemCountFunction.setCount(amount)).apply(EnchantRandomlyFunction.randomApplicableEnchantment());
         }
         private LootPoolEntryContainer.Builder<?> suspiciousStew(int weight, NumberProvider amount){
             return LootItem.lootTableItem(Items.SUSPICIOUS_STEW).setWeight(weight).apply(SetItemCountFunction.setCount(amount)).apply(SetStewEffectFunction.stewEffect().withEffect(MobEffects.NIGHT_VISION, lootNumber(7, 10)).withEffect(MobEffects.JUMP, lootNumber(7, 10)).withEffect(MobEffects.WEAKNESS, lootNumber(6, 8)).withEffect(MobEffects.BLINDNESS, lootNumber(5, 7)).withEffect(MobEffects.POISON, lootNumber(10, 20)).withEffect(MobEffects.SATURATION, lootNumber(7, 10)));
