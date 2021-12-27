@@ -26,17 +26,17 @@ import java.util.Random;
 
 public class DEDesertTomb extends GelConfigJigsawStructure {
     public DEDesertTomb(){
-        super(JigsawConfiguration.CODEC, DEConfig.COMMON.desert_tomb, 0, true, true);
+        super(JigsawConfiguration.CODEC, DEConfig.COMMON.desert_tomb, 1, true, true);
     }
 
     @Override
-    public boolean isAllowedNearWorldSpawn() {return true;}
-    @Override
     public JigsawPlacement.PieceFactory getPieceType() {return Piece::new;}
+    @Override
+    public boolean isAllowedNearWorldSpawn() {return true;}
 
-    public static final class Piece extends AbstractGelStructurePiece{
-        public Piece(StructureManager structureManager, StructurePoolElement piece, BlockPos pos, int groundLevel, Rotation rotation, BoundingBox bounds) {
-            super(structureManager, piece, pos, groundLevel, rotation, bounds);
+    public static class Piece extends AbstractGelStructurePiece {
+        public Piece(StructureManager structureManager, StructurePoolElement poolElement, BlockPos pos, int groundLevelDelta, Rotation rotation, BoundingBox bounds) {
+            super(structureManager, poolElement, pos, groundLevelDelta, rotation, bounds);
         }
         public Piece(ServerLevel level, CompoundTag nbt) {
             super(level, nbt);
@@ -44,7 +44,6 @@ public class DEDesertTomb extends GelConfigJigsawStructure {
 
         @Override
         public StructurePieceType getType() {return DEStructures.DesertTomb.getPieceType();}
-
         @Override
         public void handleDataMarker(String s, BlockPos blockPos, ServerLevelAccessor serverLevelAccessor, Random random, BoundingBox boundingBox) {}
     }
@@ -52,7 +51,6 @@ public class DEDesertTomb extends GelConfigJigsawStructure {
     public static class Pool{
         public static StructureTemplatePool Root;
         public static void init(){}
-
         static{
             JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.Mod_ID, "desert_tomb/");
             JigsawPoolBuilder poolBuilder = registry.builder().maintainWater(false).processors(DEUtil.Processors.AirToCobweb);

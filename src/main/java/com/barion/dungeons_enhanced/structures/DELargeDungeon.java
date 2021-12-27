@@ -1,32 +1,67 @@
 package com.barion.dungeons_enhanced.structures;
 
 import com.barion.dungeons_enhanced.DEConfig;
-import com.barion.dungeons_enhanced.structures.prefabs.DESimpleStructure;
+import com.barion.dungeons_enhanced.DEStructures;
+import com.barion.dungeons_enhanced.DEUtil;
+import com.barion.dungeons_enhanced.DungeonsEnhanced;
+import com.legacy.structure_gel.api.structure.GelConfigJigsawStructure;
+import com.legacy.structure_gel.api.structure.jigsaw.AbstractGelStructurePiece;
+import com.legacy.structure_gel.api.structure.jigsaw.JigsawPoolBuilder;
+import com.legacy.structure_gel.api.structure.jigsaw.JigsawRegistryHelper;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Rotation;
-import net.minecraft.world.level.levelgen.structure.StructurePiece;
+import net.minecraft.world.level.levelgen.feature.StructurePieceType;
+import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
+import net.minecraft.world.level.levelgen.feature.structures.JigsawPlacement;
+import net.minecraft.world.level.levelgen.feature.structures.StructurePoolElement;
+import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 
-import java.util.List;
 import java.util.Random;
 
-import static com.barion.dungeons_enhanced.DEUtil.createRegistryName;
-
-public class DELargeDungeon extends DESimpleStructure {
-    private final ResourceLocation Top = createRegistryName("large_dungeon/top");
-    private final ResourceLocation Stairs = createRegistryName("large_dungeon/stairs");
-    private final ResourceLocation MainPiece = createRegistryName("large_dungeon/main");
-
-    public DELargeDungeon(){
-        super(DEConfig.COMMON.large_dungeon, true);
+public class DELargeDungeon extends GelConfigJigsawStructure {
+    public DELargeDungeon() {
+        super(JigsawConfiguration.CODEC, DEConfig.COMMON.large_dungeon, -16, true, true);
     }
 
     @Override
-    public void assemble(StructureManager templateManager, BlockPos pos, Rotation rotation, List<StructurePiece> structurePieces, Random rand) {
-        rotation = Rotation.NONE;
-        structurePieces.add(new DESimpleStructure.Piece(templateManager, Top, pos.offset(-3, -2, -3), rotation));
-        structurePieces.add(new DESimpleStructure.Piece(templateManager, Stairs, pos.offset(-2, -10, -2), rotation));
-        structurePieces.add(new DESimpleStructure.Piece(templateManager, MainPiece, pos.offset(-23, -21, -29), rotation));
+    public JigsawPlacement.PieceFactory getPieceType() {return Piece::new;}
+    @Override
+    public boolean isAllowedNearWorldSpawn() {return true;}
+
+    public static class Piece extends AbstractGelStructurePiece {
+        public Piece(StructureManager structureManager, StructurePoolElement poolElement, BlockPos pos, int groundLevelDelta, Rotation rotation, BoundingBox bounds) {
+            super(structureManager, poolElement, pos, groundLevelDelta, rotation, bounds);
+        }
+        public Piece(ServerLevel level, CompoundTag nbt) {
+            super(level, nbt);
+        }
+
+        @Override
+        public StructurePieceType getType() {return DEStructures.LargeDungeon.getPieceType();}
+        @Override
+        public void handleDataMarker(String s, BlockPos blockPos, ServerLevelAccessor serverLevelAccessor, Random random, BoundingBox boundingBox) {}
+    }
+
+    public static class Pool{
+        public static StructureTemplatePool Root;
+        public static void init(){}
+        static{
+            JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.Mod_ID, "large_dungeon/");
+            JigsawPoolBuilder poolBuilder = registry.builder().maintainWater(false).processors(DEUtil.Processors.AirToCobweb);
+            Root = registry.register("root", poolBuilder.clone().names("root").build());
+
+            JigsawPoolBuilder Cross = poolBuilder.clone().names("cross");
+            JigsawPoolBuilder Rooms = poolBuilder.clone().names("room_small1", "room_small2", "room1", "room2", "room_big", "parkour", "storage");
+            JigsawPoolBuilder Tunnels = poolBuilder.clone().names("tunnel");
+            JigsawPoolBuilder Stairs = poolBuilder.clone().names("stairs");
+
+            registry.register("cross", Cross.build());
+            registry.register("main", JigsawPoolBuilder.collect(Tunnels.weight(4), Stairs.weight(2), Cross.weight(2), Rooms.weight(1)));
+        }
     }
 }

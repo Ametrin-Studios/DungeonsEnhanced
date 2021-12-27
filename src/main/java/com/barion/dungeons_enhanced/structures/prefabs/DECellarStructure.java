@@ -24,10 +24,6 @@ public class DECellarStructure extends DEBaseStructure {
         super(config, GenerationType.onGround, generateNearSpawn, resourceTop);
         CellarPiece = resourceBottom;
     }
-    public <S extends DECellar> DECellarStructure(StructureConfig config, boolean generateNearSpawn, DEPiece... resources){
-        super(config, GenerationType.onGround, generateNearSpawn, resources);
-        CellarPiece = null;
-    }
 
     @Override
     public void assemble(StructureManager structureManager, BlockPos pos, Rotation rotation, List<StructurePiece> structurePieces, Random rand) {

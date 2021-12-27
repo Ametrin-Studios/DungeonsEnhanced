@@ -524,6 +524,14 @@ public class DELootGenerator extends LootTableProvider {
                             .add(lootItem(Items.CARROT, 4, lootNumber(1,3)))
                             .add(lootItem(Items.PUMPKIN_SEEDS, 5, lootNumber(1,4)))
                             .add(lootItem(Items.GOLDEN_CARROT, 1, one()))));} // Ruined Building
+            {lootTable.accept(location("tree_house/roof"), LootTable.lootTable()
+                    .withPool(lootPool(lootNumber(4, 8))
+                            .add(lootItem(Items.DIAMOND, 1, one()))
+                            .add(lootItem(Items.IRON_NUGGET, 4, lootNumber(1,3)))
+                            .add(lootItem(Items.IRON_INGOT, 3, one()))
+                            .add(lootItem(Items.SPYGLASS, 1, one()))
+                            .add(lootItem(Items.COCOA_BEANS, 6, lootNumber(1,2)))
+                            .add(lootItem(Items.MELON_SEEDS, 6, lootNumber(1,3)))));} // Tree House
         }
 
         private LootPoolEntryContainer.Builder<?> lootItem(Item item, int weight, NumberProvider amount){

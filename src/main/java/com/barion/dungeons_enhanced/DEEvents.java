@@ -16,7 +16,6 @@ public class DEEvents {
         public static void biomeLoad(final BiomeLoadingEvent event) {
             biomeLoadingEvent = event;
             addToBiomes(DEStructures.Castle);
-            addToBiomes(DEStructures.CastleB);
             addToBiomes(DEStructures.DesertTemple);
             addToBiomes(DEStructures.DesertTomb);
             addToBiomes(DEStructures.DruidCircle);

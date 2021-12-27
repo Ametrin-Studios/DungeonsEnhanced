@@ -1,14 +1,14 @@
 package com.barion.dungeons_enhanced;
 
 import com.barion.dungeons_enhanced.structures.*;
-import com.barion.dungeons_enhanced.structures.pools.DEMonsterMazePool;
-import com.barion.dungeons_enhanced.structures.prefabs.*;
+import com.barion.dungeons_enhanced.structures.prefabs.DEPiece;
+import com.barion.dungeons_enhanced.structures.prefabs.DESimpleStructure;
+import com.barion.dungeons_enhanced.structures.prefabs.DEUndergroundStructure;
 import com.legacy.structure_gel.api.registry.registrar.GelStructureRegistrar;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
 import com.legacy.structure_gel.api.structure.GelConfigJigsawStructure;
 import com.legacy.structure_gel.api.structure.GelConfigStructure;
 import com.legacy.structure_gel.api.structure.StructureAccessHelper;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.StructurePieceType;
@@ -23,8 +23,7 @@ import static com.barion.dungeons_enhanced.DEUtil.Offset;
 import static com.barion.dungeons_enhanced.DEUtil.createRegistryName;
 
 public class DEStructures {
-    public static final StructureRegistrar<NoneFeatureConfiguration, DECastle> Castle;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DECellar> CastleB;
+    public static final StructureRegistrar<JigsawConfiguration, DECastle> Castle;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEDesertTemple> DesertTemple;
     public static final StructureRegistrar<JigsawConfiguration, DEDesertTomb> DesertTomb;
     public static final StructureRegistrar<JigsawConfiguration, DEDruidCircle> DruidCircle;
@@ -33,7 +32,7 @@ public class DEStructures {
     public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> HayStorage;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEIcePit> IcePit;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEJungleMonument> JungleMonument;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DELargeDungeon> LargeDungeon;
+    public static final StructureRegistrar<JigsawConfiguration, DELargeDungeon> LargeDungeon;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEMinersHouse> MinersHouse;
     public static final StructureRegistrar<JigsawConfiguration, DEMonsterMaze> MonsterMaze;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEMushroomHouse> MushroomHouse;
@@ -49,8 +48,7 @@ public class DEStructures {
     public DEStructures(){}
 
     static {
-        Castle = register("castle", new DECastle(), DECellarStructure.Piece::new);
-        CastleB = GelStructureRegistrar.of(new ResourceLocation(""), new DECellar(Castle, new DEPiece("castle/bottom1", Offset(0, -5, 0)), new DEPiece("castle/bottom2", Offset(0, -5, 0))), DECellar.Piece::new, NoneFeatureConfiguration.INSTANCE, GenerationStep.Decoration.SURFACE_STRUCTURES);
+        Castle = registerJigsaw("castle", new DECastle(), DECastle.Pool.Root, 1, DECastle.Piece::new);
         DesertTemple = register("desert_temple", new DEDesertTemple(), DESimpleStructure.Piece::new);
         DesertTomb = registerJigsaw("desert_tomb", new DEDesertTomb(), DEDesertTomb.Pool.Root, 4, DEDesertTomb.Piece::new);
         DruidCircle = registerJigsaw("druid_circle", new DEDruidCircle(), DEDruidCircle.Pool.Root, 2, DEDruidCircle.Piece::new);
@@ -59,9 +57,9 @@ public class DEStructures {
         HayStorage = register("hay_storage", new DESimpleStructure(DEConfig.COMMON.hay_Storage, true, new DEPiece("hay_storage/small", Offset(-7,0,-7)), new DEPiece("hay_storage/big", Offset(-9,0,-9))), DESimpleStructure.Piece::new);
         IcePit = register("ice_pit", new DEIcePit(), DESimpleStructure.Piece::new);
         JungleMonument = register("jungle_monument", new DEJungleMonument(), DESimpleStructure.Piece::new);
-        LargeDungeon = GelStructureRegistrar.of(createRegistryName("large_dungeon"), new DELargeDungeon(), DESimpleStructure.Piece::new, NoneFeatureConfiguration.INSTANCE, GenerationStep.Decoration.SURFACE_STRUCTURES);
+        LargeDungeon = registerJigsaw("large_dungeon", new DELargeDungeon(), DELargeDungeon.Pool.Root, 6, DELargeDungeon.Piece::new);
         MinersHouse = register("miners_house", new DEMinersHouse(), DESimpleStructure.Piece::new);
-        MonsterMaze = registerJigsaw("monster_maze", new DEMonsterMaze(), DEMonsterMazePool.Root, 9, DEMonsterMaze.Piece::new);
+        MonsterMaze = registerJigsaw("monster_maze", new DEMonsterMaze(), DEMonsterMaze.Pool.Root, 9, DEMonsterMaze.Piece::new);
         MushroomHouse = register("mushroom_house", new DEMushroomHouse(), DESimpleStructure.Piece::new);
         PillagerCamp = register("pillager_camp", new DEPillagerCamp(), DESimpleStructure.Piece::new);
         RuinedBuilding = register("ruined_building", new DESimpleStructure(DEConfig.COMMON.ruined_building, true, new DEPiece("ruined_building/house", Offset(-5, 0, -5), 3), new DEPiece("ruined_building/house_big", Offset(-6, 0, -8), 2), new DEPiece("ruined_building/barn", Offset(-4, 0, -5), 3)), DESimpleStructure.Piece::new);
@@ -77,12 +75,13 @@ public class DEStructures {
     public static void onRegistry(final RegistryEvent.Register<StructureFeature<?>> event){
         IForgeRegistry<StructureFeature<?>> registry = event.getRegistry();
 
-        DEMonsterMazePool.init();
+        DECastle.Pool.init();
         DEDesertTomb.Pool.init();
         DEDruidCircle.Pool.init();
+        DEMonsterMaze.Pool.init();
+        DELargeDungeon.Pool.init();
 
         Castle.handleForge(registry);
-        CastleB.handleForge(registry);
         RuinedBuilding.handleForge(registry);
         DesertTemple.handleForge(registry);
         DesertTomb.handleForge(registry);
@@ -104,8 +103,8 @@ public class DEStructures {
         WatchTower.handleForge(registry);
         WitchTower.handleForge(registry);
 
+        noiseAffecting(RuinedBuilding, DruidCircle, TowerOfTheUndead, HayStorage, DruidCircle, MinersHouse, MushroomHouse, WatchTower, WitchTower, Castle, PillagerCamp, TreeHouse, MonsterMaze);
         DungeonsEnhanced.LOGGER.info("Dungeons Enhanced structures loaded");
-        noiseAffecting(RuinedBuilding, DruidCircle, TowerOfTheUndead, HayStorage, DesertTomb, DruidCircle, MinersHouse, MushroomHouse, WatchTower, WitchTower, Castle, PillagerCamp, TreeHouse, MonsterMaze);
     }
 
     private static  <S extends GelConfigStructure<NoneFeatureConfiguration>> StructureRegistrar<NoneFeatureConfiguration, S> register(String registryName, S structure, StructurePieceType piece){

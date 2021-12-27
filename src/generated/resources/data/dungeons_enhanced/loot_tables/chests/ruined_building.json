@@ -4,8 +4,8 @@
     {
       "rolls": {
         "type": "minecraft:uniform",
-        "min": 3.0,
-        "max": 5.0
+        "min": 2.0,
+        "max": 4.0
       },
       "bonus_rolls": 0.0,
       "entries": [
@@ -17,8 +17,8 @@
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 3.0,
-                "max": 6.0
+                "min": 2.0,
+                "max": 5.0
               },
               "add": false
             }
@@ -31,11 +31,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 1.0,
-                "max": 2.0
-              },
+              "count": 1.0,
               "add": false
             }
           ],
@@ -49,8 +45,8 @@
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 2.0,
-                "max": 6.0
+                "min": 1.0,
+                "max": 5.0
               },
               "add": false
             }
@@ -84,8 +80,8 @@
     {
       "rolls": {
         "type": "minecraft:uniform",
-        "min": 5.0,
-        "max": 8.0
+        "min": 6.0,
+        "max": 10.0
       },
       "bonus_rolls": 0.0,
       "entries": [
@@ -134,17 +130,6 @@
         },
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
-            }
-          ],
-          "name": "minecraft:potion"
-        },
-        {
-          "type": "minecraft:item",
           "weight": 10,
           "functions": [
             {
@@ -172,6 +157,30 @@
               "function": "minecraft:set_stew_effect",
               "effects": [
                 {
+                  "type": "minecraft:night_vision",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "min": 7.0,
+                    "max": 10.0
+                  }
+                },
+                {
+                  "type": "minecraft:poison",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "min": 10.0,
+                    "max": 20.0
+                  }
+                },
+                {
+                  "type": "minecraft:blindness",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "min": 5.0,
+                    "max": 7.0
+                  }
+                },
+                {
                   "type": "minecraft:saturation",
                   "duration": {
                     "type": "minecraft:uniform",
@@ -188,35 +197,11 @@
                   }
                 },
                 {
-                  "type": "minecraft:poison",
-                  "duration": {
-                    "type": "minecraft:uniform",
-                    "min": 10.0,
-                    "max": 20.0
-                  }
-                },
-                {
-                  "type": "minecraft:night_vision",
-                  "duration": {
-                    "type": "minecraft:uniform",
-                    "min": 7.0,
-                    "max": 10.0
-                  }
-                },
-                {
                   "type": "minecraft:weakness",
                   "duration": {
                     "type": "minecraft:uniform",
                     "min": 6.0,
                     "max": 8.0
-                  }
-                },
-                {
-                  "type": "minecraft:blindness",
-                  "duration": {
-                    "type": "minecraft:uniform",
-                    "min": 5.0,
-                    "max": 7.0
                   }
                 }
               ]

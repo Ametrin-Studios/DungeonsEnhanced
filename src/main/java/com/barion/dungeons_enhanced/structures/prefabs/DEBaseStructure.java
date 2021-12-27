@@ -86,17 +86,17 @@ public class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration
             int z = chunkPos.z * 16;
             int y = chunkGen.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, heightAccessor);
             if(getBlockAt(x, y-1, z) == Blocks.WATER){
-                DungeonsEnhanced.LOGGER.info("Structure Canceled because Water");
+                DungeonsEnhanced.LOGGER.info("Structure at "+x+", "+y+" Canceled because Water");
                 return false;
             }
             int tempY = y+3;
             if(getBlockAt(x+3, tempY, z) != Blocks.AIR || getBlockAt(x-3, tempY, z) != Blocks.AIR || getBlockAt(x, tempY, z+3) != Blocks.AIR || getBlockAt(x, tempY, z-3) != Blocks.AIR){
-                DungeonsEnhanced.LOGGER.info("Structure Canceled because Cliff");
+                DungeonsEnhanced.LOGGER.info("Structure at "+x+", "+y+" Canceled because Cliff");
                 return false;
             }
             tempY = y-3;
             if(getBlockAt(x+3, tempY, z) == Blocks.AIR || getBlockAt(x-3, tempY, z) == Blocks.AIR || getBlockAt(x, tempY, z+3) == Blocks.AIR || getBlockAt(x, tempY, z-3) == Blocks.AIR){
-                DungeonsEnhanced.LOGGER.info("Structure Canceled because Cliff");
+                DungeonsEnhanced.LOGGER.info("Structure at "+x+", "+y+" Canceled because Cliff");
                 return false;
             }
         }
