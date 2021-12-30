@@ -10,9 +10,8 @@ import com.legacy.structure_gel.api.structure.jigsaw.JigsawRegistryHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.StructureFeatureManager;
-import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.StructurePieceType;
@@ -26,6 +25,10 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureMana
 import java.util.Random;
 
 public class DECastle extends GelConfigJigsawStructure {
+    private ChunkGenerator chunkGen;
+    private LevelHeightAccessor heightAccessor;
+    private BlockPos genPos;
+
     public DECastle(){
         super(JigsawConfiguration.CODEC, DEConfig.COMMON.castle, -5, true, true);
     }
@@ -35,19 +38,12 @@ public class DECastle extends GelConfigJigsawStructure {
     @Override
     public boolean isAllowedNearWorldSpawn() {return false;}
 
-
-
     public static class Piece extends AbstractGelStructurePiece {
         public Piece(StructureManager structureManager, StructurePoolElement poolElement, BlockPos pos, int groundLevelDelta, Rotation rotation, BoundingBox bounds) {
             super(structureManager, poolElement, pos, groundLevelDelta, rotation, bounds);
         }
         public Piece(ServerLevel level, CompoundTag nbt) {
             super(level, nbt);
-        }
-
-        @Override
-        public boolean place(WorldGenLevel level, StructureFeatureManager structureManager, ChunkGenerator chunkGen, Random rand, BoundingBox bounds, BlockPos pos, boolean isLegacy) {
-            return super.place(level, structureManager, chunkGen, rand, bounds, pos.offset(20, 0, 20), isLegacy);
         }
 
         @Override
