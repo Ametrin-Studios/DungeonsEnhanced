@@ -41,23 +41,23 @@ public class DEConfig {
             this.builder = builder;
             castle = Configs("Castle", 57, 25, true, "#structure_gel:cold", "#structure_gel:snowy", "!#structure_gel:mountain", "!#structure_gel:snowy_mountain");
             desert_temple = Configs("Desert Temple", 32, 60, true, "minecraft:desert");
-            desert_tomb = Configs("Desert Tomb", 17, 65, true, "minecraft:desert");
+            desert_tomb = Configs("Desert Tomb", 29, 65, true, "minecraft:desert");
             druid_circle = Configs("Druid Circle", 39, 40, true, "#structure_gel:neutral_temp", "!#structure_gel:wooded");
             dungeon_variant = Configs("Dungeon Variant", 12, 80, false, "");
             //flying_dutchman = Configs("Flying Dutchman", 23, 0, false, "");
             hay_Storage = Configs("Hay Storage", 24, 85, true, "#structure_gel:savanna");
             ice_pit = Configs("Ice Pit", 35, 70, true, "#structure_gel:snowy", "#structure_gel:frozen", "!#structure_gel:snowy_mountain", "!#structure_gel:mountain");
             jungle_monument = Configs("Jungle Monument", 20, 70, true, "#structure_gel:jungle", "!#structure_gel:bamboo_jungle");
-            large_dungeon = Configs("Large Dungeon", 34, 35, true, "#structure_gel:neutral_temp", "#structure_gel:cold", "!#structure_gel:mountain");
+            large_dungeon = Configs("Large Dungeon", 38, 35, true, "#structure_gel:neutral_temp", "#structure_gel:cold", "!#structure_gel:mountain");
             miners_house = Configs("Miners House", 24, 80, true, "minecraft:badlands", "minecraft:badlands_plateau");
             monster_maze = Configs("Monster Maze", 34, 50, true, "#structure_gel:spooky", "#structure_gel:pumpkin", "!#structure_gel:sandy");
             mushroom_house = Configs("Mushroom House", 15, 90, true, "minecraft:mushroom_fields", "minecraft:mushroom_field_shore");
             pillager_camp = Configs("Pillager Camp", 49, 35, true, "#structure_gel:neutral_temp", "!#structure_gel:mountain", "!#structure_gel:wooded");
-            ruined_building = Configs("Ruined Building", 22, 50, true, "#structure_gel:neutral_temp");
+            ruined_building = Configs("Ruined Building", 27, 45, true, "#structure_gel:neutral_temp");
             stables = Configs("Stables", 46, 32, true, "#structure_gel:neutral_temp", "!#structure_gel:mountain", "!#structure_gel:wooded");
             tall_witch_hut = Configs("Tall Witch Hut", 18, 60, true, "#structure_gel:humid", "!#structure_gel:tropical", "!#structure_gel:jungle", "#structure_gel:pumpkin");
             tower_of_the_undead = Configs("Tower of the Undead", 37, 35, true, "#structure_gel:neutral_temp", "#structure_gel:savanna", "!#structure_gel:mountain", "#structure_gel:swamp");
-            tree_house = Configs("Tree House", 25, 40, true, "#forge:jungle");
+            tree_house = Configs("Tree House", 31, 40, true, "#forge:jungle");
             watch_tower = Configs("Watch Tower", 33, 35, true, "#structure_gel:cold", "#structure_gel:snowy");
             witch_tower = Configs("Witch Tower", 21, 50, true, "#structure_gel:spruce_forest", "#structure_gel:large_spruce_forest");
         }
