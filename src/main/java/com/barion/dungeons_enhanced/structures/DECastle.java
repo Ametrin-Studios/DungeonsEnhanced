@@ -9,17 +9,16 @@ import com.legacy.structure_gel.api.structure.jigsaw.JigsawPoolBuilder;
 import com.legacy.structure_gel.api.structure.jigsaw.JigsawRegistryHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.StructurePieceType;
 import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
-import net.minecraft.world.level.levelgen.feature.structures.JigsawPlacement;
 import net.minecraft.world.level.levelgen.feature.structures.StructurePoolElement;
 import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 
 import java.util.Random;
@@ -34,17 +33,13 @@ public class DECastle extends GelConfigJigsawStructure {
     }
 
     @Override
-    public JigsawPlacement.PieceFactory getPieceType() {return Piece::new;}
-    @Override
     public boolean isAllowedNearWorldSpawn() {return false;}
 
     public static class Piece extends AbstractGelStructurePiece {
         public Piece(StructureManager structureManager, StructurePoolElement poolElement, BlockPos pos, int groundLevelDelta, Rotation rotation, BoundingBox bounds) {
             super(structureManager, poolElement, pos, groundLevelDelta, rotation, bounds);
         }
-        public Piece(ServerLevel level, CompoundTag nbt) {
-            super(level, nbt);
-        }
+        public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) {super(serializationContext, nbt);}
 
         @Override
         public StructurePieceType getType() {return DEStructures.Castle.getPieceType();}

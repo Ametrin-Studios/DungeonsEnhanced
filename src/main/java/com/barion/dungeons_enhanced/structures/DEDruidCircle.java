@@ -10,15 +10,14 @@ import com.legacy.structure_gel.api.structure.jigsaw.JigsawPoolBuilder;
 import com.legacy.structure_gel.api.structure.jigsaw.JigsawRegistryHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.feature.StructurePieceType;
 import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
-import net.minecraft.world.level.levelgen.feature.structures.JigsawPlacement;
 import net.minecraft.world.level.levelgen.feature.structures.StructurePoolElement;
 import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 
 import java.util.Random;
@@ -31,16 +30,11 @@ public class DEDruidCircle extends GelConfigJigsawStructure {
     @Override
     public boolean isAllowedNearWorldSpawn() {return true;}
 
-    @Override
-    public JigsawPlacement.PieceFactory getPieceType() {return Piece::new;}
-
     public static final class Piece extends AbstractGelStructurePiece{
         public Piece(StructureManager structureManager, StructurePoolElement piece, BlockPos pos, int groundLevel, Rotation rotation, BoundingBox bounds) {
             super(structureManager, piece, pos, groundLevel, rotation, bounds);
         }
-        public Piece(ServerLevel level, CompoundTag nbt){
-            super(level, nbt);
-        }
+        public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) {super(serializationContext, nbt);}
 
         @Override
         public StructurePieceType getType() {return DEStructures.DruidCircle.getPieceType();}

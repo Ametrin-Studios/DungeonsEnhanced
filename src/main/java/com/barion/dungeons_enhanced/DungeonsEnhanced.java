@@ -20,7 +20,7 @@ public class DungeonsEnhanced{
         final IEventBus forgeBus = MinecraftForge.EVENT_BUS;
         forgeBus.register(this);
         modBus.register(DEStructures.class);
-        modBus.register(DEEvents.Mod.class);
+        modBus.register(DEEvents.class);
         forgeBus.register(DEEvents.Forge.class);
     }
 }
