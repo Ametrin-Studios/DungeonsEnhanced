@@ -64,7 +64,7 @@ public class DEConfig {
         }
 
         private StructureConfig Configs(String name, int spacing, int prob, boolean isWhite, String... biomes){
-            return new StructureConfig(this.builder, name).probability(prob).spacing(spacing).offset(spacing/4).biomes(isWhite, biomes).validDimensions(Level.OVERWORLD.location().toString());
+            return new StructureConfig(this.builder, name).spacing(spacing).probability(prob).biomes(isWhite, biomes).validDimensions(Level.OVERWORLD.location().toString());
         }
     }
 }
