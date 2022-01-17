@@ -11,7 +11,7 @@ issueTrackerURL="https://github.com/BarionLP/DungeonsEnhanced/issues" #optional
     displayURL="https://www.curseforge.com/minecraft/mc-mods/dungeonsenhanced" #optional A URL for the "homepage" for this mod
     logoFile="logo.png"
     credits="Thanks Modding Legacy for their genius Structure Gel API" #optional
-    authors="Barion, Mo" #optional
+    authors="Barion, Valarauko9" #optional
     # The description text for the mod (multi line!) (#mandatory)
     description='''
 Minecraft is great game, but exploring always felt a bit boring for us. There aren't many structures or dungeons you can explore and the ones you find, are getting repetitive. We decided to spice things up a bit, by adding new dungeons and structures for you to explore. By now 20 new dungeons and structures are include in our mod. They all fit a medival/fantasy theme and could fit along other fantasy or RPG-like Mods. Some of our structures also look like they could be a upgraded version of a vanilla structure or a variant to them. Get ready to find huge mazes under trees, castles, towers and forgotten temples.
