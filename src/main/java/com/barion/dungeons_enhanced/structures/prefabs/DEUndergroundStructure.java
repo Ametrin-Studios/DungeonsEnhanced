@@ -20,8 +20,8 @@ public class DEUndergroundStructure extends DEBaseStructure {
     }
 
     @Override
-    protected void assemble(StructureManager structureManager, DEPiece[] variants, BlockPos pos, Rotation rotation, StructurePiecesBuilder piecesBuilder, int piece) {
-        piecesBuilder.addPiece(new DESimpleStructure.Piece(structureManager, variants[piece].Resource, pos, rotation));
+    protected void assemble(StructureManager structureManager, DEPiece variant, BlockPos pos, Rotation rotation, StructurePiecesBuilder piecesBuilder) {
+        piecesBuilder.addPiece(new DESimpleStructure.Piece(structureManager, variant.Resource, pos, rotation));
     }
 
     public static class Piece extends DEBaseStructure.Piece {
