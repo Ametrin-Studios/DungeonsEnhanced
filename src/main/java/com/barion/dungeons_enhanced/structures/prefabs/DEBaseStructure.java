@@ -45,11 +45,11 @@ import java.util.function.Predicate;
 public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration> {
     protected ChunkGenerator chunkGen;
     protected LevelHeightAccessor heightAccessor;
-    protected DEPiece[] Variants;
-    protected final GenerationType generationType;
-    protected int maxWeight;
+    public DEPiece[] Variants;
+    public final GenerationType generationType;
+    public int maxWeight;
     protected boolean generateNearSpawn;
-    private final DEPieceGeneratorSupplier<NoneFeatureConfiguration> pieceGenerator;
+    protected final DEPieceGeneratorSupplier<NoneFeatureConfiguration> pieceGenerator;
 
     public DEBaseStructure(StructureConfig config, GenerationType generationType, boolean generateNearSpawn, DEPiece... resources) {
         this(config, generationType, generateNearSpawn);
@@ -134,7 +134,7 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
         context.base().assemble(new AssembleContext(context.structureManager(), context.base().Variants[piece], new BlockPos(x, y, z).offset(context.base().Variants[piece].Offset), Rotation.getRandom(context.random()), piecesBuilder, piece));
     }
 
-    protected abstract void assemble(AssembleContext context);
+    public abstract void assemble(AssembleContext context);
 
     protected static int getRandomPiece(DEPiece[] variants, int maxWeight, Random rand){
         int piece = 0;

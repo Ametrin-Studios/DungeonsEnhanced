@@ -14,7 +14,7 @@ public class DEIcePit extends DESimpleStructure {
     public DEIcePit() {super(DEConfig.COMMON.ice_pit, Offset(-4, -25, -4), false, new DEPiece("ice_pit/var1"), new DEPiece("ice_pit/var2"), new DEPiece("ice_pit/var3"));}
 
     @Override
-    protected void assemble(AssembleContext context) {
+    public void assemble(AssembleContext context) {
         BlockPos pos = context.pos().offset(context.variant().Offset);
         context.piecesBuilder().addPiece(new Piece(context.structureManager(), Entrance, pos, context.rotation()));
         int offsetY = -6;

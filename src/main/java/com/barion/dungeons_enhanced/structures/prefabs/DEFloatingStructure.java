@@ -14,7 +14,7 @@ public class DEFloatingStructure extends DEBaseStructure{
         super(config, GenerationType.inAir, generateNearSpawn, resources);
     }
 
-    protected void assemble(AssembleContext context) {
+    public void assemble(AssembleContext context) {
         context.piecesBuilder().addPiece(new Piece(context.structureManager(), context.variant().Resource, context.pos(), context.rotation()));
     }
 
@@ -22,11 +22,9 @@ public class DEFloatingStructure extends DEBaseStructure{
         public Piece(StructureManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation, int componentType) {
             super(DEStructures.RuinedBuilding.getPieceType(), structureManager, templateName, pos, rotation, componentType);
         }
-
         public Piece(StructureManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation) {
             this(structureManager, templateName, pos, rotation, 0);
         }
-
         public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) {
             super(DEStructures.RuinedBuilding.getPieceType(), serializationContext, nbt);
         }

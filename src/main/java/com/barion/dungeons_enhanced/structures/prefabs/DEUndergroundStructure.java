@@ -19,7 +19,7 @@ public class DEUndergroundStructure extends DEBaseStructure {
     }
 
     @Override
-    protected void assemble(AssembleContext context) {
+    public void assemble(AssembleContext context) {
         context.piecesBuilder().addPiece(new Piece(context.structureManager(), context.variant().Resource, context.pos(), context.rotation()));
     }
 
