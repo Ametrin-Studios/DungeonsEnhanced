@@ -1,6 +1,5 @@
 package com.barion.dungeons_enhanced;
 
-import com.legacy.structure_gel.api.config.StructureConfig;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeConfigSpec;
 import org.apache.commons.lang3.tuple.Pair;
@@ -16,27 +15,27 @@ public class DEConfig {
 
     public static class Common {
         private final ForgeConfigSpec.Builder builder;
-        public final StructureConfig castle;
-        public final StructureConfig ruined_building;
-        public final StructureConfig druid_circle;
-        //public final StructureConfig flying_dutchman;
-        public final StructureConfig hay_Storage;
-        public final StructureConfig ice_pit;
-        public final StructureConfig jungle_monument;
-        public final StructureConfig large_dungeon;
-        public final StructureConfig desert_temple;
-        public final StructureConfig desert_tomb;
-        public final StructureConfig dungeon_variant;
-        public final StructureConfig miners_house;
-        public final StructureConfig monster_maze;
-        public final StructureConfig mushroom_house;
-        public final StructureConfig pillager_camp;
-        public final StructureConfig stables;
-        public final StructureConfig tall_witch_hut;
-        public final StructureConfig tower_of_the_undead;
-        public final StructureConfig tree_house;
-        public final StructureConfig watch_tower;
-        public final StructureConfig witch_tower;
+        public final DEStructureConfig castle;
+        public final DEStructureConfig ruined_building;
+        public final DEStructureConfig druid_circle;
+        //public final DEStructureConfig flying_dutchman;
+        public final DEStructureConfig hay_Storage;
+        public final DEStructureConfig ice_pit;
+        public final DEStructureConfig jungle_monument;
+        public final DEStructureConfig large_dungeon;
+        public final DEStructureConfig desert_temple;
+        public final DEStructureConfig desert_tomb;
+        public final DEStructureConfig dungeon_variant;
+        public final DEStructureConfig miners_house;
+        public final DEStructureConfig monster_maze;
+        public final DEStructureConfig mushroom_house;
+        public final DEStructureConfig pillager_camp;
+        public final DEStructureConfig stables;
+        public final DEStructureConfig tall_witch_hut;
+        public final DEStructureConfig tower_of_the_undead;
+        public final DEStructureConfig tree_house;
+        public final DEStructureConfig watch_tower;
+        public final DEStructureConfig witch_tower;
 
         protected Common(ForgeConfigSpec.Builder builder) {
             this.builder = builder;
@@ -63,8 +62,8 @@ public class DEConfig {
             witch_tower = Configs("Witch Tower", 21, 50, true, "#structure_gel:spruce_forest", "#structure_gel:large_spruce_forest");
         }
 
-        private StructureConfig Configs(String name, int spacing, int prob, boolean isWhite, String... biomes){
-            return new StructureConfig(this.builder, name).spacing(spacing).probability(prob).biomes(isWhite, biomes).validDimensions(Level.OVERWORLD.location().toString());
+        private DEStructureConfig Configs(String name, int spacing, int prob, boolean isWhite, String... biomes) {
+            return (DEStructureConfig) new DEStructureConfig(this.builder, name).spacing(spacing).probability(prob).biomes(isWhite, biomes).validDimensions(Level.OVERWORLD.location().toString());
         }
     }
 }

@@ -7,7 +7,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
-import net.minecraft.world.level.levelgen.structure.pieces.StructurePiecesBuilder;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 
 public class DEFloatingStructure extends DEBaseStructure{
@@ -15,9 +14,8 @@ public class DEFloatingStructure extends DEBaseStructure{
         super(config, GenerationType.inAir, generateNearSpawn, resources);
     }
 
-    @Override
-    protected void assemble(StructureManager structureManager, DEPiece[] variants, BlockPos pos, Rotation rotation, StructurePiecesBuilder piecesBuilder, int piece) {
-        piecesBuilder.addPiece(new Piece(structureManager, Variants[piece].Resource, pos, rotation));
+    protected void assemble(AssembleContext context) {
+        context.piecesBuilder().addPiece(new Piece(context.structureManager(), context.variant().Resource, context.pos(), context.rotation()));
     }
 
     public static class Piece extends DEBaseStructure.Piece {

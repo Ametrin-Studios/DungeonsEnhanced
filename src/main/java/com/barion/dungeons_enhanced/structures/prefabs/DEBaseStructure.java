@@ -129,10 +129,12 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
             }
         }
 
-        context.base().assemble(context.structureManager(), context.base().Variants, new BlockPos(x, y, z), Rotation.getRandom(context.random()), piecesBuilder, getRandomPiece(context.base().Variants, context.base().maxWeight, context.random()));
+        int piece = getRandomPiece(context.base().Variants, context.base().maxWeight, context.random());
+
+        context.base().assemble(new AssembleContext(context.structureManager(), context.base().Variants[piece], new BlockPos(x, y, z).offset(context.base().Variants[piece].Offset), Rotation.getRandom(context.random()), piecesBuilder, piece));
     }
 
-    protected abstract void assemble(StructureManager structureManager, DEPiece[] variants, BlockPos pos, Rotation rotation, StructurePiecesBuilder piecesBuilder, int piece);
+    protected abstract void assemble(AssembleContext context);
 
     protected static int getRandomPiece(DEPiece[] variants, int maxWeight, Random rand){
         int piece = 0;
@@ -205,4 +207,6 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
     protected Block getBlockAt(int x, int y, int z) {return chunkGen.getBaseColumn(x, z, heightAccessor).getBlock(y).getBlock();}
 
     public enum GenerationType {onGround, inAir, underground}
+
+    public record AssembleContext(StructureManager structureManager, DEPiece variant, BlockPos pos, Rotation rotation, StructurePiecesBuilder piecesBuilder, int piece){}
 }

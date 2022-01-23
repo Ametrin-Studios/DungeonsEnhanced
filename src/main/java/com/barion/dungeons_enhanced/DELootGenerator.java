@@ -9,16 +9,14 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.LootTables;
 import net.minecraft.world.level.storage.loot.ValidationContext;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
-import net.minecraft.world.level.storage.loot.functions.EnchantRandomlyFunction;
-import net.minecraft.world.level.storage.loot.functions.EnchantWithLevelsFunction;
-import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
-import net.minecraft.world.level.storage.loot.functions.SetStewEffectFunction;
+import net.minecraft.world.level.storage.loot.functions.*;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
@@ -34,18 +32,12 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class DELootGenerator extends LootTableProvider {
-    public DELootGenerator(DataGenerator generator) {
-        super(generator);
-    }
+    public DELootGenerator(DataGenerator generator) {super(generator);}
 
     @Override @Nonnull
-    protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> getTables() {
-        return ImmutableList.of(Pair.of(DEStructureLootTables::new, LootContextParamSets.CHEST));
-    }
+    protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> getTables() {return ImmutableList.of(Pair.of(DEStructureLootTables::new, LootContextParamSets.CHEST));}
     @Override @ParametersAreNonnullByDefault
-    protected void validate(Map<ResourceLocation, LootTable> map, ValidationContext validationContext) {
-        map.forEach((location, lootTable) -> LootTables.validate(validationContext, location, lootTable));
-    }
+    protected void validate(Map<ResourceLocation, LootTable> map, ValidationContext validationContext) {map.forEach((location, lootTable) -> LootTables.validate(validationContext, location, lootTable));}
 
     public static class DEStructureLootTables extends ChestLoot {
         @Override @ParametersAreNonnullByDefault
@@ -546,23 +538,16 @@ public class DELootGenerator extends LootTableProvider {
         private LootPoolEntryContainer.Builder<?> suspiciousStew(int weight, NumberProvider amount){
             return LootItem.lootTableItem(Items.SUSPICIOUS_STEW).setWeight(weight).apply(SetItemCountFunction.setCount(amount)).apply(SetStewEffectFunction.stewEffect().withEffect(MobEffects.NIGHT_VISION, lootNumber(7, 10)).withEffect(MobEffects.JUMP, lootNumber(7, 10)).withEffect(MobEffects.WEAKNESS, lootNumber(6, 8)).withEffect(MobEffects.BLINDNESS, lootNumber(5, 7)).withEffect(MobEffects.POISON, lootNumber(10, 20)).withEffect(MobEffects.SATURATION, lootNumber(7, 10)));
         }
-
-        private NumberProvider one(){
-            return ConstantValue.exactly(1);
-        }
-        private NumberProvider lootNumber(int amount){
-            return ConstantValue.exactly(amount);
-        }
-        private NumberProvider lootNumber(int minAmount, int maxAmount){
-            return UniformGenerator.between(minAmount, maxAmount);
+        private LootPoolEntryContainer.Builder<?> potion(int weight, Potion potion){
+            return LootItem.lootTableItem(Items.POTION).setWeight(weight).apply(SetItemCountFunction.setCount(one())).apply(SetPotionFunction.setPotion(potion));
         }
 
-        private LootPool.Builder lootPool(NumberProvider rolls){
-            return LootPool.lootPool().setRolls(rolls);
-        }
+        private NumberProvider one() {return ConstantValue.exactly(1);}
+        private NumberProvider lootNumber(int amount) {return ConstantValue.exactly(amount);}
+        private NumberProvider lootNumber(int minAmount, int maxAmount) {return UniformGenerator.between(minAmount, maxAmount);}
 
-        private static ResourceLocation location(String name){
-            return new ResourceLocation(DungeonsEnhanced.Mod_ID, "chests/" + name);
-        }
+        private LootPool.Builder lootPool(NumberProvider rolls) {return LootPool.lootPool().setRolls(rolls);}
+
+        private static ResourceLocation location(String name) {return new ResourceLocation(DungeonsEnhanced.Mod_ID, "chests/" + name);}
     }
 }

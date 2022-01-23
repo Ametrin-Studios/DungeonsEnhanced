@@ -7,7 +7,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
-import net.minecraft.world.level.levelgen.structure.pieces.StructurePiecesBuilder;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 
 public class DEUndergroundStructure extends DEBaseStructure {
@@ -20,8 +19,8 @@ public class DEUndergroundStructure extends DEBaseStructure {
     }
 
     @Override
-    protected void assemble(StructureManager structureManager, DEPiece variant, BlockPos pos, Rotation rotation, StructurePiecesBuilder piecesBuilder) {
-        piecesBuilder.addPiece(new DESimpleStructure.Piece(structureManager, variant.Resource, pos, rotation));
+    protected void assemble(AssembleContext context) {
+        context.piecesBuilder().addPiece(new Piece(context.structureManager(), context.variant().Resource, context.pos(), context.rotation()));
     }
 
     public static class Piece extends DEBaseStructure.Piece {
