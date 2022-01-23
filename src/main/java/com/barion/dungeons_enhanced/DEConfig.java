@@ -1,6 +1,5 @@
 package com.barion.dungeons_enhanced;
 
-import com.legacy.structure_gel.util.ConfigTemplates.StructureConfig;
 import net.minecraft.util.RegistryKey;
 import net.minecraft.world.Dimension;
 import net.minecraftforge.common.ForgeConfigSpec;
@@ -17,31 +16,31 @@ public class DEConfig {
 
     public static class Common {
         private final ForgeConfigSpec.Builder builder;
-        public final StructureConfig castle;
-        public final StructureConfig ruined_house;
-        public final StructureConfig ruined_barn;
-        public final StructureConfig tower_of_the_undead;
-        public final StructureConfig druid_circle;
-        //public final StructureConfig flying_dutchman;
-        public final StructureConfig hay_Storage;
-        public final StructureConfig ice_pit;
-        public final StructureConfig jungle_monument;
-        public final StructureConfig large_dungeon;
-        public final StructureConfig desert_temple;
-        public final StructureConfig desert_tomb;
-        public final StructureConfig dungeon_variant;
-        public final StructureConfig miners_house;
-        public final StructureConfig mob_tower;
-        public final StructureConfig monster_maze;
-        public final StructureConfig mushroom_house;
-        public final StructureConfig pillager_camp;
-        public final StructureConfig stables;
-        public final StructureConfig tall_witch_hut;
-        public final StructureConfig tree_house;
-        public final StructureConfig watch_tower;
-        public final StructureConfig witch_tower;
+        public final DEStructureConfig castle;
+        public final DEStructureConfig ruined_house;
+        public final DEStructureConfig ruined_barn;
+        public final DEStructureConfig tower_of_the_undead;
+        public final DEStructureConfig druid_circle;
+        //public final DEStructureConfig flying_dutchman;
+        public final DEStructureConfig hay_Storage;
+        public final DEStructureConfig ice_pit;
+        public final DEStructureConfig jungle_monument;
+        public final DEStructureConfig large_dungeon;
+        public final DEStructureConfig desert_temple;
+        public final DEStructureConfig desert_tomb;
+        public final DEStructureConfig dungeon_variant;
+        public final DEStructureConfig miners_house;
+        public final DEStructureConfig mob_tower;
+        public final DEStructureConfig monster_maze;
+        public final DEStructureConfig mushroom_house;
+        public final DEStructureConfig pillager_camp;
+        public final DEStructureConfig stables;
+        public final DEStructureConfig tall_witch_hut;
+        public final DEStructureConfig tree_house;
+        public final DEStructureConfig watch_tower;
+        public final DEStructureConfig witch_tower;
 
-        protected Common(ForgeConfigSpec.Builder builder) {
+        protected Common(ForgeConfigSpec.Builder builder){
             this.builder = builder;
             castle = Configs("Castle", 57, 0.25, true, "#structure_gel:cold, #structure_gel:snowy, !#structure_gel:mountain, !#structure_gel:snowy_mountain", Dimension.OVERWORLD);
             desert_temple = Configs("Desert Temple", 32, 0.6, true, "minecraft:desert", Dimension.OVERWORLD);
@@ -68,8 +67,8 @@ public class DEConfig {
             witch_tower = Configs("Witch Tower", 21, 0.5, true, "#structure_gel:spruce_forest, #structure_gel:large_spruce_forest", Dimension.OVERWORLD);
         }
 
-        private StructureConfig Configs(String name, int spacing, double prob, boolean isWhite, String biomes, RegistryKey<Dimension> dim){
-            return new StructureConfig(this.builder, name).probability(prob).spacing(spacing).offset(spacing/4).biomes(isWhite, biomes).validDimensions(dim.location().toString());
+        private DEStructureConfig Configs(String name, int spacing, double prob, boolean isWhite, String biomes, RegistryKey<Dimension> dim){
+            return (DEStructureConfig) new DEStructureConfig(this.builder, name).probability(prob).spacing(spacing).offset(spacing/4).biomes(isWhite, biomes).validDimensions(dim.location().toString());
         }
     }
 }
