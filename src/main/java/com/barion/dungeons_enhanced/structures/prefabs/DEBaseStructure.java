@@ -29,6 +29,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.StructureFeatur
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructureStart;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
+import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePiecesBuilder;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockIgnoreProcessor;
@@ -57,7 +58,7 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
         maxWeight = getMaxWeight();
     }
 
-    public DEBaseStructure(StructureConfig config, GenerationType generationType, BlockPos offset, boolean generateNearSpawn, DEPiece... resources) {
+    public DEBaseStructure(StructureConfig config, GenerationType generationType, BlockPos offset, boolean generateNearSpawn, DEPiece... resources){
         this(config, generationType, generateNearSpawn);
         for(DEPiece resource : resources){
             resource.Offset = offset;
@@ -66,12 +67,13 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
         maxWeight = getMaxWeight();
     }
 
-    public DEBaseStructure(StructureConfig config, GenerationType generationType, boolean generateNearWorldSpawn) {
+    private DEBaseStructure(StructureConfig config, GenerationType generationType, boolean generateNearWorldSpawn) {
         super(NoneFeatureConfiguration.CODEC, config, DEBaseStructure::generatePieces);
         this.pieceGenerator = DEPieceGeneratorSupplier.simple(DEPieceGeneratorSupplier.checkForBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG), DEBaseStructure::generatePieces);
         this.generationType = generationType;
         this.generateNearSpawn = generateNearWorldSpawn;
         setLakeProof(true);
+        DungeonsEnhanced.LOGGER.info("Offset: " + getOffset());
     }
 
     private static void generatePieces(StructurePiecesBuilder piecesBuilder, PieceGenerator.Context<NoneFeatureConfiguration> context) {DungeonsEnhanced.LOGGER.warn("A Dungeons Enhanced StructureFeature tries to use the Vanilla PieceGenerator instead of the Custom one");}
@@ -79,9 +81,11 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
     @Override
     public boolean isAllowedNearWorldSpawn() {return generateNearSpawn;}
 
-    @Override
-    public boolean canGenerate(RegistryAccess registryAccess, ChunkGenerator chunkGen, BiomeSource biomeSource, StructureManager structureManager, long seed, ChunkPos chunkPos, NoneFeatureConfiguration config, LevelHeightAccessor heightAccessor, Predicate<Biome> biomeTest) {
-        if(generationType == GenerationType.onGround) {
+    private static boolean checkLocation(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context) {
+        DungeonsEnhanced.LOGGER.info("tested");
+        //if(!DEPieceGeneratorSupplier.checkForBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG))
+
+        if(generationType == GenerationType.onGround){
             this.chunkGen = chunkGen;
             this.heightAccessor = heightAccessor;
             int x = chunkPos.x * 16;
@@ -103,7 +107,7 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
             }
         }
 
-        return this.pieceGenerator.createGenerator(new DEPieceGeneratorSupplier.Context<>(chunkGen, biomeSource, seed, chunkPos, config, heightAccessor, biomeTest, structureManager, registryAccess)).isPresent();
+        return true;
     }
 
     private static void generatePieces(StructurePiecesBuilder piecesBuilder, DEPieceGenerator.Context<NoneFeatureConfiguration> context) {
@@ -154,8 +158,8 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
 
     @Override @ParametersAreNonnullByDefault @Nonnull
     public StructureStart<?> generate(RegistryAccess registryAccess, ChunkGenerator chunkGenerator, BiomeSource biomeSource, StructureManager structureManager, long seed, ChunkPos chunkPos, int referece, StructureFeatureConfiguration config, NoneFeatureConfiguration featureConfiguration, LevelHeightAccessor heightAccessor, Predicate<Biome> biomePredicate) {
-        ChunkPos chunkpos = this.getPotentialFeatureChunk(config, seed, chunkPos.x, chunkPos.z);
-        if (chunkPos.x == chunkpos.x && chunkPos.z == chunkpos.z){
+        ChunkPos potentialChunkPos = this.getPotentialFeatureChunk(config, seed, chunkPos.x, chunkPos.z);
+        if (chunkPos.x == potentialChunkPos.x && chunkPos.z == potentialChunkPos.z){
             Optional<DEPieceGenerator<NoneFeatureConfiguration>> optional = this.pieceGenerator.createGenerator(new DEPieceGeneratorSupplier.Context<>(chunkGenerator, biomeSource, seed, chunkPos, featureConfiguration, heightAccessor, biomePredicate, structureManager, registryAccess));
             if (optional.isPresent()){
                 StructurePiecesBuilder structurepiecesbuilder = new StructurePiecesBuilder();

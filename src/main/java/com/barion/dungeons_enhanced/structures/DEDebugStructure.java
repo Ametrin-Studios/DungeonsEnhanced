@@ -32,15 +32,14 @@ public class DEDebugStructure extends DEBaseStructure {
         super(DEConfig.COMMON.ruined_building, GenerationType.onGround, true, new DEPiece("ruined_building/barn"));
     }
 
-    @Override
-    public boolean canGenerate(RegistryAccess registryAccess, ChunkGenerator chunkGen, BiomeSource biomeSource, StructureManager structureManager, long seed, ChunkPos chunkPos, NoneFeatureConfiguration config, LevelHeightAccessor heightAccessor, Predicate<Biome> biomeTest) {
+    private static boolean checkLocation(RegistryAccess registryAccess, ChunkGenerator chunkGen, BiomeSource biomeSource, StructureManager structureManager, long seed, ChunkPos chunkPos, NoneFeatureConfiguration config, LevelHeightAccessor heightAccessor, Predicate<Biome> validBiomes) {
 
         this.chunkGen = chunkGen;
         this.heightAccessor = heightAccessor;
         int x = chunkPos.x * 16;
         int z = chunkPos.z * 16;
         int y = chunkGen.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, this.heightAccessor);
-        DungeonsEnhanced.LOGGER.info("Structure at "+x+", "+y+", "+z);
+        DungeonsEnhanced.LOGGER.info("Tested at "+x+", "+y+", "+z);
             /*if(getBlockAt(x, y-1, z) == Blocks.WATER){
                 //DungeonsEnhanced.LOGGER.info("Structure at "+x+", "+y+", "+z+" Canceled because Water");
                 return false;
@@ -55,11 +54,11 @@ public class DEDebugStructure extends DEBaseStructure {
                 //DungeonsEnhanced.LOGGER.info("Structure at "+x+", "+y+", "+z+" Canceled because Cliff");
                 return false;
             }*/
-        return this.pieceGenerator.createGenerator(new DEPieceGeneratorSupplier.Context<>(chunkGen, biomeSource, seed, chunkPos, config, heightAccessor, biomeTest, structureManager, registryAccess)).isPresent();
+        return this.pieceGenerator.createGenerator(new DEPieceGeneratorSupplier.Context<>(chunkGen, biomeSource, seed, chunkPos, config, heightAccessor, validBiomes, structureManager, registryAccess)).isPresent();
     }
 
     @Override
-    public void assemble(AssembleContext context) {
+    public void assemble(AssembleContext context){
         DungeonsEnhanced.LOGGER.info("Structure placed at " + context.pos());
 
         context.piecesBuilder().addPiece(new Piece(context.structureManager(), Variants[0].Resource, context.pos().offset(0, 30, 0), context.rotation()));
