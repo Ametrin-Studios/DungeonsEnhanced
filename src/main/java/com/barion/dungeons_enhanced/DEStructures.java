@@ -44,7 +44,6 @@ public class DEStructures {
     public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> TowerOfTheUndead;
     public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> WatchTower;
     public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> WitchTower;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DEDebugStructure> Debug;
 
     public DEStructures(){}
 
@@ -70,7 +69,6 @@ public class DEStructures {
         TowerOfTheUndead = register("tower_of_the_undead", new DESimpleStructure(DEConfig.COMMON.tower_of_the_undead, true, new DEPiece("tower_of_the_undead/big", Offset(-7, 0, -7), 2), new DEPiece("tower_of_the_undead/small", Offset(-5, 0, -5), 3)), DESimpleStructure.Piece::new);
         WatchTower = register("watch_tower", new DESimpleStructure(DEConfig.COMMON.watch_tower, new DEPiece("watch_tower", Offset(-4,0,-4))), DESimpleStructure.Piece::new);
         WitchTower = register("witch_tower", new DESimpleStructure(DEConfig.COMMON.witch_tower, true, new DEPiece("witch_tower/normal", Offset(-6,0,-5), 3), new DEPiece("witch_tower/big", Offset(-7,0,-7), 1)), DESimpleStructure.Piece::new);
-        Debug = register("debug", new DEDebugStructure(), DEDebugStructure.Piece::new);
     }
 
     @SubscribeEvent
@@ -87,13 +85,13 @@ public class DEStructures {
         RuinedBuilding.handleForge(registry);
         DesertTemple.handleForge(registry);
         DesertTomb.handleForge(registry);
+        DungeonVariant.handleForge(registry);
         DruidCircle.handleForge(registry);
         //FlyingDutchman.handleForge(registry);
         HayStorage.handleForge(registry);
         IcePit.handleForge(registry);
         JungleMonument.handleForge(registry);
         LargeDungeon.handleForge(registry);
-        DungeonVariant.handleForge(registry);
         MinersHouse.handleForge(registry);
         MonsterMaze.handleForge(registry);
         MushroomHouse.handleForge(registry);
@@ -104,8 +102,6 @@ public class DEStructures {
         TowerOfTheUndead.handleForge(registry);
         WatchTower.handleForge(registry);
         WitchTower.handleForge(registry);
-
-        Debug.handleForge(registry);
 
         noiseAffecting(RuinedBuilding, DruidCircle, TowerOfTheUndead, HayStorage, DruidCircle, MinersHouse, MushroomHouse, WatchTower, WitchTower, Castle, PillagerCamp, TreeHouse);
         DungeonsEnhanced.LOGGER.info("Dungeons Enhanced structures loaded");

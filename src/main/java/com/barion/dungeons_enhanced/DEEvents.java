@@ -35,8 +35,6 @@ public class DEEvents {
             addToBiomes(DEStructures.TowerOfTheUndead);
             addToBiomes(DEStructures.WatchTower);
             addToBiomes(DEStructures.WitchTower);
-
-            addToBiomes(DEStructures.Debug);
         }
         private static <C extends FeatureConfiguration, S extends StructureFeature<C> & IConfigStructure, T extends StructureRegistrar<C,S>>void addToBiomes(T structure){
             addStructureToBiomeEvent.register(structure.getStructureFeature());

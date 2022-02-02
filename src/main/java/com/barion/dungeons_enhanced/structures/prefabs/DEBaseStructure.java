@@ -29,7 +29,6 @@ import net.minecraft.world.level.levelgen.feature.configurations.StructureFeatur
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructureStart;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGenerator;
-import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePiecesBuilder;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockIgnoreProcessor;
@@ -44,70 +43,104 @@ import java.util.Random;
 import java.util.function.Predicate;
 
 public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration> {
-    protected ChunkGenerator chunkGen;
-    protected LevelHeightAccessor heightAccessor;
+    protected static ChunkGenerator chunkGenerator;
+    protected static LevelHeightAccessor heightAccessor;
+    public landscapeCheckSettings landscapeCheckSettings = new landscapeCheckSettings(1, 3, 3);
     public DEPiece[] Variants;
     public final GenerationType generationType;
     public int maxWeight;
-    protected boolean generateNearSpawn;
+    protected boolean generateNear00;
     protected final DEPieceGeneratorSupplier<NoneFeatureConfiguration> pieceGenerator;
 
-    public DEBaseStructure(StructureConfig config, GenerationType generationType, boolean generateNearSpawn, DEPiece... resources) {
-        this(config, generationType, generateNearSpawn);
-        Variants = resources;
-        maxWeight = getMaxWeight();
-    }
-
-    public DEBaseStructure(StructureConfig config, GenerationType generationType, BlockPos offset, boolean generateNearSpawn, DEPiece... resources){
-        this(config, generationType, generateNearSpawn);
-        for(DEPiece resource : resources){
+    public DEBaseStructure(StructureConfig config, GenerationType generationType, BlockPos offset, boolean generateNear00, DEPiece... resources){
+        this(config, generationType, generateNear00, resources);
+        for(DEPiece resource : Variants){
             resource.Offset = offset;
         }
-        Variants = resources;
-        maxWeight = getMaxWeight();
     }
 
-    private DEBaseStructure(StructureConfig config, GenerationType generationType, boolean generateNearWorldSpawn) {
+    public DEBaseStructure(StructureConfig config, GenerationType generationType, boolean generateNear00, DEPiece... variants) {
         super(NoneFeatureConfiguration.CODEC, config, DEBaseStructure::generatePieces);
-        this.pieceGenerator = DEPieceGeneratorSupplier.simple(DEPieceGeneratorSupplier.checkForBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG), DEBaseStructure::generatePieces);
+        this.pieceGenerator = DEPieceGeneratorSupplier.simple(DEBaseStructure::checkLocation, DEBaseStructure::generatePieces);
         this.generationType = generationType;
-        this.generateNearSpawn = generateNearWorldSpawn;
+        this.generateNear00 = generateNear00;
+        this.Variants = variants;
+        maxWeight = getMaxWeight();
         setLakeProof(true);
-        DungeonsEnhanced.LOGGER.info("Offset: " + getOffset());
+        //DungeonsEnhanced.LOGGER.info("Offset: " + getOffset());
     }
 
     private static void generatePieces(StructurePiecesBuilder piecesBuilder, PieceGenerator.Context<NoneFeatureConfiguration> context) {DungeonsEnhanced.LOGGER.warn("A Dungeons Enhanced StructureFeature tries to use the Vanilla PieceGenerator instead of the Custom one");}
 
     @Override
-    public boolean isAllowedNearWorldSpawn() {return generateNearSpawn;}
+    public boolean isAllowedNearWorldSpawn() {return generateNear00;}
 
-    private static boolean checkLocation(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context) {
-        DungeonsEnhanced.LOGGER.info("tested");
-        //if(!DEPieceGeneratorSupplier.checkForBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG))
+    private static boolean checkLocation(DEPieceGeneratorSupplier.Context<NoneFeatureConfiguration> context){
+        boolean correctBiome = context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG);
 
-        if(generationType == GenerationType.onGround){
-            this.chunkGen = chunkGen;
-            this.heightAccessor = heightAccessor;
-            int x = chunkPos.x * 16;
-            int z = chunkPos.z * 16;
-            int y = chunkGen.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, this.heightAccessor);
-            if(getBlockAt(x, y-1, z) == Blocks.WATER){
-                //DungeonsEnhanced.LOGGER.info("Structure at "+x+", "+y+" Canceled because Water");
+        if(correctBiome && context.structure().generationType == GenerationType.onGround){
+            int x = context.chunkPos().x * 16;
+            int z = context.chunkPos().z * 16;
+            int y = context.chunkGenerator().getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor());
+
+            chunkGenerator = context.chunkGenerator();
+            heightAccessor = context.heightAccessor();
+
+            if(getBlockAt(x, y-1, z) == Blocks.WATER) {
+                DungeonsEnhanced.LOGGER.info("Canceled at " + new BlockPos(x, y, z) + " because Water");
                 return false;
             }
-            int tempY = y+3;
-            if(getBlockAt(x+3, tempY, z) != Blocks.AIR || getBlockAt(x-3, tempY, z) != Blocks.AIR || getBlockAt(x, tempY, z+3) != Blocks.AIR || getBlockAt(x, tempY, z-3) != Blocks.AIR){
-                //DungeonsEnhanced.LOGGER.info("Structure at "+x+", "+y+" Canceled because Cliff");
+
+            int columSpreading = context.structure().landscapeCheckSettings.columSpreading();
+
+            if(isColumBlocked(new BlockPos(x+columSpreading, y, z), context)) {
+                DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " failed");
                 return false;
             }
-            tempY = y-3;
-            if(getBlockAt(x+3, tempY, z) == Blocks.AIR || getBlockAt(x-3, tempY, z) == Blocks.AIR || getBlockAt(x, tempY, z+3) == Blocks.AIR || getBlockAt(x, tempY, z-3) == Blocks.AIR){
-                //DungeonsEnhanced.LOGGER.info("Structure at "+x+", "+y+" Canceled because Cliff");
+            if(isColumBlocked(new BlockPos(x-columSpreading, y, z), context)) {
+                DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " failed");
                 return false;
             }
+            if(isColumBlocked(new BlockPos(x, y, z+columSpreading), context)) {
+                DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " failed");
+                return false;
+            }
+            if(isColumBlocked(new BlockPos(x, y, z-columSpreading), context)) {
+                DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " failed");
+                return false;
+            }
+
+            DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " passed");
+        }
+
+        return correctBiome;
+    }
+
+    protected static boolean isColumBlocked(BlockPos pos, DEPieceGeneratorSupplier.Context<NoneFeatureConfiguration> context){
+        int maxRangePerColum = context.structure().landscapeCheckSettings.maxRangePerColum();
+        int stepSize = context.structure().landscapeCheckSettings.stepSize();
+
+        if(!isDownwardsFree(pos, stepSize, maxRangePerColum)){
+            return isUpwardsBlocked(pos, stepSize, maxRangePerColum);
         }
 
         return true;
+    }
+
+    protected static boolean isUpwardsBlocked(BlockPos pos, int stepSize, int range){
+        for(int i = 1; i <= range; i++){
+            if(getBlockAt(pos.getX(), pos.getY() + (i * stepSize), pos.getZ()) != Blocks.AIR) {return true;}
+        }
+
+        return false;
+    }
+
+    protected static boolean isDownwardsFree(BlockPos pos, int stepSize, int range){
+        for(int i = 1; i <= range; i++){
+            if(getBlockAt(pos.getX(), pos.getY() - (i * stepSize), pos.getZ()) == Blocks.AIR) {return true;}
+        }
+
+        return false;
     }
 
     private static void generatePieces(StructurePiecesBuilder piecesBuilder, DEPieceGenerator.Context<NoneFeatureConfiguration> context) {
@@ -160,7 +193,7 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
     public StructureStart<?> generate(RegistryAccess registryAccess, ChunkGenerator chunkGenerator, BiomeSource biomeSource, StructureManager structureManager, long seed, ChunkPos chunkPos, int referece, StructureFeatureConfiguration config, NoneFeatureConfiguration featureConfiguration, LevelHeightAccessor heightAccessor, Predicate<Biome> biomePredicate) {
         ChunkPos potentialChunkPos = this.getPotentialFeatureChunk(config, seed, chunkPos.x, chunkPos.z);
         if (chunkPos.x == potentialChunkPos.x && chunkPos.z == potentialChunkPos.z){
-            Optional<DEPieceGenerator<NoneFeatureConfiguration>> optional = this.pieceGenerator.createGenerator(new DEPieceGeneratorSupplier.Context<>(chunkGenerator, biomeSource, seed, chunkPos, featureConfiguration, heightAccessor, biomePredicate, structureManager, registryAccess));
+            Optional<DEPieceGenerator<NoneFeatureConfiguration>> optional = this.pieceGenerator.createGenerator(new DEPieceGeneratorSupplier.Context<>(chunkGenerator, biomeSource, seed, chunkPos, featureConfiguration, heightAccessor, biomePredicate, structureManager, registryAccess, this));
             if (optional.isPresent()){
                 StructurePiecesBuilder structurepiecesbuilder = new StructurePiecesBuilder();
                 WorldgenRandom worldgenrandom = new WorldgenRandom(new LegacyRandomSource(0L));
@@ -208,9 +241,11 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
 
     public record Context<C extends FeatureConfiguration>(C config, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos, LevelHeightAccessor heightAccessor, WorldgenRandom random, long seed, GenerationType generationType, DEPiece[] variants, int maxWeight) {}
 
-    protected Block getBlockAt(int x, int y, int z) {return chunkGen.getBaseColumn(x, z, heightAccessor).getBlock(y).getBlock();}
+    protected static Block getBlockAt(int x, int y, int z) {return chunkGenerator.getBaseColumn(x, z, heightAccessor).getBlock(y).getBlock();}
 
     public enum GenerationType {onGround, inAir, underground}
+
+    protected record landscapeCheckSettings(int maxRangePerColum, int stepSize, int columSpreading){}
 
     public record AssembleContext(StructureManager structureManager, DEPiece variant, BlockPos pos, Rotation rotation, StructurePiecesBuilder piecesBuilder, int piece){}
 }

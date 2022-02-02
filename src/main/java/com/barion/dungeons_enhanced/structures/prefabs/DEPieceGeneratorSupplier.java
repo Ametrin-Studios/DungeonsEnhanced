@@ -18,7 +18,7 @@ import java.util.function.Predicate;
 public interface DEPieceGeneratorSupplier<C extends FeatureConfiguration> {
     Optional<DEPieceGenerator<C>> createGenerator(Context<C> context);
 
-    static <C extends FeatureConfiguration> DEPieceGeneratorSupplier<C> simple(Predicate<Context<C>> contextPredicate, DEPieceGenerator<C> pieceGenerator) {
+    static <C extends FeatureConfiguration> DEPieceGeneratorSupplier<C> simple(Predicate<Context<C>> contextPredicate, DEPieceGenerator<C> pieceGenerator){
         Optional<DEPieceGenerator<C>> optional = Optional.of(pieceGenerator);
         return (t) -> contextPredicate.test(t) ? optional : Optional.empty();
     }
@@ -27,7 +27,7 @@ public interface DEPieceGeneratorSupplier<C extends FeatureConfiguration> {
         return (context) -> context.validBiomeOnTop(heightmap);
     }
 
-    public record Context<C extends FeatureConfiguration>(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkPos chunkPos, C config, LevelHeightAccessor heightAccessor, Predicate<Biome> validBiome, StructureManager structureManager, RegistryAccess registryAccess) {
+    record Context<C extends FeatureConfiguration>(ChunkGenerator chunkGenerator, BiomeSource biomeSource, long seed, ChunkPos chunkPos, C config, LevelHeightAccessor heightAccessor, Predicate<Biome> validBiome, StructureManager structureManager, RegistryAccess registryAccess, DEBaseStructure structure) {
         public boolean validBiomeOnTop(Heightmap.Types heightmap) {
             int x = this.chunkPos.getMiddleBlockX();
             int z = this.chunkPos.getMiddleBlockZ();

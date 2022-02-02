@@ -43,7 +43,7 @@ public class DEConfig {
             desert_temple = Configs("Desert Temple", 32, 60, true, "minecraft:desert");
             desert_tomb = Configs("Desert Tomb", 29, 65, true, "minecraft:desert");
             druid_circle = Configs("Druid Circle", 39, 40, true, "#structure_gel:neutral_temp", "!#structure_gel:wooded", "!#structure_gel:mountain", "!#structure_gel:beach" );
-            dungeon_variant = Configs("Dungeon Variant", 12, 80, false, "");
+            dungeon_variant = Configs("Dungeon Variant", 12, 80, true, "#structure_gel:neutral_temp", "#structure_gel:cold", "#structure_gel:snowy");
             //flying_dutchman = Configs("Flying Dutchman", 23, 0, false, "");
             hay_Storage = Configs("Hay Storage", 24, 85, true, "#structure_gel:savanna");
             ice_pit = Configs("Ice Pit", 35, 70, true, "#structure_gel:snowy", "#structure_gel:frozen", "!#structure_gel:mountain", "!#structure_gel:river", "!structure_gel:beach");
