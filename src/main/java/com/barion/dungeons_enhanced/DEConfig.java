@@ -46,7 +46,7 @@ public class DEConfig {
             dungeon_variant = Configs("Dungeon Variant", 12, 80, true, "#structure_gel:neutral_temp", "#structure_gel:cold", "#structure_gel:snowy");
             //flying_dutchman = Configs("Flying Dutchman", 23, 0, false, "");
             hay_Storage = Configs("Hay Storage", 24, 85, true, "#structure_gel:savanna");
-            ice_pit = Configs("Ice Pit", 35, 70, true, "#structure_gel:snowy", "#structure_gel:frozen", "!#structure_gel:mountain", "!#structure_gel:river", "!structure_gel:beach");
+            ice_pit = Configs("Ice Pit", 35, 70, true, "#structure_gel:snowy", "#structure_gel:frozen", "!#structure_gel:mountain", "!#structure_gel:river", "!#structure_gel:beach");
             jungle_monument = Configs("Jungle Monument", 20, 70, true, "#structure_gel:jungle", "!#structure_gel:bamboo_jungle");
             large_dungeon = Configs("Large Dungeon", 38, 35, true, "#structure_gel:neutral_temp", "#structure_gel:cold", "!#structure_gel:mountain","!#structure_gel:beach");
             miners_house = Configs("Miners House", 24, 80, true, "minecraft:badlands", "minecraft:badlands_plateau");
