@@ -6,3 +6,5 @@ They all fit a medival/fantasy theme and could fit along other fantasy or RPG-li
 Some of our structures also look like they could be a upgraded version of a vanilla structure or a variant to them. 
 Get ready to find huge mazes under trees, castles, towers and forgotten temples.
 We hope you have fun
+
+https://media.forgecdn.net/attachments/419/437/structures.png
