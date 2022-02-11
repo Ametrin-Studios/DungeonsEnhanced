@@ -1,8 +1,8 @@
-package com.barion.dungeons_enhanced.structures;
+package com.barion.dungeons_enhanced.world.structures;
 
 import com.barion.dungeons_enhanced.DEConfig;
-import com.barion.dungeons_enhanced.structures.prefabs.DEPiece;
-import com.barion.dungeons_enhanced.structures.prefabs.DESimpleStructure;
+import com.barion.dungeons_enhanced.world.structures.prefabs.DESimpleStructure;
+import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Rotation;
@@ -12,7 +12,7 @@ import static com.barion.dungeons_enhanced.DEUtil.createRegistryName;
 public class DEDesertTemple extends DESimpleStructure {
     private final ResourceLocation Bottom = createRegistryName("desert_temple/down");
 
-    public DEDesertTemple() {super(DEConfig.COMMON.desert_temple, new DEPiece("desert_temple/main"));}
+    public DEDesertTemple() {super(DEConfig.COMMON.desert_temple, new DEStructurePiece("desert_temple/main"));}
 
     @Override
     public void assemble(AssembleContext context) {

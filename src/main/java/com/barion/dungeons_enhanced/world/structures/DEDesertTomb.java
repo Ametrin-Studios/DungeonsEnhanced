@@ -1,9 +1,10 @@
-package com.barion.dungeons_enhanced.structures;
+package com.barion.dungeons_enhanced.world.structures;
 
 import com.barion.dungeons_enhanced.DEConfig;
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
+import com.google.common.collect.ImmutableMap;
 import com.legacy.structure_gel.api.structure.GelConfigJigsawStructure;
 import com.legacy.structure_gel.api.structure.jigsaw.AbstractGelStructurePiece;
 import com.legacy.structure_gel.api.structure.jigsaw.JigsawPoolBuilder;
@@ -22,22 +23,20 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureMana
 
 import java.util.Random;
 
-public class DELargeDungeon extends GelConfigJigsawStructure {
-    public DELargeDungeon() {
-        super(JigsawConfiguration.CODEC, DEConfig.COMMON.large_dungeon, -16, true, true);
+public class DEDesertTomb extends GelConfigJigsawStructure {
+    public DEDesertTomb(){
+        super(JigsawConfiguration.CODEC, DEConfig.COMMON.desert_tomb, 1, true, true);
     }
 
     @Override
     public boolean isAllowedNearWorldSpawn() {return true;}
 
     public static class Piece extends AbstractGelStructurePiece {
-        public Piece(StructureManager structureManager, StructurePoolElement poolElement, BlockPos pos, int groundLevelDelta, Rotation rotation, BoundingBox bounds) {
-            super(structureManager, poolElement, pos, groundLevelDelta, rotation, bounds);
-        }
+        public Piece(StructureManager structureManager, StructurePoolElement poolElement, BlockPos pos, int groundLevelDelta, Rotation rotation, BoundingBox bounds) {super(structureManager, poolElement, pos, groundLevelDelta, rotation, bounds);}
         public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) {super(serializationContext, nbt);}
 
         @Override
-        public StructurePieceType getType() {return DEStructures.LargeDungeon.getPieceType();}
+        public StructurePieceType getType() {return DEStructures.DesertTomb.getPieceType();}
         @Override
         public void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor levelAccessor, Random random, BoundingBox box) {}
     }
@@ -46,17 +45,14 @@ public class DELargeDungeon extends GelConfigJigsawStructure {
         public static StructureTemplatePool Root;
         public static void init(){}
         static{
-            JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.Mod_ID, "large_dungeon/");
+            JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.Mod_ID, "desert_tomb/");
             JigsawPoolBuilder poolBuilder = registry.builder().maintainWater(false).processors(DEUtil.Processors.AirToCobweb);
             Root = registry.register("root", poolBuilder.clone().names("root").build());
 
-            JigsawPoolBuilder Cross = poolBuilder.clone().names("cross");
-            JigsawPoolBuilder Rooms = poolBuilder.clone().names("room_small1", "room_small2", "room1", "room2", "room_big", "parkour", "storage");
-            JigsawPoolBuilder Tunnels = poolBuilder.clone().names("tunnel");
-            JigsawPoolBuilder Stairs = poolBuilder.clone().names("stairs");
-
-            registry.register("cross", Cross.build());
-            registry.register("main", JigsawPoolBuilder.collect(Tunnels.weight(4), Stairs.weight(2), Cross.weight(2), Rooms.weight(1)));
+            registry.register("down", poolBuilder.clone().names("down").build());
+            registry.register("trap", poolBuilder.clone().names("trap").build());
+            registry.register("cross", poolBuilder.clone().names("t-cross").build());
+            registry.register("main", poolBuilder.clone().names(ImmutableMap.of("tunnel", 5, "t-cross", 4, "room", 4, "tomb", 3, "exit", 2)).build());
         }
     }
 }

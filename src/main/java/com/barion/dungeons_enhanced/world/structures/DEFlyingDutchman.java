@@ -1,4 +1,4 @@
-package com.barion.dungeons_enhanced.structures;
+package com.barion.dungeons_enhanced.world.structures;
 /*
 import com.barion.dungeons_enhanced.*;
 import com.barion.dungeons_enhanced.structures.prefabs.DESimpleStructure;

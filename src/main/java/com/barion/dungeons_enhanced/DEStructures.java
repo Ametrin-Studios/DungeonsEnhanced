@@ -1,9 +1,9 @@
 package com.barion.dungeons_enhanced;
 
-import com.barion.dungeons_enhanced.structures.*;
-import com.barion.dungeons_enhanced.structures.prefabs.DEPiece;
-import com.barion.dungeons_enhanced.structures.prefabs.DESimpleStructure;
-import com.barion.dungeons_enhanced.structures.prefabs.DEUndergroundStructure;
+import com.barion.dungeons_enhanced.world.structures.*;
+import com.barion.dungeons_enhanced.world.structures.prefabs.DESimpleStructure;
+import com.barion.dungeons_enhanced.world.structures.prefabs.DEUndergroundStructure;
+import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
 import com.legacy.structure_gel.api.registry.registrar.GelStructureRegistrar;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
 import com.legacy.structure_gel.api.structure.GelConfigJigsawStructure;
@@ -52,23 +52,23 @@ public class DEStructures {
         DesertTemple = register("desert_temple", new DEDesertTemple(), DESimpleStructure.Piece::new);
         DesertTomb = registerJigsaw("desert_tomb", new DEDesertTomb(), DEDesertTomb.Pool.Root, 4, DEDesertTomb.Piece::new);
         DruidCircle = registerJigsaw("druid_circle", new DEDruidCircle(), DEDruidCircle.Pool.Root, 2, DEDruidCircle.Piece::new);
-        DungeonVariant = register("dungeon_variant", new DEUndergroundStructure(DEConfig.COMMON.dungeon_variant, Offset(-6, 0, -6), true, new DEPiece("dungeon_variant/zombie"), new DEPiece("dungeon_variant/skeleton"), new DEPiece("dungeon_variant/spider")), DEUndergroundStructure.Piece::new, GenerationStep.Decoration.UNDERGROUND_STRUCTURES);
+        DungeonVariant = register("dungeon_variant", new DEUndergroundStructure(DEConfig.COMMON.dungeon_variant, Offset(-6, 0, -6), true, new DEStructurePiece("dungeon_variant/zombie"), new DEStructurePiece("dungeon_variant/skeleton"), new DEStructurePiece("dungeon_variant/spider")), DEUndergroundStructure.Piece::new, GenerationStep.Decoration.UNDERGROUND_STRUCTURES);
         //FlyingDutchman = register("flying_dutchman", new DEFloatingStructure(DEConfig.COMMON.flying_dutchman, false, new DEPiece("flying_dutchman", Offset(-4, 0, -15))), DEFloatingStructure.Piece::new);
-        HayStorage = register("hay_storage", new DESimpleStructure(DEConfig.COMMON.hay_Storage, true, new DEPiece("hay_storage/small", Offset(-7,0,-7)), new DEPiece("hay_storage/big", Offset(-9,0,-9))), DESimpleStructure.Piece::new);
+        HayStorage = register("hay_storage", new DESimpleStructure(DEConfig.COMMON.hay_Storage, true, new DEStructurePiece("hay_storage/small", Offset(-7,0,-7)), new DEStructurePiece("hay_storage/big", Offset(-9,0,-9))), DESimpleStructure.Piece::new);
         IcePit = register("ice_pit", new DEIcePit(), DESimpleStructure.Piece::new);
-        JungleMonument = register("jungle_monument", new DESimpleStructure(DEConfig.COMMON.jungle_monument, new DEPiece("jungle_monument", Offset(-12,-9,-12))), DESimpleStructure.Piece::new);
+        JungleMonument = register("jungle_monument", new DESimpleStructure(DEConfig.COMMON.jungle_monument, new DEStructurePiece("jungle_monument", Offset(-12,-9,-12))), DESimpleStructure.Piece::new);
         LargeDungeon = registerJigsaw("large_dungeon", new DELargeDungeon(), DELargeDungeon.Pool.Root, 6, DELargeDungeon.Piece::new);
-        MinersHouse = register("miners_house", new DESimpleStructure(DEConfig.COMMON.miners_house, new DEPiece("miners_house", Offset(-5, 0, -5))), DESimpleStructure.Piece::new);
+        MinersHouse = register("miners_house", new DESimpleStructure(DEConfig.COMMON.miners_house, new DEStructurePiece("miners_house", Offset(-5, 0, -5))), DESimpleStructure.Piece::new);
         MonsterMaze = registerJigsaw("monster_maze", new DEMonsterMaze(), DEMonsterMaze.Pool.Root, 9, DEMonsterMaze.Piece::new);
-        MushroomHouse = register("mushroom_house", new DESimpleStructure(DEConfig.COMMON.mushroom_house, new DEPiece("mushroom_house", Offset(-7,0,-7))), DESimpleStructure.Piece::new);
-        PillagerCamp = register("pillager_camp", new DESimpleStructure(DEConfig.COMMON.pillager_camp, new DEPiece("pillager_camp", Offset(-9,0,-14))), DESimpleStructure.Piece::new);
-        RuinedBuilding = register("ruined_building", new DESimpleStructure(DEConfig.COMMON.ruined_building, true, new DEPiece("ruined_building/house", Offset(-5, 0, -5), 3), new DEPiece("ruined_building/house_big", Offset(-6, 0, -8), 2), new DEPiece("ruined_building/barn", Offset(-4, 0, -5), 3)), DESimpleStructure.Piece::new);
-        Stables = register("stables", new DESimpleStructure(DEConfig.COMMON.stables, new DEPiece("stables", Offset(-8,-6,-13))), DESimpleStructure.Piece::new);
-        TallWitchHut = register("tall_witch_hut", new DESimpleStructure(DEConfig.COMMON.tall_witch_hut, new DEPiece("tall_witch_hut", Offset(-3,-3,-4))), DESimpleStructure.Piece::new);
-        TreeHouse = register("tree_house", new DESimpleStructure(DEConfig.COMMON.tree_house, new DEPiece("tree_house", Offset(-11,0,-12))), DESimpleStructure.Piece::new);
-        TowerOfTheUndead = register("tower_of_the_undead", new DESimpleStructure(DEConfig.COMMON.tower_of_the_undead, true, new DEPiece("tower_of_the_undead/big", Offset(-7, 0, -7), 2), new DEPiece("tower_of_the_undead/small", Offset(-5, 0, -5), 3)), DESimpleStructure.Piece::new);
-        WatchTower = register("watch_tower", new DESimpleStructure(DEConfig.COMMON.watch_tower, new DEPiece("watch_tower", Offset(-4,0,-4))), DESimpleStructure.Piece::new);
-        WitchTower = register("witch_tower", new DESimpleStructure(DEConfig.COMMON.witch_tower, true, new DEPiece("witch_tower/normal", Offset(-6,0,-5), 3), new DEPiece("witch_tower/big", Offset(-7,0,-7), 1)), DESimpleStructure.Piece::new);
+        MushroomHouse = register("mushroom_house", new DESimpleStructure(DEConfig.COMMON.mushroom_house, new DEStructurePiece("mushroom_house", Offset(-7,0,-7))), DESimpleStructure.Piece::new);
+        PillagerCamp = register("pillager_camp", new DESimpleStructure(DEConfig.COMMON.pillager_camp, new DEStructurePiece("pillager_camp", Offset(-9,0,-14))), DESimpleStructure.Piece::new);
+        RuinedBuilding = register("ruined_building", new DESimpleStructure(DEConfig.COMMON.ruined_building, true, new DEStructurePiece("ruined_building/house", Offset(-5, 0, -5), 3), new DEStructurePiece("ruined_building/house_big", Offset(-6, 0, -8), 2), new DEStructurePiece("ruined_building/barn", Offset(-4, 0, -5), 3)), DESimpleStructure.Piece::new);
+        Stables = register("stables", new DESimpleStructure(DEConfig.COMMON.stables, new DEStructurePiece("stables", Offset(-8,-6,-13))), DESimpleStructure.Piece::new);
+        TallWitchHut = register("tall_witch_hut", new DESimpleStructure(DEConfig.COMMON.tall_witch_hut, new DEStructurePiece("tall_witch_hut", Offset(-3,-3,-4))), DESimpleStructure.Piece::new);
+        TreeHouse = register("tree_house", new DESimpleStructure(DEConfig.COMMON.tree_house, new DEStructurePiece("tree_house", Offset(-11,0,-12))), DESimpleStructure.Piece::new);
+        TowerOfTheUndead = register("tower_of_the_undead", new DESimpleStructure(DEConfig.COMMON.tower_of_the_undead, true, new DEStructurePiece("tower_of_the_undead/big", Offset(-7, 0, -7), 2), new DEStructurePiece("tower_of_the_undead/small", Offset(-5, 0, -5), 3)), DESimpleStructure.Piece::new);
+        WatchTower = register("watch_tower", new DESimpleStructure(DEConfig.COMMON.watch_tower, new DEStructurePiece("watch_tower", Offset(-4,0,-4))), DESimpleStructure.Piece::new);
+        WitchTower = register("witch_tower", new DESimpleStructure(DEConfig.COMMON.witch_tower, true, new DEStructurePiece("witch_tower/normal", Offset(-6,0,-5), 3), new DEStructurePiece("witch_tower/big", Offset(-7,0,-7), 1)), DESimpleStructure.Piece::new);
     }
 
     @SubscribeEvent

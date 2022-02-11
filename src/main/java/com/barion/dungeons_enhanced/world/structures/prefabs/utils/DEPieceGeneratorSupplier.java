@@ -1,5 +1,6 @@
-package com.barion.dungeons_enhanced.structures.prefabs;
+package com.barion.dungeons_enhanced.world.structures.prefabs.utils;
 
+import com.barion.dungeons_enhanced.world.structures.prefabs.DEBaseStructure;
 import net.minecraft.core.QuartPos;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.world.level.ChunkPos;

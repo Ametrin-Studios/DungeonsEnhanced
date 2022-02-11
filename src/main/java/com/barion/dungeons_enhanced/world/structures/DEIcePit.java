@@ -1,8 +1,8 @@
-package com.barion.dungeons_enhanced.structures;
+package com.barion.dungeons_enhanced.world.structures;
 
 import com.barion.dungeons_enhanced.DEConfig;
-import com.barion.dungeons_enhanced.structures.prefabs.DEPiece;
-import com.barion.dungeons_enhanced.structures.prefabs.DESimpleStructure;
+import com.barion.dungeons_enhanced.world.structures.prefabs.DESimpleStructure;
+import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 
@@ -11,7 +11,7 @@ import static com.barion.dungeons_enhanced.DEUtil.createRegistryName;
 
 public class DEIcePit extends DESimpleStructure {
     private final ResourceLocation Entrance = createRegistryName("ice_pit/top");
-    public DEIcePit() {super(DEConfig.COMMON.ice_pit, Offset(-4, -25, -4), false, new DEPiece("ice_pit/var1"), new DEPiece("ice_pit/var2"), new DEPiece("ice_pit/var3"));}
+    public DEIcePit() {super(DEConfig.COMMON.ice_pit, Offset(-4, -25, -4), false, new DEStructurePiece("ice_pit/var1"), new DEStructurePiece("ice_pit/var2"), new DEStructurePiece("ice_pit/var3"));}
 
     @Override
     public void assemble(AssembleContext context) {

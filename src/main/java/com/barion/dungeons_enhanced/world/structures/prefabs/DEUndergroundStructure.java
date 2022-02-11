@@ -1,6 +1,7 @@
-package com.barion.dungeons_enhanced.structures.prefabs;
+package com.barion.dungeons_enhanced.world.structures.prefabs;
 
 import com.barion.dungeons_enhanced.DEStructures;
+import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
 import com.legacy.structure_gel.api.config.StructureConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -11,10 +12,10 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureMana
 
 public class DEUndergroundStructure extends DEBaseStructure {
 
-    public DEUndergroundStructure(StructureConfig config, boolean generateNearSpawn, DEPiece... resources){
+    public DEUndergroundStructure(StructureConfig config, boolean generateNearSpawn, DEStructurePiece... resources){
         super(config, GenerationType.underground, generateNearSpawn, resources);
     }
-    public DEUndergroundStructure(StructureConfig config, BlockPos offset, boolean generateNearSpawn, DEPiece... resources){
+    public DEUndergroundStructure(StructureConfig config, BlockPos offset, boolean generateNearSpawn, DEStructurePiece... resources){
         super(config, GenerationType.underground, offset, generateNearSpawn, resources);
     }
 
