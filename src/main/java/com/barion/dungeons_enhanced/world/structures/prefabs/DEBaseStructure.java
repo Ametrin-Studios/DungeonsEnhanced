@@ -82,8 +82,8 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
     }
 
     private static void generatePieces(StructurePiecesBuilder piecesBuilder, DEPieceGenerator.Context<NoneFeatureConfiguration> context) {
-        int x = context.chunkPos().x * 16;
-        int z = context.chunkPos().z * 16;
+        int x = context.chunkPos().getMinBlockX();
+        int z = context.chunkPos().getMinBlockZ();
         int y = 70;
         ChunkGenerator chunkGen = context.chunkGenerator();
         LevelHeightAccessor heightAccessor = context.heightAccessor();

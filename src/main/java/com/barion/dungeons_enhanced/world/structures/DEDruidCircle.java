@@ -25,6 +25,7 @@ import java.util.Random;
 public class DEDruidCircle extends GelConfigJigsawStructure {
     public DEDruidCircle(){
         super(JigsawConfiguration.CODEC, DEConfig.COMMON.druid_circle, 1, true, true);
+        Pool.init();
     }
 
     @Override

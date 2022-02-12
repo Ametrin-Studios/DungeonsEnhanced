@@ -1,8 +1,11 @@
 package com.barion.dungeons_enhanced;
 
+import com.barion.dungeons_enhanced.world.gen.TerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structures.*;
+import com.barion.dungeons_enhanced.world.structures.prefabs.DECellarStructure;
 import com.barion.dungeons_enhanced.world.structures.prefabs.DESimpleStructure;
 import com.barion.dungeons_enhanced.world.structures.prefabs.DEUndergroundStructure;
+import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DECellarPiece;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
 import com.legacy.structure_gel.api.registry.registrar.GelStructureRegistrar;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
@@ -23,7 +26,7 @@ import static com.barion.dungeons_enhanced.DEUtil.Offset;
 import static com.barion.dungeons_enhanced.DEUtil.createRegistryName;
 
 public class DEStructures {
-    public static final StructureRegistrar<JigsawConfiguration, DECastle> Castle;
+    public static final StructureRegistrar<JigsawConfiguration, DECellarStructure> Castle;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEDesertTemple> DesertTemple;
     public static final StructureRegistrar<JigsawConfiguration, DEDesertTomb> DesertTomb;
     public static final StructureRegistrar<JigsawConfiguration, DEDruidCircle> DruidCircle;
@@ -48,7 +51,7 @@ public class DEStructures {
     public DEStructures(){}
 
     static {
-        Castle = registerJigsaw("castle", new DECastle(), DECastle.Pool.Root, 1, DECastle.Piece::new);
+        Castle = registerJigsaw("castle", new DECellarStructure(DEConfig.COMMON.castle, false, "castle", new TerrainAnalyzer.LandscapeCheckSettings(1, 3, 3), new DECellarPiece("top1", "bottom1"), new DECellarPiece("top2", "bottom2")), DECastle.Pool.Root, 1, DECellarStructure.Piece::new);
         DesertTemple = register("desert_temple", new DEDesertTemple(), DESimpleStructure.Piece::new);
         DesertTomb = registerJigsaw("desert_tomb", new DEDesertTomb(), DEDesertTomb.Pool.Root, 4, DEDesertTomb.Piece::new);
         DruidCircle = registerJigsaw("druid_circle", new DEDruidCircle(), DEDruidCircle.Pool.Root, 2, DEDruidCircle.Piece::new);
@@ -74,12 +77,6 @@ public class DEStructures {
     @SubscribeEvent
     public static void structureRegistry(final RegistryEvent.Register<StructureFeature<?>> event){
         IForgeRegistry<StructureFeature<?>> registry = event.getRegistry();
-
-        DECastle.Pool.init();
-        DEDesertTomb.Pool.init();
-        DEDruidCircle.Pool.init();
-        DEMonsterMaze.Pool.init();
-        DELargeDungeon.Pool.init();
 
         Castle.handleForge(registry);
         RuinedBuilding.handleForge(registry);
@@ -116,6 +113,10 @@ public class DEStructures {
 
     private static  <S extends GelConfigJigsawStructure> StructureRegistrar<JigsawConfiguration, S> registerJigsaw(String registryName, S structure, StructureTemplatePool root, Integer level, StructurePieceType piece){
         return GelStructureRegistrar.of(createRegistryName(registryName), structure, piece, new JigsawConfiguration(() -> root, level), GenerationStep.Decoration.SURFACE_STRUCTURES);
+    }
+
+    private static StructureRegistrar<JigsawConfiguration, DECellarStructure> registerCellarStructure(String registryName, DECellarStructure structure, StructureTemplatePool root, StructurePieceType piece){
+        return GelStructureRegistrar.of(createRegistryName(registryName), structure, piece, new JigsawConfiguration(structure::getRootPool, 1), GenerationStep.Decoration.SURFACE_STRUCTURES);
     }
 
     private static void noiseAffecting(StructureRegistrar<?, ?>... structureRegs){

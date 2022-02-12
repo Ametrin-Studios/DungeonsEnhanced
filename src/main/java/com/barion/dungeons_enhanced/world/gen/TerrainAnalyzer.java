@@ -14,8 +14,8 @@ public class TerrainAnalyzer {
     protected static LevelHeightAccessor heightAccessor;
 
     public static boolean isPositionSuitable(ChunkPos chunkPos, ChunkGenerator chunkGenerator, LandscapeCheckSettings settings, LevelHeightAccessor heightAccessor) {
-        int x = chunkPos.x * 16;
-        int z = chunkPos.z * 16;
+        int x = chunkPos.getMinBlockX();
+        int z = chunkPos.getMinBlockZ();
         int y = chunkGenerator.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, heightAccessor);
 
         TerrainAnalyzer.chunkGenerator = chunkGenerator;

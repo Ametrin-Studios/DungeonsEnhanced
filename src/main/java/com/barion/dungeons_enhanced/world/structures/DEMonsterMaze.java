@@ -24,7 +24,11 @@ import java.util.Random;
 public class DEMonsterMaze extends GelConfigJigsawStructure{
     public DEMonsterMaze(){
         super(JigsawConfiguration.CODEC, DEConfig.COMMON.monster_maze, -17, true, true);
+        Pool.init();
     }
+
+    @Override
+    public boolean isAllowedNearWorldSpawn() {return false;}
 
     public static class Piece extends AbstractGelStructurePiece {
         public Piece(StructureManager structureManager, StructurePoolElement poolElement, BlockPos pos, int groundLevelDelta, Rotation rotation, BoundingBox bounds) {

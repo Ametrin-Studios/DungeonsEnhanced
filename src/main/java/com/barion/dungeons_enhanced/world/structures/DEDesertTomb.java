@@ -26,6 +26,7 @@ import java.util.Random;
 public class DEDesertTomb extends GelConfigJigsawStructure {
     public DEDesertTomb(){
         super(JigsawConfiguration.CODEC, DEConfig.COMMON.desert_tomb, 1, true, true);
+        Pool.init();
     }
 
     @Override
