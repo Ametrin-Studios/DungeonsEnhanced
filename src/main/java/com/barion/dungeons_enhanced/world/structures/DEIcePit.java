@@ -15,10 +15,10 @@ public class DEIcePit extends DESimpleStructure {
 
     @Override
     public void assemble(AssembleContext context) {
-        BlockPos pos = context.pos().offset(context.variant().Offset);
+        BlockPos pos = context.pos();
         context.piecesBuilder().addPiece(new Piece(context.structureManager(), Entrance, pos, context.rotation()));
         int offsetY = -6;
-        if(context.variant().Resource.toString().contains("var3")) {offsetY = -11;}
+        if(context.variant().Resource.getPath().contains("var3")) {offsetY = -11;}
         context.piecesBuilder().addPiece(new Piece(context.structureManager(), context.variant().Resource, pos.offset(-17, offsetY,-17), context.rotation()));
     }
 }
