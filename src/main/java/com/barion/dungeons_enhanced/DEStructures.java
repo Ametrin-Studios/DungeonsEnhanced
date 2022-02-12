@@ -51,7 +51,7 @@ public class DEStructures {
     public DEStructures(){}
 
     static {
-        Castle = registerJigsaw("castle", new DECellarStructure(DEConfig.COMMON.castle, false, "castle", new TerrainAnalyzer.LandscapeCheckSettings(1, 3, 3), new DECellarPiece("top1", "bottom1"), new DECellarPiece("top2", "bottom2")), DECastle.Pool.Root, 1, DECellarStructure.Piece::new);
+        Castle = registerCellarStructure("castle", new DECellarStructure(DEConfig.COMMON.castle, false, "castle", new TerrainAnalyzer.LandscapeCheckSettings(1, 3, 3), new DECellarPiece("top1", "bottom1"), new DECellarPiece("top2", "bottom2")), DECellarStructure.Piece::new);
         DesertTemple = register("desert_temple", new DEDesertTemple(), DESimpleStructure.Piece::new);
         DesertTomb = registerJigsaw("desert_tomb", new DEDesertTomb(), DEDesertTomb.Pool.Root, 4, DEDesertTomb.Piece::new);
         DruidCircle = registerJigsaw("druid_circle", new DEDruidCircle(), DEDruidCircle.Pool.Root, 2, DEDruidCircle.Piece::new);
@@ -115,7 +115,7 @@ public class DEStructures {
         return GelStructureRegistrar.of(createRegistryName(registryName), structure, piece, new JigsawConfiguration(() -> root, level), GenerationStep.Decoration.SURFACE_STRUCTURES);
     }
 
-    private static StructureRegistrar<JigsawConfiguration, DECellarStructure> registerCellarStructure(String registryName, DECellarStructure structure, StructureTemplatePool root, StructurePieceType piece){
+    private static StructureRegistrar<JigsawConfiguration, DECellarStructure> registerCellarStructure(String registryName, DECellarStructure structure, StructurePieceType piece){
         return GelStructureRegistrar.of(createRegistryName(registryName), structure, piece, new JigsawConfiguration(structure::getRootPool, 1), GenerationStep.Decoration.SURFACE_STRUCTURES);
     }
 
