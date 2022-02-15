@@ -1,6 +1,6 @@
 package com.barion.dungeons_enhanced;
 
-import com.barion.dungeons_enhanced.world.gen.TerrainAnalyzer;
+import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structures.*;
 import com.barion.dungeons_enhanced.world.structures.prefabs.DECellarStructure;
 import com.barion.dungeons_enhanced.world.structures.prefabs.DESimpleStructure;
@@ -51,11 +51,11 @@ public class DEStructures {
     public DEStructures(){}
 
     static {
-        Castle = registerCellarStructure("castle", new DECellarStructure(DEConfig.COMMON.castle, false, "castle", new TerrainAnalyzer.LandscapeCheckSettings(1, 3, 3), new DECellarPiece("top1", "bottom1"), new DECellarPiece("top2", "bottom2")), DECellarStructure.Piece::new);
+        Castle = registerCellarStructure("castle", new DECellarStructure(DEConfig.COMMON.castle, false, "castle", new DETerrainAnalyzer.LandscapeCheckSettings(1, 3, 3), new DECellarPiece("top1", "bottom1"), new DECellarPiece("top2", "bottom2")), DECellarStructure.Piece::new);
         DesertTemple = register("desert_temple", new DEDesertTemple(), DESimpleStructure.Piece::new);
         DesertTomb = registerJigsaw("desert_tomb", new DEDesertTomb(), DEDesertTomb.Pool.Root, 4, DEDesertTomb.Piece::new);
         DruidCircle = registerJigsaw("druid_circle", new DEDruidCircle(), DEDruidCircle.Pool.Root, 2, DEDruidCircle.Piece::new);
-        DungeonVariant = register("dungeon_variant", new DEUndergroundStructure(DEConfig.COMMON.dungeon_variant, Offset(-6, 0, -6), true, new DEStructurePiece("dungeon_variant/zombie"), new DEStructurePiece("dungeon_variant/skeleton"), new DEStructurePiece("dungeon_variant/spider")), DEUndergroundStructure.Piece::new, GenerationStep.Decoration.UNDERGROUND_STRUCTURES);
+        DungeonVariant = register("dungeon_variant", new DEUndergroundStructure(DEConfig.COMMON.dungeon_variant, Offset(-6, 0, -6), true, new DEStructurePiece("dungeon_variant/zombie"), new DEStructurePiece("dungeon_variant/skeleton"), new DEStructurePiece("dungeon_variant/spider")), DEUndergroundStructure.Piece::new);
         //FlyingDutchman = register("flying_dutchman", new DEFloatingStructure(DEConfig.COMMON.flying_dutchman, false, new DEPiece("flying_dutchman", Offset(-4, 0, -15))), DEFloatingStructure.Piece::new);
         HayStorage = register("hay_storage", new DESimpleStructure(DEConfig.COMMON.hay_Storage, true, new DEStructurePiece("hay_storage/small", Offset(-7,0,-7)), new DEStructurePiece("hay_storage/big", Offset(-9,0,-9))), DESimpleStructure.Piece::new);
         IcePit = register("ice_pit", new DEIcePit(), DESimpleStructure.Piece::new);

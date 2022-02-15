@@ -10,6 +10,7 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.LootTables;
@@ -64,7 +65,7 @@ public class DELootGenerator extends LootTableProvider {
                             .add(suspiciousStew(3, lootNumber(1, 2)))
                             .add(lootItem(Items.SPYGLASS, 1, one()))));} // Flying Dutchman
             {lootTable.accept(location("monster_maze/church"), LootTable.lootTable()
-                    .withPool(LootPool.lootPool().setRolls(lootNumber(5, 7))
+                    .withPool(lootPool(lootNumber(5, 7))
                             .add(lootItem(Items.DIAMOND, 1, lootNumber(1, 2)))
                             .add(lootItem(Items.BONE, 4, lootNumber(1, 3)))
                             .add(lootItem(Items.PUMPKIN_SEEDS, 6, lootNumber(2, 4)))
@@ -80,7 +81,7 @@ public class DELootGenerator extends LootTableProvider {
                             .add(lootItem(Items.GOLD_INGOT, 4, lootNumber(2, 3)))));
 
             lootTable.accept(location("monster_maze/treasure"), LootTable.lootTable()
-                    .withPool(LootPool.lootPool().setRolls(lootNumber(4, 9))
+                    .withPool(lootPool(lootNumber(4, 9))
                             .add(lootItem(Items.BONE, 3, lootNumber(2, 4)))
                             .add(lootItem(Items.ROTTEN_FLESH, 4, lootNumber(1, 2)))
                             .add(lootItem(Items.STRING, 3, lootNumber(1, 2)))
@@ -92,7 +93,7 @@ public class DELootGenerator extends LootTableProvider {
                             .add(lootItem(Items.EMERALD, 2, lootNumber(1, 2)))
                             .add(lootItem(Items.IRON_NUGGET, 2, lootNumber(2, 5)))
                             .add(lootItem(Items.GOLD_NUGGET, 2, lootNumber(2, 5))))
-                    .withPool(LootPool.lootPool().setRolls(lootNumber(4, 6))
+                    .withPool(lootPool(lootNumber(4, 6))
                             .add(lootItem(Items.GOLD_INGOT, 2, lootNumber(2, 4)))
                             .add(lootItem(Items.EXPERIENCE_BOTTLE, 3, one()))
                             .add(lootItem(Items.DIAMOND, 2, one()))
@@ -104,21 +105,21 @@ public class DELootGenerator extends LootTableProvider {
                             .add(enchantedLootItem(Items.DIAMOND_CHESTPLATE, 1, lootNumber(0, 12), one()))
                             .add(enchantedLootItem(Items.DIAMOND_LEGGINGS, 1, lootNumber(0, 12), one()))
                             .add(enchantedLootItem(Items.DIAMOND_BOOTS, 1, lootNumber(0, 12), one())))
-                    .withPool(LootPool.lootPool().setRolls(lootNumber(0, 1))
-                            .add(lootItem(Items.MUSIC_DISC_11, 1, one()))
-                            .add(lootItem(Items.MUSIC_DISC_13, 1, one()))
-                            .add(lootItem(Items.MUSIC_DISC_BLOCKS, 1, one()))
-                            .add(lootItem(Items.MUSIC_DISC_CAT, 1, one()))
-                            .add(lootItem(Items.MUSIC_DISC_CHIRP, 1, one()))
-                            .add(lootItem(Items.MUSIC_DISC_FAR, 1, one()))
-                            .add(lootItem(Items.MUSIC_DISC_MALL, 1, one()))
-                            .add(lootItem(Items.MUSIC_DISC_MELLOHI, 1, one()))
-                            .add(lootItem(Items.MUSIC_DISC_STAL, 1, one()))
-                            .add(lootItem(Items.MUSIC_DISC_STRAD, 1, one()))
-                            .add(lootItem(Items.MUSIC_DISC_WARD, 1, one()))));
+                    .withPool(lootPool(lootNumber(0, 1))
+                            .add(lootItem(Items.MUSIC_DISC_11, 1, lootNumber(0,1)))
+                            .add(lootItem(Items.MUSIC_DISC_13, 1, lootNumber(0,1)))
+                            .add(lootItem(Items.MUSIC_DISC_BLOCKS, 1, lootNumber(0,1)))
+                            .add(lootItem(Items.MUSIC_DISC_CAT, 1, lootNumber(0,1)))
+                            .add(lootItem(Items.MUSIC_DISC_CHIRP, 1, lootNumber(0,1)))
+                            .add(lootItem(Items.MUSIC_DISC_FAR, 1, lootNumber(0,1)))
+                            .add(lootItem(Items.MUSIC_DISC_MALL, 1, lootNumber(0,1)))
+                            .add(lootItem(Items.MUSIC_DISC_MELLOHI, 1, lootNumber(0,1)))
+                            .add(lootItem(Items.MUSIC_DISC_STAL, 1, lootNumber(0,1)))
+                            .add(lootItem(Items.MUSIC_DISC_STRAD, 1, lootNumber(0,1)))
+                            .add(lootItem(Items.MUSIC_DISC_WARD, 1, lootNumber(0,1)))));
 
             lootTable.accept(location("monster_maze/prison"), LootTable.lootTable()
-                    .withPool(LootPool.lootPool().setRolls(lootNumber(10, 16))
+                    .withPool(lootPool(lootNumber(10, 16))
                             .add(lootItem(Items.PAPER, 2, one()))
                             .add(lootItem(Items.CHAIN, 2, one()))
                             .add(lootItem(Items.ROTTEN_FLESH, 3, one()))
@@ -131,15 +132,27 @@ public class DELootGenerator extends LootTableProvider {
                             .add(lootItem(Items.MUSHROOM_STEW, 1, one()))
                             .add(lootItem(Items.CANDLE, 1, one()))
                             .add(suspiciousStew(2, one()))
-                            .add(lootItem(Items.BOWL, 2, one())))
-                    .withPool(LootPool.lootPool().setRolls(lootNumber(0, 1))
+                            .add(lootItem(Items.BOWL, 2, one()))
+                            .add(potion(1, Potions.WEAKNESS, lootNumber(0,1)))
+                            .add(potion(1, Potions.STRENGTH, lootNumber(0,1))))
+                    .withPool(lootPool(lootNumber(0, 1))
                             .add(enchantedLootItem(Items.STONE_PICKAXE, 4, lootNumber(5, 10), one()))
                             .add(enchantedLootItem(Items.GOLDEN_PICKAXE, 3, lootNumber(5, 10), one()))
                             .add(enchantedLootItem(Items.IRON_PICKAXE, 2, lootNumber(5, 10), one()))
-                            .add(enchantedLootItem(Items.DIAMOND_PICKAXE, 1, lootNumber(5, 10), one()))));
+                            .add(enchantedLootItem(Items.DIAMOND_PICKAXE, 1, lootNumber(5, 10), one())))
+                    .withPool(lootPool(lootNumber(0,2))
+                            .add(potion(1, Potions.HEALING, lootNumber(0, 1)))
+                            .add(potion(1, Potions.INVISIBILITY, lootNumber(0, 1)))
+                            .add(potion(1, Potions.LEAPING, lootNumber(0, 1)))
+                            .add(potion(1, Potions.NIGHT_VISION, lootNumber(0, 1)))
+                            .add(potion(1, Potions.REGENERATION, lootNumber(0, 1)))
+                            .add(potion(1, Potions.SLOW_FALLING, lootNumber(0, 1)))
+                            .add(potion(1, Potions.STRENGTH, lootNumber(0, 1)))
+                            .add(potion(1, Potions.WATER_BREATHING, lootNumber(0, 1)))
+                            .add(potion(1, Potions.FIRE_RESISTANCE, lootNumber(0, 1)))));
 
             lootTable.accept(location("monster_maze/brewery"), LootTable.lootTable()
-                    .withPool(LootPool.lootPool().setRolls(lootNumber(10, 15))
+                    .withPool(lootPool(lootNumber(10, 15))
                             .add(lootItem(Items.REDSTONE, 2, one()))
                             .add(lootItem(Items.SUGAR, 2, one()))
                             .add(lootItem(Items.GLOWSTONE_DUST, 2, one()))
@@ -155,26 +168,36 @@ public class DELootGenerator extends LootTableProvider {
                             .add(lootItem(Items.FERMENTED_SPIDER_EYE, 2, one()))
                             .add(lootItem(Items.GUNPOWDER, 2, one()))
                             .add(lootItem(Items.SCUTE, 2, one())))
-                    .withPool(LootPool.lootPool().setRolls(lootNumber(0, 3))
-                            .add(lootItem(Items.BLACK_CANDLE, 1, one()))
-                            .add(lootItem(Items.CYAN_CANDLE, 1, one()))
-                            .add(lootItem(Items.BLUE_CANDLE, 1, one()))
-                            .add(lootItem(Items.BROWN_CANDLE, 1, one()))
-                            .add(lootItem(Items.GRAY_CANDLE, 1, one()))
-                            .add(lootItem(Items.GREEN_CANDLE, 1, one()))
-                            .add(lootItem(Items.LIGHT_BLUE_CANDLE, 1, one()))
-                            .add(lootItem(Items.LIGHT_GRAY_CANDLE, 1, one()))
-                            .add(lootItem(Items.LIME_CANDLE, 1, one()))
-                            .add(lootItem(Items.MAGENTA_CANDLE, 1, one()))
-                            .add(lootItem(Items.ORANGE_CANDLE, 1, one()))
-                            .add(lootItem(Items.PINK_CANDLE, 1, one()))
-                            .add(lootItem(Items.PURPLE_CANDLE, 1, one()))
-                            .add(lootItem(Items.RED_CANDLE, 1, one()))
-                            .add(lootItem(Items.WHITE_CANDLE, 1, one()))
-                            .add(lootItem(Items.YELLOW_CANDLE, 1, one()))
-                            .add(lootItem(Items.CANDLE, 1, one()))));} // Monster Maze
+                    .withPool(lootPool(lootNumber(0, 3))
+                            .add(lootItem(Items.BLACK_CANDLE, 1, lootNumber(0,1)))
+                            .add(lootItem(Items.CYAN_CANDLE, 1, lootNumber(0,1)))
+                            .add(lootItem(Items.BLUE_CANDLE, 1, lootNumber(0,1)))
+                            .add(lootItem(Items.BROWN_CANDLE, 1, lootNumber(0,1)))
+                            .add(lootItem(Items.GRAY_CANDLE, 1, lootNumber(0,1)))
+                            .add(lootItem(Items.GREEN_CANDLE, 1, lootNumber(0,1)))
+                            .add(lootItem(Items.LIGHT_BLUE_CANDLE, 1, lootNumber(0,1)))
+                            .add(lootItem(Items.LIGHT_GRAY_CANDLE, 1, lootNumber(0,1)))
+                            .add(lootItem(Items.LIME_CANDLE, 1, lootNumber(0,1)))
+                            .add(lootItem(Items.MAGENTA_CANDLE, 1, lootNumber(0,1)))
+                            .add(lootItem(Items.ORANGE_CANDLE, 1, lootNumber(0,1)))
+                            .add(lootItem(Items.PINK_CANDLE, 1, lootNumber(0,1)))
+                            .add(lootItem(Items.PURPLE_CANDLE, 1, lootNumber(0,1)))
+                            .add(lootItem(Items.RED_CANDLE, 1, lootNumber(0,1)))
+                            .add(lootItem(Items.WHITE_CANDLE, 1, lootNumber(0,1)))
+                            .add(lootItem(Items.YELLOW_CANDLE, 1, lootNumber(0,1)))
+                            .add(lootItem(Items.CANDLE, 1, lootNumber(0,1))))
+                    .withPool(lootPool(lootNumber(0,2))
+                            .add(potion(1, Potions.HEALING, lootNumber(0, 1)))
+                            .add(potion(1, Potions.INVISIBILITY, lootNumber(0, 1)))
+                            .add(potion(1, Potions.LEAPING, lootNumber(0, 1)))
+                            .add(potion(1, Potions.NIGHT_VISION, lootNumber(0, 1)))
+                            .add(potion(1, Potions.REGENERATION, lootNumber(0, 1)))
+                            .add(potion(1, Potions.SLOW_FALLING, lootNumber(0, 1)))
+                            .add(potion(1, Potions.STRENGTH, lootNumber(0, 1)))
+                            .add(potion(1, Potions.WATER_BREATHING, lootNumber(0, 1)))
+                            .add(potion(1, Potions.FIRE_RESISTANCE, lootNumber(0, 1)))));} // Monster Maze
             {lootTable.accept(location("tower_of_the_undead/treasure"), LootTable.lootTable()
-                    .withPool(LootPool.lootPool().setRolls(lootNumber(10, 18))
+                    .withPool(lootPool(lootNumber(10, 18))
                             .add(lootItem(Items.GOLD_NUGGET, 5, lootNumber(1, 2)))
                             .add(lootItem(Items.GOLD_INGOT, 3, one()))
                             .add(lootItem(Items.EXPERIENCE_BOTTLE, 3, one()))
@@ -193,7 +216,7 @@ public class DELootGenerator extends LootTableProvider {
                             .add(lootItem(Items.COBWEB, 4, one()))
                             .add(lootItem(Items.GOLDEN_APPLE, 2, one()))
                             .add(lootItem(Items.ARROW, 6, lootNumber(2, 3))))
-                    .withPool(LootPool.lootPool().setRolls(lootNumber(1, 3))
+                    .withPool(lootPool(lootNumber(1, 3))
                             .add(lootItem(Items.LEATHER_HELMET, 3, one()))
                             .add(lootItem(Items.LEATHER_CHESTPLATE, 3, one()))
                             .add(lootItem(Items.LEATHER_LEGGINGS, 3, one()))
@@ -538,7 +561,7 @@ public class DELootGenerator extends LootTableProvider {
         private LootPoolEntryContainer.Builder<?> suspiciousStew(int weight, NumberProvider amount){
             return LootItem.lootTableItem(Items.SUSPICIOUS_STEW).setWeight(weight).apply(SetItemCountFunction.setCount(amount)).apply(SetStewEffectFunction.stewEffect().withEffect(MobEffects.NIGHT_VISION, lootNumber(7, 10)).withEffect(MobEffects.JUMP, lootNumber(7, 10)).withEffect(MobEffects.WEAKNESS, lootNumber(6, 8)).withEffect(MobEffects.BLINDNESS, lootNumber(5, 7)).withEffect(MobEffects.POISON, lootNumber(10, 20)).withEffect(MobEffects.SATURATION, lootNumber(7, 10)));
         }
-        private LootPoolEntryContainer.Builder<?> potion(int weight, Potion potion){
+        private LootPoolEntryContainer.Builder<?> potion(int weight, Potion potion, NumberProvider amount){
             return LootItem.lootTableItem(Items.POTION).setWeight(weight).apply(SetItemCountFunction.setCount(one())).apply(SetPotionFunction.setPotion(potion));
         }
 

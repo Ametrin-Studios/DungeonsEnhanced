@@ -2,7 +2,7 @@ package com.barion.dungeons_enhanced.world.structures.prefabs;
 
 import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
-import com.barion.dungeons_enhanced.world.gen.TerrainAnalyzer;
+import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEPieceGenerator;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEPieceGeneratorSupplier;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
@@ -45,7 +45,7 @@ import java.util.Random;
 import java.util.function.Predicate;
 
 public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration> {
-    public TerrainAnalyzer.LandscapeCheckSettings landscapeCheckSettings = new TerrainAnalyzer.LandscapeCheckSettings(1, 3, 3);
+    public DETerrainAnalyzer.LandscapeCheckSettings landscapeCheckSettings = new DETerrainAnalyzer.LandscapeCheckSettings(1, 3, 3);
     public DEStructurePiece[] Variants;
     public final GenerationType generationType;
     public int maxWeight;
@@ -71,11 +71,11 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
 
     @Override public boolean isAllowedNearWorldSpawn() {return generateNear00;}
 
-    private static boolean checkLocation(DEPieceGeneratorSupplier.Context<NoneFeatureConfiguration> context){
+    protected static boolean checkLocation(DEPieceGeneratorSupplier.Context<NoneFeatureConfiguration> context){
         boolean isCorrectBiome = context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG);
 
         if(isCorrectBiome && context.structure().generationType == GenerationType.onGround){
-            return TerrainAnalyzer.isPositionSuitable(context.chunkPos(), context.chunkGenerator(), context.structure().landscapeCheckSettings, context.heightAccessor());
+            return DETerrainAnalyzer.isPositionSuitable(context.chunkPos(), context.chunkGenerator(), context.structure().landscapeCheckSettings, context.heightAccessor());
         }
 
         return isCorrectBiome;
@@ -101,6 +101,7 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
                 if(maxY >= 55) {maxY = 55;}
                 y = context.random().nextInt(maxY-minY)+minY;
                 if(y < minY){y = minY;}
+                DungeonsEnhanced.LOGGER.info("Try Generating at: " + x + ", " + y + ", " + z);
             }
         }
 

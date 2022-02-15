@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
 
-public class TerrainAnalyzer {
+public class DETerrainAnalyzer {
     protected static ChunkGenerator chunkGenerator;
     protected static LevelHeightAccessor heightAccessor;
 
@@ -18,8 +18,8 @@ public class TerrainAnalyzer {
         int z = chunkPos.getMinBlockZ();
         int y = chunkGenerator.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, heightAccessor);
 
-        TerrainAnalyzer.chunkGenerator = chunkGenerator;
-        TerrainAnalyzer.heightAccessor = heightAccessor;
+        DETerrainAnalyzer.chunkGenerator = chunkGenerator;
+        DETerrainAnalyzer.heightAccessor = heightAccessor;
 
         if(getBlockAt(x, y-1, z) == Blocks.WATER) {
             DungeonsEnhanced.LOGGER.info("Canceled at " + new BlockPos(x, y, z) + " because Water");

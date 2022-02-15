@@ -3,7 +3,7 @@ package com.barion.dungeons_enhanced.world.structures.prefabs;
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
-import com.barion.dungeons_enhanced.world.gen.TerrainAnalyzer;
+import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DECellarPiece;
 import com.legacy.structure_gel.api.config.StructureConfig;
 import com.legacy.structure_gel.api.structure.GelConfigJigsawStructure;
@@ -30,11 +30,11 @@ public class DECellarStructure extends GelConfigJigsawStructure {
     protected DECellarPiece[] Variants;
     protected boolean generateNear00;
     protected String prefix;
-    protected TerrainAnalyzer.LandscapeCheckSettings landscapeCheckSettings;
+    protected DETerrainAnalyzer.LandscapeCheckSettings landscapeCheckSettings;
     protected int maxWeight;
     protected Pool pool;
 
-    public DECellarStructure(StructureConfig config, boolean generateNear00, String prefix, TerrainAnalyzer.LandscapeCheckSettings landscapeCheckSettings, DECellarPiece... variants){
+    public DECellarStructure(StructureConfig config, boolean generateNear00, String prefix, DETerrainAnalyzer.LandscapeCheckSettings landscapeCheckSettings, DECellarPiece... variants){
         super(JigsawConfiguration.CODEC, config, 0, true, true, (context) -> checkLocation(context, landscapeCheckSettings));
         this.generateNear00 = generateNear00;
         this.Variants = variants;
@@ -45,9 +45,9 @@ public class DECellarStructure extends GelConfigJigsawStructure {
         pool.init();
     }
 
-    private static boolean checkLocation(PieceGeneratorSupplier.Context context, TerrainAnalyzer.LandscapeCheckSettings checkSettings){
+    private static boolean checkLocation(PieceGeneratorSupplier.Context<JigsawConfiguration> context, DETerrainAnalyzer.LandscapeCheckSettings checkSettings){
         if(context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG)){
-            return TerrainAnalyzer.isPositionSuitable(context.chunkPos(), context.chunkGenerator(), checkSettings, context.heightAccessor());
+            return DETerrainAnalyzer.isPositionSuitable(context.chunkPos(), context.chunkGenerator(), checkSettings, context.heightAccessor());
         }
 
         return false;
@@ -68,9 +68,9 @@ public class DECellarStructure extends GelConfigJigsawStructure {
         public void handleDataMarker(String key, BlockPos blockPos, ServerLevelAccessor levelAccessor, Random random, BoundingBox box) {}
     }
 
-    public StructureTemplatePool getRootPool(){
-        return pool.Root;
-    }
+    public StructureTemplatePool getRootPool() {return pool.Root;}
+
+
 
     protected class Pool{
         protected StructureTemplatePool Root;

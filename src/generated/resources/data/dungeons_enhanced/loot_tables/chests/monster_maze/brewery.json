@@ -199,7 +199,11 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 0.0,
+                "max": 1.0
+              },
               "add": false
             }
           ],
@@ -210,7 +214,11 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 0.0,
+                "max": 1.0
+              },
               "add": false
             }
           ],
@@ -221,7 +229,11 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 0.0,
+                "max": 1.0
+              },
               "add": false
             }
           ],
@@ -232,7 +244,11 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 0.0,
+                "max": 1.0
+              },
               "add": false
             }
           ],
@@ -243,7 +259,11 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 0.0,
+                "max": 1.0
+              },
               "add": false
             }
           ],
@@ -254,7 +274,11 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 0.0,
+                "max": 1.0
+              },
               "add": false
             }
           ],
@@ -265,7 +289,11 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 0.0,
+                "max": 1.0
+              },
               "add": false
             }
           ],
@@ -276,7 +304,11 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 0.0,
+                "max": 1.0
+              },
               "add": false
             }
           ],
@@ -287,7 +319,11 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 0.0,
+                "max": 1.0
+              },
               "add": false
             }
           ],
@@ -298,7 +334,11 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 0.0,
+                "max": 1.0
+              },
               "add": false
             }
           ],
@@ -309,7 +349,11 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 0.0,
+                "max": 1.0
+              },
               "add": false
             }
           ],
@@ -320,7 +364,11 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 0.0,
+                "max": 1.0
+              },
               "add": false
             }
           ],
@@ -331,7 +379,11 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 0.0,
+                "max": 1.0
+              },
               "add": false
             }
           ],
@@ -342,7 +394,11 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 0.0,
+                "max": 1.0
+              },
               "add": false
             }
           ],
@@ -353,7 +409,11 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 0.0,
+                "max": 1.0
+              },
               "add": false
             }
           ],
@@ -364,7 +424,11 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 0.0,
+                "max": 1.0
+              },
               "add": false
             }
           ],
@@ -375,11 +439,160 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 0.0,
+                "max": 1.0
+              },
               "add": false
             }
           ],
           "name": "minecraft:candle"
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 0.0,
+        "max": 2.0
+      },
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1.0,
+              "add": false
+            },
+            {
+              "function": "minecraft:set_potion",
+              "id": "minecraft:healing"
+            }
+          ],
+          "name": "minecraft:potion"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1.0,
+              "add": false
+            },
+            {
+              "function": "minecraft:set_potion",
+              "id": "minecraft:invisibility"
+            }
+          ],
+          "name": "minecraft:potion"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1.0,
+              "add": false
+            },
+            {
+              "function": "minecraft:set_potion",
+              "id": "minecraft:leaping"
+            }
+          ],
+          "name": "minecraft:potion"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1.0,
+              "add": false
+            },
+            {
+              "function": "minecraft:set_potion",
+              "id": "minecraft:night_vision"
+            }
+          ],
+          "name": "minecraft:potion"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1.0,
+              "add": false
+            },
+            {
+              "function": "minecraft:set_potion",
+              "id": "minecraft:regeneration"
+            }
+          ],
+          "name": "minecraft:potion"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1.0,
+              "add": false
+            },
+            {
+              "function": "minecraft:set_potion",
+              "id": "minecraft:slow_falling"
+            }
+          ],
+          "name": "minecraft:potion"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1.0,
+              "add": false
+            },
+            {
+              "function": "minecraft:set_potion",
+              "id": "minecraft:strength"
+            }
+          ],
+          "name": "minecraft:potion"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1.0,
+              "add": false
+            },
+            {
+              "function": "minecraft:set_potion",
+              "id": "minecraft:water_breathing"
+            }
+          ],
+          "name": "minecraft:potion"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1.0,
+              "add": false
+            },
+            {
+              "function": "minecraft:set_potion",
+              "id": "minecraft:fire_resistance"
+            }
+          ],
+          "name": "minecraft:potion"
         }
       ]
     }
