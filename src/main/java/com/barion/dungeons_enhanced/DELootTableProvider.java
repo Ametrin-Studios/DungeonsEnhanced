@@ -32,8 +32,8 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-public class DELootGenerator extends LootTableProvider {
-    public DELootGenerator(DataGenerator generator) {super(generator);}
+public class DELootTableProvider extends LootTableProvider {
+    public DELootTableProvider(DataGenerator generator) {super(generator);}
 
     @Override @Nonnull
     protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> getTables() {return ImmutableList.of(Pair.of(DEStructureLootTables::new, LootContextParamSets.CHEST));}

@@ -7,14 +7,15 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
 @Mod.EventBusSubscriber(modid = DungeonsEnhanced.Mod_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class DataGenerators {
+public class DataGenerators{
     private DataGenerators(){}
 
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event){
-        DataGenerator generator = event.getGenerator();
-        ExistingFileHelper fileHelper = event.getExistingFileHelper();
+        DataGenerator dataGen = event.getGenerator();
+        ExistingFileHelper exFileHelper = event.getExistingFileHelper();
 
-        generator.addProvider(new DELootGenerator(generator));
+        dataGen.addProvider(new DELootTableProvider(dataGen));
+        dataGen.addProvider(new DEAdvancementProvider(dataGen, exFileHelper));
     }
 }

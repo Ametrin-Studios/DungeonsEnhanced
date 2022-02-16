@@ -101,7 +101,6 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
                 if(maxY >= 55) {maxY = 55;}
                 y = context.random().nextInt(maxY-minY)+minY;
                 if(y < minY){y = minY;}
-                DungeonsEnhanced.LOGGER.info("Try Generating at: " + x + ", " + y + ", " + z);
             }
         }
 

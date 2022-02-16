@@ -7,6 +7,7 @@ import com.barion.dungeons_enhanced.world.structures.prefabs.DESimpleStructure;
 import com.barion.dungeons_enhanced.world.structures.prefabs.DEUndergroundStructure;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DECellarPiece;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
+import com.google.common.collect.ImmutableList;
 import com.legacy.structure_gel.api.registry.registrar.GelStructureRegistrar;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
 import com.legacy.structure_gel.api.structure.GelConfigJigsawStructure;
@@ -21,6 +22,8 @@ import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePo
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
+
+import java.util.List;
 
 import static com.barion.dungeons_enhanced.DEUtil.Offset;
 import static com.barion.dungeons_enhanced.DEUtil.createRegistryName;
@@ -79,13 +82,12 @@ public class DEStructures {
         IForgeRegistry<StructureFeature<?>> registry = event.getRegistry();
 
         Castle.handleForge(registry);
-        RuinedBuilding.handleForge(registry);
         DesertTemple.handleForge(registry);
         DesertTomb.handleForge(registry);
-        DungeonVariant.handleForge(registry);
         DruidCircle.handleForge(registry);
-        //FlyingDutchman.handleForge(registry);
+        DungeonVariant.handleForge(registry);
         HayStorage.handleForge(registry);
+        //FlyingDutchman.handleForge(registry);
         IcePit.handleForge(registry);
         JungleMonument.handleForge(registry);
         LargeDungeon.handleForge(registry);
@@ -93,6 +95,7 @@ public class DEStructures {
         MonsterMaze.handleForge(registry);
         MushroomHouse.handleForge(registry);
         PillagerCamp.handleForge(registry);
+        RuinedBuilding.handleForge(registry);
         Stables.handleForge(registry);
         TallWitchHut.handleForge(registry);
         TreeHouse.handleForge(registry);
@@ -100,7 +103,19 @@ public class DEStructures {
         WatchTower.handleForge(registry);
         WitchTower.handleForge(registry);
 
-        noiseAffecting(RuinedBuilding, DruidCircle, TowerOfTheUndead, HayStorage, DruidCircle, MinersHouse, MushroomHouse, WatchTower, WitchTower, Castle, PillagerCamp, TreeHouse);
+        noiseAffecting(
+                Castle,
+                DruidCircle,
+                HayStorage,
+                MinersHouse,
+                MushroomHouse,
+                PillagerCamp,
+                RuinedBuilding,
+                TowerOfTheUndead,
+                TreeHouse,
+                WatchTower,
+                WitchTower
+        );
         DungeonsEnhanced.LOGGER.info("Dungeons Enhanced structures loaded");
     }
 
@@ -117,6 +132,31 @@ public class DEStructures {
 
     private static StructureRegistrar<JigsawConfiguration, DECellarStructure> registerCellarStructure(String registryName, DECellarStructure structure, StructurePieceType piece){
         return GelStructureRegistrar.of(createRegistryName(registryName), structure, piece, new JigsawConfiguration(structure::getRootPool, 1), GenerationStep.Decoration.SURFACE_STRUCTURES);
+    }
+
+    public static List<StructureFeature<?>> getAllStructures(){
+        return ImmutableList.of(
+                Castle.getStructure(),
+                DesertTemple.getStructure(),
+                DesertTomb.getStructure(),
+                DruidCircle.getStructure(),
+                DungeonVariant.getStructure(),
+                HayStorage.getStructure(),
+                IcePit.getStructure(),
+                JungleMonument.getStructure(),
+                LargeDungeon.getStructure(),
+                MinersHouse.getStructure(),
+                MonsterMaze.getStructure(),
+                MushroomHouse.getStructure(),
+                PillagerCamp.getStructure(),
+                RuinedBuilding.getStructure(),
+                Stables.getStructure(),
+                TallWitchHut.getStructure(),
+                TreeHouse.getStructure(),
+                TowerOfTheUndead.getStructure(),
+                WatchTower.getStructure(),
+                WitchTower.getStructure()
+        );
     }
 
     private static void noiseAffecting(StructureRegistrar<?, ?>... structureRegs){
