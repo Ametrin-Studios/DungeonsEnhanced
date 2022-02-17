@@ -21,7 +21,7 @@ public interface DEPieceGeneratorSupplier<C extends FeatureConfiguration> {
 
     static <C extends FeatureConfiguration> DEPieceGeneratorSupplier<C> simple(Predicate<Context<C>> contextPredicate, DEPieceGenerator<C> pieceGenerator){
         Optional<DEPieceGenerator<C>> optional = Optional.of(pieceGenerator);
-        return (t) -> contextPredicate.test(t) ? optional : Optional.empty();
+        return (context) -> contextPredicate.test(context) ? optional : Optional.empty();
     }
 
     static <C extends FeatureConfiguration> Predicate<Context<C>> checkForBiomeOnTop(Heightmap.Types heightmap) {

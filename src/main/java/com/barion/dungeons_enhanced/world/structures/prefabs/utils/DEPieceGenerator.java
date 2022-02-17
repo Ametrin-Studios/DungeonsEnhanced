@@ -16,5 +16,5 @@ public interface DEPieceGenerator<C extends FeatureConfiguration> {
     @ParametersAreNonnullByDefault
     void generatePieces(StructurePiecesBuilder piecesBuilder, DEPieceGenerator.Context<C> context);
 
-    public static record Context<C extends FeatureConfiguration>(C config, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos, LevelHeightAccessor heightAccessor, WorldgenRandom random, long seed, DEBaseStructure structure) {}
+    record Context<C extends FeatureConfiguration>(C config, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos, LevelHeightAccessor heightAccessor, WorldgenRandom random, long seed, DEBaseStructure structure) {}
 }
