@@ -1,0 +1,99 @@
+{
+  "parent": "dungeons_enhanced:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:spyglass"
+    },
+    "title": {
+      "translate": "advancements.dungeons_enhanced.seven_world_wonders"
+    },
+    "description": {
+      "translate": "advancements.dungeons_enhanced.seven_world_wonders.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "entered_monster_maze": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:monster_maze"
+        }
+      }
+    },
+    "entered_large_dungeon": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:large_dungeon"
+        }
+      }
+    },
+    "entered_desert_temple": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:desert_temple"
+        }
+      }
+    },
+    "entered_jungle_monument": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:jungle_monument"
+        }
+      }
+    },
+    "entered_castle": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:castle"
+        }
+      }
+    },
+    "entered_mushroom_house": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:mushroom_house"
+        }
+      }
+    },
+    "entered_ice_pit": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:ice_pit"
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "entered_monster_maze"
+    ],
+    [
+      "entered_large_dungeon"
+    ],
+    [
+      "entered_desert_temple"
+    ],
+    [
+      "entered_jungle_monument"
+    ],
+    [
+      "entered_castle"
+    ],
+    [
+      "entered_mushroom_house"
+    ],
+    [
+      "entered_ice_pit"
+    ]
+  ]
+}
