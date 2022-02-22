@@ -10,7 +10,7 @@
     "description": {
       "translate": "advancements.dungeons_enhanced.seven_world_wonders.desc"
     },
-    "frame": "task",
+    "frame": "goal",
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": false

@@ -10,7 +10,7 @@
     "description": {
       "translate": "advancements.dungeons_enhanced.ambitious_explorer.desc"
     },
-    "frame": "task",
+    "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": false

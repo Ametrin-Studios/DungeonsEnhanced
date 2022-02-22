@@ -37,7 +37,7 @@ public class DEAdvancementProvider extends AdvancementProvider{
         Advancement WarsAndKingdoms = enterStructure(builder(Blocks.STONE_BRICKS, "wars_and_kingdoms", FrameType.TASK, true, true, false), DEStructures.Castle.getStructure()).parent(root).save(consumer, location("wars_and_kingdoms"));
         Advancement RarestStructure = enterStructure(builder(Items.RED_MUSHROOM, "rarest_structure", FrameType.TASK, true, true, false), DEStructures.MushroomHouse.getStructure()).parent(root).save(consumer, location("rarest_structure"));
         Advancement ChilledHalls = enterStructure(builder(Items.BONE, "chilled_halls", FrameType.TASK, true, true, false), DEStructures.IcePit.getStructure()).parent(root).save(consumer, location("chilled_halls"));
-        Advancement SevenWorldWonders = enterAnyStructure(builder(Items.SPYGLASS, "seven_world_wonders", FrameType.TASK, true, true, false),
+        Advancement SevenWorldWonders = enterAnyStructure(builder(Items.SPYGLASS, "seven_world_wonders", FrameType.GOAL, true, true, false),
                 ImmutableList.of(DEStructures.MonsterMaze.getStructure(),
                         DEStructures.LargeDungeon.getStructure(),
                         DEStructures.DesertTemple.getStructure(),
@@ -46,7 +46,7 @@ public class DEAdvancementProvider extends AdvancementProvider{
                         DEStructures.MushroomHouse.getStructure(),
                         DEStructures.IcePit.getStructure()
                 )).requirements(RequirementsStrategy.AND).parent(root).save(consumer, location("seven_world_wonders"));
-        Advancement AmbitiousExplorer = enterAnyStructure(builder(Items.FILLED_MAP, "ambitious_explorer", FrameType.TASK, true, true, false), DEStructures.getAllStructures()).requirements(RequirementsStrategy.AND).parent(root).save(consumer, location("ambitious_explorer"));
+        Advancement AmbitiousExplorer = enterAnyStructure(builder(Items.FILLED_MAP, "ambitious_explorer", FrameType.CHALLENGE, true, true, false), DEStructures.getAllStructures()).requirements(RequirementsStrategy.AND).parent(root).save(consumer, location("ambitious_explorer"));
     }
 
     private Advancement.Builder enterAnyStructure(Advancement.Builder builder, List<StructureFeature<?>> structures){
