@@ -89,7 +89,9 @@ public class DECellarStructure extends GelConfigJigsawStructure {
             Root = registry.register("root", poolBuilder.clone().names(topParts).build());
 
             for(DECellarPiece piece : Variants) {
-                registry.register(piece.Cellar, poolBuilder.clone().names(piece.Cellar).build());
+                if(piece.Cellar != null) {
+                    registry.register(piece.Cellar, poolBuilder.clone().names(piece.Cellar).build());
+                }
             }
         }
     }

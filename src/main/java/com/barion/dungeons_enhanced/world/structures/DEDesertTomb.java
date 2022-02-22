@@ -4,6 +4,7 @@ import com.barion.dungeons_enhanced.DEConfig;
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
+import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.google.common.collect.ImmutableMap;
 import com.legacy.structure_gel.api.structure.GelConfigJigsawStructure;
 import com.legacy.structure_gel.api.structure.jigsaw.AbstractGelStructurePiece;
@@ -13,11 +14,13 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.StructurePieceType;
 import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
 import net.minecraft.world.level.levelgen.feature.structures.StructurePoolElement;
 import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 
@@ -25,12 +28,20 @@ import java.util.Random;
 
 public class DEDesertTomb extends GelConfigJigsawStructure {
     public DEDesertTomb(){
-        super(JigsawConfiguration.CODEC, DEConfig.COMMON.desert_tomb, 1, true, true);
+        super(JigsawConfiguration.CODEC, DEConfig.COMMON.desert_tomb, 1, true, true, (context -> checkLocation(context, DETerrainAnalyzer.defaultCheckSettings)));
         Pool.init();
     }
 
     @Override
     public boolean isAllowedNearWorldSpawn() {return true;}
+
+    private static boolean checkLocation(PieceGeneratorSupplier.Context<JigsawConfiguration> context, DETerrainAnalyzer.LandscapeCheckSettings checkSettings){
+        if(context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG)){
+            return DETerrainAnalyzer.isPositionSuitable(context.chunkPos(), context.chunkGenerator(), checkSettings, context.heightAccessor());
+        }
+
+        return false;
+    }
 
     public static class Piece extends AbstractGelStructurePiece {
         public Piece(StructureManager structureManager, StructurePoolElement poolElement, BlockPos pos, int groundLevelDelta, Rotation rotation, BoundingBox bounds) {super(structureManager, poolElement, pos, groundLevelDelta, rotation, bounds);}

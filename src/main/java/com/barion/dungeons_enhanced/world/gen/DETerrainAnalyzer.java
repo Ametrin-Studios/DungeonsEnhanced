@@ -10,6 +10,7 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
 
 public class DETerrainAnalyzer {
+    public static LandscapeCheckSettings defaultCheckSettings = new DETerrainAnalyzer.LandscapeCheckSettings(1, 3, 3);
     protected static ChunkGenerator chunkGenerator;
     protected static LevelHeightAccessor heightAccessor;
 

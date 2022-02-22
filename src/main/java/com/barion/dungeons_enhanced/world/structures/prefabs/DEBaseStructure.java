@@ -45,7 +45,7 @@ import java.util.Random;
 import java.util.function.Predicate;
 
 public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration> {
-    public DETerrainAnalyzer.LandscapeCheckSettings landscapeCheckSettings = new DETerrainAnalyzer.LandscapeCheckSettings(1, 3, 3);
+    public DETerrainAnalyzer.LandscapeCheckSettings landscapeCheckSettings;
     public DEStructurePiece[] Variants;
     public final GenerationType generationType;
     public int maxWeight;
@@ -66,6 +66,7 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
         this.generateNear00 = generateNear00;
         this.Variants = variants;
         maxWeight = DEUtil.getMaxWeight(Variants);
+        landscapeCheckSettings = DETerrainAnalyzer.defaultCheckSettings;
         setLakeProof(true);
     }
 
