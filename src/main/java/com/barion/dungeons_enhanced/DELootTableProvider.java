@@ -547,6 +547,10 @@ public class DELootTableProvider extends LootTableProvider {
                             .add(lootItem(Items.SPYGLASS, 1, one()))
                             .add(lootItem(Items.COCOA_BEANS, 6, lootNumber(1,2)))
                             .add(lootItem(Items.MELON_SEEDS, 6, lootNumber(1,3)))));} // Tree House
+
+            {
+
+            } //Deep Crypt
         }
 
         private LootPoolEntryContainer.Builder<?> lootItem(Item item, int weight, NumberProvider amount){
