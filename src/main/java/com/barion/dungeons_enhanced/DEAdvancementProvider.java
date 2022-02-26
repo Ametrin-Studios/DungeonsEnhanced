@@ -1,6 +1,5 @@
 package com.barion.dungeons_enhanced;
 
-import com.google.common.collect.ImmutableList;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.FrameType;
 import net.minecraft.advancements.RequirementsStrategy;
@@ -17,13 +16,11 @@ import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.List;
 import java.util.Objects;
 import java.util.function.Consumer;
 
 public class DEAdvancementProvider extends AdvancementProvider{
-
-    public DEAdvancementProvider(DataGenerator dataGenerator, ExistingFileHelper exFileHelper) {
+    public DEAdvancementProvider(DataGenerator dataGenerator, ExistingFileHelper exFileHelper){
         super(dataGenerator, exFileHelper);
     }
 
@@ -38,19 +35,23 @@ public class DEAdvancementProvider extends AdvancementProvider{
         Advancement RarestStructure = enterStructure(builder(Items.RED_MUSHROOM, "rarest_structure", FrameType.TASK, true, true, false), DEStructures.MushroomHouse.getStructure()).parent(root).save(consumer, location("rarest_structure"));
         Advancement ChilledHalls = enterStructure(builder(Items.BONE, "chilled_halls", FrameType.TASK, true, true, false), DEStructures.IcePit.getStructure()).parent(root).save(consumer, location("chilled_halls"));
         Advancement SevenWorldWonders = enterAnyStructure(builder(Items.SPYGLASS, "seven_world_wonders", FrameType.GOAL, true, true, false),
-                ImmutableList.of(DEStructures.MonsterMaze.getStructure(),
+                new StructureFeature<?>[] {
+                        DEStructures.MonsterMaze.getStructure(),
                         DEStructures.LargeDungeon.getStructure(),
                         DEStructures.DesertTemple.getStructure(),
                         DEStructures.JungleMonument.getStructure(),
                         DEStructures.Castle.getStructure(),
                         DEStructures.MushroomHouse.getStructure(),
-                        DEStructures.IcePit.getStructure()
-                )).requirements(RequirementsStrategy.AND).parent(root).save(consumer, location("seven_world_wonders"));
+                        DEStructures.IcePit.getStructure()}
+                ).requirements(RequirementsStrategy.AND).parent(root).save(consumer, location("seven_world_wonders"));
         Advancement AmbitiousExplorer = enterAnyStructure(builder(Items.FILLED_MAP, "ambitious_explorer", FrameType.CHALLENGE, true, true, false), DEStructures.getAllStructures()).requirements(RequirementsStrategy.AND).parent(root).save(consumer, location("ambitious_explorer"));
     }
 
-    private Advancement.Builder enterAnyStructure(Advancement.Builder builder, List<StructureFeature<?>> structures){
-        structures.forEach((structure) -> enterStructure(builder, structure));
+    private Advancement.Builder enterAnyStructure(Advancement.Builder builder, StructureFeature<?>[] structures){
+        for(StructureFeature<?> structure : structures){
+            builder = enterStructure(builder, structure);
+        }
+
         return builder;
     }
 
@@ -66,8 +67,8 @@ public class DEAdvancementProvider extends AdvancementProvider{
         return Advancement.Builder.advancement().display(displayItem, translate(name), translate(name + ".desc"), background, frameType, showToast, announceToChat, hidden);
     }
 
-    private Advancement.Builder builder(ItemLike displayItem, String name, FrameType frameType, boolean showToast, boolean announceToChat, boolean hidden) {
-        return this.builder(displayItem, name, null, frameType, showToast, announceToChat, hidden);
+    private Advancement.Builder builder(ItemLike displayItem, String name, FrameType frameType, boolean showToast, boolean announceToChat, boolean hidden){
+        return builder(displayItem, name, null, frameType, showToast, announceToChat, hidden);
     }
 
     private TranslatableComponent translate(String key) {return new TranslatableComponent("advancements.dungeons_enhanced." + key);}

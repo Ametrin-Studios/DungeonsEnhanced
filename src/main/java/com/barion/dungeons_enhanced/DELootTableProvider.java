@@ -549,29 +549,29 @@ public class DELootTableProvider extends LootTableProvider {
                             .add(lootItem(Items.MELON_SEEDS, 6, lootNumber(1,3)))));} // Tree House
 
             {lootTable.accept(location("deep_crypt"), LootTable.lootTable()
-                    .withPool(lootPool(lootNumber(4, 8))
+                    .withPool(lootPool(lootNumber(8, 13))
                             .add(lootItem(Items.DIAMOND, 2, one()))
-                            .add(lootItem(Items.BONE, 7, lootNumber(1,5)))
-                            .add(lootItem(Items.BONE_MEAL, 3, lootNumber(1,3)))
-                            .add(lootItem(Items.COBWEB, 4, lootNumber(1,4)))
+                            .add(lootItem(Items.BONE, 8, lootNumber(1,3)))
+                            .add(lootItem(Items.BONE_MEAL, 3, lootNumber(1,2)))
+                            .add(lootItem(Items.COBWEB, 4, lootNumber(1,2)))
                             .add(lootItem(Items.STRING, 6, lootNumber(1,2)))
                             .add(lootItem(Items.SPIDER_EYE, 3, lootNumber(1,2)))
                             .add(lootItem(Items.BOOK, 4, lootNumber(1,3)))
                             .add(lootItem(Items.WRITABLE_BOOK, 2, one()))
-                            .add(lootItem(Items.CANDLE, 2, lootNumber(1,3)))
-                            .add(lootItem(Items.WHITE_CANDLE, 2, lootNumber(1,3)))
+                            .add(lootItem(Items.CANDLE, 2, lootNumber(1,2)))
+                            .add(lootItem(Items.WHITE_CANDLE, 2, one()))
                             .add(lootItem(Items.ROTTEN_FLESH, 3, lootNumber(1,3)))
-                            .add(lootItem(Items.GLOW_BERRIES, 4, lootNumber(1,4)))
-                            .add(lootItem(Items.CHAIN, 4, lootNumber(1,5)))
+                            .add(lootItem(Items.GLOW_BERRIES, 4, lootNumber(1,3)))
+                            .add(lootItem(Items.CHAIN, 5, lootNumber(1,3)))
                             .add(lootItem(Items.SKULL_BANNER_PATTERN, 1, one()))
                             .add(lootItem(Items.EMERALD, 3, lootNumber(1,4)))
                             .add(lootItem(Items.GOLD_INGOT, 4, lootNumber(1,5)))
                             .add(lootItem(Items.IRON_INGOT, 2, lootNumber(1,2)))
                             .add(lootItem(Items.MAP, 2, lootNumber(1,2)))
                             .add(lootItem(Items.PAPER, 4, lootNumber(1,3)))
-                            .add(lootItem(Items.ENCHANTED_BOOK, 2, lootNumber(1,2)))
+                            .add(enchantedLootItem(Items.ENCHANTED_BOOK, 2, lootNumber(1,2)))
                             .add(lootItem(Items.GOLDEN_APPLE, 1, lootNumber(1,2)))
-                            .add(lootItem(Items.WITHER_ROSE, 2, lootNumber(1,2)))
+                            .add(lootItem(Items.WITHER_ROSE, 1, one()))
                             .add(lootItem(Items.CHAINMAIL_BOOTS, 2, one()))
                             .add(lootItem(Items.CHAINMAIL_CHESTPLATE, 2, one()))
                             .add(lootItem(Items.CHAINMAIL_HELMET, 2, one()))
@@ -581,11 +581,9 @@ public class DELootTableProvider extends LootTableProvider {
                             .add(lootItem(Items.IRON_LEGGINGS, 1, one()))
                             .add(lootItem(Items.IRON_BOOTS, 1, one()))
                             .add(lootItem(Items.STONE_SWORD, 3, lootNumber(1,2)))
+                            .add(lootItem(Items.DEEPSLATE, 5, lootNumber(1,2)))
+                            .add(lootItem(Items.COBBLED_DEEPSLATE, 5, lootNumber(1,2)))
                             .add(lootItem(Items.CLOCK, 2, lootNumber(1,2)))));} //Deep Crypt
-
-
-
-
         }
 
         private LootPoolEntryContainer.Builder<?> lootItem(Item item, int weight, NumberProvider amount){
@@ -601,7 +599,7 @@ public class DELootTableProvider extends LootTableProvider {
             return LootItem.lootTableItem(Items.SUSPICIOUS_STEW).setWeight(weight).apply(SetItemCountFunction.setCount(amount)).apply(SetStewEffectFunction.stewEffect().withEffect(MobEffects.NIGHT_VISION, lootNumber(7, 10)).withEffect(MobEffects.JUMP, lootNumber(7, 10)).withEffect(MobEffects.WEAKNESS, lootNumber(6, 8)).withEffect(MobEffects.BLINDNESS, lootNumber(5, 7)).withEffect(MobEffects.POISON, lootNumber(10, 20)).withEffect(MobEffects.SATURATION, lootNumber(7, 10)));
         }
         private LootPoolEntryContainer.Builder<?> potion(int weight, Potion potion, NumberProvider amount){
-            return LootItem.lootTableItem(Items.POTION).setWeight(weight).apply(SetItemCountFunction.setCount(one())).apply(SetPotionFunction.setPotion(potion));
+            return LootItem.lootTableItem(Items.POTION).setWeight(weight).apply(SetItemCountFunction.setCount(amount)).apply(SetPotionFunction.setPotion(potion));
         }
 
         private NumberProvider one() {return ConstantValue.exactly(1);}

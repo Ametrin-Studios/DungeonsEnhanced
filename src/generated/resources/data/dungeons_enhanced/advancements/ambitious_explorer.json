@@ -24,6 +24,14 @@
         }
       }
     },
+    "entered_deep_crypt": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:deep_crypt"
+        }
+      }
+    },
     "entered_desert_temple": {
       "trigger": "minecraft:location",
       "conditions": {
@@ -180,6 +188,9 @@
   "requirements": [
     [
       "entered_castle"
+    ],
+    [
+      "entered_deep_crypt"
     ],
     [
       "entered_desert_temple"

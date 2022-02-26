@@ -35,7 +35,7 @@ public class DEDesertTomb extends GelConfigJigsawStructure {
     @Override
     public boolean isAllowedNearWorldSpawn() {return true;}
 
-    private static boolean checkLocation(PieceGeneratorSupplier.Context<JigsawConfiguration> context, DETerrainAnalyzer.LandscapeCheckSettings checkSettings){
+    private static boolean checkLocation(PieceGeneratorSupplier.Context<JigsawConfiguration> context, DETerrainAnalyzer.TerrainCheckSettings checkSettings){
         if(context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG)){
             return DETerrainAnalyzer.isPositionSuitable(context.chunkPos(), context.chunkGenerator(), checkSettings, context.heightAccessor());
         }

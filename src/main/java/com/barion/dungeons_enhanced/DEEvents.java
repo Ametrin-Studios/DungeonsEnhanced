@@ -12,29 +12,11 @@ public class DEEvents {
         private static AddStructureToBiomeEvent addStructureToBiomeEvent;
 
         @SubscribeEvent
-        public static void addStructuresToBiomes(final AddStructureToBiomeEvent event) {
+        public static <C extends FeatureConfiguration, S extends StructureFeature<C> & IConfigStructure, T extends StructureRegistrar<C,S>> void addStructuresToBiomes(final AddStructureToBiomeEvent event) {
             addStructureToBiomeEvent = event;
-            addToBiomes(DEStructures.Castle);
-            addToBiomes(DEStructures.DesertTemple);
-            addToBiomes(DEStructures.DesertTomb);
-            addToBiomes(DEStructures.DruidCircle);
-            addToBiomes(DEStructures.DungeonVariant);
-            //addToBiomes(DEStructures.FlyingDutchman);
-            addToBiomes(DEStructures.HayStorage);
-            addToBiomes(DEStructures.IcePit);
-            addToBiomes(DEStructures.JungleMonument);
-            addToBiomes(DEStructures.LargeDungeon);
-            addToBiomes(DEStructures.MinersHouse);
-            addToBiomes(DEStructures.MonsterMaze);
-            addToBiomes(DEStructures.MushroomHouse);
-            addToBiomes(DEStructures.PillagerCamp);
-            addToBiomes(DEStructures.RuinedBuilding);
-            addToBiomes(DEStructures.Stables);
-            addToBiomes(DEStructures.TallWitchHut);
-            addToBiomes(DEStructures.TreeHouse);
-            addToBiomes(DEStructures.TowerOfTheUndead);
-            addToBiomes(DEStructures.WatchTower);
-            addToBiomes(DEStructures.WitchTower);
+            for(StructureRegistrar<?,?> structure : DEStructures.getAllStructureRegistrars()) {
+                addToBiomes((T) structure);
+            }
         }
         private static <C extends FeatureConfiguration, S extends StructureFeature<C> & IConfigStructure, T extends StructureRegistrar<C,S>>void addToBiomes(T structure){
             addStructureToBiomeEvent.register(structure.getStructureFeature());

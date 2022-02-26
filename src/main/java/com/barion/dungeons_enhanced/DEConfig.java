@@ -16,21 +16,23 @@ public class DEConfig {
 
     public static class Common{
         private final ForgeConfigSpec.Builder builder;
+
         public final StructureConfig castle;
-        public final StructureConfig ruined_building;
+        public final StructureConfig deep_crypt;
+        public final StructureConfig desert_temple;
+        public final StructureConfig desert_tomb;
         public final StructureConfig druid_circle;
+        public final StructureConfig dungeon_variant;
         //public final StructureConfig flying_dutchman;
         public final StructureConfig hay_Storage;
         public final StructureConfig ice_pit;
         public final StructureConfig jungle_monument;
         public final StructureConfig large_dungeon;
-        public final StructureConfig desert_temple;
-        public final StructureConfig desert_tomb;
-        public final StructureConfig dungeon_variant;
         public final StructureConfig miners_house;
         public final StructureConfig monster_maze;
         public final StructureConfig mushroom_house;
         public final StructureConfig pillager_camp;
+        public final StructureConfig ruined_building;
         public final StructureConfig stables;
         public final StructureConfig tall_witch_hut;
         public final StructureConfig tower_of_the_undead;
@@ -41,6 +43,7 @@ public class DEConfig {
         protected Common(ForgeConfigSpec.Builder builder) {
             this.builder = builder;
             castle = Configs("Castle", 57, 25, true, "#structure_gel:cold", "#structure_gel:snowy", "!#structure_gel:mountain", "!#structure_gel:beach");
+            deep_crypt = Configs("Deep Crypt", 35, 85, true, "#forge:overworld");
             desert_temple = Configs("Desert Temple", 32, 60, true, "minecraft:desert");
             desert_tomb = Configs("Desert Tomb", 29, 65, true, "minecraft:desert");
             druid_circle = Configs("Druid Circle", 39, 40, true, "#structure_gel:neutral_temp", "!#structure_gel:wooded", "!#structure_gel:mountain", "!#structure_gel:beach" );
@@ -64,7 +67,7 @@ public class DEConfig {
         }
 
         private StructureConfig Configs(String name, int spacing, int prob, boolean isWhite, String... biomes) {
-            return new StructureConfig(this.builder, name).spacing(spacing).probability(prob).offset(spacing/4).biomes(isWhite, biomes).validDimensions(Level.OVERWORLD.location().toString());
+            return new StructureConfig(this.builder, name).spacing(spacing).probability(prob).offset(spacing/2).biomes(isWhite, biomes).validDimensions(Level.OVERWORLD.location().toString());
         }
     }
 }

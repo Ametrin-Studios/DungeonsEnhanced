@@ -45,7 +45,7 @@ import java.util.Random;
 import java.util.function.Predicate;
 
 public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration> {
-    public DETerrainAnalyzer.LandscapeCheckSettings landscapeCheckSettings;
+    public DETerrainAnalyzer.TerrainCheckSettings terrainCheckSettings;
     public DEStructurePiece[] Variants;
     public final GenerationType generationType;
     public int maxWeight;
@@ -66,7 +66,7 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
         this.generateNear00 = generateNear00;
         this.Variants = variants;
         maxWeight = DEUtil.getMaxWeight(Variants);
-        landscapeCheckSettings = DETerrainAnalyzer.defaultCheckSettings;
+        terrainCheckSettings = DETerrainAnalyzer.defaultCheckSettings;
         setLakeProof(true);
     }
 
@@ -76,7 +76,7 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
         boolean isCorrectBiome = context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG);
 
         if(isCorrectBiome && context.structure().generationType == GenerationType.onGround){
-            return DETerrainAnalyzer.isPositionSuitable(context.chunkPos(), context.chunkGenerator(), context.structure().landscapeCheckSettings, context.heightAccessor());
+            return DETerrainAnalyzer.isPositionSuitable(context.chunkPos(), context.chunkGenerator(), context.structure().terrainCheckSettings, context.heightAccessor());
         }
 
         return isCorrectBiome;
