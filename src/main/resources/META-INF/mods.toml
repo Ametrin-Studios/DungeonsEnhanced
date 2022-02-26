@@ -1,5 +1,5 @@
 modLoader="javafml" #mandatory
-loaderVersion="[39,)" #mandatory A version range to match for said mod loader - for regular FML @Mod it will be the forge version
+loaderVersion="[36,)" #mandatory A version range to match for said mod loader - for regular FML @Mod it will be the forge version
 license="All rights reserved"
 issueTrackerURL="https://github.com/BarionLP/DungeonsEnhanced/issues" #optional
 
@@ -22,18 +22,18 @@ We hope you have fun.
 [[dependencies.dungeons_enhanced]] #optional
     modId="forge" #mandatory
     mandatory=true #mandatory   Does this dependency have to exist - if not, ordering below must be specified
-    versionRange="[39,)" #mandatory
+    versionRange="[36,)" #mandatory
     ordering="NONE" # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
     side="BOTH" #BOTH, CLIENT or SERVER
 [[dependencies.dungeons_enhanced]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.18.1,1.19)" # declares a minimum of the current minecraft version up to but not including the next major version
+    versionRange="[1.16.5,1.17)" # declares a minimum of the current minecraft version up to but not including the next major version
     ordering="NONE"
     side="BOTH"
 [[dependencies.dungeons_enhanced]]
     modId="structure_gel"
     mandatory=true
-    versionRange="[2.1.2+,]"
+    versionRange="[1.7.7+,]"
     ordering="NONE"
     side="BOTH"
