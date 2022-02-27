@@ -3,11 +3,10 @@
   "pools": [
     {
       "rolls": {
-        "type": "minecraft:uniform",
         "min": 7.0,
-        "max": 15.0
+        "max": 15.0,
+        "type": "minecraft:uniform"
       },
-      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
@@ -15,8 +14,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             }
           ],
           "name": "minecraft:white_wool"
@@ -27,8 +25,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             }
           ],
           "name": "minecraft:white_carpet"
@@ -39,8 +36,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             }
           ],
           "name": "minecraft:paper"
@@ -51,8 +47,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             }
           ],
           "name": "minecraft:string"
@@ -63,8 +58,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             }
           ],
           "name": "minecraft:emerald"
@@ -74,8 +68,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             }
           ],
           "name": "minecraft:name_tag"
@@ -86,8 +79,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             }
           ],
           "name": "minecraft:book"

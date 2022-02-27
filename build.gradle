@@ -79,11 +79,6 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
     maven {
-        // location of a maven mirror for JEI files, as a fallback
-        name = "ModMaven"
-        url = "https://modmaven.k-4u.nl"
-    }
-    maven {
         name = "Modding Legacy Maven"
         url = "https://maven.moddinglegacy.com/artifactory/modding-legacy/"
     }

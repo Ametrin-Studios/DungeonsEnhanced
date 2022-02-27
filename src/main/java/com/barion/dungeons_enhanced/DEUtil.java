@@ -1,13 +1,13 @@
 package com.barion.dungeons_enhanced;
 
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
-import com.legacy.structure_gel.api.registry.RegistryHelper;
-import com.legacy.structure_gel.api.structure.processor.RandomBlockSwapProcessor;
-import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
+import com.legacy.structure_gel.util.RegistryHelper;
+import com.legacy.structure_gel.worldgen.processors.RandomBlockSwapProcessor;
+import net.minecraft.block.Blocks;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.gen.feature.template.StructureProcessor;
+import net.minecraft.world.gen.feature.template.StructureProcessorList;
 
 import java.util.Random;
 

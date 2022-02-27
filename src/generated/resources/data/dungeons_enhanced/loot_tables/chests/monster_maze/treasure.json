@@ -3,11 +3,10 @@
   "pools": [
     {
       "rolls": {
-        "type": "minecraft:uniform",
         "min": 4.0,
-        "max": 9.0
+        "max": 9.0,
+        "type": "minecraft:uniform"
       },
-      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
@@ -16,11 +15,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 2.0,
-                "max": 4.0
-              },
-              "add": false
+                "max": 4.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:bone"
@@ -32,11 +30,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 1.0,
-                "max": 2.0
-              },
-              "add": false
+                "max": 2.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:rotten_flesh"
@@ -48,11 +45,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 1.0,
-                "max": 2.0
-              },
-              "add": false
+                "max": 2.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:string"
@@ -64,11 +60,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 1.0,
-                "max": 2.0
-              },
-              "add": false
+                "max": 2.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:cobweb"
@@ -80,11 +75,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 1.0,
-                "max": 2.0
-              },
-              "add": false
+                "max": 2.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:slime_ball"
@@ -94,8 +88,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             }
           ],
           "name": "minecraft:clock"
@@ -105,8 +98,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             }
           ],
           "name": "minecraft:compass"
@@ -118,11 +110,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 1.0,
-                "max": 2.0
-              },
-              "add": false
+                "max": 2.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:map"
@@ -134,11 +125,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 1.0,
-                "max": 2.0
-              },
-              "add": false
+                "max": 2.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:emerald"
@@ -150,11 +140,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 2.0,
-                "max": 5.0
-              },
-              "add": false
+                "max": 5.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:iron_nugget"
@@ -166,11 +155,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 2.0,
-                "max": 5.0
-              },
-              "add": false
+                "max": 5.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:gold_nugget"
@@ -179,11 +167,10 @@
     },
     {
       "rolls": {
-        "type": "minecraft:uniform",
         "min": 4.0,
-        "max": 6.0
+        "max": 6.0,
+        "type": "minecraft:uniform"
       },
-      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
@@ -192,11 +179,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 2.0,
-                "max": 4.0
-              },
-              "add": false
+                "max": 4.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:gold_ingot"
@@ -207,8 +193,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             }
           ],
           "name": "minecraft:experience_bottle"
@@ -219,8 +204,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             }
           ],
           "name": "minecraft:diamond"
@@ -232,11 +216,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 1.0,
-                "max": 2.0
-              },
-              "add": false
+                "max": 2.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:gold_block"
@@ -247,15 +230,14 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             },
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "type": "minecraft:uniform",
                 "min": 10.0,
-                "max": 22.0
+                "max": 22.0,
+                "type": "minecraft:uniform"
               },
               "treasure": false
             }
@@ -267,15 +249,14 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             },
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "type": "minecraft:uniform",
                 "min": 0.0,
-                "max": 12.0
+                "max": 12.0,
+                "type": "minecraft:uniform"
               },
               "treasure": false
             }
@@ -287,15 +268,14 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             },
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "type": "minecraft:uniform",
                 "min": 0.0,
-                "max": 12.0
+                "max": 12.0,
+                "type": "minecraft:uniform"
               },
               "treasure": false
             }
@@ -307,15 +287,14 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             },
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "type": "minecraft:uniform",
                 "min": 0.0,
-                "max": 12.0
+                "max": 12.0,
+                "type": "minecraft:uniform"
               },
               "treasure": false
             }
@@ -327,15 +306,14 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             },
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "type": "minecraft:uniform",
                 "min": 0.0,
-                "max": 12.0
+                "max": 12.0,
+                "type": "minecraft:uniform"
               },
               "treasure": false
             }
@@ -347,15 +325,14 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             },
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "type": "minecraft:uniform",
                 "min": 0.0,
-                "max": 12.0
+                "max": 12.0,
+                "type": "minecraft:uniform"
               },
               "treasure": false
             }
@@ -367,15 +344,14 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             },
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "type": "minecraft:uniform",
                 "min": 0.0,
-                "max": 12.0
+                "max": 12.0,
+                "type": "minecraft:uniform"
               },
               "treasure": false
             }
@@ -386,11 +362,10 @@
     },
     {
       "rolls": {
-        "type": "minecraft:uniform",
         "min": 0.0,
-        "max": 1.0
+        "max": 1.0,
+        "type": "minecraft:uniform"
       },
-      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
@@ -398,11 +373,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 0.0,
-                "max": 1.0
-              },
-              "add": false
+                "max": 1.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:music_disc_11"
@@ -413,11 +387,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 0.0,
-                "max": 1.0
-              },
-              "add": false
+                "max": 1.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:music_disc_13"
@@ -428,11 +401,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 0.0,
-                "max": 1.0
-              },
-              "add": false
+                "max": 1.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:music_disc_blocks"
@@ -443,11 +415,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 0.0,
-                "max": 1.0
-              },
-              "add": false
+                "max": 1.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:music_disc_cat"
@@ -458,11 +429,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 0.0,
-                "max": 1.0
-              },
-              "add": false
+                "max": 1.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:music_disc_chirp"
@@ -473,11 +443,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 0.0,
-                "max": 1.0
-              },
-              "add": false
+                "max": 1.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:music_disc_far"
@@ -488,11 +457,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 0.0,
-                "max": 1.0
-              },
-              "add": false
+                "max": 1.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:music_disc_mall"
@@ -503,11 +471,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 0.0,
-                "max": 1.0
-              },
-              "add": false
+                "max": 1.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:music_disc_mellohi"
@@ -518,11 +485,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 0.0,
-                "max": 1.0
-              },
-              "add": false
+                "max": 1.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:music_disc_stal"
@@ -533,11 +499,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 0.0,
-                "max": 1.0
-              },
-              "add": false
+                "max": 1.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:music_disc_strad"
@@ -548,11 +513,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 0.0,
-                "max": 1.0
-              },
-              "add": false
+                "max": 1.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:music_disc_ward"

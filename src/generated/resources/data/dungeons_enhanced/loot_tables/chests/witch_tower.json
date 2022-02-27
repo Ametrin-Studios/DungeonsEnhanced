@@ -3,11 +3,10 @@
   "pools": [
     {
       "rolls": {
-        "type": "minecraft:uniform",
         "min": 7.0,
-        "max": 10.0
+        "max": 10.0,
+        "type": "minecraft:uniform"
       },
-      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
@@ -15,11 +14,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 2.0,
-                "max": 3.0
-              },
-              "add": false
+                "max": 3.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:spider_eye"
@@ -30,11 +28,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 1.0,
-                "max": 2.0
-              },
-              "add": false
+                "max": 2.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:gunpowder"
@@ -45,11 +42,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 1.0,
-                "max": 2.0
-              },
-              "add": false
+                "max": 2.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:redstone"
@@ -60,11 +56,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 1.0,
-                "max": 2.0
-              },
-              "add": false
+                "max": 2.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:rabbit_hide"
@@ -75,11 +70,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 1.0,
-                "max": 2.0
-              },
-              "add": false
+                "max": 2.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:beetroot_soup"
@@ -90,11 +84,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 0.0,
-                "max": 1.0
-              },
-              "add": false
+                "max": 1.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:experience_bottle"
@@ -105,11 +98,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 0.0,
-                "max": 1.0
-              },
-              "add": false
+                "max": 1.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:lead"
@@ -120,11 +112,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 0.0,
-                "max": 1.0
-              },
-              "add": false
+                "max": 1.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:clock"
@@ -135,11 +126,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 1.0,
-                "max": 2.0
-              },
-              "add": false
+                "max": 2.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:sugar"
@@ -150,11 +140,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 1.0,
-                "max": 3.0
-              },
-              "add": false
+                "max": 3.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:paper"
@@ -166,11 +155,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 2.0,
-                "max": 3.0
-              },
-              "add": false
+                "max": 3.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:string"
@@ -180,8 +168,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             }
           ],
           "name": "minecraft:book"
@@ -190,19 +177,17 @@
     },
     {
       "rolls": {
-        "type": "minecraft:uniform",
         "min": 2.0,
-        "max": 4.0
+        "max": 4.0,
+        "type": "minecraft:uniform"
       },
-      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             }
           ],
           "name": "minecraft:rabbit_foot"
@@ -212,8 +197,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             }
           ],
           "name": "minecraft:name_tag"
@@ -223,8 +207,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             }
           ],
           "name": "minecraft:golden_apple"
@@ -234,15 +217,14 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             },
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "type": "minecraft:uniform",
                 "min": 6.0,
-                "max": 13.0
+                "max": 13.0,
+                "type": "minecraft:uniform"
               },
               "treasure": false
             }

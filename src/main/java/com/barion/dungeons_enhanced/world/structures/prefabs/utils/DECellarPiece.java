@@ -1,6 +1,6 @@
 package com.barion.dungeons_enhanced.world.structures.prefabs.utils;
 
-import net.minecraft.core.BlockPos;
+import net.minecraft.util.math.BlockPos;
 
 public class DECellarPiece extends DEStructurePiece {
     public String Cellar;

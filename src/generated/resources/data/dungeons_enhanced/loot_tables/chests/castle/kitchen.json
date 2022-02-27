@@ -3,11 +3,10 @@
   "pools": [
     {
       "rolls": {
-        "type": "minecraft:uniform",
         "min": 10.0,
-        "max": 19.0
+        "max": 19.0,
+        "type": "minecraft:uniform"
       },
-      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
@@ -15,8 +14,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             }
           ],
           "name": "minecraft:golden_carrot"
@@ -26,8 +24,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             }
           ],
           "name": "minecraft:golden_apple"
@@ -38,8 +35,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             }
           ],
           "name": "minecraft:bread"
@@ -50,8 +46,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             }
           ],
           "name": "minecraft:wheat"
@@ -62,8 +57,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             }
           ],
           "name": "minecraft:baked_potato"
@@ -74,8 +68,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             }
           ],
           "name": "minecraft:cooked_chicken"
@@ -86,8 +79,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             }
           ],
           "name": "minecraft:cooked_rabbit"
@@ -98,8 +90,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             }
           ],
           "name": "minecraft:cooked_beef"
@@ -110,8 +101,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             }
           ],
           "name": "minecraft:cooked_mutton"
@@ -123,11 +113,10 @@
             {
               "function": "minecraft:set_count",
               "count": {
-                "type": "minecraft:uniform",
                 "min": 1.0,
-                "max": 3.0
-              },
-              "add": false
+                "max": 3.0,
+                "type": "minecraft:uniform"
+              }
             }
           ],
           "name": "minecraft:cooked_porkchop"
@@ -138,8 +127,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             }
           ],
           "name": "minecraft:carrot"
@@ -150,8 +138,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             }
           ],
           "name": "minecraft:mushroom_stew"
@@ -162,8 +149,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             }
           ],
           "name": "minecraft:carrot"
@@ -174,8 +160,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             }
           ],
           "name": "minecraft:apple"
@@ -186,32 +171,42 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             },
             {
               "function": "minecraft:set_stew_effect",
               "effects": [
                 {
-                  "type": "minecraft:saturation",
+                  "type": "minecraft:poison",
                   "duration": {
-                    "type": "minecraft:uniform",
-                    "min": 7.0,
-                    "max": 10.0
+                    "min": 10.0,
+                    "max": 20.0
                   }
                 },
                 {
                   "type": "minecraft:night_vision",
                   "duration": {
-                    "type": "minecraft:uniform",
                     "min": 7.0,
                     "max": 10.0
                   }
                 },
                 {
+                  "type": "minecraft:saturation",
+                  "duration": {
+                    "min": 7.0,
+                    "max": 10.0
+                  }
+                },
+                {
+                  "type": "minecraft:blindness",
+                  "duration": {
+                    "min": 5.0,
+                    "max": 7.0
+                  }
+                },
+                {
                   "type": "minecraft:jump_boost",
                   "duration": {
-                    "type": "minecraft:uniform",
                     "min": 7.0,
                     "max": 10.0
                   }
@@ -219,25 +214,8 @@
                 {
                   "type": "minecraft:weakness",
                   "duration": {
-                    "type": "minecraft:uniform",
                     "min": 6.0,
                     "max": 8.0
-                  }
-                },
-                {
-                  "type": "minecraft:blindness",
-                  "duration": {
-                    "type": "minecraft:uniform",
-                    "min": 5.0,
-                    "max": 7.0
-                  }
-                },
-                {
-                  "type": "minecraft:poison",
-                  "duration": {
-                    "type": "minecraft:uniform",
-                    "min": 10.0,
-                    "max": 20.0
                   }
                 }
               ]
@@ -251,8 +229,7 @@
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
+              "count": 1
             }
           ],
           "name": "minecraft:rotten_flesh"

@@ -1,7 +1,7 @@
 package com.barion.dungeons_enhanced.world.structures.prefabs.utils;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 
 import static com.barion.dungeons_enhanced.DEUtil.createRegistryName;
 

@@ -2,52 +2,39 @@ package com.barion.dungeons_enhanced.world.structures.prefabs;
 
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
-import com.legacy.structure_gel.api.config.StructureConfig;
-import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.block.Rotation;
-import net.minecraft.world.level.levelgen.structure.BoundingBox;
-import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
+import com.legacy.structure_gel.util.ConfigTemplates;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.Rotation;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.gen.feature.structure.StructurePiece;
+import net.minecraft.world.gen.feature.template.TemplateManager;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.Random;
+import java.util.List;
 
 public class DEUndergroundStructure extends DEBaseStructure{
 
-    public DEUndergroundStructure(StructureConfig config, DEStructurePiece... resources){
-        super(config, GenerationType.underground, true, resources);
+
+    public DEUndergroundStructure(ConfigTemplates.StructureConfig config, BlockPos offset, boolean generateNear00, DEStructurePiece... variants) {
+        super(config, GenerationType.underground, offset, generateNear00, variants);
     }
 
-    public DEUndergroundStructure(StructureConfig config, boolean generateNearSpawn, DEStructurePiece... resources){
-        super(config, GenerationType.underground, generateNearSpawn, resources);
-    }
-
-    public DEUndergroundStructure(StructureConfig config, BlockPos offset, boolean generateNearSpawn, DEStructurePiece... resources){
-        super(config, GenerationType.underground, offset, generateNearSpawn, resources);
+    public DEUndergroundStructure(ConfigTemplates.StructureConfig config, boolean generateNear00, DEStructurePiece... variants) {
+        super(config, GenerationType.underground, generateNear00, variants);
     }
 
     @Override
-    public void assemble(AssembleContext context) {
-        context.piecesBuilder().addPiece(new Piece(context.structureManager(), context.variant().Resource, context.pos(), context.rotation()));
+    public void assemble(TemplateManager templateManager, DEStructurePiece variant, BlockPos pos, Rotation rotation, List<StructurePiece> pieces, int variantIndex) {
+        pieces.add(new Piece(templateManager, variant.Resource, pos, rotation));
     }
 
     public static class Piece extends DEBaseStructure.Piece{
-        public Piece(StructureManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation, int componentType) {
-            super(DEStructures.DungeonVariant.getPieceType(), structureManager, templateName, pos, rotation, componentType);
+        public Piece(TemplateManager templateManager, ResourceLocation name, BlockPos pos, Rotation rotation) {
+            super(DEStructures.DungeonVariant.getPieceType(), templateManager, name, pos, rotation);
         }
 
-        public Piece(StructureManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation) {
-            this(structureManager, templateName, pos, rotation, 0);
+        public Piece(TemplateManager templateManager, CompoundNBT nbt){
+            super(DEStructures.DungeonVariant.getPieceType(), templateManager, nbt);
         }
-
-        public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) {
-            super(DEStructures.DungeonVariant.getPieceType(), serializationContext, nbt);
-        }
-
-        @Override @ParametersAreNonnullByDefault
-        protected void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor levelAccessor, Random random, BoundingBox box) {}
     }
 }

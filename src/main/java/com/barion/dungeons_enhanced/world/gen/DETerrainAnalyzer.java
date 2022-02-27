@@ -1,61 +1,57 @@
 package com.barion.dungeons_enhanced.world.gen;
 
-import com.barion.dungeons_enhanced.DungeonsEnhanced;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.ChunkPos;
-import net.minecraft.world.level.LevelHeightAccessor;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.chunk.ChunkGenerator;
-import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
+import net.minecraft.world.gen.ChunkGenerator;
+import net.minecraft.world.gen.Heightmap;
 
 public class DETerrainAnalyzer {
     public static TerrainCheckSettings defaultCheckSettings = new TerrainCheckSettings(1, 3, 3);
     protected static ChunkGenerator chunkGenerator;
-    protected static LevelHeightAccessor heightAccessor;
 
-    public static boolean isPositionSuitable(ChunkPos chunkPos, ChunkGenerator chunkGenerator, LevelHeightAccessor heightAccessor) {return isPositionSuitable(chunkPos, chunkGenerator, defaultCheckSettings, heightAccessor);}
+    public static boolean isPositionSuitable(ChunkPos chunkPos, ChunkGenerator chunkGenerator) {return isPositionSuitable(chunkPos, chunkGenerator, defaultCheckSettings);}
 
-    public static boolean isPositionSuitable(ChunkPos chunkPos, ChunkGenerator chunkGenerator, TerrainCheckSettings settings, LevelHeightAccessor heightAccessor) {
+    public static boolean isPositionSuitable(ChunkPos chunkPos, ChunkGenerator chunkGenerator, TerrainCheckSettings settings) {
         int x = chunkPos.getMinBlockX();
         int z = chunkPos.getMinBlockZ();
-        int y = chunkGenerator.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, heightAccessor);
+        int y = chunkGenerator.getBaseHeight(x, z, Heightmap.Type.WORLD_SURFACE_WG);
 
         DETerrainAnalyzer.chunkGenerator = chunkGenerator;
-        DETerrainAnalyzer.heightAccessor = heightAccessor;
 
         if(getBlockAt(x, y-1, z) == Blocks.WATER) {
-            DungeonsEnhanced.LOGGER.info("Canceled at " + new BlockPos(x, y, z) + " because Water");
+            //DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " failed because Water");
             return false;
         }
 
-        int columSpreading = settings.columSpreading();
+        int columSpreading = settings.columSpreading;
 
         if(isColumBlocked(new BlockPos(x+columSpreading, y, z), settings)) {
-            DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " failed");
+            //DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " failed");
             return false;
         }
         if(isColumBlocked(new BlockPos(x-columSpreading, y, z), settings)) {
-            DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " failed");
+            //DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " failed");
             return false;
         }
         if(isColumBlocked(new BlockPos(x, y, z+columSpreading), settings)) {
-            DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " failed");
+            //DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " failed");
             return false;
         }
         if(isColumBlocked(new BlockPos(x, y, z-columSpreading), settings)) {
-            DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " failed");
+            //DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " failed");
             return false;
         }
 
-        DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " passed");
+        //DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " passed");
 
         return true;
     }
 
     protected static boolean isColumBlocked(BlockPos pos, TerrainCheckSettings settings){
-        int maxRangePerColum = settings.maxRangePerColum();
-        int stepSize = settings.stepSize();
+        int maxRangePerColum = settings.maxRangePerColum;
+        int stepSize = settings.stepSize;
 
         if(!isDownwardsFree(pos, stepSize, maxRangePerColum)){
             return isUpwardsBlocked(pos, stepSize, maxRangePerColum);
@@ -80,7 +76,17 @@ public class DETerrainAnalyzer {
         return false;
     }
 
-    protected static Block getBlockAt(int x, int y, int z) {return chunkGenerator.getBaseColumn(x, z, heightAccessor).getBlock(y).getBlock();}
+    protected static Block getBlockAt(int x, int y, int z) {return chunkGenerator.getBaseColumn(x, z).getBlockState(new BlockPos(x, y, z)).getBlock();}
 
-    public record TerrainCheckSettings(int maxRangePerColum, int stepSize, int columSpreading) {}
+    public static class TerrainCheckSettings{
+        public final int maxRangePerColum;
+        public final int stepSize;
+        public final int columSpreading;
+
+        public TerrainCheckSettings(int maxRangePerColum, int stepSize, int columSpreading){
+            this.maxRangePerColum = maxRangePerColum;
+            this.stepSize = stepSize;
+            this.columSpreading = columSpreading;
+        }
+    }
 }

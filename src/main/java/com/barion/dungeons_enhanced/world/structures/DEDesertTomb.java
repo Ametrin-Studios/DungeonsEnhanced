@@ -6,55 +6,64 @@ import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.google.common.collect.ImmutableMap;
-import com.legacy.structure_gel.api.structure.GelConfigJigsawStructure;
-import com.legacy.structure_gel.api.structure.jigsaw.AbstractGelStructurePiece;
-import com.legacy.structure_gel.api.structure.jigsaw.JigsawPoolBuilder;
-import com.legacy.structure_gel.api.structure.jigsaw.JigsawRegistryHelper;
-import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.block.Rotation;
-import net.minecraft.world.level.levelgen.Heightmap;
-import net.minecraft.world.level.levelgen.feature.StructurePieceType;
-import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
-import net.minecraft.world.level.levelgen.feature.structures.StructurePoolElement;
-import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
-import net.minecraft.world.level.levelgen.structure.BoundingBox;
-import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
-import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
+import com.legacy.structure_gel.worldgen.jigsaw.AbstractGelStructurePiece;
+import com.legacy.structure_gel.worldgen.jigsaw.GelConfigJigsawStructure;
+import com.legacy.structure_gel.worldgen.jigsaw.JigsawPoolBuilder;
+import com.legacy.structure_gel.worldgen.jigsaw.JigsawRegistryHelper;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.util.Rotation;
+import net.minecraft.util.SharedSeedRandom;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
+import net.minecraft.util.math.MutableBoundingBox;
+import net.minecraft.world.IServerWorld;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.provider.BiomeProvider;
+import net.minecraft.world.gen.ChunkGenerator;
+import net.minecraft.world.gen.feature.jigsaw.JigsawPattern;
+import net.minecraft.world.gen.feature.jigsaw.JigsawPiece;
+import net.minecraft.world.gen.feature.structure.IStructurePieceType;
+import net.minecraft.world.gen.feature.structure.VillageConfig;
+import net.minecraft.world.gen.feature.template.TemplateManager;
 
 import java.util.Random;
 
 public class DEDesertTomb extends GelConfigJigsawStructure {
     public DEDesertTomb(){
-        super(JigsawConfiguration.CODEC, DEConfig.COMMON.desert_tomb, 1, true, true, (context -> checkLocation(context, DETerrainAnalyzer.defaultCheckSettings)));
+        super(VillageConfig.CODEC, DEConfig.COMMON.desert_tomb, 1, true, true);
         Pool.init();
     }
 
     @Override
     public boolean isAllowedNearWorldSpawn() {return true;}
 
-    private static boolean checkLocation(PieceGeneratorSupplier.Context<JigsawConfiguration> context, DETerrainAnalyzer.TerrainCheckSettings checkSettings){
-        if(context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG)){
-            return DETerrainAnalyzer.isPositionSuitable(context.chunkPos(), context.chunkGenerator(), checkSettings, context.heightAccessor());
-        }
+    @Override
+    protected boolean isFeatureChunk(ChunkGenerator chunkGen, BiomeProvider biomeProvider, long seed, SharedSeedRandom sharedSeedRand, int chunkPosX, int chunkPosZ, Biome biomeIn, ChunkPos chunkPos, VillageConfig config) {
+        boolean canGenerate = super.isFeatureChunk(chunkGen, biomeProvider, seed, sharedSeedRand, chunkPosX, chunkPosZ, biomeIn, chunkPos, config);
+        if(!canGenerate) {return false;}
 
-        return false;
+        return DETerrainAnalyzer.isPositionSuitable(chunkPos, chunkGen);
     }
 
     public static class Piece extends AbstractGelStructurePiece {
-        public Piece(StructureManager structureManager, StructurePoolElement poolElement, BlockPos pos, int groundLevelDelta, Rotation rotation, BoundingBox bounds) {super(structureManager, poolElement, pos, groundLevelDelta, rotation, bounds);}
-        public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) {super(serializationContext, nbt);}
+
+        public Piece(TemplateManager templateManager, JigsawPiece jigsawPiece, BlockPos pos, int groundLevelDelta, Rotation rotation, MutableBoundingBox bounds) {
+            super(templateManager, jigsawPiece, pos, groundLevelDelta, rotation, bounds);
+        }
+
+        public Piece(TemplateManager templateManager, CompoundNBT nbt) {
+            super(templateManager, nbt);
+        }
 
         @Override
-        public StructurePieceType getType() {return DEStructures.DesertTomb.getPieceType();}
+        public IStructurePieceType getType() {return DEStructures.DesertTomb.getPieceType();}
+
         @Override
-        public void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor levelAccessor, Random random, BoundingBox box) {}
+        public void handleDataMarker(String key, BlockPos pos, IServerWorld world, Random random, MutableBoundingBox box) {}
     }
 
     public static class Pool{
-        public static StructureTemplatePool Root;
+        public static JigsawPattern Root;
         public static void init(){}
         static{
             JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.Mod_ID, "desert_tomb/");

@@ -5,24 +5,26 @@ import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DECellarPiece;
-import com.legacy.structure_gel.api.config.StructureConfig;
-import com.legacy.structure_gel.api.structure.GelConfigJigsawStructure;
-import com.legacy.structure_gel.api.structure.jigsaw.AbstractGelStructurePiece;
-import com.legacy.structure_gel.api.structure.jigsaw.JigsawPoolBuilder;
-import com.legacy.structure_gel.api.structure.jigsaw.JigsawRegistryHelper;
-import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.block.Rotation;
-import net.minecraft.world.level.levelgen.Heightmap;
-import net.minecraft.world.level.levelgen.feature.StructurePieceType;
-import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
-import net.minecraft.world.level.levelgen.feature.structures.StructurePoolElement;
-import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
-import net.minecraft.world.level.levelgen.structure.BoundingBox;
-import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
-import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
+import com.legacy.structure_gel.util.ConfigTemplates;
+import com.legacy.structure_gel.worldgen.jigsaw.AbstractGelStructurePiece;
+import com.legacy.structure_gel.worldgen.jigsaw.GelConfigJigsawStructure;
+import com.legacy.structure_gel.worldgen.jigsaw.JigsawPoolBuilder;
+import com.legacy.structure_gel.worldgen.jigsaw.JigsawRegistryHelper;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.util.Rotation;
+import net.minecraft.util.SharedSeedRandom;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
+import net.minecraft.util.math.MutableBoundingBox;
+import net.minecraft.world.IServerWorld;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.provider.BiomeProvider;
+import net.minecraft.world.gen.ChunkGenerator;
+import net.minecraft.world.gen.feature.jigsaw.JigsawPattern;
+import net.minecraft.world.gen.feature.jigsaw.JigsawPiece;
+import net.minecraft.world.gen.feature.structure.IStructurePieceType;
+import net.minecraft.world.gen.feature.structure.VillageConfig;
+import net.minecraft.world.gen.feature.template.TemplateManager;
 
 import java.util.Random;
 
@@ -34,8 +36,8 @@ public class DECellarStructure extends GelConfigJigsawStructure {
     protected int maxWeight;
     protected Pool pool;
 
-    public DECellarStructure(StructureConfig config, boolean generateNear00, String prefix, DETerrainAnalyzer.TerrainCheckSettings terrainCheckSettings, DECellarPiece... variants){
-        super(JigsawConfiguration.CODEC, config, 0, true, true, (context) -> checkLocation(context, terrainCheckSettings));
+    public DECellarStructure(ConfigTemplates.StructureConfig config, String prefix, DETerrainAnalyzer.TerrainCheckSettings terrainCheckSettings, boolean generateNear00, DECellarPiece... variants){
+        super(VillageConfig.CODEC, config, 0, true, true);
         this.generateNear00 = generateNear00;
         this.Variants = variants;
         this.prefix = prefix;
@@ -45,38 +47,38 @@ public class DECellarStructure extends GelConfigJigsawStructure {
         pool.init();
     }
 
-    private static boolean checkLocation(PieceGeneratorSupplier.Context<JigsawConfiguration> context, DETerrainAnalyzer.TerrainCheckSettings checkSettings){
-        if(context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG)){
-            return DETerrainAnalyzer.isPositionSuitable(context.chunkPos(), context.chunkGenerator(), checkSettings, context.heightAccessor());
-        }
+    @Override
+    protected boolean isFeatureChunk(ChunkGenerator chunkGen, BiomeProvider biomeProvider, long seed, SharedSeedRandom sharedSeedRand, int chunkPosX, int chunkPosZ, Biome biomeIn, ChunkPos chunkPos, VillageConfig config) {
+        boolean canGenerate = super.isFeatureChunk(chunkGen, biomeProvider, seed, sharedSeedRand, chunkPosX, chunkPosZ, biomeIn, chunkPos, config);
+        if(!canGenerate) {return false;}
 
-        return false;
+        return DETerrainAnalyzer.isPositionSuitable(chunkPos, chunkGen, terrainCheckSettings);
     }
 
     @Override
     public boolean isAllowedNearWorldSpawn() {return generateNear00;}
 
     public static class Piece extends AbstractGelStructurePiece {
-        public Piece(StructureManager structureManager, StructurePoolElement poolElement, BlockPos pos, int groundLevelDelta, Rotation rotation, BoundingBox box) {
-            super(structureManager, poolElement, pos, groundLevelDelta, rotation, box);
+        public Piece(TemplateManager templateManager, JigsawPiece jigsawPiece, BlockPos pos, int groundLevelDelta, Rotation rotation, MutableBoundingBox box) {
+            super(templateManager, jigsawPiece, pos, groundLevelDelta, rotation, box);
         }
-        public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) {super(serializationContext, nbt);}
+
+        public Piece(TemplateManager templateManager, CompoundNBT nbt) {
+            super(templateManager, nbt);
+        }
 
         @Override
-        public StructurePieceType getType() {return DEStructures.Castle.getPieceType();}
+        public IStructurePieceType getType() {return DEStructures.Castle.getPieceType();}
+
         @Override
-        public void handleDataMarker(String key, BlockPos blockPos, ServerLevelAccessor levelAccessor, Random random, BoundingBox box) {}
+        public void handleDataMarker(String key, BlockPos pos, IServerWorld world, Random random, MutableBoundingBox box) {}
     }
 
-    public StructureTemplatePool getRootPool() {return pool.Root;}
-
-
+    public JigsawPattern getRootPool() {return pool.Root;}
 
     protected class Pool{
-        protected StructureTemplatePool Root;
-        public void init() {}
-
-        {
+        protected JigsawPattern Root;
+        public void init() {
             JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.Mod_ID, prefix +"/");
             JigsawPoolBuilder poolBuilder = registry.builder().maintainWater(false);
             String[] topParts = new String[Variants.length];

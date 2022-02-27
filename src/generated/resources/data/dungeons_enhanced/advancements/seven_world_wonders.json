@@ -2,7 +2,7 @@
   "parent": "dungeons_enhanced:root",
   "display": {
     "icon": {
-      "item": "minecraft:spyglass"
+      "item": "minecraft:compass"
     },
     "title": {
       "translate": "advancements.dungeons_enhanced.seven_world_wonders"

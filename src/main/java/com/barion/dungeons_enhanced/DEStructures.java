@@ -7,17 +7,17 @@ import com.barion.dungeons_enhanced.world.structures.prefabs.DESimpleStructure;
 import com.barion.dungeons_enhanced.world.structures.prefabs.DEUndergroundStructure;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DECellarPiece;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
-import com.legacy.structure_gel.api.registry.registrar.GelStructureRegistrar;
-import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
-import com.legacy.structure_gel.api.structure.GelConfigJigsawStructure;
-import com.legacy.structure_gel.api.structure.GelConfigStructure;
-import com.legacy.structure_gel.api.structure.StructureAccessHelper;
-import net.minecraft.world.level.levelgen.GenerationStep;
-import net.minecraft.world.level.levelgen.feature.StructureFeature;
-import net.minecraft.world.level.levelgen.feature.StructurePieceType;
-import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
+import com.legacy.structure_gel.access_helpers.JigsawAccessHelper;
+import com.legacy.structure_gel.registrars.GelStructureRegistrar;
+import com.legacy.structure_gel.registrars.StructureRegistrar2;
+import com.legacy.structure_gel.worldgen.jigsaw.GelConfigJigsawStructure;
+import com.legacy.structure_gel.worldgen.structure.GelConfigStructure;
+import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.jigsaw.JigsawPattern;
+import net.minecraft.world.gen.feature.structure.IStructurePieceType;
+import net.minecraft.world.gen.feature.structure.Structure;
+import net.minecraft.world.gen.feature.structure.VillageConfig;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
@@ -26,37 +26,35 @@ import static com.barion.dungeons_enhanced.DEUtil.Offset;
 import static com.barion.dungeons_enhanced.DEUtil.createRegistryName;
 
 public class DEStructures {
-    public static final StructureRegistrar<JigsawConfiguration, DECellarStructure> Castle;
-    public static final StructureRegistrar<JigsawConfiguration, DEDeepCrypt> DeepCrypt;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DEDesertTemple> DesertTemple;
-    public static final StructureRegistrar<JigsawConfiguration, DEDesertTomb> DesertTomb;
-    public static final StructureRegistrar<JigsawConfiguration, DECellarStructure> DruidCircle;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DEUndergroundStructure> DungeonVariant;
-    //public static final StructureRegistrar<NoneFeatureConfiguration, DEFloatingStructure> FlyingDutchman;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> HayStorage;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DEIcePit> IcePit;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> JungleMonument;
-    public static final StructureRegistrar<JigsawConfiguration, DELargeDungeon> LargeDungeon;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> MinersHouse;
-    public static final StructureRegistrar<JigsawConfiguration, DEMonsterMaze> MonsterMaze;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> MushroomHouse;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> PillagerCamp;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> RuinedBuilding;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> Stables;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> TallWitchHut;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> TreeHouse;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> TowerOfTheUndead;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> WatchTower;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> WitchTower;
+    public static final StructureRegistrar2<VillageConfig, DECellarStructure> Castle;
+    public static final StructureRegistrar2<NoFeatureConfig, DEDesertTemple> DesertTemple;
+    public static final StructureRegistrar2<VillageConfig, DEDesertTomb> DesertTomb;
+    public static final StructureRegistrar2<VillageConfig, DECellarStructure> DruidCircle;
+    public static final StructureRegistrar2<NoFeatureConfig, DEUndergroundStructure> DungeonVariant;
+    //public static final StructureRegistrar2<NoFeatureConfig, DEFloatingStructure> FlyingDutchman;
+    public static final StructureRegistrar2<NoFeatureConfig, DESimpleStructure> HayStorage;
+    public static final StructureRegistrar2<NoFeatureConfig, DEIcePit> IcePit;
+    public static final StructureRegistrar2<NoFeatureConfig, DESimpleStructure> JungleMonument;
+    public static final StructureRegistrar2<VillageConfig, DELargeDungeon> LargeDungeon;
+    public static final StructureRegistrar2<NoFeatureConfig, DESimpleStructure> MinersHouse;
+    public static final StructureRegistrar2<VillageConfig, DEMonsterMaze> MonsterMaze;
+    public static final StructureRegistrar2<NoFeatureConfig, DESimpleStructure> MushroomHouse;
+    public static final StructureRegistrar2<NoFeatureConfig, DESimpleStructure> PillagerCamp;
+    public static final StructureRegistrar2<NoFeatureConfig, DESimpleStructure> RuinedBuilding;
+    public static final StructureRegistrar2<NoFeatureConfig, DESimpleStructure> Stables;
+    public static final StructureRegistrar2<NoFeatureConfig, DESimpleStructure> TallWitchHut;
+    public static final StructureRegistrar2<NoFeatureConfig, DESimpleStructure> TreeHouse;
+    public static final StructureRegistrar2<NoFeatureConfig, DESimpleStructure> TowerOfTheUndead;
+    public static final StructureRegistrar2<NoFeatureConfig, DESimpleStructure> WatchTower;
+    public static final StructureRegistrar2<NoFeatureConfig, DESimpleStructure> WitchTower;
 
     public DEStructures(){}
 
     static {
-        Castle = registerCellarStructure("castle", new DECellarStructure(DEConfig.COMMON.castle, false, "castle", DETerrainAnalyzer.defaultCheckSettings, new DECellarPiece("top1", "bottom1"), new DECellarPiece("top2", "bottom2")), DECellarStructure.Piece::new);
-        DeepCrypt = registerJigsaw("deep_crypt", new DEDeepCrypt(), DEDeepCrypt.Pool.Root, 4, DEDeepCrypt.Piece::new);
+        Castle = registerCellarStructure("castle", new DECellarStructure(DEConfig.COMMON.castle, "castle", DETerrainAnalyzer.defaultCheckSettings, false, new DECellarPiece("top1", "bottom1"), new DECellarPiece("top2", "bottom2")), DECellarStructure.Piece::new);
         DesertTemple = register("desert_temple", new DEDesertTemple(), DESimpleStructure.Piece::new);
         DesertTomb = registerJigsaw("desert_tomb", new DEDesertTomb(), DEDesertTomb.Pool.Root, 4, DEDesertTomb.Piece::new);
-        DruidCircle = registerCellarStructure("druid_circle", new DECellarStructure(DEConfig.COMMON.druid_circle, true, "druid_circle", DETerrainAnalyzer.defaultCheckSettings, new DECellarPiece("top_big", "bottom_big"), new DECellarPiece("small", null)), DECellarStructure.Piece::new);
+        DruidCircle = registerCellarStructure("druid_circle", new DECellarStructure(DEConfig.COMMON.druid_circle, "druid_circle", DETerrainAnalyzer.defaultCheckSettings, true, new DECellarPiece("top_big", "bottom_big"), new DECellarPiece("small", null)), DECellarStructure.Piece::new);
         DungeonVariant = register("dungeon_variant", new DEUndergroundStructure(DEConfig.COMMON.dungeon_variant, Offset(-6, 0, -6), true, new DEStructurePiece("dungeon_variant/zombie"), new DEStructurePiece("dungeon_variant/skeleton"), new DEStructurePiece("dungeon_variant/spider")), DEUndergroundStructure.Piece::new);
         //FlyingDutchman = register("flying_dutchman", new DEFloatingStructure(DEConfig.COMMON.flying_dutchman, false, new DEPiece("flying_dutchman", Offset(-4, 0, -15))), DEFloatingStructure.Piece::new);
         HayStorage = register("hay_storage", new DESimpleStructure(DEConfig.COMMON.hay_Storage, true, new DEStructurePiece("hay_storage/small", Offset(-7,0,-7)), new DEStructurePiece("hay_storage/big", Offset(-9,0,-9))), DESimpleStructure.Piece::new);
@@ -77,9 +75,9 @@ public class DEStructures {
     }
 
     @SubscribeEvent
-    public static void structureRegistry(final RegistryEvent.Register<StructureFeature<?>> event){
-        IForgeRegistry<StructureFeature<?>> registry = event.getRegistry();
-        for(StructureRegistrar<?,?> structure : getAllStructureRegistrars()){
+    public static void structureRegistry(final RegistryEvent.Register<Structure<?>> event){
+        IForgeRegistry<Structure<?>> registry = event.getRegistry();
+        for(StructureRegistrar2<?,?> structure : getAllStructureRegistrars()){
             structure.handleForge(registry);
         }
 
@@ -99,10 +97,9 @@ public class DEStructures {
         DungeonsEnhanced.LOGGER.info("Dungeons Enhanced structures loaded");
     }
 
-    public static StructureRegistrar<?,?>[] getAllStructureRegistrars(){
-        return new StructureRegistrar<?,?>[]{
+    public static StructureRegistrar2<?,?>[] getAllStructureRegistrars(){
+        return new StructureRegistrar2<?,?>[]{
                 Castle,
-                DeepCrypt,
                 DesertTemple,
                 DesertTomb,
                 DruidCircle,
@@ -125,33 +122,33 @@ public class DEStructures {
         };
     }
 
-    private static  <S extends GelConfigStructure<NoneFeatureConfiguration>> StructureRegistrar<NoneFeatureConfiguration, S> register(String registryName, S structure, StructurePieceType piece){
-        return GelStructureRegistrar.of(createRegistryName(registryName), structure, piece, NoneFeatureConfiguration.INSTANCE, GenerationStep.Decoration.SURFACE_STRUCTURES);
+    private static  <S extends GelConfigStructure<NoFeatureConfig>> StructureRegistrar2<NoFeatureConfig, S> register(String registryName, S structure, IStructurePieceType piece){
+        return GelStructureRegistrar.of(createRegistryName(registryName), structure, piece, NoFeatureConfig.INSTANCE, GenerationStage.Decoration.SURFACE_STRUCTURES);
     }
-    private static  <S extends GelConfigStructure<NoneFeatureConfiguration>> StructureRegistrar<NoneFeatureConfiguration, S> register(String registryName, S structure, StructurePieceType piece, GenerationStep.Decoration decoration){
-        return GelStructureRegistrar.of(createRegistryName(registryName), structure, piece, NoneFeatureConfiguration.INSTANCE, decoration);
-    }
-
-    private static  <S extends GelConfigJigsawStructure> StructureRegistrar<JigsawConfiguration, S> registerJigsaw(String registryName, S structure, StructureTemplatePool root, Integer level, StructurePieceType piece){
-        return GelStructureRegistrar.of(createRegistryName(registryName), structure, piece, new JigsawConfiguration(() -> root, level), GenerationStep.Decoration.SURFACE_STRUCTURES);
+    private static  <S extends GelConfigStructure<NoFeatureConfig>> StructureRegistrar2<NoFeatureConfig, S> register(String registryName, S structure, IStructurePieceType piece, GenerationStage.Decoration decoration){
+        return GelStructureRegistrar.of(createRegistryName(registryName), structure, piece, NoFeatureConfig.INSTANCE, decoration);
     }
 
-    private static StructureRegistrar<JigsawConfiguration, DECellarStructure> registerCellarStructure(String registryName, DECellarStructure structure, StructurePieceType piece){
-        return GelStructureRegistrar.of(createRegistryName(registryName), structure, piece, new JigsawConfiguration(structure::getRootPool, 1), GenerationStep.Decoration.SURFACE_STRUCTURES);
+    private static  <S extends GelConfigJigsawStructure> StructureRegistrar2<VillageConfig, S> registerJigsaw(String registryName, S structure, JigsawPattern root, Integer level, IStructurePieceType piece){
+        return GelStructureRegistrar.of(createRegistryName(registryName), structure, piece, new VillageConfig(() -> root, level), GenerationStage.Decoration.SURFACE_STRUCTURES);
     }
 
-    public static StructureFeature<?>[] getAllStructures(){
-        StructureRegistrar<?,?>[] registrars = getAllStructureRegistrars();
-        StructureFeature<?>[] temp = new StructureFeature<?>[registrars.length];
+    private static StructureRegistrar2<VillageConfig, DECellarStructure> registerCellarStructure(String registryName, DECellarStructure structure, IStructurePieceType piece){
+        return GelStructureRegistrar.of(createRegistryName(registryName), structure, piece, new VillageConfig(structure::getRootPool, 1), GenerationStage.Decoration.SURFACE_STRUCTURES);
+    }
+
+    public static Structure<?>[] getAllStructures(){
+        StructureRegistrar2<?,?>[] registrars = getAllStructureRegistrars();
+        Structure<?>[] temp = new Structure<?>[registrars.length];
         for(int i = 0; i < registrars.length; i++){
             temp[i] = registrars[i].getStructure();
         }
         return temp;
     }
 
-    private static void noiseAffecting(StructureRegistrar<?, ?>... structureRegs){
-        for (StructureRegistrar<?, ?> structure: structureRegs) {
-            StructureAccessHelper.addNoiseAffectingStructures(structure.getStructure());
+    private static void noiseAffecting(StructureRegistrar2<?, ?>... structureRegs){
+        for (StructureRegistrar2<?, ?> structure: structureRegs) {
+            JigsawAccessHelper.addIllagerStructures(structure.getStructure());
         }
     }
 }

@@ -1,8 +1,8 @@
 package com.barion.dungeons_enhanced;
 
-import com.legacy.structure_gel.api.biome_dictionary.BiomeDictionary;
+import com.legacy.structure_gel.biome_dictionary.BiomeDictionary;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.world.level.biome.Biomes;
+import net.minecraft.world.biome.Biomes;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -11,8 +11,8 @@ import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -35,7 +35,7 @@ public class DungeonsEnhanced{
     }
 
     private void setup(FMLCommonSetupEvent event){
-        BiomeDictionary.BEACH.biomes(Biomes.STONY_SHORE, Biomes.SNOWY_BEACH);
+        BiomeDictionary.BEACH.biomes(Biomes.STONE_SHORE, Biomes.SNOWY_BEACH);
     }
 
     @Mod.EventBusSubscriber(modid = DungeonsEnhanced.Mod_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
