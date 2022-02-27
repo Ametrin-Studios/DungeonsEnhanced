@@ -62,8 +62,8 @@ public class DEConfig {
             tall_witch_hut = Configs("Tall Witch Hut", 18, 60, true, "#structure_gel:swamp");
             tower_of_the_undead = Configs("Tower of the Undead", 37, 35, true, "#structure_gel:neutral_temp", "#structure_gel:savanna", "#structure_gel:swamp", "!#structure_gel:mountain");
             tree_house = Configs("Tree House", 31, 40, true, "#forge:jungle");
-            watch_tower = Configs("Watch Tower", 33, 35, true, "#structure_gel:cold", "#structure_gel:snowy");
-            witch_tower = Configs("Witch Tower", 29, 50, true, "#structure_gel:spruce_forest", "#structure_gel:large_spruce_forest");
+            watch_tower = Configs("Watch Tower", 33, 45, true, "#structure_gel:cold", "#structure_gel:snowy", "#structure_gel:mountain");
+            witch_tower = Configs("Witch Tower", 29, 45, true, "#structure_gel:spruce_forest", "#structure_gel:large_spruce_forest");
         }
 
         private StructureConfig Configs(String name, int spacing, int prob, boolean isWhite, String... biomes) {
