@@ -36,7 +36,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
-public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig> {
+public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig>{
     public DETerrainAnalyzer.TerrainCheckSettings terrainCheckSettings;
     public DEStructurePiece[] Variants;
     public final GenerationType generationType;
@@ -110,7 +110,8 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig
             int piece = DEUtil.getRandomPiece(Variants, maxWeight, random);
             DungeonsEnhanced.LOGGER.info("Generated at: " + x + ", " + y + ", " + z);
 
-            assemble(templateManager, Variants[piece], new BlockPos(x, y, z), Rotation.getRandom(random), this.pieces, piece);
+            assemble(templateManager, Variants[piece], new BlockPos(x, y, z).offset(Variants[piece].Offset), Rotation.getRandom(random), this.pieces, piece);
+            calculateBoundingBox();
         }
     }
 
