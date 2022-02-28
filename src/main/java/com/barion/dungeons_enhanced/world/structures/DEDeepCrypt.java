@@ -53,9 +53,10 @@ public class DEDeepCrypt extends GelConfigJigsawStructure{
 
             JigsawPoolBuilder poolBuilder = registry.builder().maintainWater(false);
             JigsawPoolBuilder Tunnels = poolBuilder.clone().processors(DEUtil.Processors.AirToCobweb).names("tunnel", "cross");
-            JigsawPoolBuilder Rooms = poolBuilder.clone().names("big_tunnel", "large_tomb", "prison", "tomb", "tombs", "treasure", "root");
+            JigsawPoolBuilder Treasure = poolBuilder.clone().names("treasure");
+            JigsawPoolBuilder Rooms = poolBuilder.clone().names("big_tunnel", "large_tomb", "prison", "tomb", "tombs", "root");
 
-            registry.register("main", JigsawPoolBuilder.collect(Tunnels.weight(3), Rooms.weight(1)));
+            registry.register("main", JigsawPoolBuilder.collect(Tunnels.weight(6), Rooms.weight(2), Treasure.weight(1)));
         }
     }
 }
