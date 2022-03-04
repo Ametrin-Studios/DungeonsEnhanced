@@ -18,6 +18,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.util.registry.DynamicRegistries;
+import net.minecraft.world.ISeedReader;
 import net.minecraft.world.IServerWorld;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.provider.BiomeProvider;
@@ -26,6 +27,7 @@ import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.IStructurePieceType;
 import net.minecraft.world.gen.feature.structure.Structure;
+import net.minecraft.world.gen.feature.structure.StructureManager;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.template.PlacementSettings;
 import net.minecraft.world.gen.feature.template.TemplateManager;
@@ -142,6 +144,11 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig
         @Override
         public void addProcessors(TemplateManager templateManager, PlacementSettings placementSettings) {
             super.addProcessors(templateManager, placementSettings);
+        }
+
+        @Override
+        public boolean postProcess(ISeedReader world, StructureManager structureManager, ChunkGenerator chunkGenerator, Random rand, MutableBoundingBox bounds, ChunkPos chunkPos, BlockPos pos) {
+            return super.postProcess(world, structureManager, chunkGenerator, rand, bounds, chunkPos, pos);
         }
 
         @Override @ParametersAreNonnullByDefault

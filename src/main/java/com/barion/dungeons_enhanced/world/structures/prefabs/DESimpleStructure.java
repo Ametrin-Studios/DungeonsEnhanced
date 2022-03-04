@@ -1,7 +1,6 @@
 package com.barion.dungeons_enhanced.world.structures.prefabs;
 
 import com.barion.dungeons_enhanced.DEStructures;
-import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
 import com.legacy.structure_gel.util.ConfigTemplates;
 import net.minecraft.nbt.CompoundNBT;
@@ -30,7 +29,6 @@ public class DESimpleStructure extends DEBaseStructure {
     @Override
     public void assemble(TemplateManager templateManager, DEStructurePiece variant, BlockPos pos, Rotation rotation, List<StructurePiece> pieces, int variantIndex) {
         pieces.add(new Piece(templateManager, variant.Resource, pos, rotation));
-        DungeonsEnhanced.LOGGER.info("Added Pieces");
     }
 
     public static class Piece extends DEBaseStructure.Piece {

@@ -123,18 +123,18 @@ public class DEStructures {
     }
 
     private static  <S extends GelConfigStructure<NoFeatureConfig>> StructureRegistrar2<NoFeatureConfig, S> register(String registryName, S structure, IStructurePieceType piece){
-        return GelStructureRegistrar.of(createRegistryName(registryName), structure, piece, NoFeatureConfig.INSTANCE, GenerationStage.Decoration.SURFACE_STRUCTURES);
+        return GelStructureRegistrar.of(createRegistryName(registryName), structure, piece, NoFeatureConfig.NONE, GenerationStage.Decoration.SURFACE_STRUCTURES).handle();
     }
     private static  <S extends GelConfigStructure<NoFeatureConfig>> StructureRegistrar2<NoFeatureConfig, S> register(String registryName, S structure, IStructurePieceType piece, GenerationStage.Decoration decoration){
-        return GelStructureRegistrar.of(createRegistryName(registryName), structure, piece, NoFeatureConfig.INSTANCE, decoration);
+        return GelStructureRegistrar.of(createRegistryName(registryName), structure, piece, NoFeatureConfig.NONE, decoration).handle();
     }
 
     private static  <S extends GelConfigJigsawStructure> StructureRegistrar2<VillageConfig, S> registerJigsaw(String registryName, S structure, JigsawPattern root, Integer level, IStructurePieceType piece){
-        return GelStructureRegistrar.of(createRegistryName(registryName), structure, piece, new VillageConfig(() -> root, level), GenerationStage.Decoration.SURFACE_STRUCTURES);
+        return GelStructureRegistrar.of(createRegistryName(registryName), structure, piece, new VillageConfig(() -> root, level), GenerationStage.Decoration.SURFACE_STRUCTURES).handle();
     }
 
     private static StructureRegistrar2<VillageConfig, DECellarStructure> registerCellarStructure(String registryName, DECellarStructure structure, IStructurePieceType piece){
-        return GelStructureRegistrar.of(createRegistryName(registryName), structure, piece, new VillageConfig(structure::getRootPool, 1), GenerationStage.Decoration.SURFACE_STRUCTURES);
+        return GelStructureRegistrar.of(createRegistryName(registryName), structure, piece, new VillageConfig(structure::getRootPool, 1), GenerationStage.Decoration.SURFACE_STRUCTURES).handle();
     }
 
     public static Structure<?>[] getAllStructures(){

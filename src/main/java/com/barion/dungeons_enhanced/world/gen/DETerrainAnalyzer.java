@@ -27,19 +27,19 @@ public class DETerrainAnalyzer {
 
         int columSpreading = settings.columSpreading;
 
-        if(isColumBlocked(new BlockPos(x+columSpreading, y, z), settings)) {
+        if(isColumSuitable(new BlockPos(x+columSpreading, y, z), settings)) {
             //DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " failed");
             return false;
         }
-        if(isColumBlocked(new BlockPos(x-columSpreading, y, z), settings)) {
+        if(isColumSuitable(new BlockPos(x-columSpreading, y, z), settings)) {
             //DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " failed");
             return false;
         }
-        if(isColumBlocked(new BlockPos(x, y, z+columSpreading), settings)) {
+        if(isColumSuitable(new BlockPos(x, y, z+columSpreading), settings)) {
             //DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " failed");
             return false;
         }
-        if(isColumBlocked(new BlockPos(x, y, z-columSpreading), settings)) {
+        if(isColumSuitable(new BlockPos(x, y, z-columSpreading), settings)) {
             //DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " failed");
             return false;
         }
@@ -49,7 +49,7 @@ public class DETerrainAnalyzer {
         return true;
     }
 
-    protected static boolean isColumBlocked(BlockPos pos, TerrainCheckSettings settings){
+    protected static boolean isColumSuitable(BlockPos pos, TerrainCheckSettings settings){
         int maxRangePerColum = settings.maxRangePerColum;
         int stepSize = settings.stepSize;
 
