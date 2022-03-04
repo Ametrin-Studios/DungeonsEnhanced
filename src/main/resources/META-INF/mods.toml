@@ -5,7 +5,7 @@ issueTrackerURL="https://github.com/BarionLP/DungeonsEnhanced/issues" #optional
 
 [[mods]] #mandatory A list of mods - how many allowed here is determined by the individual mod loader
     modId="dungeons_enhanced" #mandatory
-    version="1.5" #mandatory
+    version="1.6" #mandatory
     displayName="Dungeons Enhanced" #mandatory
     #updateJSONURL="https://change.me.example.invalid/updates.json" #optional See the JSON update specification https://mcforge.readthedocs.io/en/latest/gettingstarted/autoupdate/
     displayURL="https://www.curseforge.com/minecraft/mc-mods/dungeonsenhanced" #optional A URL for the "homepage" for this mod
