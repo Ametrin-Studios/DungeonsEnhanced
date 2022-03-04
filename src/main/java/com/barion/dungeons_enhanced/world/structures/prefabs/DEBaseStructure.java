@@ -1,7 +1,6 @@
 package com.barion.dungeons_enhanced.world.structures.prefabs;
 
 import com.barion.dungeons_enhanced.DEUtil;
-import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
 import com.legacy.structure_gel.util.ConfigTemplates;
@@ -110,7 +109,6 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig
             }
 
             int piece = DEUtil.getRandomPiece(Variants, maxWeight, random);
-            DungeonsEnhanced.LOGGER.info("Generated at: " + x + ", " + y + ", " + z);
 
             assemble(templateManager, Variants[piece], new BlockPos(x, y, z).offset(Variants[piece].Offset), Rotation.getRandom(random), this.pieces, piece);
             calculateBoundingBox();
