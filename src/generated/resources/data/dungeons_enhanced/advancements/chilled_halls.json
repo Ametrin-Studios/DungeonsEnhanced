@@ -1,0 +1,33 @@
+{
+  "parent": "dungeons_enhanced:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:bone"
+    },
+    "title": {
+      "translate": "advancements.dungeons_enhanced.chilled_halls"
+    },
+    "description": {
+      "translate": "advancements.dungeons_enhanced.chilled_halls.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "entered_ice_pit": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:ice_pit"
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "entered_ice_pit"
+    ]
+  ]
+}

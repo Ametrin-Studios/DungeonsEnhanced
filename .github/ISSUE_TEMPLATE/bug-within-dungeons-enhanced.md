@@ -11,9 +11,10 @@ assignees: BarionLP
 A clear and concise description of what the bug is and how to reproduce it.
 
 **Version Info:**
- - Minecraft version: [e.g. 1.17.1]
- - Forge version [e.g. 37.1.1]
- - Mod Version [e.g. 1.4]
+ - Minecraft version: [e.g. 1.18.1]
+ - Forge version [e.g. 39.0.79]
+ - Structure Gel API version [e.g. 2.1.2]
+ - Dungeons Enhanced version [e.g. 3.0]
 
 **Screenshots**
 If applicable, add screenshots to help explain your problem.

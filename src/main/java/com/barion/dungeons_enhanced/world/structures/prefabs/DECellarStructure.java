@@ -30,22 +30,22 @@ public class DECellarStructure extends GelConfigJigsawStructure {
     protected DECellarPiece[] Variants;
     protected boolean generateNear00;
     protected String prefix;
-    protected DETerrainAnalyzer.LandscapeCheckSettings landscapeCheckSettings;
+    protected DETerrainAnalyzer.TerrainCheckSettings terrainCheckSettings;
     protected int maxWeight;
     protected Pool pool;
 
-    public DECellarStructure(StructureConfig config, boolean generateNear00, String prefix, DETerrainAnalyzer.LandscapeCheckSettings landscapeCheckSettings, DECellarPiece... variants){
-        super(JigsawConfiguration.CODEC, config, 0, true, true, (context) -> checkLocation(context, landscapeCheckSettings));
+    public DECellarStructure(StructureConfig config, boolean generateNear00, String prefix, DETerrainAnalyzer.TerrainCheckSettings terrainCheckSettings, DECellarPiece... variants){
+        super(JigsawConfiguration.CODEC, config, 0, true, true, (context) -> checkLocation(context, terrainCheckSettings));
         this.generateNear00 = generateNear00;
         this.Variants = variants;
         this.prefix = prefix;
         this.maxWeight = DEUtil.getMaxWeight(Variants);
-        this.landscapeCheckSettings = landscapeCheckSettings;
+        this.terrainCheckSettings = terrainCheckSettings;
         this.pool = new Pool();
         pool.init();
     }
 
-    private static boolean checkLocation(PieceGeneratorSupplier.Context<JigsawConfiguration> context, DETerrainAnalyzer.LandscapeCheckSettings checkSettings){
+    private static boolean checkLocation(PieceGeneratorSupplier.Context<JigsawConfiguration> context, DETerrainAnalyzer.TerrainCheckSettings checkSettings){
         if(context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG)){
             return DETerrainAnalyzer.isPositionSuitable(context.chunkPos(), context.chunkGenerator(), checkSettings, context.heightAccessor());
         }
@@ -89,7 +89,9 @@ public class DECellarStructure extends GelConfigJigsawStructure {
             Root = registry.register("root", poolBuilder.clone().names(topParts).build());
 
             for(DECellarPiece piece : Variants) {
-                registry.register(piece.Cellar, poolBuilder.clone().names(piece.Cellar).build());
+                if(piece.Cellar != null) {
+                    registry.register(piece.Cellar, poolBuilder.clone().names(piece.Cellar).build());
+                }
             }
         }
     }

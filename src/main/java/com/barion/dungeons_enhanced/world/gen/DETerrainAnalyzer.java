@@ -10,10 +10,13 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
 
 public class DETerrainAnalyzer {
+    public static TerrainCheckSettings defaultCheckSettings = new TerrainCheckSettings(1, 3, 3);
     protected static ChunkGenerator chunkGenerator;
     protected static LevelHeightAccessor heightAccessor;
 
-    public static boolean isPositionSuitable(ChunkPos chunkPos, ChunkGenerator chunkGenerator, LandscapeCheckSettings settings, LevelHeightAccessor heightAccessor) {
+    public static boolean isPositionSuitable(ChunkPos chunkPos, ChunkGenerator chunkGenerator, LevelHeightAccessor heightAccessor) {return isPositionSuitable(chunkPos, chunkGenerator, defaultCheckSettings, heightAccessor);}
+
+    public static boolean isPositionSuitable(ChunkPos chunkPos, ChunkGenerator chunkGenerator, TerrainCheckSettings settings, LevelHeightAccessor heightAccessor) {
         int x = chunkPos.getMinBlockX();
         int z = chunkPos.getMinBlockZ();
         int y = chunkGenerator.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, heightAccessor);
@@ -50,7 +53,7 @@ public class DETerrainAnalyzer {
         return true;
     }
 
-    protected static boolean isColumBlocked(BlockPos pos, LandscapeCheckSettings settings){
+    protected static boolean isColumBlocked(BlockPos pos, TerrainCheckSettings settings){
         int maxRangePerColum = settings.maxRangePerColum();
         int stepSize = settings.stepSize();
 
@@ -79,5 +82,5 @@ public class DETerrainAnalyzer {
 
     protected static Block getBlockAt(int x, int y, int z) {return chunkGenerator.getBaseColumn(x, z, heightAccessor).getBlock(y).getBlock();}
 
-    public record LandscapeCheckSettings(int maxRangePerColum, int stepSize, int columSpreading) {}
+    public record TerrainCheckSettings(int maxRangePerColum, int stepSize, int columSpreading) {}
 }
