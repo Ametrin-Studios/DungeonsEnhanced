@@ -92,7 +92,7 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
             case inAir -> {
                 int minY = chunkGen.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, heightAccessor) + 50;
                 int maxY = 220;
-                if (minY > maxY) {y = maxY;}
+                if (minY >= maxY) {y = maxY;}
                 else {y = minY + context.random().nextInt(maxY - minY);}
             }
             case underground -> {
@@ -145,21 +145,19 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
         return StructureStart.INVALID_START;
     }
 
-    public static class Piece extends GelTemplateStructurePiece {
-        public Piece(StructurePieceType pieceType, StructureManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation, int componentType) {
+    public static class Piece extends GelTemplateStructurePiece{
+        public Piece(StructurePieceType pieceType, StructureManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation, int componentType){
             super(pieceType, componentType, structureManager, templateName, getPlaceSettings(structureManager, templateName, pos, rotation), pos);
         }
 
-        public Piece(StructurePieceType pieceType, StructurePieceSerializationContext serializationContext, CompoundTag nbt) {
+        public Piece(StructurePieceType pieceType, StructurePieceSerializationContext serializationContext, CompoundTag nbt){
             super(pieceType, nbt, serializationContext.structureManager(), (name) -> getPlaceSettings(serializationContext.structureManager(), name, new BlockPos(nbt.getInt("TPX"), nbt.getInt("TPY"), nbt.getInt("TPZ")), Rotation.valueOf(nbt.getString("Rot"))));
         }
 
         protected static StructurePlaceSettings getPlaceSettings(StructureManager structureManager, ResourceLocation name, BlockPos pos, Rotation rotation) {
             Optional<StructureTemplate> temp = structureManager.get(name);
             Vec3i size = Vec3i.ZERO;
-            if(temp.isPresent()) {
-                size = temp.get().getSize();
-            }
+            if(temp.isPresent()) {size = temp.get().getSize();}
             StructurePlaceSettings settings = new StructurePlaceSettings().setKeepLiquids(false).setRotationPivot(new BlockPos(size.getX()/2, 0, size.getZ()/2).rotate(rotation));
             settings.addProcessor(BlockIgnoreProcessor.STRUCTURE_AND_AIR).addProcessor(RemoveGelStructureProcessor.INSTANCE);
             return settings;
