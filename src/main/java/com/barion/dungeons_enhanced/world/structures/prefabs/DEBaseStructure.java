@@ -104,7 +104,7 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig
                     maxY = chunkGenerator.getBaseHeight(x, z, Heightmap.Type.OCEAN_FLOOR_WG);
                     if(maxY >= 55) {maxY = 55;}
                     y = random.nextInt(maxY-minY)+minY;
-                    if(y < minY){y = minY;}
+                    if(y <= minY){y = minY;}
                     break;
             }
 
