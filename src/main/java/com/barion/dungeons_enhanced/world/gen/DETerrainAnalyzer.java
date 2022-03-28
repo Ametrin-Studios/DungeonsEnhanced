@@ -1,5 +1,6 @@
 package com.barion.dungeons_enhanced.world.gen;
 
+import com.barion.dungeons_enhanced.world.structures.prefabs.DEBaseStructure;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -11,12 +12,15 @@ public class DETerrainAnalyzer {
     public static TerrainCheckSettings defaultCheckSettings = new TerrainCheckSettings(1, 3, 3);
     protected static ChunkGenerator chunkGenerator;
 
-    public static boolean isPositionSuitable(ChunkPos chunkPos, ChunkGenerator chunkGenerator) {return isPositionSuitable(chunkPos, chunkGenerator, defaultCheckSettings);}
+    public static boolean isPositionSuitable(ChunkPos chunkPos, ChunkGenerator chunkGenerator, DEBaseStructure.GenerationType generationType) {return isPositionSuitable(chunkPos, chunkGenerator, generationType, defaultCheckSettings);}
 
-    public static boolean isPositionSuitable(ChunkPos chunkPos, ChunkGenerator chunkGenerator, TerrainCheckSettings settings) {
+    public static boolean isPositionSuitable(ChunkPos chunkPos, ChunkGenerator chunkGenerator, DEBaseStructure.GenerationType generationType, TerrainCheckSettings settings) {
         int x = chunkPos.getMinBlockX();
         int z = chunkPos.getMinBlockZ();
         int y = chunkGenerator.getBaseHeight(x, z, Heightmap.Type.WORLD_SURFACE_WG);
+
+        if(generationType == DEBaseStructure.GenerationType.underground) {return y > 20;}
+        if(generationType == DEBaseStructure.GenerationType.inAir) {return y < chunkGenerator.getGenDepth() - 70;}
 
         DETerrainAnalyzer.chunkGenerator = chunkGenerator;
 

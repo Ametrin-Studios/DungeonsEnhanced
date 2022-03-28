@@ -5,6 +5,7 @@ import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
+import com.barion.dungeons_enhanced.world.structures.prefabs.DEBaseStructure;
 import com.google.common.collect.ImmutableMap;
 import com.legacy.structure_gel.worldgen.jigsaw.AbstractGelStructurePiece;
 import com.legacy.structure_gel.worldgen.jigsaw.GelConfigJigsawStructure;
@@ -42,7 +43,7 @@ public class DEDesertTomb extends GelConfigJigsawStructure {
         boolean canGenerate = super.isFeatureChunk(chunkGen, biomeProvider, seed, sharedSeedRand, chunkPosX, chunkPosZ, biomeIn, chunkPos, config);
         if(!canGenerate) {return false;}
 
-        return DETerrainAnalyzer.isPositionSuitable(chunkPos, chunkGen);
+        return DETerrainAnalyzer.isPositionSuitable(chunkPos, chunkGen, DEBaseStructure.GenerationType.onGround);
     }
 
     public static class Piece extends AbstractGelStructurePiece {

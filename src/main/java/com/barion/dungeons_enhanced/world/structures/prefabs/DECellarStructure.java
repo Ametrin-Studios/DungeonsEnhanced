@@ -52,7 +52,7 @@ public class DECellarStructure extends GelConfigJigsawStructure {
         boolean canGenerate = super.isFeatureChunk(chunkGen, biomeProvider, seed, sharedSeedRand, chunkPosX, chunkPosZ, biomeIn, chunkPos, config);
         if(!canGenerate) {return false;}
 
-        return DETerrainAnalyzer.isPositionSuitable(chunkPos, chunkGen, terrainCheckSettings);
+        return DETerrainAnalyzer.isPositionSuitable(chunkPos, chunkGen, DEBaseStructure.GenerationType.onGround, terrainCheckSettings);
     }
 
     @Override

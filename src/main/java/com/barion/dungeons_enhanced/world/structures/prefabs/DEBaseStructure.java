@@ -70,7 +70,7 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig
         boolean canGenerate = super.isFeatureChunk(chunkGen, biomeProvider, seed, sharedSeedRand, chunkPosX, chunkPosZ, biomeIn, chunkPos, config);
         if(!canGenerate) {return false;}
 
-        return DETerrainAnalyzer.isPositionSuitable(chunkPos, chunkGen, terrainCheckSettings);
+        return DETerrainAnalyzer.isPositionSuitable(chunkPos, chunkGen, generationType, terrainCheckSettings);
     }
 
     public abstract void assemble(TemplateManager templateManager, DEStructurePiece variant, BlockPos pos, Rotation rotation, List<StructurePiece> pieces, int variantIndex);

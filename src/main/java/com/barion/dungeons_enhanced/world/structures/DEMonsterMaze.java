@@ -4,6 +4,7 @@ import com.barion.dungeons_enhanced.DEConfig;
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
+import com.barion.dungeons_enhanced.world.structures.prefabs.DEBaseStructure;
 import com.legacy.structure_gel.worldgen.jigsaw.AbstractGelStructurePiece;
 import com.legacy.structure_gel.worldgen.jigsaw.GelConfigJigsawStructure;
 import com.legacy.structure_gel.worldgen.jigsaw.JigsawPoolBuilder;
@@ -40,7 +41,7 @@ public class DEMonsterMaze extends GelConfigJigsawStructure {
         boolean canGenerate = super.isFeatureChunk(chunkGen, biomeProvider, seed, sharedSeedRand, chunkPosX, chunkPosZ, biome, chunkPos, config);
         if(!canGenerate) {return false;}
 
-        return DETerrainAnalyzer.isPositionSuitable(chunkPos, chunkGen);
+        return DETerrainAnalyzer.isPositionSuitable(chunkPos, chunkGen, DEBaseStructure.GenerationType.onGround);
     }
 
     public static class Piece extends AbstractGelStructurePiece {
