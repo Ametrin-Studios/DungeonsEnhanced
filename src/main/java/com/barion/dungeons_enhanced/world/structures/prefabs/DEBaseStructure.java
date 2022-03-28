@@ -59,7 +59,7 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
     }
 
     public DEBaseStructure(StructureConfig config, GenerationType generationType, boolean generateNear00, DEStructurePiece... variants) {
-        super(NoneFeatureConfiguration.CODEC, config, (piecesBuilder, context) -> DungeonsEnhanced.LOGGER.warn("A Dungeons Enhanced StructureFeature tries to use the Vanilla PieceGenerator instead of the Custom one"));
+        super(NoneFeatureConfiguration.CODEC, config, (piecesBuilder, context) -> DungeonsEnhanced.LOGGER.warn("A DungeonsEnhanced StructureFeature tries to use the vanilla PieceGenerator instead of the custom PieceGenerator"));
         this.pieceGenerator = DEPieceGeneratorSupplier.simple(DEBaseStructure::checkLocation, DEBaseStructure::generatePieces);
         this.generationType = generationType;
         this.generateNear00 = generateNear00;
@@ -72,13 +72,11 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
     @Override public boolean isAllowedNearWorldSpawn() {return generateNear00;}
 
     protected static boolean checkLocation(DEPieceGeneratorSupplier.Context<NoneFeatureConfiguration> context){
-        boolean isCorrectBiome = context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG);
-
-        if(isCorrectBiome && context.structure().generationType == GenerationType.onGround){
-            return DETerrainAnalyzer.isPositionSuitable(context.chunkPos(), context.chunkGenerator(), context.structure().terrainCheckSettings, context.heightAccessor());
+        if(context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG)){
+            return DETerrainAnalyzer.isPositionSuitable(context.chunkPos(), context.chunkGenerator(), context.structure().generationType, context.structure().terrainCheckSettings, context.heightAccessor());
         }
 
-        return isCorrectBiome;
+        return false;
     }
 
     private static void generatePieces(StructurePiecesBuilder piecesBuilder, DEPieceGenerator.Context<NoneFeatureConfiguration> context) {
@@ -91,7 +89,7 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
             case onGround -> y = chunkGen.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, heightAccessor);
             case inAir -> {
                 int minY = chunkGen.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, heightAccessor) + 50;
-                int maxY = 220;
+                int maxY = 290;
                 if (minY >= maxY) {y = maxY;}
                 else {y = minY + context.random().nextInt(maxY - minY);}
             }

@@ -1,6 +1,6 @@
 package com.barion.dungeons_enhanced.world.gen;
 
-import com.barion.dungeons_enhanced.DungeonsEnhanced;
+import com.barion.dungeons_enhanced.world.structures.prefabs.DEBaseStructure;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelHeightAccessor;
@@ -14,41 +14,44 @@ public class DETerrainAnalyzer {
     protected static ChunkGenerator chunkGenerator;
     protected static LevelHeightAccessor heightAccessor;
 
-    public static boolean isPositionSuitable(ChunkPos chunkPos, ChunkGenerator chunkGenerator, LevelHeightAccessor heightAccessor) {return isPositionSuitable(chunkPos, chunkGenerator, defaultCheckSettings, heightAccessor);}
+    public static boolean isPositionSuitable(ChunkPos chunkPos, ChunkGenerator chunkGenerator, DEBaseStructure.GenerationType generationType, LevelHeightAccessor heightAccessor) {return isPositionSuitable(chunkPos, chunkGenerator, generationType, defaultCheckSettings, heightAccessor);}
 
-    public static boolean isPositionSuitable(ChunkPos chunkPos, ChunkGenerator chunkGenerator, TerrainCheckSettings settings, LevelHeightAccessor heightAccessor) {
+    public static boolean isPositionSuitable(ChunkPos chunkPos, ChunkGenerator chunkGenerator, DEBaseStructure.GenerationType generationType, TerrainCheckSettings settings, LevelHeightAccessor heightAccessor) {
         int x = chunkPos.getMinBlockX();
         int z = chunkPos.getMinBlockZ();
         int y = chunkGenerator.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, heightAccessor);
+
+        if(generationType == DEBaseStructure.GenerationType.underground) {return y > chunkGenerator.getMinY() + 20;}
+        if(generationType == DEBaseStructure.GenerationType.inAir) {return y < (chunkGenerator.getGenDepth() + chunkGenerator.getMinY()) - 80;}
 
         DETerrainAnalyzer.chunkGenerator = chunkGenerator;
         DETerrainAnalyzer.heightAccessor = heightAccessor;
 
         if(getBlockAt(x, y-1, z) == Blocks.WATER) {
-            DungeonsEnhanced.LOGGER.info("Canceled at " + new BlockPos(x, y, z) + " because Water");
+            //DungeonsEnhanced.LOGGER.info("Canceled at " + new BlockPos(x, y, z) + " because Water");
             return false;
         }
 
         int columSpreading = settings.columSpreading();
 
         if(isColumBlocked(new BlockPos(x+columSpreading, y, z), settings)) {
-            DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " failed");
+            //DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " failed");
             return false;
         }
         if(isColumBlocked(new BlockPos(x-columSpreading, y, z), settings)) {
-            DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " failed");
+            //DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " failed");
             return false;
         }
         if(isColumBlocked(new BlockPos(x, y, z+columSpreading), settings)) {
-            DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " failed");
+            //DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " failed");
             return false;
         }
         if(isColumBlocked(new BlockPos(x, y, z-columSpreading), settings)) {
-            DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " failed");
+            //DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " failed");
             return false;
         }
 
-        DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " passed");
+        //DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " passed");
 
         return true;
     }
