@@ -25,12 +25,12 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
-import net.minecraft.world.level.levelgen.feature.StructurePieceType;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.StructureFeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructureStart;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
+import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePiecesBuilder;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockIgnoreProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
@@ -66,7 +66,6 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
         this.Variants = variants;
         maxWeight = DEUtil.getMaxWeight(Variants);
         terrainCheckSettings = DETerrainAnalyzer.defaultCheckSettings;
-        setLakeProof(true);
     }
 
     @Override public boolean isAllowedNearWorldSpawn() {return generateNear00;}
@@ -125,6 +124,8 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
         return piece;
     }
 
+
+
     @Override @ParametersAreNonnullByDefault @Nonnull
     public StructureStart<?> generate(RegistryAccess registryAccess, ChunkGenerator chunkGenerator, BiomeSource biomeSource, StructureManager structureManager, long seed, ChunkPos chunkPos, int referece, StructureFeatureConfiguration config, NoneFeatureConfiguration featureConfiguration, LevelHeightAccessor heightAccessor, Predicate<Biome> biomePredicate) {
         ChunkPos potentialChunkPos = this.getPotentialFeatureChunk(config, seed, chunkPos.x, chunkPos.z);
@@ -135,7 +136,7 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
                 WorldgenRandom worldgenrandom = new WorldgenRandom(new LegacyRandomSource(0L));
                 worldgenrandom.setLargeFeatureSeed(seed, chunkPos.x, chunkPos.z);
                 optional.get().generatePieces(structurepiecesbuilder, new DEPieceGenerator.Context<>(featureConfiguration, chunkGenerator, structureManager, chunkPos, heightAccessor, worldgenrandom, seed, this));
-                StructureStart<NoneFeatureConfiguration> structureStart = new StructureStart<>(this, chunkPos, referece, structurepiecesbuilder.build());
+                StructureStart structureStart = new StructureStart(this, chunkPos, referece, structurepiecesbuilder.build());
                 if (structureStart.isValid()) {return structureStart;}
             }
         }

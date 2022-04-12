@@ -11,22 +11,23 @@ import com.legacy.structure_gel.api.structure.jigsaw.AbstractGelStructurePiece;
 import com.legacy.structure_gel.api.structure.jigsaw.JigsawPoolBuilder;
 import com.legacy.structure_gel.api.structure.jigsaw.JigsawRegistryHelper;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.Heightmap;
-import net.minecraft.world.level.levelgen.feature.StructurePieceType;
 import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
-import net.minecraft.world.level.levelgen.feature.structures.StructurePoolElement;
-import net.minecraft.world.level.levelgen.feature.structures.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
+import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
+import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
+import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 
 import java.util.Random;
 
-public class DECellarStructure extends GelConfigJigsawStructure {
+public class DECellarStructure extends GelConfigJigsawStructure<JigsawConfiguration>{
     protected DECellarPiece[] Variants;
     protected boolean generateNear00;
     protected String prefix;
@@ -64,16 +65,15 @@ public class DECellarStructure extends GelConfigJigsawStructure {
 
         @Override
         public StructurePieceType getType() {return DEStructures.Castle.getPieceType();}
+
         @Override
         public void handleDataMarker(String key, BlockPos blockPos, ServerLevelAccessor levelAccessor, Random random, BoundingBox box) {}
     }
 
-    public StructureTemplatePool getRootPool() {return pool.Root;}
-
-
+    public Holder<StructureTemplatePool> getRootPool() {return pool.Root;}
 
     protected class Pool{
-        protected StructureTemplatePool Root;
+        protected Holder<StructureTemplatePool> Root;
         public void init() {}
 
         {

@@ -7,10 +7,13 @@ buildscript {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
     }
 }
-apply plugin: 'net.minecraftforge.gradle'
 // Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
-apply plugin: 'eclipse'
-apply plugin: 'maven-publish'
+plugins {
+    id 'eclipse'
+    id 'maven-publish'
+}
+apply plugin: 'net.minecraftforge.gradle'
+
 
 version = de_version as Object
 group = 'com.barion.dungeons_enhanced'
@@ -18,18 +21,18 @@ archivesBaseName = "dungeons_enhanced-${mc_version}"
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
-//println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
+//println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 minecraft {
     mappings channel: 'official', version: mc_version
+    // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg') // Currently, this location cannot be changed from the default.
 
     runs {
         client {
             workingDirectory project.file('run')
-
             arg '-mixin.config=structure_gel.mixins.json'
-
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
+            property 'forge.enabledGameTestNamespaces', 'dungeons_enhanced'
             property 'mixin.env.disableRefMap', 'true'
 
             mods {
@@ -41,12 +44,24 @@ minecraft {
 
         server {
             workingDirectory project.file('run')
-
             arg '-mixin.config=structure_gel.mixins.json'
-
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
             property 'mixin.env.disableRefMap', 'true'
+            property 'forge.enabledGameTestNamespaces', 'dungeons_enhanced'
+
+            mods {
+                dungeons_enhanced {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        gameTestServer {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            property 'forge.enabledGameTestNamespaces', 'dungeons_enhanced'
 
             mods {
                 dungeons_enhanced {
@@ -57,13 +72,10 @@ minecraft {
 
         data {
             workingDirectory project.file('run')
-
             arg '-mixin.config=structure_gel.mixins.json'
-
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
             property 'mixin.env.disableRefMap', 'true'
-
             args '--mod', 'dungeons_enhanced', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
@@ -97,18 +109,18 @@ dependencies {
 jar {
     manifest {
         attributes([
-            "Specification-Title": "dungeons_enhanced",
-            "Specification-Vendor": "Barion, Mo",
-            "Specification-Version": "1", // We are version 1 of ourselves
-            "Implementation-Title": project.name,
-            "Implementation-Version": de_version,
-            "Implementation-Vendor" :"Barion, Valarauko9",
-            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+                "Specification-Title"     : "Dungeons Enhanced",
+                "Specification-Vendor"    : "Barion, Valarauko9",
+                "Specification-Version"   : "1", // We are version 1 of ourselves
+                "Implementation-Title"    : project.name,
+                "Implementation-Version"  : de_version,
+                "Implementation-Vendor"   : "Barion, Valarauko9",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
 }
 
-jar.finalizedBy('reobfJar') 
+jar.finalizedBy('reobfJar')
 
 publishing {
     publications {
@@ -118,7 +130,11 @@ publishing {
     }
     repositories {
         maven {
-            url "file:///${project.projectDir}/mcmodsrepo"
+            url "file://${project.projectDir}/mcmodsrepo"
         }
     }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }

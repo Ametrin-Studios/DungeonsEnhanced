@@ -1,4 +1,5 @@
 ##3.1
+* ported to 1.18.2
 * decreased rarity of Deep Crypts treasure room
 
 ##3.0
