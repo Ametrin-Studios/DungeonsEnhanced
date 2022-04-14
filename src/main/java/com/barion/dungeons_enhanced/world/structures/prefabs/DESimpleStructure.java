@@ -1,6 +1,7 @@
 package com.barion.dungeons_enhanced.world.structures.prefabs;
 
 import com.barion.dungeons_enhanced.DEStructures;
+import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEPieceAssembler;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
 import com.legacy.structure_gel.api.config.StructureConfig;
 import net.minecraft.core.BlockPos;
@@ -17,21 +18,19 @@ import java.util.Random;
 
 public class DESimpleStructure extends DEBaseStructure {
 
-    public DESimpleStructure(StructureConfig config, DEStructurePiece... resources){
-        super(config, GenerationType.onGround, true, resources);
+    public DESimpleStructure(StructureConfig config, DEStructurePiece[] resources){
+        this(config, true, resources);
     }
 
-    public DESimpleStructure(StructureConfig config, boolean generateNearSpawn, DEStructurePiece... resources){
-        super(config, GenerationType.onGround, generateNearSpawn, resources);
+    public DESimpleStructure(StructureConfig config, boolean generateNearSpawn, DEStructurePiece[] resources){
+        super(config, GenerationType.onGround, generateNearSpawn, DESimpleStructure::assemble, resources);
+    }
+    protected DESimpleStructure(StructureConfig config, boolean generateNearSpawn, DEPieceAssembler assembler, DEStructurePiece[] resources){
+        super(config, GenerationType.onGround, generateNearSpawn, assembler, resources);
     }
 
-    public DESimpleStructure(StructureConfig config, BlockPos offset, boolean generateNearSpawn, DEStructurePiece... resources){
-        super(config, GenerationType.onGround, offset, generateNearSpawn, resources);
-    }
-
-    @Override
-    public void assemble(AssembleContext context) {
-        context.piecesBuilder().addPiece(new Piece(context.structureManager(), context.variant().Resource, context.pos(), context.rotation()));
+    private static void assemble(DEPieceAssembler.Context context) {
+        context.piecesBuilder().addPiece(new Piece(context.structureManager(), context.piece(), context.pos(), context.rotation()));
     }
 
     public static class Piece extends DEBaseStructure.Piece{

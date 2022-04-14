@@ -6,7 +6,6 @@ import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.legacy.structure_gel.api.structure.GelConfigJigsawStructure;
 import com.legacy.structure_gel.api.structure.jigsaw.AbstractGelStructurePiece;
-import com.legacy.structure_gel.api.structure.jigsaw.ExtendedJigsawConfiguration;
 import com.legacy.structure_gel.api.structure.jigsaw.JigsawPoolBuilder;
 import com.legacy.structure_gel.api.structure.jigsaw.JigsawRegistryHelper;
 import net.minecraft.core.BlockPos;
@@ -14,6 +13,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
@@ -23,9 +23,9 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureMana
 
 import java.util.Random;
 
-public class DEDeepCrypt extends GelConfigJigsawStructure<ExtendedJigsawConfiguration>{
+public class DEDeepCrypt extends GelConfigJigsawStructure<JigsawConfiguration>{
     public DEDeepCrypt(){
-        super(ExtendedJigsawConfiguration.CODEC, DEConfig.COMMON.deep_crypt, -10, true, false);
+        super(JigsawConfiguration.CODEC, DEConfig.COMMON.deep_crypt, -10, true, false);
         Pool.init();
     }
 

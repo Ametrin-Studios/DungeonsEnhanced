@@ -29,11 +29,9 @@ minecraft {
     runs {
         client {
             workingDirectory project.file('run')
-            arg '-mixin.config=structure_gel.mixins.json'
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
             property 'forge.enabledGameTestNamespaces', 'dungeons_enhanced'
-            property 'mixin.env.disableRefMap', 'true'
 
             mods {
                 dungeons_enhanced {
@@ -44,10 +42,8 @@ minecraft {
 
         server {
             workingDirectory project.file('run')
-            arg '-mixin.config=structure_gel.mixins.json'
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            property 'mixin.env.disableRefMap', 'true'
             property 'forge.enabledGameTestNamespaces', 'dungeons_enhanced'
 
             mods {
@@ -72,10 +68,8 @@ minecraft {
 
         data {
             workingDirectory project.file('run')
-            arg '-mixin.config=structure_gel.mixins.json'
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            property 'mixin.env.disableRefMap', 'true'
             args '--mod', 'dungeons_enhanced', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
@@ -84,6 +78,14 @@ minecraft {
                 }
             }
         }
+
+        all {
+            def srgToMcpFile = project.tasks.createSrgToMcp.outputs.files[0].path
+
+            property 'net.minecraftforge.gradle.GradleStart.srg.srg-mcp', srgToMcpFile
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', srgToMcpFile
+        }
     }
 }
 
@@ -91,13 +93,8 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
     maven {
-        // location of a maven mirror for JEI files, as a fallback
-        name = "ModMaven"
-        url = "https://modmaven.k-4u.nl"
-    }
-    maven {
-        name = "Modding Legacy Maven"
-        url = "https://maven.moddinglegacy.com/artifactory/modding-legacy/"
+        name "Modding Legacy Maven"
+        url "https://maven.moddinglegacy.com/artifactory/modding-legacy/"
     }
 }
 

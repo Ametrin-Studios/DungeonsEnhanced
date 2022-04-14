@@ -34,6 +34,6 @@ We hope you have fun.
 [[dependencies.dungeons_enhanced]]
     modId="structure_gel"
     mandatory=true
-    versionRange="[2.2.+,]"
+    versionRange="[2.2.0,]"
     ordering="NONE"
     side="BOTH"

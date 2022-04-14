@@ -569,7 +569,7 @@ public class DELootTableProvider extends LootTableProvider {
                             .add(lootItem(Items.IRON_INGOT, 2, lootNumber(1,2)))
                             .add(lootItem(Items.MAP, 2, lootNumber(1,2)))
                             .add(lootItem(Items.PAPER, 4, lootNumber(1,3)))
-                            .add(enchantedLootItem(Items.ENCHANTED_BOOK, 2, lootNumber(1,2)))
+                            .add(enchantedLootItem(Items.BOOK, 2, lootNumber(1,2)))
                             .add(lootItem(Items.GOLDEN_APPLE, 1, lootNumber(1,2)))
                             .add(lootItem(Items.WITHER_ROSE, 1, one()))
                             .add(lootItem(Items.CHAINMAIL_BOOTS, 2, one()))

@@ -50,4 +50,8 @@ public class DEUtil{
         }
         return i;
     }
+
+    public static DEStructurePiece.Builder pieceBuilder(){
+        return new DEStructurePiece.Builder();
+    }
 }

@@ -1,24 +1,23 @@
 package com.barion.dungeons_enhanced.world.structures;
 
 import com.barion.dungeons_enhanced.DEConfig;
+import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.world.structures.prefabs.DESimpleStructure;
-import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
+import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEPieceAssembler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 
-import static com.barion.dungeons_enhanced.DEUtil.Offset;
 import static com.barion.dungeons_enhanced.DEUtil.createRegistryName;
 
 public class DEIcePit extends DESimpleStructure {
-    private final ResourceLocation Entrance = createRegistryName("ice_pit/top");
-    public DEIcePit() {super(DEConfig.COMMON.ice_pit, Offset(-4, -25, -4), false, new DEStructurePiece("ice_pit/var1"), new DEStructurePiece("ice_pit/var2"), new DEStructurePiece("ice_pit/var3"));}
+    private static final ResourceLocation Entrance = createRegistryName("ice_pit/top");
+    public DEIcePit() {super(DEConfig.COMMON.ice_pit, false, DEIcePit::assembleIcePit, DEUtil.pieceBuilder().offset(-4, -25, -4).add("ice_pit/var1").add("ice_pit/var2").add("ice_pit/var3").build());}
 
-    @Override
-    public void assemble(AssembleContext context) {
+    private static void assembleIcePit(DEPieceAssembler.Context context) {
         BlockPos pos = context.pos();
         context.piecesBuilder().addPiece(new Piece(context.structureManager(), Entrance, pos, context.rotation()));
         int offsetY = -6;
-        if(context.variant().Resource.getPath().contains("var3")) {offsetY = -11;}
-        context.piecesBuilder().addPiece(new Piece(context.structureManager(), context.variant().Resource, pos.offset(-17, offsetY,-17), context.rotation()));
+        if(context.piece().getPath().contains("var3")) {offsetY = -11;}
+        context.piecesBuilder().addPiece(new Piece(context.structureManager(), context.piece(), pos.offset(-17, offsetY,-17), context.rotation()));
     }
 }

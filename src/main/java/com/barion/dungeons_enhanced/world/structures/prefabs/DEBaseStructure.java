@@ -1,90 +1,62 @@
 package com.barion.dungeons_enhanced.world.structures.prefabs;
 
 import com.barion.dungeons_enhanced.DEUtil;
-import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
-import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEPieceGenerator;
-import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEPieceGeneratorSupplier;
+import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEPieceAssembler;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
 import com.legacy.structure_gel.api.config.StructureConfig;
 import com.legacy.structure_gel.api.structure.GelConfigStructure;
 import com.legacy.structure_gel.api.structure.GelTemplateStructurePiece;
 import com.legacy.structure_gel.api.structure.processor.RemoveGelStructureProcessor;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.Vec3i;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.BiomeSource;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
-import net.minecraft.world.level.levelgen.LegacyRandomSource;
-import net.minecraft.world.level.levelgen.WorldgenRandom;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.StructureFeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
-import net.minecraft.world.level.levelgen.structure.StructureStart;
-import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
-import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
-import net.minecraft.world.level.levelgen.structure.pieces.StructurePiecesBuilder;
+import net.minecraft.world.level.levelgen.structure.pieces.*;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockIgnoreProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
-import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Optional;
 import java.util.Random;
-import java.util.function.Predicate;
 
 public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration> {
-    public DETerrainAnalyzer.TerrainCheckSettings terrainCheckSettings;
-    public DEStructurePiece[] Variants;
-    public final GenerationType generationType;
-    public int maxWeight;
     protected boolean generateNear00;
-    protected final DEPieceGeneratorSupplier<NoneFeatureConfiguration> pieceGenerator;
 
-    public DEBaseStructure(StructureConfig config, GenerationType generationType, BlockPos offset, boolean generateNear00, DEStructurePiece... resources){
-        this(config, generationType, generateNear00, resources);
-        for(DEStructurePiece resource : Variants){
-            resource.Offset = offset;
-        }
-    }
-
-    public DEBaseStructure(StructureConfig config, GenerationType generationType, boolean generateNear00, DEStructurePiece... variants) {
-        super(NoneFeatureConfiguration.CODEC, config, (piecesBuilder, context) -> DungeonsEnhanced.LOGGER.warn("A DungeonsEnhanced StructureFeature tries to use the vanilla PieceGenerator instead of the custom PieceGenerator"));
-        this.pieceGenerator = DEPieceGeneratorSupplier.simple(DEBaseStructure::checkLocation, DEBaseStructure::generatePieces);
-        this.generationType = generationType;
+    public DEBaseStructure(StructureConfig config, GenerationType generationType, boolean generateNear00, DEPieceAssembler assembler, DEStructurePiece[] variants) {
+        super(NoneFeatureConfiguration.CODEC, config, PieceGeneratorSupplier.simple(
+                (context) -> checkLocation(context, generationType, DETerrainAnalyzer.defaultCheckSettings),
+                (piecesBuilder, context) -> generatePieces(piecesBuilder, context, generationType, variants, DEUtil.getMaxWeight(variants), assembler)));
         this.generateNear00 = generateNear00;
-        this.Variants = variants;
-        maxWeight = DEUtil.getMaxWeight(Variants);
-        terrainCheckSettings = DETerrainAnalyzer.defaultCheckSettings;
     }
 
     @Override public boolean isAllowedNearWorldSpawn() {return generateNear00;}
 
-    protected static boolean checkLocation(DEPieceGeneratorSupplier.Context<NoneFeatureConfiguration> context){
+    private static boolean checkLocation(PieceGeneratorSupplier.Context<? extends FeatureConfiguration> context, GenerationType generationType, DETerrainAnalyzer.TerrainCheckSettings checkSettings){
         if(context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG)){
-            return DETerrainAnalyzer.isPositionSuitable(context.chunkPos(), context.chunkGenerator(), context.structure().generationType, context.structure().terrainCheckSettings, context.heightAccessor());
+            return DETerrainAnalyzer.isPositionSuitable(context.chunkPos(), context.chunkGenerator(), generationType, checkSettings, context.heightAccessor());
         }
 
         return false;
     }
 
-    private static void generatePieces(StructurePiecesBuilder piecesBuilder, DEPieceGenerator.Context<NoneFeatureConfiguration> context) {
+    private static void generatePieces(StructurePiecesBuilder piecesBuilder, PieceGenerator.Context<NoneFeatureConfiguration> context, GenerationType generationType, DEStructurePiece[] variants, int maxWeight, DEPieceAssembler assembler) {
         int x = context.chunkPos().getMinBlockX();
         int z = context.chunkPos().getMinBlockZ();
         int y = 70;
         ChunkGenerator chunkGen = context.chunkGenerator();
         LevelHeightAccessor heightAccessor = context.heightAccessor();
-        switch (context.structure().generationType) {
+        switch (generationType) {
             case onGround -> y = chunkGen.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, heightAccessor);
             case inAir -> {
                 int minY = chunkGen.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, heightAccessor) + 50;
@@ -101,12 +73,10 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
             }
         }
 
-        int piece = getRandomPiece(context.structure().Variants, context.structure().maxWeight, context.random());
+        int piece = getRandomPiece(variants, maxWeight, context.random());
 
-        context.structure().assemble(new AssembleContext(context.structureManager(), context.structure().Variants[piece], new BlockPos(x, y, z).offset(context.structure().Variants[piece].Offset), Rotation.getRandom(context.random()), piecesBuilder, piece));
+        assembler.assemble(new DEPieceAssembler.Context(context.structureManager(), variants[piece].Resource, new BlockPos(x, y, z).offset(variants[piece].Offset), Rotation.getRandom(context.random()), piecesBuilder, generationType));
     }
-
-    public abstract void assemble(AssembleContext context);
 
     protected static int getRandomPiece(DEStructurePiece[] variants, int maxWeight, Random rand){
         int piece = 0;
@@ -124,25 +94,6 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
         return piece;
     }
 
-
-
-    @Override @ParametersAreNonnullByDefault @Nonnull
-    public StructureStart<?> generate(RegistryAccess registryAccess, ChunkGenerator chunkGenerator, BiomeSource biomeSource, StructureManager structureManager, long seed, ChunkPos chunkPos, int referece, StructureFeatureConfiguration config, NoneFeatureConfiguration featureConfiguration, LevelHeightAccessor heightAccessor, Predicate<Biome> biomePredicate) {
-        ChunkPos potentialChunkPos = this.getPotentialFeatureChunk(config, seed, chunkPos.x, chunkPos.z);
-        if (chunkPos.x == potentialChunkPos.x && chunkPos.z == potentialChunkPos.z){
-            Optional<DEPieceGenerator<NoneFeatureConfiguration>> optional = this.pieceGenerator.createGenerator(new DEPieceGeneratorSupplier.Context<>(chunkGenerator, biomeSource, seed, chunkPos, featureConfiguration, heightAccessor, biomePredicate, structureManager, registryAccess, this));
-            if (optional.isPresent()){
-                StructurePiecesBuilder structurepiecesbuilder = new StructurePiecesBuilder();
-                WorldgenRandom worldgenrandom = new WorldgenRandom(new LegacyRandomSource(0L));
-                worldgenrandom.setLargeFeatureSeed(seed, chunkPos.x, chunkPos.z);
-                optional.get().generatePieces(structurepiecesbuilder, new DEPieceGenerator.Context<>(featureConfiguration, chunkGenerator, structureManager, chunkPos, heightAccessor, worldgenrandom, seed, this));
-                StructureStart structureStart = new StructureStart(this, chunkPos, referece, structurepiecesbuilder.build());
-                if (structureStart.isValid()) {return structureStart;}
-            }
-        }
-
-        return StructureStart.INVALID_START;
-    }
 
     public static class Piece extends GelTemplateStructurePiece{
         public Piece(StructurePieceType pieceType, StructureManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation, int componentType){
@@ -167,6 +118,4 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
     }
 
     public enum GenerationType {onGround, inAir, underground}
-
-    public record AssembleContext(StructureManager structureManager, DEStructurePiece variant, BlockPos pos, Rotation rotation, StructurePiecesBuilder piecesBuilder, int piece){}
 }
