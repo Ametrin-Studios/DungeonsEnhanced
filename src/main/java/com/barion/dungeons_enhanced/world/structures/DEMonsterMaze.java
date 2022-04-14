@@ -60,7 +60,7 @@ public class DEMonsterMaze extends GelConfigJigsawStructure<ExtendedJigsawConfig
         public static void init(){}
 
         static {
-            JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.Mod_ID, "monster_maze/");
+            JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.ModID, "monster_maze/");
             Root = registry.register("root", registry.builder().names("root").maintainWater(false).build());
 
             JigsawPoolBuilder poolBuilder = registry.builder().maintainWater(false);

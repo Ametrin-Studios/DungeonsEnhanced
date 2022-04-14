@@ -114,17 +114,17 @@ public class DEStructures {
         return register(registryName, structure, piece, GenerationStep.Decoration.SURFACE_STRUCTURES);
     }
     private static  <S extends GelConfigStructure<NoneFeatureConfiguration>> StructureRegistrar<NoneFeatureConfiguration, S> register(String registryName, Supplier<S> structure, StructurePieceType piece, GenerationStep.Decoration decoration){
-        return StructureRegistrar.builder(createRegistryName(registryName), structure).pushConfigured(NoneFeatureConfiguration.INSTANCE).biomes(structure.get().getConfig().getConfigured()).popConfigured().addPiece(piece).generationStep(decoration).build();
+        return StructureRegistrar.builder(createRegistryName(registryName), structure).pushConfigured(NoneFeatureConfiguration.INSTANCE).biomes(structure.get().getConfig().getConfigured()).popConfigured().addPiece(piece).generationStep(decoration).build().handle();
                 //GelStructureRegistrar.of(createRegistryName(registryName), structure, piece, NoneFeatureConfiguration.INSTANCE, decoration);
     }
 
     private static <C extends JigsawConfiguration, S extends GelConfigJigsawStructure<C>> StructureRegistrar<C, S> registerJigsaw(String registryName, Supplier<S> structure, C configuration, StructurePieceType piece){
-        return StructureRegistrar.builder(createRegistryName(registryName), structure).pushConfigured(configuration).biomes(structure.get().getConfig().getConfigured()).popConfigured().addPiece(piece).generationStep(GenerationStep.Decoration.SURFACE_STRUCTURES).build();
+        return StructureRegistrar.builder(createRegistryName(registryName), structure).pushConfigured(configuration).biomes(structure.get().getConfig().getConfigured()).popConfigured().addPiece(piece).generationStep(GenerationStep.Decoration.SURFACE_STRUCTURES).build().handle();
                 //GelStructureRegistrar.of(createRegistryName(registryName), structure, piece, new JigsawConfiguration(root, level), GenerationStep.Decoration.SURFACE_STRUCTURES);
     }
 
     private static StructureRegistrar<JigsawConfiguration, DECellarStructure> registerCellarStructure(String registryName, Supplier<DECellarStructure> structure, StructurePieceType piece){
-        return StructureRegistrar.builder(createRegistryName(registryName), structure).pushConfigured(new JigsawConfiguration(structure.get().getRootPool(), 1)).biomes(structure.get().getConfig().getConfigured()).popConfigured().addPiece(piece).generationStep(GenerationStep.Decoration.SURFACE_STRUCTURES).build();
+        return StructureRegistrar.builder(createRegistryName(registryName), structure).pushConfigured(new JigsawConfiguration(structure.get().getRootPool(), 1)).biomes(structure.get().getConfig().getConfigured()).popConfigured().addPiece(piece).generationStep(GenerationStep.Decoration.SURFACE_STRUCTURES).build().handle();
                 //GelStructureRegistrar.of(createRegistryName(registryName), structure, piece, new JigsawConfiguration(structure::getRootPool, 1), GenerationStep.Decoration.SURFACE_STRUCTURES);
     }
 

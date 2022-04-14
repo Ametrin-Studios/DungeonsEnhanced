@@ -13,7 +13,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProc
 import java.util.Random;
 
 public class DEUtil{
-    public static ResourceLocation createRegistryName(String key){ return new ResourceLocation(DungeonsEnhanced.Mod_ID, key);}
+    public static ResourceLocation createRegistryName(String key){ return new ResourceLocation(DungeonsEnhanced.ModID, key);}
     public static BlockPos Offset(int x, int y, int z){return new BlockPos(x, y, z);}
 
     public static class Processors {

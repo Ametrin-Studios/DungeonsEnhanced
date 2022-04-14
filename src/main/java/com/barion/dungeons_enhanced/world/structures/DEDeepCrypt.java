@@ -49,7 +49,7 @@ public class DEDeepCrypt extends GelConfigJigsawStructure<JigsawConfiguration>{
         public static void init(){}
 
         static {
-            JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.Mod_ID, "deep_crypt/");
+            JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.ModID, "deep_crypt/");
             Root = registry.register("root", registry.builder().names("root").maintainWater(false).build());
 
             JigsawPoolBuilder poolBuilder = registry.builder().maintainWater(false);

@@ -1,0 +1,253 @@
+{
+  "parent": "dungeons_enhanced:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:filled_map"
+    },
+    "title": {
+      "translate": "advancements.dungeons_enhanced.ambitious_explorer"
+    },
+    "description": {
+      "translate": "advancements.dungeons_enhanced.ambitious_explorer.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "entered_castle": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:castle"
+        }
+      }
+    },
+    "entered_deep_crypt": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:deep_crypt"
+        }
+      }
+    },
+    "entered_desert_temple": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:desert_temple"
+        }
+      }
+    },
+    "entered_desert_tomb": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:desert_tomb"
+        }
+      }
+    },
+    "entered_druid_circle": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:druid_circle"
+        }
+      }
+    },
+    "entered_dungeon_variant": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:dungeon_variant"
+        }
+      }
+    },
+    "entered_hay_storage": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:hay_storage"
+        }
+      }
+    },
+    "entered_ice_pit": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:ice_pit"
+        }
+      }
+    },
+    "entered_jungle_monument": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:jungle_monument"
+        }
+      }
+    },
+    "entered_large_dungeon": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:large_dungeon"
+        }
+      }
+    },
+    "entered_miners_house": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:miners_house"
+        }
+      }
+    },
+    "entered_monster_maze": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:monster_maze"
+        }
+      }
+    },
+    "entered_mushroom_house": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:mushroom_house"
+        }
+      }
+    },
+    "entered_pillager_camp": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:pillager_camp"
+        }
+      }
+    },
+    "entered_ruined_building": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:ruined_building"
+        }
+      }
+    },
+    "entered_stables": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:stables"
+        }
+      }
+    },
+    "entered_tall_witch_hut": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:tall_witch_hut"
+        }
+      }
+    },
+    "entered_tree_house": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:tree_house"
+        }
+      }
+    },
+    "entered_tower_of_the_undead": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:tower_of_the_undead"
+        }
+      }
+    },
+    "entered_watch_tower": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:watch_tower"
+        }
+      }
+    },
+    "entered_witch_tower": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:witch_tower"
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "entered_castle"
+    ],
+    [
+      "entered_deep_crypt"
+    ],
+    [
+      "entered_desert_temple"
+    ],
+    [
+      "entered_desert_tomb"
+    ],
+    [
+      "entered_druid_circle"
+    ],
+    [
+      "entered_dungeon_variant"
+    ],
+    [
+      "entered_hay_storage"
+    ],
+    [
+      "entered_ice_pit"
+    ],
+    [
+      "entered_jungle_monument"
+    ],
+    [
+      "entered_large_dungeon"
+    ],
+    [
+      "entered_miners_house"
+    ],
+    [
+      "entered_monster_maze"
+    ],
+    [
+      "entered_mushroom_house"
+    ],
+    [
+      "entered_pillager_camp"
+    ],
+    [
+      "entered_ruined_building"
+    ],
+    [
+      "entered_stables"
+    ],
+    [
+      "entered_tall_witch_hut"
+    ],
+    [
+      "entered_tree_house"
+    ],
+    [
+      "entered_tower_of_the_undead"
+    ],
+    [
+      "entered_watch_tower"
+    ],
+    [
+      "entered_witch_tower"
+    ]
+  ]
+}

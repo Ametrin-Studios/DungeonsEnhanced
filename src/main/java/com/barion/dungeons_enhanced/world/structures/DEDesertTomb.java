@@ -59,7 +59,7 @@ public class DEDesertTomb extends GelConfigJigsawStructure<JigsawConfiguration> 
         public static Holder<StructureTemplatePool> Root;
         public static void init() {}
         static{
-            JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.Mod_ID, "desert_tomb/");
+            JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.ModID, "desert_tomb/");
             JigsawPoolBuilder poolBuilder = registry.builder().maintainWater(false).processors(DEUtil.Processors.AirToCobweb);
             Root = registry.register("root", poolBuilder.clone().names("root").build());
 

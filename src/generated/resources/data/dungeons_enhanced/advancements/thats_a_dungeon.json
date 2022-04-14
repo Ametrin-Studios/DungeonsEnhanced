@@ -1,0 +1,33 @@
+{
+  "parent": "dungeons_enhanced:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:skeleton_skull"
+    },
+    "title": {
+      "translate": "advancements.dungeons_enhanced.thats_a_dungeon"
+    },
+    "description": {
+      "translate": "advancements.dungeons_enhanced.thats_a_dungeon.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "entered_large_dungeon": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:large_dungeon"
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "entered_large_dungeon"
+    ]
+  ]
+}

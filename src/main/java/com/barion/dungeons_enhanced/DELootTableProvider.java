@@ -608,6 +608,6 @@ public class DELootTableProvider extends LootTableProvider {
 
         private LootPool.Builder lootPool(NumberProvider rolls) {return LootPool.lootPool().setRolls(rolls);}
 
-        private static ResourceLocation location(String name) {return new ResourceLocation(DungeonsEnhanced.Mod_ID, "chests/" + name);}
+        private static ResourceLocation location(String name) {return new ResourceLocation(DungeonsEnhanced.ModID, "chests/" + name);}
     }
 }

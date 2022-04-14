@@ -1,0 +1,33 @@
+{
+  "parent": "dungeons_enhanced:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:red_mushroom"
+    },
+    "title": {
+      "translate": "advancements.dungeons_enhanced.rarest_structure"
+    },
+    "description": {
+      "translate": "advancements.dungeons_enhanced.rarest_structure.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "entered_mushroom_house": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:mushroom_house"
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "entered_mushroom_house"
+    ]
+  ]
+}

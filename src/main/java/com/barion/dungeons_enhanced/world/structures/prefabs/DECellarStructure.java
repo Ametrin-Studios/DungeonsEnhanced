@@ -77,7 +77,7 @@ public class DECellarStructure extends GelConfigJigsawStructure<JigsawConfigurat
         public void init() {}
 
         {
-            JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.Mod_ID, prefix +"/");
+            JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.ModID, prefix +"/");
             JigsawPoolBuilder poolBuilder = registry.builder().maintainWater(false);
             String[] topParts = new String[Variants.length];
 

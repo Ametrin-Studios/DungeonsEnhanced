@@ -13,9 +13,9 @@ import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(DungeonsEnhanced.Mod_ID)
+@Mod(DungeonsEnhanced.ModID)
 public class DungeonsEnhanced{
-    public static final String Mod_ID = "dungeons_enhanced";
+    public static final String ModID = "dungeons_enhanced";
     public static final Logger LOGGER = LogManager.getLogger();
 
     public DungeonsEnhanced() {
@@ -27,7 +27,7 @@ public class DungeonsEnhanced{
         modBus.register(DEStructures.class);
     }
 
-    @Mod.EventBusSubscriber(modid = DungeonsEnhanced.Mod_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+    @Mod.EventBusSubscriber(modid = DungeonsEnhanced.ModID, bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class DataGenerators{
         @SubscribeEvent
         public static void gatherData(GatherDataEvent event){
@@ -35,7 +35,7 @@ public class DungeonsEnhanced{
             ExistingFileHelper exFileHelper = event.getExistingFileHelper();
 
             dataGen.addProvider(new DELootTableProvider(dataGen));
-            //dataGen.addProvider(new DEAdvancementProvider(dataGen, exFileHelper));
+            dataGen.addProvider(new DEAdvancementProvider(dataGen, exFileHelper));
         }
     }
 }
