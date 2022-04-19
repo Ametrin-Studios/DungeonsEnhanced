@@ -1,10 +1,8 @@
 package com.barion.dungeons_enhanced.world.structures.prefabs;
 
 import com.barion.dungeons_enhanced.DEStructures;
-import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
-import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DECellarPiece;
 import com.legacy.structure_gel.api.config.StructureConfig;
 import com.legacy.structure_gel.api.structure.GelConfigJigsawStructure;
 import com.legacy.structure_gel.api.structure.jigsaw.AbstractGelStructurePiece;
@@ -28,25 +26,14 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureMana
 import java.util.Random;
 
 public class DECellarStructure extends GelConfigJigsawStructure<JigsawConfiguration>{
-    protected DECellarPiece[] Variants;
     protected boolean generateNear00;
-    protected String prefix;
-    protected DETerrainAnalyzer.TerrainCheckSettings terrainCheckSettings;
-    protected int maxWeight;
-    protected Pool pool;
 
-    public DECellarStructure(StructureConfig config, boolean generateNear00, String prefix, DETerrainAnalyzer.TerrainCheckSettings terrainCheckSettings, DECellarPiece... variants){
+    public DECellarStructure(StructureConfig config, boolean generateNear00, DETerrainAnalyzer.TerrainCheckSettings terrainCheckSettings) {
         super(JigsawConfiguration.CODEC, config, 0, true, true, (context) -> checkLocation(context, terrainCheckSettings));
         this.generateNear00 = generateNear00;
-        this.Variants = variants;
-        this.prefix = prefix;
-        this.maxWeight = DEUtil.getMaxWeight(Variants);
-        this.terrainCheckSettings = terrainCheckSettings;
-        this.pool = new Pool();
-        pool.init();
     }
 
-    private static boolean checkLocation(PieceGeneratorSupplier.Context<JigsawConfiguration> context, DETerrainAnalyzer.TerrainCheckSettings checkSettings){
+    private static boolean checkLocation(PieceGeneratorSupplier.Context<JigsawConfiguration> context, DETerrainAnalyzer.TerrainCheckSettings checkSettings) {
         if(context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG)){
             return DETerrainAnalyzer.isPositionSuitable(context.chunkPos(), context.chunkGenerator(), DEBaseStructure.GenerationType.onGround, checkSettings, context.heightAccessor());
         }
@@ -70,29 +57,35 @@ public class DECellarStructure extends GelConfigJigsawStructure<JigsawConfigurat
         public void handleDataMarker(String key, BlockPos blockPos, ServerLevelAccessor levelAccessor, Random random, BoundingBox box) {}
     }
 
-    public Holder<StructureTemplatePool> getRootPool() {return pool.Root;}
+    public static void init(){
+        CastlePool.init();
+        DruidCirclePool.init();
+    }
 
-    protected class Pool{
-        protected Holder<StructureTemplatePool> Root;
-        public void init() {}
+    public static class CastlePool{
+        public static final Holder<StructureTemplatePool> Root;
+        public static void init() {}
 
-        {
-            JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.ModID, prefix +"/");
+        static {
+            JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.ModID,"castle/");
             JigsawPoolBuilder poolBuilder = registry.builder().maintainWater(false);
-            String[] topParts = new String[Variants.length];
+            Root = registry.register("root", poolBuilder.clone().names("top1", "top2").build());
 
-            for(int i = 0; i < Variants.length; i++){
-                topParts[i] = Variants[i].Resource.getPath();
-            }
+            registry.register("bottom1", poolBuilder.clone().names("bottom1").build());
+            registry.register("bottom2", poolBuilder.clone().names("bottom2").build());
+        }
+    }
 
+    public static class DruidCirclePool{
+        public static final Holder<StructureTemplatePool> Root;
+        public static void init(){}
 
-            Root = registry.register("root", poolBuilder.clone().names(topParts).build());
+        static {
+            JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.ModID,"druid_circle/");
+            JigsawPoolBuilder poolBuilder = registry.builder().maintainWater(false);
+            Root = registry.register("root", poolBuilder.clone().names("top_big", "small").build());
 
-            for(DECellarPiece piece : Variants) {
-                if(piece.Cellar != null) {
-                    registry.register(piece.Cellar, poolBuilder.clone().names(piece.Cellar).build());
-                }
-            }
+            registry.register("bottom_big", poolBuilder.clone().names("bottom_big").build());
         }
     }
 }

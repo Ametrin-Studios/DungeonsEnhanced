@@ -56,6 +56,7 @@ public class DEAdvancementProvider extends AdvancementProvider{
     }
 
     private Advancement.Builder enterStructure(Advancement.Builder builder, StructureRegistrar<?, ?> structure){
+        DungeonsEnhanced.LOGGER.info(Objects.requireNonNull(structure.getConfigured()).unwrapKey().orElseThrow() + "  test");
         return builder.addCriterion(enterFeatureText(structure), LocationTrigger.TriggerInstance.located(LocationPredicate.inFeature(Objects.requireNonNull(structure.getConfigured()).unwrapKey().orElseThrow())));
     }
 

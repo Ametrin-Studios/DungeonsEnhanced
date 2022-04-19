@@ -18,6 +18,10 @@ public class DEStructurePiece {
         Weight = weight;
     }
 
+    public ResourceLocation getResource(){
+        return Resource;
+    }
+
     public static class Builder{
         private final List<DEStructurePiece> pieces;
         private BlockPos offset;

@@ -547,7 +547,6 @@ public class DELootTableProvider extends LootTableProvider {
                             .add(lootItem(Items.SPYGLASS, 1, one()))
                             .add(lootItem(Items.COCOA_BEANS, 6, lootNumber(1,2)))
                             .add(lootItem(Items.MELON_SEEDS, 6, lootNumber(1,3)))));} // Tree House
-
             {lootTable.accept(location("deep_crypt"), LootTable.lootTable()
                     .withPool(lootPool(lootNumber(8, 13))
                             .add(lootItem(Items.DIAMOND, 2, one()))
@@ -583,7 +582,47 @@ public class DELootTableProvider extends LootTableProvider {
                             .add(lootItem(Items.STONE_SWORD, 3, lootNumber(1,2)))
                             .add(lootItem(Items.DEEPSLATE, 5, lootNumber(1,2)))
                             .add(lootItem(Items.COBBLED_DEEPSLATE, 5, lootNumber(1,2)))
-                            .add(lootItem(Items.CLOCK, 2, lootNumber(1,2)))));} //Deep Crypt
+                            .add(lootItem(Items.CLOCK, 2, lootNumber(1,2)))));} // Deep Crypt
+            {
+                lootTable.accept(location("pillager_camp/kitchen"), LootTable.lootTable()
+                        .withPool(lootPool(lootNumber(12, 19))
+                                .add(lootItem(Items.COOKED_MUTTON, 1, one()))
+                                .add(lootItem(Items.COOKED_BEEF, 1, one()))
+                                .add(lootItem(Items.COOKED_PORKCHOP, 1, one()))
+                                .add(lootItem(Items.COOKED_CHICKEN, 1, one()))
+                                .add(lootItem(Items.COOKED_RABBIT, 1, one()))
+                                .add(lootItem(Items.COOKED_SALMON, 1, one()))
+                                .add(lootItem(Items.COOKED_COD, 1, one()))
+                                .add(lootItem(Items.BAKED_POTATO, 1, one()))
+                                .add(lootItem(Items.MUTTON, 1, one()))
+                                .add(lootItem(Items.BEEF, 1, one()))
+                                .add(lootItem(Items.PORKCHOP, 1, one()))
+                                .add(lootItem(Items.CHICKEN, 1, one()))
+                                .add(lootItem(Items.RABBIT, 1, one()))
+                                .add(lootItem(Items.SALMON, 1, one()))
+                                .add(lootItem(Items.COD, 1, one()))
+                                .add(lootItem(Items.POTATO, 1, one()))
+                                .add(lootItem(Items.CARROT, 1, one()))
+                                .add(lootItem(Items.WHEAT, 1, lootNumber(1,3)))
+                                .add(lootItem(Items.WHEAT_SEEDS, 1, lootNumber(1,3)))
+                        ));
+
+                lootTable.accept(location("pillager_camp/general"), LootTable.lootTable()
+                        .withPool(lootPool(lootNumber(6, 16))
+                                .add(lootItem(Items.MAP, 1, one()))
+                                .add(lootItem(Items.EMERALD, 1, one()))
+                                .add(lootItem(Items.PAPER, 7, one()))
+                                .add(lootItem(Items.GOLDEN_CARROT, 2, one()))
+                                .add(lootItem(Items.GOLDEN_APPLE, 2, one()))
+                                .add(lootItem(Items.COMPASS, 1, one()))
+                                .add(lootItem(Items.CLOCK, 1, one()))
+                                .add(lootItem(Items.IRON_AXE, 2, one()))
+                                .add(lootItem(Items.CROSSBOW, 1, one()))
+                                .add(lootItem(Items.ARROW, 5, one()))
+                                .add(lootItem(Items.DIAMOND, 1, lootNumber(0, 1)))
+                                .add(lootItem(Items.IRON_INGOT, 2, one()))
+                        ));
+            } // Pillager Camp
         }
 
         private LootPoolEntryContainer.Builder<?> lootItem(Item item, int weight, NumberProvider amount){

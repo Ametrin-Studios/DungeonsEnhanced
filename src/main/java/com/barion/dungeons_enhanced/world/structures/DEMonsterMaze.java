@@ -27,7 +27,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureMana
 import java.util.Random;
 
 public class DEMonsterMaze extends GelConfigJigsawStructure<ExtendedJigsawConfiguration>{
-    public DEMonsterMaze(){
+    public DEMonsterMaze() {
         super(ExtendedJigsawConfiguration.CODEC, DEConfig.COMMON.monster_maze, -17, true, true, (context) -> checkLocation(context, DETerrainAnalyzer.defaultCheckSettings));
         Pool.init();
     }
@@ -35,7 +35,7 @@ public class DEMonsterMaze extends GelConfigJigsawStructure<ExtendedJigsawConfig
     @Override
     public boolean isAllowedNearWorldSpawn() {return false;}
 
-    private static boolean checkLocation(PieceGeneratorSupplier.Context<ExtendedJigsawConfiguration> context, DETerrainAnalyzer.TerrainCheckSettings checkSettings){
+    private static boolean checkLocation(PieceGeneratorSupplier.Context<ExtendedJigsawConfiguration> context, DETerrainAnalyzer.TerrainCheckSettings checkSettings) {
         if(context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG)){
             return DETerrainAnalyzer.isPositionSuitable(context.chunkPos(), context.chunkGenerator(), DEBaseStructure.GenerationType.onGround, checkSettings, context.heightAccessor());
         }
@@ -55,9 +55,9 @@ public class DEMonsterMaze extends GelConfigJigsawStructure<ExtendedJigsawConfig
         public void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor levelAccessor, Random random, BoundingBox box) {}
     }
 
-    public static class Pool{
+    public static class Pool {
         public static Holder<StructureTemplatePool> Root;
-        public static void init(){}
+        public static void init() {}
 
         static {
             JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.ModID, "monster_maze/");

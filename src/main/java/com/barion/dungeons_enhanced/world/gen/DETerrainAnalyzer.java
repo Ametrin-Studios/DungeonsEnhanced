@@ -1,5 +1,10 @@
 package com.barion.dungeons_enhanced.world.gen;
 
+// Tool to determine if a surface is suitable for structure generation
+// created by BarionLP https://github.com/BarionLP/DungeonsEnhanced/blob/1.18.2/src/main/java/com/barion/dungeons_enhanced/world/gen/DETerrainAnalyzer.java
+// version 1.0
+// (c) you can only use it if you link the file and give credits to BarionLP
+
 import com.barion.dungeons_enhanced.world.structures.prefabs.DEBaseStructure;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.ChunkPos;

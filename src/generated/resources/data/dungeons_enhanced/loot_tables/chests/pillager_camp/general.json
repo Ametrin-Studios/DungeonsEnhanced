@@ -4,14 +4,13 @@
     {
       "rolls": {
         "type": "minecraft:uniform",
-        "min": 10.0,
+        "min": 6.0,
         "max": 16.0
       },
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
-          "weight": 2,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -19,11 +18,22 @@
               "add": false
             }
           ],
-          "name": "minecraft:chain"
+          "name": "minecraft:map"
         },
         {
           "type": "minecraft:item",
-          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1.0,
+              "add": false
+            }
+          ],
+          "name": "minecraft:emerald"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 7,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -35,7 +45,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 3,
+          "weight": 2,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -43,7 +53,7 @@
               "add": false
             }
           ],
-          "name": "minecraft:rotten_flesh"
+          "name": "minecraft:golden_carrot"
         },
         {
           "type": "minecraft:item",
@@ -55,7 +65,29 @@
               "add": false
             }
           ],
-          "name": "minecraft:poisonous_potato"
+          "name": "minecraft:golden_apple"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1.0,
+              "add": false
+            }
+          ],
+          "name": "minecraft:compass"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1.0,
+              "add": false
+            }
+          ],
+          "name": "minecraft:clock"
         },
         {
           "type": "minecraft:item",
@@ -67,11 +99,10 @@
               "add": false
             }
           ],
-          "name": "minecraft:string"
+          "name": "minecraft:iron_axe"
         },
         {
           "type": "minecraft:item",
-          "weight": 3,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -79,7 +110,34 @@
               "add": false
             }
           ],
-          "name": "minecraft:bone"
+          "name": "minecraft:crossbow"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1.0,
+              "add": false
+            }
+          ],
+          "name": "minecraft:arrow"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 0.0,
+                "max": 1.0
+              },
+              "add": false
+            }
+          ],
+          "name": "minecraft:diamond"
         },
         {
           "type": "minecraft:item",
@@ -91,116 +149,7 @@
               "add": false
             }
           ],
-          "name": "minecraft:bowl"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 2,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
-            },
-            {
-              "function": "minecraft:set_stew_effect",
-              "effects": [
-                {
-                  "type": "minecraft:jump_boost",
-                  "duration": {
-                    "type": "minecraft:uniform",
-                    "min": 7.0,
-                    "max": 10.0
-                  }
-                },
-                {
-                  "type": "minecraft:poison",
-                  "duration": {
-                    "type": "minecraft:uniform",
-                    "min": 10.0,
-                    "max": 20.0
-                  }
-                },
-                {
-                  "type": "minecraft:saturation",
-                  "duration": {
-                    "type": "minecraft:uniform",
-                    "min": 7.0,
-                    "max": 10.0
-                  }
-                },
-                {
-                  "type": "minecraft:night_vision",
-                  "duration": {
-                    "type": "minecraft:uniform",
-                    "min": 7.0,
-                    "max": 10.0
-                  }
-                },
-                {
-                  "type": "minecraft:blindness",
-                  "duration": {
-                    "type": "minecraft:uniform",
-                    "min": 5.0,
-                    "max": 7.0
-                  }
-                },
-                {
-                  "type": "minecraft:weakness",
-                  "duration": {
-                    "type": "minecraft:uniform",
-                    "min": 6.0,
-                    "max": 8.0
-                  }
-                }
-              ]
-            }
-          ],
-          "name": "minecraft:suspicious_stew"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
-            }
-          ],
-          "name": "minecraft:chainmail_helmet"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
-            }
-          ],
-          "name": "minecraft:chainmail_chestplate"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
-            }
-          ],
-          "name": "minecraft:chainmail_leggings"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1.0,
-              "add": false
-            }
-          ],
-          "name": "minecraft:chainmail_boots"
+          "name": "minecraft:iron_ingot"
         }
       ]
     }
