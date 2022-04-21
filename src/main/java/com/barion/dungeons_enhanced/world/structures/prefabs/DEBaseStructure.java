@@ -42,7 +42,7 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
 
     @Override public boolean isAllowedNearWorldSpawn() {return generateNear00;}
 
-    private static boolean checkLocation(PieceGeneratorSupplier.Context<? extends FeatureConfiguration> context, GenerationType generationType, DETerrainAnalyzer.TerrainCheckSettings checkSettings){
+    private static boolean checkLocation(PieceGeneratorSupplier.Context<? extends FeatureConfiguration> context, GenerationType generationType, DETerrainAnalyzer.Settings checkSettings){
         if(context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG)){
             return DETerrainAnalyzer.isPositionSuitable(context.chunkPos(), context.chunkGenerator(), generationType, checkSettings, context.heightAccessor());
         }

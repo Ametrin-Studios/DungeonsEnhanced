@@ -15,13 +15,13 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
 
 public class DETerrainAnalyzer {
-    public static TerrainCheckSettings defaultCheckSettings = new TerrainCheckSettings(1, 3, 3);
+    public static Settings defaultCheckSettings = new Settings(1, 3, 3);
     protected static ChunkGenerator chunkGenerator;
     protected static LevelHeightAccessor heightAccessor;
 
     public static boolean isPositionSuitable(ChunkPos chunkPos, ChunkGenerator chunkGenerator, DEBaseStructure.GenerationType generationType, LevelHeightAccessor heightAccessor) {return isPositionSuitable(chunkPos, chunkGenerator, generationType, defaultCheckSettings, heightAccessor);}
 
-    public static boolean isPositionSuitable(ChunkPos chunkPos, ChunkGenerator chunkGenerator, DEBaseStructure.GenerationType generationType, TerrainCheckSettings settings, LevelHeightAccessor heightAccessor) {
+    public static boolean isPositionSuitable(ChunkPos chunkPos, ChunkGenerator chunkGenerator, DEBaseStructure.GenerationType generationType, Settings settings, LevelHeightAccessor heightAccessor) {
         int x = chunkPos.getMinBlockX();
         int z = chunkPos.getMinBlockZ();
         int y = chunkGenerator.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, heightAccessor);
@@ -61,7 +61,7 @@ public class DETerrainAnalyzer {
         return true;
     }
 
-    protected static boolean isColumBlocked(BlockPos pos, TerrainCheckSettings settings){
+    protected static boolean isColumBlocked(BlockPos pos, Settings settings){
         int steps = settings.steps();
         int stepSize = settings.stepSize();
 
@@ -90,5 +90,5 @@ public class DETerrainAnalyzer {
 
     protected static BlockState getBlockAt(int x, int y, int z) {return chunkGenerator.getBaseColumn(x, z, heightAccessor).getBlock(y);}
 
-    public record TerrainCheckSettings(int steps, int stepSize, int columSpreading) {}
+    public record Settings(int steps, int stepSize, int columSpreading) {}
 }

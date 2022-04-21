@@ -35,7 +35,7 @@ public class DEMonsterMaze extends GelConfigJigsawStructure<ExtendedJigsawConfig
     @Override
     public boolean isAllowedNearWorldSpawn() {return false;}
 
-    private static boolean checkLocation(PieceGeneratorSupplier.Context<ExtendedJigsawConfiguration> context, DETerrainAnalyzer.TerrainCheckSettings checkSettings) {
+    private static boolean checkLocation(PieceGeneratorSupplier.Context<ExtendedJigsawConfiguration> context, DETerrainAnalyzer.Settings checkSettings) {
         if(context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG)){
             return DETerrainAnalyzer.isPositionSuitable(context.chunkPos(), context.chunkGenerator(), DEBaseStructure.GenerationType.onGround, checkSettings, context.heightAccessor());
         }

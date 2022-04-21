@@ -28,12 +28,12 @@ import java.util.Random;
 public class DECellarStructure extends GelConfigJigsawStructure<JigsawConfiguration>{
     protected boolean generateNear00;
 
-    public DECellarStructure(StructureConfig config, boolean generateNear00, DETerrainAnalyzer.TerrainCheckSettings terrainCheckSettings) {
-        super(JigsawConfiguration.CODEC, config, 0, true, true, (context) -> checkLocation(context, terrainCheckSettings));
+    public DECellarStructure(StructureConfig config, boolean generateNear00, DETerrainAnalyzer.Settings settings) {
+        super(JigsawConfiguration.CODEC, config, 0, true, true, (context) -> checkLocation(context, settings));
         this.generateNear00 = generateNear00;
     }
 
-    private static boolean checkLocation(PieceGeneratorSupplier.Context<JigsawConfiguration> context, DETerrainAnalyzer.TerrainCheckSettings checkSettings) {
+    private static boolean checkLocation(PieceGeneratorSupplier.Context<JigsawConfiguration> context, DETerrainAnalyzer.Settings checkSettings) {
         if(context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG)){
             return DETerrainAnalyzer.isPositionSuitable(context.chunkPos(), context.chunkGenerator(), DEBaseStructure.GenerationType.onGround, checkSettings, context.heightAccessor());
         }
