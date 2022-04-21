@@ -10,10 +10,14 @@ import com.legacy.structure_gel.api.structure.GelConfigJigsawStructure;
 import com.legacy.structure_gel.api.structure.GelConfigStructure;
 import com.legacy.structure_gel.api.structure.jigsaw.ExtendedJigsawConfiguration;
 import net.minecraft.core.Holder;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.structure.StructureSpawnOverride;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraftforge.event.RegistryEvent;
@@ -66,7 +70,7 @@ public class DEStructures {
         MinersHouse = register("miners_house", true, () -> new DESimpleStructure(DEConfig.COMMON.miners_house, pieceBuilder().offset(-5, 0, -5).add("miners_house").build()), DESimpleStructure.Piece::new);
         MonsterMaze = registerJigsaw("monster_maze", false, DEMonsterMaze::new, new ExtendedJigsawConfiguration(DEMonsterMaze.Pool.Root, 10), DEMonsterMaze.Piece::new, GenerationStep.Decoration.SURFACE_STRUCTURES);
         MushroomHouse = register("mushroom_house", true, () -> new DESimpleStructure(DEConfig.COMMON.mushroom_house, pieceBuilder().offset(-7, 0, -7).add("mushroom_house").build()), DESimpleStructure.Piece::new);
-        PillagerCamp = registerJigsaw("pillager_camp", true, DEPillagerCamp::new, new JigsawConfiguration(DEPillagerCamp.Pool.Root, 4), DEPillagerCamp.Piece::new, GenerationStep.Decoration.SURFACE_STRUCTURES);
+        PillagerCamp = registerJigsaw("pillager_camp", true, DEPillagerCamp::new, new JigsawConfiguration(DEPillagerCamp.Pool.Root, 4), DEPillagerCamp.Piece::new, GenerationStep.Decoration.SURFACE_STRUCTURES, spawn(EntityType.PILLAGER, 3), spawn(EntityType.VINDICATOR, 1));
         RuinedBuilding = register("ruined_building", true, () -> new DESimpleStructure(DEConfig.COMMON.ruined_building, true, pieceBuilder().offset(-5, 0, -5).weight(3).add("ruined_building/house").offset(-6, 0, -8).weight(2).add("ruined_building/house_big").offset(-4, 0, -5).weight(3).add("ruined_building/barn").build()), DESimpleStructure.Piece::new);
         Stables = register("stables", false, () -> new DESimpleStructure(DEConfig.COMMON.stables, pieceBuilder().offset(-8, -6, -13).add("stables").build()), DESimpleStructure.Piece::new);
         TallWitchHut = register("tall_witch_hut", false, () -> new DESimpleStructure(DEConfig.COMMON.tall_witch_hut, pieceBuilder().offset(-3, -3, -4).add("tall_witch_hut").build()), DESimpleStructure.Piece::new);
@@ -113,6 +117,13 @@ public class DEStructures {
         };
     }
 
+    private static MobSpawnSettings.SpawnerData spawn(EntityType<?> entity, int weight){
+        return spawn(entity, weight, 1, 1);
+    }
+    private static MobSpawnSettings.SpawnerData spawn(EntityType<?> entity, int weight, int min, int max){
+        return new MobSpawnSettings.SpawnerData(entity, weight, min, max);
+    }
+
     private static  <S extends GelConfigStructure<NoneFeatureConfiguration>> StructureRegistrar<NoneFeatureConfiguration, S> register(String registryName, boolean adaptNoise, Supplier<S> structure, StructurePieceType piece){
         return register(registryName, adaptNoise, structure, piece, GenerationStep.Decoration.SURFACE_STRUCTURES);
     }
@@ -126,6 +137,12 @@ public class DEStructures {
     private static <C extends JigsawConfiguration, S extends GelConfigJigsawStructure<C>> StructureRegistrar<C, S> registerJigsaw(String registryName, boolean adaptNoise, Supplier<S> structure, C configuration, StructurePieceType piece, GenerationStep.Decoration generationStep){
         if(adaptNoise){
             return StructureRegistrar.builder(createRegistryName(registryName), structure).pushConfigured(configuration).biomes(structure.get().getConfig().getConfigured()).adaptNoise().popConfigured().addPiece(piece).generationStep(generationStep).build();
+        }
+        return StructureRegistrar.builder(createRegistryName(registryName), structure).pushConfigured(configuration).biomes(structure.get().getConfig().getConfigured()).popConfigured().addPiece(piece).generationStep(generationStep).build();
+    }
+    private static <C extends JigsawConfiguration, S extends GelConfigJigsawStructure<C>> StructureRegistrar<C, S> registerJigsaw(String registryName, boolean adaptNoise, Supplier<S> structure, C configuration, StructurePieceType piece, GenerationStep.Decoration generationStep, MobSpawnSettings.SpawnerData... spawns){
+        if(adaptNoise){
+            return StructureRegistrar.builder(createRegistryName(registryName), structure).pushConfigured(configuration).biomes(structure.get().getConfig().getConfigured()).spawns(MobCategory.MONSTER, StructureSpawnOverride.BoundingBoxType.STRUCTURE, spawns).adaptNoise().popConfigured().addPiece(piece).generationStep(generationStep).build();
         }
         return StructureRegistrar.builder(createRegistryName(registryName), structure).pushConfigured(configuration).biomes(structure.get().getConfig().getConfigured()).popConfigured().addPiece(piece).generationStep(generationStep).build();
     }
