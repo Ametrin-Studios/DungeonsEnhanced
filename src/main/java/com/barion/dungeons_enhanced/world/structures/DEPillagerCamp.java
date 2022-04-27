@@ -60,7 +60,7 @@ public class DEPillagerCamp extends GelConfigJigsawStructure<JigsawConfiguration
             JigsawPoolBuilder VanillaDecoration = poolBuilder.clone().namesR(mcFeaturePiece("logs"), mcFeaturePiece("targets"), mcFeaturePiece("tent1"), mcFeaturePiece("tent2"));
 
             registry.register("feature_plates", poolBuilder.clone().names("plate/var1", "plate/var2").build(), StructureTemplatePool.Projection.TERRAIN_MATCHING);
-            registry.register("features", JigsawPoolBuilder.collect(SleepingTents.weight(1), Kitchen.weight(1), VanillaDecoration.weight(2), Decoration.weight(2), Pillars.weight(1)));
+            registry.register("features", JigsawPoolBuilder.collect(SleepingTents.weight(2), Kitchen.weight(2), VanillaDecoration.weight(2), Decoration.weight(3), Pillars.weight(1)));
         }
 
         private static ResourceLocation mcFeaturePiece(String key){

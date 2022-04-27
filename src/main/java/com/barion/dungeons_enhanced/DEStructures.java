@@ -8,7 +8,6 @@ import com.barion.dungeons_enhanced.world.structures.prefabs.DEUndergroundStruct
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
 import com.legacy.structure_gel.api.structure.GelConfigJigsawStructure;
 import com.legacy.structure_gel.api.structure.GelConfigStructure;
-import com.legacy.structure_gel.api.structure.jigsaw.ExtendedJigsawConfiguration;
 import net.minecraft.core.Holder;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -42,7 +41,7 @@ public class DEStructures {
     public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> JungleMonument;
     public static final StructureRegistrar<JigsawConfiguration, DELargeDungeon> LargeDungeon;
     public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> MinersHouse;
-    public static final StructureRegistrar<ExtendedJigsawConfiguration, DEMonsterMaze> MonsterMaze;
+    public static final StructureRegistrar<JigsawConfiguration, DEMonsterMaze> MonsterMaze;
     public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> MushroomHouse;
     public static final StructureRegistrar<JigsawConfiguration, DEPillagerCamp> PillagerCamp;
     public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> RuinedBuilding;
@@ -68,7 +67,7 @@ public class DEStructures {
         JungleMonument = register("jungle_monument", false, () -> new DESimpleStructure(DEConfig.COMMON.jungle_monument, pieceBuilder().offset(-12, -9, -12).add("jungle_monument").build()), DESimpleStructure.Piece::new);
         LargeDungeon = registerJigsaw("large_dungeon", false, DELargeDungeon::new, new JigsawConfiguration(DELargeDungeon.Pool.Root, 6), DELargeDungeon.Piece::new, GenerationStep.Decoration.SURFACE_STRUCTURES);
         MinersHouse = register("miners_house", true, () -> new DESimpleStructure(DEConfig.COMMON.miners_house, pieceBuilder().offset(-5, 0, -5).add("miners_house").build()), DESimpleStructure.Piece::new);
-        MonsterMaze = registerJigsaw("monster_maze", false, DEMonsterMaze::new, new ExtendedJigsawConfiguration(DEMonsterMaze.Pool.Root, 10), DEMonsterMaze.Piece::new, GenerationStep.Decoration.SURFACE_STRUCTURES);
+        MonsterMaze = registerJigsaw("monster_maze", false, DEMonsterMaze::new, new JigsawConfiguration(DEMonsterMaze.Pool.Root, 7), DEMonsterMaze.Piece::new, GenerationStep.Decoration.SURFACE_STRUCTURES);
         MushroomHouse = register("mushroom_house", true, () -> new DESimpleStructure(DEConfig.COMMON.mushroom_house, pieceBuilder().offset(-7, 0, -7).add("mushroom_house").build()), DESimpleStructure.Piece::new);
         PillagerCamp = registerJigsaw("pillager_camp", true, DEPillagerCamp::new, new JigsawConfiguration(DEPillagerCamp.Pool.Root, 4), DEPillagerCamp.Piece::new, GenerationStep.Decoration.SURFACE_STRUCTURES, spawn(EntityType.PILLAGER, 3), spawn(EntityType.VINDICATOR, 1));
         RuinedBuilding = register("ruined_building", true, () -> new DESimpleStructure(DEConfig.COMMON.ruined_building, true, pieceBuilder().offset(-5, 0, -5).weight(3).add("ruined_building/house").offset(-6, 0, -8).weight(2).add("ruined_building/house_big").offset(-4, 0, -5).weight(3).add("ruined_building/barn").build()), DESimpleStructure.Piece::new);
