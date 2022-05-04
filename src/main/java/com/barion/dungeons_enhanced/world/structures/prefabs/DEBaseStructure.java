@@ -66,10 +66,9 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
             }
             case underground -> {
                 int minY = chunkGen.getMinY() + 10;
-                int maxY = chunkGen.getBaseHeight(x, z, Heightmap.Types.OCEAN_FLOOR_WG, heightAccessor);
-                if(maxY >= 55) {maxY = 55;}
-                y = context.random().nextInt(maxY-minY)+minY;
-                if(y < minY){y = minY;}
+                int maxY = chunkGen.getBaseHeight(x, z, Heightmap.Types.OCEAN_FLOOR_WG, heightAccessor) - 20;
+                if (minY >= maxY) {y = maxY;}
+                else {y = minY + context.random().nextInt(maxY - minY);}
             }
         }
 
