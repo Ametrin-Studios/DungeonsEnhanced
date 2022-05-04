@@ -72,27 +72,10 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
             }
         }
 
-        int piece = getRandomPiece(variants, maxWeight, context.random());
+        int piece = DEUtil.getRandomPiece(variants, maxWeight, context.random());
 
         assembler.assemble(new DEPieceAssembler.Context(context.structureManager(), variants[piece].Resource, new BlockPos(x, y, z).offset(variants[piece].Offset), Rotation.getRandom(context.random()), piecesBuilder, generationType));
     }
-
-    protected static int getRandomPiece(DEStructurePiece[] variants, int maxWeight, Random rand){
-        int piece = 0;
-        if(variants.length > 1) {
-            int i = rand.nextInt(maxWeight+1);
-            for (int j = 0; j < variants.length; j++) {
-                if (variants[j].Weight >= i) {
-                    piece = j;
-                    break;
-                } else {
-                    i -= variants[j].Weight;
-                }
-            }
-        }
-        return piece;
-    }
-
 
     public static class Piece extends GelTemplateStructurePiece{
         public Piece(StructurePieceType pieceType, StructureManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation, int componentType){

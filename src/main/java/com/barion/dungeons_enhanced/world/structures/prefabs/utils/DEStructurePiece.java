@@ -42,14 +42,9 @@ public class DEStructurePiece {
             return this;
         }
 
-        public Builder offset(int x, int y, int z){
-            this.offset = new BlockPos(x, y, z);
-            return this;
-        }
+        public Builder offset(int x, int y, int z) {return offset(new BlockPos(x, y, z));}
 
-        public Builder add(String rescource){
-            return add(createRegistryName(rescource));
-        }
+        public Builder add(String rescource) {return add(createRegistryName(rescource));}
         public Builder add(ResourceLocation rescource){
             pieces.add(new DEStructurePiece(rescource, offset, weight));
             return this;

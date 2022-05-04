@@ -3,7 +3,6 @@ package com.barion.dungeons_enhanced;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
 import com.legacy.structure_gel.api.registry.RegistryHelper;
 import com.legacy.structure_gel.api.structure.processor.RandomBlockSwapProcessor;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
@@ -14,7 +13,6 @@ import java.util.Random;
 
 public class DEUtil{
     public static ResourceLocation createRegistryName(String key){ return new ResourceLocation(DungeonsEnhanced.ModID, key);}
-    public static BlockPos Offset(int x, int y, int z){return new BlockPos(x, y, z);}
 
     public static class Processors {
         public static final Holder<StructureProcessorList> AirToCobweb = register("air_to_cobweb", new RandomBlockSwapProcessor(Blocks.AIR, 0.02f, Blocks.COBWEB));

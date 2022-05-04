@@ -64,6 +64,14 @@
         }
       }
     },
+    "entered_flying_dutchman": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:flying_dutchman"
+        }
+      }
+    },
     "entered_hay_storage": {
       "trigger": "minecraft:location",
       "conditions": {
@@ -203,6 +211,9 @@
     ],
     [
       "entered_dungeon_variant"
+    ],
+    [
+      "entered_flying_dutchman"
     ],
     [
       "entered_hay_storage"

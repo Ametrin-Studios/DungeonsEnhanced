@@ -22,7 +22,7 @@ public class DEConfig {
         public final StructureConfig desert_tomb;
         public final StructureConfig druid_circle;
         public final StructureConfig dungeon_variant;
-        //public final StructureConfig flying_dutchman;
+        public final StructureConfig flying_dutchman;
         public final StructureConfig hay_Storage;
         public final StructureConfig ice_pit;
         public final StructureConfig jungle_monument;
@@ -47,7 +47,7 @@ public class DEConfig {
             desert_tomb = configs("Desert Tomb", 29, 65, "minecraft:desert");
             druid_circle = configs("Druid Circle", 39, 40, "##structure_gel:neutral_temp", "!##structure_gel:wooded", "!##structure_gel:mountain", "!##structure_gel:beach" );
             dungeon_variant = configs("Dungeon Variant", 16, 80, "##structure_gel:overworld");
-            //flying_dutchman = configs("Flying Dutchman", 23, 0, false, "");
+            flying_dutchman = configs("Flying Dutchman", 67, 40, "##structure_gel:ocean");
             hay_Storage = configs("Hay Storage", 24, 75, "##structure_gel:savanna");
             ice_pit = configs("Ice Pit", 35, 70, "##structure_gel:snowy", "##structure_gel:frozen", "!##structure_gel:mountain", "!##structure_gel:river", "!##structure_gel:beach");
             jungle_monument = configs("Jungle Monument", 41, 75, "#minecraft:is_jungle");

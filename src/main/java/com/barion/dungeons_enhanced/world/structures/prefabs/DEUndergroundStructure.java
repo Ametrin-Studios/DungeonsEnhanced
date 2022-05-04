@@ -17,11 +17,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
 public class DEUndergroundStructure extends DEBaseStructure{
-
-    public DEUndergroundStructure(StructureConfig config, DEStructurePiece[] resources){
-        this(config, true, resources);
-    }
-
     public DEUndergroundStructure(StructureConfig config, boolean generateNearSpawn, DEStructurePiece[] resources){
         super(config, GenerationType.underground, generateNearSpawn, DEUndergroundStructure::assemble, resources);
     }

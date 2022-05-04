@@ -3,6 +3,7 @@ package com.barion.dungeons_enhanced;
 import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structures.*;
 import com.barion.dungeons_enhanced.world.structures.prefabs.DECellarStructure;
+import com.barion.dungeons_enhanced.world.structures.prefabs.DEFloatingStructure;
 import com.barion.dungeons_enhanced.world.structures.prefabs.DESimpleStructure;
 import com.barion.dungeons_enhanced.world.structures.prefabs.DEUndergroundStructure;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
@@ -35,7 +36,7 @@ public class DEStructures {
     public static final StructureRegistrar<JigsawConfiguration, DEDesertTomb> DesertTomb;
     public static final StructureRegistrar<JigsawConfiguration, DECellarStructure> DruidCircle;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEUndergroundStructure> DungeonVariant;
-    //public static final StructureRegistrar<NoneFeatureConfiguration, DEFloatingStructure> FlyingDutchman;
+    public static final StructureRegistrar<NoneFeatureConfiguration, DEFloatingStructure> FlyingDutchman;
     public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> HayStorage;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEIcePit> IcePit;
     public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> JungleMonument;
@@ -61,7 +62,7 @@ public class DEStructures {
         DesertTomb = registerJigsaw("desert_tomb", false, DEDesertTomb::new, new JigsawConfiguration(DEDesertTomb.Pool.Root, 4), DEDesertTomb.Piece::new, GenerationStep.Decoration.SURFACE_STRUCTURES);
         DruidCircle = registerCellarStructure("druid_circle", () -> new DECellarStructure(DEConfig.COMMON.druid_circle, true, DETerrainAnalyzer.defaultCheckSettings), DECellarStructure.DruidCirclePool.Root);
         DungeonVariant = register("dungeon_variant", false, () -> new DEUndergroundStructure(DEConfig.COMMON.dungeon_variant, true, pieceBuilder().offset(-6, 0, -6).add("dungeon_variant/zombie").add("dungeon_variant/skeleton").add("dungeon_variant/spider").build()), DEUndergroundStructure.Piece::new, GenerationStep.Decoration.UNDERGROUND_STRUCTURES);
-        //FlyingDutchman = register("flying_dutchman", () -> new DEFloatingStructure(DEConfig.COMMON.flying_dutchman, false, new DEPiece("flying_dutchman", Offset(-4, 0, -15))), DEFloatingStructure.Piece::new);
+        FlyingDutchman = register("flying_dutchman", false, () -> new DEFloatingStructure(DEConfig.COMMON.flying_dutchman, false, pieceBuilder().offset(-4, 0, -15).add("flying_dutchman").build()), DEFloatingStructure.Piece::new);
         HayStorage = register("hay_storage", true, () -> new DESimpleStructure(DEConfig.COMMON.hay_Storage, true, pieceBuilder().offset(-7, 0, -7).add("hay_storage/small").offset(-9, 0, -9).add("hay_storage/big").build()), DESimpleStructure.Piece::new);
         IcePit = register("ice_pit", false, DEIcePit::new, DESimpleStructure.Piece::new);
         JungleMonument = register("jungle_monument", false, () -> new DESimpleStructure(DEConfig.COMMON.jungle_monument, pieceBuilder().offset(-12, -9, -12).add("jungle_monument").build()), DESimpleStructure.Piece::new);
@@ -80,7 +81,7 @@ public class DEStructures {
     }
 
     @SubscribeEvent
-    public static void structureRegistry(final RegistryEvent.Register<StructureFeature<?>> event){
+    public static void structureRegistry(final RegistryEvent.Register<StructureFeature<?>> event) {
         IForgeRegistry<StructureFeature<?>> registry = event.getRegistry();
         for(StructureRegistrar<?,?> structure : getAllStructureRegistrars()){
             structure.handleForge(registry);
@@ -90,14 +91,15 @@ public class DEStructures {
         DungeonsEnhanced.LOGGER.info("Dungeons Enhanced structures loaded");
     }
 
-    public static StructureRegistrar<?,?>[] getAllStructureRegistrars(){
-        return new StructureRegistrar<?,?>[]{
+    public static StructureRegistrar<?,?>[] getAllStructureRegistrars() {
+        return new StructureRegistrar<?,?>[] {
                 Castle,
                 DeepCrypt,
                 DesertTemple,
                 DesertTomb,
                 DruidCircle,
                 DungeonVariant,
+                FlyingDutchman,
                 HayStorage,
                 IcePit,
                 JungleMonument,

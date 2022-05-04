@@ -64,6 +64,14 @@
         }
       }
     },
+    "entered_flying_dutchman": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:flying_dutchman"
+        }
+      }
+    },
     "entered_hay_storage": {
       "trigger": "minecraft:location",
       "conditions": {
@@ -193,6 +201,7 @@
       "entered_desert_tomb",
       "entered_druid_circle",
       "entered_dungeon_variant",
+      "entered_flying_dutchman",
       "entered_hay_storage",
       "entered_ice_pit",
       "entered_jungle_monument",
