@@ -116,6 +116,8 @@ public class DELootTableProvider extends LootTableProvider {
                             .add(lootItem(Items.MUSIC_DISC_MELLOHI, 1, lootNumber(0,1)))
                             .add(lootItem(Items.MUSIC_DISC_STAL, 1, lootNumber(0,1)))
                             .add(lootItem(Items.MUSIC_DISC_STRAD, 1, lootNumber(0,1)))
+                            .add(lootItem(Items.MUSIC_DISC_OTHERSIDE, 1, lootNumber(0,1)))
+                            .add(lootItem(Items.MUSIC_DISC_WAIT, 1, lootNumber(0,1)))
                             .add(lootItem(Items.MUSIC_DISC_WARD, 1, lootNumber(0,1)))));
 
             lootTable.accept(location("monster_maze/prison"), LootTable.lootTable()
@@ -137,9 +139,9 @@ public class DELootTableProvider extends LootTableProvider {
                             .add(potion(1, Potions.STRENGTH, lootNumber(0,1))))
                     .withPool(lootPool(lootNumber(0, 1))
                             .add(enchantedLootItem(Items.STONE_PICKAXE, 4, lootNumber(5, 10), one()))
-                            .add(enchantedLootItem(Items.GOLDEN_PICKAXE, 3, lootNumber(5, 10), one()))
-                            .add(enchantedLootItem(Items.IRON_PICKAXE, 2, lootNumber(5, 10), one()))
-                            .add(enchantedLootItem(Items.DIAMOND_PICKAXE, 1, lootNumber(5, 10), one())))
+                            .add(enchantedLootItem(Items.GOLDEN_PICKAXE, 3, lootNumber(4, 9), one()))
+                            .add(enchantedLootItem(Items.IRON_PICKAXE, 2, lootNumber(3, 8), one()))
+                            .add(enchantedLootItem(Items.DIAMOND_PICKAXE, 1, lootNumber(2, 7), one())))
                     .withPool(lootPool(lootNumber(0,2))
                             .add(potion(1, Potions.HEALING, lootNumber(0, 1)))
                             .add(potion(1, Potions.INVISIBILITY, lootNumber(0, 1)))
