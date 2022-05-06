@@ -32,17 +32,17 @@ public class DECellarStructure extends GelConfigJigsawStructure {
     protected DECellarPiece[] Variants;
     protected boolean generateNear00;
     protected String prefix;
-    protected DETerrainAnalyzer.TerrainCheckSettings terrainCheckSettings;
+    protected DETerrainAnalyzer.Settings terrainAnalyzeSettings;
     protected int maxWeight;
     protected Pool pool;
 
-    public DECellarStructure(ConfigTemplates.StructureConfig config, String prefix, DETerrainAnalyzer.TerrainCheckSettings terrainCheckSettings, boolean generateNear00, DECellarPiece... variants){
+    public DECellarStructure(ConfigTemplates.StructureConfig config, String prefix, DETerrainAnalyzer.Settings terrainAnalyzeSettings, boolean generateNear00, DECellarPiece... variants){
         super(VillageConfig.CODEC, config, 0, true, true);
         this.generateNear00 = generateNear00;
         this.Variants = variants;
         this.prefix = prefix;
         this.maxWeight = DEUtil.getMaxWeight(Variants);
-        this.terrainCheckSettings = terrainCheckSettings;
+        this.terrainAnalyzeSettings = terrainAnalyzeSettings;
         this.pool = new Pool();
         pool.init();
     }
@@ -52,7 +52,7 @@ public class DECellarStructure extends GelConfigJigsawStructure {
         boolean canGenerate = super.isFeatureChunk(chunkGen, biomeProvider, seed, sharedSeedRand, chunkPosX, chunkPosZ, biomeIn, chunkPos, config);
         if(!canGenerate) {return false;}
 
-        return DETerrainAnalyzer.isPositionSuitable(chunkPos, chunkGen, DEBaseStructure.GenerationType.onGround, terrainCheckSettings);
+        return DETerrainAnalyzer.isPositionSuitable(chunkPos, chunkGen, DEBaseStructure.GenerationType.onGround, terrainAnalyzeSettings);
     }
 
     @Override

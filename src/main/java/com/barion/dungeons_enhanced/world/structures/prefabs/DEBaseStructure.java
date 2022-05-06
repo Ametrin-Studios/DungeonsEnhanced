@@ -38,7 +38,7 @@ import java.util.Objects;
 import java.util.Random;
 
 public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig>{
-    public DETerrainAnalyzer.TerrainCheckSettings terrainCheckSettings;
+    public DETerrainAnalyzer.Settings terrainAnalyzeSettings;
     public DEStructurePiece[] Variants;
     public final GenerationType generationType;
     public int maxWeight;
@@ -57,7 +57,7 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig
         this.generateNear00 = generateNear00;
         this.Variants = variants;
         maxWeight = DEUtil.getMaxWeight(Variants);
-        terrainCheckSettings = DETerrainAnalyzer.defaultCheckSettings;
+        terrainAnalyzeSettings = DETerrainAnalyzer.defaultSettings;
         setLakeProof(true);
     }
 
@@ -70,7 +70,7 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig
         boolean canGenerate = super.isFeatureChunk(chunkGen, biomeProvider, seed, sharedSeedRand, chunkPosX, chunkPosZ, biomeIn, chunkPos, config);
         if(!canGenerate) {return false;}
 
-        return DETerrainAnalyzer.isPositionSuitable(chunkPos, chunkGen, generationType, terrainCheckSettings);
+        return DETerrainAnalyzer.isPositionSuitable(chunkPos, chunkGen, generationType, terrainAnalyzeSettings);
     }
 
     public abstract void assemble(TemplateManager templateManager, DEStructurePiece variant, BlockPos pos, Rotation rotation, List<StructurePiece> pieces, int variantIndex);
@@ -82,7 +82,7 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig
         }
 
         @Override @ParametersAreNonnullByDefault
-        public void generatePieces(DynamicRegistries registry, ChunkGenerator chunkGenerator, TemplateManager templateManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig featureConfig) {
+        public void generatePieces(DynamicRegistries registry, ChunkGenerator chunkGen, TemplateManager templateManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig featureConfig) {
             int x = chunkX * 16;
             int z = chunkZ * 16;
             int y = 70;
@@ -91,20 +91,19 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig
             int maxY;
             switch (generationType){
                 case onGround:
-                    y = chunkGenerator.getBaseHeight(x, z, Heightmap.Type.WORLD_SURFACE_WG);
+                    y = chunkGen.getBaseHeight(x, z, Heightmap.Type.WORLD_SURFACE_WG);
                     break;
                 case inAir:
-                    minY = chunkGenerator.getBaseHeight(x, z, Heightmap.Type.WORLD_SURFACE_WG) + 35;
+                    minY = chunkGen.getBaseHeight(x, z, Heightmap.Type.WORLD_SURFACE_WG) + 35;
                     maxY = 220;
                     if (minY > maxY) {y = maxY;}
                     else {y = minY + random.nextInt(maxY - minY);}
                     break;
                 case underground:
                     minY = 10;
-                    maxY = chunkGenerator.getBaseHeight(x, z, Heightmap.Type.OCEAN_FLOOR_WG);
-                    if(maxY >= 55) {maxY = 55;}
-                    y = random.nextInt(maxY-minY)+minY;
-                    if(y <= minY){y = minY;}
+                    maxY = chunkGen.getBaseHeight(x, z, Heightmap.Type.OCEAN_FLOOR_WG) - 20;
+                    if (minY >= maxY) {y = maxY;}
+                    else {y = minY + random.nextInt(maxY - minY);}
                     break;
             }
 

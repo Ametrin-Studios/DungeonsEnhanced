@@ -92,8 +92,8 @@ dependencies {
 jar {
     manifest {
         attributes([
-            "Specification-Title": "dungeons_enhanced",
-            "Specification-Vendor": "Barion, Mo",
+            "Specification-Title": "Dungeons Enhanced",
+            "Specification-Vendor": "Ametrin Studios",
             "Specification-Version": "1", // We are version 1 of ourselves
             "Implementation-Title": project.name,
             "Implementation-Version": de_version,
