@@ -12,16 +12,21 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProc
 import java.util.Random;
 
 public class DEUtil{
-    public static ResourceLocation createRegistryName(String key){ return new ResourceLocation(DungeonsEnhanced.ModID, key);}
+    public static ResourceLocation location(String key){ return new ResourceLocation(DungeonsEnhanced.ModID, key);}
 
     public static class Processors {
         public static final Holder<StructureProcessorList> AirToCobweb = register("air_to_cobweb", new RandomBlockSwapProcessor(Blocks.AIR, 0.02f, Blocks.COBWEB));
+        public static final StructureProcessor BrainCoral = new RandomBlockSwapProcessor(Blocks.DEAD_BRAIN_CORAL_BLOCK, 1, Blocks.BRAIN_CORAL_BLOCK);
+        public static final StructureProcessor FireCoral = new RandomBlockSwapProcessor(Blocks.DEAD_FIRE_CORAL_BLOCK, 1, Blocks.FIRE_CORAL_BLOCK);
+        public static final StructureProcessor BubbleCoral = new RandomBlockSwapProcessor(Blocks.DEAD_BUBBLE_CORAL_BLOCK, 1, Blocks.BUBBLE_CORAL_BLOCK);
+        public static final StructureProcessor HornCoral = new RandomBlockSwapProcessor(Blocks.DEAD_HORN_CORAL_BLOCK, 1, Blocks.HORN_CORAL_BLOCK);
+        public static final StructureProcessor TubeCoral = new RandomBlockSwapProcessor(Blocks.DEAD_TUBE_CORAL_BLOCK, 1, Blocks.TUBE_CORAL_BLOCK);
 
         private static Holder<StructureProcessorList> register(String key, StructureProcessor processor){
-            return RegistryHelper.registerProcessor(createRegistryName(key), processor);
+            return RegistryHelper.registerProcessor(location(key), processor);
         }
         private static Holder<StructureProcessorList> register(String key, StructureProcessorList processorList){
-            return RegistryHelper.registerProcessor(createRegistryName(key), processorList);
+            return RegistryHelper.registerProcessor(location(key), processorList);
         }
     }
 
@@ -49,7 +54,5 @@ public class DEUtil{
         return i;
     }
 
-    public static DEStructurePiece.Builder pieceBuilder(){
-        return new DEStructurePiece.Builder();
-    }
+    public static DEStructurePiece.Builder pieceBuilder() {return new DEStructurePiece.Builder();}
 }

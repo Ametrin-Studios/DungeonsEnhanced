@@ -4,9 +4,9 @@ import com.barion.dungeons_enhanced.DEConfig;
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
-import com.barion.dungeons_enhanced.world.structures.prefabs.DEBaseStructure;
 import com.legacy.structure_gel.api.structure.GelConfigJigsawStructure;
 import com.legacy.structure_gel.api.structure.jigsaw.AbstractGelStructurePiece;
+import com.legacy.structure_gel.api.structure.jigsaw.ExtendedJigsawConfiguration;
 import com.legacy.structure_gel.api.structure.jigsaw.JigsawPoolBuilder;
 import com.legacy.structure_gel.api.structure.jigsaw.JigsawRegistryHelper;
 import net.minecraft.core.BlockPos;
@@ -15,7 +15,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.Heightmap;
-import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
@@ -26,18 +25,18 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureMana
 
 import java.util.Random;
 
-public class DEMonsterMaze extends GelConfigJigsawStructure<JigsawConfiguration>{
+public class DEMonsterMaze extends GelConfigJigsawStructure<ExtendedJigsawConfiguration>{
     public DEMonsterMaze() {
-        super(JigsawConfiguration.CODEC, DEConfig.COMMON.monster_maze, -17, true, true, (context) -> checkLocation(context, DETerrainAnalyzer.defaultCheckSettings));
+        super(ExtendedJigsawConfiguration.CODEC, DEConfig.COMMON.monster_maze, -17, true, true, (context) -> checkLocation(context, DETerrainAnalyzer.defaultCheckSettings));
         Pool.init();
     }
 
     @Override
     public boolean isAllowedNearWorldSpawn() {return false;}
 
-    private static boolean checkLocation(PieceGeneratorSupplier.Context<JigsawConfiguration> context, DETerrainAnalyzer.Settings checkSettings) {
-        if(context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG)){
-            return DETerrainAnalyzer.isPositionSuitable(context.chunkPos(), context.chunkGenerator(), DEBaseStructure.GenerationType.onGround, checkSettings, context.heightAccessor());
+    private static boolean checkLocation(PieceGeneratorSupplier.Context<ExtendedJigsawConfiguration> context, DETerrainAnalyzer.Settings checkSettings) {
+        if(context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG)) {
+            return DETerrainAnalyzer.isPositionSuitable(context.chunkPos(), context.chunkGenerator(), DETerrainAnalyzer.GenerationType.onGround, checkSettings, context.heightAccessor());
         }
 
         return false;

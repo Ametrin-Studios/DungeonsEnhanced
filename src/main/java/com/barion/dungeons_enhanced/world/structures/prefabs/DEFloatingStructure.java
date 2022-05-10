@@ -1,6 +1,7 @@
 package com.barion.dungeons_enhanced.world.structures.prefabs;
 
 import com.barion.dungeons_enhanced.DEStructures;
+import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEPieceAssembler;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
 import com.legacy.structure_gel.api.config.StructureConfig;
@@ -13,7 +14,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureMana
 
 public class DEFloatingStructure extends DEBaseStructure{
     public DEFloatingStructure(StructureConfig config, boolean generateNearSpawn, DEStructurePiece[] resources) {
-        super(config, GenerationType.inAir, generateNearSpawn, DEFloatingStructure::assemble, resources);
+        super(config, DETerrainAnalyzer.GenerationType.inAir, generateNearSpawn, false, DEFloatingStructure::assemble, resources);
     }
 
     public static void assemble(DEPieceAssembler.Context context) {

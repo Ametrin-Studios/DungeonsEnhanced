@@ -1,6 +1,7 @@
 package com.barion.dungeons_enhanced.world.structures.prefabs;
 
 import com.barion.dungeons_enhanced.DEStructures;
+import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEPieceAssembler;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
 import com.legacy.structure_gel.api.config.StructureConfig;
@@ -23,10 +24,10 @@ public class DESimpleStructure extends DEBaseStructure {
     }
 
     public DESimpleStructure(StructureConfig config, boolean generateNearSpawn, DEStructurePiece[] resources){
-        super(config, GenerationType.onGround, generateNearSpawn, DESimpleStructure::assemble, resources);
+        this(config, generateNearSpawn, DESimpleStructure::assemble, resources);
     }
     protected DESimpleStructure(StructureConfig config, boolean generateNearSpawn, DEPieceAssembler assembler, DEStructurePiece[] resources){
-        super(config, GenerationType.onGround, generateNearSpawn, assembler, resources);
+        super(config, DETerrainAnalyzer.GenerationType.onGround, generateNearSpawn, false, assembler, resources);
     }
 
     private static void assemble(DEPieceAssembler.Context context) {
@@ -47,6 +48,6 @@ public class DESimpleStructure extends DEBaseStructure {
         }
 
         @Override @ParametersAreNonnullByDefault
-        protected void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor levelAccessor, Random random, BoundingBox box) {}
+        protected void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor level, Random random, BoundingBox box) {}
     }
 }

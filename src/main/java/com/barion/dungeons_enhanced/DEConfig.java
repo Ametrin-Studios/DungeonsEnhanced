@@ -22,6 +22,8 @@ public class DEConfig {
         public final StructureConfig desert_tomb;
         public final StructureConfig druid_circle;
         public final StructureConfig dungeon_variant;
+        public final StructureConfig elders_temple;
+        public final StructureConfig fishing_ship;
         public final StructureConfig flying_dutchman;
         public final StructureConfig hay_Storage;
         public final StructureConfig ice_pit;
@@ -31,8 +33,10 @@ public class DEConfig {
         public final StructureConfig monster_maze;
         public final StructureConfig mushroom_house;
         public final StructureConfig pillager_camp;
+        public final StructureConfig pirate_ship;
         public final StructureConfig ruined_building;
         public final StructureConfig stables;
+        public final StructureConfig sunken_shrine;
         public final StructureConfig tall_witch_hut;
         public final StructureConfig tower_of_the_undead;
         public final StructureConfig tree_house;
@@ -41,12 +45,14 @@ public class DEConfig {
 
         protected Common(ForgeConfigSpec.Builder builder) {
             this.builder = builder;
-            castle = configs("Castle", 57, 25, "##structure_gel:cold", "##structure_gel:snowy", "!##structure_gel:mountain", "!##structure_gel:beach");
+            castle = configs("Castle", 57, 32, "##structure_gel:cold", "##structure_gel:snowy", "!##structure_gel:mountain", "!##structure_gel:beach");
             deep_crypt = configs("Deep Crypt", 35, 75, "##structure_gel:overworld");
             desert_temple = configs("Desert Temple", 32, 60, "minecraft:desert");
             desert_tomb = configs("Desert Tomb", 29, 65, "minecraft:desert");
             druid_circle = configs("Druid Circle", 39, 40, "##structure_gel:neutral_temp", "!##structure_gel:wooded", "!##structure_gel:mountain", "!##structure_gel:beach" );
             dungeon_variant = configs("Dungeon Variant", 16, 80, "##structure_gel:overworld");
+            elders_temple = configs("Elders Temple", 58, 43, "##structure_gel:ocean");
+            fishing_ship = configs("Fishing Ship", 48, 68, "##structure_gel:ocean");
             flying_dutchman = configs("Flying Dutchman", 67, 40, "##structure_gel:ocean");
             hay_Storage = configs("Hay Storage", 24, 75, "##structure_gel:savanna");
             ice_pit = configs("Ice Pit", 35, 70, "##structure_gel:snowy", "##structure_gel:frozen", "!##structure_gel:mountain", "!##structure_gel:river", "!##structure_gel:beach");
@@ -56,8 +62,10 @@ public class DEConfig {
             monster_maze = configs("Monster Maze", 34, 50, "##structure_gel:spooky", "##structure_gel:pumpkin", "!##structure_gel:sandy" ,"!##structure_gel:mountain");
             mushroom_house = configs("Mushroom House", 15, 75, "minecraft:mushroom_fields", "minecraft:mushroom_field_shore");
             pillager_camp = configs("Pillager Camp", 49, 35, "##structure_gel:neutral_temp", "!##structure_gel:mountain", "!##structure_gel:wooded", "!##structure_gel:river", "!##structure_gel:beach");
+            pirate_ship = configs("Pirate Ship", 59, 49, "##structure_gel:ocean");
             ruined_building = configs("Ruined Building", 27, 45, "##structure_gel:neutral_temp", "!##structure_gel:river", "!##structure_gel:beach", "!##structure_gel:mountain");
             stables = configs("Stables", 46, 32, "##structure_gel:neutral_temp", "!##structure_gel:mountain", "!##structure_gel:wooded", "!##structure_gel:beach");
+            sunken_shrine = configs("Sunken Shrine", 29, 55, "##structure_gel:ocean");
             tall_witch_hut = configs("Tall Witch Hut", 18, 60, "##structure_gel:swamp");
             tower_of_the_undead = configs("Tower of the Undead", 37, 35, "##structure_gel:neutral_temp", "##structure_gel:savanna", "##structure_gel:swamp", "!##structure_gel:mountain");
             tree_house = configs("Tree House", 29, 40, "#minecraft:is_jungle");

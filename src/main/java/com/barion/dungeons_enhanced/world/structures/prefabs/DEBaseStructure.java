@@ -9,11 +9,13 @@ import com.legacy.structure_gel.api.structure.GelConfigStructure;
 import com.legacy.structure_gel.api.structure.GelTemplateStructurePiece;
 import com.legacy.structure_gel.api.structure.processor.RemoveGelStructureProcessor;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.core.Vec3i;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -33,31 +35,24 @@ import java.util.Random;
 public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConfiguration> {
     protected boolean generateNear00;
 
-    public DEBaseStructure(StructureConfig config, GenerationType generationType, boolean generateNear00, DEPieceAssembler assembler, DEStructurePiece[] variants) {
+    public DEBaseStructure(StructureConfig config, DETerrainAnalyzer.GenerationType generationType, boolean generateNear00, boolean checkBiomeArea, DEPieceAssembler assembler, DEStructurePiece[] variants) {
         super(NoneFeatureConfiguration.CODEC, config, PieceGeneratorSupplier.simple(
-                (context) -> checkLocation(context, generationType, DETerrainAnalyzer.defaultCheckSettings),
+                (context) -> checkLocation(context, generationType, DETerrainAnalyzer.defaultCheckSettings, checkBiomeArea),
                 (piecesBuilder, context) -> generatePieces(piecesBuilder, context, generationType, variants, DEUtil.getMaxWeight(variants), assembler)));
         this.generateNear00 = generateNear00;
     }
 
     @Override public boolean isAllowedNearWorldSpawn() {return generateNear00;}
 
-    private static boolean checkLocation(PieceGeneratorSupplier.Context<? extends FeatureConfiguration> context, GenerationType generationType, DETerrainAnalyzer.Settings checkSettings){
-        if(context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG)){
-            return DETerrainAnalyzer.isPositionSuitable(context.chunkPos(), context.chunkGenerator(), generationType, checkSettings, context.heightAccessor());
-        }
-
-        return false;
-    }
-
-    private static void generatePieces(StructurePiecesBuilder piecesBuilder, PieceGenerator.Context<NoneFeatureConfiguration> context, GenerationType generationType, DEStructurePiece[] variants, int maxWeight, DEPieceAssembler assembler) {
+    private static void generatePieces(StructurePiecesBuilder piecesBuilder, PieceGenerator.Context<NoneFeatureConfiguration> context, DETerrainAnalyzer.GenerationType generationType, DEStructurePiece[] variants, int maxWeight, DEPieceAssembler assembler) {
         int x = context.chunkPos().getMinBlockX();
         int z = context.chunkPos().getMinBlockZ();
         int y = 70;
         ChunkGenerator chunkGen = context.chunkGenerator();
         LevelHeightAccessor heightAccessor = context.heightAccessor();
         switch (generationType) {
-            case onGround -> y = chunkGen.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, heightAccessor);
+            case onGround, onWater -> y = chunkGen.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, heightAccessor);
+            case underwater -> y = chunkGen.getBaseHeight(x, z, Heightmap.Types.OCEAN_FLOOR_WG, heightAccessor);
             case inAir -> {
                 int minY = chunkGen.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, heightAccessor) + 50;
                 int maxY = 290;
@@ -75,6 +70,18 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
         int piece = DEUtil.getRandomPiece(variants, maxWeight, context.random());
 
         assembler.assemble(new DEPieceAssembler.Context(context.structureManager(), variants[piece].Resource, new BlockPos(x, y, z).offset(variants[piece].Offset), Rotation.getRandom(context.random()), piecesBuilder, generationType));
+    }
+
+    private static boolean checkLocation(PieceGeneratorSupplier.Context<? extends FeatureConfiguration> context, DETerrainAnalyzer.GenerationType generationType, DETerrainAnalyzer.Settings checkSettings, boolean checkBiomeArea){
+        if(context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG)){
+            if(checkBiomeArea){
+                for(Holder<Biome> biome : context.biomeSource().getBiomesWithin(context.chunkPos().getMinBlockX(), context.chunkGenerator().getSeaLevel(), context.chunkPos().getMinBlockZ(), 25, context.chunkGenerator().climateSampler())) {
+                    if (!context.validBiome().test(biome)) {return false;}
+                }
+            }
+            return DETerrainAnalyzer.isPositionSuitable(context.chunkPos(), context.chunkGenerator(), generationType, checkSettings, context.heightAccessor());
+        }
+        return false;
     }
 
     public static class Piece extends GelTemplateStructurePiece{
@@ -96,8 +103,6 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoneFeatureConf
         }
 
         @Override @ParametersAreNonnullByDefault
-        protected void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor world, Random rnd, BoundingBox box) {}
+        protected void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor level, Random random, BoundingBox box) {}
     }
-
-    public enum GenerationType {onGround, inAir, underground}
 }

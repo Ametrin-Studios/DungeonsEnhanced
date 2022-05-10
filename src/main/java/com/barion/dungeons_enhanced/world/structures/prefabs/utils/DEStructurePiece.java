@@ -6,20 +6,16 @@ import net.minecraft.resources.ResourceLocation;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.barion.dungeons_enhanced.DEUtil.createRegistryName;
+import static com.barion.dungeons_enhanced.DEUtil.location;
 
 public class DEStructurePiece {
     public final ResourceLocation Resource;
-    public BlockPos Offset;
-    public int Weight;
+    public final BlockPos Offset;
+    public final int Weight;
     public DEStructurePiece(ResourceLocation resource, BlockPos offset, int weight){
         Resource = resource;
         Offset = offset;
         Weight = weight;
-    }
-
-    public ResourceLocation getResource(){
-        return Resource;
     }
 
     public static class Builder{
@@ -44,14 +40,12 @@ public class DEStructurePiece {
 
         public Builder offset(int x, int y, int z) {return offset(new BlockPos(x, y, z));}
 
-        public Builder add(String rescource) {return add(createRegistryName(rescource));}
+        public Builder add(String rescource) {return add(location(rescource));}
         public Builder add(ResourceLocation rescource){
             pieces.add(new DEStructurePiece(rescource, offset, weight));
             return this;
         }
 
-        public DEStructurePiece[] build(){
-            return pieces.toArray(new DEStructurePiece[0]);
-        }
+        public DEStructurePiece[] build() {return pieces.toArray(new DEStructurePiece[0]);}
     }
 }

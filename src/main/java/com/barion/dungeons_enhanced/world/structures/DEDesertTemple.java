@@ -8,10 +8,10 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Rotation;
 
-import static com.barion.dungeons_enhanced.DEUtil.createRegistryName;
+import static com.barion.dungeons_enhanced.DEUtil.location;
 
 public class DEDesertTemple extends DESimpleStructure {
-    private static final ResourceLocation Bottom = createRegistryName("desert_temple/down");
+    private static final ResourceLocation Bottom = location("desert_temple/down");
 
     public DEDesertTemple() {super(DEConfig.COMMON.desert_temple, false, DEDesertTemple::assembleTemple, DEUtil.pieceBuilder().add("desert_temple/main").build());}
 

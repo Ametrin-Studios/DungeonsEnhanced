@@ -34,6 +34,7 @@ public class DEAdvancementProvider extends AdvancementProvider{
         Advancement WarsAndKingdoms = enterStructure(builder(Blocks.STONE_BRICKS, "wars_and_kingdoms", FrameType.TASK, true, true, false), DEStructures.Castle).parent(root).save(consumer, location("wars_and_kingdoms"));
         Advancement RarestStructure = enterStructure(builder(Items.RED_MUSHROOM, "rarest_structure", FrameType.TASK, true, true, false), DEStructures.MushroomHouse).parent(root).save(consumer, location("rarest_structure"));
         Advancement ChilledHalls = enterStructure(builder(Items.BONE, "chilled_halls", FrameType.TASK, true, true, false), DEStructures.IcePit).parent(root).save(consumer, location("chilled_halls"));
+        Advancement Ahoy = enterStructure(builder(Items.BLACK_BANNER, "ahoy", FrameType.TASK, true, true, false), DEStructures.PirateShip).parent(root).save(consumer, location("ahoy"));
         Advancement SevenWorldWonders = enterAnyStructure(builder(Items.SPYGLASS, "seven_world_wonders", FrameType.GOAL, true, true, false),
                 new StructureRegistrar<?, ?>[] {
                         DEStructures.Castle,
@@ -42,7 +43,7 @@ public class DEAdvancementProvider extends AdvancementProvider{
                         DEStructures.IcePit,
                         DEStructures.JungleMonument,
                         DEStructures.MonsterMaze,
-                        DEStructures.MushroomHouse
+                        DEStructures.EldersTemple
         }
                 ).requirements(RequirementsStrategy.AND).parent(root).save(consumer, location("seven_world_wonders"));
         Advancement AmbitiousExplorer = enterAnyStructure(builder(Items.FILLED_MAP, "ambitious_explorer", FrameType.CHALLENGE, true, true, false), DEStructures.getAllStructureRegistrars()).requirements(RequirementsStrategy.AND).parent(root).save(consumer, location("ambitious_explorer"));

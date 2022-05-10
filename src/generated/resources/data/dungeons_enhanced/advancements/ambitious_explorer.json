@@ -64,6 +64,22 @@
         }
       }
     },
+    "entered_elders_temple": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:elders_temple"
+        }
+      }
+    },
+    "entered_fishing_ship": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:fishing_ship"
+        }
+      }
+    },
     "entered_flying_dutchman": {
       "trigger": "minecraft:location",
       "conditions": {
@@ -136,6 +152,14 @@
         }
       }
     },
+    "entered_pirate_ship": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:pirate_ship"
+        }
+      }
+    },
     "entered_ruined_building": {
       "trigger": "minecraft:location",
       "conditions": {
@@ -149,6 +173,14 @@
       "conditions": {
         "location": {
           "feature": "dungeons_enhanced:stables"
+        }
+      }
+    },
+    "entered_sunken_shrine": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:sunken_shrine"
         }
       }
     },
@@ -213,6 +245,12 @@
       "entered_dungeon_variant"
     ],
     [
+      "entered_elders_temple"
+    ],
+    [
+      "entered_fishing_ship"
+    ],
+    [
       "entered_flying_dutchman"
     ],
     [
@@ -240,10 +278,16 @@
       "entered_pillager_camp"
     ],
     [
+      "entered_pirate_ship"
+    ],
+    [
       "entered_ruined_building"
     ],
     [
       "entered_stables"
+    ],
+    [
+      "entered_sunken_shrine"
     ],
     [
       "entered_tall_witch_hut"

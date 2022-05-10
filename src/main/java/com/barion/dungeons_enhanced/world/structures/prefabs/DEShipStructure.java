@@ -17,18 +17,24 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureMana
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
-public class DEUndergroundStructure extends DEBaseStructure{
-    public DEUndergroundStructure(StructureConfig config, boolean generateNearSpawn, DEStructurePiece[] resources){
-        super(config, DETerrainAnalyzer.GenerationType.underground, generateNearSpawn, false, DEUndergroundStructure::assemble, resources);
+public class DEShipStructure extends DEBaseStructure {
+
+    public DEShipStructure(StructureConfig config, DEStructurePiece[] resources) {this(config, true, resources);}
+
+    public DEShipStructure(StructureConfig config, boolean generateNearSpawn, DEStructurePiece[] resources){
+        this(config, generateNearSpawn, false, DEShipStructure::assemble, resources);
+    }
+    protected DEShipStructure(StructureConfig config, boolean generateNearSpawn, boolean checkBiomeArea, DEPieceAssembler assembler, DEStructurePiece[] resources){
+        super(config, DETerrainAnalyzer.GenerationType.onWater, generateNearSpawn, checkBiomeArea, assembler, resources);
     }
 
-    public static void assemble(DEPieceAssembler.Context context) {
+    private static void assemble(DEPieceAssembler.Context context) {
         context.piecesBuilder().addPiece(new Piece(context.structureManager(), context.piece(), context.pos(), context.rotation()));
     }
 
     public static class Piece extends DEBaseStructure.Piece{
         public Piece(StructureManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation, int componentType) {
-            super(DEStructures.DungeonVariant.getPieceType(), structureManager, templateName, pos, rotation, componentType);
+            super(DEStructures.FishingShip.getPieceType(), structureManager, templateName, pos, rotation, componentType);
         }
 
         public Piece(StructureManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation) {
@@ -36,7 +42,7 @@ public class DEUndergroundStructure extends DEBaseStructure{
         }
 
         public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) {
-            super(DEStructures.DungeonVariant.getPieceType(), serializationContext, nbt);
+            super(DEStructures.FishingShip.getPieceType(), serializationContext, nbt);
         }
 
         @Override @ParametersAreNonnullByDefault

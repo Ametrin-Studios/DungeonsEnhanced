@@ -2,10 +2,9 @@ package com.barion.dungeons_enhanced.world.gen;
 
 // Tool to determine if a surface is suitable for structure generation
 // created by BarionLP https://github.com/BarionLP/DungeonsEnhanced/blob/1.18.2/src/main/java/com/barion/dungeons_enhanced/world/gen/DETerrainAnalyzer.java
-// version 1.1
+// version 1.2
 // (c) you can only use it if you link the file and give credits to BarionLP
 
-import com.barion.dungeons_enhanced.world.structures.prefabs.DEBaseStructure;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelHeightAccessor;
@@ -19,18 +18,19 @@ public class DETerrainAnalyzer {
     protected static ChunkGenerator chunkGenerator;
     protected static LevelHeightAccessor heightAccessor;
 
-    public static boolean isPositionSuitable(ChunkPos chunkPos, ChunkGenerator chunkGenerator, DEBaseStructure.GenerationType generationType, LevelHeightAccessor heightAccessor) {return isPositionSuitable(chunkPos, chunkGenerator, generationType, defaultCheckSettings, heightAccessor);}
+    public static boolean isPositionSuitable(ChunkPos chunkPos, ChunkGenerator chunkGenerator, GenerationType generationType, LevelHeightAccessor heightAccessor) {return isPositionSuitable(chunkPos, chunkGenerator, generationType, defaultCheckSettings, heightAccessor);}
 
-    public static boolean isPositionSuitable(ChunkPos chunkPos, ChunkGenerator chunkGenerator, DEBaseStructure.GenerationType generationType, Settings settings, LevelHeightAccessor heightAccessor) {
-        int x = chunkPos.getMinBlockX();
-        int z = chunkPos.getMinBlockZ();
-        int y = chunkGenerator.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, heightAccessor);
-
-        if(generationType == DEBaseStructure.GenerationType.underground) {return y > chunkGenerator.getMinY() + 24;}
-        if(generationType == DEBaseStructure.GenerationType.inAir) {return y < (chunkGenerator.getMinY() + chunkGenerator.getGenDepth()) - 72;}
-
+    public static boolean isPositionSuitable(ChunkPos chunkPos, ChunkGenerator chunkGenerator, GenerationType generationType, Settings settings, LevelHeightAccessor heightAccessor) {
+        if(generationType == GenerationType.onWater) {return true;}
         DETerrainAnalyzer.chunkGenerator = chunkGenerator;
         DETerrainAnalyzer.heightAccessor = heightAccessor;
+        int x = chunkPos.getMinBlockX();
+        int z = chunkPos.getMinBlockZ();
+        if(generationType == GenerationType.underwater) {return getBlockAt(x, chunkGenerator.getBaseHeight(x, z, Heightmap.Types.OCEAN_FLOOR_WG, heightAccessor) + 16, z).is(Blocks.WATER);}
+        int y = chunkGenerator.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, heightAccessor);
+
+        if(generationType == GenerationType.underground) {return y > chunkGenerator.getMinY() + 24;}
+        if(generationType == GenerationType.inAir) {return y < (chunkGenerator.getMinY() + chunkGenerator.getGenDepth()) - 72;}
 
         if(getBlockAt(x, y-1, z).is(Blocks.WATER)) {
             //DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " failed because Water");
@@ -91,4 +91,6 @@ public class DETerrainAnalyzer {
     protected static BlockState getBlockAt(int x, int y, int z) {return chunkGenerator.getBaseColumn(x, z, heightAccessor).getBlock(y);}
 
     public record Settings(int steps, int stepSize, int columSpreading) {}
+
+    public enum GenerationType {onGround, inAir, underground, onWater, underwater}
 }

@@ -282,9 +282,10 @@ public class DELootTableProvider extends LootTableProvider {
                             .add(enchantedLootItem(Items.GOLDEN_HELMET, 1, lootNumber(0,7), one()))
                             .add(enchantedLootItem(Items.GOLDEN_CHESTPLATE, 1, lootNumber(0,7), one()))
                             .add(enchantedLootItem(Items.GOLDEN_LEGGINGS, 1, lootNumber(0,7), one()))
-                            .add(enchantedLootItem(Items.GOLDEN_BOOTS, 1, lootNumber(0,7), one()))));} // Desert Tomb
+                            .add(enchantedLootItem(Items.GOLDEN_BOOTS, 1, lootNumber(0,7), one()))
+                    ));} // Desert Tomb
             {
-                lootTable.accept(location("elders_temple"), LootTable.lootTable()
+                lootTable.accept(location("elders_temple/main"), LootTable.lootTable()
                         .withPool(lootPool(lootNumber(8, 16))
                                 .add(lootItem(Items.COD, 3, one()))
                                 .add(lootItem(Items.SALMON, 3, one()))
@@ -305,8 +306,9 @@ public class DELootTableProvider extends LootTableProvider {
                                 .add(lootItem(Items.NAME_TAG, 1, lootNumber(0, 1)))
                                 .add(lootItem(Items.COPPER_INGOT, 4, lootNumber(0, 3)))
                                 .add(potion(1, Potions.WATER_BREATHING, lootNumber(0, 1)))
-                                .add(lootItem(Items.PRISMARINE_CRYSTALS, 2, lootNumber(0, 3))
+                                .add(lootItem(Items.PRISMARINE_CRYSTALS, 2, lootNumber(0, 3)))
                         ));
+
                 lootTable.accept(location("elders_temple/elder_room"), LootTable.lootTable()
                         .withPool(lootPool(lootNumber(8, 16))
                                 .add(lootItem(Items.NAUTILUS_SHELL, 2, lootNumber(0, 1)))
@@ -322,9 +324,8 @@ public class DELootTableProvider extends LootTableProvider {
                                 .add(lootItem(Items.TURTLE_EGG, 1, lootNumber(0, 1)))
                                 .add(lootItem(Items.COPPER_INGOT, 4, lootNumber(0, 3)))
                                 .add(potion(1, Potions.WATER_BREATHING, lootNumber(0, 1)))
-                                .add(lootItem(Items.PRISMARINE_CRYSTALS, 3, lootNumber(0, 3))
-                                ));
-            }
+                                .add(lootItem(Items.PRISMARINE_CRYSTALS, 3, lootNumber(0, 3)))
+                        ));} // Elders Temple
             {
                 lootTable.accept(location("fishing_ship"), LootTable.lootTable()
                         .withPool(lootPool(lootNumber(8, 16))
@@ -343,12 +344,11 @@ public class DELootTableProvider extends LootTableProvider {
                                 .add(lootItem(Items.BOWL, 1, lootNumber(0,1)))
                                 .add(lootItem(Items.LEATHER, 2, lootNumber(0,3)))
                                 .add(lootItem(Items.SADDLE, 1, lootNumber(0,1)))
-                                .add(lootItem(Items.EMERALD, , lootNumber(0,2)))
+                                .add(lootItem(Items.EMERALD, 1, lootNumber(0,2)))
                                 .add(lootItem(Items.WHEAT, 1, lootNumber(0,2)))
                                 .add(lootItem(Items.BREAD, 2, lootNumber(0,4)))
                                 .add(lootItem(Items.PAPER, 1, lootNumber(0,3)))
-                        ));
-            } // Fishing Ship
+                        ));} // Fishing Ship
             {lootTable.accept(location("flying_dutchman"), LootTable.lootTable()
                     .withPool(lootPool(lootNumber(7, 9))
                             .add(lootItem(Items.SKULL_BANNER_PATTERN, 1, one()))
@@ -369,7 +369,8 @@ public class DELootTableProvider extends LootTableProvider {
                             .add(lootItem(Items.GOLD_INGOT, 3, lootNumber(1, 2)))
                             .add(lootItem(Items.GOLD_BLOCK, 1, one()))
                             .add(suspiciousStew(3, lootNumber(1, 2)))
-                            .add(lootItem(Items.SPYGLASS, 1, one()))));} // Flying Dutchman
+                            .add(lootItem(Items.SPYGLASS, 1, one()))
+                    ));} // Flying Dutchman
             {lootTable.accept(location("large_dungeon"), LootTable.lootTable()
                     .withPool(lootPool(lootNumber(8,14))
                             .add(lootItem(Items.IRON_INGOT, 3, one()))
@@ -399,7 +400,8 @@ public class DELootTableProvider extends LootTableProvider {
                             .add(lootItem(Items.DIAMOND_HELMET, 1, one()))
                             .add(lootItem(Items.DIAMOND_CHESTPLATE, 1, one()))
                             .add(lootItem(Items.DIAMOND_LEGGINGS, 1, one()))
-                            .add(lootItem(Items.DIAMOND_BOOTS, 1, one()))));} // Large Dungeon
+                            .add(lootItem(Items.DIAMOND_BOOTS, 1, one()))
+                    ));} // Large Dungeon
             {lootTable.accept(location("monster_maze/church"), LootTable.lootTable()
                     .withPool(lootPool(lootNumber(5, 7))
                             .add(lootItem(Items.DIAMOND, 1, lootNumber(1, 2)))
@@ -533,7 +535,8 @@ public class DELootTableProvider extends LootTableProvider {
                             .add(potion(1, Potions.SLOW_FALLING, lootNumber(0, 1)))
                             .add(potion(1, Potions.STRENGTH, lootNumber(0, 1)))
                             .add(potion(1, Potions.WATER_BREATHING, lootNumber(0, 1)))
-                            .add(potion(1, Potions.FIRE_RESISTANCE, lootNumber(0, 1)))));} // Monster Maze
+                            .add(potion(1, Potions.FIRE_RESISTANCE, lootNumber(0, 1)))
+                    ));} // Monster Maze
             {
                 lootTable.accept(location("pirate_ship"), LootTable.lootTable()
                         .withPool(lootPool(lootNumber(8, 16))
@@ -557,8 +560,7 @@ public class DELootTableProvider extends LootTableProvider {
                                 .add(lootItem(Items.IRON_SWORD, 1, lootNumber(0, 1)))
                                 .add(lootItem(Items.GOLDEN_APPLE, 1, lootNumber(0, 2)))
                                 .add(lootItem(Items.GOLD_NUGGET, 2, lootNumber(0, 3)))
-                        ));
-            }
+                        ));} // Pirate Ship
             {
                 lootTable.accept(location("pillager_camp/kitchen"), LootTable.lootTable()
                         .withPool(lootPool(lootNumber(12, 19))
@@ -597,8 +599,7 @@ public class DELootTableProvider extends LootTableProvider {
                                 .add(lootItem(Items.ARROW, 5, one()))
                                 .add(lootItem(Items.DIAMOND, 1, lootNumber(0, 1)))
                                 .add(lootItem(Items.IRON_INGOT, 2, one()))
-                        ));
-            } // Pillager Camp
+                        ));} // Pillager Camp
             {lootTable.accept(location("ruined_building"), LootTable.lootTable()
                     .withPool(lootPool(lootNumber(2,4))
                             .add(lootItem(Items.IRON_NUGGET, 6, lootNumber(2,5)))
@@ -619,7 +620,8 @@ public class DELootTableProvider extends LootTableProvider {
                             .add(lootItem(Items.POISONOUS_POTATO, 6, lootNumber(1,3)))
                             .add(lootItem(Items.CARROT, 4, lootNumber(1,3)))
                             .add(lootItem(Items.PUMPKIN_SEEDS, 5, lootNumber(1,4)))
-                            .add(lootItem(Items.GOLDEN_CARROT, 1, one()))));} // Ruined Building
+                            .add(lootItem(Items.GOLDEN_CARROT, 1, one()))
+                    ));} // Ruined Building
             {lootTable.accept(location("tree_house/roof"), LootTable.lootTable()
                     .withPool(lootPool(lootNumber(4, 8))
                             .add(lootItem(Items.DIAMOND, 1, one()))
@@ -627,7 +629,8 @@ public class DELootTableProvider extends LootTableProvider {
                             .add(lootItem(Items.IRON_INGOT, 3, one()))
                             .add(lootItem(Items.SPYGLASS, 1, one()))
                             .add(lootItem(Items.COCOA_BEANS, 6, lootNumber(1,2)))
-                            .add(lootItem(Items.MELON_SEEDS, 6, lootNumber(1,3)))));} // Tree House
+                            .add(lootItem(Items.MELON_SEEDS, 6, lootNumber(1,3)))
+                    ));} // Tree House
             {lootTable.accept(location("tower_of_the_undead/treasure"), LootTable.lootTable()
                     .withPool(lootPool(lootNumber(10, 18))
                             .add(lootItem(Items.GOLD_NUGGET, 5, lootNumber(1, 2)))
@@ -661,7 +664,8 @@ public class DELootTableProvider extends LootTableProvider {
                             .add(lootItem(Items.IRON_CHESTPLATE, 1, one()))
                             .add(lootItem(Items.IRON_LEGGINGS, 1, one()))
                             .add(enchantedLootItem(Items.BOOK, 1, lootNumber(4, 10), one()))
-                            .add(lootItem(Items.IRON_BOOTS, 1, one()))));} // Tower of the Undead
+                            .add(lootItem(Items.IRON_BOOTS, 1, one()))
+                    ));} // Tower of the Undead
             {
                 lootTable.accept(location("sunken_shrine"), LootTable.lootTable()
                         .withPool(lootPool(lootNumber(8, 16))
@@ -685,8 +689,8 @@ public class DELootTableProvider extends LootTableProvider {
                                 .add(lootItem(Items.COPPER_INGOT, 4, lootNumber(0, 3)))
                                 .add(potion(1, Potions.WATER_BREATHING, lootNumber(0, 1)))
                                 .add(lootItem(Items.PRISMARINE_CRYSTALS, 2, lootNumber(0, 3))
-                                ));
-            }
+                                )));
+            } // Sunken Shrine
             {lootTable.accept(location("watch_tower"), LootTable.lootTable()
                         .withPool(LootPool.lootPool().setRolls(lootNumber(4, 10))
                                 .add(lootItem(Items.CHAIN, 5, lootNumber(1, 3)))
@@ -719,9 +723,10 @@ public class DELootTableProvider extends LootTableProvider {
                                 .add(lootItem(Items.CHAINMAIL_HELMET, 1, one()))
                                 .add(lootItem(Items.CHAINMAIL_CHESTPLATE, 1, one()))
                                 .add(lootItem(Items.CHAINMAIL_LEGGINGS, 1, one()))
-                                .add(lootItem(Items.CHAINMAIL_BOOTS, 1, one())))
-                        .withPool(LootPool.lootPool().setRolls(one())
-                                .add(lootItem(Items.SPYGLASS, 1, one()))));} // Watch Tower
+                                .add(lootItem(Items.CHAINMAIL_BOOTS, 1, one()))
+                        ).withPool(LootPool.lootPool().setRolls(one())
+                                .add(lootItem(Items.SPYGLASS, 1, one()))
+                    ));} // Watch Tower
             {lootTable.accept(location("witch_tower"), LootTable.lootTable()
                     .withPool(LootPool.lootPool().setRolls(lootNumber(7, 10))
                             .add(lootItem(Items.SPIDER_EYE, 1, lootNumber(2, 3)))

@@ -7,10 +7,10 @@ import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEPieceAssemb
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 
-import static com.barion.dungeons_enhanced.DEUtil.createRegistryName;
+import static com.barion.dungeons_enhanced.DEUtil.location;
 
 public class DEIcePit extends DESimpleStructure {
-    private static final ResourceLocation Entrance = createRegistryName("ice_pit/top");
+    private static final ResourceLocation Entrance = location("ice_pit/top");
     public DEIcePit() {super(DEConfig.COMMON.ice_pit, false, DEIcePit::assembleIcePit, DEUtil.pieceBuilder().offset(-4, -25, -4).add("ice_pit/var1").add("ice_pit/var2").add("ice_pit/var3").build());}
 
     private static void assembleIcePit(DEPieceAssembler.Context context) {
