@@ -3,6 +3,7 @@ package com.barion.dungeons_enhanced.world.structures;
 import com.barion.dungeons_enhanced.DEConfig;
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DEUtil;
+import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structures.prefabs.DEUnderwaterStructure;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEPieceAssembler;
 import com.legacy.structure_gel.api.structure.GelTemplateStructurePiece;
@@ -13,7 +14,9 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockIgnoreProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
@@ -32,14 +35,21 @@ public class DEEldersTemple extends DEUnderwaterStructure {
     private static final ResourceLocation SE = location("elders_temple/se");
     private static final ResourceLocation SW = location("elders_temple/sw");
 
-    public DEEldersTemple() {super(DEConfig.COMMON.pirate_ship, true, true, DEEldersTemple::assembleTemple, DEUtil.pieceBuilder().add("elders_temple/se").build());}
+    public DEEldersTemple() {super(DEConfig.COMMON.elders_temple, true, DEEldersTemple::checkLocation, DEEldersTemple::assembleTemple, DEUtil.pieceBuilder().add("elders_temple/se").build());}
+
+    private static boolean checkLocation(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context){
+        if(DETerrainAnalyzer.isUnderwater(context.chunkPos(), context.chunkGenerator(), 32, context.heightAccessor())){
+            return DETerrainAnalyzer.areNearbyBiomesValid(context.biomeSource(), context.chunkPos(), context.chunkGenerator(), 30, context.validBiome());
+        }
+        return false;
+    }
 
     public static void assembleTemple(DEPieceAssembler.Context context) {
         Rotation rotation = Rotation.NONE;
-        context.piecesBuilder().addPiece(new Piece(context.structureManager(), SE, context.pos().offset(0,-5,0), rotation));
-        context.piecesBuilder().addPiece(new Piece(context.structureManager(), SW, context.pos().offset(-30, -5, 0), rotation));
-        context.piecesBuilder().addPiece(new Piece(context.structureManager(), NE, context.pos().offset(0, -5, -29), rotation));
-        context.piecesBuilder().addPiece(new Piece(context.structureManager(), NW, context.pos().offset(-30, -5, -29), rotation));
+        context.piecesBuilder().addPiece(new Piece(context.structureManager(), SE, context.pos().offset(0,-3,0), rotation));
+        context.piecesBuilder().addPiece(new Piece(context.structureManager(), SW, context.pos().offset(-30, -3, 0), rotation));
+        context.piecesBuilder().addPiece(new Piece(context.structureManager(), NE, context.pos().offset(0, -3, -29), rotation));
+        context.piecesBuilder().addPiece(new Piece(context.structureManager(), NW, context.pos().offset(-30, -3, -29), rotation));
     }
 
     public static class Piece extends GelTemplateStructurePiece {

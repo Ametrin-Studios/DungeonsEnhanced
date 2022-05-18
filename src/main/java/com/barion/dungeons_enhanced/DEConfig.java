@@ -51,7 +51,7 @@ public class DEConfig {
             desert_tomb = configs("Desert Tomb", 29, 65, "minecraft:desert");
             druid_circle = configs("Druid Circle", 39, 40, "##structure_gel:neutral_temp", "!##structure_gel:wooded", "!##structure_gel:mountain", "!##structure_gel:beach" );
             dungeon_variant = configs("Dungeon Variant", 16, 80, "##structure_gel:overworld");
-            elders_temple = configs("Elders Temple", 58, 43, "##structure_gel:ocean");
+            elders_temple = configs("Elders Temple", 56, 82, "##structure_gel:ocean");
             fishing_ship = configs("Fishing Ship", 48, 68, "##structure_gel:ocean");
             flying_dutchman = configs("Flying Dutchman", 67, 40, "##structure_gel:ocean");
             hay_Storage = configs("Hay Storage", 24, 75, "##structure_gel:savanna");

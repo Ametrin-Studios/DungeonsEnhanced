@@ -13,7 +13,9 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockIgnoreProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
@@ -23,16 +25,14 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Optional;
 import java.util.Random;
+import java.util.function.Predicate;
 
 public class DEUnderwaterStructure extends DEBaseStructure {
-
-    public DEUnderwaterStructure(StructureConfig config, DEStructurePiece[] resources) {this(config, true, resources);}
-
     public DEUnderwaterStructure(StructureConfig config, boolean generateNearSpawn, DEStructurePiece[] resources){
-        this(config, generateNearSpawn, false, DEUnderwaterStructure::assemble, resources);
+        this(config, generateNearSpawn, (context)-> DETerrainAnalyzer.isUnderwater(context.chunkPos(), context.chunkGenerator(), 16, context.heightAccessor()), DEUnderwaterStructure::assemble, resources);
     }
-    protected DEUnderwaterStructure(StructureConfig config, boolean generateNearSpawn, boolean checkBiomeArea, DEPieceAssembler assembler, DEStructurePiece[] resources){
-        super(config, DETerrainAnalyzer.GenerationType.underwater, generateNearSpawn, checkBiomeArea, assembler, resources);
+    protected DEUnderwaterStructure(StructureConfig config, boolean generateNearSpawn, Predicate<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>> pieceGenerator, DEPieceAssembler assembler, DEStructurePiece[] resources){
+        super(config, DETerrainAnalyzer.GenerationType.underwater, generateNearSpawn, pieceGenerator, assembler, resources);
     }
 
     private static void assemble(DEPieceAssembler.Context context) {

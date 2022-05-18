@@ -28,16 +28,16 @@ import java.util.Random;
 
 public class DELargeDungeon extends GelConfigJigsawStructure<JigsawConfiguration> {
     public DELargeDungeon() {
-        super(JigsawConfiguration.CODEC, DEConfig.COMMON.large_dungeon, -16, true, true, (context) -> checkLocation(context, DETerrainAnalyzer.defaultCheckSettings));
+        super(JigsawConfiguration.CODEC, DEConfig.COMMON.large_dungeon, -16, true, true, DELargeDungeon::checkLocation);
         Pool.init();
     }
 
     @Override
     public boolean isAllowedNearWorldSpawn() {return true;}
 
-    private static boolean checkLocation(PieceGeneratorSupplier.Context<JigsawConfiguration> context, DETerrainAnalyzer.Settings checkSettings){
+    private static boolean checkLocation(PieceGeneratorSupplier.Context<JigsawConfiguration> context){
         if(context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG)){
-            return DETerrainAnalyzer.isPositionSuitable(context.chunkPos(), context.chunkGenerator(), DETerrainAnalyzer.GenerationType.onGround, checkSettings, context.heightAccessor());
+            return DETerrainAnalyzer.isFlatEnough(context.chunkPos(), context.chunkGenerator(), new DETerrainAnalyzer.Settings(1, 2, 2), context.heightAccessor());
         }
 
         return false;

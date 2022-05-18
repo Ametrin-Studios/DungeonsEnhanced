@@ -29,16 +29,16 @@ import java.util.Random;
 
 public class DEDesertTomb extends GelConfigJigsawStructure<JigsawConfiguration> {
     public DEDesertTomb(){
-        super(JigsawConfiguration.CODEC, DEConfig.COMMON.desert_tomb, 1, true, true, (context -> checkLocation(context, DETerrainAnalyzer.defaultCheckSettings)));
+        super(JigsawConfiguration.CODEC, DEConfig.COMMON.desert_tomb, 0, true, true, DEDesertTomb::checkLocation);
         Pool.init();
     }
 
     @Override
     public boolean isAllowedNearWorldSpawn() {return true;}
 
-    private static boolean checkLocation(PieceGeneratorSupplier.Context<JigsawConfiguration> context, DETerrainAnalyzer.Settings checkSettings){
+    private static boolean checkLocation(PieceGeneratorSupplier.Context<JigsawConfiguration> context){
         if(context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG)){
-            return DETerrainAnalyzer.isPositionSuitable(context.chunkPos(), context.chunkGenerator(), DETerrainAnalyzer.GenerationType.onGround, checkSettings, context.heightAccessor());
+            return DETerrainAnalyzer.isFlatEnough(context.chunkPos(), context.chunkGenerator(), DETerrainAnalyzer.defaultCheckSettings, context.heightAccessor());
         }
 
         return false;

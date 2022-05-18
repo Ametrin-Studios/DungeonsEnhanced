@@ -58,13 +58,13 @@ public class DEStructures {
     public DEStructures(){}
 
     static {
-        Castle = registerCellarStructure("castle", () -> new DECellarStructure(DEConfig.COMMON.castle, false, DETerrainAnalyzer.defaultCheckSettings), DECellarStructure.CastlePool.Root);
+        Castle = registerCellarStructure("castle", () -> new DECellarStructure(DEConfig.COMMON.castle, false, new DETerrainAnalyzer.Settings(1, 3, 5)), DECellarStructure.CastlePool.Root);
         DeepCrypt = registerJigsaw("deep_crypt", false, DEDeepCrypt::new, new JigsawConfiguration(DEDeepCrypt.Pool.Root, 4), DEDeepCrypt.Piece::new, GenerationStep.Decoration.UNDERGROUND_STRUCTURES);
         DesertTemple = register("desert_temple", false, DEDesertTemple::new, DESimpleStructure.Piece::new);
         DesertTomb = registerJigsaw("desert_tomb", false, DEDesertTomb::new, new JigsawConfiguration(DEDesertTomb.Pool.Root, 4), DEDesertTomb.Piece::new, GenerationStep.Decoration.SURFACE_STRUCTURES);
         DruidCircle = registerCellarStructure("druid_circle", () -> new DECellarStructure(DEConfig.COMMON.druid_circle, true, DETerrainAnalyzer.defaultCheckSettings), DECellarStructure.DruidCirclePool.Root);
         DungeonVariant = register("dungeon_variant", false, () -> new DEUndergroundStructure(DEConfig.COMMON.dungeon_variant, true, pieceBuilder().offset(-6, 0, -6).add("dungeon_variant/zombie").add("dungeon_variant/skeleton").add("dungeon_variant/spider").build()), DEUndergroundStructure.Piece::new, GenerationStep.Decoration.UNDERGROUND_STRUCTURES);
-        EldersTemple = register("elders_temple", false, DEEldersTemple::new, DEEldersTemple.Piece::new, GenerationStep.Decoration.SURFACE_STRUCTURES, MobCategory.MONSTER, spawn(EntityType.GUARDIAN, 4));
+        EldersTemple = register("elders_temple", false, DEEldersTemple::new, DEEldersTemple.Piece::new, GenerationStep.Decoration.SURFACE_STRUCTURES, MobCategory.MONSTER, spawn(EntityType.GUARDIAN, 4, 2, 4));
         FishingShip = register("fishing_ship", false, () -> new DEShipStructure(DEConfig.COMMON.fishing_ship, pieceBuilder().offset(-4, -3, -14).add("fishing_ship").build()), DESimpleStructure.Piece::new);
         FlyingDutchman = register("flying_dutchman", false, () -> new DEFloatingStructure(DEConfig.COMMON.flying_dutchman, false, pieceBuilder().offset(-4, 0, -15).add("flying_dutchman").build()), DEFloatingStructure.Piece::new);
         HayStorage = register("hay_storage", true, () -> new DESimpleStructure(DEConfig.COMMON.hay_Storage, pieceBuilder().offset(-7, 0, -7).add("hay_storage/small").offset(-9, 0, -9).add("hay_storage/big").build()), DESimpleStructure.Piece::new);
@@ -73,12 +73,12 @@ public class DEStructures {
         LargeDungeon = registerJigsaw("large_dungeon", false, DELargeDungeon::new, new JigsawConfiguration(DELargeDungeon.Pool.Root, 6), DELargeDungeon.Piece::new, GenerationStep.Decoration.SURFACE_STRUCTURES);
         MinersHouse = register("miners_house", true, () -> new DESimpleStructure(DEConfig.COMMON.miners_house, pieceBuilder().offset(-5, 0, -5).add("miners_house").build()), DESimpleStructure.Piece::new);
         MonsterMaze = registerJigsaw("monster_maze", false, DEMonsterMaze::new, new ExtendedJigsawConfiguration(DEMonsterMaze.Pool.Root, 10), DEMonsterMaze.Piece::new, GenerationStep.Decoration.SURFACE_STRUCTURES);
-        MushroomHouse = register("mushroom_house", true, () -> new DESimpleStructure(DEConfig.COMMON.mushroom_house, pieceBuilder().offset(-7, 0, -7).add("mushroom_house").build()), DESimpleStructure.Piece::new);
+        MushroomHouse = register("mushroom_house", true, () -> new DESimpleStructure(DEConfig.COMMON.mushroom_house, pieceBuilder().offset(-7, 0, -7).add("mushroom_house/red").add("mushroom_house/brown").build()), DESimpleStructure.Piece::new);
         PillagerCamp = registerJigsaw("pillager_camp", true, DEPillagerCamp::new, new JigsawConfiguration(DEPillagerCamp.Pool.Root, 4), DEPillagerCamp.Piece::new, GenerationStep.Decoration.SURFACE_STRUCTURES, spawn(EntityType.PILLAGER, 3), spawn(EntityType.VINDICATOR, 1));
         PirateShip = register("pirate_ship", false, DEPirateShip::new, DESimpleStructure.Piece::new, GenerationStep.Decoration.SURFACE_STRUCTURES, MobCategory.CREATURE, spawn(EntityType.PILLAGER, 3), spawn(EntityType.VINDICATOR, 1));
         RuinedBuilding = register("ruined_building", true, () -> new DESimpleStructure(DEConfig.COMMON.ruined_building, pieceBuilder().offset(-5, 0, -5).weight(3).add("ruined_building/house").offset(-6, 0, -8).weight(2).add("ruined_building/house_big").offset(-4, 0, -5).weight(3).add("ruined_building/barn").build()), DESimpleStructure.Piece::new);
         Stables = register("stables", false, () -> new DESimpleStructure(DEConfig.COMMON.stables, pieceBuilder().offset(-8, -6, -13).add("stables").build()), DESimpleStructure.Piece::new);
-        SunkenShrine = register("sunken_shrine", false, ()-> new DEUnderwaterStructure(DEConfig.COMMON.sunken_shrine, pieceBuilder().offset(-5, -1, -8).add("sunken_shrine").build()), DEUnderwaterStructure.Piece::new);
+        SunkenShrine = register("sunken_shrine", false, ()-> new DEUnderwaterStructure(DEConfig.COMMON.sunken_shrine, true, pieceBuilder().offset(-5, -1, -8).add("sunken_shrine").build()), DEUnderwaterStructure.Piece::new);
         TallWitchHut = register("tall_witch_hut", false, () -> new DESimpleStructure(DEConfig.COMMON.tall_witch_hut, pieceBuilder().offset(-3, -3, -4).add("tall_witch_hut").build()), DESimpleStructure.Piece::new);
         TreeHouse = register("tree_house", true, () -> new DESimpleStructure(DEConfig.COMMON.tree_house, pieceBuilder().offset(-11, 0, -12).add("tree_house").build()), DESimpleStructure.Piece::new);
         TowerOfTheUndead = register("tower_of_the_undead", true, () -> new DESimpleStructure(DEConfig.COMMON.tower_of_the_undead, pieceBuilder().offset(-5, 0, -5).weight(3).add("tower_of_the_undead/small").offset(-7, 0, -7).weight(2).add("tower_of_the_undead/big").build()), DESimpleStructure.Piece::new);

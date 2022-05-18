@@ -14,7 +14,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureMana
 
 public class DEFloatingStructure extends DEBaseStructure{
     public DEFloatingStructure(StructureConfig config, boolean generateNearSpawn, DEStructurePiece[] resources) {
-        super(config, DETerrainAnalyzer.GenerationType.inAir, generateNearSpawn, false, DEFloatingStructure::assemble, resources);
+        super(config, DETerrainAnalyzer.GenerationType.inAir, generateNearSpawn, (context) -> DETerrainAnalyzer.isGroundLowEnough(context.chunkPos(), context.chunkGenerator(), 72, context.heightAccessor()), DEFloatingStructure::assemble, resources);
     }
 
     public static void assemble(DEPieceAssembler.Context context) {

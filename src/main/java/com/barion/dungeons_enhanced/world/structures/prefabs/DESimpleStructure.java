@@ -10,27 +10,28 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
+import java.util.function.Predicate;
 
 public class DESimpleStructure extends DEBaseStructure {
 
-    public DESimpleStructure(StructureConfig config, DEStructurePiece[] resources){
-        this(config, true, resources);
-    }
+    public DESimpleStructure(StructureConfig config, DEStructurePiece[] resources) {this(config, true, resources);}
 
     public DESimpleStructure(StructureConfig config, boolean generateNearSpawn, DEStructurePiece[] resources){
-        this(config, generateNearSpawn, DESimpleStructure::assemble, resources);
+        this(config, generateNearSpawn, (context)-> DETerrainAnalyzer.isFlatEnough(context.chunkPos(), context.chunkGenerator(), context.heightAccessor()), DESimpleStructure::assemble, resources);
     }
-    protected DESimpleStructure(StructureConfig config, boolean generateNearSpawn, DEPieceAssembler assembler, DEStructurePiece[] resources){
-        super(config, DETerrainAnalyzer.GenerationType.onGround, generateNearSpawn, false, assembler, resources);
+    protected DESimpleStructure(StructureConfig config, boolean generateNearSpawn, Predicate<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>> pieceGenerator, DEPieceAssembler assembler, DEStructurePiece[] resources){
+        super(config, DETerrainAnalyzer.GenerationType.onGround, generateNearSpawn, pieceGenerator, assembler, resources);
     }
 
-    private static void assemble(DEPieceAssembler.Context context) {
+    protected static void assemble(DEPieceAssembler.Context context) {
         context.piecesBuilder().addPiece(new Piece(context.structureManager(), context.piece(), context.pos(), context.rotation()));
     }
 
