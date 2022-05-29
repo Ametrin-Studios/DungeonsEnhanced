@@ -12,7 +12,7 @@ import static com.barion.dungeons_enhanced.DEUtil.location;
 
 public class DEIcePit extends DESimpleStructure {
     private static final ResourceLocation Entrance = location("ice_pit/top");
-    public DEIcePit() {super(DEConfig.COMMON.ice_pit, false, (context)-> DETerrainAnalyzer.isFlatEnough(context.chunkPos(), context.chunkGenerator(), new DETerrainAnalyzer.Settings(1, 2, 2), context.heightAccessor()), DEIcePit::assembleIcePit, DEUtil.pieceBuilder().offset(-4, -25, -4).add("ice_pit/var1").add("ice_pit/var2").add("ice_pit/var3").build());}
+    public DEIcePit() {super(DEConfig.COMMON.IcePit, false, (context)-> DETerrainAnalyzer.isFlatEnough(context.chunkPos(), context.chunkGenerator(), new DETerrainAnalyzer.Settings(1, 2, 2), context.heightAccessor()), DEIcePit::assembleIcePit, DEUtil.pieceBuilder().offset(-4, -25, -4).add("ice_pit/var1").add("ice_pit/var2").add("ice_pit/var3").build());}
 
     private static void assembleIcePit(DEPieceAssembler.Context context) {
         BlockPos pos = context.pos();

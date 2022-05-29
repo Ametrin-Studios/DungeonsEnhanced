@@ -1,6 +1,7 @@
 package com.barion.dungeons_enhanced.world.structures.prefabs;
 
 import com.barion.dungeons_enhanced.DEStructures;
+import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEPieceAssembler;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
@@ -53,7 +54,7 @@ public class DEUnderwaterStructure extends DEBaseStructure {
             Vec3i size = Vec3i.ZERO;
             if(temp.isPresent()) {size = temp.get().getSize();}
             StructurePlaceSettings settings = new StructurePlaceSettings().setKeepLiquids(true).setRotationPivot(new BlockPos(size.getX()/2, 0, size.getZ()/2).rotate(rotation));
-            settings.addProcessor(BlockIgnoreProcessor.STRUCTURE_AND_AIR).addProcessor(RemoveGelStructureProcessor.INSTANCE);
+            settings.addProcessor(BlockIgnoreProcessor.STRUCTURE_AND_AIR).addProcessor(DEUtil.Processors.Underwater);
             return settings;
         }
 

@@ -25,7 +25,7 @@ import java.util.Random;
 
 public class DEPillagerCamp extends GelConfigJigsawStructure<JigsawConfiguration> {
     public DEPillagerCamp() {
-        super(JigsawConfiguration.CODEC, DEConfig.COMMON.pillager_camp, 0, true, true);
+        super(JigsawConfiguration.CODEC, DEConfig.COMMON.PillagerCamp, 0, true, true);
         Pool.init();
     }
 

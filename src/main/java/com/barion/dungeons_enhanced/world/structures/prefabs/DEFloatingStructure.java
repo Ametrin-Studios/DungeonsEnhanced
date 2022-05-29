@@ -22,12 +22,10 @@ public class DEFloatingStructure extends DEBaseStructure{
     }
 
     public static class Piece extends DEBaseStructure.Piece {
-        public Piece(StructureManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation, int componentType) {
-            super(DEStructures.FlyingDutchman.getPieceType(), structureManager, templateName, pos, rotation, componentType);
-        }
         public Piece(StructureManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation) {
-            this(structureManager, templateName, pos, rotation, 0);
+            super(DEStructures.FlyingDutchman.getPieceType(), structureManager, templateName, pos, rotation, 0);
         }
+
         public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) {
             super(DEStructures.FlyingDutchman.getPieceType(), serializationContext, nbt);
         }

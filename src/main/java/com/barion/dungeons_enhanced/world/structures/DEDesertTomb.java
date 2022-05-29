@@ -29,7 +29,7 @@ import java.util.Random;
 
 public class DEDesertTomb extends GelConfigJigsawStructure<JigsawConfiguration> {
     public DEDesertTomb(){
-        super(JigsawConfiguration.CODEC, DEConfig.COMMON.desert_tomb, 0, true, true, DEDesertTomb::checkLocation);
+        super(JigsawConfiguration.CODEC, DEConfig.COMMON.DesertTomb, 0, true, true, DEDesertTomb::checkLocation);
         Pool.init();
     }
 

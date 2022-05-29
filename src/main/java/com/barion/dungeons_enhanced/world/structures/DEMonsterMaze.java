@@ -27,7 +27,7 @@ import java.util.Random;
 
 public class DEMonsterMaze extends GelConfigJigsawStructure<ExtendedJigsawConfiguration>{
     public DEMonsterMaze() {
-        super(ExtendedJigsawConfiguration.CODEC, DEConfig.COMMON.monster_maze, -17, true, true, DEMonsterMaze::checkLocation);
+        super(ExtendedJigsawConfiguration.CODEC, DEConfig.COMMON.MonsterMaze, -17, true, true, DEMonsterMaze::checkLocation);
         Pool.init();
     }
 

@@ -25,7 +25,7 @@ import java.util.Random;
 
 public class DEDeepCrypt extends GelConfigJigsawStructure<JigsawConfiguration>{
     public DEDeepCrypt(){
-        super(JigsawConfiguration.CODEC, DEConfig.COMMON.deep_crypt, -10, true, false);
+        super(JigsawConfiguration.CODEC, DEConfig.COMMON.DeepCrypt, -10, true, false);
         Pool.init();
     }
 

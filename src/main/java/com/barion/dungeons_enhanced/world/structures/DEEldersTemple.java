@@ -35,7 +35,7 @@ public class DEEldersTemple extends DEUnderwaterStructure {
     private static final ResourceLocation SE = location("elders_temple/se");
     private static final ResourceLocation SW = location("elders_temple/sw");
 
-    public DEEldersTemple() {super(DEConfig.COMMON.elders_temple, true, DEEldersTemple::checkLocation, DEEldersTemple::assembleTemple, DEUtil.pieceBuilder().add("elders_temple/se").build());}
+    public DEEldersTemple() {super(DEConfig.COMMON.EldersTemple, true, DEEldersTemple::checkLocation, DEEldersTemple::assembleTemple, DEUtil.pieceBuilder().add("elders_temple/se").build());}
 
     private static boolean checkLocation(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context){
         if(DETerrainAnalyzer.isUnderwater(context.chunkPos(), context.chunkGenerator(), 32, context.heightAccessor())){
@@ -46,10 +46,10 @@ public class DEEldersTemple extends DEUnderwaterStructure {
 
     public static void assembleTemple(DEPieceAssembler.Context context) {
         Rotation rotation = Rotation.NONE;
-        context.piecesBuilder().addPiece(new Piece(context.structureManager(), SE, context.pos().offset(0,-3,0), rotation));
-        context.piecesBuilder().addPiece(new Piece(context.structureManager(), SW, context.pos().offset(-30, -3, 0), rotation));
-        context.piecesBuilder().addPiece(new Piece(context.structureManager(), NE, context.pos().offset(0, -3, -29), rotation));
-        context.piecesBuilder().addPiece(new Piece(context.structureManager(), NW, context.pos().offset(-30, -3, -29), rotation));
+        context.piecesBuilder().addPiece(new Piece(context.structureManager(), SE, context.pos().offset(0,0,0), rotation));
+        context.piecesBuilder().addPiece(new Piece(context.structureManager(), SW, context.pos().offset(-30, 0, 0), rotation));
+        context.piecesBuilder().addPiece(new Piece(context.structureManager(), NE, context.pos().offset(0, 0, -29), rotation));
+        context.piecesBuilder().addPiece(new Piece(context.structureManager(), NW, context.pos().offset(-30, 0, -29), rotation));
     }
 
     public static class Piece extends GelTemplateStructurePiece {
@@ -66,7 +66,7 @@ public class DEEldersTemple extends DEUnderwaterStructure {
             Vec3i size = Vec3i.ZERO;
             if(temp.isPresent()) {size = temp.get().getSize();}
             StructurePlaceSettings settings = new StructurePlaceSettings().setKeepLiquids(true).setRotationPivot(new BlockPos(size.getX()/2, 0, size.getZ()/2).rotate(Rotation.NONE));
-            settings.addProcessor(BlockIgnoreProcessor.STRUCTURE_AND_AIR).addProcessor(RemoveGelStructureProcessor.INSTANCE)
+            settings.addProcessor(BlockIgnoreProcessor.STRUCTURE_AND_AIR).addProcessor(DEUtil.Processors.Underwater)
                     .addProcessor(DEUtil.Processors.BrainCoral)
                     .addProcessor(DEUtil.Processors.BubbleCoral)
                     .addProcessor(DEUtil.Processors.FireCoral)

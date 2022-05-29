@@ -16,7 +16,7 @@ import static com.barion.dungeons_enhanced.DEUtil.location;
 public class DEDesertTemple extends DESimpleStructure {
     private static final ResourceLocation Bottom = location("desert_temple/down");
 
-    public DEDesertTemple() {super(DEConfig.COMMON.desert_temple, false, DEDesertTemple::checkLocation, DEDesertTemple::assembleTemple, DEUtil.pieceBuilder().add("desert_temple/main").build());}
+    public DEDesertTemple() {super(DEConfig.COMMON.DesertTemple, false, DEDesertTemple::checkLocation, DEDesertTemple::assembleTemple, DEUtil.pieceBuilder().add("desert_temple/main").build());}
 
     private static boolean checkLocation(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context){
         if(DETerrainAnalyzer.areNearbyBiomesValid(context.biomeSource(), context.chunkPos(), context.chunkGenerator(), 20, context.validBiome())){

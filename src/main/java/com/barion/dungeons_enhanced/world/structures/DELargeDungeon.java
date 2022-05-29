@@ -28,7 +28,7 @@ import java.util.Random;
 
 public class DELargeDungeon extends GelConfigJigsawStructure<JigsawConfiguration> {
     public DELargeDungeon() {
-        super(JigsawConfiguration.CODEC, DEConfig.COMMON.large_dungeon, -16, true, true, DELargeDungeon::checkLocation);
+        super(JigsawConfiguration.CODEC, DEConfig.COMMON.LargeDungeon, -16, true, true, DELargeDungeon::checkLocation);
         Pool.init();
     }
 
