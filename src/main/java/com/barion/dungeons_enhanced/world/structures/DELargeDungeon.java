@@ -65,7 +65,7 @@ public class DELargeDungeon extends GelConfigJigsawStructure {
         public static JigsawPattern Root;
         public static void init(){}
         static{
-            JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.Mod_ID, "large_dungeon/");
+            JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.ModID, "large_dungeon/");
             JigsawPoolBuilder poolBuilder = registry.builder().maintainWater(false).processors(DEUtil.Processors.AirToCobweb);
             Root = registry.register("root", poolBuilder.clone().names("root").build());
 

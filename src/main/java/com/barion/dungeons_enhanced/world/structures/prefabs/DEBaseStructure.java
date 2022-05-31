@@ -40,18 +40,11 @@ import java.util.Random;
 public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig>{
     public DETerrainAnalyzer.Settings terrainAnalyzeSettings;
     public DEStructurePiece[] Variants;
-    public final GenerationType generationType;
+    public final DETerrainAnalyzer.GenerationType generationType;
     public int maxWeight;
     protected boolean generateNear00;
 
-    public DEBaseStructure(ConfigTemplates.StructureConfig config, GenerationType generationType, BlockPos offset, boolean generateNear00, DEStructurePiece... variants){
-        this(config, generationType, generateNear00, variants);
-        for(DEStructurePiece resource : Variants){
-            resource.Offset = offset;
-        }
-    }
-
-    public DEBaseStructure(ConfigTemplates.StructureConfig config, GenerationType generationType, boolean generateNear00, DEStructurePiece... variants) {
+    public DEBaseStructure(ConfigTemplates.StructureConfig config, DETerrainAnalyzer.GenerationType generationType, boolean generateNear00, DEStructurePiece[] variants) {
         super(NoFeatureConfig.CODEC, config);
         this.generationType = generationType;
         this.generateNear00 = generateNear00;
@@ -67,10 +60,10 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig
 
     @Override
     protected boolean isFeatureChunk(ChunkGenerator chunkGen, BiomeProvider biomeProvider, long seed, SharedSeedRandom sharedSeedRand, int chunkPosX, int chunkPosZ, Biome biomeIn, ChunkPos chunkPos, NoFeatureConfig config) {
-        boolean canGenerate = super.isFeatureChunk(chunkGen, biomeProvider, seed, sharedSeedRand, chunkPosX, chunkPosZ, biomeIn, chunkPos, config);
-        if(!canGenerate) {return false;}
-
-        return DETerrainAnalyzer.isPositionSuitable(chunkPos, chunkGen, generationType, terrainAnalyzeSettings);
+        if(super.isFeatureChunk(chunkGen, biomeProvider, seed, sharedSeedRand, chunkPosX, chunkPosZ, biomeIn, chunkPos, config)){
+            return DETerrainAnalyzer.isFlatEnough(chunkPos, chunkGen, terrainAnalyzeSettings);
+        }
+        return false;
     }
 
     public abstract void assemble(TemplateManager templateManager, DEStructurePiece variant, BlockPos pos, Rotation rotation, List<StructurePiece> pieces, int variantIndex);
@@ -85,13 +78,17 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig
         public void generatePieces(DynamicRegistries registry, ChunkGenerator chunkGen, TemplateManager templateManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig featureConfig) {
             int x = chunkX * 16;
             int z = chunkZ * 16;
-            int y = 70;
+            int y = 72;
 
             int minY;
             int maxY;
             switch (generationType){
                 case onGround:
+                case onWater:
                     y = chunkGen.getBaseHeight(x, z, Heightmap.Type.WORLD_SURFACE_WG);
+                    break;
+                case underwater:
+                    y = chunkGen.getBaseHeight(x, y, Heightmap.Type.OCEAN_FLOOR_WG);
                     break;
                 case inAir:
                     minY = chunkGen.getBaseHeight(x, z, Heightmap.Type.WORLD_SURFACE_WG) + 35;
@@ -115,15 +112,11 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig
     }
 
     public static class Piece extends GelTemplateStructurePiece {
-        private Piece(IStructurePieceType structurePieceType, TemplateManager templateManager, ResourceLocation name, BlockPos pos, Rotation rotation, int componentType) {
-            super(structurePieceType, name, componentType);
+        private Piece(IStructurePieceType structurePieceType, TemplateManager templateManager, ResourceLocation name, BlockPos pos, Rotation rotation) {
+            super(structurePieceType, name, 0);
             this.templatePosition = pos;
             this.rotation = rotation;
             this.setupTemplate(templateManager);
-        }
-
-        public Piece(IStructurePieceType structurePieceType, TemplateManager templateManager, ResourceLocation name, BlockPos pos, Rotation rotation) {
-            this(structurePieceType, templateManager, name, pos, rotation, 0);
         }
 
         public Piece(IStructurePieceType structurePieceType, TemplateManager templateManager, CompoundNBT nbt) {
@@ -151,6 +144,4 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig
         @Override @ParametersAreNonnullByDefault
         protected void handleDataMarker(String key, BlockPos pos, IServerWorld world, Random random, MutableBoundingBox box) {}
     }
-
-    public enum GenerationType {onGround, inAir, underground}
 }

@@ -12,17 +12,17 @@ import net.minecraft.world.gen.feature.template.StructureProcessorList;
 import java.util.Random;
 
 public class DEUtil{
-    public static ResourceLocation createRegistryName(String key){ return new ResourceLocation(DungeonsEnhanced.Mod_ID, key);}
+    public static ResourceLocation location(String key){ return new ResourceLocation(DungeonsEnhanced.ModID, key);}
     public static BlockPos Offset(int x, int y, int z){return new BlockPos(x, y, z);}
 
     public static class Processors {
         public static final StructureProcessorList AirToCobweb = register("air_to_cobweb", new RandomBlockSwapProcessor(Blocks.AIR, 0.02f, Blocks.COBWEB));
 
         private static StructureProcessorList register(String key, StructureProcessor processor){
-            return RegistryHelper.registerProcessor(createRegistryName(key), processor);
+            return RegistryHelper.registerProcessor(location(key), processor);
         }
         private static StructureProcessorList register(String key, StructureProcessorList processorList){
-            return RegistryHelper.registerProcessor(createRegistryName(key), processorList);
+            return RegistryHelper.registerProcessor(location(key), processorList);
         }
     }
 
@@ -49,4 +49,6 @@ public class DEUtil{
         }
         return i;
     }
+
+    public static DEStructurePiece.Builder pieceBuilder() {return new DEStructurePiece.Builder();}
 }

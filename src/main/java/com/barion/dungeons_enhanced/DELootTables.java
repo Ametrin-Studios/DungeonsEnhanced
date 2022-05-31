@@ -14,6 +14,6 @@ public class DELootTables {
     }
 
     private static ResourceLocation chestLoot(String id){
-        return new ResourceLocation(DungeonsEnhanced.Mod_ID, "chests/" + id);
+        return new ResourceLocation(DungeonsEnhanced.ModID, "chests/" + id);
     }
 }

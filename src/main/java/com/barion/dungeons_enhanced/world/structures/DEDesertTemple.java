@@ -11,10 +11,10 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 
 import java.util.List;
 
-import static com.barion.dungeons_enhanced.DEUtil.createRegistryName;
+import static com.barion.dungeons_enhanced.DEUtil.location;
 
 public class DEDesertTemple extends DESimpleStructure {
-    private final ResourceLocation Bottom = createRegistryName("desert_temple/down");
+    private final ResourceLocation Bottom = location("desert_temple/down");
 
     public DEDesertTemple() {super(DEConfig.COMMON.desert_temple, new DEStructurePiece("desert_temple/main"));}
 

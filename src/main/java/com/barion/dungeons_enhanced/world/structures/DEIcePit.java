@@ -12,10 +12,10 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 import java.util.List;
 
 import static com.barion.dungeons_enhanced.DEUtil.Offset;
-import static com.barion.dungeons_enhanced.DEUtil.createRegistryName;
+import static com.barion.dungeons_enhanced.DEUtil.location;
 
 public class DEIcePit extends DESimpleStructure {
-    private final ResourceLocation Entrance = createRegistryName("ice_pit/top");
+    private final ResourceLocation Entrance = location("ice_pit/top");
     public DEIcePit() {super(DEConfig.COMMON.ice_pit, Offset(-4, -25, -4), false, new DEStructurePiece("ice_pit/var1"), new DEStructurePiece("ice_pit/var2"), new DEStructurePiece("ice_pit/var3"));}
 
     @Override

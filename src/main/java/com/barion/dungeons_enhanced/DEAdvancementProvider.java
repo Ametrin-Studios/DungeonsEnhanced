@@ -73,5 +73,5 @@ public class DEAdvancementProvider extends AdvancementProvider {
 
     private TranslationTextComponent translate(String key) {return new TranslationTextComponent("advancements.dungeons_enhanced." + key);}
 
-    private String location(String key) {return DungeonsEnhanced.Mod_ID + ":" + key;}
+    private String location(String key) {return DungeonsEnhanced.ModID + ":" + key;}
 }

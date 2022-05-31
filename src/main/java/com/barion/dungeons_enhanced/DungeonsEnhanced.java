@@ -16,9 +16,9 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(DungeonsEnhanced.Mod_ID)
+@Mod(DungeonsEnhanced.ModID)
 public class DungeonsEnhanced{
-    public static final String Mod_ID = "dungeons_enhanced";
+    public static final String ModID = "dungeons_enhanced";
     public static final Logger LOGGER = LogManager.getLogger();
 
     public DungeonsEnhanced() {
@@ -38,7 +38,7 @@ public class DungeonsEnhanced{
         BiomeDictionary.BEACH.biomes(Biomes.STONE_SHORE, Biomes.SNOWY_BEACH);
     }
 
-    @Mod.EventBusSubscriber(modid = DungeonsEnhanced.Mod_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+    @Mod.EventBusSubscriber(modid = DungeonsEnhanced.ModID, bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class DataGenerators{
         @SubscribeEvent
         public static void gatherData(GatherDataEvent event){
