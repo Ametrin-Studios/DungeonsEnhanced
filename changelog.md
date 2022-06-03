@@ -1,8 +1,22 @@
-##3.1
-* ported to 1.18.2
-* decreased rarity of Deep Crypts treasure room
+## 3.2
+* added Elders Temple
+* added Flying Dutchman
+* added Sunken Shrine
+* added Pirate Ship
+* added Fishing Ship
+* added Mushroom House variant
+* added `it_it.json` (Zano1999)
+* adjusted some loot tables
+* updated `DETerrainAnalyzer`
+* 
 
-##3.0
+## 3.1
+* ported to 1.18.2
+* revamped Pillager Camp
+* decreased rarity of Deep Crypts treasure room
+* fixed crash
+
+## 3.0
 * ported to 1.18.1
 * added Deep Crypt
 * added a new system to prevent structures from generating at cliffs (`DETerrainAnalyzer`)

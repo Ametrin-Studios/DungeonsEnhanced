@@ -6,7 +6,6 @@ import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.legacy.structure_gel.api.structure.GelConfigJigsawStructure;
 import com.legacy.structure_gel.api.structure.jigsaw.AbstractGelStructurePiece;
-import com.legacy.structure_gel.api.structure.jigsaw.ExtendedJigsawConfiguration;
 import com.legacy.structure_gel.api.structure.jigsaw.JigsawPoolBuilder;
 import com.legacy.structure_gel.api.structure.jigsaw.JigsawRegistryHelper;
 import net.minecraft.core.BlockPos;
@@ -15,6 +14,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
@@ -25,16 +25,16 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureMana
 
 import java.util.Random;
 
-public class DEMonsterMaze extends GelConfigJigsawStructure<ExtendedJigsawConfiguration>{
+public class DEMonsterMaze extends GelConfigJigsawStructure<JigsawConfiguration>{
     public DEMonsterMaze() {
-        super(ExtendedJigsawConfiguration.CODEC, DEConfig.COMMON.MonsterMaze, -17, true, true, DEMonsterMaze::checkLocation);
+        super(JigsawConfiguration.CODEC, DEConfig.COMMON.MonsterMaze, -17, true, true, DEMonsterMaze::checkLocation);
         Pool.init();
     }
 
     @Override
     public boolean isAllowedNearWorldSpawn() {return false;}
 
-    private static boolean checkLocation(PieceGeneratorSupplier.Context<ExtendedJigsawConfiguration> context) {
+    private static boolean checkLocation(PieceGeneratorSupplier.Context<JigsawConfiguration> context) {
         if(context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG)) {
             return DETerrainAnalyzer.isFlatEnough(context.chunkPos(), context.chunkGenerator(), new DETerrainAnalyzer.Settings(1, 2, 2), context.heightAccessor());
         }

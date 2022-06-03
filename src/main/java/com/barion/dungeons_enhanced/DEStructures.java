@@ -4,7 +4,6 @@ import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structures.*;
 import com.barion.dungeons_enhanced.world.structures.prefabs.*;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
-import com.legacy.structure_gel.api.structure.jigsaw.ExtendedJigsawConfiguration;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.MobSpawnSettings;
@@ -35,7 +34,7 @@ public class DEStructures {
     public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> JungleMonument;
     public static final StructureRegistrar<JigsawConfiguration, DELargeDungeon> LargeDungeon;
     public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> MinersHouse;
-    public static final StructureRegistrar<ExtendedJigsawConfiguration, DEMonsterMaze> MonsterMaze;
+    public static final StructureRegistrar<JigsawConfiguration, DEMonsterMaze> MonsterMaze;
     public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> MushroomHouse;
     public static final StructureRegistrar<JigsawConfiguration, DEPillagerCamp> PillagerCamp;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEPirateShip> PirateShip;
@@ -172,7 +171,7 @@ public class DEStructures {
                 .build();
 
         MonsterMaze = StructureRegistrar.builder(location("monster_maze"), DEMonsterMaze::new)
-                .pushConfigured(new ExtendedJigsawConfiguration(DEMonsterMaze.Pool.Root, 10))
+                .pushConfigured(new JigsawConfiguration(DEMonsterMaze.Pool.Root, 7))
                         .biomes(DEConfig.COMMON.MonsterMaze.getConfigured())
                         .dimensions(DEConfig.COMMON.MonsterMaze.getConfigured())
                 .popConfigured()

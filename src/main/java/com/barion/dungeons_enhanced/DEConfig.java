@@ -64,10 +64,10 @@ public class DEConfig {
             MonsterMaze = configs("Monster Maze", 34, 50, Level.OVERWORLD, "##structure_gel:spooky", "##structure_gel:pumpkin", "!##structure_gel:sandy" ,"!##structure_gel:mountain");
             MushroomHouse = configs("Mushroom House", 15, 75, Level.OVERWORLD, "minecraft:mushroom_fields", "minecraft:mushroom_field_shore");
             PillagerCamp = configs("Pillager Camp", 49, 35, Level.OVERWORLD, "##structure_gel:neutral_temp", "!##structure_gel:mountain", "!##structure_gel:wooded", "!##structure_gel:river", "!##structure_gel:beach");
-            PirateShip = configs("Pirate Ship", 59, 49, Level.OVERWORLD, "##structure_gel:ocean");
+            PirateShip = configs("Pirate Ship", 65, 49, Level.OVERWORLD, "##structure_gel:ocean");
             RuinedBuilding = configs("Ruined Building", 27, 45, Level.OVERWORLD, "##structure_gel:neutral_temp", "!##structure_gel:river", "!##structure_gel:beach", "!##structure_gel:mountain");
             Stables = configs("Stables", 46, 32, Level.OVERWORLD, "##structure_gel:neutral_temp", "!##structure_gel:mountain", "!##structure_gel:wooded", "!##structure_gel:beach");
-            SunkenShrine = configs("Sunken Shrine", 29, 55, Level.OVERWORLD, "##structure_gel:ocean");
+            SunkenShrine = configs("Sunken Shrine", 32, 55, Level.OVERWORLD, "##structure_gel:ocean");
             TallWitchHut = configs("Tall Witch Hut", 18, 60, Level.OVERWORLD, "##structure_gel:swamp");
             TowerOfTheUndead = configs("Tower of the Undead", 37, 35, Level.OVERWORLD, "##structure_gel:neutral_temp", "##structure_gel:savanna", "##structure_gel:swamp", "!##structure_gel:mountain");
             TreeHouse = configs("Tree House", 29, 40, Level.OVERWORLD, "#minecraft:is_jungle");

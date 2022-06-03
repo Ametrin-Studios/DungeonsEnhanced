@@ -35,6 +35,7 @@ public class DEAdvancementProvider extends AdvancementProvider{
         Advancement RarestStructure = enterStructure(builder(Items.RED_MUSHROOM, "rarest_structure", FrameType.TASK, true, true, false), DEStructures.MushroomHouse).parent(root).save(consumer, location("rarest_structure"));
         Advancement ChilledHalls = enterStructure(builder(Items.BONE, "chilled_halls", FrameType.TASK, true, true, false), DEStructures.IcePit).parent(root).save(consumer, location("chilled_halls"));
         Advancement Ahoy = enterStructure(builder(Items.BLACK_BANNER, "ahoy", FrameType.TASK, true, true, false), DEStructures.PirateShip).parent(root).save(consumer, location("ahoy"));
+        Advancement InTheAir = enterStructure(builder(Items.BLACK_BANNER, "in_the_air", FrameType.TASK, true, true, false), DEStructures.FlyingDutchman).parent(root).save(consumer, location("in_the_air"));
         Advancement SevenWorldWonders = enterAnyStructure(builder(Items.SPYGLASS, "seven_world_wonders", FrameType.GOAL, true, true, false),
                 new StructureRegistrar<?, ?>[] {
                         DEStructures.Castle,
