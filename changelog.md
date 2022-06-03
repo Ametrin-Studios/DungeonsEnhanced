@@ -8,7 +8,6 @@
 * added `it_it.json` (Zano1999)
 * adjusted some loot tables
 * updated `DETerrainAnalyzer`
-* 
 
 ## 3.1
 * ported to 1.18.2
