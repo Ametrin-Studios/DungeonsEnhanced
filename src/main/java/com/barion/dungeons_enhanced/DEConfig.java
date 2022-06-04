@@ -1,6 +1,7 @@
 package com.barion.dungeons_enhanced;
 
 import com.legacy.structure_gel.util.ConfigTemplates.StructureConfig;
+import net.minecraft.util.RegistryKey;
 import net.minecraft.world.Dimension;
 import net.minecraftforge.common.ForgeConfigSpec;
 import org.apache.commons.lang3.tuple.Pair;
@@ -17,55 +18,63 @@ public class DEConfig {
     public static class Common{
         private final ForgeConfigSpec.Builder builder;
 
-        public final StructureConfig castle;
-        public final StructureConfig desert_temple;
-        public final StructureConfig desert_tomb;
-        public final StructureConfig druid_circle;
-        public final StructureConfig dungeon_variant;
-        //public final StructureConfig flying_dutchman;
-        public final StructureConfig hay_Storage;
-        public final StructureConfig ice_pit;
-        public final StructureConfig jungle_monument;
-        public final StructureConfig large_dungeon;
-        public final StructureConfig miners_house;
-        public final StructureConfig monster_maze;
-        public final StructureConfig mushroom_house;
-        public final StructureConfig pillager_camp;
-        public final StructureConfig ruined_building;
-        public final StructureConfig stables;
-        public final StructureConfig tall_witch_hut;
-        public final StructureConfig tower_of_the_undead;
-        public final StructureConfig tree_house;
-        public final StructureConfig watch_tower;
-        public final StructureConfig witch_tower;
+        public final StructureConfig Castle;
+        public final StructureConfig DesertTemple;
+        public final StructureConfig DesertTomb;
+        public final StructureConfig DruidCircle;
+        public final StructureConfig DungeonVariant;
+        public final StructureConfig EldersTemple;
+        public final StructureConfig FishingShip;
+        public final StructureConfig FlyingDutchman;
+        public final StructureConfig HayStorage;
+        public final StructureConfig IcePit;
+        public final StructureConfig JungleMonument;
+        public final StructureConfig LargeDungeon;
+        public final StructureConfig MinersHouse;
+        public final StructureConfig MonsterMaze;
+        public final StructureConfig MushroomHouse;
+        public final StructureConfig PillagerCamp;
+        public final StructureConfig PirateShip;
+        public final StructureConfig RuinedBuilding;
+        public final StructureConfig SunkenShrine;
+        public final StructureConfig Stables;
+        public final StructureConfig TallWitchHut;
+        public final StructureConfig TowerOfTheUndead;
+        public final StructureConfig TreeHouse;
+        public final StructureConfig WatchTower;
+        public final StructureConfig WitchTower;
 
         protected Common(ForgeConfigSpec.Builder builder) {
             this.builder = builder;
-            castle = Configs("Castle", 57, 0.25, true, "#structure_gel:cold, #structure_gel:snowy, !#structure_gel:mountain, !#structure_gel:beach");
-            desert_temple = Configs("Desert Temple", 32, 0.6, true, "minecraft:desert");
-            desert_tomb = Configs("Desert Tomb", 29, 0.65, true, "minecraft:desert");
-            druid_circle = Configs("Druid Circle", 36, 0.4, true, "#structure_gel:neutral_temp, !#structure_gel:wooded, !#structure_gel:mountain, !#structure_gel:beach");
-            dungeon_variant = Configs("Dungeon Variant", 16, 0.8, false, "#forge:overworld");
-            //flying_dutchman = Configs("Flying Dutchman", 23, 0, false, "");
-            hay_Storage = Configs("Hay Storage", 24, 0.75, true, "#structure_gel:savanna");
-            ice_pit = Configs("Ice Pit", 35, 0.70, true, "#structure_gel:snowy, #structure_gel:frozen, !#structure_gel:mountain, !#structure_gel:river, !#structure_gel:beach");
-            jungle_monument = Configs("Jungle Monument", 30, 0.65, true, "#structure_gel:jungle, !#structure_gel:bamboo_jungle");
-            large_dungeon = Configs("Large Dungeon", 39, 0.35, true, "#structure_gel:neutral_temp, #structure_gel:cold, !#structure_gel:mountain, !#structure_gel:beach");
-            miners_house = Configs("Miners House", 24, 0.8, true, "minecraft:badlands, minecraft:badlands_plateau");
-            monster_maze = Configs("Monster Maze", 34, 0.5, true, "#structure_gel:spooky, #structure_gel:pumpkin, !#structure_gel:sandy ,!#structure_gel:mountain");
-            mushroom_house = Configs("Mushroom House", 15, 0.75, true, "minecraft:mushroom_fields, minecraft:mushroom_field_shore");
-            pillager_camp = Configs("Pillager Camp", 49, 0.35, true, "#structure_gel:neutral_temp, !#structure_gel:mountain, !#structure_gel:wooded, !#structure_gel:river, !#structure_gel:beach");
-            ruined_building = Configs("Ruined Building", 27, 0.45, true, "#structure_gel:neutral_temp, !#structure_gel:river, !#structure_gel:beach, !#structure_gel:mountain");
-            stables = Configs("Stables", 46, 0.32, true, "#structure_gel:neutral_temp, !#structure_gel:mountain, !#structure_gel:wooded, !#structure_gel:beach");
-            tall_witch_hut = Configs("Tall Witch Hut", 18, 0.6, true, "#structure_gel:swamp");
-            tower_of_the_undead = Configs("Tower of the Undead", 37, 0.35, true, "#structure_gel:neutral_temp, #structure_gel:savanna, #structure_gel:swamp, !#structure_gel:mountain");
-            tree_house = Configs("Tree House", 31, 0.4, true, "#forge:jungle");
-            watch_tower = Configs("Watch Tower", 33, 0.35, true, "#structure_gel:cold, #structure_gel:snowy");
-            witch_tower = Configs("Witch Tower", 25, 0.5, true, "#structure_gel:spruce_forest, #structure_gel:large_spruce_forest");
+            Castle = configs("Castle", 56, 0.42, Dimension.OVERWORLD, true, "#structure_gel:cold, #structure_gel:snowy, !#structure_gel:mountain, !#structure_gel:beach");
+            DesertTemple = configs("Desert Temple", 32, 0.6, Dimension.OVERWORLD, true, "minecraft:desert");
+            DesertTomb = configs("Desert Tomb", 29, 0.65, Dimension.OVERWORLD, true, "minecraft:desert");
+            DruidCircle = configs("Druid Circle", 36, 0.4, Dimension.OVERWORLD, true, "#structure_gel:neutral_temp, !#structure_gel:wooded, !#structure_gel:mountain, !#structure_gel:beach");
+            DungeonVariant = configs("Dungeon Variant", 16, 0.8, Dimension.OVERWORLD, false, "#forge:overworld");
+            EldersTemple = configs("Elders Temple", 34, 82, Dimension.OVERWORLD, true, "#structure_gel:ocean");
+            FishingShip = configs("Fishing Ship", 48, 68, Dimension.OVERWORLD, true, "#structure_gel:ocean");
+            FlyingDutchman = configs("Flying Dutchman", 67, 40, Dimension.OVERWORLD, true, "#structure_gel:ocean");
+            HayStorage = configs("Hay Storage", 24, 0.75, Dimension.OVERWORLD, true, "#structure_gel:savanna");
+            IcePit = configs("Ice Pit", 35, 0.70, Dimension.OVERWORLD, true, "#structure_gel:snowy, #structure_gel:frozen, !#structure_gel:mountain, !#structure_gel:river, !#structure_gel:beach");
+            JungleMonument = configs("Jungle Monument", 30, 0.65, Dimension.OVERWORLD, true, "#structure_gel:jungle, !#structure_gel:bamboo_jungle");
+            LargeDungeon = configs("Large Dungeon", 39, 0.35, Dimension.OVERWORLD, true, "#structure_gel:neutral_temp, #structure_gel:cold, !#structure_gel:mountain, !#structure_gel:beach");
+            MinersHouse = configs("Miners House", 24, 0.8, Dimension.OVERWORLD, true, "minecraft:badlands, minecraft:badlands_plateau");
+            MonsterMaze = configs("Monster Maze", 34, 0.5, Dimension.OVERWORLD, true, "#structure_gel:spooky, #structure_gel:pumpkin, !#structure_gel:sandy ,!#structure_gel:mountain");
+            MushroomHouse = configs("Mushroom House", 15, 0.75, Dimension.OVERWORLD, true, "minecraft:mushroom_fields, minecraft:mushroom_field_shore");
+            PillagerCamp = configs("Pillager Camp", 49, 0.35, Dimension.OVERWORLD, true, "#structure_gel:neutral_temp, !#structure_gel:mountain, !#structure_gel:wooded, !#structure_gel:river, !#structure_gel:beach");
+            PirateShip = configs("Pirate Ship", 65, 49, Dimension.OVERWORLD, true, "#structure_gel:ocean");
+            RuinedBuilding = configs("Ruined Building", 27, 0.45, Dimension.OVERWORLD, true, "#structure_gel:neutral_temp, !#structure_gel:river, !#structure_gel:beach, !#structure_gel:mountain");
+            SunkenShrine = configs("Sunken Shrine", 32, 55, Dimension.OVERWORLD, true, "#structure_gel:ocean");
+            Stables = configs("Stables", 46, 0.32, Dimension.OVERWORLD, true, "#structure_gel:neutral_temp, !#structure_gel:mountain, !#structure_gel:wooded, !#structure_gel:beach");
+            TallWitchHut = configs("Tall Witch Hut", 18, 0.6, Dimension.OVERWORLD, true, "#structure_gel:swamp");
+            TowerOfTheUndead = configs("Tower of the Undead", 37, 0.35, Dimension.OVERWORLD, true, "#structure_gel:neutral_temp, #structure_gel:savanna, #structure_gel:swamp, !#structure_gel:mountain");
+            TreeHouse = configs("Tree House", 31, 0.4, Dimension.OVERWORLD, true, "#forge:jungle");
+            WatchTower = configs("Watch Tower", 33, 0.35, Dimension.OVERWORLD, true, "#structure_gel:cold, #structure_gel:snowy");
+            WitchTower = configs("Witch Tower", 25, 0.5, Dimension.OVERWORLD, true, "#structure_gel:spruce_forest, #structure_gel:large_spruce_forest");
         }
 
-        private StructureConfig Configs(String name, int spacing, double prob, boolean isWhite, String biomes) {
-            return new StructureConfig(this.builder, name).spacing(spacing).probability(prob).offset(spacing/3).biomes(isWhite, biomes).validDimensions(Dimension.OVERWORLD.location().toString());
+        private StructureConfig configs(String name, int spacing, double prob, RegistryKey<Dimension> dimension, boolean isWhite, String biomes) {
+            return new StructureConfig(this.builder, name).spacing(spacing).probability(prob).offset(spacing/3).biomes(isWhite, biomes).validDimensions(dimension.location().toString());
         }
     }
 }

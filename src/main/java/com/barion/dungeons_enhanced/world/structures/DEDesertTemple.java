@@ -16,7 +16,7 @@ import static com.barion.dungeons_enhanced.DEUtil.location;
 public class DEDesertTemple extends DESimpleStructure {
     private final ResourceLocation Bottom = location("desert_temple/down");
 
-    public DEDesertTemple() {super(DEConfig.COMMON.desert_temple, new DEStructurePiece("desert_temple/main"));}
+    public DEDesertTemple() {super(DEConfig.COMMON.DesertTemple, new DEStructurePiece("desert_temple/main"));}
 
     @Override
     public void assemble(TemplateManager templateManager, DEStructurePiece variant, BlockPos pos, Rotation rotation, List<StructurePiece> pieces, int variantIndex){

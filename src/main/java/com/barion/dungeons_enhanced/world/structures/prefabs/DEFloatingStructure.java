@@ -1,6 +1,7 @@
 package com.barion.dungeons_enhanced.world.structures.prefabs;
 
 import com.barion.dungeons_enhanced.DEStructures;
+import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
 import com.legacy.structure_gel.util.ConfigTemplates;
 import net.minecraft.nbt.CompoundNBT;
@@ -14,12 +15,8 @@ import java.util.List;
 
 public class DEFloatingStructure extends DEBaseStructure{
 
-    public DEFloatingStructure(ConfigTemplates.StructureConfig config, BlockPos offset, boolean generateNear00, DEStructurePiece... resources) {
-        super(config, GenerationType.inAir, offset, generateNear00, resources);
-    }
-
-    public DEFloatingStructure(ConfigTemplates.StructureConfig config, boolean generateNear00, DEStructurePiece... variants) {
-        super(config, GenerationType.inAir, generateNear00, variants);
+    public DEFloatingStructure(ConfigTemplates.StructureConfig config, boolean generateNear00, DEStructurePiece... resources) {
+        super(config, DETerrainAnalyzer.GenerationType.inAir, generateNear00, resources);
     }
 
     @Override

@@ -30,7 +30,7 @@ import java.util.Random;
 
 public class DELargeDungeon extends GelConfigJigsawStructure {
     public DELargeDungeon(){
-        super(VillageConfig.CODEC, DEConfig.COMMON.large_dungeon, -16, true, true);
+        super(VillageConfig.CODEC, DEConfig.COMMON.LargeDungeon, -16, true, true);
         Pool.init();
     }
 

@@ -29,7 +29,7 @@ import java.util.Random;
 
 public class DEMonsterMaze extends GelConfigJigsawStructure {
     public DEMonsterMaze(){
-        super(VillageConfig.CODEC, DEConfig.COMMON.monster_maze, -17, true, true);
+        super(VillageConfig.CODEC, DEConfig.COMMON.MonsterMaze, -17, true, true);
         Pool.init();
     }
 

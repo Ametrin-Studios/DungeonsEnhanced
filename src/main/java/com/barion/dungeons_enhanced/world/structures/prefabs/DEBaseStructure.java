@@ -112,7 +112,7 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig
     }
 
     public static class Piece extends GelTemplateStructurePiece {
-        private Piece(IStructurePieceType structurePieceType, TemplateManager templateManager, ResourceLocation name, BlockPos pos, Rotation rotation) {
+        public Piece(IStructurePieceType structurePieceType, TemplateManager templateManager, ResourceLocation name, BlockPos pos, Rotation rotation) {
             super(structurePieceType, name, 0);
             this.templatePosition = pos;
             this.rotation = rotation;
