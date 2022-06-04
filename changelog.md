@@ -5,7 +5,8 @@
 * added Pirate Ship
 * added Fishing Ship
 * added Mushroom House variant
-* added `it_it.json` (Zano1999)
+* added 2 new Advancements
+* added `it_it.json` (by Zano1999 #21)
 * adjusted some loot tables
 * updated `DETerrainAnalyzer`
 
