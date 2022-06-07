@@ -1,22 +1,28 @@
 package com.barion.dungeons_enhanced;
 
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
+import com.legacy.structure_gel.data.GelTags;
 import com.legacy.structure_gel.util.RegistryHelper;
 import com.legacy.structure_gel.worldgen.processors.RandomBlockSwapProcessor;
+import com.legacy.structure_gel.worldgen.processors.RandomTagSwapProcessor;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.gen.feature.template.StructureProcessor;
 import net.minecraft.world.gen.feature.template.StructureProcessorList;
 
 import java.util.Random;
 
 public class DEUtil{
-    public static ResourceLocation location(String key){ return new ResourceLocation(DungeonsEnhanced.ModID, key);}
-    public static BlockPos Offset(int x, int y, int z){return new BlockPos(x, y, z);}
+    public static ResourceLocation location(String key) {return new ResourceLocation(DungeonsEnhanced.ModID, key);}
 
     public static class Processors {
         public static final StructureProcessorList AirToCobweb = register("air_to_cobweb", new RandomBlockSwapProcessor(Blocks.AIR, 0.02f, Blocks.COBWEB));
+        public static final StructureProcessor BrainCoral = new RandomBlockSwapProcessor(Blocks.DEAD_BRAIN_CORAL_BLOCK, 1, Blocks.BRAIN_CORAL_BLOCK);
+        public static final StructureProcessor FireCoral = new RandomBlockSwapProcessor(Blocks.DEAD_FIRE_CORAL_BLOCK, 1, Blocks.FIRE_CORAL_BLOCK);
+        public static final StructureProcessor BubbleCoral = new RandomBlockSwapProcessor(Blocks.DEAD_BUBBLE_CORAL_BLOCK, 1, Blocks.BUBBLE_CORAL_BLOCK);
+        public static final StructureProcessor HornCoral = new RandomBlockSwapProcessor(Blocks.DEAD_HORN_CORAL_BLOCK, 1, Blocks.HORN_CORAL_BLOCK);
+        public static final StructureProcessor TubeCoral = new RandomBlockSwapProcessor(Blocks.DEAD_TUBE_CORAL_BLOCK, 1, Blocks.TUBE_CORAL_BLOCK);
+        public static final StructureProcessor Underwater = new RandomTagSwapProcessor(GelTags.GEL, 1, Blocks.WATER);
 
         private static StructureProcessorList register(String key, StructureProcessor processor){
             return RegistryHelper.registerProcessor(location(key), processor);

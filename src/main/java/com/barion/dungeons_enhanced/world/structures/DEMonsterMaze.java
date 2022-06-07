@@ -4,7 +4,6 @@ import com.barion.dungeons_enhanced.DEConfig;
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
-import com.barion.dungeons_enhanced.world.structures.prefabs.DEBaseStructure;
 import com.legacy.structure_gel.worldgen.jigsaw.AbstractGelStructurePiece;
 import com.legacy.structure_gel.worldgen.jigsaw.GelConfigJigsawStructure;
 import com.legacy.structure_gel.worldgen.jigsaw.JigsawPoolBuilder;
@@ -37,20 +36,18 @@ public class DEMonsterMaze extends GelConfigJigsawStructure {
     public boolean isAllowedNearWorldSpawn() {return false;}
 
     @Override
-    protected boolean isFeatureChunk(ChunkGenerator chunkGen, BiomeProvider biomeProvider, long seed, SharedSeedRandom sharedSeedRand, int chunkPosX, int chunkPosZ, Biome biome, ChunkPos chunkPos, VillageConfig config) {
-        boolean canGenerate = super.isFeatureChunk(chunkGen, biomeProvider, seed, sharedSeedRand, chunkPosX, chunkPosZ, biome, chunkPos, config);
-        if(!canGenerate) {return false;}
-
-        return DETerrainAnalyzer.isPositionSuitable(chunkPos, chunkGen, DEBaseStructure.GenerationType.onGround);
+    protected boolean isFeatureChunk(ChunkGenerator chunkGen, BiomeProvider biomeProvider, long seed, SharedSeedRandom sharedSeedRandom, int chunkPosX, int chunkPosZ, Biome biome, ChunkPos chunkPos, VillageConfig config) {
+        if(super.isFeatureChunk(chunkGen, biomeProvider, seed, sharedSeedRandom, chunkPosX, chunkPosZ, biome, chunkPos, config)) {
+            return DETerrainAnalyzer.isFlatEnough(chunkPos, chunkGen);
+        }
+        return false;
     }
 
     public static class Piece extends AbstractGelStructurePiece {
         public Piece(TemplateManager templateManager, JigsawPiece jigsawPiece, BlockPos pos, int groundLevelDelta, Rotation rotation, MutableBoundingBox bounds) {
             super(templateManager, jigsawPiece, pos, groundLevelDelta, rotation, bounds);
         }
-        public Piece(TemplateManager templateManager, CompoundNBT nbt) {
-            super(templateManager, nbt);
-        }
+        public Piece(TemplateManager templateManager, CompoundNBT nbt) {super(templateManager, nbt);}
 
         @Override
         public IStructurePieceType getType() {return DEStructures.MonsterMaze.getPieceType();}

@@ -13,10 +13,10 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 
 import java.util.List;
 
-public class DEFloatingStructure extends DEBaseStructure{
+public class DESwimmingStructure extends DEBaseStructure {
 
-    public DEFloatingStructure(ConfigTemplates.StructureConfig config, boolean generateNear00, DEStructurePiece... resources) {
-        super(config, DETerrainAnalyzer.GenerationType.inAir, generateNear00, resources);
+    public DESwimmingStructure(ConfigTemplates.StructureConfig config, boolean generateNear00, DEStructurePiece[] resources) {
+        super(config, DETerrainAnalyzer.GenerationType.onWater, generateNear00, resources);
     }
 
     @Override

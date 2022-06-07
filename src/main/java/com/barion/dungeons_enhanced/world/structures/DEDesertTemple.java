@@ -12,11 +12,12 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 import java.util.List;
 
 import static com.barion.dungeons_enhanced.DEUtil.location;
+import static com.barion.dungeons_enhanced.DEUtil.pieceBuilder;
 
 public class DEDesertTemple extends DESimpleStructure {
     private final ResourceLocation Bottom = location("desert_temple/down");
 
-    public DEDesertTemple() {super(DEConfig.COMMON.DesertTemple, new DEStructurePiece("desert_temple/main"));}
+    public DEDesertTemple() {super(DEConfig.COMMON.DesertTemple, pieceBuilder().add("desert_temple/main").build());}
 
     @Override
     public void assemble(TemplateManager templateManager, DEStructurePiece variant, BlockPos pos, Rotation rotation, List<StructurePiece> pieces, int variantIndex){
