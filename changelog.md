@@ -9,6 +9,7 @@
 * added `it_it.json` (by Zano1999 #21)
 * adjusted some loot tables
 * updated `DETerrainAnalyzer`
+* requires Structure Gel 2.4.0 or later
 
 ## 3.1
 * ported to 1.18.2
