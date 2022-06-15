@@ -127,6 +127,20 @@
               "function": "minecraft:set_stew_effect",
               "effects": [
                 {
+                  "type": "minecraft:saturation",
+                  "duration": {
+                    "min": 7.0,
+                    "max": 10.0
+                  }
+                },
+                {
+                  "type": "minecraft:weakness",
+                  "duration": {
+                    "min": 6.0,
+                    "max": 8.0
+                  }
+                },
+                {
                   "type": "minecraft:poison",
                   "duration": {
                     "min": 10.0,
@@ -134,7 +148,7 @@
                   }
                 },
                 {
-                  "type": "minecraft:saturation",
+                  "type": "minecraft:night_vision",
                   "duration": {
                     "min": 7.0,
                     "max": 10.0
@@ -152,20 +166,6 @@
                   "duration": {
                     "min": 5.0,
                     "max": 7.0
-                  }
-                },
-                {
-                  "type": "minecraft:night_vision",
-                  "duration": {
-                    "min": 7.0,
-                    "max": 10.0
-                  }
-                },
-                {
-                  "type": "minecraft:weakness",
-                  "duration": {
-                    "min": 6.0,
-                    "max": 8.0
                   }
                 }
               ]
@@ -224,8 +224,8 @@
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "min": 5.0,
-                "max": 10.0,
+                "min": 4.0,
+                "max": 9.0,
                 "type": "minecraft:uniform"
               },
               "treasure": false
@@ -244,8 +244,8 @@
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "min": 5.0,
-                "max": 10.0,
+                "min": 3.0,
+                "max": 8.0,
                 "type": "minecraft:uniform"
               },
               "treasure": false
@@ -263,8 +263,8 @@
             {
               "function": "minecraft:enchant_with_levels",
               "levels": {
-                "min": 5.0,
-                "max": 10.0,
+                "min": 2.0,
+                "max": 7.0,
                 "type": "minecraft:uniform"
               },
               "treasure": false

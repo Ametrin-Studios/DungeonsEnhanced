@@ -519,6 +519,20 @@
               }
             }
           ],
+          "name": "minecraft:music_disc_wait"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 0.0,
+                "max": 1.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
           "name": "minecraft:music_disc_ward"
         }
       ]
