@@ -37,7 +37,7 @@ public class DEStructures {
     public static final StructureRegistrar2<NoFeatureConfig, DESimpleStructure> MinersHouse;
     public static final StructureRegistrar2<VillageConfig, DEMonsterMaze> MonsterMaze;
     public static final StructureRegistrar2<NoFeatureConfig, DESimpleStructure> MushroomHouse;
-    public static final StructureRegistrar2<NoFeatureConfig, DESimpleStructure> PillagerCamp;
+    public static final StructureRegistrar2<VillageConfig, DEPillagerCamp> PillagerCamp;
     public static final StructureRegistrar2<NoFeatureConfig, DESimpleStructure> RuinedBuilding;
     public static final StructureRegistrar2<NoFeatureConfig, DESimpleStructure> Stables;
     public static final StructureRegistrar2<NoFeatureConfig, DESimpleStructure> TallWitchHut;
@@ -62,7 +62,7 @@ public class DEStructures {
         MinersHouse = register("miners_house", new DESimpleStructure(DEConfig.COMMON.MinersHouse, pieceBuilder().offset(-5, 0, -5).add("miners_house").build()), DESimpleStructure.Piece::new);
         MonsterMaze = registerJigsaw("monster_maze", new DEMonsterMaze(), DEMonsterMaze.Pool.Root, 9, DEMonsterMaze.Piece::new);
         MushroomHouse = register("mushroom_house", new DESimpleStructure(DEConfig.COMMON.MushroomHouse, pieceBuilder().offset(-7, 0, -7).add("mushroom_house/red").add("mushroom_house/brown").build()), DESimpleStructure.Piece::new);
-        PillagerCamp = register("pillager_camp", new DESimpleStructure(DEConfig.COMMON.PillagerCamp, pieceBuilder().offset(-9, 0, -14).add("pillager_camp").build()), DESimpleStructure.Piece::new);
+        PillagerCamp = registerJigsaw("pillager_camp", new DEPillagerCamp(), DEPillagerCamp.Pool.Root, 4, DEPillagerCamp.Piece::new);
         RuinedBuilding = register("ruined_building", new DESimpleStructure(DEConfig.COMMON.RuinedBuilding, true, pieceBuilder().offset(-5, 0, -5).weight(3).add("ruined_building/house").offset(-6, 0, -8).weight(2).add("ruined_building/house_big").offset(-4, 0, -5).weight(3).add("ruined_building/barn").build()), DESimpleStructure.Piece::new);
         Stables = register("stables", new DESimpleStructure(DEConfig.COMMON.Stables, pieceBuilder().offset(-8, -6, -13).add("stables").build()), DESimpleStructure.Piece::new);
         TallWitchHut = register("tall_witch_hut", new DESimpleStructure(DEConfig.COMMON.TallWitchHut, pieceBuilder().offset(-3, -3, -4).add("tall_witch_hut").build()), DESimpleStructure.Piece::new);

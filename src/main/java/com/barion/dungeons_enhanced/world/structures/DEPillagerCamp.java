@@ -3,16 +3,20 @@ package com.barion.dungeons_enhanced.world.structures;
 import com.barion.dungeons_enhanced.DEConfig;
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
+import com.google.common.collect.ImmutableList;
 import com.legacy.structure_gel.worldgen.jigsaw.AbstractGelStructurePiece;
 import com.legacy.structure_gel.worldgen.jigsaw.GelConfigJigsawStructure;
 import com.legacy.structure_gel.worldgen.jigsaw.JigsawPoolBuilder;
 import com.legacy.structure_gel.worldgen.jigsaw.JigsawRegistryHelper;
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.EntityType;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.IServerWorld;
+import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraft.world.gen.feature.jigsaw.JigsawPattern;
 import net.minecraft.world.gen.feature.jigsaw.JigsawPiece;
 import net.minecraft.world.gen.feature.structure.IStructurePieceType;
@@ -25,7 +29,10 @@ public class DEPillagerCamp extends GelConfigJigsawStructure {
     public DEPillagerCamp() {
         super(VillageConfig.CODEC, DEConfig.COMMON.PillagerCamp, 0, true, true);
         Pool.init();
+        setSpawnList(EntityClassification.MONSTER, ImmutableList.of(new MobSpawnInfo.Spawners(EntityType.PILLAGER, 2, 1, 1), new MobSpawnInfo.Spawners(EntityType.VINDICATOR, 1, 1, 1)));
     }
+
+
 
     @Override
     public boolean isAllowedNearWorldSpawn() {return true;}

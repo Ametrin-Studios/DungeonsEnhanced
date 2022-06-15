@@ -65,7 +65,7 @@ public class DEConfig {
             PirateShip = configs("Pirate Ship", 65, 49, Dimension.OVERWORLD, true, "#structure_gel:ocean");
             RuinedBuilding = configs("Ruined Building", 27, 0.45, Dimension.OVERWORLD, true, "#structure_gel:neutral_temp, !#structure_gel:river, !#structure_gel:beach, !#structure_gel:mountain");
             SunkenShrine = configs("Sunken Shrine", 32, 55, Dimension.OVERWORLD, true, "#structure_gel:ocean");
-            Stables = configs("Stables", 46, 0.32, Dimension.OVERWORLD, true, "#structure_gel:neutral_temp, !#structure_gel:mountain, !#structure_gel:wooded, !#structure_gel:beach");
+            Stables = configs("Stables", 43, 0.57, Dimension.OVERWORLD, true, "#structure_gel:neutral_temp, !#structure_gel:mountain, !#structure_gel:wooded, !#structure_gel:beach");
             TallWitchHut = configs("Tall Witch Hut", 18, 0.6, Dimension.OVERWORLD, true, "#structure_gel:swamp");
             TowerOfTheUndead = configs("Tower of the Undead", 37, 0.35, Dimension.OVERWORLD, true, "#structure_gel:neutral_temp, #structure_gel:savanna, #structure_gel:swamp, !#structure_gel:mountain");
             TreeHouse = configs("Tree House", 31, 0.4, Dimension.OVERWORLD, true, "#forge:jungle");
@@ -74,7 +74,7 @@ public class DEConfig {
         }
 
         private StructureConfig configs(String name, int spacing, double prob, RegistryKey<Dimension> dimension, boolean isWhite, String biomes) {
-            return new StructureConfig(this.builder, name).spacing(spacing).probability(prob).offset(spacing/3).biomes(isWhite, biomes).validDimensions(dimension.location().toString());
+            return new StructureConfig(this.builder, name).spacing(spacing).probability(prob).offset((int) (spacing/1.5f)).biomes(isWhite, biomes).validDimensions(dimension.location().toString());
         }
     }
 }
