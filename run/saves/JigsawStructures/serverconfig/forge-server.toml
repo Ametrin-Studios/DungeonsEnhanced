@@ -19,4 +19,6 @@
 	permissionHandler = "forge:default_handler"
 	#Skip checking if an ingredient is empty during shapeless recipe deserialization to prevent complex ingredients from caching tags too early.
 	skipEmptyShapelessCheck = true
+	#Set this to true to remove any Entity (Note: Does not include BlockEntities) that throws an error in its tick method instead of closing the server and reporting a crash log. BE WARNED THIS COULD SCREW UP EVERYTHING USE SPARINGLY WE ARE NOT RESPONSIBLE FOR DAMAGES.
+	removeErroringEntities = false
 
