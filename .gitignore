@@ -19,10 +19,16 @@ build
 
 # other
 eclipse
-run
+run/mods
+run/saves/DungeonsEnhanced
+run/saves/JigsawStructuresOld
+run/screenshots
+run/usercache.json
+run/usernamecache.json
 
 # Files from Forge MDK
 forge*changelog.txt
 /structureList.xcf
 /structures.xcf
 /Logo.xcf
+/run/usercache.json
