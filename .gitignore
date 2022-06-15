@@ -19,7 +19,9 @@ build
 
 # other
 eclipse
+run/logs
 run/mods
+run/resourcepacks
 run/saves/DungeonsEnhanced
 run/saves/JigsawStructuresOld
 run/screenshots
