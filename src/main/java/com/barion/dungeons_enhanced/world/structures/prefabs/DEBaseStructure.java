@@ -61,9 +61,13 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig
     @Override
     protected boolean isFeatureChunk(ChunkGenerator chunkGen, BiomeProvider biomeProvider, long seed, SharedSeedRandom sharedSeedRand, int chunkPosX, int chunkPosZ, Biome biomeIn, ChunkPos chunkPos, NoFeatureConfig config) {
         if(super.isFeatureChunk(chunkGen, biomeProvider, seed, sharedSeedRand, chunkPosX, chunkPosZ, biomeIn, chunkPos, config)){
-            return DETerrainAnalyzer.isFlatEnough(chunkPos, chunkGen, terrainAnalyzeSettings);
+            return checkLocation(chunkGen, biomeProvider, seed, sharedSeedRand, chunkPosX, chunkPosZ, biomeIn, chunkPos, config);
         }
         return false;
+    }
+
+    protected boolean checkLocation(ChunkGenerator chunkGen, BiomeProvider biomeProvider, long seed, SharedSeedRandom sharedSeedRand, int chunkPosX, int chunkPosZ, Biome biomeIn, ChunkPos chunkPos, NoFeatureConfig config){
+        return DETerrainAnalyzer.isFlatEnough(chunkPos, chunkGen, terrainAnalyzeSettings);
     }
 
     public abstract void assemble(TemplateManager templateManager, DEStructurePiece variant, BlockPos pos, Rotation rotation, List<StructurePiece> pieces, int variantIndex);
@@ -76,8 +80,8 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig
 
         @Override @ParametersAreNonnullByDefault
         public void generatePieces(DynamicRegistries registry, ChunkGenerator chunkGen, TemplateManager templateManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig featureConfig) {
-            int x = chunkX * 16;
-            int z = chunkZ * 16;
+            int x = chunkX << 4;
+            int z = chunkZ << 4;
             int y = 72;
 
             int minY;
@@ -88,7 +92,7 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig
                     y = chunkGen.getBaseHeight(x, z, Heightmap.Type.WORLD_SURFACE_WG);
                     break;
                 case underwater:
-                    y = chunkGen.getBaseHeight(x, y, Heightmap.Type.OCEAN_FLOOR_WG);
+                    y = chunkGen.getBaseHeight(x, z, Heightmap.Type.OCEAN_FLOOR_WG);
                     break;
                 case inAir:
                     minY = chunkGen.getBaseHeight(x, z, Heightmap.Type.WORLD_SURFACE_WG) + 35;

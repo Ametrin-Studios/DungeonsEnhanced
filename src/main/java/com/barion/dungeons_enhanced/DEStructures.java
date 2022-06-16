@@ -29,6 +29,7 @@ public class DEStructures {
     public static final StructureRegistrar2<VillageConfig, DEDesertTomb> DesertTomb;
     public static final StructureRegistrar2<VillageConfig, DECellarStructure> DruidCircle;
     public static final StructureRegistrar2<NoFeatureConfig, DEUndergroundStructure> DungeonVariant;
+    public static final StructureRegistrar2<NoFeatureConfig, DEEldersTemple> EldersTemple;
     //public static final StructureRegistrar2<NoFeatureConfig, DEFloatingStructure> FlyingDutchman;
     public static final StructureRegistrar2<NoFeatureConfig, DESimpleStructure> HayStorage;
     public static final StructureRegistrar2<NoFeatureConfig, DEIcePit> IcePit;
@@ -54,6 +55,7 @@ public class DEStructures {
         DesertTomb = registerJigsaw("desert_tomb", new DEDesertTomb(), DEDesertTomb.Pool.Root, 4, DEDesertTomb.Piece::new);
         DruidCircle = registerCellarStructure("druid_circle", new DECellarStructure(DEConfig.COMMON.DruidCircle, DETerrainAnalyzer.defaultSettings, true), DECellarStructure.DruidCirclePool.Root, DECellarStructure.Piece::new);
         DungeonVariant = register("dungeon_variant", new DEUndergroundStructure(DEConfig.COMMON.DungeonVariant, true, pieceBuilder().offset(-6, 0, -6).add("dungeon_variant/zombie").add("dungeon_variant/skeleton").add("dungeon_variant/spider").build()), DEUndergroundStructure.Piece::new);
+        EldersTemple = register("elders_temple", new DEEldersTemple(), DEEldersTemple.Piece::new);
         //FlyingDutchman = register("flying_dutchman", new DEFloatingStructure(DEConfig.COMMON.flying_dutchman, false, new DEPiece("flying_dutchman", Offset(-4, 0, -15))), DEFloatingStructure.Piece::new);
         HayStorage = register("hay_storage", new DESimpleStructure(DEConfig.COMMON.HayStorage, true, pieceBuilder().offset(-7, 0, -7).add("hay_storage/small").offset(-9, 0, -9).add("hay_storage/big").build()), DESimpleStructure.Piece::new);
         IcePit = register("ice_pit", new DEIcePit(), DESimpleStructure.Piece::new);
@@ -103,6 +105,7 @@ public class DEStructures {
                 DesertTomb,
                 DruidCircle,
                 DungeonVariant,
+                EldersTemple,
                 HayStorage,
                 IcePit,
                 JungleMonument,

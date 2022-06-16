@@ -7,7 +7,13 @@ import com.legacy.structure_gel.util.ConfigTemplates;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
+import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.provider.BiomeProvider;
+import net.minecraft.world.gen.ChunkGenerator;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
@@ -17,6 +23,11 @@ public class DEUndergroundStructure extends DEBaseStructure{
 
     public DEUndergroundStructure(ConfigTemplates.StructureConfig config, boolean generateNear00, DEStructurePiece[] variants) {
         super(config, DETerrainAnalyzer.GenerationType.underground, generateNear00, variants);
+    }
+
+    @Override
+    protected boolean checkLocation(ChunkGenerator chunkGen, BiomeProvider biomeProvider, long seed, SharedSeedRandom sharedSeedRand, int chunkPosX, int chunkPosZ, Biome biomeIn, ChunkPos chunkPos, NoFeatureConfig config) {
+        return DETerrainAnalyzer.isGroundHighEnough(chunkPos, chunkGen, 16);
     }
 
     @Override

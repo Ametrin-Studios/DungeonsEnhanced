@@ -19,15 +19,11 @@ build
 
 # other
 eclipse
-run/logs
-run/mods
-run/resourcepacks
-run/saves/DungeonsEnhanced
-run/saves/JigsawStructuresOld
-run/saves/New World
-run/screenshots
-run/usercache.json
-run/usernamecache.json
+run
+!run/config
+!run/logs
+!run/saves/Structures
+!run/options.txt
 
 # Files from Forge MDK
 forge*changelog.txt

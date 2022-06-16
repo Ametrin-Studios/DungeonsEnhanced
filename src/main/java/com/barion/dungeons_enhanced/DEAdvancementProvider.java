@@ -38,13 +38,14 @@ public class DEAdvancementProvider extends AdvancementProvider {
         //Advancement InTheAir = enterStructure(builder(Items.BLACK_BANNER, "in_the_air", FrameType.TASK, true, true, false), DEStructures.FlyingDutchman).parent(root).save(consumer, location("in_the_air"));
         Advancement SevenWorldWonders = enterAnyStructure(builder(Items.COMPASS, "seven_world_wonders", FrameType.GOAL, true, true, false),
                 new Structure<?>[] {
-                        DEStructures.MonsterMaze.getStructure(),
-                        DEStructures.LargeDungeon.getStructure(),
-                        DEStructures.DesertTemple.getStructure(),
-                        DEStructures.JungleMonument.getStructure(),
                         DEStructures.Castle.getStructure(),
-                        DEStructures.MushroomHouse.getStructure(),
-                        DEStructures.IcePit.getStructure()}
+                        DEStructures.EldersTemple.getStructure(),
+                        DEStructures.DesertTemple.getStructure(),
+                        DEStructures.IcePit.getStructure(),
+                        DEStructures.JungleMonument.getStructure(),
+                        DEStructures.MonsterMaze.getStructure(),
+                        DEStructures.MushroomHouse.getStructure()
+        }
                 ).requirements(IRequirementsStrategy.AND).parent(root).save(consumer, location("seven_world_wonders"));
         Advancement AmbitiousExplorer = enterAnyStructure(builder(Items.FILLED_MAP, "ambitious_explorer", FrameType.CHALLENGE, true, true, false), DEStructures.getAllStructures()).requirements(IRequirementsStrategy.AND).parent(root).save(consumer, location("ambitious_explorer"));
     }

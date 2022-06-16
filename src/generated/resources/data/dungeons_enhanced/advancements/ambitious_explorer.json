@@ -56,6 +56,14 @@
         }
       }
     },
+    "entered_elders_temple": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:elders_temple"
+        }
+      }
+    },
     "entered_hay_storage": {
       "trigger": "minecraft:location",
       "conditions": {
@@ -192,6 +200,9 @@
     ],
     [
       "entered_dungeon_variant"
+    ],
+    [
+      "entered_elders_temple"
     ],
     [
       "entered_hay_storage"

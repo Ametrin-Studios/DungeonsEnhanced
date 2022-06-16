@@ -1,4 +1,7 @@
 ## 1.8
+* added Elders Temple
+* added Mushroom House variant (brown)
+* overhauled Pillager Camp
 * adjusted config
 * fixed crash
 * updated `DETerrainAnalyzer`

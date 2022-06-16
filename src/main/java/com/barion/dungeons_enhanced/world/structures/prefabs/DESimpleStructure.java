@@ -23,7 +23,6 @@ public class DESimpleStructure extends DEBaseStructure {
         super(config, DETerrainAnalyzer.GenerationType.onGround, generateNear00, variants);
     }
 
-
     @Override
     public void assemble(TemplateManager templateManager, DEStructurePiece variant, BlockPos pos, Rotation rotation, List<StructurePiece> pieces, int variantIndex) {
         pieces.add(new Piece(templateManager, variant.Resource, pos, rotation));

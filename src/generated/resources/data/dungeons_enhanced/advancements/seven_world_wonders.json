@@ -16,19 +16,19 @@
     "hidden": false
   },
   "criteria": {
-    "entered_monster_maze": {
+    "entered_castle": {
       "trigger": "minecraft:location",
       "conditions": {
         "location": {
-          "feature": "dungeons_enhanced:monster_maze"
+          "feature": "dungeons_enhanced:castle"
         }
       }
     },
-    "entered_large_dungeon": {
+    "entered_elders_temple": {
       "trigger": "minecraft:location",
       "conditions": {
         "location": {
-          "feature": "dungeons_enhanced:large_dungeon"
+          "feature": "dungeons_enhanced:elders_temple"
         }
       }
     },
@@ -40,6 +40,14 @@
         }
       }
     },
+    "entered_ice_pit": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:ice_pit"
+        }
+      }
+    },
     "entered_jungle_monument": {
       "trigger": "minecraft:location",
       "conditions": {
@@ -48,11 +56,11 @@
         }
       }
     },
-    "entered_castle": {
+    "entered_monster_maze": {
       "trigger": "minecraft:location",
       "conditions": {
         "location": {
-          "feature": "dungeons_enhanced:castle"
+          "feature": "dungeons_enhanced:monster_maze"
         }
       }
     },
@@ -63,37 +71,29 @@
           "feature": "dungeons_enhanced:mushroom_house"
         }
       }
-    },
-    "entered_ice_pit": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "feature": "dungeons_enhanced:ice_pit"
-        }
-      }
     }
   },
   "requirements": [
     [
-      "entered_monster_maze"
+      "entered_castle"
     ],
     [
-      "entered_large_dungeon"
+      "entered_elders_temple"
     ],
     [
       "entered_desert_temple"
     ],
     [
+      "entered_ice_pit"
+    ],
+    [
       "entered_jungle_monument"
     ],
     [
-      "entered_castle"
+      "entered_monster_maze"
     ],
     [
       "entered_mushroom_house"
-    ],
-    [
-      "entered_ice_pit"
     ]
   ]
 }
