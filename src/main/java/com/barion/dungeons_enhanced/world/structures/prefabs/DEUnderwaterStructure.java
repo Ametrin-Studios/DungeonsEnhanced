@@ -1,13 +1,12 @@
 package com.barion.dungeons_enhanced.world.structures.prefabs;
 
 import com.barion.dungeons_enhanced.DEStructures;
-import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEPieceAssembler;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
+import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEUnderwaterProcessor;
 import com.legacy.structure_gel.api.config.StructureConfig;
 import com.legacy.structure_gel.api.structure.GelTemplateStructurePiece;
-import com.legacy.structure_gel.api.structure.processor.RemoveGelStructureProcessor;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Vec3i;
 import net.minecraft.nbt.CompoundTag;
@@ -18,7 +17,6 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
-import net.minecraft.world.level.levelgen.structure.templatesystem.BlockIgnoreProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
@@ -54,7 +52,7 @@ public class DEUnderwaterStructure extends DEBaseStructure {
             Vec3i size = Vec3i.ZERO;
             if(temp.isPresent()) {size = temp.get().getSize();}
             StructurePlaceSettings settings = new StructurePlaceSettings().setKeepLiquids(true).setRotationPivot(new BlockPos(size.getX()/2, 0, size.getZ()/2).rotate(rotation));
-            settings.addProcessor(BlockIgnoreProcessor.STRUCTURE_AND_AIR).addProcessor(DEUtil.Processors.Underwater);
+            settings.addProcessor(DEUnderwaterProcessor.Instance);
             return settings;
         }
 
