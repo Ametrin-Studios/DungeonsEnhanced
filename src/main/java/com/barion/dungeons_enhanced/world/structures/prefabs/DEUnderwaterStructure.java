@@ -40,7 +40,7 @@ public class DEUnderwaterStructure extends DEBaseStructure {
 
     @Override
     protected boolean checkLocation(ChunkGenerator chunkGen, BiomeProvider biomeProvider, long seed, SharedSeedRandom sharedSeedRand, int chunkPosX, int chunkPosZ, Biome biomeIn, ChunkPos chunkPos, NoFeatureConfig config) {
-        return DETerrainAnalyzer.isUnderwater(chunkPos, chunkGen, 16);
+        return DETerrainAnalyzer.isUnderwater(chunkPos, chunkGen, 12);
     }
 
     @Override
