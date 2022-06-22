@@ -2,9 +2,7 @@ package com.barion.dungeons_enhanced;
 
 import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structures.*;
-import com.barion.dungeons_enhanced.world.structures.prefabs.DECellarStructure;
-import com.barion.dungeons_enhanced.world.structures.prefabs.DESimpleStructure;
-import com.barion.dungeons_enhanced.world.structures.prefabs.DEUndergroundStructure;
+import com.barion.dungeons_enhanced.world.structures.prefabs.*;
 import com.legacy.structure_gel.access_helpers.JigsawAccessHelper;
 import com.legacy.structure_gel.registrars.GelStructureRegistrar;
 import com.legacy.structure_gel.registrars.StructureRegistrar2;
@@ -30,7 +28,8 @@ public class DEStructures {
     public static final StructureRegistrar2<VillageConfig, DECellarStructure> DruidCircle;
     public static final StructureRegistrar2<NoFeatureConfig, DEUndergroundStructure> DungeonVariant;
     public static final StructureRegistrar2<NoFeatureConfig, DEEldersTemple> EldersTemple;
-    //public static final StructureRegistrar2<NoFeatureConfig, DEFloatingStructure> FlyingDutchman;
+    public static final StructureRegistrar2<NoFeatureConfig, DESwimmingStructure> FishingShip;
+    public static final StructureRegistrar2<NoFeatureConfig, DEFlyingStructure> FlyingDutchman;
     public static final StructureRegistrar2<NoFeatureConfig, DESimpleStructure> HayStorage;
     public static final StructureRegistrar2<NoFeatureConfig, DEIcePit> IcePit;
     public static final StructureRegistrar2<NoFeatureConfig, DESimpleStructure> JungleMonument;
@@ -41,6 +40,7 @@ public class DEStructures {
     public static final StructureRegistrar2<VillageConfig, DEPillagerCamp> PillagerCamp;
     public static final StructureRegistrar2<NoFeatureConfig, DESimpleStructure> RuinedBuilding;
     public static final StructureRegistrar2<NoFeatureConfig, DESimpleStructure> Stables;
+    public static final StructureRegistrar2<NoFeatureConfig, DEUnderwaterStructure> SunkenShrine;
     public static final StructureRegistrar2<NoFeatureConfig, DESimpleStructure> TallWitchHut;
     public static final StructureRegistrar2<NoFeatureConfig, DESimpleStructure> TreeHouse;
     public static final StructureRegistrar2<NoFeatureConfig, DESimpleStructure> TowerOfTheUndead;
@@ -56,7 +56,8 @@ public class DEStructures {
         DruidCircle = registerCellarStructure("druid_circle", new DECellarStructure(DEConfig.COMMON.DruidCircle, DETerrainAnalyzer.defaultSettings, true), DECellarStructure.DruidCirclePool.Root, DECellarStructure.Piece::new);
         DungeonVariant = register("dungeon_variant", new DEUndergroundStructure(DEConfig.COMMON.DungeonVariant, true, pieceBuilder().offset(-6, 0, -6).add("dungeon_variant/zombie").add("dungeon_variant/skeleton").add("dungeon_variant/spider").build()), DEUndergroundStructure.Piece::new);
         EldersTemple = register("elders_temple", new DEEldersTemple(), DEEldersTemple.Piece::new);
-        //FlyingDutchman = register("flying_dutchman", new DEFloatingStructure(DEConfig.COMMON.flying_dutchman, false, new DEPiece("flying_dutchman", Offset(-4, 0, -15))), DEFloatingStructure.Piece::new);
+        FishingShip = register("fishing_ship", new DESwimmingStructure(DEConfig.COMMON.FishingShip, true, pieceBuilder().offset(-4, -3, -14).add("fishing_ship").build()), DESwimmingStructure.Piece::new);
+        FlyingDutchman = register("flying_dutchman", new DEFlyingStructure(DEConfig.COMMON.FlyingDutchman, false, pieceBuilder().offset(-4, -4, -15).add("flying_dutchman").build()), DEFlyingStructure.Piece::new);
         HayStorage = register("hay_storage", new DESimpleStructure(DEConfig.COMMON.HayStorage, true, pieceBuilder().offset(-7, 0, -7).add("hay_storage/small").offset(-9, 0, -9).add("hay_storage/big").build()), DESimpleStructure.Piece::new);
         IcePit = register("ice_pit", new DEIcePit(), DESimpleStructure.Piece::new);
         JungleMonument = register("jungle_monument", new DESimpleStructure(DEConfig.COMMON.JungleMonument, pieceBuilder().offset(-12, -9, -12).add("jungle_monument").build()), DESimpleStructure.Piece::new);
@@ -67,6 +68,7 @@ public class DEStructures {
         PillagerCamp = registerJigsaw("pillager_camp", new DEPillagerCamp(), DEPillagerCamp.Pool.Root, 4, DEPillagerCamp.Piece::new);
         RuinedBuilding = register("ruined_building", new DESimpleStructure(DEConfig.COMMON.RuinedBuilding, true, pieceBuilder().offset(-5, 0, -5).weight(3).add("ruined_building/house").offset(-6, 0, -8).weight(2).add("ruined_building/house_big").offset(-4, 0, -5).weight(3).add("ruined_building/barn").build()), DESimpleStructure.Piece::new);
         Stables = register("stables", new DESimpleStructure(DEConfig.COMMON.Stables, pieceBuilder().offset(-8, -6, -13).add("stables").build()), DESimpleStructure.Piece::new);
+        SunkenShrine = register("sunken_shrine", new DEUnderwaterStructure(DEConfig.COMMON.SunkenShrine, true, pieceBuilder().offset(-5, -1, -8).add("sunken_shrine").build()), DEUnderwaterStructure.Piece::new);
         TallWitchHut = register("tall_witch_hut", new DESimpleStructure(DEConfig.COMMON.TallWitchHut, pieceBuilder().offset(-3, -3, -4).add("tall_witch_hut").build()), DESimpleStructure.Piece::new);
         TreeHouse = register("tree_house", new DESimpleStructure(DEConfig.COMMON.TreeHouse,pieceBuilder().offset(-11, 0, -12).add("tree_house").build()), DESimpleStructure.Piece::new);
         TowerOfTheUndead = register("tower_of_the_undead", new DESimpleStructure(DEConfig.COMMON.TowerOfTheUndead, true, pieceBuilder().offset(-5, 0, -5).weight(3).add("tower_of_the_undead/small").offset(-7, 0, -7).weight(2).add("tower_of_the_undead/big").build()), DESimpleStructure.Piece::new);
@@ -106,6 +108,8 @@ public class DEStructures {
                 DruidCircle,
                 DungeonVariant,
                 EldersTemple,
+                FishingShip,
+                FlyingDutchman,
                 HayStorage,
                 IcePit,
                 JungleMonument,
@@ -116,6 +120,7 @@ public class DEStructures {
                 PillagerCamp,
                 RuinedBuilding,
                 Stables,
+                SunkenShrine,
                 TallWitchHut,
                 TreeHouse,
                 TowerOfTheUndead,
