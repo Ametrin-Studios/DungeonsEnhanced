@@ -20,6 +20,8 @@ build
 # other
 eclipse
 run
+run/logs/debug.log
+run/logs/latest.log
 !run/config
 !run/saves/JigsawStructures
 !run/saves/Structures
