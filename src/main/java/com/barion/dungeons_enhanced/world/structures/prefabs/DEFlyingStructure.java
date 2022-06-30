@@ -12,9 +12,9 @@ import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 
-public class DEFloatingStructure extends DEBaseStructure{
-    public DEFloatingStructure(StructureConfig config, boolean generateNearSpawn, DEStructurePiece[] resources) {
-        super(config, DETerrainAnalyzer.GenerationType.inAir, generateNearSpawn, (context) -> DETerrainAnalyzer.isGroundLowEnough(context.chunkPos(), context.chunkGenerator(), 72, context.heightAccessor()), DEFloatingStructure::assemble, resources);
+public class DEFlyingStructure extends DEBaseStructure{
+    public DEFlyingStructure(StructureConfig config, boolean generateNearSpawn, DEStructurePiece[] resources) {
+        super(config, DETerrainAnalyzer.GenerationType.inAir, generateNearSpawn, (context) -> DETerrainAnalyzer.isGroundLowEnough(context.chunkPos(), context.chunkGenerator(), 72, context.heightAccessor()), DEFlyingStructure::assemble, resources);
     }
 
     public static void assemble(DEPieceAssembler.Context context) {

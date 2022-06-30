@@ -27,8 +27,8 @@ public class DEStructures {
     public static final StructureRegistrar<JigsawConfiguration, DECellarStructure> DruidCircle;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEUndergroundStructure> DungeonVariant;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEEldersTemple> EldersTemple;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DEShipStructure> FishingShip;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DEFloatingStructure> FlyingDutchman;
+    public static final StructureRegistrar<NoneFeatureConfiguration, DESwimmingStructure> FishingShip;
+    public static final StructureRegistrar<NoneFeatureConfiguration, DEFlyingStructure> FlyingDutchman;
     public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> HayStorage;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEIcePit> IcePit;
     public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> JungleMonument;
@@ -112,7 +112,7 @@ public class DEStructures {
                 .addPiece(DEEldersTemple.Piece::new)
                 .build();
 
-        FishingShip = StructureRegistrar.builder(location("fishing_ship"), () -> new DEShipStructure(DEConfig.COMMON.FishingShip, pieceBuilder().offset(-4, -3, -14).add("fishing_ship").build()))
+        FishingShip = StructureRegistrar.builder(location("fishing_ship"), () -> new DESwimmingStructure(DEConfig.COMMON.FishingShip, pieceBuilder().offset(-4, -3, -14).add("fishing_ship").build()))
                 .pushConfigured(NoneFeatureConfiguration.INSTANCE)
                         .biomes(DEConfig.COMMON.FishingShip.getConfigured())
                         .dimensions(DEConfig.COMMON.FishingShip.getConfigured())
@@ -120,12 +120,12 @@ public class DEStructures {
                 .addPiece(DESimpleStructure.Piece::new)
                 .build();
 
-        FlyingDutchman = StructureRegistrar.builder(location("flying_dutchman"), () -> new DEFloatingStructure(DEConfig.COMMON.FlyingDutchman, false, pieceBuilder().offset(-4, 0, -15).add("flying_dutchman").build()))
+        FlyingDutchman = StructureRegistrar.builder(location("flying_dutchman"), () -> new DEFlyingStructure(DEConfig.COMMON.FlyingDutchman, false, pieceBuilder().offset(-4, 0, -15).add("flying_dutchman").build()))
                 .pushConfigured(NoneFeatureConfiguration.INSTANCE)
                         .biomes(DEConfig.COMMON.FlyingDutchman.getConfigured())
                         .dimensions(DEConfig.COMMON.FlyingDutchman.getConfigured())
                 .popConfigured()
-                .addPiece(DEFloatingStructure.Piece::new)
+                .addPiece(DEFlyingStructure.Piece::new)
                 .build();
 
         HayStorage = StructureRegistrar.builder(location("hay_storage"), () -> new DESimpleStructure(DEConfig.COMMON.HayStorage, pieceBuilder().offset(-7, 0, -7).add("hay_storage/small").offset(-9, 0, -9).add("hay_storage/big").build()))

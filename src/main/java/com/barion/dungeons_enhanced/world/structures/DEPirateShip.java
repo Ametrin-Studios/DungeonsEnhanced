@@ -3,14 +3,14 @@ package com.barion.dungeons_enhanced.world.structures;
 import com.barion.dungeons_enhanced.DEConfig;
 import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
-import com.barion.dungeons_enhanced.world.structures.prefabs.DEShipStructure;
+import com.barion.dungeons_enhanced.world.structures.prefabs.DESwimmingStructure;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEPieceAssembler;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Rotation;
 
 import static com.barion.dungeons_enhanced.DEUtil.location;
 
-public class DEPirateShip extends DEShipStructure {
+public class DEPirateShip extends DESwimmingStructure {
     private static final ResourceLocation Back = location("pirate_ship/back");
 
     public DEPirateShip() {super(DEConfig.COMMON.PirateShip, true, true, (context -> DETerrainAnalyzer.areNearbyBiomesValid(context.biomeSource(), context.chunkPos(), context.chunkGenerator(), 16, context.validBiome())), DEPirateShip::assembleShip, DEUtil.pieceBuilder().offset(-7, -3, -25).add("pirate_ship/front").build());}
