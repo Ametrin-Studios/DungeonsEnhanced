@@ -98,6 +98,8 @@ public class DEStructures {
                 WitchTower
         );
         DungeonsEnhanced.LOGGER.info("Dungeons Enhanced structures loaded");
+
+        DEUtil.Processors.Types.register();
     }
 
     public static StructureRegistrar2<?,?>[] getAllStructureRegistrars(){

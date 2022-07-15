@@ -1,10 +1,10 @@
-[22Jun2022 08:36:57.225] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [-mixin.config=structure_gel.mixins.json, --gameDir, ., --launchTarget, fmluserdevclient, --fml.mcpVersion, 20210115.111550, --fml.mcVersion, 1.16.5, --fml.forgeGroup, net.minecraftforge, --fml.forgeVersion, 36.2.35, --assetIndex, 1.16, --assetsDir, C:\Users\Barion\.gradle\caches\forge_gradle\assets, --version, MOD_DEV, --username, Dev, --accessToken, ????????, --userProperties, {}]
-[22Jun2022 08:36:57.231] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 8.1.3+8.1.3+main-8.1.x.c94d18ec starting: java version 1.8.0_322 by Temurin
-[22Jun2022 08:36:57.708] [main/INFO] [net.minecraftforge.fml.loading.FixSSL/CORE]: Added Lets Encrypt root certificates as additional trust
-[22Jun2022 08:36:57.778] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.4 Source=file:/C:/Users/Barion/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.4/4ec7d77d9ab32596ca0b78bb123956734767e3a/mixin-0.8.4.jar Service=ModLauncher Env=CLIENT
-[22Jun2022 08:37:01.193] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'fmluserdevclient' with arguments [--version, MOD_DEV, --gameDir, ., --assetsDir, C:\Users\Barion\.gradle\caches\forge_gradle\assets, --assetIndex, 1.16, --username, Dev, --accessToken, ????????, --userProperties, {}]
-[22Jun2022 08:37:12.329] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
-[22Jun2022 08:37:13.060] [Render thread/ERROR] [net.minecraft.client.Minecraft/]: Failed to verify authentication
+[15Jul2022 09:42:07.474] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [-mixin.config=structure_gel.mixins.json, --gameDir, ., --launchTarget, fmluserdevclient, --fml.mcpVersion, 20210115.111550, --fml.mcVersion, 1.16.5, --fml.forgeGroup, net.minecraftforge, --fml.forgeVersion, 36.2.35, --assetIndex, 1.16, --assetsDir, C:\Users\Barion\.gradle\caches\forge_gradle\assets, --version, MOD_DEV, --username, Dev, --accessToken, ????????, --userProperties, {}]
+[15Jul2022 09:42:07.490] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 8.1.3+8.1.3+main-8.1.x.c94d18ec starting: java version 1.8.0_312 by Temurin
+[15Jul2022 09:42:08.815] [main/INFO] [net.minecraftforge.fml.loading.FixSSL/CORE]: Added Lets Encrypt root certificates as additional trust
+[15Jul2022 09:42:08.956] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.4 Source=file:/C:/Users/Barion/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.4/4ec7d77d9ab32596ca0b78bb123956734767e3a/mixin-0.8.4.jar Service=ModLauncher Env=CLIENT
+[15Jul2022 09:42:13.594] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'fmluserdevclient' with arguments [--version, MOD_DEV, --gameDir, ., --assetsDir, C:\Users\Barion\.gradle\caches\forge_gradle\assets, --assetIndex, 1.16, --username, Dev, --accessToken, ????????, --userProperties, {}]
+[15Jul2022 09:42:33.805] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[15Jul2022 09:42:35.011] [Render thread/ERROR] [net.minecraft.client.Minecraft/]: Failed to verify authentication
 com.mojang.authlib.exceptions.AuthenticationUnavailableException: null
 	at com.mojang.authlib.yggdrasil.YggdrasilSocialInteractionsService.checkPrivileges(YggdrasilSocialInteractionsService.java:97) ~[authlib-2.1.28.jar:?]
 	at com.mojang.authlib.yggdrasil.YggdrasilSocialInteractionsService.<init>(YggdrasilSocialInteractionsService.java:40) ~[authlib-2.1.28.jar:?]
@@ -12,10 +12,10 @@ com.mojang.authlib.exceptions.AuthenticationUnavailableException: null
 	at net.minecraft.client.Minecraft.createSocialInteractions(Minecraft.java:551) ~[forge-1.16.5-36.2.35_mapped_official_1.16.5-recomp.jar:?]
 	at net.minecraft.client.Minecraft.<init>(Minecraft.java:383) ~[forge-1.16.5-36.2.35_mapped_official_1.16.5-recomp.jar:?]
 	at net.minecraft.client.main.Main.main(Main.java:149) ~[forge-1.16.5-36.2.35_mapped_official_1.16.5-recomp.jar:?]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_322]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_322]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_322]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_322]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_312]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_312]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_312]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_312]
 	at net.minecraftforge.userdev.FMLUserdevClientLaunchProvider.lambda$launchService$0(FMLUserdevClientLaunchProvider.java:38) ~[forge-1.16.5-36.2.35_mapped_official_1.16.5-recomp.jar:?]
 	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:37) [modlauncher-8.1.3.jar:?]
 	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:54) [modlauncher-8.1.3.jar:?]
@@ -23,179 +23,113 @@ com.mojang.authlib.exceptions.AuthenticationUnavailableException: null
 	at cpw.mods.modlauncher.Launcher.run(Launcher.java:82) [modlauncher-8.1.3.jar:?]
 	at cpw.mods.modlauncher.Launcher.main(Launcher.java:66) [modlauncher-8.1.3.jar:?]
 	at net.minecraftforge.userdev.LaunchTesting.main(LaunchTesting.java:94) [forge-1.16.5-36.2.35_mapped_official_1.16.5-recomp.jar:?]
-[22Jun2022 08:37:13.068] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
-[22Jun2022 08:37:13.276] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.2.2 build 10
-[22Jun2022 08:37:14.573] [modloading-worker-2/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 36.2.35, for MC 1.16.5 with MCP 20210115.111550
-[22Jun2022 08:37:14.643] [modloading-worker-2/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v36.2.35 Initialized
-[22Jun2022 08:37:15.544] [Render thread/INFO] [com.barion.dungeons_enhanced.DungeonsEnhanced/]: Dungeons Enhanced structures loaded
-[22Jun2022 08:37:15.621] [Render thread/INFO] [ModdingLegacy/structure_gel/Compat/]: Checking for biome dictionary registry methods in other mods.
-[22Jun2022 08:37:18.248] [Render thread/INFO] [com.mojang.text2speech.NarratorWindows/]: Narrator library for x64 successfully loaded
-[22Jun2022 08:37:18.448] [Render thread/INFO] [net.minecraft.resources.SimpleReloadableResourceManager/]: Reloading ResourceManager: Default, Mod Resources
-[22Jun2022 08:37:19.554] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json
-[22Jun2022 08:37:20.063] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Found status: AHEAD Current: 36.2.35 Target: null
-[22Jun2022 08:37:26.967] [Worker-Main-8/INFO] [ModdingLegacy/structure_gel/]: Attempting to register unregistered biomes to the biome dictionary. This can be disabled via config.
-[22Jun2022 08:37:27.093] [Worker-Main-8/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:castle
-[22Jun2022 08:37:27.094] [Worker-Main-8/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:desert_temple
-[22Jun2022 08:37:27.094] [Worker-Main-8/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:desert_tomb
-[22Jun2022 08:37:27.094] [Worker-Main-8/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:druid_circle
-[22Jun2022 08:37:27.094] [Worker-Main-8/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:dungeon_variant
-[22Jun2022 08:37:27.094] [Worker-Main-8/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:elders_temple
-[22Jun2022 08:37:27.094] [Worker-Main-8/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:fishing_ship
-[22Jun2022 08:37:27.094] [Worker-Main-8/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:flying_dutchman
-[22Jun2022 08:37:27.094] [Worker-Main-8/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:hay_storage
-[22Jun2022 08:37:27.095] [Worker-Main-8/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:ice_pit
-[22Jun2022 08:37:27.095] [Worker-Main-8/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:jungle_monument
-[22Jun2022 08:37:27.095] [Worker-Main-8/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:large_dungeon
-[22Jun2022 08:37:27.095] [Worker-Main-8/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:miners_house
-[22Jun2022 08:37:27.095] [Worker-Main-8/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:monster_maze
-[22Jun2022 08:37:27.095] [Worker-Main-8/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:mushroom_house
-[22Jun2022 08:37:27.095] [Worker-Main-8/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:pillager_camp
-[22Jun2022 08:37:27.095] [Worker-Main-8/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:ruined_building
-[22Jun2022 08:37:27.096] [Worker-Main-8/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:stables
-[22Jun2022 08:37:27.096] [Worker-Main-8/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:sunken_shrine
-[22Jun2022 08:37:27.096] [Worker-Main-8/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:tall_witch_hut
-[22Jun2022 08:37:27.096] [Worker-Main-8/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:tree_house
-[22Jun2022 08:37:27.096] [Worker-Main-8/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:tower_of_the_undead
-[22Jun2022 08:37:27.096] [Worker-Main-8/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:watch_tower
-[22Jun2022 08:37:27.096] [Worker-Main-8/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:witch_tower
-[22Jun2022 08:37:29.721] [Render thread/INFO] [net.minecraft.client.audio.SoundSystem/]: OpenAL initialized.
-[22Jun2022 08:37:29.722] [Render thread/INFO] [net.minecraft.client.audio.SoundEngine/SOUNDS]: Sound engine started
-[22Jun2022 08:37:30.047] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
-[22Jun2022 08:37:30.291] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x128x4 minecraft:textures/atlas/signs.png-atlas
-[22Jun2022 08:37:30.295] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
-[22Jun2022 08:37:30.304] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
-[22Jun2022 08:37:30.332] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
-[22Jun2022 08:37:30.335] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
-[22Jun2022 08:37:30.340] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
-[22Jun2022 08:37:31.214] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256x0 minecraft:textures/atlas/particles.png-atlas
-[22Jun2022 08:37:31.220] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
-[22Jun2022 08:37:31.221] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 128x128x0 minecraft:textures/atlas/mob_effects.png-atlas
-[22Jun2022 08:37:43.709] [Render thread/ERROR] [net.minecraft.util.registry.WorldSettingsImport/]: Error adding element: Value 9 outside of range [0:7]
-[22Jun2022 08:37:47.478] [Render thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
-[22Jun2022 08:37:47.479] [Render thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
-[22Jun2022 08:37:47.481] [Render thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
-[22Jun2022 08:37:47.483] [Render thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
-[22Jun2022 08:37:47.484] [Render thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
-[22Jun2022 08:37:47.489] [Render thread/INFO] [net.minecraft.resources.SimpleReloadableResourceManager/]: Reloading ResourceManager: Default, main, forge-1.16.5-36.2.35_mapped_official_1.16.5-recomp.jar, structure-gel-1.16.5-1.7.8_mapped_official_1.16.5.jar
-[22Jun2022 08:37:50.015] [Render thread/INFO] [net.minecraft.item.crafting.RecipeManager/]: Loaded 7 recipes
-[22Jun2022 08:37:53.013] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 937 advancements
-[22Jun2022 08:37:53.844] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
-[22Jun2022 08:37:53.901] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Starting integrated minecraft server version 1.16.5
-[22Jun2022 08:37:53.901] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
-[22Jun2022 08:37:54.058] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Configuration file .\saves\New World (1)\serverconfig\forge-server.toml is not correct. Correcting
-[22Jun2022 08:37:54.060] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server was corrected from null to its default, SimpleCommentedConfig:{}. 
-[22Jun2022 08:37:54.060] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server.removeErroringEntities was corrected from null to its default, false. 
-[22Jun2022 08:37:54.060] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server.removeErroringTileEntities was corrected from null to its default, false. 
-[22Jun2022 08:37:54.060] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server.fullBoundingBoxLadders was corrected from null to its default, false. 
-[22Jun2022 08:37:54.061] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server.zombieBaseSummonChance was corrected from null to its default, 0.1. 
-[22Jun2022 08:37:54.061] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server.zombieBabyChance was corrected from null to its default, 0.05. 
-[22Jun2022 08:37:54.061] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server.logCascadingWorldGeneration was corrected from null to its default, true. 
-[22Jun2022 08:37:54.061] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server.fixVanillaCascading was corrected from null to its default, false. 
-[22Jun2022 08:37:54.061] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server.dimensionUnloadQueueDelay was corrected from null to its default, 0. 
-[22Jun2022 08:37:54.061] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server.treatEmptyTagsAsAir was corrected from null to its default, false. 
-[22Jun2022 08:37:54.061] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server.fixAdvancementLoading was corrected from null to its default, true. 
-[22Jun2022 08:37:59.613] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
-[22Jun2022 08:37:59.804] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 0%
-[22Jun2022 08:38:00.163] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 0%
-[22Jun2022 08:38:00.654] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 0%
-[22Jun2022 08:38:01.374] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 1%
-[22Jun2022 08:38:01.644] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 1%
-[22Jun2022 08:38:02.146] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 1%
-[22Jun2022 08:38:02.645] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 1%
-[22Jun2022 08:38:03.183] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 4%
-[22Jun2022 08:38:03.637] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 4%
-[22Jun2022 08:38:04.238] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 8%
-[22Jun2022 08:38:04.658] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 10%
-[22Jun2022 08:38:05.153] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 10%
-[22Jun2022 08:38:05.676] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 15%
-[22Jun2022 08:38:06.154] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 18%
-[22Jun2022 08:38:06.649] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 18%
-[22Jun2022 08:38:07.137] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 23%
-[22Jun2022 08:38:07.712] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 23%
-[22Jun2022 08:38:08.142] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 29%
-[22Jun2022 08:38:08.671] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 29%
-[22Jun2022 08:38:09.443] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 34%
-[22Jun2022 08:38:09.731] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 40%
-[22Jun2022 08:38:10.155] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 43%
-[22Jun2022 08:38:10.813] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 48%
-[22Jun2022 08:38:11.135] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 53%
-[22Jun2022 08:38:11.658] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 58%
-[22Jun2022 08:38:12.893] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 63%
-[22Jun2022 08:38:12.893] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 63%
-[22Jun2022 08:38:13.324] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 70%
-[22Jun2022 08:38:13.979] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 74%
-[22Jun2022 08:38:14.515] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 79%
-[22Jun2022 08:38:14.654] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 85%
-[22Jun2022 08:38:15.145] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 88%
-[22Jun2022 08:38:16.331] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 90%
-[22Jun2022 08:38:16.331] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 90%
-[22Jun2022 08:38:16.353] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Time elapsed: 16720 ms
-[22Jun2022 08:38:16.840] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Changing view distance to 11, from 10
-[22Jun2022 08:38:18.963] [Netty Local Client IO #0/INFO] [net.minecraftforge.fml.network.NetworkHooks/]: Connected to a modded server.
-[22Jun2022 08:38:18.995] [Server thread/INFO] [net.minecraftforge.common.AdvancementLoadFix/]: Using new advancement loading for net.minecraft.advancements.PlayerAdvancements@21f22595
-[22Jun2022 08:38:19.023] [Server thread/INFO] [net.minecraft.server.management.PlayerList/]: Dev[local:E:daba2598] logged in with entity id 280 at (126.5, 64.0, 218.5)
-[22Jun2022 08:38:19.043] [Netty Local Client IO #0/ERROR] [net.minecraft.util.registry.WorldSettingsImport/]: Error adding element: Value 9 outside of range [0:7]
-[22Jun2022 08:38:19.099] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev joined the game
-[22Jun2022 08:38:19.566] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
-[22Jun2022 08:38:19.580] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
-[22Jun2022 08:38:19.886] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 0 advancements
-[22Jun2022 08:38:21.172] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
-[22Jun2022 08:38:21.173] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
-[22Jun2022 08:38:37.150] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
-[22Jun2022 08:38:37.161] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
-[22Jun2022 08:38:37.769] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
-[22Jun2022 08:38:37.771] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
-[22Jun2022 08:39:05.040] [Render thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] The nearest dungeons_enhanced:fishing_ship is at [3312, ~, -544] (3445 blocks away)
-[22Jun2022 08:39:08.780] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Teleported Dev to 3312.5, 131.03260308715528, -543.5]
-[22Jun2022 08:39:08.816] [Render thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Teleported Dev to 3312.5, 131.03260308715528, -543.5
-[22Jun2022 08:39:16.998] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
-[22Jun2022 08:39:17.010] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
-[22Jun2022 08:39:18.280] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
-[22Jun2022 08:39:18.281] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
-[22Jun2022 08:40:52.205] [Server thread/INFO] [net.minecraft.entity.Entity/]: Villager VillagerEntity['Farmer'/1454, l='ServerLevel[New World]', x=3313.07, y=69.00, z=-552.50] died, message: 'Farmer suffocated in a wall'
-[22Jun2022 08:40:52.218] [Render thread/INFO] [net.minecraft.entity.Entity/]: Villager VillagerEntity['Farmer'/1454, l='ClientLevel', x=3313.07, y=69.00, z=-552.50] died, message: 'Farmer died'
-[22Jun2022 08:41:00.414] [Render thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] The nearest dungeons_enhanced:flying_dutchman is at [3264, ~, -1008] (454 blocks away)
-[22Jun2022 08:41:03.759] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Teleported Dev to 3264.5, 82.85893556299678, -1007.5]
-[22Jun2022 08:41:03.795] [Render thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Teleported Dev to 3264.5, 82.85893556299678, -1007.5
-[22Jun2022 08:41:43.914] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Survival Mode]
-[22Jun2022 08:41:43.919] [Render thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Set own game mode to Survival Mode
-[22Jun2022 08:42:08.965] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 7 advancements
-[22Jun2022 08:42:09.916] [Render thread/WARN] [net.minecraft.client.audio.SoundEngine/SOUNDS]: Unable to play empty soundEvent: minecraft:entity.cod.ambient
-[22Jun2022 08:42:12.544] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Creative Mode]
-[22Jun2022 08:42:12.575] [Render thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Set own game mode to Creative Mode
-[22Jun2022 08:42:25.971] [Render thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] The nearest dungeons_enhanced:sunken_shrine is at [4640, ~, -2480] (1998 blocks away)
-[22Jun2022 08:42:29.025] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Teleported Dev to 4640.5, 77.69262732010759, -2479.5]
-[22Jun2022 08:42:29.032] [Render thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Teleported Dev to 4640.5, 77.69262732010759, -2479.5
-[22Jun2022 08:42:34.683] [Render thread/WARN] [net.minecraft.client.audio.SoundEngine/SOUNDS]: Unable to play empty soundEvent: minecraft:entity.salmon.ambient
-[22Jun2022 08:42:59.108] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
-[22Jun2022 08:42:59.123] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
-[22Jun2022 08:43:00.010] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
-[22Jun2022 08:43:00.013] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
-[22Jun2022 08:43:14.249] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
-[22Jun2022 08:43:14.260] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
-[22Jun2022 08:43:14.921] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
-[22Jun2022 08:43:14.923] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
-[22Jun2022 08:44:17.559] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 24 advancements
-[22Jun2022 08:44:30.749] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
-[22Jun2022 08:44:30.761] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
-[22Jun2022 08:44:31.006] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
-[22Jun2022 08:44:31.008] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
-[22Jun2022 08:44:45.629] [Render thread/ERROR] [net.minecraft.client.audio.ALUtils/]: Stop: Invalid name parameter.
-[22Jun2022 08:44:45.658] [Server thread/INFO] [net.minecraft.network.play.ServerPlayNetHandler/]: Dev lost connection: Disconnected
-[22Jun2022 08:44:45.658] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev left the game
-[22Jun2022 08:44:45.671] [Server thread/INFO] [net.minecraft.network.play.ServerPlayNetHandler/]: Stopping singleplayer server as player logged out
-[22Jun2022 08:44:45.722] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
-[22Jun2022 08:44:45.722] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
-[22Jun2022 08:44:45.722] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
-[22Jun2022 08:44:45.722] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
-[22Jun2022 08:44:46.315] [Server thread/INFO] [net.minecraft.world.server.ChunkManager/]: ThreadedAnvilChunkStorage (New World (1)): All chunks are saved
-[22Jun2022 08:44:46.315] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
-[22Jun2022 08:44:46.317] [Server thread/INFO] [net.minecraft.world.server.ChunkManager/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[22Jun2022 08:44:46.317] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
-[22Jun2022 08:44:46.318] [Server thread/INFO] [net.minecraft.world.server.ChunkManager/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[22Jun2022 08:44:46.350] [Server thread/INFO] [net.minecraft.world.server.ChunkManager/]: ThreadedAnvilChunkStorage (New World (1)): All chunks are saved
-[22Jun2022 08:44:46.721] [Server thread/INFO] [net.minecraft.world.server.ChunkManager/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[22Jun2022 08:44:46.721] [Server thread/INFO] [net.minecraft.world.server.ChunkManager/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[22Jun2022 08:44:51.015] [Render thread/INFO] [net.minecraft.world.storage.SaveFormat/]: Attempt 1...
-[22Jun2022 08:44:53.920] [Render thread/INFO] [net.minecraft.world.storage.SaveFormat/]: Attempt 1...
-[22Jun2022 08:44:55.439] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Stopping!
+[15Jul2022 09:42:35.028] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
+[15Jul2022 09:42:35.404] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.2.2 build 10
+[15Jul2022 09:42:36.959] [modloading-worker-3/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 36.2.35, for MC 1.16.5 with MCP 20210115.111550
+[15Jul2022 09:42:37.093] [modloading-worker-3/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v36.2.35 Initialized
+[15Jul2022 09:42:38.812] [Render thread/INFO] [com.barion.dungeons_enhanced.DungeonsEnhanced/]: Dungeons Enhanced structures loaded
+[15Jul2022 09:42:39.029] [Render thread/INFO] [ModdingLegacy/structure_gel/Compat/]: Checking for biome dictionary registry methods in other mods.
+[15Jul2022 09:42:43.789] [Render thread/INFO] [com.mojang.text2speech.NarratorWindows/]: Narrator library for x64 successfully loaded
+[15Jul2022 09:42:44.084] [Render thread/INFO] [net.minecraft.resources.SimpleReloadableResourceManager/]: Reloading ResourceManager: Default, Mod Resources
+[15Jul2022 09:43:02.189] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json
+[15Jul2022 09:43:02.781] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Found status: AHEAD Current: 36.2.35 Target: null
+[15Jul2022 09:43:08.241] [Worker-Main-5/INFO] [ModdingLegacy/structure_gel/]: Attempting to register unregistered biomes to the biome dictionary. This can be disabled via config.
+[15Jul2022 09:43:08.483] [Worker-Main-5/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:castle
+[15Jul2022 09:43:08.484] [Worker-Main-5/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:desert_temple
+[15Jul2022 09:43:08.484] [Worker-Main-5/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:desert_tomb
+[15Jul2022 09:43:08.484] [Worker-Main-5/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:druid_circle
+[15Jul2022 09:43:08.484] [Worker-Main-5/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:dungeon_variant
+[15Jul2022 09:43:08.485] [Worker-Main-5/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:elders_temple
+[15Jul2022 09:43:08.485] [Worker-Main-5/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:fishing_ship
+[15Jul2022 09:43:08.485] [Worker-Main-5/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:flying_dutchman
+[15Jul2022 09:43:08.485] [Worker-Main-5/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:hay_storage
+[15Jul2022 09:43:08.486] [Worker-Main-5/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:ice_pit
+[15Jul2022 09:43:08.486] [Worker-Main-5/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:jungle_monument
+[15Jul2022 09:43:08.486] [Worker-Main-5/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:large_dungeon
+[15Jul2022 09:43:08.486] [Worker-Main-5/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:miners_house
+[15Jul2022 09:43:08.486] [Worker-Main-5/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:monster_maze
+[15Jul2022 09:43:08.487] [Worker-Main-5/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:mushroom_house
+[15Jul2022 09:43:08.487] [Worker-Main-5/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:pillager_camp
+[15Jul2022 09:43:08.487] [Worker-Main-5/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:ruined_building
+[15Jul2022 09:43:08.487] [Worker-Main-5/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:stables
+[15Jul2022 09:43:08.488] [Worker-Main-5/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:sunken_shrine
+[15Jul2022 09:43:08.488] [Worker-Main-5/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:tall_witch_hut
+[15Jul2022 09:43:08.488] [Worker-Main-5/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:tree_house
+[15Jul2022 09:43:08.488] [Worker-Main-5/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:tower_of_the_undead
+[15Jul2022 09:43:08.489] [Worker-Main-5/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:watch_tower
+[15Jul2022 09:43:08.489] [Worker-Main-5/INFO] [ModdingLegacy/structure_gel/]: Reloading biome config for dungeons_enhanced:witch_tower
+[15Jul2022 09:43:12.402] [Render thread/INFO] [net.minecraft.client.audio.SoundSystem/]: OpenAL initialized.
+[15Jul2022 09:43:12.404] [Render thread/INFO] [net.minecraft.client.audio.SoundEngine/SOUNDS]: Sound engine started
+[15Jul2022 09:43:13.072] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[15Jul2022 09:43:13.329] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x128x4 minecraft:textures/atlas/signs.png-atlas
+[15Jul2022 09:43:13.330] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[15Jul2022 09:43:13.337] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[15Jul2022 09:43:13.343] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[15Jul2022 09:43:13.344] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[15Jul2022 09:43:13.347] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[15Jul2022 09:43:15.282] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256x0 minecraft:textures/atlas/particles.png-atlas
+[15Jul2022 09:43:15.312] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
+[15Jul2022 09:43:15.315] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 128x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[15Jul2022 09:51:34.932] [Render thread/ERROR] [net.minecraft.util.registry.WorldSettingsImport/]: Error adding element: Value 9 outside of range [0:7]
+[15Jul2022 09:51:36.225] [Render thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[15Jul2022 09:51:36.227] [Render thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[15Jul2022 09:51:36.229] [Render thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[15Jul2022 09:51:36.231] [Render thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[15Jul2022 09:51:36.234] [Render thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[15Jul2022 09:51:36.244] [Render thread/INFO] [net.minecraft.resources.SimpleReloadableResourceManager/]: Reloading ResourceManager: Default, main, forge-1.16.5-36.2.35_mapped_official_1.16.5-recomp.jar, structure-gel-1.16.5-1.7.8_mapped_official_1.16.5.jar
+[15Jul2022 09:51:39.678] [Render thread/INFO] [net.minecraft.item.crafting.RecipeManager/]: Loaded 7 recipes
+[15Jul2022 09:51:42.576] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 937 advancements
+[15Jul2022 09:51:42.895] [Render thread/INFO] [net.minecraftforge.registries.GameData/REGISTRIES]: Injecting existing registry data into this CLIENT instance
+[15Jul2022 09:51:43.993] [Render thread/ERROR] [net.minecraft.util.registry.WorldSettingsImport/]: Error adding element: Value 9 outside of range [0:7]
+[15Jul2022 09:51:44.179] [Render thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[15Jul2022 09:51:44.181] [Render thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[15Jul2022 09:51:44.183] [Render thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[15Jul2022 09:51:44.184] [Render thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[15Jul2022 09:51:44.186] [Render thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[15Jul2022 09:51:44.187] [Render thread/INFO] [net.minecraft.resources.SimpleReloadableResourceManager/]: Reloading ResourceManager: Default, main, forge-1.16.5-36.2.35_mapped_official_1.16.5-recomp.jar, structure-gel-1.16.5-1.7.8_mapped_official_1.16.5.jar
+[15Jul2022 09:51:46.914] [Render thread/INFO] [net.minecraft.item.crafting.RecipeManager/]: Loaded 7 recipes
+[15Jul2022 09:51:48.946] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 937 advancements
+[15Jul2022 09:51:49.119] [Render thread/INFO] [net.minecraftforge.registries.GameData/REGISTRIES]: Injecting existing registry data into this CLIENT instance
+[15Jul2022 09:51:50.861] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[15Jul2022 09:51:50.978] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Starting integrated minecraft server version 1.16.5
+[15Jul2022 09:51:50.979] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
+[15Jul2022 09:51:51.733] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
+[15Jul2022 09:51:53.436] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 0%
+[15Jul2022 09:51:53.436] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 0%
+[15Jul2022 09:51:53.436] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 0%
+[15Jul2022 09:51:53.436] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 0%
+[15Jul2022 09:51:53.786] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 0%
+[15Jul2022 09:51:54.300] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 59%
+[15Jul2022 09:51:55.132] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Time elapsed: 3372 ms
+[15Jul2022 09:51:55.656] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Changing view distance to 11, from 10
+[15Jul2022 09:51:59.020] [Netty Local Client IO #0/INFO] [net.minecraftforge.fml.network.NetworkHooks/]: Connected to a modded server.
+[15Jul2022 09:51:59.151] [Netty Local Client IO #0/ERROR] [net.minecraft.util.registry.WorldSettingsImport/]: Error adding element: Value 9 outside of range [0:7]
+[15Jul2022 09:51:59.221] [Server thread/INFO] [net.minecraftforge.common.AdvancementLoadFix/]: Using new advancement loading for net.minecraft.advancements.PlayerAdvancements@3fc8511c
+[15Jul2022 09:51:59.303] [Server thread/INFO] [net.minecraft.server.management.PlayerList/]: Dev[local:E:be0c65b2] logged in with entity id 37 at (253.92826615315593, 83.28260150763221, 20.416236974192564)
+[15Jul2022 09:51:59.505] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev joined the game
+[15Jul2022 09:52:00.189] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
+[15Jul2022 09:52:00.269] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Structures]'/minecraft:overworld
+[15Jul2022 09:52:00.452] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 226 advancements
+[15Jul2022 09:52:01.318] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Structures]'/minecraft:the_nether
+[15Jul2022 09:52:01.345] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Structures]'/minecraft:the_end
+[15Jul2022 09:52:01.457] [Server thread/WARN] [net.minecraft.server.MinecraftServer/]: Can't keep up! Is the server overloaded? Running 2246ms or 44 ticks behind
+[15Jul2022 09:53:37.512] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
+[15Jul2022 09:53:37.558] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Structures]'/minecraft:overworld
+[15Jul2022 09:53:38.520] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Structures]'/minecraft:the_nether
+[15Jul2022 09:53:38.523] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Structures]'/minecraft:the_end
+[15Jul2022 09:53:41.119] [Server thread/INFO] [net.minecraft.network.play.ServerPlayNetHandler/]: Dev lost connection: Disconnected
+[15Jul2022 09:53:41.119] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev left the game
+[15Jul2022 09:53:41.182] [Server thread/INFO] [net.minecraft.network.play.ServerPlayNetHandler/]: Stopping singleplayer server as player logged out
+[15Jul2022 09:53:41.237] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
+[15Jul2022 09:53:41.239] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
+[15Jul2022 09:53:41.239] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
+[15Jul2022 09:53:41.239] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Structures]'/minecraft:overworld
+[15Jul2022 09:53:41.358] [Server thread/INFO] [net.minecraft.world.server.ChunkManager/]: ThreadedAnvilChunkStorage (Structures): All chunks are saved
+[15Jul2022 09:53:41.360] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Structures]'/minecraft:the_nether
+[15Jul2022 09:53:41.363] [Server thread/INFO] [net.minecraft.world.server.ChunkManager/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[15Jul2022 09:53:41.363] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Structures]'/minecraft:the_end
+[15Jul2022 09:53:41.365] [Server thread/INFO] [net.minecraft.world.server.ChunkManager/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[15Jul2022 09:53:41.433] [Server thread/INFO] [net.minecraft.world.server.ChunkManager/]: ThreadedAnvilChunkStorage (Structures): All chunks are saved
+[15Jul2022 09:53:41.472] [Server thread/INFO] [net.minecraft.world.server.ChunkManager/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[15Jul2022 09:53:41.473] [Server thread/INFO] [net.minecraft.world.server.ChunkManager/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[15Jul2022 09:53:43.972] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Stopping!
