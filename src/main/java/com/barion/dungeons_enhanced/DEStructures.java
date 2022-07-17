@@ -281,6 +281,7 @@ public class DEStructures {
     @SubscribeEvent
     public static void structureRegistry(final RegistryEvent.Register<StructureFeature<?>> event) {
         IForgeRegistry<StructureFeature<?>> registry = event.getRegistry();
+        DEUtil.Processors.Types.register();
         for(StructureRegistrar<?,?> structure : getAllStructureRegistrars()){
             structure.handleForge(registry);
         }

@@ -22,7 +22,7 @@ We hope you have fun.
 [[dependencies.dungeons_enhanced]] #optional
     modId="forge" #mandatory
     mandatory=true #mandatory   Does this dependency have to exist - if not, ordering below must be specified
-    versionRange="[40,)" #mandatory
+    versionRange="[40.1.60,)" #mandatory
     ordering="NONE" # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
     side="BOTH" #BOTH, CLIENT or SERVER
 [[dependencies.dungeons_enhanced]]

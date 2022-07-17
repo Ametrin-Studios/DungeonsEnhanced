@@ -6,10 +6,11 @@
 * added Fishing Ship
 * added Mushroom House variant
 * added 2 new Advancements
-* added `it_it.json` (by Zano1999 #21)
+* added `it_it.json` (#21 by Zano1999)
 * adjusted some loot tables
 * updated `DETerrainAnalyzer`
 * requires Structure Gel 2.4.0 or later
+* requires Forge 40.1.60 or later
 
 ## 3.1
 * ported to 1.18.2
