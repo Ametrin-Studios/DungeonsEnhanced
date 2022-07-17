@@ -1,6 +1,7 @@
 package com.barion.dungeons_enhanced.world.structures.prefabs;
 
 import com.barion.dungeons_enhanced.DEStructures;
+import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEUnderwaterProcessor;
@@ -50,14 +51,14 @@ public class DEUnderwaterStructure extends DEBaseStructure {
 
     public static class Piece extends GelTemplateStructurePiece {
         public Piece(TemplateManager templateManager, ResourceLocation name, BlockPos pos, Rotation rotation) {
-            super(DEStructures.RuinedBuilding.getPieceType(), name, 0);
+            super(DEStructures.SunkenShrine.getPieceType(), name, 0);
             this.templatePosition = pos;
             this.rotation = rotation;
             this.setupTemplate(templateManager);
         }
 
         public Piece(TemplateManager templateManager, CompoundNBT nbt) {
-            super(DEStructures.RuinedBuilding.getPieceType(), nbt);
+            super(DEStructures.SunkenShrine.getPieceType(), nbt);
             setupTemplate(templateManager);
         }
 
@@ -73,6 +74,11 @@ public class DEUnderwaterStructure extends DEBaseStructure {
             placementSettings.clearProcessors();
             placementSettings.addProcessor(BlockIgnoreStructureProcessor.STRUCTURE_BLOCK);
             placementSettings.addProcessor(DEUnderwaterProcessor.Instance);
+            placementSettings.addProcessor(DEUtil.Processors.BrainCoral);
+            placementSettings.addProcessor(DEUtil.Processors.BubbleCoral);
+            placementSettings.addProcessor(DEUtil.Processors.FireCoral);
+            placementSettings.addProcessor(DEUtil.Processors.HornCoral);
+            placementSettings.addProcessor(DEUtil.Processors.TubeCoral);
         }
 
         @Override

@@ -1,7 +1,6 @@
 package com.barion.dungeons_enhanced.world.structures;
 
 import com.barion.dungeons_enhanced.DEConfig;
-import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structures.prefabs.DEUnderwaterStructure;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
@@ -20,7 +19,6 @@ import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
-import net.minecraft.world.gen.feature.template.PlacementSettings;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
 import java.util.List;
@@ -65,16 +63,6 @@ public class DEEldersTemple extends DEUnderwaterStructure {
 
         public Piece(TemplateManager templateManager, CompoundNBT nbt) {
             super(templateManager, nbt);
-        }
-
-        @Override
-        public void addProcessors(TemplateManager templateManager, PlacementSettings placementSettings) {
-            super.addProcessors(templateManager, placementSettings);
-            placementSettings.addProcessor(DEUtil.Processors.BrainCoral);
-            placementSettings.addProcessor(DEUtil.Processors.BubbleCoral);
-            placementSettings.addProcessor(DEUtil.Processors.FireCoral);
-            placementSettings.addProcessor(DEUtil.Processors.HornCoral);
-            placementSettings.addProcessor(DEUtil.Processors.TubeCoral);
         }
     }
 }

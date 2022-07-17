@@ -1,7 +1,6 @@
 package com.barion.dungeons_enhanced.world.structures.prefabs.utils;
 
 import com.barion.dungeons_enhanced.DEUtil;
-import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.legacy.structure_gel.data.GelTags;
 import com.mojang.serialization.Codec;
 import net.minecraft.block.Blocks;
@@ -30,7 +29,6 @@ public class DEUnderwaterProcessor extends StructureProcessor{
         }
 
         if(placed.state.hasProperty(BlockStateProperties.WATERLOGGED)){
-            DungeonsEnhanced.LOGGER.info("Waterlogged " + placed.state + " at " + placed.pos);
             return new Template.BlockInfo(placed.pos, placed.state.setValue(BlockStateProperties.WATERLOGGED, true), null);
         }
 
