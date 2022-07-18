@@ -1,0 +1,33 @@
+{
+  "parent": "dungeons_enhanced:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:black_banner"
+    },
+    "title": {
+      "translate": "advancements.dungeons_enhanced.ahoy"
+    },
+    "description": {
+      "translate": "advancements.dungeons_enhanced.ahoy.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "entered_pirate_ship": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:pirate_ship"
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "entered_pirate_ship"
+    ]
+  ]
+}

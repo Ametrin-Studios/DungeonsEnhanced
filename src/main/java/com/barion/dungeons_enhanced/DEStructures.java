@@ -38,6 +38,7 @@ public class DEStructures {
     public static final StructureRegistrar2<VillageConfig, DEMonsterMaze> MonsterMaze;
     public static final StructureRegistrar2<NoFeatureConfig, DESimpleStructure> MushroomHouse;
     public static final StructureRegistrar2<VillageConfig, DEPillagerCamp> PillagerCamp;
+    public static final StructureRegistrar2<NoFeatureConfig, DEPirateShip> PirateShip;
     public static final StructureRegistrar2<NoFeatureConfig, DESimpleStructure> RuinedBuilding;
     public static final StructureRegistrar2<NoFeatureConfig, DESimpleStructure> Stables;
     public static final StructureRegistrar2<NoFeatureConfig, DEUnderwaterStructure> SunkenShrine;
@@ -66,6 +67,7 @@ public class DEStructures {
         MonsterMaze = registerJigsaw("monster_maze", new DEMonsterMaze(), DEMonsterMaze.Pool.Root, 9, DEMonsterMaze.Piece::new);
         MushroomHouse = register("mushroom_house", new DESimpleStructure(DEConfig.COMMON.MushroomHouse, pieceBuilder().offset(-7, 0, -7).add("mushroom_house/red").add("mushroom_house/brown").build()), DESimpleStructure.Piece::new);
         PillagerCamp = registerJigsaw("pillager_camp", new DEPillagerCamp(), DEPillagerCamp.Pool.Root, 4, DEPillagerCamp.Piece::new);
+        PirateShip = register("pirate_ship", new DEPirateShip(), DESwimmingStructure.Piece::new);
         RuinedBuilding = register("ruined_building", new DESimpleStructure(DEConfig.COMMON.RuinedBuilding, true, pieceBuilder().offset(-5, 0, -5).weight(3).add("ruined_building/house").offset(-6, 0, -8).weight(2).add("ruined_building/house_big").offset(-4, 0, -5).weight(3).add("ruined_building/barn").build()), DESimpleStructure.Piece::new);
         Stables = register("stables", new DESimpleStructure(DEConfig.COMMON.Stables, pieceBuilder().offset(-8, -6, -13).add("stables").build()), DESimpleStructure.Piece::new);
         SunkenShrine = register("sunken_shrine", new DEUnderwaterStructure(DEConfig.COMMON.SunkenShrine, true, pieceBuilder().offset(-5, -1, -8).add("sunken_shrine").build()), DEUnderwaterStructure.Piece::new);
@@ -120,6 +122,7 @@ public class DEStructures {
                 MonsterMaze,
                 MushroomHouse,
                 PillagerCamp,
+                PirateShip,
                 RuinedBuilding,
                 Stables,
                 SunkenShrine,

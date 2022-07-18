@@ -1,6 +1,11 @@
 ## 1.8
 * added Elders Temple
 * added Mushroom House variant (brown)
+* added Fishing Ship
+* added Flying Dutchman
+* added Sunken Shrine
+* added Pirate Ship
+* added 2 advancements
 * overhauled Pillager Camp
 * adjusted config
 * fixed crash

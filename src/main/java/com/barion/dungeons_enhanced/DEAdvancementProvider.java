@@ -34,8 +34,8 @@ public class DEAdvancementProvider extends AdvancementProvider {
         Advancement WarsAndKingdoms = enterStructure(builder(Blocks.STONE_BRICKS.asItem(), "wars_and_kingdoms", FrameType.TASK, true, true, false), DEStructures.Castle.getStructure()).parent(root).save(consumer, location("wars_and_kingdoms"));
         Advancement RarestStructure = enterStructure(builder(Items.RED_MUSHROOM, "rarest_structure", FrameType.TASK, true, true, false), DEStructures.MushroomHouse.getStructure()).parent(root).save(consumer, location("rarest_structure"));
         Advancement ChilledHalls = enterStructure(builder(Items.BONE, "chilled_halls", FrameType.TASK, true, true, false), DEStructures.IcePit.getStructure()).parent(root).save(consumer, location("chilled_halls"));
-        //Advancement Ahoy = enterStructure(builder(Items.BLACK_BANNER, "ahoy", FrameType.TASK, true, true, false), DEStructures.PirateShip).parent(root).save(consumer, location("ahoy"));
-        //Advancement InTheAir = enterStructure(builder(Items.BLACK_BANNER, "in_the_air", FrameType.TASK, true, true, false), DEStructures.FlyingDutchman).parent(root).save(consumer, location("in_the_air"));
+        Advancement Ahoy = enterStructure(builder(Items.BLACK_BANNER, "ahoy", FrameType.TASK, true, true, false), DEStructures.PirateShip.getStructure()).parent(root).save(consumer, location("ahoy"));
+        Advancement InTheAir = enterStructure(builder(Items.FEATHER, "in_the_air", FrameType.TASK, true, true, false), DEStructures.FlyingDutchman.getStructure()).parent(root).save(consumer, location("in_the_air"));
         Advancement SevenWorldWonders = enterAnyStructure(builder(Items.COMPASS, "seven_world_wonders", FrameType.GOAL, true, true, false),
                 new Structure<?>[] {
                         DEStructures.Castle.getStructure(),

@@ -29,7 +29,7 @@ public class DEPillagerCamp extends GelConfigJigsawStructure {
     public DEPillagerCamp() {
         super(VillageConfig.CODEC, DEConfig.COMMON.PillagerCamp, 0, true, true);
         Pool.init();
-        setSpawnList(EntityClassification.MONSTER, ImmutableList.of(new MobSpawnInfo.Spawners(EntityType.PILLAGER, 2, 1, 1), new MobSpawnInfo.Spawners(EntityType.VINDICATOR, 1, 1, 1)));
+        setSpawnList(EntityClassification.MONSTER, ImmutableList.of(new MobSpawnInfo.Spawners(EntityType.PILLAGER, 4, 1, 3), new MobSpawnInfo.Spawners(EntityType.VINDICATOR, 2, 1, 1)));
     }
 
 
