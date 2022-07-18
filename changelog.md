@@ -6,6 +6,7 @@
 * added Sunken Shrine
 * added Pirate Ship
 * added 2 advancements
+* added `it_it.json` (#21 by Zano1999)
 * overhauled Pillager Camp
 * adjusted config
 * fixed crash

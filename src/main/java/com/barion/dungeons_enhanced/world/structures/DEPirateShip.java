@@ -20,18 +20,17 @@ import static com.barion.dungeons_enhanced.DEUtil.pieceBuilder;
 
 public class DEPirateShip extends DESwimmingStructure {
 
-    private static final ResourceLocation Back = location("pirate_ship/back");
+    private static final ResourceLocation Back = location("pirate_ship/front");
 
     public DEPirateShip() {
-        super(DEConfig.COMMON.PirateShip, true, pieceBuilder().offset(-7, -3, -25).add("pirate_ship/front").build());
+        super(DEConfig.COMMON.PirateShip, true, pieceBuilder().offset(-7, -4, -25).add("pirate_ship/back").build());
         setSpawnList(EntityClassification.MONSTER, ImmutableList.of(new MobSpawnInfo.Spawners(EntityType.PILLAGER, 5, 2, 4), new MobSpawnInfo.Spawners(EntityType.VINDICATOR, 3, 1, 2)));
     }
 
     @Override
     public void assemble(TemplateManager templateManager, DEStructurePiece variant, BlockPos pos, Rotation rotation, List<StructurePiece> pieces, int variantIndex){
         rotation = Rotation.NONE;
-        pos = pos.offset(-18, -6, -20);
         pieces.add(new Piece(templateManager, variant.Resource, pos, rotation));
-        pieces.add(new Piece(templateManager, Back, pos.offset(0, 0, 25), rotation));
+        pieces.add(new Piece(templateManager, Back, pos.offset(0, 0, 26), rotation));
     }
 }
