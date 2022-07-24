@@ -1,3 +1,7 @@
+## 3.2.1
+* requires Forge 40.1.57
+* fixed resource pack format
+
 ## 3.2
 * added Elders Temple
 * added Flying Dutchman
