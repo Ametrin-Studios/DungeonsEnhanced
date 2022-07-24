@@ -19,7 +19,7 @@ import java.util.Random;
 
 public class DEUndergroundStructure extends DEBaseStructure{
     public DEUndergroundStructure(StructureConfig config, boolean generateNearSpawn, DEStructurePiece[] resources){
-        super(config, DETerrainAnalyzer.GenerationType.underground, generateNearSpawn, (context)-> DETerrainAnalyzer.isGroundHighEnough(context.chunkPos(), context.chunkGenerator(), 16, context.heightAccessor()), DEUndergroundStructure::assemble, resources);
+        super(config, DETerrainAnalyzer.GenerationType.underground, (context)-> DETerrainAnalyzer.isGroundHighEnough(context.chunkPos(), context.chunkGenerator(), 16, context.heightAccessor()), DEUndergroundStructure::assemble, resources);
     }
 
     protected static void assemble(DEPieceAssembler.Context context) {

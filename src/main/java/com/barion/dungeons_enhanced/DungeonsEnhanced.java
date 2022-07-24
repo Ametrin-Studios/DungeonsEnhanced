@@ -3,13 +3,13 @@ package com.barion.dungeons_enhanced;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -34,8 +34,8 @@ public class DungeonsEnhanced{
             DataGenerator dataGen = event.getGenerator();
             ExistingFileHelper exFileHelper = event.getExistingFileHelper();
 
-            dataGen.addProvider(new DELootTableProvider(dataGen));
-            dataGen.addProvider(new DEAdvancementProvider(dataGen, exFileHelper));
+            dataGen.addProvider(true, new DELootTableProvider(dataGen));
+            dataGen.addProvider(true, new DEAdvancementProvider(dataGen, exFileHelper));
         }
     }
 }

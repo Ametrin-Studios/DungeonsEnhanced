@@ -5,7 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePiecesBuilder;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -14,5 +14,5 @@ public interface DEPieceAssembler {
     @ParametersAreNonnullByDefault
     void assemble(Context context);
 
-    record Context(StructureManager structureManager, ResourceLocation piece, BlockPos pos, Rotation rotation, StructurePiecesBuilder piecesBuilder, DETerrainAnalyzer.GenerationType generationType){}
+    record Context(StructureTemplateManager structureManager, ResourceLocation piece, BlockPos pos, Rotation rotation, StructurePiecesBuilder piecesBuilder, DETerrainAnalyzer.GenerationType generationType){}
 }

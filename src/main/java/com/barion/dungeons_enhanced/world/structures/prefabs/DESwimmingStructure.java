@@ -28,7 +28,7 @@ public class DESwimmingStructure extends DEBaseStructure {
         this(config, generateNearSpawn, false, (context) -> true, DESwimmingStructure::assemble, resources);
     }
     protected DESwimmingStructure(StructureConfig config, boolean generateNearSpawn, boolean checkBiomeArea, Predicate<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>> pieceGeneratorSupplier, DEPieceAssembler assembler, DEStructurePiece[] resources){
-        super(config, DETerrainAnalyzer.GenerationType.onWater, generateNearSpawn, pieceGeneratorSupplier, assembler, resources);
+        super(config, DETerrainAnalyzer.GenerationType.onWater, pieceGeneratorSupplier, assembler, resources);
     }
 
     protected static void assemble(DEPieceAssembler.Context context) {

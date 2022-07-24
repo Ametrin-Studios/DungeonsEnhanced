@@ -23,12 +23,15 @@ import java.util.function.Predicate;
 public class DESimpleStructure extends DEBaseStructure {
 
     public DESimpleStructure(StructureConfig config, DEStructurePiece[] resources) {this(config, true, resources);}
+    public DESimpleStructure(StructureSettings settings){
+        super(settings);
+    };
 
     public DESimpleStructure(StructureConfig config, boolean generateNearSpawn, DEStructurePiece[] resources){
         this(config, generateNearSpawn, (context)-> DETerrainAnalyzer.isFlatEnough(context.chunkPos(), context.chunkGenerator(), context.heightAccessor()), DESimpleStructure::assemble, resources);
     }
     protected DESimpleStructure(StructureConfig config, boolean generateNearSpawn, Predicate<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>> pieceGenerator, DEPieceAssembler assembler, DEStructurePiece[] resources){
-        super(config, DETerrainAnalyzer.GenerationType.onGround, generateNearSpawn, pieceGenerator, assembler, resources);
+        super(config, DETerrainAnalyzer.GenerationType.onGround, pieceGenerator, assembler, resources);
     }
 
     protected static void assemble(DEPieceAssembler.Context context) {

@@ -82,10 +82,10 @@ public class DEConfig {
                         .offset((int) (spacing/1.5f))
                         .probability(prob)
                     .popPlacement()
-                    .pushConfigured()
+                    .pushStructure()
                         .biomes(biomes)
                         .dimensions(dimension)
-                    .popConfigured().build();
+                    .popStructure().build();
         }
     }
 }

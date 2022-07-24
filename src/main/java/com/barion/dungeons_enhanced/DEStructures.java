@@ -1,26 +1,16 @@
 package com.barion.dungeons_enhanced;
 
-import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
-import com.barion.dungeons_enhanced.world.structures.*;
-import com.barion.dungeons_enhanced.world.structures.prefabs.*;
+import com.barion.dungeons_enhanced.world.structures.prefabs.DESimpleStructure;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
+import com.legacy.structure_gel.api.structure.GridStructurePlacement;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.MobSpawnSettings;
-import net.minecraft.world.level.levelgen.GenerationStep;
-import net.minecraft.world.level.levelgen.feature.StructureFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.levelgen.structure.StructureSpawnOverride;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraft.world.level.levelgen.structure.Structure;
 
 import static com.barion.dungeons_enhanced.DEUtil.location;
-import static com.barion.dungeons_enhanced.DEUtil.pieceBuilder;
 
 public class DEStructures {
-    public static final StructureRegistrar<JigsawConfiguration, DECellarStructure> Castle;
+/*    public static final StructureRegistrar<DECellarStructure> Castle;
     public static final StructureRegistrar<JigsawConfiguration, DEDeepCrypt> DeepCrypt;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEDesertTemple> DesertTemple;
     public static final StructureRegistrar<JigsawConfiguration, DEDesertTomb> DesertTomb;
@@ -37,20 +27,20 @@ public class DEStructures {
     public static final StructureRegistrar<JigsawConfiguration, DEMonsterMaze> MonsterMaze;
     public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> MushroomHouse;
     public static final StructureRegistrar<JigsawConfiguration, DEPillagerCamp> PillagerCamp;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DEPirateShip> PirateShip;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> RuinedBuilding;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> Stables;
+    public static final StructureRegistrar<NoneFeatureConfiguration, DEPirateShip> PirateShip;*/
+    public static final StructureRegistrar<DESimpleStructure> RuinedBuilding;
+/*    public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> Stables;
     public static final StructureRegistrar<NoneFeatureConfiguration, DEUnderwaterStructure> SunkenShrine;
     public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> TallWitchHut;
     public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> TreeHouse;
     public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> TowerOfTheUndead;
     public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> WatchTower;
-    public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> WitchTower;
+    public static final StructureRegistrar<NoneFeatureConfiguration, DESimpleStructure> WitchTower;*/
 
     public DEStructures(){}
 
     static {
-        Castle = StructureRegistrar.builder(location("castle"), () -> new DECellarStructure(DEConfig.COMMON.Castle, false, new DETerrainAnalyzer.Settings(1, 3, 4)))
+        /*Castle = StructureRegistrar.builder(location("castle"), () -> new DECellarStructure(DEConfig.COMMON.Castle, false, new DETerrainAnalyzer.Settings(1, 3, 4)))
                 .pushConfigured(new JigsawConfiguration(DECellarStructure.CastlePool.Root, 1))
                         .biomes(DEConfig.COMMON.Castle.getConfigured())
                         .dimensions(DEConfig.COMMON.Castle.getConfigured())
@@ -205,18 +195,25 @@ public class DEStructures {
                         .noSpawns(StructureSpawnOverride.BoundingBoxType.STRUCTURE, MobCategory.UNDERGROUND_WATER_CREATURE, MobCategory.AXOLOTLS, MobCategory.WATER_AMBIENT, MobCategory.WATER_CREATURE)
                 .popConfigured()
                 .addPiece(DESimpleStructure.Piece::new)
-                .build();
+                .build();*/
 
-        RuinedBuilding = StructureRegistrar.builder(location("ruined_building"), () -> new DESimpleStructure(DEConfig.COMMON.RuinedBuilding, pieceBuilder().offset(-5, 0, -5).weight(3).add("ruined_building/house").offset(-6, 0, -8).weight(2).add("ruined_building/house_big").offset(-4, 0, -5).weight(3).add("ruined_building/barn").build()))
+        RuinedBuilding = StructureRegistrar.<DESimpleStructure>builder(location("ruined_building"), ()-> ()-> Structure.simpleCodec(DESimpleStructure::new))
+                .addPiece(()-> DESimpleStructure.Piece::new)
+                .pushStructure(DESimpleStructure::new)
+                    .config(DEConfig.COMMON.RuinedBuilding::getStructure)
+                .popStructure()
+                .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.RuinedBuilding).build(location("ruined_building")))
+                .build();
+        /*RuinedBuilding = StructureRegistrar.builder(location("ruined_building"), () -> new DESimpleStructure(DEConfig.COMMON.RuinedBuilding, pieceBuilder().offset(-5, 0, -5).weight(3).add("ruined_building/house").offset(-6, 0, -8).weight(2).add("ruined_building/house_big").offset(-4, 0, -5).weight(3).add("ruined_building/barn").build()))
                 .pushConfigured(NoneFeatureConfiguration.INSTANCE)
-                        .biomes(DEConfig.COMMON.RuinedBuilding.getConfigured())
-                        .dimensions(DEConfig.COMMON.RuinedBuilding.getConfigured())
+                        .biomes(DEConfig.COMMON.RuinedBuilding.getStructure())
+                        .dimensions(DEConfig.COMMON.RuinedBuilding.getStructure())
                         .adaptNoise()
                 .popConfigured()
                 .addPiece(DESimpleStructure.Piece::new)
-                .build();
+                .build();*/
 
-        Stables = StructureRegistrar.builder(location("stables"), () -> new DESimpleStructure(DEConfig.COMMON.Stables, pieceBuilder().offset(-8, -6, -13).add("stables").build()))
+        /*Stables = StructureRegistrar.builder(location("stables"), () -> new DESimpleStructure(DEConfig.COMMON.Stables, pieceBuilder().offset(-8, -6, -13).add("stables").build()))
                 .pushConfigured(NoneFeatureConfiguration.INSTANCE)
                         .biomes(DEConfig.COMMON.Stables.getConfigured())
                         .dimensions(DEConfig.COMMON.Stables.getConfigured())
@@ -275,24 +272,12 @@ public class DEStructures {
                         .adaptNoise()
                 .popConfigured()
                 .addPiece(DESimpleStructure.Piece::new)
-                .build();
+                .build();*/
     }
 
-    @SubscribeEvent
-    public static void structureRegistry(final RegistryEvent.Register<StructureFeature<?>> event) {
-        IForgeRegistry<StructureFeature<?>> registry = event.getRegistry();
-        DEUtil.Processors.Types.register();
-        for(StructureRegistrar<?,?> structure : getAllStructureRegistrars()){
-            structure.handleForge(registry);
-        }
-        DECellarStructure.init();
-
-        DungeonsEnhanced.LOGGER.info("Dungeons Enhanced structures loaded");
-    }
-
-    public static StructureRegistrar<?,?>[] getAllStructureRegistrars() {
-        return new StructureRegistrar<?,?>[] {
-                Castle,
+    public static StructureRegistrar<?>[] getAllStructureRegistrars() {
+        return new StructureRegistrar<?>[] {
+ /*               Castle,
                 DeepCrypt,
                 DesertTemple,
                 DesertTomb,
@@ -309,15 +294,15 @@ public class DEStructures {
                 MonsterMaze,
                 MushroomHouse,
                 PillagerCamp,
-                PirateShip,
+                PirateShip,*/
                 RuinedBuilding,
-                Stables,
+/*                Stables,
                 SunkenShrine,
                 TallWitchHut,
                 TreeHouse,
                 TowerOfTheUndead,
                 WatchTower,
-                WitchTower
+                WitchTower*/
         };
     }
 

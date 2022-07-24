@@ -31,7 +31,7 @@ public class DEUnderwaterStructure extends DEBaseStructure {
         this(config, generateNearSpawn, (context)-> DETerrainAnalyzer.isUnderwater(context.chunkPos(), context.chunkGenerator(), 16, context.heightAccessor()), DEUnderwaterStructure::assemble, resources);
     }
     protected DEUnderwaterStructure(StructureConfig config, boolean generateNearSpawn, Predicate<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>> pieceGenerator, DEPieceAssembler assembler, DEStructurePiece[] resources){
-        super(config, DETerrainAnalyzer.GenerationType.underwater, generateNearSpawn, pieceGenerator, assembler, resources);
+        super(config, DETerrainAnalyzer.GenerationType.underwater, pieceGenerator, assembler, resources);
     }
 
     private static void assemble(DEPieceAssembler.Context context) {
