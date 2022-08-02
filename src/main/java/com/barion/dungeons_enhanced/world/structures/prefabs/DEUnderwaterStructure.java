@@ -5,58 +5,45 @@ import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEPieceAssembler;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEUnderwaterProcessor;
-import com.legacy.structure_gel.api.config.StructureConfig;
-import com.legacy.structure_gel.api.structure.GelTemplateStructurePiece;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Vec3i;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Rotation;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.levelgen.structure.BoundingBox;
-import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
+import net.minecraft.world.level.levelgen.structure.StructureType;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
-
-import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.Optional;
-import java.util.Random;
-import java.util.function.Predicate;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
+import org.jetbrains.annotations.NotNull;
 
 public class DEUnderwaterStructure extends DEBaseStructure {
-    public DEUnderwaterStructure(StructureConfig config, boolean generateNearSpawn, DEStructurePiece[] resources){
-        this(config, generateNearSpawn, (context)-> DETerrainAnalyzer.isUnderwater(context.chunkPos(), context.chunkGenerator(), 16, context.heightAccessor()), DEUnderwaterStructure::assemble, resources);
+    public DEUnderwaterStructure(StructureSettings settings, DEStructurePiece[] variants, DEPieceAssembler assembler){
+        super(settings, variants, assembler, DETerrainAnalyzer.GenerationType.underwater);
     }
-    protected DEUnderwaterStructure(StructureConfig config, boolean generateNearSpawn, Predicate<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>> pieceGenerator, DEPieceAssembler assembler, DEStructurePiece[] resources){
-        super(config, DETerrainAnalyzer.GenerationType.underwater, pieceGenerator, assembler, resources);
+
+    public DEUnderwaterStructure(StructureSettings settings, DEStructurePiece[] variants){
+        super(settings, variants, DEUnderwaterStructure::assemble, DETerrainAnalyzer.GenerationType.underwater);
     }
 
     private static void assemble(DEPieceAssembler.Context context) {
         context.piecesBuilder().addPiece(new Piece(context.structureManager(), context.piece(), context.pos(), context.rotation()));
     }
 
-    public static class Piece extends GelTemplateStructurePiece {
-        public Piece(StructureManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation){
-            super(DEStructures.SunkenShrine.getPieceType(), 0, structureManager, templateName, getPlaceSettings(structureManager, templateName, rotation), pos);
+    @Override @NotNull
+    public StructureType<?> type() {return DEStructures.SunkenShrine.getType();}
+
+    public static class Piece extends DEBaseStructure.Piece {
+        public Piece(StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation){
+            super(DEStructures.SunkenShrine.getPieceType(), structureManager, templateName, pos, rotation);
         }
 
         public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt){
-            super(DEStructures.SunkenShrine.getPieceType(), nbt, serializationContext.structureManager(), (name) -> getPlaceSettings(serializationContext.structureManager(), name, Rotation.valueOf(nbt.getString("Rot"))));
+            super(DEStructures.SunkenShrine.getPieceType(), serializationContext, nbt);
         }
 
-        protected static StructurePlaceSettings getPlaceSettings(StructureManager structureManager, ResourceLocation name, Rotation rotation) {
-            Optional<StructureTemplate> temp = structureManager.get(name);
-            Vec3i size = Vec3i.ZERO;
-            if(temp.isPresent()) {size = temp.get().getSize();}
-            StructurePlaceSettings settings = new StructurePlaceSettings().setKeepLiquids(true).setRotationPivot(new BlockPos(size.getX()/2, 0, size.getZ()/2).rotate(rotation));
+        @Override
+        protected void addProcessors(StructurePlaceSettings settings) {
+            settings.clearProcessors();
             settings.addProcessor(DEUnderwaterProcessor.Instance);
-            return settings;
         }
-
-        @Override @ParametersAreNonnullByDefault
-        protected void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor level, Random random, BoundingBox box) {}
     }
 }

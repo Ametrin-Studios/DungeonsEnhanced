@@ -1,28 +1,36 @@
 {
   "parent": "dungeons_enhanced:root",
+  "criteria": {
+    "entered_jungle_monument": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "dungeons_enhanced:jungle_monument"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  },
   "display": {
-    "icon": {
-      "item": "minecraft:bamboo"
-    },
-    "title": {
-      "translate": "advancements.dungeons_enhanced.ancient_civilizations"
-    },
+    "announce_to_chat": true,
     "description": {
       "translate": "advancements.dungeons_enhanced.ancient_civilizations.desc"
     },
     "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:bamboo"
+    },
     "show_toast": true,
-    "announce_to_chat": true,
-    "hidden": false
-  },
-  "criteria": {
-    "entered_jungle_monument": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "feature": "dungeons_enhanced:jungle_monument"
-        }
-      }
+    "title": {
+      "translate": "advancements.dungeons_enhanced.ancient_civilizations"
     }
   },
   "requirements": [

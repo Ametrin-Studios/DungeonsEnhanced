@@ -1,28 +1,36 @@
 {
   "parent": "dungeons_enhanced:root",
+  "criteria": {
+    "entered_flying_dutchman": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "dungeons_enhanced:flying_dutchman"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  },
   "display": {
-    "icon": {
-      "item": "minecraft:black_banner"
-    },
-    "title": {
-      "translate": "advancements.dungeons_enhanced.in_the_air"
-    },
+    "announce_to_chat": true,
     "description": {
       "translate": "advancements.dungeons_enhanced.in_the_air.desc"
     },
     "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:vine"
+    },
     "show_toast": true,
-    "announce_to_chat": true,
-    "hidden": false
-  },
-  "criteria": {
-    "entered_flying_dutchman": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "feature": "dungeons_enhanced:flying_dutchman"
-        }
-      }
+    "title": {
+      "translate": "advancements.dungeons_enhanced.in_the_air"
     }
   },
   "requirements": [

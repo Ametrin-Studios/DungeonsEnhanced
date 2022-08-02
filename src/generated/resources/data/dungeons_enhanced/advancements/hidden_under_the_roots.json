@@ -1,28 +1,36 @@
 {
   "parent": "dungeons_enhanced:root",
+  "criteria": {
+    "entered_monster_maze": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "dungeons_enhanced:monster_maze"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  },
   "display": {
-    "icon": {
-      "item": "minecraft:jack_o_lantern"
-    },
-    "title": {
-      "translate": "advancements.dungeons_enhanced.hidden_under_the_roots"
-    },
+    "announce_to_chat": true,
     "description": {
       "translate": "advancements.dungeons_enhanced.hidden_under_the_roots.desc"
     },
     "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:jack_o_lantern"
+    },
     "show_toast": true,
-    "announce_to_chat": true,
-    "hidden": false
-  },
-  "criteria": {
-    "entered_monster_maze": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "feature": "dungeons_enhanced:monster_maze"
-        }
-      }
+    "title": {
+      "translate": "advancements.dungeons_enhanced.hidden_under_the_roots"
     }
   },
   "requirements": [

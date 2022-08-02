@@ -1,7 +1,7 @@
 
-[Castle]
+[castle]
 
-	[Castle.placement]
+	[castle.placement]
 		#
 		# The average distance between structures of this type, measured in chunks.
 		# Default: 56
@@ -18,31 +18,30 @@
 		#Range: 0 ~ 100
 		probability = 42
 
-	[Castle.configured_structures]
+	[castle.structures]
 
-		[Castle.configured_structures.configured]
+		[castle.structures.structure]
 
-			[Castle.configured_structures.configured.biomes]
+			[castle.structures.structure.biomes]
 				#
 				# A filter for which biomes this structure should generate in. Entries are formatted as follows:
 				# - Biome: "minecraft:plains"
-				# - Biome Dictionary Entry: "##structure_gel:birch_forest"
-				# - Add ! to the start of an entry to exclude it: "!##structure_gel:frozen_ocean"
-				# - Biome Tag: "#minecraft:is_ocean". If using a biome tag, only one can be used and it must be by itself. This does not support "!"
-				# Example: ["##structure_gel:wooded", "!minecraft:flower_forest"] This will include all wooded biomes except for flower forests.
-				# Default: ["##structure_gel:cold", "##structure_gel:snowy", "!##structure_gel:mountain", "!##structure_gel:beach"]
-				biomes = ["##structure_gel:cold", "##structure_gel:snowy", "!##structure_gel:mountain", "!##structure_gel:beach"]
+				# - Tag: "#minecraft:is_forest"
+				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
+				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
+				# Default: ["#minecraft:is_taiga"]
+				biomes = ["#minecraft:is_taiga"]
 
-			[Castle.configured_structures.configured.dimensions]
+			[castle.structures.structure.dimensions]
 				#
 				# What dimensions this structure should generate in. Leave empty to allow all dimensions.
 				# Example: ["minecraft:overworld", "minecraft:the_nether"]
 				# Default: ["minecraft:overworld"]
 				dimensions = ["minecraft:overworld"]
 
-["Deep Crypt"]
+[deep_crypt]
 
-	["Deep Crypt".placement]
+	[deep_crypt.placement]
 		#
 		# The average distance between structures of this type, measured in chunks.
 		# Default: 35
@@ -59,31 +58,30 @@
 		#Range: 0 ~ 100
 		probability = 75
 
-	["Deep Crypt".configured_structures]
+	[deep_crypt.structures]
 
-		["Deep Crypt".configured_structures.configured]
+		[deep_crypt.structures.structure]
 
-			["Deep Crypt".configured_structures.configured.biomes]
+			[deep_crypt.structures.structure.biomes]
 				#
 				# A filter for which biomes this structure should generate in. Entries are formatted as follows:
 				# - Biome: "minecraft:plains"
-				# - Biome Dictionary Entry: "##structure_gel:birch_forest"
-				# - Add ! to the start of an entry to exclude it: "!##structure_gel:frozen_ocean"
-				# - Biome Tag: "#minecraft:is_ocean". If using a biome tag, only one can be used and it must be by itself. This does not support "!"
-				# Example: ["##structure_gel:wooded", "!minecraft:flower_forest"] This will include all wooded biomes except for flower forests.
-				# Default: ["##structure_gel:overworld"]
-				biomes = ["##structure_gel:overworld"]
+				# - Tag: "#minecraft:is_forest"
+				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
+				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
+				# Default: ["#minecraft:is_overworld"]
+				biomes = ["#minecraft:is_overworld"]
 
-			["Deep Crypt".configured_structures.configured.dimensions]
+			[deep_crypt.structures.structure.dimensions]
 				#
 				# What dimensions this structure should generate in. Leave empty to allow all dimensions.
 				# Example: ["minecraft:overworld", "minecraft:the_nether"]
 				# Default: ["minecraft:overworld"]
 				dimensions = ["minecraft:overworld"]
 
-["Desert Temple"]
+[desert_temple]
 
-	["Desert Temple".placement]
+	[desert_temple.placement]
 		#
 		# The average distance between structures of this type, measured in chunks.
 		# Default: 32
@@ -100,31 +98,30 @@
 		#Range: 0 ~ 100
 		probability = 60
 
-	["Desert Temple".configured_structures]
+	[desert_temple.structures]
 
-		["Desert Temple".configured_structures.configured]
+		[desert_temple.structures.structure]
 
-			["Desert Temple".configured_structures.configured.biomes]
+			[desert_temple.structures.structure.biomes]
 				#
 				# A filter for which biomes this structure should generate in. Entries are formatted as follows:
 				# - Biome: "minecraft:plains"
-				# - Biome Dictionary Entry: "##structure_gel:birch_forest"
-				# - Add ! to the start of an entry to exclude it: "!##structure_gel:frozen_ocean"
-				# - Biome Tag: "#minecraft:is_ocean". If using a biome tag, only one can be used and it must be by itself. This does not support "!"
-				# Example: ["##structure_gel:wooded", "!minecraft:flower_forest"] This will include all wooded biomes except for flower forests.
+				# - Tag: "#minecraft:is_forest"
+				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
+				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
 				# Default: ["minecraft:desert"]
 				biomes = ["minecraft:desert"]
 
-			["Desert Temple".configured_structures.configured.dimensions]
+			[desert_temple.structures.structure.dimensions]
 				#
 				# What dimensions this structure should generate in. Leave empty to allow all dimensions.
 				# Example: ["minecraft:overworld", "minecraft:the_nether"]
 				# Default: ["minecraft:overworld"]
 				dimensions = ["minecraft:overworld"]
 
-["Desert Tomb"]
+[desert_tomb]
 
-	["Desert Tomb".placement]
+	[desert_tomb.placement]
 		#
 		# The average distance between structures of this type, measured in chunks.
 		# Default: 29
@@ -141,31 +138,30 @@
 		#Range: 0 ~ 100
 		probability = 65
 
-	["Desert Tomb".configured_structures]
+	[desert_tomb.structures]
 
-		["Desert Tomb".configured_structures.configured]
+		[desert_tomb.structures.structure]
 
-			["Desert Tomb".configured_structures.configured.biomes]
+			[desert_tomb.structures.structure.biomes]
 				#
 				# A filter for which biomes this structure should generate in. Entries are formatted as follows:
 				# - Biome: "minecraft:plains"
-				# - Biome Dictionary Entry: "##structure_gel:birch_forest"
-				# - Add ! to the start of an entry to exclude it: "!##structure_gel:frozen_ocean"
-				# - Biome Tag: "#minecraft:is_ocean". If using a biome tag, only one can be used and it must be by itself. This does not support "!"
-				# Example: ["##structure_gel:wooded", "!minecraft:flower_forest"] This will include all wooded biomes except for flower forests.
+				# - Tag: "#minecraft:is_forest"
+				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
+				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
 				# Default: ["minecraft:desert"]
 				biomes = ["minecraft:desert"]
 
-			["Desert Tomb".configured_structures.configured.dimensions]
+			[desert_tomb.structures.structure.dimensions]
 				#
 				# What dimensions this structure should generate in. Leave empty to allow all dimensions.
 				# Example: ["minecraft:overworld", "minecraft:the_nether"]
 				# Default: ["minecraft:overworld"]
 				dimensions = ["minecraft:overworld"]
 
-["Druid Circle"]
+[druid_circle]
 
-	["Druid Circle".placement]
+	[druid_circle.placement]
 		#
 		# The average distance between structures of this type, measured in chunks.
 		# Default: 39
@@ -182,31 +178,30 @@
 		#Range: 0 ~ 100
 		probability = 40
 
-	["Druid Circle".configured_structures]
+	[druid_circle.structures]
 
-		["Druid Circle".configured_structures.configured]
+		[druid_circle.structures.structure]
 
-			["Druid Circle".configured_structures.configured.biomes]
+			[druid_circle.structures.structure.biomes]
 				#
 				# A filter for which biomes this structure should generate in. Entries are formatted as follows:
 				# - Biome: "minecraft:plains"
-				# - Biome Dictionary Entry: "##structure_gel:birch_forest"
-				# - Add ! to the start of an entry to exclude it: "!##structure_gel:frozen_ocean"
-				# - Biome Tag: "#minecraft:is_ocean". If using a biome tag, only one can be used and it must be by itself. This does not support "!"
-				# Example: ["##structure_gel:wooded", "!minecraft:flower_forest"] This will include all wooded biomes except for flower forests.
-				# Default: ["##structure_gel:neutral_temp", "!##structure_gel:wooded", "!##structure_gel:mountain", "!##structure_gel:beach"]
-				biomes = ["##structure_gel:neutral_temp", "!##structure_gel:wooded", "!##structure_gel:mountain", "!##structure_gel:beach"]
+				# - Tag: "#minecraft:is_forest"
+				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
+				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
+				# Default: ["#minecraft:is_overworld"]
+				biomes = ["#minecraft:is_overworld"]
 
-			["Druid Circle".configured_structures.configured.dimensions]
+			[druid_circle.structures.structure.dimensions]
 				#
 				# What dimensions this structure should generate in. Leave empty to allow all dimensions.
 				# Example: ["minecraft:overworld", "minecraft:the_nether"]
 				# Default: ["minecraft:overworld"]
 				dimensions = ["minecraft:overworld"]
 
-["Dungeon Variant"]
+[dungeon_variant]
 
-	["Dungeon Variant".placement]
+	[dungeon_variant.placement]
 		#
 		# The average distance between structures of this type, measured in chunks.
 		# Default: 16
@@ -223,31 +218,30 @@
 		#Range: 0 ~ 100
 		probability = 80
 
-	["Dungeon Variant".configured_structures]
+	[dungeon_variant.structures]
 
-		["Dungeon Variant".configured_structures.configured]
+		[dungeon_variant.structures.structure]
 
-			["Dungeon Variant".configured_structures.configured.biomes]
+			[dungeon_variant.structures.structure.biomes]
 				#
 				# A filter for which biomes this structure should generate in. Entries are formatted as follows:
 				# - Biome: "minecraft:plains"
-				# - Biome Dictionary Entry: "##structure_gel:birch_forest"
-				# - Add ! to the start of an entry to exclude it: "!##structure_gel:frozen_ocean"
-				# - Biome Tag: "#minecraft:is_ocean". If using a biome tag, only one can be used and it must be by itself. This does not support "!"
-				# Example: ["##structure_gel:wooded", "!minecraft:flower_forest"] This will include all wooded biomes except for flower forests.
-				# Default: ["##structure_gel:overworld"]
-				biomes = ["##structure_gel:overworld"]
+				# - Tag: "#minecraft:is_forest"
+				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
+				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
+				# Default: ["#minecraft:is_overworld"]
+				biomes = ["#minecraft:is_overworld"]
 
-			["Dungeon Variant".configured_structures.configured.dimensions]
+			[dungeon_variant.structures.structure.dimensions]
 				#
 				# What dimensions this structure should generate in. Leave empty to allow all dimensions.
 				# Example: ["minecraft:overworld", "minecraft:the_nether"]
 				# Default: ["minecraft:overworld"]
 				dimensions = ["minecraft:overworld"]
 
-["Elders Temple"]
+[elders_temple]
 
-	["Elders Temple".placement]
+	[elders_temple.placement]
 		#
 		# The average distance between structures of this type, measured in chunks.
 		# Default: 34
@@ -264,31 +258,30 @@
 		#Range: 0 ~ 100
 		probability = 82
 
-	["Elders Temple".configured_structures]
+	[elders_temple.structures]
 
-		["Elders Temple".configured_structures.configured]
+		[elders_temple.structures.structure]
 
-			["Elders Temple".configured_structures.configured.biomes]
+			[elders_temple.structures.structure.biomes]
 				#
 				# A filter for which biomes this structure should generate in. Entries are formatted as follows:
 				# - Biome: "minecraft:plains"
-				# - Biome Dictionary Entry: "##structure_gel:birch_forest"
-				# - Add ! to the start of an entry to exclude it: "!##structure_gel:frozen_ocean"
-				# - Biome Tag: "#minecraft:is_ocean". If using a biome tag, only one can be used and it must be by itself. This does not support "!"
-				# Example: ["##structure_gel:wooded", "!minecraft:flower_forest"] This will include all wooded biomes except for flower forests.
-				# Default: ["##structure_gel:ocean"]
-				biomes = ["##structure_gel:ocean"]
+				# - Tag: "#minecraft:is_forest"
+				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
+				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
+				# Default: ["#minecraft:is_ocean"]
+				biomes = ["#minecraft:is_ocean"]
 
-			["Elders Temple".configured_structures.configured.dimensions]
+			[elders_temple.structures.structure.dimensions]
 				#
 				# What dimensions this structure should generate in. Leave empty to allow all dimensions.
 				# Example: ["minecraft:overworld", "minecraft:the_nether"]
 				# Default: ["minecraft:overworld"]
 				dimensions = ["minecraft:overworld"]
 
-["Fishing Ship"]
+[fishing_ship]
 
-	["Fishing Ship".placement]
+	[fishing_ship.placement]
 		#
 		# The average distance between structures of this type, measured in chunks.
 		# Default: 48
@@ -305,31 +298,30 @@
 		#Range: 0 ~ 100
 		probability = 68
 
-	["Fishing Ship".configured_structures]
+	[fishing_ship.structures]
 
-		["Fishing Ship".configured_structures.configured]
+		[fishing_ship.structures.structure]
 
-			["Fishing Ship".configured_structures.configured.biomes]
+			[fishing_ship.structures.structure.biomes]
 				#
 				# A filter for which biomes this structure should generate in. Entries are formatted as follows:
 				# - Biome: "minecraft:plains"
-				# - Biome Dictionary Entry: "##structure_gel:birch_forest"
-				# - Add ! to the start of an entry to exclude it: "!##structure_gel:frozen_ocean"
-				# - Biome Tag: "#minecraft:is_ocean". If using a biome tag, only one can be used and it must be by itself. This does not support "!"
-				# Example: ["##structure_gel:wooded", "!minecraft:flower_forest"] This will include all wooded biomes except for flower forests.
-				# Default: ["##structure_gel:ocean"]
-				biomes = ["##structure_gel:ocean"]
+				# - Tag: "#minecraft:is_forest"
+				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
+				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
+				# Default: ["#minecraft:is_ocean"]
+				biomes = ["#minecraft:is_ocean"]
 
-			["Fishing Ship".configured_structures.configured.dimensions]
+			[fishing_ship.structures.structure.dimensions]
 				#
 				# What dimensions this structure should generate in. Leave empty to allow all dimensions.
 				# Example: ["minecraft:overworld", "minecraft:the_nether"]
 				# Default: ["minecraft:overworld"]
 				dimensions = ["minecraft:overworld"]
 
-["Flying Dutchman"]
+[flying_dutchman]
 
-	["Flying Dutchman".placement]
+	[flying_dutchman.placement]
 		#
 		# The average distance between structures of this type, measured in chunks.
 		# Default: 67
@@ -346,31 +338,30 @@
 		#Range: 0 ~ 100
 		probability = 40
 
-	["Flying Dutchman".configured_structures]
+	[flying_dutchman.structures]
 
-		["Flying Dutchman".configured_structures.configured]
+		[flying_dutchman.structures.structure]
 
-			["Flying Dutchman".configured_structures.configured.biomes]
+			[flying_dutchman.structures.structure.biomes]
 				#
 				# A filter for which biomes this structure should generate in. Entries are formatted as follows:
 				# - Biome: "minecraft:plains"
-				# - Biome Dictionary Entry: "##structure_gel:birch_forest"
-				# - Add ! to the start of an entry to exclude it: "!##structure_gel:frozen_ocean"
-				# - Biome Tag: "#minecraft:is_ocean". If using a biome tag, only one can be used and it must be by itself. This does not support "!"
-				# Example: ["##structure_gel:wooded", "!minecraft:flower_forest"] This will include all wooded biomes except for flower forests.
-				# Default: ["##structure_gel:ocean"]
-				biomes = ["##structure_gel:ocean"]
+				# - Tag: "#minecraft:is_forest"
+				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
+				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
+				# Default: ["#minecraft:is_ocean"]
+				biomes = ["#minecraft:is_ocean"]
 
-			["Flying Dutchman".configured_structures.configured.dimensions]
+			[flying_dutchman.structures.structure.dimensions]
 				#
 				# What dimensions this structure should generate in. Leave empty to allow all dimensions.
 				# Example: ["minecraft:overworld", "minecraft:the_nether"]
 				# Default: ["minecraft:overworld"]
 				dimensions = ["minecraft:overworld"]
 
-["Hay Storage"]
+[hay_storage]
 
-	["Hay Storage".placement]
+	[hay_storage.placement]
 		#
 		# The average distance between structures of this type, measured in chunks.
 		# Default: 24
@@ -387,31 +378,30 @@
 		#Range: 0 ~ 100
 		probability = 75
 
-	["Hay Storage".configured_structures]
+	[hay_storage.structures]
 
-		["Hay Storage".configured_structures.configured]
+		[hay_storage.structures.structure]
 
-			["Hay Storage".configured_structures.configured.biomes]
+			[hay_storage.structures.structure.biomes]
 				#
 				# A filter for which biomes this structure should generate in. Entries are formatted as follows:
 				# - Biome: "minecraft:plains"
-				# - Biome Dictionary Entry: "##structure_gel:birch_forest"
-				# - Add ! to the start of an entry to exclude it: "!##structure_gel:frozen_ocean"
-				# - Biome Tag: "#minecraft:is_ocean". If using a biome tag, only one can be used and it must be by itself. This does not support "!"
-				# Example: ["##structure_gel:wooded", "!minecraft:flower_forest"] This will include all wooded biomes except for flower forests.
-				# Default: ["##structure_gel:savanna"]
-				biomes = ["##structure_gel:savanna"]
+				# - Tag: "#minecraft:is_forest"
+				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
+				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
+				# Default: ["#minecraft:is_savanna"]
+				biomes = ["#minecraft:is_savanna"]
 
-			["Hay Storage".configured_structures.configured.dimensions]
+			[hay_storage.structures.structure.dimensions]
 				#
 				# What dimensions this structure should generate in. Leave empty to allow all dimensions.
 				# Example: ["minecraft:overworld", "minecraft:the_nether"]
 				# Default: ["minecraft:overworld"]
 				dimensions = ["minecraft:overworld"]
 
-["Ice Pit"]
+[ice_pit]
 
-	["Ice Pit".placement]
+	[ice_pit.placement]
 		#
 		# The average distance between structures of this type, measured in chunks.
 		# Default: 35
@@ -428,31 +418,30 @@
 		#Range: 0 ~ 100
 		probability = 70
 
-	["Ice Pit".configured_structures]
+	[ice_pit.structures]
 
-		["Ice Pit".configured_structures.configured]
+		[ice_pit.structures.structure]
 
-			["Ice Pit".configured_structures.configured.biomes]
+			[ice_pit.structures.structure.biomes]
 				#
 				# A filter for which biomes this structure should generate in. Entries are formatted as follows:
 				# - Biome: "minecraft:plains"
-				# - Biome Dictionary Entry: "##structure_gel:birch_forest"
-				# - Add ! to the start of an entry to exclude it: "!##structure_gel:frozen_ocean"
-				# - Biome Tag: "#minecraft:is_ocean". If using a biome tag, only one can be used and it must be by itself. This does not support "!"
-				# Example: ["##structure_gel:wooded", "!minecraft:flower_forest"] This will include all wooded biomes except for flower forests.
-				# Default: ["##structure_gel:snowy", "##structure_gel:frozen", "!##structure_gel:mountain", "!##structure_gel:river", "!##structure_gel:beach"]
-				biomes = ["##structure_gel:snowy", "##structure_gel:frozen", "!##structure_gel:mountain", "!##structure_gel:river", "!##structure_gel:beach"]
+				# - Tag: "#minecraft:is_forest"
+				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
+				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
+				# Default: ["#forge:is_snowy"]
+				biomes = ["#forge:is_snowy"]
 
-			["Ice Pit".configured_structures.configured.dimensions]
+			[ice_pit.structures.structure.dimensions]
 				#
 				# What dimensions this structure should generate in. Leave empty to allow all dimensions.
 				# Example: ["minecraft:overworld", "minecraft:the_nether"]
 				# Default: ["minecraft:overworld"]
 				dimensions = ["minecraft:overworld"]
 
-["Jungle Monument"]
+[jungle_monument]
 
-	["Jungle Monument".placement]
+	[jungle_monument.placement]
 		#
 		# The average distance between structures of this type, measured in chunks.
 		# Default: 41
@@ -469,31 +458,30 @@
 		#Range: 0 ~ 100
 		probability = 75
 
-	["Jungle Monument".configured_structures]
+	[jungle_monument.structures]
 
-		["Jungle Monument".configured_structures.configured]
+		[jungle_monument.structures.structure]
 
-			["Jungle Monument".configured_structures.configured.biomes]
+			[jungle_monument.structures.structure.biomes]
 				#
 				# A filter for which biomes this structure should generate in. Entries are formatted as follows:
 				# - Biome: "minecraft:plains"
-				# - Biome Dictionary Entry: "##structure_gel:birch_forest"
-				# - Add ! to the start of an entry to exclude it: "!##structure_gel:frozen_ocean"
-				# - Biome Tag: "#minecraft:is_ocean". If using a biome tag, only one can be used and it must be by itself. This does not support "!"
-				# Example: ["##structure_gel:wooded", "!minecraft:flower_forest"] This will include all wooded biomes except for flower forests.
+				# - Tag: "#minecraft:is_forest"
+				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
+				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
 				# Default: ["#minecraft:is_jungle"]
 				biomes = ["#minecraft:is_jungle"]
 
-			["Jungle Monument".configured_structures.configured.dimensions]
+			[jungle_monument.structures.structure.dimensions]
 				#
 				# What dimensions this structure should generate in. Leave empty to allow all dimensions.
 				# Example: ["minecraft:overworld", "minecraft:the_nether"]
 				# Default: ["minecraft:overworld"]
 				dimensions = ["minecraft:overworld"]
 
-["Large Dungeon"]
+[large_dungeon]
 
-	["Large Dungeon".placement]
+	[large_dungeon.placement]
 		#
 		# The average distance between structures of this type, measured in chunks.
 		# Default: 39
@@ -510,31 +498,30 @@
 		#Range: 0 ~ 100
 		probability = 35
 
-	["Large Dungeon".configured_structures]
+	[large_dungeon.structures]
 
-		["Large Dungeon".configured_structures.configured]
+		[large_dungeon.structures.structure]
 
-			["Large Dungeon".configured_structures.configured.biomes]
+			[large_dungeon.structures.structure.biomes]
 				#
 				# A filter for which biomes this structure should generate in. Entries are formatted as follows:
 				# - Biome: "minecraft:plains"
-				# - Biome Dictionary Entry: "##structure_gel:birch_forest"
-				# - Add ! to the start of an entry to exclude it: "!##structure_gel:frozen_ocean"
-				# - Biome Tag: "#minecraft:is_ocean". If using a biome tag, only one can be used and it must be by itself. This does not support "!"
-				# Example: ["##structure_gel:wooded", "!minecraft:flower_forest"] This will include all wooded biomes except for flower forests.
-				# Default: ["##structure_gel:neutral_temp", "##structure_gel:cold", "!##structure_gel:mountain", "!##structure_gel:beach"]
-				biomes = ["##structure_gel:neutral_temp", "##structure_gel:cold", "!##structure_gel:mountain", "!##structure_gel:beach"]
+				# - Tag: "#minecraft:is_forest"
+				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
+				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
+				# Default: ["#minecraft:is_overworld"]
+				biomes = ["#minecraft:is_overworld"]
 
-			["Large Dungeon".configured_structures.configured.dimensions]
+			[large_dungeon.structures.structure.dimensions]
 				#
 				# What dimensions this structure should generate in. Leave empty to allow all dimensions.
 				# Example: ["minecraft:overworld", "minecraft:the_nether"]
 				# Default: ["minecraft:overworld"]
 				dimensions = ["minecraft:overworld"]
 
-["Miners House"]
+[miners_mouse]
 
-	["Miners House".placement]
+	[miners_mouse.placement]
 		#
 		# The average distance between structures of this type, measured in chunks.
 		# Default: 24
@@ -551,31 +538,30 @@
 		#Range: 0 ~ 100
 		probability = 80
 
-	["Miners House".configured_structures]
+	[miners_mouse.structures]
 
-		["Miners House".configured_structures.configured]
+		[miners_mouse.structures.structure]
 
-			["Miners House".configured_structures.configured.biomes]
+			[miners_mouse.structures.structure.biomes]
 				#
 				# A filter for which biomes this structure should generate in. Entries are formatted as follows:
 				# - Biome: "minecraft:plains"
-				# - Biome Dictionary Entry: "##structure_gel:birch_forest"
-				# - Add ! to the start of an entry to exclude it: "!##structure_gel:frozen_ocean"
-				# - Biome Tag: "#minecraft:is_ocean". If using a biome tag, only one can be used and it must be by itself. This does not support "!"
-				# Example: ["##structure_gel:wooded", "!minecraft:flower_forest"] This will include all wooded biomes except for flower forests.
-				# Default: ["minecraft:badlands", "minecraft:badlands_plateau"]
-				biomes = ["minecraft:badlands", "minecraft:badlands_plateau"]
+				# - Tag: "#minecraft:is_forest"
+				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
+				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
+				# Default: ["#minecraft:is_badlands"]
+				biomes = ["#minecraft:is_badlands"]
 
-			["Miners House".configured_structures.configured.dimensions]
+			[miners_mouse.structures.structure.dimensions]
 				#
 				# What dimensions this structure should generate in. Leave empty to allow all dimensions.
 				# Example: ["minecraft:overworld", "minecraft:the_nether"]
 				# Default: ["minecraft:overworld"]
 				dimensions = ["minecraft:overworld"]
 
-["Monster Maze"]
+[monster_maze]
 
-	["Monster Maze".placement]
+	[monster_maze.placement]
 		#
 		# The average distance between structures of this type, measured in chunks.
 		# Default: 34
@@ -592,31 +578,30 @@
 		#Range: 0 ~ 100
 		probability = 50
 
-	["Monster Maze".configured_structures]
+	[monster_maze.structures]
 
-		["Monster Maze".configured_structures.configured]
+		[monster_maze.structures.structure]
 
-			["Monster Maze".configured_structures.configured.biomes]
+			[monster_maze.structures.structure.biomes]
 				#
 				# A filter for which biomes this structure should generate in. Entries are formatted as follows:
 				# - Biome: "minecraft:plains"
-				# - Biome Dictionary Entry: "##structure_gel:birch_forest"
-				# - Add ! to the start of an entry to exclude it: "!##structure_gel:frozen_ocean"
-				# - Biome Tag: "#minecraft:is_ocean". If using a biome tag, only one can be used and it must be by itself. This does not support "!"
-				# Example: ["##structure_gel:wooded", "!minecraft:flower_forest"] This will include all wooded biomes except for flower forests.
-				# Default: ["##structure_gel:spooky", "##structure_gel:pumpkin", "!##structure_gel:sandy", "!##structure_gel:mountain"]
-				biomes = ["##structure_gel:spooky", "##structure_gel:pumpkin", "!##structure_gel:sandy", "!##structure_gel:mountain"]
+				# - Tag: "#minecraft:is_forest"
+				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
+				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
+				# Default: ["#forge:is_spooky"]
+				biomes = ["#forge:is_spooky"]
 
-			["Monster Maze".configured_structures.configured.dimensions]
+			[monster_maze.structures.structure.dimensions]
 				#
 				# What dimensions this structure should generate in. Leave empty to allow all dimensions.
 				# Example: ["minecraft:overworld", "minecraft:the_nether"]
 				# Default: ["minecraft:overworld"]
 				dimensions = ["minecraft:overworld"]
 
-["Mushroom House"]
+[mushroom_house]
 
-	["Mushroom House".placement]
+	[mushroom_house.placement]
 		#
 		# The average distance between structures of this type, measured in chunks.
 		# Default: 15
@@ -633,31 +618,30 @@
 		#Range: 0 ~ 100
 		probability = 75
 
-	["Mushroom House".configured_structures]
+	[mushroom_house.structures]
 
-		["Mushroom House".configured_structures.configured]
+		[mushroom_house.structures.structure]
 
-			["Mushroom House".configured_structures.configured.biomes]
+			[mushroom_house.structures.structure.biomes]
 				#
 				# A filter for which biomes this structure should generate in. Entries are formatted as follows:
 				# - Biome: "minecraft:plains"
-				# - Biome Dictionary Entry: "##structure_gel:birch_forest"
-				# - Add ! to the start of an entry to exclude it: "!##structure_gel:frozen_ocean"
-				# - Biome Tag: "#minecraft:is_ocean". If using a biome tag, only one can be used and it must be by itself. This does not support "!"
-				# Example: ["##structure_gel:wooded", "!minecraft:flower_forest"] This will include all wooded biomes except for flower forests.
+				# - Tag: "#minecraft:is_forest"
+				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
+				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
 				# Default: ["minecraft:mushroom_fields", "minecraft:mushroom_field_shore"]
 				biomes = ["minecraft:mushroom_fields", "minecraft:mushroom_field_shore"]
 
-			["Mushroom House".configured_structures.configured.dimensions]
+			[mushroom_house.structures.structure.dimensions]
 				#
 				# What dimensions this structure should generate in. Leave empty to allow all dimensions.
 				# Example: ["minecraft:overworld", "minecraft:the_nether"]
 				# Default: ["minecraft:overworld"]
 				dimensions = ["minecraft:overworld"]
 
-["Pillager Camp"]
+[pillager_camp]
 
-	["Pillager Camp".placement]
+	[pillager_camp.placement]
 		#
 		# The average distance between structures of this type, measured in chunks.
 		# Default: 49
@@ -674,31 +658,30 @@
 		#Range: 0 ~ 100
 		probability = 35
 
-	["Pillager Camp".configured_structures]
+	[pillager_camp.structures]
 
-		["Pillager Camp".configured_structures.configured]
+		[pillager_camp.structures.structure]
 
-			["Pillager Camp".configured_structures.configured.biomes]
+			[pillager_camp.structures.structure.biomes]
 				#
 				# A filter for which biomes this structure should generate in. Entries are formatted as follows:
 				# - Biome: "minecraft:plains"
-				# - Biome Dictionary Entry: "##structure_gel:birch_forest"
-				# - Add ! to the start of an entry to exclude it: "!##structure_gel:frozen_ocean"
-				# - Biome Tag: "#minecraft:is_ocean". If using a biome tag, only one can be used and it must be by itself. This does not support "!"
-				# Example: ["##structure_gel:wooded", "!minecraft:flower_forest"] This will include all wooded biomes except for flower forests.
-				# Default: ["##structure_gel:neutral_temp", "!##structure_gel:mountain", "!##structure_gel:wooded", "!##structure_gel:river", "!##structure_gel:beach"]
-				biomes = ["##structure_gel:neutral_temp", "!##structure_gel:mountain", "!##structure_gel:wooded", "!##structure_gel:river", "!##structure_gel:beach"]
+				# - Tag: "#minecraft:is_forest"
+				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
+				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
+				# Default: ["#minecraft:is_overworld"]
+				biomes = ["#minecraft:is_overworld"]
 
-			["Pillager Camp".configured_structures.configured.dimensions]
+			[pillager_camp.structures.structure.dimensions]
 				#
 				# What dimensions this structure should generate in. Leave empty to allow all dimensions.
 				# Example: ["minecraft:overworld", "minecraft:the_nether"]
 				# Default: ["minecraft:overworld"]
 				dimensions = ["minecraft:overworld"]
 
-["Pirate Ship"]
+[pirate_ship]
 
-	["Pirate Ship".placement]
+	[pirate_ship.placement]
 		#
 		# The average distance between structures of this type, measured in chunks.
 		# Default: 65
@@ -715,31 +698,30 @@
 		#Range: 0 ~ 100
 		probability = 49
 
-	["Pirate Ship".configured_structures]
+	[pirate_ship.structures]
 
-		["Pirate Ship".configured_structures.configured]
+		[pirate_ship.structures.structure]
 
-			["Pirate Ship".configured_structures.configured.biomes]
+			[pirate_ship.structures.structure.biomes]
 				#
 				# A filter for which biomes this structure should generate in. Entries are formatted as follows:
 				# - Biome: "minecraft:plains"
-				# - Biome Dictionary Entry: "##structure_gel:birch_forest"
-				# - Add ! to the start of an entry to exclude it: "!##structure_gel:frozen_ocean"
-				# - Biome Tag: "#minecraft:is_ocean". If using a biome tag, only one can be used and it must be by itself. This does not support "!"
-				# Example: ["##structure_gel:wooded", "!minecraft:flower_forest"] This will include all wooded biomes except for flower forests.
-				# Default: ["##structure_gel:ocean"]
-				biomes = ["##structure_gel:ocean"]
+				# - Tag: "#minecraft:is_forest"
+				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
+				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
+				# Default: ["#minecraft:is_ocean"]
+				biomes = ["#minecraft:is_ocean"]
 
-			["Pirate Ship".configured_structures.configured.dimensions]
+			[pirate_ship.structures.structure.dimensions]
 				#
 				# What dimensions this structure should generate in. Leave empty to allow all dimensions.
 				# Example: ["minecraft:overworld", "minecraft:the_nether"]
 				# Default: ["minecraft:overworld"]
 				dimensions = ["minecraft:overworld"]
 
-["Ruined Building"]
+[ruined_building]
 
-	["Ruined Building".placement]
+	[ruined_building.placement]
 		#
 		# The average distance between structures of this type, measured in chunks.
 		# Default: 27
@@ -756,31 +738,30 @@
 		#Range: 0 ~ 100
 		probability = 45
 
-	["Ruined Building".configured_structures]
+	[ruined_building.structures]
 
-		["Ruined Building".configured_structures.configured]
+		[ruined_building.structures.structure]
 
-			["Ruined Building".configured_structures.configured.biomes]
+			[ruined_building.structures.structure.biomes]
 				#
 				# A filter for which biomes this structure should generate in. Entries are formatted as follows:
 				# - Biome: "minecraft:plains"
-				# - Biome Dictionary Entry: "##structure_gel:birch_forest"
-				# - Add ! to the start of an entry to exclude it: "!##structure_gel:frozen_ocean"
-				# - Biome Tag: "#minecraft:is_ocean". If using a biome tag, only one can be used and it must be by itself. This does not support "!"
-				# Example: ["##structure_gel:wooded", "!minecraft:flower_forest"] This will include all wooded biomes except for flower forests.
-				# Default: ["##structure_gel:neutral_temp", "!##structure_gel:river", "!##structure_gel:beach", "!##structure_gel:mountain"]
-				biomes = ["##structure_gel:neutral_temp", "!##structure_gel:river", "!##structure_gel:beach", "!##structure_gel:mountain"]
+				# - Tag: "#minecraft:is_forest"
+				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
+				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
+				# Default: ["#minecraft:is_overworld"]
+				biomes = ["#minecraft:is_overworld"]
 
-			["Ruined Building".configured_structures.configured.dimensions]
+			[ruined_building.structures.structure.dimensions]
 				#
 				# What dimensions this structure should generate in. Leave empty to allow all dimensions.
 				# Example: ["minecraft:overworld", "minecraft:the_nether"]
 				# Default: ["minecraft:overworld"]
 				dimensions = ["minecraft:overworld"]
 
-[Stables]
+[stables]
 
-	[Stables.placement]
+	[stables.placement]
 		#
 		# The average distance between structures of this type, measured in chunks.
 		# Default: 46
@@ -797,31 +778,30 @@
 		#Range: 0 ~ 100
 		probability = 32
 
-	[Stables.configured_structures]
+	[stables.structures]
 
-		[Stables.configured_structures.configured]
+		[stables.structures.structure]
 
-			[Stables.configured_structures.configured.biomes]
+			[stables.structures.structure.biomes]
 				#
 				# A filter for which biomes this structure should generate in. Entries are formatted as follows:
 				# - Biome: "minecraft:plains"
-				# - Biome Dictionary Entry: "##structure_gel:birch_forest"
-				# - Add ! to the start of an entry to exclude it: "!##structure_gel:frozen_ocean"
-				# - Biome Tag: "#minecraft:is_ocean". If using a biome tag, only one can be used and it must be by itself. This does not support "!"
-				# Example: ["##structure_gel:wooded", "!minecraft:flower_forest"] This will include all wooded biomes except for flower forests.
-				# Default: ["##structure_gel:neutral_temp", "!##structure_gel:mountain", "!##structure_gel:wooded", "!##structure_gel:beach"]
-				biomes = ["##structure_gel:neutral_temp", "!##structure_gel:mountain", "!##structure_gel:wooded", "!##structure_gel:beach"]
+				# - Tag: "#minecraft:is_forest"
+				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
+				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
+				# Default: ["#minecraft:is_overworld"]
+				biomes = ["#minecraft:is_overworld"]
 
-			[Stables.configured_structures.configured.dimensions]
+			[stables.structures.structure.dimensions]
 				#
 				# What dimensions this structure should generate in. Leave empty to allow all dimensions.
 				# Example: ["minecraft:overworld", "minecraft:the_nether"]
 				# Default: ["minecraft:overworld"]
 				dimensions = ["minecraft:overworld"]
 
-["Sunken Shrine"]
+[sunken_shrine]
 
-	["Sunken Shrine".placement]
+	[sunken_shrine.placement]
 		#
 		# The average distance between structures of this type, measured in chunks.
 		# Default: 32
@@ -838,31 +818,30 @@
 		#Range: 0 ~ 100
 		probability = 55
 
-	["Sunken Shrine".configured_structures]
+	[sunken_shrine.structures]
 
-		["Sunken Shrine".configured_structures.configured]
+		[sunken_shrine.structures.structure]
 
-			["Sunken Shrine".configured_structures.configured.biomes]
+			[sunken_shrine.structures.structure.biomes]
 				#
 				# A filter for which biomes this structure should generate in. Entries are formatted as follows:
 				# - Biome: "minecraft:plains"
-				# - Biome Dictionary Entry: "##structure_gel:birch_forest"
-				# - Add ! to the start of an entry to exclude it: "!##structure_gel:frozen_ocean"
-				# - Biome Tag: "#minecraft:is_ocean". If using a biome tag, only one can be used and it must be by itself. This does not support "!"
-				# Example: ["##structure_gel:wooded", "!minecraft:flower_forest"] This will include all wooded biomes except for flower forests.
-				# Default: ["##structure_gel:ocean"]
-				biomes = ["##structure_gel:ocean"]
+				# - Tag: "#minecraft:is_forest"
+				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
+				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
+				# Default: ["#minecraft:is_ocean"]
+				biomes = ["#minecraft:is_ocean"]
 
-			["Sunken Shrine".configured_structures.configured.dimensions]
+			[sunken_shrine.structures.structure.dimensions]
 				#
 				# What dimensions this structure should generate in. Leave empty to allow all dimensions.
 				# Example: ["minecraft:overworld", "minecraft:the_nether"]
 				# Default: ["minecraft:overworld"]
 				dimensions = ["minecraft:overworld"]
 
-["Tall Witch Hut"]
+[tall_witch_hut]
 
-	["Tall Witch Hut".placement]
+	[tall_witch_hut.placement]
 		#
 		# The average distance between structures of this type, measured in chunks.
 		# Default: 18
@@ -879,31 +858,30 @@
 		#Range: 0 ~ 100
 		probability = 60
 
-	["Tall Witch Hut".configured_structures]
+	[tall_witch_hut.structures]
 
-		["Tall Witch Hut".configured_structures.configured]
+		[tall_witch_hut.structures.structure]
 
-			["Tall Witch Hut".configured_structures.configured.biomes]
+			[tall_witch_hut.structures.structure.biomes]
 				#
 				# A filter for which biomes this structure should generate in. Entries are formatted as follows:
 				# - Biome: "minecraft:plains"
-				# - Biome Dictionary Entry: "##structure_gel:birch_forest"
-				# - Add ! to the start of an entry to exclude it: "!##structure_gel:frozen_ocean"
-				# - Biome Tag: "#minecraft:is_ocean". If using a biome tag, only one can be used and it must be by itself. This does not support "!"
-				# Example: ["##structure_gel:wooded", "!minecraft:flower_forest"] This will include all wooded biomes except for flower forests.
-				# Default: ["##structure_gel:swamp"]
-				biomes = ["##structure_gel:swamp"]
+				# - Tag: "#minecraft:is_forest"
+				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
+				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
+				# Default: ["#forge:is_swamp"]
+				biomes = ["#forge:is_swamp"]
 
-			["Tall Witch Hut".configured_structures.configured.dimensions]
+			[tall_witch_hut.structures.structure.dimensions]
 				#
 				# What dimensions this structure should generate in. Leave empty to allow all dimensions.
 				# Example: ["minecraft:overworld", "minecraft:the_nether"]
 				# Default: ["minecraft:overworld"]
 				dimensions = ["minecraft:overworld"]
 
-["Tower of the Undead"]
+[tower_of_the_undead]
 
-	["Tower of the Undead".placement]
+	[tower_of_the_undead.placement]
 		#
 		# The average distance between structures of this type, measured in chunks.
 		# Default: 37
@@ -920,31 +898,30 @@
 		#Range: 0 ~ 100
 		probability = 35
 
-	["Tower of the Undead".configured_structures]
+	[tower_of_the_undead.structures]
 
-		["Tower of the Undead".configured_structures.configured]
+		[tower_of_the_undead.structures.structure]
 
-			["Tower of the Undead".configured_structures.configured.biomes]
+			[tower_of_the_undead.structures.structure.biomes]
 				#
 				# A filter for which biomes this structure should generate in. Entries are formatted as follows:
 				# - Biome: "minecraft:plains"
-				# - Biome Dictionary Entry: "##structure_gel:birch_forest"
-				# - Add ! to the start of an entry to exclude it: "!##structure_gel:frozen_ocean"
-				# - Biome Tag: "#minecraft:is_ocean". If using a biome tag, only one can be used and it must be by itself. This does not support "!"
-				# Example: ["##structure_gel:wooded", "!minecraft:flower_forest"] This will include all wooded biomes except for flower forests.
-				# Default: ["##structure_gel:neutral_temp", "##structure_gel:savanna", "##structure_gel:swamp", "!##structure_gel:mountain"]
-				biomes = ["##structure_gel:neutral_temp", "##structure_gel:savanna", "##structure_gel:swamp", "!##structure_gel:mountain"]
+				# - Tag: "#minecraft:is_forest"
+				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
+				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
+				# Default: ["#minecraft:is_overworld"]
+				biomes = ["#minecraft:is_overworld"]
 
-			["Tower of the Undead".configured_structures.configured.dimensions]
+			[tower_of_the_undead.structures.structure.dimensions]
 				#
 				# What dimensions this structure should generate in. Leave empty to allow all dimensions.
 				# Example: ["minecraft:overworld", "minecraft:the_nether"]
 				# Default: ["minecraft:overworld"]
 				dimensions = ["minecraft:overworld"]
 
-["Tree House"]
+[tree_house]
 
-	["Tree House".placement]
+	[tree_house.placement]
 		#
 		# The average distance between structures of this type, measured in chunks.
 		# Default: 29
@@ -961,31 +938,30 @@
 		#Range: 0 ~ 100
 		probability = 40
 
-	["Tree House".configured_structures]
+	[tree_house.structures]
 
-		["Tree House".configured_structures.configured]
+		[tree_house.structures.structure]
 
-			["Tree House".configured_structures.configured.biomes]
+			[tree_house.structures.structure.biomes]
 				#
 				# A filter for which biomes this structure should generate in. Entries are formatted as follows:
 				# - Biome: "minecraft:plains"
-				# - Biome Dictionary Entry: "##structure_gel:birch_forest"
-				# - Add ! to the start of an entry to exclude it: "!##structure_gel:frozen_ocean"
-				# - Biome Tag: "#minecraft:is_ocean". If using a biome tag, only one can be used and it must be by itself. This does not support "!"
-				# Example: ["##structure_gel:wooded", "!minecraft:flower_forest"] This will include all wooded biomes except for flower forests.
+				# - Tag: "#minecraft:is_forest"
+				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
+				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
 				# Default: ["#minecraft:is_jungle"]
 				biomes = ["#minecraft:is_jungle"]
 
-			["Tree House".configured_structures.configured.dimensions]
+			[tree_house.structures.structure.dimensions]
 				#
 				# What dimensions this structure should generate in. Leave empty to allow all dimensions.
 				# Example: ["minecraft:overworld", "minecraft:the_nether"]
 				# Default: ["minecraft:overworld"]
 				dimensions = ["minecraft:overworld"]
 
-["Watch Tower"]
+[watch_tower]
 
-	["Watch Tower".placement]
+	[watch_tower.placement]
 		#
 		# The average distance between structures of this type, measured in chunks.
 		# Default: 33
@@ -1002,31 +978,30 @@
 		#Range: 0 ~ 100
 		probability = 45
 
-	["Watch Tower".configured_structures]
+	[watch_tower.structures]
 
-		["Watch Tower".configured_structures.configured]
+		[watch_tower.structures.structure]
 
-			["Watch Tower".configured_structures.configured.biomes]
+			[watch_tower.structures.structure.biomes]
 				#
 				# A filter for which biomes this structure should generate in. Entries are formatted as follows:
 				# - Biome: "minecraft:plains"
-				# - Biome Dictionary Entry: "##structure_gel:birch_forest"
-				# - Add ! to the start of an entry to exclude it: "!##structure_gel:frozen_ocean"
-				# - Biome Tag: "#minecraft:is_ocean". If using a biome tag, only one can be used and it must be by itself. This does not support "!"
-				# Example: ["##structure_gel:wooded", "!minecraft:flower_forest"] This will include all wooded biomes except for flower forests.
-				# Default: ["##structure_gel:cold", "##structure_gel:snowy", "##structure_gel:mountain"]
-				biomes = ["##structure_gel:cold", "##structure_gel:snowy", "##structure_gel:mountain"]
+				# - Tag: "#minecraft:is_forest"
+				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
+				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
+				# Default: ["#forge:is_cold"]
+				biomes = ["#forge:is_cold"]
 
-			["Watch Tower".configured_structures.configured.dimensions]
+			[watch_tower.structures.structure.dimensions]
 				#
 				# What dimensions this structure should generate in. Leave empty to allow all dimensions.
 				# Example: ["minecraft:overworld", "minecraft:the_nether"]
 				# Default: ["minecraft:overworld"]
 				dimensions = ["minecraft:overworld"]
 
-["Witch Tower"]
+[witch_tower]
 
-	["Witch Tower".placement]
+	[witch_tower.placement]
 		#
 		# The average distance between structures of this type, measured in chunks.
 		# Default: 29
@@ -1043,22 +1018,21 @@
 		#Range: 0 ~ 100
 		probability = 45
 
-	["Witch Tower".configured_structures]
+	[witch_tower.structures]
 
-		["Witch Tower".configured_structures.configured]
+		[witch_tower.structures.structure]
 
-			["Witch Tower".configured_structures.configured.biomes]
+			[witch_tower.structures.structure.biomes]
 				#
 				# A filter for which biomes this structure should generate in. Entries are formatted as follows:
 				# - Biome: "minecraft:plains"
-				# - Biome Dictionary Entry: "##structure_gel:birch_forest"
-				# - Add ! to the start of an entry to exclude it: "!##structure_gel:frozen_ocean"
-				# - Biome Tag: "#minecraft:is_ocean". If using a biome tag, only one can be used and it must be by itself. This does not support "!"
-				# Example: ["##structure_gel:wooded", "!minecraft:flower_forest"] This will include all wooded biomes except for flower forests.
-				# Default: ["##structure_gel:spruce_forest", "##structure_gel:large_spruce_forest"]
-				biomes = ["##structure_gel:spruce_forest", "##structure_gel:large_spruce_forest"]
+				# - Tag: "#minecraft:is_forest"
+				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
+				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
+				# Default: ["#minecraft:is_taiga"]
+				biomes = ["#minecraft:is_taiga"]
 
-			["Witch Tower".configured_structures.configured.dimensions]
+			[witch_tower.structures.structure.dimensions]
 				#
 				# What dimensions this structure should generate in. Leave empty to allow all dimensions.
 				# Example: ["minecraft:overworld", "minecraft:the_nether"]

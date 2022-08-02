@@ -1,28 +1,36 @@
 {
   "parent": "dungeons_enhanced:root",
+  "criteria": {
+    "entered_castle": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "dungeons_enhanced:castle"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  },
   "display": {
-    "icon": {
-      "item": "minecraft:stone_bricks"
-    },
-    "title": {
-      "translate": "advancements.dungeons_enhanced.wars_and_kingdoms"
-    },
+    "announce_to_chat": true,
     "description": {
       "translate": "advancements.dungeons_enhanced.wars_and_kingdoms.desc"
     },
     "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:stone_bricks"
+    },
     "show_toast": true,
-    "announce_to_chat": true,
-    "hidden": false
-  },
-  "criteria": {
-    "entered_castle": {
-      "trigger": "minecraft:location",
-      "conditions": {
-        "location": {
-          "feature": "dungeons_enhanced:castle"
-        }
-      }
+    "title": {
+      "translate": "advancements.dungeons_enhanced.wars_and_kingdoms"
     }
   },
   "requirements": [

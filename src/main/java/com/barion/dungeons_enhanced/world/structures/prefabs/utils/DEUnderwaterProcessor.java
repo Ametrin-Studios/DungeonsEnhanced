@@ -24,7 +24,11 @@ public class DEUnderwaterProcessor extends StructureProcessor {
 
     @Override @Nullable @ParametersAreNonnullByDefault
     public StructureTemplate.StructureBlockInfo process(LevelReader level, BlockPos pos, BlockPos pos2, StructureTemplate.StructureBlockInfo existing, StructureTemplate.StructureBlockInfo placed, StructurePlaceSettings settings, @Nullable StructureTemplate template) {
-        if(placed.state.is(GelBlockTags.GEL) || placed.state.is(Blocks.AIR)){
+        if(placed.state.is(Blocks.AIR)){
+            return null;
+        }
+
+        if(placed.state.is(GelBlockTags.GEL)){
             return new StructureTemplate.StructureBlockInfo(placed.pos, Blocks.WATER.defaultBlockState(), null);
         }
 

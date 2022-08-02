@@ -1,56 +1,50 @@
 package com.barion.dungeons_enhanced.world.structures;
 
-import com.barion.dungeons_enhanced.DEConfig;
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
-import com.legacy.structure_gel.api.structure.GelConfigJigsawStructure;
 import com.legacy.structure_gel.api.structure.jigsaw.AbstractGelStructurePiece;
 import com.legacy.structure_gel.api.structure.jigsaw.JigsawPoolBuilder;
 import com.legacy.structure_gel.api.structure.jigsaw.JigsawRegistryHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.Heightmap;
-import net.minecraft.world.level.levelgen.feature.configurations.JigsawConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureManager;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 
-import java.util.Random;
-
-public class DEMonsterMaze extends GelConfigJigsawStructure<JigsawConfiguration>{
+public class DEMonsterMaze{
     public DEMonsterMaze() {
-        super(JigsawConfiguration.CODEC, DEConfig.COMMON.MonsterMaze, -17, true, true, DEMonsterMaze::checkLocation);
+        //super(JigsawConfiguration.CODEC, DEConfig.COMMON.MonsterMaze, -17, true, true, DEMonsterMaze::checkLocation);
         Pool.init();
     }
 
-    @Override
-    public boolean isAllowedNearWorldSpawn() {return false;}
-
-    private static boolean checkLocation(PieceGeneratorSupplier.Context<JigsawConfiguration> context) {
+    private static boolean checkLocation(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context) {
         if(context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG)) {
-            return DETerrainAnalyzer.isFlatEnough(context.chunkPos(), context.chunkGenerator(), new DETerrainAnalyzer.Settings(1, 2, 2), context.heightAccessor());
+            return DETerrainAnalyzer.isFlatEnough(context.chunkPos(), context.chunkGenerator(), new DETerrainAnalyzer.Settings(1, 2, 2), context.heightAccessor(), context.randomState());
         }
         return false;
     }
 
     public static class Piece extends AbstractGelStructurePiece {
-        public Piece(StructureManager structureManager, StructurePoolElement poolElement, BlockPos pos, int groundLevelDelta, Rotation rotation, BoundingBox bounds) {
+        public Piece(StructureTemplateManager structureManager, StructurePoolElement poolElement, BlockPos pos, int groundLevelDelta, Rotation rotation, BoundingBox bounds) {
             super(structureManager, poolElement, pos, groundLevelDelta, rotation, bounds);
         }
         public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) {super(serializationContext, nbt);}
 
         @Override
-        public StructurePieceType getType() {return DEStructures.MonsterMaze.getPieceType();}
+        public StructurePieceType getType() {return DEStructures.MonsterMaze.getPieceType().get();}
         @Override
-        public void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor levelAccessor, Random random, BoundingBox box) {}
+        public void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) {}
     }
 
     public static class Pool {

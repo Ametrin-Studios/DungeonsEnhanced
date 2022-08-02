@@ -7,12 +7,11 @@ import com.legacy.structure_gel.api.structure.processor.RandomBlockSwapProcessor
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
-
-import java.util.Random;
 
 public class DEUtil{
     public static ResourceLocation location(String key){ return new ResourceLocation(DungeonsEnhanced.ModID, key);}
@@ -45,7 +44,7 @@ public class DEUtil{
         }
     }
 
-    public static int getRandomPiece(DEStructurePiece[] variants, int maxWeight, Random rand){
+    public static int getRandomPiece(DEStructurePiece[] variants, int maxWeight, RandomSource rand){
         int piece = 0;
         if(variants.length > 1) {
             int i = rand.nextInt(maxWeight+1);

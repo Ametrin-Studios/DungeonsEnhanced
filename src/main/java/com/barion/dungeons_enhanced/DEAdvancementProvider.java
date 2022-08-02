@@ -5,10 +5,10 @@ import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.FrameType;
 import net.minecraft.advancements.RequirementsStrategy;
 import net.minecraft.advancements.critereon.LocationPredicate;
-import net.minecraft.advancements.critereon.LocationTrigger;
+import net.minecraft.advancements.critereon.PlayerTrigger;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.advancements.AdvancementProvider;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
@@ -34,10 +34,10 @@ public class DEAdvancementProvider extends AdvancementProvider{
         Advancement WarsAndKingdoms = enterStructure(builder(Blocks.STONE_BRICKS, "wars_and_kingdoms", FrameType.TASK, true, true, false), DEStructures.Castle).parent(root).save(consumer, location("wars_and_kingdoms"));
         Advancement RarestStructure = enterStructure(builder(Items.RED_MUSHROOM, "rarest_structure", FrameType.TASK, true, true, false), DEStructures.MushroomHouse).parent(root).save(consumer, location("rarest_structure"));
         Advancement ChilledHalls = enterStructure(builder(Items.BONE, "chilled_halls", FrameType.TASK, true, true, false), DEStructures.IcePit).parent(root).save(consumer, location("chilled_halls"));
-        Advancement Ahoy = enterStructure(builder(Items.BLACK_BANNER, "ahoy", FrameType.TASK, true, true, false), DEStructures.PirateShip).parent(root).save(consumer, location("ahoy"));
-        Advancement InTheAir = enterStructure(builder(Items.BLACK_BANNER, "in_the_air", FrameType.TASK, true, true, false), DEStructures.FlyingDutchman).parent(root).save(consumer, location("in_the_air"));
+        Advancement Ahoy = enterStructure(builder(Items.WITHER_SKELETON_SKULL, "ahoy", FrameType.TASK, true, true, false), DEStructures.PirateShip).parent(root).save(consumer, location("ahoy"));
+        Advancement InTheAir = enterStructure(builder(Items.VINE, "in_the_air", FrameType.TASK, true, true, false), DEStructures.FlyingDutchman).parent(root).save(consumer, location("in_the_air"));
         Advancement SevenWorldWonders = enterAnyStructure(builder(Items.SPYGLASS, "seven_world_wonders", FrameType.GOAL, true, true, false),
-                new StructureRegistrar<?, ?>[] {
+                new StructureRegistrar<?>[] {
                         DEStructures.Castle,
                         DEStructures.DeepCrypt,
                         DEStructures.DesertTemple,
@@ -50,20 +50,19 @@ public class DEAdvancementProvider extends AdvancementProvider{
         Advancement AmbitiousExplorer = enterAnyStructure(builder(Items.FILLED_MAP, "ambitious_explorer", FrameType.CHALLENGE, true, true, false), DEStructures.getAllStructureRegistrars()).requirements(RequirementsStrategy.AND).parent(root).save(consumer, location("ambitious_explorer"));
     }
 
-    private Advancement.Builder enterAnyStructure(Advancement.Builder builder, StructureRegistrar<?, ?>[] structures){
-        for(StructureRegistrar<?, ?> structure : structures){
+    private Advancement.Builder enterAnyStructure(Advancement.Builder builder, StructureRegistrar<?>[] structures){
+        for(StructureRegistrar<?> structure : structures){
             builder = enterStructure(builder, structure);
         }
 
         return builder;
     }
 
-    private Advancement.Builder enterStructure(Advancement.Builder builder, StructureRegistrar<?, ?> structure){
-        DungeonsEnhanced.LOGGER.info(Objects.requireNonNull(structure.getConfigured()).unwrapKey().orElseThrow() + "  test");
-        return builder.addCriterion(enterFeatureText(structure), LocationTrigger.TriggerInstance.located(LocationPredicate.inFeature(Objects.requireNonNull(structure.getConfigured()).unwrapKey().orElseThrow())));
+    private Advancement.Builder enterStructure(Advancement.Builder builder, StructureRegistrar<?> structure){
+        return builder.addCriterion(enterFeatureText(structure), PlayerTrigger.TriggerInstance.located(LocationPredicate.inStructure(Objects.requireNonNull(structure.getStructure()).getKey())));
     }
 
-    private String enterFeatureText(StructureRegistrar<?, ?> structure){
+    private String enterFeatureText(StructureRegistrar<?> structure){
         return "entered_" + Objects.requireNonNull(structure.getRegistryName()).getPath();
     }
 
@@ -75,7 +74,7 @@ public class DEAdvancementProvider extends AdvancementProvider{
         return builder(displayItem, name, null, frameType, showToast, announceToChat, hidden);
     }
 
-    private TranslatableComponent translate(String key) {return new TranslatableComponent("advancements.dungeons_enhanced." + key);}
+    private Component translate(String key) {return Component.translatable("advancements.dungeons_enhanced." + key);}
 
     private String location(String key) {return DungeonsEnhanced.ModID + ":" + key;}
 }
