@@ -51,9 +51,9 @@ public class DEConfig {
             DesertTomb = configs("Desert Tomb", 29, 0.65, Dimension.OVERWORLD, true, "minecraft:desert");
             DruidCircle = configs("Druid Circle", 36, 0.4, Dimension.OVERWORLD, true, "#structure_gel:neutral_temp, !#structure_gel:wooded, !#structure_gel:mountain, !#structure_gel:beach");
             DungeonVariant = configs("Dungeon Variant", 16, 0.8, Dimension.OVERWORLD, false, "#forge:overworld");
-            EldersTemple = configs("Elders Temple", 34, 82, Dimension.OVERWORLD, true, "#structure_gel:ocean");
-            FishingShip = configs("Fishing Ship", 48, 68, Dimension.OVERWORLD, true, "#structure_gel:ocean");
-            FlyingDutchman = configs("Flying Dutchman", 67, 40, Dimension.OVERWORLD, true, "#structure_gel:ocean");
+            EldersTemple = configs("Elders Temple", 34, 1, Dimension.OVERWORLD, true, "#structure_gel:ocean");
+            FishingShip = configs("Fishing Ship", 48, 0.68, Dimension.OVERWORLD, true, "#structure_gel:ocean");
+            FlyingDutchman = configs("Flying Dutchman", 67, 0.4, Dimension.OVERWORLD, true, "#structure_gel:ocean");
             HayStorage = configs("Hay Storage", 24, 0.75, Dimension.OVERWORLD, true, "#structure_gel:savanna");
             IcePit = configs("Ice Pit", 35, 0.70, Dimension.OVERWORLD, true, "#structure_gel:snowy, #structure_gel:frozen, !#structure_gel:mountain, !#structure_gel:river, !#structure_gel:beach");
             JungleMonument = configs("Jungle Monument", 30, 0.65, Dimension.OVERWORLD, true, "#structure_gel:jungle, !#structure_gel:bamboo_jungle");
@@ -62,9 +62,9 @@ public class DEConfig {
             MonsterMaze = configs("Monster Maze", 34, 0.5, Dimension.OVERWORLD, true, "#structure_gel:spooky, #structure_gel:pumpkin, !#structure_gel:sandy ,!#structure_gel:mountain");
             MushroomHouse = configs("Mushroom House", 15, 0.75, Dimension.OVERWORLD, true, "minecraft:mushroom_fields, minecraft:mushroom_field_shore");
             PillagerCamp = configs("Pillager Camp", 49, 0.35, Dimension.OVERWORLD, true, "#structure_gel:neutral_temp, !#structure_gel:mountain, !#structure_gel:wooded, !#structure_gel:river, !#structure_gel:beach");
-            PirateShip = configs("Pirate Ship", 65, 49, Dimension.OVERWORLD, true, "#structure_gel:ocean");
+            PirateShip = configs("Pirate Ship", 65, 0.49, Dimension.OVERWORLD, true, "#structure_gel:ocean");
             RuinedBuilding = configs("Ruined Building", 27, 0.45, Dimension.OVERWORLD, true, "#structure_gel:neutral_temp, !#structure_gel:river, !#structure_gel:beach, !#structure_gel:mountain");
-            SunkenShrine = configs("Sunken Shrine", 32, 55, Dimension.OVERWORLD, true, "#structure_gel:ocean");
+            SunkenShrine = configs("Sunken Shrine", 32, 0.55, Dimension.OVERWORLD, true, "#structure_gel:ocean");
             Stables = configs("Stables", 43, 0.57, Dimension.OVERWORLD, true, "#structure_gel:neutral_temp, !#structure_gel:mountain, !#structure_gel:wooded, !#structure_gel:beach");
             TallWitchHut = configs("Tall Witch Hut", 18, 0.6, Dimension.OVERWORLD, true, "#structure_gel:swamp");
             TowerOfTheUndead = configs("Tower of the Undead", 37, 0.35, Dimension.OVERWORLD, true, "#structure_gel:neutral_temp, #structure_gel:savanna, #structure_gel:swamp, !#structure_gel:mountain");

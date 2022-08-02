@@ -1,3 +1,5 @@
+## 1.9
+* small config fix
 ## 1.8
 * added Elders Temple
 * added Mushroom House variant (brown)
