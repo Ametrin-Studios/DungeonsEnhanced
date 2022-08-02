@@ -24,10 +24,12 @@ public class DEUnderwaterProcessor extends StructureProcessor{
 
     @Override @Nullable @ParametersAreNonnullByDefault
     public Template.BlockInfo process(IWorldReader world, BlockPos pos, BlockPos pos2, Template.BlockInfo existing, Template.BlockInfo placed, PlacementSettings settings, @Nullable Template template) {
-        if(placed.state.is(GelTags.GEL) || placed.state.is(Blocks.AIR)){
+        if(placed.state.is(Blocks.AIR)){
+            return null;
+        }
+        if(placed.state.is(GelTags.GEL)){
             return new Template.BlockInfo(placed.pos, Blocks.WATER.defaultBlockState(), null);
         }
-
         if(placed.state.hasProperty(BlockStateProperties.WATERLOGGED)){
             return new Template.BlockInfo(placed.pos, placed.state.setValue(BlockStateProperties.WATERLOGGED, true), null);
         }

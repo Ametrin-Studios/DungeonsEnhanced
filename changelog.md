@@ -1,5 +1,6 @@
 ## 1.9
 * small config fix
+* fixed UnderwaterStructures could raise the local water level
 ## 1.8
 * added Elders Temple
 * added Mushroom House variant (brown)
