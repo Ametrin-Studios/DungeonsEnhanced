@@ -1,3 +1,6 @@
+## 3.3
+* fixed UnderwaterStructures could raise the local water level
+
 ## 3.2.1
 * requires Forge 40.1.57
 * fixed resource pack format
