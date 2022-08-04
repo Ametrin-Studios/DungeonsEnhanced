@@ -1,6 +1,7 @@
 package com.barion.dungeons_enhanced.world.structures.prefabs.utils;
 
 import com.barion.dungeons_enhanced.DEUtil;
+import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.legacy.structure_gel.data.GelTags;
 import com.mojang.serialization.Codec;
 import net.minecraft.block.Blocks;
@@ -24,6 +25,9 @@ public class DEUnderwaterProcessor extends StructureProcessor{
 
     @Override @Nullable @ParametersAreNonnullByDefault
     public Template.BlockInfo process(IWorldReader world, BlockPos pos, BlockPos pos2, Template.BlockInfo existing, Template.BlockInfo placed, PlacementSettings settings, @Nullable Template template) {
+        if(placed.state.is(Blocks.CHEST)){
+            DungeonsEnhanced.LOGGER.info(placed.nbt.get("LootTable"));
+        }
         if(placed.state.is(Blocks.AIR)){
             return null;
         }
@@ -31,7 +35,8 @@ public class DEUnderwaterProcessor extends StructureProcessor{
             return new Template.BlockInfo(placed.pos, Blocks.WATER.defaultBlockState(), null);
         }
         if(placed.state.hasProperty(BlockStateProperties.WATERLOGGED)){
-            return new Template.BlockInfo(placed.pos, placed.state.setValue(BlockStateProperties.WATERLOGGED, true), null);
+            placed.state.setValue(BlockStateProperties.WATERLOGGED, true);
+            //return new Template.BlockInfo(placed.pos, placed.state.setValue(BlockStateProperties.WATERLOGGED, true), placed.nbt);
         }
 
         return placed;

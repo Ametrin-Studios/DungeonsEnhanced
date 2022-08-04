@@ -1,4 +1,4 @@
-## 1.9
+## 1.8.1
 * small config fix
 * fixed UnderwaterStructures could raise the local water level
 ## 1.8
