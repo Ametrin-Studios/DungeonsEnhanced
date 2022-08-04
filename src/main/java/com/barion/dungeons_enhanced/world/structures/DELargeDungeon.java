@@ -24,10 +24,7 @@ import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 
 public class DELargeDungeon{
-    public DELargeDungeon() {
-        //super(JigsawConfiguration.CODEC, DEConfig.COMMON.LargeDungeon, -16, true, true, DELargeDungeon::checkLocation);
-        Pool.init();
-    }
+    public DELargeDungeon() {}
 
     private static boolean checkLocation(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context){
         if(context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG)){

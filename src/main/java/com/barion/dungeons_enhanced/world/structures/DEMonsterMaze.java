@@ -23,10 +23,7 @@ import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 
 public class DEMonsterMaze{
-    public DEMonsterMaze() {
-        //super(JigsawConfiguration.CODEC, DEConfig.COMMON.MonsterMaze, -17, true, true, DEMonsterMaze::checkLocation);
-        Pool.init();
-    }
+    public DEMonsterMaze() {}
 
     private static boolean checkLocation(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context) {
         if(context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG)) {

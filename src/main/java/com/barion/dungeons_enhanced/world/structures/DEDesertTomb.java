@@ -25,10 +25,7 @@ import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 
 public class DEDesertTomb{
-    public DEDesertTomb(){
-        //super(JigsawConfiguration.CODEC, DEConfig.COMMON.DesertTomb, 0, true, true, DEDesertTomb::checkLocation);
-        Pool.init();
-    }
+    public DEDesertTomb(){}
 
     private static boolean checkLocation(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context){
         if(context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG)){

@@ -21,6 +21,7 @@ import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.Structure;
+import net.minecraft.world.level.levelgen.structure.StructureType;
 import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
@@ -33,6 +34,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Optional;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 import static com.barion.dungeons_enhanced.DEUtil.getMaxWeight;
 
@@ -40,20 +42,24 @@ public abstract class DEBaseStructure extends Structure{
     private final DEStructurePiece[] variants;
     private final int maxWeight;
     private final DEPieceAssembler assembler;
+    private final Supplier<StructureType<?>> type;
     private final DETerrainAnalyzer.GenerationType generationType;
-    public DEBaseStructure(StructureSettings settings, DEStructurePiece[] variants, DEPieceAssembler assembler, DETerrainAnalyzer.GenerationType generationType){
+    public DEBaseStructure(StructureSettings settings, DEStructurePiece[] variants, DEPieceAssembler assembler, Supplier<StructureType<?>> type, DETerrainAnalyzer.GenerationType generationType){
         super(settings);
         this.variants = variants;
         this.maxWeight = getMaxWeight(variants);
         this.assembler = assembler;
+        this.type = type;
         this.generationType = generationType;
     }
 
-    @Nonnull
-    @Override
+    @Override @Nonnull
     public Optional<GenerationStub> findGenerationPoint(@Nonnull GenerationContext context) {
         return onTopOfChunkCenter(context, Heightmap.Types.WORLD_SURFACE_WG, (builder)-> generatePieces(builder, context, variants, maxWeight, assembler, generationType));
     }
+
+    @Override @Nonnull
+    public StructureType<?> type() {return type.get();}
 
     private static boolean checkLocation(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, Predicate<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>> locationCheck){
         if(context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG)){

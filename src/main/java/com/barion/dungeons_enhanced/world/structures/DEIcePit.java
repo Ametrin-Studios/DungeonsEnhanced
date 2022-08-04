@@ -1,5 +1,6 @@
 package com.barion.dungeons_enhanced.world.structures;
 
+import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.world.structures.prefabs.DESimpleStructure;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEPieceAssembler;
@@ -10,7 +11,7 @@ import static com.barion.dungeons_enhanced.DEUtil.location;
 
 public class DEIcePit extends DESimpleStructure {
     private static final ResourceLocation Entrance = location("ice_pit/top");
-    public DEIcePit(StructureSettings settings) {super(settings, DEUtil.pieceBuilder().offset(-4, -25, -4).add("ice_pit/var1").add("ice_pit/var2").add("ice_pit/var3").build(), DEIcePit::assembleIcePit);}
+    public DEIcePit(StructureSettings settings) {super(settings, DEUtil.pieceBuilder().offset(-4, -25, -4).add("ice_pit/var1").add("ice_pit/var2").add("ice_pit/var3").build(), DEIcePit::assembleIcePit, DEStructures.IcePit::getType);}
     //public DEIcePit() {super(DEConfig.COMMON.IcePit, false, (context)-> DETerrainAnalyzer.isFlatEnough(context.chunkPos(), context.chunkGenerator(), new DETerrainAnalyzer.Settings(1, 2, 2), context.heightAccessor()), DEIcePit::assembleIcePit, DEUtil.pieceBuilder().offset(-4, -25, -4).add("ice_pit/var1").add("ice_pit/var2").add("ice_pit/var3").build());}
 
     private static void assembleIcePit(DEPieceAssembler.Context context) {

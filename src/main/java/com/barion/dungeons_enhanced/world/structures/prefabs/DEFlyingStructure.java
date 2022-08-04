@@ -12,19 +12,16 @@ import net.minecraft.world.level.levelgen.structure.StructureType;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 
-import javax.annotation.Nonnull;
+import java.util.function.Supplier;
 
 public class DEFlyingStructure extends DEBaseStructure{
-    public DEFlyingStructure(StructureSettings settings, DEStructurePiece[] variants) {
-        super(settings, variants, DEFlyingStructure::assemble, DETerrainAnalyzer.GenerationType.inAir);
+    public DEFlyingStructure(StructureSettings settings, DEStructurePiece[] variants, Supplier<StructureType<?>> type) {
+        super(settings, variants, DEFlyingStructure::assemble, type, DETerrainAnalyzer.GenerationType.inAir);
     }
 
     public static void assemble(DEPieceAssembler.Context context) {
         context.piecesBuilder().addPiece(new Piece(context.structureManager(), context.piece(), context.pos(), context.rotation()));
     }
-
-    @Override @Nonnull
-    public StructureType<?> type() {return DEStructures.FlyingDutchman.getType();}
 
     public static class Piece extends DEBaseStructure.Piece {
         public Piece(StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation){

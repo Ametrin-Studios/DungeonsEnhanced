@@ -11,19 +11,17 @@ import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.structure.StructureType;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
-import org.jetbrains.annotations.NotNull;
+
+import java.util.function.Supplier;
 
 public class DEUndergroundStructure extends DEBaseStructure{
-    public DEUndergroundStructure(StructureSettings settings, DEStructurePiece[] variants){
-        super(settings, variants, DEUndergroundStructure::assemble, DETerrainAnalyzer.GenerationType.onWater);
+    public DEUndergroundStructure(StructureSettings settings, DEStructurePiece[] variants, Supplier<StructureType<?>> type){
+        super(settings, variants, DEUndergroundStructure::assemble, type, DETerrainAnalyzer.GenerationType.underground);
     }
 
     protected static void assemble(DEPieceAssembler.Context context) {
         context.piecesBuilder().addPiece(new Piece(context.structureManager(), context.piece(), context.pos(), context.rotation()));
     }
-
-    @Override @NotNull
-    public StructureType<?> type() {return DEStructures.DungeonVariant.getType();}
 
     public static class Piece extends DEBaseStructure.Piece{
         public Piece(StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation) {

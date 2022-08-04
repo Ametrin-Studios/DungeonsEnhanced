@@ -13,23 +13,21 @@ import net.minecraft.world.level.levelgen.structure.StructureType;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
-import org.jetbrains.annotations.NotNull;
+
+import java.util.function.Supplier;
 
 public class DEUnderwaterStructure extends DEBaseStructure {
-    public DEUnderwaterStructure(StructureSettings settings, DEStructurePiece[] variants, DEPieceAssembler assembler){
-        super(settings, variants, assembler, DETerrainAnalyzer.GenerationType.underwater);
+    public DEUnderwaterStructure(StructureSettings settings, DEStructurePiece[] variants, DEPieceAssembler assembler, Supplier<StructureType<?>> type){
+        super(settings, variants, assembler, type, DETerrainAnalyzer.GenerationType.underwater);
     }
 
-    public DEUnderwaterStructure(StructureSettings settings, DEStructurePiece[] variants){
-        super(settings, variants, DEUnderwaterStructure::assemble, DETerrainAnalyzer.GenerationType.underwater);
+    public DEUnderwaterStructure(StructureSettings settings, DEStructurePiece[] variants, Supplier<StructureType<?>> type){
+        super(settings, variants, DEUnderwaterStructure::assemble, type, DETerrainAnalyzer.GenerationType.underwater);
     }
 
     private static void assemble(DEPieceAssembler.Context context) {
         context.piecesBuilder().addPiece(new Piece(context.structureManager(), context.piece(), context.pos(), context.rotation()));
     }
-
-    @Override @NotNull
-    public StructureType<?> type() {return DEStructures.SunkenShrine.getType();}
 
     public static class Piece extends DEBaseStructure.Piece {
         public Piece(StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation){

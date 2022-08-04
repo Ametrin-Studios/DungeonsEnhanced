@@ -354,6 +354,7 @@ public class DELootTableProvider extends LootTableProvider {
                             .add(lootItem(Items.SKULL_BANNER_PATTERN, 1, one()))
                             .add(lootItem(Items.NAUTILUS_SHELL, 2, one()))
                             .add(lootItem(Items.TURTLE_EGG, 1, one()))
+                            .add(lootItem(Items.SCUTE, 1, one()))
                             .add(lootItem(Items.EXPERIENCE_BOTTLE, 1, one()))
                             .add(lootItem(Items.DIAMOND, 2, one()))
                             .add(lootItem(Items.ROTTEN_FLESH, 8, lootNumber(2, 5)))
@@ -367,7 +368,6 @@ public class DELootTableProvider extends LootTableProvider {
                             .add(enchantedLootItem(Items.BOOK, 1, lootNumber(6, 14), one()))
                             .add(lootItem(Items.KELP, 8, lootNumber(2, 5)))
                             .add(lootItem(Items.GOLD_INGOT, 3, lootNumber(1, 2)))
-                            .add(lootItem(Items.GOLD_BLOCK, 1, one()))
                             .add(suspiciousStew(3, lootNumber(1, 2)))
                             .add(lootItem(Items.SPYGLASS, 1, one()))
                     ));} // Flying Dutchman
@@ -456,7 +456,8 @@ public class DELootTableProvider extends LootTableProvider {
                             .add(lootItem(Items.MUSIC_DISC_STRAD, 1, lootNumber(0,1)))
                             .add(lootItem(Items.MUSIC_DISC_OTHERSIDE, 1, lootNumber(0,1)))
                             .add(lootItem(Items.MUSIC_DISC_WAIT, 1, lootNumber(0,1)))
-                            .add(lootItem(Items.MUSIC_DISC_WARD, 1, lootNumber(0,1)))));
+                            .add(lootItem(Items.MUSIC_DISC_WARD, 1, lootNumber(0,1)))
+                    ));
 
             lootTable.accept(location("monster_maze/prison"), LootTable.lootTable()
                     .withPool(lootPool(lootNumber(10, 16))

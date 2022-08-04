@@ -20,10 +20,7 @@ import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 
 public class DEPillagerCamp{
-    public DEPillagerCamp() {
-        //super(JigsawConfiguration.CODEC, DEConfig.COMMON.PillagerCamp, 0, true, true);
-        Pool.init();
-    }
+    public DEPillagerCamp() {}
 
     public static class Piece extends AbstractGelStructurePiece {
         public Piece(StructureTemplateManager structureManager, StructurePoolElement poolElement, BlockPos pos, int groundLevelDelta, Rotation rotation, BoundingBox bounds) {

@@ -12,25 +12,21 @@ import net.minecraft.world.level.levelgen.structure.StructureType;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 
-import javax.annotation.Nonnull;
+import java.util.function.Supplier;
 
 public class DESwimmingStructure extends DEBaseStructure {
 
-    public DESwimmingStructure(StructureSettings settings, DEStructurePiece[] variants, DEPieceAssembler assembler){
-        super(settings, variants, assembler, DETerrainAnalyzer.GenerationType.onWater);
+    public DESwimmingStructure(StructureSettings settings, DEStructurePiece[] variants, DEPieceAssembler assembler, Supplier<StructureType<?>> type){
+        super(settings, variants, assembler, type, DETerrainAnalyzer.GenerationType.onWater);
     }
 
-    public DESwimmingStructure(StructureSettings settings, DEStructurePiece[] variants){
-        super(settings, variants, DESwimmingStructure::assemble, DETerrainAnalyzer.GenerationType.onWater);
+    public DESwimmingStructure(StructureSettings settings, DEStructurePiece[] variants, Supplier<StructureType<?>> type){
+        super(settings, variants, DESwimmingStructure::assemble, type, DETerrainAnalyzer.GenerationType.onWater);
     }
 
     protected static void assemble(DEPieceAssembler.Context context) {
         context.piecesBuilder().addPiece(new Piece(context.structureManager(), context.piece(), context.pos(), context.rotation()));
     }
-
-
-    @Override @Nonnull
-    public StructureType<?> type() {return DEStructures.FishingShip.getType();}
 
     public static class Piece extends DEBaseStructure.Piece{
         public Piece(StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation) {

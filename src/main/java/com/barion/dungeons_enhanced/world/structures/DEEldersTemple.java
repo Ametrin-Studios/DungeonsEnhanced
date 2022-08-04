@@ -25,7 +25,7 @@ public class DEEldersTemple extends DEUnderwaterStructure {
     private static final ResourceLocation SE = location("elders_temple/se");
     private static final ResourceLocation SW = location("elders_temple/sw");
 
-    public DEEldersTemple(StructureSettings settings) {super(settings, DEUtil.pieceBuilder().add("elders_temple/se").build(), DEEldersTemple::assembleTemple);}
+    public DEEldersTemple(StructureSettings settings) {super(settings, DEUtil.pieceBuilder().add("elders_temple/se").build(), DEEldersTemple::assembleTemple, DEStructures.EldersTemple::getType);}
 
     private static boolean checkLocation(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context){
         if(DETerrainAnalyzer.isUnderwater(context.chunkPos(), context.chunkGenerator(), 32, context.heightAccessor(), context.randomState())){
