@@ -2,9 +2,11 @@ package com.barion.dungeons_enhanced.world.gen;
 
 // Tool to determine if a surface is suitable for structure generation
 // created by BarionLP https://github.com/BarionLP/DungeonsEnhanced/blob/master/src/main/java/com/barion/dungeons_enhanced/world/gen/DETerrainAnalyzer.java
-// version 3.0
+// version 4.0
+// some features require functions from DEUtil. You can just copy them.
 // (c) you can only use it if you link the file and give credits to BarionLP
 
+import com.barion.dungeons_enhanced.DEUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.world.level.ChunkPos;
@@ -30,57 +32,45 @@ public class DETerrainAnalyzer {
     public static boolean isFlatEnough(ChunkPos chunkPos, ChunkGenerator chunkGenerator, Settings settings, LevelHeightAccessor heightAccessor, RandomState randomState){
         DETerrainAnalyzer.chunkGenerator = chunkGenerator;
         DETerrainAnalyzer.heightAccessor = heightAccessor;
-        int x = chunkPos.getMinBlockX();
-        int z = chunkPos.getMinBlockZ();
-        int y = chunkGenerator.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, heightAccessor, randomState);
+        DETerrainAnalyzer.randomState = randomState;
+        BlockPos pos = ChunkPosToBlockPos(chunkPos, Heightmap.Types.WORLD_SURFACE_WG);
 
-        if(getBlockAt(x, y-1, z).is(Blocks.WATER)) {
-            return false;
-        }
+        if(getBlockAt(pos.below()).is(Blocks.WATER)) {return false;}
 
         int columSpreading = settings.columSpreading();
-
-        if(isColumBlocked(new BlockPos(x+columSpreading, y, z), settings)) {
-            return false;
-        }
-        if(isColumBlocked(new BlockPos(x-columSpreading, y, z), settings)) {
-            return false;
-        }
-        if(isColumBlocked(new BlockPos(x, y, z+columSpreading), settings)) {
-            return false;
-        }
-        return !isColumBlocked(new BlockPos(x, y, z - columSpreading), settings);
+        if(isColumBlocked(pos.east(columSpreading), settings)) {return false;}
+        if(isColumBlocked(pos.west(columSpreading), settings)) {return false;}
+        if(isColumBlocked(pos.south(columSpreading), settings)) {return false;}
+        return !isColumBlocked(pos.north(columSpreading), settings);
     }
 
     public static boolean isUnderwater(ChunkPos chunkPos, ChunkGenerator chunkGenerator, int depth, LevelHeightAccessor heightAccessor, RandomState randomState) {
         DETerrainAnalyzer.chunkGenerator = chunkGenerator;
         DETerrainAnalyzer.heightAccessor = heightAccessor;
-        int x = chunkPos.getMinBlockX();
-        int z = chunkPos.getMinBlockZ();
-        return getBlockAt(x, chunkGenerator.getBaseHeight(x, z, Heightmap.Types.OCEAN_FLOOR_WG, heightAccessor, randomState) + depth, z).is(Blocks.WATER);
+        DETerrainAnalyzer.randomState = randomState;
+
+        return getBlockAt(ChunkPosToBlockPos(chunkPos, Heightmap.Types.OCEAN_FLOOR_WG).above(depth)).is(Blocks.WATER);
     }
 
-    public static boolean isGroundHighEnough(ChunkPos chunkPos, ChunkGenerator chunkGenerator, int height, LevelHeightAccessor heightAccessor, RandomState randomState){
+    public static boolean isGroundLevelAbove(ChunkPos chunkPos, ChunkGenerator chunkGenerator, int height, LevelHeightAccessor heightAccessor, RandomState randomState){
         DETerrainAnalyzer.chunkGenerator = chunkGenerator;
         DETerrainAnalyzer.heightAccessor = heightAccessor;
-        int x = chunkPos.getMinBlockX();
-        int z = chunkPos.getMinBlockZ();
-        int y = chunkGenerator.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, heightAccessor, randomState);
-        return y >= chunkGenerator.getMinY() + height;
+        DETerrainAnalyzer.randomState = randomState;
+
+        return getSurfaceLevelAt(chunkPos, Heightmap.Types.WORLD_SURFACE_WG) > height;
     }
 
-    public static boolean isGroundLowEnough(ChunkPos chunkPos, ChunkGenerator chunkGenerator, int freeBlocks, LevelHeightAccessor heightAccessor, RandomState randomState){
+    public static boolean isGroundLevelBelow(ChunkPos chunkPos, ChunkGenerator chunkGenerator, int height, LevelHeightAccessor heightAccessor, RandomState randomState){
         DETerrainAnalyzer.chunkGenerator = chunkGenerator;
         DETerrainAnalyzer.heightAccessor = heightAccessor;
-        int x = chunkPos.getMinBlockX();
-        int z = chunkPos.getMinBlockZ();
-        int y = chunkGenerator.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, heightAccessor, randomState);
-        return y <= (chunkGenerator.getMinY() + chunkGenerator.getGenDepth()) - freeBlocks;
+        DETerrainAnalyzer.randomState = randomState;
+
+        return getSurfaceLevelAt(chunkPos, Heightmap.Types.WORLD_SURFACE_WG) < height;
     }
 
     public static boolean areNearbyBiomesValid(BiomeSource biomeSource, ChunkPos chunkPos, ChunkGenerator generator, int radius, Predicate<Holder<Biome>> validBiome, RandomState randomState){
         DETerrainAnalyzer.chunkGenerator = generator;
-        for(Holder<Biome> biome : biomeSource.getBiomesWithin(chunkPos.getMinBlockX(), generator.getSeaLevel(), chunkPos.getMinBlockZ(), radius, randomState.sampler())) {
+        for(Holder<Biome> biome : biomeSource.getBiomesWithin(chunkPos.getMiddleBlockX(), generator.getSeaLevel(), chunkPos.getMiddleBlockZ(), radius, randomState.sampler())) {
             if (!validBiome.test(biome)) {return false;}
         }
         return true;
@@ -95,21 +85,30 @@ public class DETerrainAnalyzer {
 
     protected static boolean isUpwardsBlocked(BlockPos pos, int stepSize, int steps){
         for(int i = 1; i <= steps; i++){
-            if(!getBlockAt(pos.getX(), pos.getY() + (i * stepSize), pos.getZ()).isAir()) {return true;}
+            if(!getBlockAt(pos.above(i * stepSize)).isAir()) {return true;}
         }
         return false;
     }
 
     protected static boolean isDownwardsFree(BlockPos pos, int stepSize, int steps){
         for(int i = 1; i <= steps; i++){
-            if(getBlockAt(pos.getX(), pos.getY() - (i * stepSize), pos.getZ()).isAir()) {return true;}
+            if(getBlockAt(pos.below(i * stepSize)).isAir()) {return true;}
         }
         return false;
     }
 
     protected static BlockState getBlockAt(int x, int y, int z) {return chunkGenerator.getBaseColumn(x, z, heightAccessor, randomState).getBlock(y);}
+    protected static BlockState getBlockAt(BlockPos pos) {return chunkGenerator.getBaseColumn(pos.getX(), pos.getZ(), heightAccessor, randomState).getBlock(pos.getY());}
+    protected static BlockPos ChunkPosToBlockPos(ChunkPos chunkPos, Heightmap.Types heightmapType) {return DEUtil.ChunkPosToBlockPosFromHeightMap(chunkPos, chunkGenerator, heightmapType, heightAccessor, randomState);}
+
+    protected static int getSurfaceLevelAt(ChunkPos pos, Heightmap.Types heightmapType){
+        return ChunkPosToBlockPos(pos, heightmapType).getY();
+    }
+    protected static int getSurfaceLevelAt(BlockPos pos, Heightmap.Types heightmapType){
+        return chunkGenerator.getBaseHeight(pos.getX(), pos.getZ(), heightmapType, heightAccessor, randomState);
+    }
 
     public record Settings(int steps, int stepSize, int columSpreading) {}
 
-    public enum GenerationType {onGround, inAir, underground, onWater, underwater}
+    @Deprecated(forRemoval = true) public enum GenerationType {onGround, inAir, underground, onWater, underwater}
 }

@@ -44,7 +44,7 @@ public class DELootTableProvider extends LootTableProvider {
         @Override @ParametersAreNonnullByDefault
         public void accept(BiConsumer<ResourceLocation, LootTable.Builder> lootTable){
             {lootTable.accept(location("castle/armory"), LootTable.lootTable()
-                    .withPool(LootPool.lootPool().setRolls(lootNumber(2,3))
+                    .withPool(lootPool(lootNumber(2,3))
                             .add(lootItem(Items.DIAMOND, 2, one()))
                             .add(lootItem(Items.IRON_AXE, 2, one()))
                             .add(lootItem(Items.IRON_SWORD, 3, one()))
@@ -59,7 +59,7 @@ public class DELootTableProvider extends LootTableProvider {
                             .add(lootItem(Items.CHAINMAIL_CHESTPLATE, 3, one()))
                             .add(lootItem(Items.CHAINMAIL_LEGGINGS, 3, one()))
                             .add(lootItem(Items.CHAINMAIL_BOOTS, 3, one())))
-                    .withPool(LootPool.lootPool().setRolls(lootNumber(5, 11))
+                    .withPool(lootPool(lootNumber(5, 11))
                             .add(lootItem(Items.IRON_NUGGET, 7, lootNumber(1,3)))
                             .add(lootItem(Items.ARROW, 6, lootNumber(1,3)))
                             .add(lootItem(Items.STICK, 9, lootNumber(1,2)))
@@ -71,7 +71,7 @@ public class DELootTableProvider extends LootTableProvider {
                             .add(lootItem(Items.CHAIN, 5, one()))));
 
                 lootTable.accept(location("castle/bedroom"), LootTable.lootTable()
-                        .withPool(LootPool.lootPool().setRolls(lootNumber(8,14))
+                        .withPool(lootPool(lootNumber(8,14))
                                 .add(lootItem(Items.BOOK, 2, one()))
                                 .add(lootItem(Items.WRITABLE_BOOK, 2, one()))
                                 .add(lootItem(Items.WHITE_WOOL, 3, one()))
@@ -81,7 +81,7 @@ public class DELootTableProvider extends LootTableProvider {
                                 .add(lootItem(Items.EXPERIENCE_BOTTLE, 2, one()))
                                 .add(lootItem(Items.AMETHYST_SHARD, 1, one()))
                                 .add(lootItem(Items.MAP, 2, one())))
-                        .withPool(LootPool.lootPool().setRolls(lootNumber(0,1))
+                        .withPool(lootPool(lootNumber(0,1))
                                 .add(lootItem(Items.MUSIC_DISC_STRAD, 1, one()))
                                 .add(lootItem(Items.MUSIC_DISC_STAL, 1, one()))
                                 .add(lootItem(Items.MUSIC_DISC_MELLOHI, 1, one()))
@@ -96,7 +96,7 @@ public class DELootTableProvider extends LootTableProvider {
                                 .add(lootItem(Items.MUSIC_DISC_WAIT, 1, one()))));
 
                 lootTable.accept(location("castle/cellar"), LootTable.lootTable()
-                        .withPool(LootPool.lootPool().setRolls(lootNumber(8,17))
+                        .withPool(lootPool(lootNumber(8,17))
                                 .add(lootItem(Items.BONE, 14, one()))
                                 .add(lootItem(Items.ROTTEN_FLESH, 9, one()))
                                 .add(lootItem(Items.REDSTONE, 3, one()))
@@ -116,7 +116,7 @@ public class DELootTableProvider extends LootTableProvider {
                                 .add(lootItem(Items.LEAD, 1, one()))
                                 .add(lootItem(Items.CHAIN, 6, one()))
                                 .add(lootItem(Items.STRING, 7, one())))
-                        .withPool(LootPool.lootPool().setRolls(lootNumber(1,3))
+                        .withPool(lootPool(lootNumber(1,3))
                                 .add(lootItem(Items.DIAMOND, 1, one()))
                                 .add(lootItem(Items.GOLD_INGOT, 3, one()))
                                 .add(lootItem(Items.IRON_INGOT, 4, one()))
@@ -124,7 +124,7 @@ public class DELootTableProvider extends LootTableProvider {
                                 .add(lootItem(Items.EXPERIENCE_BOTTLE, 3, one()))));
 
                 lootTable.accept(location("castle/coffin"), LootTable.lootTable()
-                        .withPool(LootPool.lootPool().setRolls(lootNumber(8,17))
+                        .withPool(lootPool(lootNumber(8,17))
                                 .add(lootItem(Items.BONE, 12, one()))
                                 .add(lootItem(Items.ROTTEN_FLESH, 9, one()))
                                 .add(lootItem(Items.RED_MUSHROOM, 5, one()))
@@ -137,12 +137,12 @@ public class DELootTableProvider extends LootTableProvider {
                                 .add(lootItem(Items.GOLD_NUGGET, 6, lootNumber(1,3)))
                                 .add(lootItem(Items.GOLD_INGOT, 3, one()))
                                 .add(lootItem(Items.DIAMOND, 1, one())))
-                        .withPool(LootPool.lootPool().setRolls(one())
+                        .withPool(lootPool(one())
                                 .add(lootItem(Items.SKELETON_SKULL, 1, one()))
                                 .add(lootItem(Items.ENCHANTED_GOLDEN_APPLE, 3, one()))));
 
                 lootTable.accept(location("castle/kitchen"), LootTable.lootTable()
-                        .withPool(LootPool.lootPool().setRolls(lootNumber(10,19))
+                        .withPool(lootPool(lootNumber(10,19))
                                 .add(lootItem(Items.GOLDEN_CARROT, 3, one()))
                                 .add(lootItem(Items.GOLDEN_APPLE, 1, one()))
                                 .add(lootItem(Items.BREAD, 6, one()))
@@ -161,7 +161,7 @@ public class DELootTableProvider extends LootTableProvider {
                                 .add(lootItem(Items.ROTTEN_FLESH, 20, one()))));
 
                 lootTable.accept(location("castle/library"), LootTable.lootTable()
-                        .withPool(LootPool.lootPool().setRolls(lootNumber(7,15))
+                        .withPool(lootPool(lootNumber(7,15))
                                 .add(lootItem(Items.BOOK, 5, one()))
                                 .add(lootItem(Items.PAPER, 8, one()))
                                 .add(lootItem(Items.BOOKSHELF, 2, one()))
@@ -170,11 +170,11 @@ public class DELootTableProvider extends LootTableProvider {
                                 .add(lootItem(Items.COBWEB, 2, one()))
                                 .add(lootItem(Items.EXPERIENCE_BOTTLE, 2, one()))
                                 .add(lootItem(Items.SAND, 5, one())))
-                        .withPool(LootPool.lootPool().setRolls(lootNumber(1,3))
+                        .withPool(lootPool(lootNumber(1,3))
                                 .add(enchantedLootItem(Items.BOOK, 1, lootNumber(20, 25), one()))));
 
                 lootTable.accept(location("castle/prison"), LootTable.lootTable()
-                        .withPool(LootPool.lootPool().setRolls(lootNumber(10,16))
+                        .withPool(lootPool(lootNumber(10,16))
                                 .add(lootItem(Items.CHAIN, 2, one()))
                                 .add(lootItem(Items.PAPER, 2, one()))
                                 .add(lootItem(Items.ROTTEN_FLESH, 3, one()))
@@ -189,7 +189,7 @@ public class DELootTableProvider extends LootTableProvider {
                                 .add(lootItem(Items.CHAINMAIL_BOOTS, 1, one()))));
 
                 lootTable.accept(location("castle/quarters"), LootTable.lootTable()
-                        .withPool(LootPool.lootPool().setRolls(lootNumber(7,15))
+                        .withPool(lootPool(lootNumber(7,15))
                                 .add(lootItem(Items.WHITE_WOOL, 4, one()))
                                 .add(lootItem(Items.WHITE_CARPET, 5, one()))
                                 .add(lootItem(Items.PAPER, 4, one()))
@@ -199,7 +199,7 @@ public class DELootTableProvider extends LootTableProvider {
                                 .add(lootItem(Items.BOOK, 3, one()))));
 
                 lootTable.accept(location("castle/spring"), LootTable.lootTable()
-                        .withPool(LootPool.lootPool().setRolls(lootNumber(11,22))
+                        .withPool(lootPool(lootNumber(11,22))
                                 .add(lootItem(Items.DIAMOND, 1, one()))
                                 .add(lootItem(Items.IRON_INGOT, 8, one()))
                                 .add(lootItem(Items.IRON_NUGGET, 6, one()))
@@ -213,14 +213,14 @@ public class DELootTableProvider extends LootTableProvider {
                                 .add(lootItem(Items.ENDER_PEARL, 2, one()))));
 
                 lootTable.accept(location("castle/throne"), LootTable.lootTable()
-                        .withPool(LootPool.lootPool().setRolls(lootNumber(10,12))
+                        .withPool(lootPool(lootNumber(10,12))
                                 .add(lootItem(Items.GOLD_NUGGET, 10, one()))
                                 .add(lootItem(Items.GOLD_INGOT, 15, one()))
                                 .add(lootItem(Items.GOLD_BLOCK, 5, one()))
                                 .add(lootItem(Items.DIAMOND, 2, one()))
                                 .add(lootItem(Items.IRON_INGOT, 20, one()))
                                 .add(lootItem(Items.IRON_NUGGET, 15, one())))
-                        .withPool(LootPool.lootPool().setRolls(lootNumber(0,2))
+                        .withPool(lootPool(lootNumber(0,2))
                                 .add(enchantedLootItem(Items.DIAMOND_SWORD, 5, lootNumber(0, 12), one()))
                                 .add(enchantedLootItem(Items.DIAMOND_AXE, 5, lootNumber(0, 12), one()))
                                 .add(enchantedLootItem(Items.DIAMOND_HELMET, 5, lootNumber(0, 10), one()))
@@ -693,7 +693,7 @@ public class DELootTableProvider extends LootTableProvider {
                                 )));
             } // Sunken Shrine
             {lootTable.accept(location("watch_tower"), LootTable.lootTable()
-                        .withPool(LootPool.lootPool().setRolls(lootNumber(4, 10))
+                        .withPool(lootPool(lootNumber(4, 10))
                                 .add(lootItem(Items.CHAIN, 5, lootNumber(1, 3)))
                                 .add(lootItem(Items.IRON_NUGGET, 6, lootNumber(3, 5)))
                                 .add(lootItem(Items.IRON_INGOT, 3, lootNumber(1, 2)))
@@ -710,7 +710,7 @@ public class DELootTableProvider extends LootTableProvider {
                                 .add(lootItem(Items.LEATHER_CHESTPLATE, 1, one()))
                                 .add(lootItem(Items.LEATHER_LEGGINGS, 1, one()))
                                 .add(lootItem(Items.LEATHER_BOOTS, 1, one())))
-                        .withPool(LootPool.lootPool().setRolls(lootNumber(1, 3))
+                        .withPool(lootPool(lootNumber(1, 3))
                                 .add(lootItem(Items.DIAMOND, 1, one()))
                                 .add(lootItem(Items.SHIELD, 1, one()))
                                 .add(lootItem(Items.BOW, 1, one()))
@@ -725,11 +725,11 @@ public class DELootTableProvider extends LootTableProvider {
                                 .add(lootItem(Items.CHAINMAIL_CHESTPLATE, 1, one()))
                                 .add(lootItem(Items.CHAINMAIL_LEGGINGS, 1, one()))
                                 .add(lootItem(Items.CHAINMAIL_BOOTS, 1, one()))
-                        ).withPool(LootPool.lootPool().setRolls(one())
+                        ).withPool(lootPool(one())
                                 .add(lootItem(Items.SPYGLASS, 1, one()))
                     ));} // Watch Tower
             {lootTable.accept(location("witch_tower"), LootTable.lootTable()
-                    .withPool(LootPool.lootPool().setRolls(lootNumber(7, 10))
+                    .withPool(lootPool(lootNumber(7, 10))
                             .add(lootItem(Items.SPIDER_EYE, 1, lootNumber(2, 3)))
                             .add(lootItem(Items.GUNPOWDER, 1, lootNumber(1, 2)))
                             .add(lootItem(Items.REDSTONE, 1, lootNumber(1, 2)))
@@ -742,7 +742,7 @@ public class DELootTableProvider extends LootTableProvider {
                             .add(lootItem(Items.PAPER, 1, lootNumber(1, 3)))
                             .add(lootItem(Items.STRING, 2, lootNumber(2, 3)))
                             .add(lootItem(Items.BOOK, 1, one())))
-                    .withPool(LootPool.lootPool().setRolls(lootNumber(2, 4))
+                    .withPool(lootPool(lootNumber(2, 4))
                             .add(lootItem(Items.RABBIT_FOOT, 1, one()))
                             .add(lootItem(Items.NAME_TAG, 1, one()))
                             .add(lootItem(Items.GOLDEN_APPLE, 1, one()))

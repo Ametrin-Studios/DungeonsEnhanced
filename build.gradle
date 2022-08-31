@@ -2,6 +2,7 @@ plugins {
     id 'eclipse'
     id 'maven-publish'
     id 'net.minecraftforge.gradle' version '5.1.+'
+    id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
 
 version = de_version as Object
@@ -12,8 +13,8 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 //println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 minecraft {
-    mappings channel: 'official', version: mc_version
-    // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg') // Currently, this location cannot be changed from the default.
+    mappings channel: 'parchment', version: parchment
+    //accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg') // Currently, this location cannot be changed from the default.
 
     runs {
         client {
@@ -89,18 +90,18 @@ repositories {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
-    implementation fg.deobf("com.legacy:structure-gel:${mc_version}-${gel_version}")
+    implementation fg.deobf("com.legacy:structure-gel:1.19.1-${gel_version}")
 }
 
 jar {
     manifest {
         attributes([
                 "Specification-Title"     : "Dungeons Enhanced",
-                "Specification-Vendor"    : "Barion, Valarauko9",
+                "Specification-Vendor"    : "Ametrin Studios",
                 "Specification-Version"   : "1", // We are version 1 of ourselves
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : de_version,
-                "Implementation-Vendor"   : "Barion, Valarauko9",
+                "Implementation-Vendor"   : "Barion",
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }

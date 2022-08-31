@@ -1,4 +1,4 @@
-version:3117
+version:3120
 autoJump:false
 autoSuggestions:true
 chatColors:true
@@ -9,7 +9,7 @@ entityShadows:true
 forceUnicodeFont:false
 discrete_mouse_scroll:false
 invertYMouse:false
-realmsNotifications:true
+realmsNotifications:false
 reducedDebugInfo:false
 showSubtitles:false
 directionalAudio:false
@@ -18,7 +18,7 @@ fullscreen:false
 bobView:false
 toggleCrouch:false
 toggleSprint:false
-darkMojangStudiosBackground:false
+darkMojangStudiosBackground:true
 hideLightningFlashes:false
 mouseSensitivity:0.5
 fov:0.0
@@ -26,9 +26,9 @@ screenEffectScale:1.0
 fovEffectScale:1.0
 darknessEffectScale:1.0
 gamma:1.0
-renderDistance:18
-simulationDistance:12
-entityDistanceScaling:1.5
+renderDistance:14
+simulationDistance:8
+entityDistanceScaling:1.0
 guiScale:3
 particles:0
 maxFps:260
@@ -37,7 +37,7 @@ ao:2
 prioritizeChunkUpdates:0
 biomeBlendRadius:3
 renderClouds:"false"
-resourcePacks:[]
+resourcePacks:["vanilla","mod_resources"]
 incompatibleResourcePacks:[]
 lastServer:localhost:25463
 lang:en_us
@@ -74,7 +74,7 @@ joinedFirstServer:true
 hideBundleTutorial:false
 syncChunkWrites:true
 showAutosaveIndicator:true
-allowServerListing:true
+allowServerListing:false
 chatPreview:1
 onlyShowSecureChat:false
 key_key.attack:key.mouse.left

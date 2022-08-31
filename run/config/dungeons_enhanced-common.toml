@@ -29,8 +29,8 @@
 				# - Tag: "#minecraft:is_forest"
 				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
 				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
-				# Default: ["#minecraft:is_taiga"]
-				biomes = ["#minecraft:is_taiga"]
+				# Default: ["#forge:is_cold/overworld", "#forge:is_snowy", "!#forge:is_water", "!#forge:is_mountain", "!#minecraft:is_beach"]
+				biomes = ["#forge:is_cold/overworld", "#forge:is_snowy", "!#forge:is_water", "!#forge:is_mountain", "!#minecraft:is_beach"]
 
 			[castle.structures.structure.dimensions]
 				#
@@ -189,8 +189,8 @@
 				# - Tag: "#minecraft:is_forest"
 				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
 				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
-				# Default: ["#minecraft:is_overworld"]
-				biomes = ["#minecraft:is_overworld"]
+				# Default: ["#minecraft:is_overworld", "!#forge:is_cold/overworld", "!#forge:is_hot/overworld", "!#minecraft:is_forest", "!#forge:is_water", "!#forge:is_mountain", "!#minecraft:is_beach"]
+				biomes = ["#minecraft:is_overworld", "!#forge:is_cold/overworld", "!#forge:is_hot/overworld", "!#minecraft:is_forest", "!#forge:is_water", "!#forge:is_mountain", "!#minecraft:is_beach"]
 
 			[druid_circle.structures.structure.dimensions]
 				#
@@ -429,8 +429,8 @@
 				# - Tag: "#minecraft:is_forest"
 				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
 				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
-				# Default: ["#forge:is_snowy"]
-				biomes = ["#forge:is_snowy"]
+				# Default: ["#forge:is_snowy", "!#forge:is_water", "!#forge:is_mountain", "!#minecraft:is_beach"]
+				biomes = ["#forge:is_snowy", "!#forge:is_water", "!#forge:is_mountain", "!#minecraft:is_beach"]
 
 			[ice_pit.structures.structure.dimensions]
 				#
@@ -509,8 +509,8 @@
 				# - Tag: "#minecraft:is_forest"
 				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
 				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
-				# Default: ["#minecraft:is_overworld"]
-				biomes = ["#minecraft:is_overworld"]
+				# Default: ["#minecraft:is_overworld", "!#forge:is_hot/overworld", "!#forge:is_water", "!#forge:is_mountain", "!#minecraft:is_beach"]
+				biomes = ["#minecraft:is_overworld", "!#forge:is_hot/overworld", "!#forge:is_water", "!#forge:is_mountain", "!#minecraft:is_beach"]
 
 			[large_dungeon.structures.structure.dimensions]
 				#
@@ -589,8 +589,8 @@
 				# - Tag: "#minecraft:is_forest"
 				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
 				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
-				# Default: ["#forge:is_spooky"]
-				biomes = ["#forge:is_spooky"]
+				# Default: ["minecraft:dark_forest"]
+				biomes = ["minecraft:dark_forest"]
 
 			[monster_maze.structures.structure.dimensions]
 				#
@@ -669,8 +669,8 @@
 				# - Tag: "#minecraft:is_forest"
 				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
 				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
-				# Default: ["#minecraft:is_overworld"]
-				biomes = ["#minecraft:is_overworld"]
+				# Default: ["#minecraft:is_overworld", "!#forge:is_cold/overworld", "!#forge:is_hot/overworld", "!#minecraft:is_forest", "!#forge:is_water", "!#forge:is_mountain", "!#minecraft:is_beach"]
+				biomes = ["#minecraft:is_overworld", "!#forge:is_cold/overworld", "!#forge:is_hot/overworld", "!#minecraft:is_forest", "!#forge:is_water", "!#forge:is_mountain", "!#minecraft:is_beach"]
 
 			[pillager_camp.structures.structure.dimensions]
 				#
@@ -749,8 +749,8 @@
 				# - Tag: "#minecraft:is_forest"
 				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
 				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
-				# Default: ["#minecraft:is_overworld"]
-				biomes = ["#minecraft:is_overworld"]
+				# Default: ["#minecraft:is_overworld", "!#forge:is_hot/overworld", "!#forge:is_water", "!#forge:is_mountain"]
+				biomes = ["#minecraft:is_overworld", "!#forge:is_hot/overworld", "!#forge:is_water", "!#forge:is_mountain"]
 
 			[ruined_building.structures.structure.dimensions]
 				#
@@ -789,8 +789,8 @@
 				# - Tag: "#minecraft:is_forest"
 				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
 				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
-				# Default: ["#minecraft:is_overworld"]
-				biomes = ["#minecraft:is_overworld"]
+				# Default: ["#minecraft:is_overworld", "!#forge:is_cold/overworld", "!#forge:is_hot/overworld", "!#minecraft:is_forest", "!#forge:is_water", "!#forge:is_mountain", "!#minecraft:is_beach"]
+				biomes = ["#minecraft:is_overworld", "!#forge:is_cold/overworld", "!#forge:is_hot/overworld", "!#minecraft:is_forest", "!#forge:is_water", "!#forge:is_mountain", "!#minecraft:is_beach"]
 
 			[stables.structures.structure.dimensions]
 				#
@@ -909,8 +909,8 @@
 				# - Tag: "#minecraft:is_forest"
 				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
 				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
-				# Default: ["#minecraft:is_overworld"]
-				biomes = ["#minecraft:is_overworld"]
+				# Default: ["#minecraft:is_overworld", "!#forge:is_sandy", "!#forge:is_water", "!#minecraft:is_beach"]
+				biomes = ["#minecraft:is_overworld", "!#forge:is_sandy", "!#forge:is_water", "!#minecraft:is_beach"]
 
 			[tower_of_the_undead.structures.structure.dimensions]
 				#
@@ -989,8 +989,8 @@
 				# - Tag: "#minecraft:is_forest"
 				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
 				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
-				# Default: ["#forge:is_cold"]
-				biomes = ["#forge:is_cold"]
+				# Default: ["#forge:is_cold/overworld", "!#forge:is_water"]
+				biomes = ["#forge:is_cold/overworld", "!#forge:is_water"]
 
 			[watch_tower.structures.structure.dimensions]
 				#

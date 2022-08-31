@@ -35,7 +35,7 @@ public class DungeonsEnhanced{
 
     public static void register(RegisterEvent event){
         event.register(Registry.STRUCTURE_PROCESSOR.key(), helper ->{
-            //DEUtil.Processors.Types.register();
+            DEUtil.Processors.Types.register();
         });
     }
 

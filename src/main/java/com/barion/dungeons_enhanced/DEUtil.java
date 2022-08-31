@@ -4,11 +4,17 @@ import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePi
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEUnderwaterProcessor;
 import com.legacy.structure_gel.api.registry.RegistryHelper;
 import com.legacy.structure_gel.api.structure.processor.RandomBlockSwapProcessor;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
@@ -66,6 +72,18 @@ public class DEUtil{
             i += piece.Weight;
         }
         return i;
+    }
+
+    public static BlockPos ChunkPosToBlockPos(ChunkPos chunkPos){
+        return ChunkPosToBlockPos(chunkPos, 63);
+    }
+    public static BlockPos ChunkPosToBlockPos(ChunkPos chunkPos, int y){
+        return new BlockPos(chunkPos.getMiddleBlockX(), y, chunkPos.getMiddleBlockZ());
+    }
+
+    public static BlockPos ChunkPosToBlockPosFromHeightMap(ChunkPos chunkPos, ChunkGenerator chunkGenerator, Heightmap.Types heightmapType, LevelHeightAccessor heightAccessor, RandomState randomState){
+        BlockPos pos = DEUtil.ChunkPosToBlockPos(chunkPos);
+        return pos.atY(chunkGenerator.getBaseHeight(pos.getX(), pos.getY(), heightmapType, heightAccessor, randomState));
     }
 
     public static DEStructurePiece.Builder pieceBuilder() {return new DEStructurePiece.Builder();}

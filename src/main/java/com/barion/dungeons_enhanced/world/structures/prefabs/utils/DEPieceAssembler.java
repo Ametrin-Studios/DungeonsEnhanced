@@ -1,6 +1,5 @@
 package com.barion.dungeons_enhanced.world.structures.prefabs.utils;
 
-import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Rotation;
@@ -14,5 +13,5 @@ public interface DEPieceAssembler {
     @ParametersAreNonnullByDefault
     void assemble(Context context);
 
-    record Context(StructureTemplateManager structureManager, ResourceLocation piece, BlockPos pos, Rotation rotation, StructurePiecesBuilder piecesBuilder, DETerrainAnalyzer.GenerationType generationType){}
+    record Context(StructureTemplateManager structureManager, ResourceLocation piece, BlockPos pos, Rotation rotation, StructurePiecesBuilder piecesBuilder){}
 }

@@ -1,28 +1,28 @@
 package com.barion.dungeons_enhanced.world.structures.prefabs;
 
 import com.barion.dungeons_enhanced.DEUtil;
-import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEPieceAssembler;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
 import com.legacy.structure_gel.api.registry.registrar.Registrar;
 import com.legacy.structure_gel.api.structure.GelTemplateStructurePiece;
 import com.legacy.structure_gel.api.structure.processor.RemoveGelStructureProcessor;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Vec3i;
+import net.minecraft.core.*;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.BiomeSource;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.RandomState;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.Structure;
+import net.minecraft.world.level.levelgen.structure.StructureStart;
 import net.minecraft.world.level.levelgen.structure.StructureType;
-import net.minecraft.world.level.levelgen.structure.pieces.PieceGeneratorSupplier;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePiecesBuilder;
@@ -43,58 +43,52 @@ public abstract class DEBaseStructure extends Structure{
     private final int maxWeight;
     private final DEPieceAssembler assembler;
     private final Supplier<StructureType<?>> type;
-    private final DETerrainAnalyzer.GenerationType generationType;
-    public DEBaseStructure(StructureSettings settings, DEStructurePiece[] variants, DEPieceAssembler assembler, Supplier<StructureType<?>> type, DETerrainAnalyzer.GenerationType generationType){
+    public DEBaseStructure(StructureSettings settings, DEStructurePiece[] variants, DEPieceAssembler assembler, Supplier<StructureType<?>> type){
         super(settings);
         this.variants = variants;
         this.maxWeight = getMaxWeight(variants);
         this.assembler = assembler;
         this.type = type;
-        this.generationType = generationType;
     }
 
     @Override @Nonnull
     public Optional<GenerationStub> findGenerationPoint(@Nonnull GenerationContext context) {
-        return onTopOfChunkCenter(context, Heightmap.Types.WORLD_SURFACE_WG, (builder)-> generatePieces(builder, context, variants, maxWeight, assembler, generationType));
+        return onTopOfChunkCenter(context, Heightmap.Types.WORLD_SURFACE_WG, (builder)-> generatePieces(builder, context, variants, maxWeight, assembler, getGenPos(context)));
+    }
+
+    @Override @Nonnull @ParametersAreNonnullByDefault
+    public StructureStart generate(RegistryAccess registryAccess, ChunkGenerator generator, BiomeSource biomeSource, RandomState randomState, StructureTemplateManager templateManager, long seed, ChunkPos chunkPos, int references, LevelHeightAccessor heightAccessor, Predicate<Holder<Biome>> biomePredicate) {
+        final GenerationContext context = new Structure.GenerationContext(registryAccess, generator, biomeSource, randomState, templateManager, seed, chunkPos, heightAccessor, biomePredicate);
+        Optional<Structure.GenerationStub> optional = this.findGenerationPoint(context);
+        if (optional.isPresent() && isValidBiome(optional.get(), generator, randomState, biomePredicate)) {
+            if(checkLocation(context)){
+                StructurePiecesBuilder structurepiecesbuilder = optional.get().getPiecesBuilder();
+                StructureStart structurestart = new StructureStart(this, chunkPos, references, structurepiecesbuilder.build());
+                if (structurestart.isValid()) {
+                    return structurestart;
+                }
+            }
+        }
+
+        return StructureStart.INVALID_START;
+    }
+
+    protected static boolean isValidBiome(Structure.GenerationStub stub, ChunkGenerator generator, RandomState state, Predicate<Holder<Biome>> biomePredicate) {
+        BlockPos blockpos = stub.position();
+        return biomePredicate.test(generator.getBiomeSource().getNoiseBiome(QuartPos.fromBlock(blockpos.getX()), QuartPos.fromBlock(blockpos.getY()), QuartPos.fromBlock(blockpos.getZ()), state.sampler()));
     }
 
     @Override @Nonnull
     public StructureType<?> type() {return type.get();}
 
-    private static boolean checkLocation(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context, Predicate<PieceGeneratorSupplier.Context<NoneFeatureConfiguration>> locationCheck){
-        if(context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG)){
-            return locationCheck.test(context);
-        }
-        return false;
-    }
+    protected abstract boolean checkLocation(GenerationContext context);
 
-    private static void generatePieces(StructurePiecesBuilder piecesBuilder, GenerationContext context, DEStructurePiece[] variants, int maxWeight, DEPieceAssembler assembler, DETerrainAnalyzer.GenerationType generationType) {
-        int x = context.chunkPos().getMiddleBlockX();
-        int z = context.chunkPos().getMiddleBlockZ();
-        int y = 72;
-        ChunkGenerator chunkGen = context.chunkGenerator();
-        LevelHeightAccessor heightAccessor = context.heightAccessor();
-        RandomState randomState = context.randomState();
-        switch (generationType) {
-            case onGround, onWater -> y = chunkGen.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, heightAccessor, randomState);
-            case underwater -> y = chunkGen.getBaseHeight(x, z, Heightmap.Types.OCEAN_FLOOR_WG, heightAccessor, randomState);
-            case inAir -> {
-                int minY = chunkGen.getBaseHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, heightAccessor, randomState) + 50;
-                int maxY = 290;
-                if (minY >= maxY) {y = maxY;}
-                else {y = minY + context.random().nextInt(maxY - minY);}
-            }
-            case underground -> {
-                int minY = chunkGen.getMinY() + 10;
-                int maxY = chunkGen.getBaseHeight(x, z, Heightmap.Types.OCEAN_FLOOR_WG, heightAccessor, randomState) - 20;
-                if (minY >= maxY) {y = maxY;}
-                else {y = minY + context.random().nextInt(maxY - minY);}
-            }
-        }
+    protected abstract BlockPos getGenPos(GenerationContext context);
 
+    private static void generatePieces(StructurePiecesBuilder piecesBuilder, GenerationContext context, DEStructurePiece[] variants, int maxWeight, DEPieceAssembler assembler, BlockPos rawPos) {
         int piece = DEUtil.getRandomPiece(variants, maxWeight, context.random());
 
-        assembler.assemble(new DEPieceAssembler.Context(context.structureTemplateManager(), variants[piece].Resource, new BlockPos(x, y, z).offset(variants[piece].Offset), Rotation.getRandom(context.random()), piecesBuilder, generationType));
+        assembler.assemble(new DEPieceAssembler.Context(context.structureTemplateManager(), variants[piece].Resource, rawPos.offset(variants[piece].Offset), Rotation.getRandom(context.random()), piecesBuilder));
     }
 
     public static class Piece extends GelTemplateStructurePiece{
