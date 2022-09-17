@@ -1,5 +1,6 @@
 package com.barion.dungeons_enhanced;
 
+import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEUnderwaterProcessor;
 import com.legacy.structure_gel.api.registry.RegistryHelper;
@@ -74,11 +75,9 @@ public class DEUtil{
         return i;
     }
 
-    public static BlockPos ChunkPosToBlockPos(ChunkPos chunkPos){
-        return ChunkPosToBlockPos(chunkPos, 63);
-    }
+    public static BlockPos ChunkPosToBlockPos(ChunkPos chunkPos) {return ChunkPosToBlockPos(chunkPos, 0);}
     public static BlockPos ChunkPosToBlockPos(ChunkPos chunkPos, int y){
-        return new BlockPos(chunkPos.getMiddleBlockX(), y, chunkPos.getMiddleBlockZ());
+        return new BlockPos(chunkPos.getMinBlockX(), y, chunkPos.getMinBlockZ());
     }
 
     public static BlockPos ChunkPosToBlockPosFromHeightMap(ChunkPos chunkPos, ChunkGenerator chunkGenerator, Heightmap.Types heightmapType, LevelHeightAccessor heightAccessor, RandomState randomState){
@@ -87,4 +86,5 @@ public class DEUtil{
     }
 
     public static DEStructurePiece.Builder pieceBuilder() {return new DEStructurePiece.Builder();}
+    public static DETerrainAnalyzer.Settings analyzeSettings(int steps, int stepSize, int spreading) {return new DETerrainAnalyzer.Settings(steps, stepSize, spreading);}
 }

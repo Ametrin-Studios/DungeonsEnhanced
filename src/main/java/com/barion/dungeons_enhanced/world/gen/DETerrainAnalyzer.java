@@ -2,7 +2,7 @@ package com.barion.dungeons_enhanced.world.gen;
 
 // Tool to determine if a surface is suitable for structure generation
 // created by BarionLP https://github.com/BarionLP/DungeonsEnhanced/blob/master/src/main/java/com/barion/dungeons_enhanced/world/gen/DETerrainAnalyzer.java
-// version 4.0
+// version 4.1
 // some features require functions from DEUtil. You can just copy them.
 // (c) you can only use it if you link the file and give credits to BarionLP
 
@@ -33,7 +33,12 @@ public class DETerrainAnalyzer {
         DETerrainAnalyzer.chunkGenerator = chunkGenerator;
         DETerrainAnalyzer.heightAccessor = heightAccessor;
         DETerrainAnalyzer.randomState = randomState;
-        BlockPos pos = ChunkPosToBlockPos(chunkPos, Heightmap.Types.WORLD_SURFACE_WG);
+        return isFlatEnough(ChunkPosToBlockPos(chunkPos, Heightmap.Types.WORLD_SURFACE_WG), chunkGenerator, settings, heightAccessor, randomState);
+    }
+    public static boolean isFlatEnough(BlockPos pos, ChunkGenerator chunkGenerator, Settings settings, LevelHeightAccessor heightAccessor, RandomState randomState){
+        DETerrainAnalyzer.chunkGenerator = chunkGenerator;
+        DETerrainAnalyzer.heightAccessor = heightAccessor;
+        DETerrainAnalyzer.randomState = randomState;
 
         if(getBlockAt(pos.below()).is(Blocks.WATER)) {return false;}
 
@@ -109,6 +114,4 @@ public class DETerrainAnalyzer {
     }
 
     public record Settings(int steps, int stepSize, int columSpreading) {}
-
-    @Deprecated(forRemoval = true) public enum GenerationType {onGround, inAir, underground, onWater, underwater}
 }

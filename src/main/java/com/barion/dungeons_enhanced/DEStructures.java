@@ -1,5 +1,6 @@
 package com.barion.dungeons_enhanced;
 
+import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structures.*;
 import com.barion.dungeons_enhanced.world.structures.prefabs.*;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
@@ -60,7 +61,7 @@ public class DEStructures {
 
         Castle = StructureRegistrar.jigsawBuilder(location("castle"))
                 .addPiece(()-> DECellarStructure.Piece::new)
-                .pushStructure((settings)-> new ExtendedJigsawStructure(settings, DECellarStructure.CastlePool.Root, 1, ConstantHeight.ZERO, false, Heightmap.Types.WORLD_SURFACE_WG).withPieceFactory(Castle.getRegistryName(), DECellarStructure.Piece::new))
+                .pushStructure((settings)-> new ExtendedJigsawStructure(settings, DECellarStructure.CastlePool.Root, 1, ConstantHeight.ZERO, false, Heightmap.Types.WORLD_SURFACE_WG).withPieceFactory(Castle.getRegistryName(), DECellarStructure.Piece::new)/*.withPlacementTest(DEUtil.location("is_flat_enough"), (context, pos, jigsawContext)-> DECellarStructure.checkLocation(context, pos, new DETerrainAnalyzer.Settings(1, 2, 2)))*/)
                         .config(DEConfig.COMMON.Castle::getStructure)
                         .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
                 .popStructure()
@@ -171,7 +172,7 @@ public class DEStructures {
         DELargeDungeon.Pool.init();
         LargeDungeon = StructureRegistrar.jigsawBuilder(location("large_dungeon"))
                 .addPiece(()-> DELargeDungeon.Piece::new)
-                .pushStructure((settings)-> new ExtendedJigsawStructure(settings, DELargeDungeon.Pool.Root, 5, height(-16), false, Heightmap.Types.WORLD_SURFACE_WG).withPieceFactory(LargeDungeon.getRegistryName(), DELargeDungeon.Piece::new))
+                .pushStructure((settings)-> new ExtendedJigsawStructure(settings, DELargeDungeon.Pool.Root, 5, height(-16), false, Heightmap.Types.WORLD_SURFACE_WG).withPieceFactory(LargeDungeon.getRegistryName(), DELargeDungeon.Piece::new).withPlacementTest(DEUtil.location("large_dungeon_test"), (context, pos, jigsawContext)-> DECellarStructure.checkLocation(context, pos, new DETerrainAnalyzer.Settings(1, 4, 4))))
                         .config(DEConfig.COMMON.LargeDungeon::getStructure)
                 .popStructure()
                 .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.LargeDungeon).allowedNearSpawn(true).build(LargeDungeon.getRegistryName()))
@@ -190,7 +191,7 @@ public class DEStructures {
         DEMonsterMaze.Pool.init();
         MonsterMaze = StructureRegistrar.jigsawBuilder(location("monster_maze"))
                 .addPiece(()-> DEMonsterMaze.Piece::new)
-                .pushStructure((settings)-> new ExtendedJigsawStructure(settings, DEMonsterMaze.Pool.Root, 11, height(-17), true, Heightmap.Types.WORLD_SURFACE_WG).withPieceFactory(MonsterMaze.getRegistryName(), DEMonsterMaze.Piece::new))
+                .pushStructure((settings)-> new ExtendedJigsawStructure(settings, DEMonsterMaze.Pool.Root, 11, height(-17), true, Heightmap.Types.WORLD_SURFACE_WG).withPieceFactory(MonsterMaze.getRegistryName(), DEMonsterMaze.Piece::new).withPlacementTest(DEUtil.location("monster_maze_test"), (context, pos, jigsawContext)-> DECellarStructure.checkLocation(context, pos, new DETerrainAnalyzer.Settings(1, 4, 4))))
                         .config(DEConfig.COMMON.MonsterMaze::getStructure)
                 .popStructure()
                 .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.MonsterMaze).build(MonsterMaze.getRegistryName()))
