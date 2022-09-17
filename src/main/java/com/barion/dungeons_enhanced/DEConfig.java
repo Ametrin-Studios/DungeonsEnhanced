@@ -49,7 +49,7 @@ public class DEConfig {
             this.builder = builder;
             Castle = configs("castle", 56, 42, Level.OVERWORLD, "#forge:is_cold/overworld", "#forge:is_snowy", "!#forge:is_water", "!#forge:is_mountain", "!#minecraft:is_beach");
             DeepCrypt = configs("deep_crypt", 35, 75, Level.OVERWORLD, "#minecraft:is_overworld");
-            DesertTemple = configs("desert_temple", 32, 60, Level.OVERWORLD, "minecraft:desert");
+            DesertTemple = configs("desert_temple", 31, 60, Level.OVERWORLD, "minecraft:desert");
             DesertTomb = configs("desert_tomb", 29, 65, Level.OVERWORLD, "minecraft:desert");
             DruidCircle = configs("druid_circle", 39, 40, Level.OVERWORLD, "#minecraft:is_overworld", "!#forge:is_cold/overworld", "!#forge:is_hot/overworld", "!#minecraft:is_forest", "!#forge:is_water", "!#forge:is_mountain", "!#minecraft:is_beach", "!#forge:is_underground");
             DungeonVariant = configs("dungeon_variant", 16, 80, Level.OVERWORLD, "#minecraft:is_overworld");
