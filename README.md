@@ -6,3 +6,6 @@ They all fit a medieval/fantasy theme and could fit along other fantasy or RPG-l
 Some of our structures also look like they could be an upgraded version of a vanilla structure or a variant to them.
 Get ready to find huge mazes under trees, castles, towers and forgotten temples.
 We hope you have fun!
+
+### Translating
+If you want to help translating Dungeons Enhanced check out [OneSky](https://ametrin-studios-mods.oneskyapp.com/collaboration/project?id=187381)
