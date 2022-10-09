@@ -47,6 +47,17 @@
               "function": "minecraft:set_count"
             }
           ],
+          "name": "minecraft:scute"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            }
+          ],
           "name": "minecraft:experience_bottle"
         },
         {
@@ -240,17 +251,6 @@
           ],
           "name": "minecraft:gold_ingot",
           "weight": 3
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": 1.0,
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:gold_block"
         },
         {
           "type": "minecraft:item",

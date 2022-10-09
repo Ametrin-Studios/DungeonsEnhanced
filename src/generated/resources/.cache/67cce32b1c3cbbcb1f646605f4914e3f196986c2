@@ -1,4 +1,4 @@
-// 1.19.1	2022-08-02T20:13:51.4225221	LootTables
+// 1.19.2	2022-10-06T16:51:49.4655125	LootTables
 b298edd9d51e662a67963f2e2ad382c09a1dde15 data/dungeons_enhanced/loot_tables/chests/castle/armory.json
 84d79af734d23944bfaef3145ad3151634d6e83a data/dungeons_enhanced/loot_tables/chests/castle/bedroom.json
 aedf0d8a5e845e85eda28962e659c7442d6cdf3c data/dungeons_enhanced/loot_tables/chests/castle/cellar.json
@@ -14,7 +14,7 @@ d9f95950e46f5811a3f9ffb6a69aa7bcee32866f data/dungeons_enhanced/loot_tables/ches
 cb8f0577c1edf521f25f7a4d24a8ce1cc54b3660 data/dungeons_enhanced/loot_tables/chests/elders_temple/elder_room.json
 1819d97469250c4994668b5c243a7614a3c80e73 data/dungeons_enhanced/loot_tables/chests/elders_temple/main.json
 761ce65e759ddc9a08615495dc8532c0741e9df6 data/dungeons_enhanced/loot_tables/chests/fishing_ship.json
-09f8d2dd35d91b4de90074d7276c1b8e11c66555 data/dungeons_enhanced/loot_tables/chests/flying_dutchman.json
+e5b59b055f664dc1691350bb8608258afedfe147 data/dungeons_enhanced/loot_tables/chests/flying_dutchman.json
 0172a9f4d0106dfd757d44e020e28668d1609bb3 data/dungeons_enhanced/loot_tables/chests/large_dungeon.json
 f6b92f312fca91468c98500d2990b17a78bf2111 data/dungeons_enhanced/loot_tables/chests/monster_maze/brewery.json
 90bcfd63183c4e56b8a64481e0843b65c829daab data/dungeons_enhanced/loot_tables/chests/monster_maze/church.json

@@ -82,7 +82,7 @@ public class DEUtil{
 
     public static BlockPos ChunkPosToBlockPosFromHeightMap(ChunkPos chunkPos, ChunkGenerator chunkGenerator, Heightmap.Types heightmapType, LevelHeightAccessor heightAccessor, RandomState randomState){
         BlockPos pos = DEUtil.ChunkPosToBlockPos(chunkPos);
-        return pos.atY(chunkGenerator.getBaseHeight(pos.getX(), pos.getY(), heightmapType, heightAccessor, randomState));
+        return pos.atY(chunkGenerator.getBaseHeight(pos.getX(), pos.getZ(), heightmapType, heightAccessor, randomState));
     }
 
     public static DEStructurePiece.Builder pieceBuilder() {return new DEStructurePiece.Builder();}

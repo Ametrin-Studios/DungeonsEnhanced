@@ -1,9 +1,9 @@
 modLoader="javafml" #mandatory
-loaderVersion="[43,)" #mandatory A version range to match for said mod loader - for regular FML @Mod it will be the forge version
+loaderVersion="[43,)" #mandatory
 license="All rights reserved"
 issueTrackerURL="https://github.com/BarionLP/DungeonsEnhanced/issues" #optional
 
-[[mods]] #mandatory A list of mods - how many allowed here is determined by the individual mod loader
+[[mods]] #mandatory
     modId="dungeons_enhanced" #mandatory
     version="4.1" #mandatory
     displayName="Dungeons Enhanced" #mandatory
@@ -12,28 +12,27 @@ issueTrackerURL="https://github.com/BarionLP/DungeonsEnhanced/issues" #optional
     logoFile="logo.png"
     credits="Thanks Modding Legacy for their genius Structure Gel API" #optional
     authors="Ametrin Studios" #optional
-    # The description text for the mod (multi line!) (#mandatory)
     description='''
 Minecraft is great game, but exploring always felt a bit boring for us. There aren't many structures or dungeons you can explore and the ones you find, are getting repetitive. We decided to spice things up a bit, by adding new dungeons and structures for you to explore. By now 20 new dungeons and structures are include in our mod. They all fit a medival/fantasy theme and could fit along other fantasy or RPG-like Mods. Some of our structures also look like they could be a upgraded version of a vanilla structure or a variant to them. Get ready to find huge mazes under trees, castles, towers and forgotten temples.
 
 We hope you have fun.
 '''
 
-[[dependencies.dungeons_enhanced]] #optional
+[[dependencies.dungeons_enhanced]]
     modId="forge" #mandatory
-    mandatory=true #mandatory   Does this dependency have to exist - if not, ordering below must be specified
+    mandatory=true #mandatory
     versionRange="[43.1,)" #mandatory
     ordering="NONE" # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
     side="BOTH" #BOTH, CLIENT or SERVER
 [[dependencies.dungeons_enhanced]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.19.2,1.20)" # declares a minimum of the current minecraft version up to but not including the next major version
+    versionRange="[1.19.2,1.20)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.dungeons_enhanced]]
     modId="structure_gel"
     mandatory=true
-    versionRange="[2.6.1,]"
+    versionRange="[2.7.0,]"
     ordering="NONE"
     side="BOTH"
