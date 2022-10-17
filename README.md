@@ -1,4 +1,4 @@
-Minecraft is great game, but exploring always felt a bit boring for us.
+Minecraft is great game, but exploring always felt a bit boring.
 There aren't many structures or dungeons you can explore and the ones you find, are getting repetitive.
 We decided to spice things up a bit, by adding new dungeons and structures for you to explore.
 By now 26 new dungeons and structures are included in our mod.
