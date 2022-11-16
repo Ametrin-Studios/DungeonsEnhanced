@@ -1,4 +1,7 @@
 ## 4.1
+* fixed canon in Flying Dutchman
+
+## 4.1
 * added german translation
 * updated english translation
 * fix DEUtil#ChunkPosToBlockPosFromHeightMap using wrong coordinates causing structures to float (#28)
