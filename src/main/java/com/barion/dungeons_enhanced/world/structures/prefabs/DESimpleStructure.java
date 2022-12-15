@@ -4,7 +4,7 @@ import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEPieceAssembler;
-import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
+import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePieces;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
@@ -17,11 +17,11 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 import java.util.function.Supplier;
 
 public class DESimpleStructure extends DEBaseStructure {
-    public DESimpleStructure(StructureSettings settings, DEStructurePiece[] variants, DEPieceAssembler assembler, Supplier<StructureType<?>> type){
+    public DESimpleStructure(StructureSettings settings, DEStructurePieces variants, DEPieceAssembler assembler, Supplier<StructureType<?>> type){
         super(settings, variants, assembler, type);
     }
 
-    public DESimpleStructure(StructureSettings settings, DEStructurePiece[] variants, Supplier<StructureType<?>> type){
+    public DESimpleStructure(StructureSettings settings, DEStructurePieces variants, Supplier<StructureType<?>> type){
         super(settings, variants, DESimpleStructure::assemble, type);
     }
 

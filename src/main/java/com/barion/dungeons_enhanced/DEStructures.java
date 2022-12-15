@@ -25,6 +25,7 @@ import java.util.function.Supplier;
 import static com.barion.dungeons_enhanced.DEUtil.location;
 import static com.barion.dungeons_enhanced.DEUtil.pieceBuilder;
 
+@SuppressWarnings("removal")
 public class DEStructures {
     public static StructureRegistrar<ExtendedJigsawStructure> Castle;
     public static StructureRegistrar<ExtendedJigsawStructure> DeepCrypt;
@@ -227,7 +228,8 @@ public class DEStructures {
                 .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.PirateShip).build(PirateShip))
                 .build();
 
-        Function<Structure.StructureSettings, DESimpleStructure> ruinedBuilding = (settings)-> new DESimpleStructure(settings, pieceBuilder().offset(-5, 0, -5).weight(3).add("ruined_building/house").offset(-6, 0, -8).weight(2).add("ruined_building/house_big").offset(-4, 0, -5).weight(3).add("ruined_building/barn").build(), RuinedBuilding::getType);
+//        Function<Structure.StructureSettings, DESimpleStructure> ruinedBuilding = (settings)-> new DESimpleStructure(settings, pieceBuilder().offset(-5, 0, -5).weight(3).add("ruined_building/house").offset(-6, 0, -8).weight(2).add("ruined_building/house_big").offset(-4, 0, -5).weight(3).add("ruined_building/barn").build(), RuinedBuilding::getType);
+        Function<Structure.StructureSettings, DESimpleStructure> ruinedBuilding = DERuinedHouse::new;
         RuinedBuilding = StructureRegistrar.builder(location("ruined_building"), codecOf(ruinedBuilding))
                 .addPiece(()-> DESimpleStructure.Piece::new)
                 .pushStructure(ruinedBuilding)

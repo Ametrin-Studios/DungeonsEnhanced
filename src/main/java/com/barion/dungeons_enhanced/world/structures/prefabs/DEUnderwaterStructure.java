@@ -4,7 +4,7 @@ import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEPieceAssembler;
-import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
+import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePieces;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEUnderwaterProcessor;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -19,11 +19,11 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 import java.util.function.Supplier;
 
 public class DEUnderwaterStructure extends DEBaseStructure {
-    public DEUnderwaterStructure(StructureSettings settings, DEStructurePiece[] variants, DEPieceAssembler assembler, Supplier<StructureType<?>> type){
+    public DEUnderwaterStructure(StructureSettings settings, DEStructurePieces variants, DEPieceAssembler assembler, Supplier<StructureType<?>> type){
         super(settings, variants, assembler, type);
     }
 
-    public DEUnderwaterStructure(StructureSettings settings, DEStructurePiece[] variants, Supplier<StructureType<?>> type){
+    public DEUnderwaterStructure(StructureSettings settings, DEStructurePieces variants, Supplier<StructureType<?>> type){
         super(settings, variants, DEUnderwaterStructure::assemble, type);
     }
 

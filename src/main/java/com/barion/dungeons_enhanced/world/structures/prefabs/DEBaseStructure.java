@@ -2,7 +2,7 @@ package com.barion.dungeons_enhanced.world.structures.prefabs;
 
 import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEPieceAssembler;
-import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
+import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePieces;
 import com.legacy.structure_gel.api.registry.registrar.Registrar;
 import com.legacy.structure_gel.api.structure.GelTemplateStructurePiece;
 import com.legacy.structure_gel.api.structure.processor.RemoveGelStructureProcessor;
@@ -33,27 +33,24 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Optional;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
-import static com.barion.dungeons_enhanced.DEUtil.getMaxWeight;
-
 public abstract class DEBaseStructure extends Structure{
-    private final DEStructurePiece[] variants;
-    private final int maxWeight;
-    private final DEPieceAssembler assembler;
-    private final Supplier<StructureType<?>> type;
-    public DEBaseStructure(StructureSettings settings, DEStructurePiece[] variants, DEPieceAssembler assembler, Supplier<StructureType<?>> type){
+    protected final DEStructurePieces variants;
+    protected final DEPieceAssembler assembler;
+    protected final Supplier<StructureType<?>> type;
+    public DEBaseStructure(StructureSettings settings, DEStructurePieces variants, DEPieceAssembler assembler, Supplier<StructureType<?>> type){
         super(settings);
         this.variants = variants;
-        this.maxWeight = getMaxWeight(variants);
         this.assembler = assembler;
         this.type = type;
     }
 
     @Override @Nonnull
     public Optional<GenerationStub> findGenerationPoint(@Nonnull GenerationContext context) {
-        return onTopOfChunkCenter(context, Heightmap.Types.WORLD_SURFACE_WG, (builder)-> generatePieces(builder, context, variants, maxWeight, assembler, getGenPos(context)));
+        return onTopOfChunkCenter(context, Heightmap.Types.WORLD_SURFACE_WG, (builder)-> generatePieces(builder, context, variants, assembler, getGenPos(context)));
     }
 
     @Override @Nonnull @ParametersAreNonnullByDefault
@@ -73,6 +70,10 @@ public abstract class DEBaseStructure extends Structure{
         return StructureStart.INVALID_START;
     }
 
+    protected static Optional<Structure.GenerationStub> onTopOfChunkStart(Structure.GenerationContext context, Heightmap.Types heightMap, Consumer<StructurePiecesBuilder> piecesBuilder){
+        return Optional.of(new Structure.GenerationStub(DEUtil.ChunkPosToBlockPosFromHeightMap(context.chunkPos(), context.chunkGenerator(), heightMap, context.heightAccessor(), context.randomState()), piecesBuilder));
+    }
+
     protected static boolean isValidBiome(Structure.GenerationStub stub, ChunkGenerator generator, RandomState state, Predicate<Holder<Biome>> biomePredicate) {
         BlockPos blockpos = stub.position();
         return biomePredicate.test(generator.getBiomeSource().getNoiseBiome(QuartPos.fromBlock(blockpos.getX()), QuartPos.fromBlock(blockpos.getY()), QuartPos.fromBlock(blockpos.getZ()), state.sampler()));
@@ -85,10 +86,10 @@ public abstract class DEBaseStructure extends Structure{
 
     protected abstract BlockPos getGenPos(GenerationContext context);
 
-    private static void generatePieces(StructurePiecesBuilder piecesBuilder, GenerationContext context, DEStructurePiece[] variants, int maxWeight, DEPieceAssembler assembler, BlockPos rawPos) {
-        int piece = DEUtil.getRandomPiece(variants, maxWeight, context.random());
+    protected static void generatePieces(StructurePiecesBuilder piecesBuilder, GenerationContext context, DEStructurePieces variants, DEPieceAssembler assembler, BlockPos rawPos) {
+        DEStructurePieces.Piece piece = variants.getRandomPiece(context.random());
 
-        assembler.assemble(new DEPieceAssembler.Context(context.structureTemplateManager(), variants[piece].Resource, rawPos.offset(variants[piece].Offset), Rotation.getRandom(context.random()), piecesBuilder));
+        assembler.assemble(new DEPieceAssembler.Context(context.structureTemplateManager(), piece.Resource, rawPos/*.offset(piece.Offset)*/, Rotation.getRandom(context.random()), piecesBuilder));
     }
 
     public static class Piece extends GelTemplateStructurePiece{

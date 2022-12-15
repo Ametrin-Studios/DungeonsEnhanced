@@ -4,7 +4,7 @@ import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEPieceAssembler;
-import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
+import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePieces;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
@@ -17,7 +17,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 import java.util.function.Supplier;
 
 public class DEUndergroundStructure extends DEBaseStructure{
-    public DEUndergroundStructure(StructureSettings settings, DEStructurePiece[] variants, Supplier<StructureType<?>> type){
+    public DEUndergroundStructure(StructureSettings settings, DEStructurePieces variants, Supplier<StructureType<?>> type){
         super(settings, variants, DEUndergroundStructure::assemble, type);
     }
 

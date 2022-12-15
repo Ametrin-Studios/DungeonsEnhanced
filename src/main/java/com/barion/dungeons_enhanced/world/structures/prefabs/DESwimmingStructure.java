@@ -3,7 +3,7 @@ package com.barion.dungeons_enhanced.world.structures.prefabs;
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEPieceAssembler;
-import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
+import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePieces;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
@@ -17,11 +17,11 @@ import java.util.function.Supplier;
 
 public class DESwimmingStructure extends DEBaseStructure {
 
-    public DESwimmingStructure(StructureSettings settings, DEStructurePiece[] variants, DEPieceAssembler assembler, Supplier<StructureType<?>> type){
+    public DESwimmingStructure(StructureSettings settings, DEStructurePieces variants, DEPieceAssembler assembler, Supplier<StructureType<?>> type){
         super(settings, variants, assembler, type);
     }
 
-    public DESwimmingStructure(StructureSettings settings, DEStructurePiece[] variants, Supplier<StructureType<?>> type){
+    public DESwimmingStructure(StructureSettings settings, DEStructurePieces variants, Supplier<StructureType<?>> type){
         super(settings, variants, DESwimmingStructure::assemble, type);
     }
 
