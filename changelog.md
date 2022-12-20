@@ -1,3 +1,10 @@
+## 1.8.2
+* added Sunken in the Depths advancement
+* fixed Dungeon Variants default config
+* added german and russian translation
+* updated english translation
+* requires Structure Gel API 1.7.8 or above
+
 ## 1.8.1
 * small config fix
 * fixed empty loot tables in Elders Temple and Sunken Shrine
