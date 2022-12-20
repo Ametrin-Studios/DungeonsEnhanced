@@ -51,7 +51,7 @@ heldItemTooltips:true
 chatHeightFocused:1.0
 chatDelay: 0.0
 chatHeightUnfocused:0.44366195797920227
-chatScale:0.8
+chatScale:0.800000011920929
 chatWidth:1.0
 mipmapLevels:4
 useNativeTransport:true
