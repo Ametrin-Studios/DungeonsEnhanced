@@ -1,0 +1,33 @@
+{
+  "parent": "dungeons_enhanced:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:nautilus_shell"
+    },
+    "title": {
+      "translate": "advancements.dungeons_enhanced.sunken_deeps"
+    },
+    "description": {
+      "translate": "advancements.dungeons_enhanced.sunken_deeps.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "entered_elders_temple": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "feature": "dungeons_enhanced:elders_temple"
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "entered_elders_temple"
+    ]
+  ]
+}

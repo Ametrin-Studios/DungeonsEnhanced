@@ -79,7 +79,7 @@
 	#How the biomes list should be used. true = whitelist, false = blacklist.
 	is_whitelist = false
 	#A filter for which biomes this structure should generate in. Works with the biome dictionary (#overworld) and "not" statements (!plains). These can be combined (!#nether). Operates in the order presented. So "#forest, !flower_forest" will add all forests and then remove the flower forest.
-	biomes = "#forge:overworld"
+	biomes = ""
 	#Percent chance of generating in an allowed chunk.
 	#Range: 0.0 ~ 1.0
 	probability = 0.8

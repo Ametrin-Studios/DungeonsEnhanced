@@ -1,5 +1,5 @@
 {
-  "parent": "dungeons_enhanced:root",
+  "parent": "dungeons_enhanced:seven_world_wonders",
   "display": {
     "icon": {
       "item": "minecraft:filled_map"
