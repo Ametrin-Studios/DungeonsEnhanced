@@ -79,7 +79,7 @@ public class DEConfig {
             return StructureConfig.builder(this.builder, name)
                     .pushPlacement()
                         .spacing(spacing)
-                        .offset((int) (spacing/1.5f))
+                        .offset((int) (spacing/1.4f))
                         .probability(prob)
                     .popPlacement()
                     .pushStructure()

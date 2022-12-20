@@ -5,7 +5,7 @@ issueTrackerURL="https://github.com/BarionLP/DungeonsEnhanced/issues" #optional
 
 [[mods]] #mandatory
     modId="dungeons_enhanced" #mandatory
-    version="4.1" #mandatory
+    version="4.1.1" #mandatory
     displayName="Dungeons Enhanced" #mandatory
     #updateJSONURL="https://change.me.example.invalid/updates.json" #optional See the JSON update specification https://mcforge.readthedocs.io/en/latest/gettingstarted/autoupdate/
     displayURL="https://www.curseforge.com/minecraft/mc-mods/dungeonsenhanced" #optional A URL for the "homepage" for this mod
@@ -26,7 +26,7 @@ We hope you have fun!
 [[dependencies.dungeons_enhanced]]
     modId="forge" #mandatory
     mandatory=true #mandatory
-    versionRange="[43.1,)" #mandatory
+    versionRange="[43.2,)" #mandatory
     ordering="NONE"
     side="BOTH" #BOTH, CLIENT or SERVER
 [[dependencies.dungeons_enhanced]]
@@ -38,6 +38,6 @@ We hope you have fun!
 [[dependencies.dungeons_enhanced]]
     modId="structure_gel"
     mandatory=true
-    versionRange="[2.7.0,]"
+    versionRange="[2.7.1,]"
     ordering="NONE"
     side="BOTH"

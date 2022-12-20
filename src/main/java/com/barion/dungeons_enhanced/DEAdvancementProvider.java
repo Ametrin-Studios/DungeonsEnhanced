@@ -36,6 +36,7 @@ public class DEAdvancementProvider extends AdvancementProvider{
         Advancement ChilledHalls = enterStructure(advancement(Items.BONE, "chilled_halls", FrameType.TASK, true, true, false), DEStructures.IcePit).parent(root).save(consumer, location("chilled_halls"));
         Advancement Ahoy = enterStructure(advancement(Items.WITHER_SKELETON_SKULL, "ahoy", FrameType.TASK, true, true, false), DEStructures.PirateShip).parent(root).save(consumer, location("ahoy"));
         Advancement InTheAir = enterStructure(advancement(Items.LANTERN, "in_the_air", FrameType.TASK, true, true, false), DEStructures.FlyingDutchman).parent(root).save(consumer, location("in_the_air"));
+        Advancement SunkenDepths = enterStructure(advancement(Items.NAUTILUS_SHELL, "sunken_deeps", FrameType.TASK, true, true, false), DEStructures.EldersTemple).parent(root).save(consumer, location("sunken_deeps"));
         Advancement SevenWorldWonders = enterAnyStructure(advancement(Items.SPYGLASS, "seven_world_wonders", FrameType.GOAL, true, true, false),
                 new StructureRegistrar<?>[] {
                         DEStructures.Castle,
@@ -47,7 +48,7 @@ public class DEAdvancementProvider extends AdvancementProvider{
                         DEStructures.EldersTemple
         }
                 ).requirements(RequirementsStrategy.AND).parent(root).save(consumer, location("seven_world_wonders"));
-        Advancement AmbitiousExplorer = enterAnyStructure(advancement(Items.FILLED_MAP, "ambitious_explorer", FrameType.CHALLENGE, true, true, false), DEStructures.getAllStructureRegistrars()).requirements(RequirementsStrategy.AND).parent(root).save(consumer, location("ambitious_explorer"));
+        Advancement AmbitiousExplorer = enterAnyStructure(advancement(Items.FILLED_MAP, "ambitious_explorer", FrameType.CHALLENGE, true, true, false), DEStructures.getAllStructureRegistrars()).requirements(RequirementsStrategy.AND).parent(SevenWorldWonders).save(consumer, location("ambitious_explorer"));
     }
 
     private Advancement.Builder enterAnyStructure(Advancement.Builder builder, StructureRegistrar<?>[] structures){
