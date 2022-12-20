@@ -17,13 +17,11 @@ import java.util.Optional;
 import static com.barion.dungeons_enhanced.DEUtil.pieceBuilder;
 
 public class DERuinedHouse extends DESimpleStructure {
-    private static int tries = 0;
 
     public DERuinedHouse(StructureSettings settings) {
         super(settings, pieceBuilder().offset(-5, 0, -5).weight(3).add("ruined_building/house").offset(-6, 0, -8).weight(2).add("ruined_building/house_big").offset(-4, 0, -5).weight(3).add("ruined_building/barn").build(), DEStructures.RuinedBuilding::getType);
     }
 
-    // Why does it not work!!!!
     @Override @Nonnull
     public Optional<GenerationStub> findGenerationPoint(@Nonnull GenerationContext context) {
         BlockPos pos = getGenPos(context);
@@ -31,15 +29,10 @@ public class DERuinedHouse extends DESimpleStructure {
         DEStructurePieces.Piece piece = variants.getRandomPiece(context.random());
 
         DungeonsEnhanced.LOGGER.info("checked: {} {} {} with size {}", pos.getX(), pos.getY(), pos.getZ(), context.structureTemplateManager().get(piece.Resource).get().getSize());
-        tries += 1;
-        if(!ExperimentalTerrainAnalyzer.isFlatEnough(pos, context.structureTemplateManager().get(piece.Resource).get().getSize(), 1, 10, context.chunkGenerator(), context.heightAccessor(), context.randomState()).getSecond()){
-            if(tries >= 150){
-                throw new RuntimeException();
-            }
+        if(!ExperimentalTerrainAnalyzer.isFlatEnough(pos, context.structureTemplateManager().get(piece.Resource).get().getSize(), 1, 5, context.chunkGenerator(), context.heightAccessor(), context.randomState()).getSecond()){
             return Optional.empty();
         }
 
-        tries = 0;
         return onTopOfChunkStart(context, Heightmap.Types.WORLD_SURFACE_WG, (builder)-> generatePieces(builder, context, piece, assembler, pos));
     }
 
