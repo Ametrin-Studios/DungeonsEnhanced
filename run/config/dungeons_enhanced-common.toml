@@ -124,19 +124,19 @@
 	[desert_tomb.placement]
 		#
 		# The average distance between structures of this type, measured in chunks.
-		# Default: 29
+		# Default: 25
 		#Range: > 1
-		spacing = 29
+		spacing = 25
 		#
 		# A random offset applied to spacing. Values closer to 0 produce a grid effect while values closer to spacing are more random.
-		# Default: 19
+		# Default: 16
 		#Range: > 0
-		offset = 19
+		offset = 16
 		#
 		# Percent chance of generating in an allowed chunk.
-		# Default: 65
+		# Default: 75
 		#Range: 0 ~ 100
-		probability = 65
+		probability = 75
 
 	[desert_tomb.structures]
 
@@ -244,19 +244,19 @@
 	[elders_temple.placement]
 		#
 		# The average distance between structures of this type, measured in chunks.
-		# Default: 34
+		# Default: 29
 		#Range: > 1
-		spacing = 34
+		spacing = 29
 		#
 		# A random offset applied to spacing. Values closer to 0 produce a grid effect while values closer to spacing are more random.
-		# Default: 22
+		# Default: 19
 		#Range: > 0
-		offset = 22
+		offset = 19
 		#
 		# Percent chance of generating in an allowed chunk.
-		# Default: 82
+		# Default: 100
 		#Range: 0 ~ 100
-		probability = 82
+		probability = 100
 
 	[elders_temple.structures]
 
@@ -309,8 +309,8 @@
 				# - Tag: "#minecraft:is_forest"
 				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
 				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
-				# Default: ["#minecraft:is_ocean"]
-				biomes = ["#minecraft:is_ocean"]
+				# Default: ["#minecraft:is_ocean", "!minecraft:frozen_ocean", "!minecraft:deep_frozen_ocean"]
+				biomes = ["#minecraft:is_ocean", "!minecraft:frozen_ocean", "!minecraft:deep_frozen_ocean"]
 
 			[fishing_ship.structures.structure.dimensions]
 				#
@@ -709,8 +709,8 @@
 				# - Tag: "#minecraft:is_forest"
 				# - Prefix an entry with ! to exclude it: "!#minecraft:is_ocean"
 				# Example: ["#minecraft:is_forest", "!minecraft:flower_forest"] This will include all biomes tagged as forests except for flower forests.
-				# Default: ["#minecraft:is_ocean"]
-				biomes = ["#minecraft:is_ocean"]
+				# Default: ["#minecraft:is_ocean", "!minecraft:frozen_ocean", "!minecraft:deep_frozen_ocean"]
+				biomes = ["#minecraft:is_ocean", "!minecraft:frozen_ocean", "!minecraft:deep_frozen_ocean"]
 
 			[pirate_ship.structures.structure.dimensions]
 				#

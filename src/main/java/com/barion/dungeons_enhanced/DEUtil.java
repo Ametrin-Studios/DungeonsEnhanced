@@ -1,6 +1,5 @@
 package com.barion.dungeons_enhanced;
 
-import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePieces;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEUnderwaterProcessor;
 import com.legacy.structure_gel.api.registry.RegistryHelper;
@@ -61,5 +60,4 @@ public class DEUtil{
     }
 
     public static DEStructurePieces.Builder pieceBuilder() {return new DEStructurePieces.Builder();}
-    public static DETerrainAnalyzer.Settings analyzeSettings(int steps, int stepSize, int spreading) {return new DETerrainAnalyzer.Settings(steps, stepSize, spreading);}
 }
