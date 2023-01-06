@@ -1,28 +1,24 @@
 package com.barion.dungeons_enhanced.world.structures;
 
 import com.barion.dungeons_enhanced.DEStructures;
-import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
-import com.google.common.collect.ImmutableMap;
-import com.legacy.structure_gel.api.structure.jigsaw.AbstractGelStructurePiece;
-import com.legacy.structure_gel.api.structure.jigsaw.JigsawPoolBuilder;
-import com.legacy.structure_gel.api.structure.jigsaw.JigsawRegistryHelper;
+import com.barion.dungeons_enhanced.world.DEJigsawTypes;
+import com.barion.dungeons_enhanced.world.DEPools;
+import com.legacy.structure_gel.api.structure.jigsaw.*;
+import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
+import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
-import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
+
+import java.util.Map;
 
 public class DEDesertTomb{
-    public DEDesertTomb(){}
-
     /*private static boolean checkLocation(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context){
         if(context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG)){
             return DETerrainAnalyzer.isFlatEnough(context.chunkPos(), context.chunkGenerator(), DETerrainAnalyzer.defaultCheckSettings, context.heightAccessor(), context.randomState());
@@ -31,8 +27,18 @@ public class DEDesertTomb{
         return false;
     }*/
 
-    public static class Piece extends AbstractGelStructurePiece {
-        public Piece(StructureTemplateManager structureManager, StructurePoolElement poolElement, BlockPos pos, int groundLevelDelta, Rotation rotation, BoundingBox bounds) {super(structureManager, poolElement, pos, groundLevelDelta, rotation, bounds);}
+    public static class Capability implements JigsawCapability.IJigsawCapability{
+        public static final Capability Instance = new Capability();
+        public static final Codec<Capability> CODEC = Codec.unit(Instance);
+
+        @Override
+        public JigsawCapability.JigsawType<?> getType(){return DEJigsawTypes.DesertTomb;}
+        @Override
+        public IPieceFactory getPieceFactory() {return Piece::new;}
+    }
+
+    public static class Piece extends ExtendedJigsawStructurePiece {
+        public Piece(IPieceFactory.Context context) {super(context);}
         public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) {super(serializationContext, nbt);}
 
         @Override
@@ -41,18 +47,14 @@ public class DEDesertTomb{
         public void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) {}
     }
 
-    public static class Pool{
-        public static Holder<StructureTemplatePool> Root;
-        public static void init() {}
-        static{
-            JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.ModID, "desert_tomb/");
-            JigsawPoolBuilder poolBuilder = registry.builder().maintainWater(false).processors(DEUtil.Processors.AirToCobweb);
-            Root = registry.register("root", poolBuilder.clone().names("root").build());
+    public static void pool(BootstapContext<StructureTemplatePool> context){
+        JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.ModID, "desert_tomb/", context);
+        registry.registerBuilder().pools(registry.poolBuilder().names("root").maintainWater(false)).register(DEPools.DesertTomb);
 
-            registry.register("down", poolBuilder.clone().names("down").build());
-            registry.register("trap", poolBuilder.clone().names("trap").build());
-            registry.register("cross", poolBuilder.clone().names("t-cross").build());
-            registry.register("main", poolBuilder.clone().names(ImmutableMap.of("tunnel", 5, "t-cross", 4, "room", 4, "tomb", 3, "exit", 2)).build());
-        }
+        JigsawPoolBuilder basicPool = registry.poolBuilder().maintainWater(false);
+        registry.register("down", basicPool.clone().names("down"));
+        registry.register("trap", basicPool.clone().names("trap"));
+        registry.register("cross", basicPool.clone().names("t-cross"));
+        registry.register("main", basicPool.clone().names(Map.of("tunnel", 5, "t-cross", 4, "room", 4, "tomb", 3, "exit", 2)));
     }
 }

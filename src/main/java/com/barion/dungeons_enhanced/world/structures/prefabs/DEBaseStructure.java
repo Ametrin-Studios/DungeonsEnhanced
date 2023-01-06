@@ -72,5 +72,6 @@ public abstract class DEBaseStructure extends Structure{
         protected void addProcessors(StructurePlaceSettings settings) {}
         @Override @ParametersAreNonnullByDefault
         protected void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor level, RandomSource random, BoundingBox box) {}
+
     }
 }

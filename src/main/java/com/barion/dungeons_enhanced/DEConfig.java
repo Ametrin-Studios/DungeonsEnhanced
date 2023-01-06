@@ -1,8 +1,5 @@
 package com.barion.dungeons_enhanced;
 
-import com.legacy.structure_gel.api.config.StructureConfig;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeConfigSpec;
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -16,37 +13,8 @@ public class DEConfig {
     }
 
     public static class Common{
-        private final ForgeConfigSpec.Builder builder;
-
-        public final StructureConfig Castle;
-        public final StructureConfig DeepCrypt;
-        public final StructureConfig DesertTemple;
-        public final StructureConfig DesertTomb;
-        public final StructureConfig DruidCircle;
-        public final StructureConfig DungeonVariant;
-        public final StructureConfig EldersTemple;
-        public final StructureConfig FishingShip;
-        public final StructureConfig FlyingDutchman;
-        public final StructureConfig HayStorage;
-        public final StructureConfig IcePit;
-        public final StructureConfig JungleMonument;
-        public final StructureConfig LargeDungeon;
-        public final StructureConfig MinersHouse;
-        public final StructureConfig MonsterMaze;
-        public final StructureConfig MushroomHouse;
-        public final StructureConfig PillagerCamp;
-        public final StructureConfig PirateShip;
-        public final StructureConfig RuinedBuilding;
-        public final StructureConfig Stables;
-        public final StructureConfig SunkenShrine;
-        public final StructureConfig TallWitchHut;
-        public final StructureConfig TowerOfTheUndead;
-        public final StructureConfig TreeHouse;
-        public final StructureConfig WatchTower;
-        public final StructureConfig WitchTower;
-
         protected Common(ForgeConfigSpec.Builder builder) {
-            this.builder = builder;
+            /*this.builder = builder;
             Castle = config("castle", 56, 42, Level.OVERWORLD, "#forge:is_cold/overworld", "#forge:is_snowy", "!#forge:is_water", "!#forge:is_mountain", "!#minecraft:is_beach");
             DeepCrypt = config("deep_crypt", 35, 75, Level.OVERWORLD, "#minecraft:is_overworld");
             DesertTemple = config("desert_temple", 31, 60, Level.OVERWORLD, "minecraft:desert");
@@ -72,20 +40,7 @@ public class DEConfig {
             TowerOfTheUndead = config("tower_of_the_undead", 37, 35, Level.OVERWORLD, "#minecraft:is_overworld", "!#forge:is_sandy", "!#forge:is_water", "!#minecraft:is_beach", "!#forge:is_underground");
             TreeHouse = config("tree_house", 29, 40, Level.OVERWORLD, "#minecraft:is_jungle");
             WatchTower = config("watch_tower", 33, 45, Level.OVERWORLD, "#forge:is_cold/overworld", "!#forge:is_water");
-            WitchTower = config("witch_tower", 29, 45, Level.OVERWORLD, "#minecraft:is_taiga");
-        }
-
-        private StructureConfig config(String name, int spacing, int prob, ResourceKey<Level> dimension, String... biomes) {
-            return StructureConfig.builder(this.builder, name)
-                    .pushPlacement()
-                        .spacing(spacing)
-                        .offset((int) (spacing/1.4f))
-                        .probability(prob)
-                    .popPlacement()
-                    .pushStructure()
-                        .biomes(biomes)
-                        .dimensions(dimension)
-                    .popStructure().build();
+            WitchTower = config("witch_tower", 29, 45, Level.OVERWORLD, "#minecraft:is_taiga");*/
         }
     }
 }

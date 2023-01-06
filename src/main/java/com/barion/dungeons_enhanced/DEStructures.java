@@ -57,8 +57,6 @@ public class DEStructures {
     private DEStructures(){}
 
     static {
-        DECellarStructure.init();
-
         Castle = StructureRegistrar.jigsawBuilder(location("castle"))
                 .addPiece(()-> DECellarStructure.Piece::new)
                 .pushStructure((settings)-> new ExtendedJigsawStructure(settings, DECellarStructure.CastlePool.Root, 1, ConstantHeight.ZERO, false, Heightmap.Types.WORLD_SURFACE_WG).withPieceFactory(Castle.getRegistryName(), DECellarStructure.Piece::new)/*.withPlacementTest(DEUtil.location("is_flat_enough"), (context, pos, jigsawContext)-> DECellarStructure.checkLocation(context, pos, new DETerrainAnalyzer.Settings(1, 2, 2)))*/)
@@ -68,7 +66,6 @@ public class DEStructures {
                 .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.Castle).build(Castle))
                 .build();
 
-        DEDeepCrypt.Pool.init();
         DeepCrypt = StructureRegistrar.jigsawBuilder(location("deep_crypt"))
                 .addPiece(()-> DEDeepCrypt.Piece::new)
                 .pushStructure((settings)-> new ExtendedJigsawStructure(settings, DEDeepCrypt.Pool.Root, 4, ConstantHeight.of(VerticalAnchor.absolute(-16)), false).withPieceFactory(DeepCrypt.getRegistryName(), DEDeepCrypt.Piece::new))
@@ -86,7 +83,6 @@ public class DEStructures {
                 .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.DesertTemple).build(DesertTemple))
                 .build();
 
-        DEDesertTomb.Pool.init();
         DesertTomb = StructureRegistrar.jigsawBuilder(location("desert_tomb"))
                 .addPiece(()-> DEDesertTomb.Piece::new)
                 .pushStructure(((settings)-> new ExtendedJigsawStructure(settings, DEDesertTomb.Pool.Root, 4, ConstantHeight.ZERO, false, Heightmap.Types.WORLD_SURFACE_WG).withPieceFactory(DesertTomb.getRegistryName(), DEDesertTomb.Piece::new)))
@@ -188,7 +184,6 @@ public class DEStructures {
                 .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.MinersHouse).allowedNearSpawn(true).build(MinersHouse))
                 .build();
 
-        DEMonsterMaze.Pool.init();
         MonsterMaze = StructureRegistrar.jigsawBuilder(location("monster_maze"))
                 .addPiece(()-> DEMonsterMaze.Piece::new)
                 .pushStructure((settings)-> new ExtendedJigsawStructure(settings, DEMonsterMaze.Pool.Root, 11, height(-17), true, Heightmap.Types.WORLD_SURFACE_WG).withPieceFactory(MonsterMaze.getRegistryName(), DEMonsterMaze.Piece::new))
@@ -207,7 +202,6 @@ public class DEStructures {
                 .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.MushroomHouse).allowedNearSpawn(true).build(MushroomHouse))
                 .build();
 
-        DEPillagerCamp.Pool.init();
         PillagerCamp = StructureRegistrar.jigsawBuilder(location("pillager_camp"))
                 .addPiece(()-> DEPillagerCamp.Piece::new)
                 .pushStructure((settings)-> new ExtendedJigsawStructure(settings, DEPillagerCamp.Pool.Root, 4, ConstantHeight.ZERO, false, Heightmap.Types.WORLD_SURFACE_WG).withPieceFactory(PillagerCamp.getRegistryName(), DEPillagerCamp.Piece::new))

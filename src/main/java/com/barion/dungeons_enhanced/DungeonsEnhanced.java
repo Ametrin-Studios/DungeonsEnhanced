@@ -1,7 +1,8 @@
 package com.barion.dungeons_enhanced;
 
+import com.barion.dungeons_enhanced.world.DEProcessors;
 import com.legacy.structure_gel.api.registry.registrar.RegistrarHandler;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -34,8 +35,8 @@ public class DungeonsEnhanced{
     }
 
     public static void register(RegisterEvent event){
-        event.register(Registry.STRUCTURE_PROCESSOR.key(), helper ->{
-            DEUtil.Processors.Types.register();
+        event.register(BuiltInRegistries.STRUCTURE_PROCESSOR.key(), helper ->{
+            DEProcessors.Types.register();
         });
     }
 
@@ -44,10 +45,10 @@ public class DungeonsEnhanced{
         @SubscribeEvent
         public static void gatherData(GatherDataEvent event){
             DataGenerator generator = event.getGenerator();
-            ExistingFileHelper exFileHelper = event.getExistingFileHelper();
+            ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
-            generator.addProvider(true, new DELootTableProvider(generator));
-            generator.addProvider(true, new DEAdvancementProvider(generator, exFileHelper));
+            generator.addProvider(true, new DELootTableProvider(generator.getPackOutput()));
+            generator.addProvider(true, new DEAdvancementProvider(generator.getPackOutput(), existingFileHelper));
         }
     }
 }

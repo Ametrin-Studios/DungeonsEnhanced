@@ -2,30 +2,34 @@ package com.barion.dungeons_enhanced.world.structures;
 
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
-import com.legacy.structure_gel.api.structure.jigsaw.AbstractGelStructurePiece;
-import com.legacy.structure_gel.api.structure.jigsaw.JigsawPoolBuilder;
-import com.legacy.structure_gel.api.structure.jigsaw.JigsawRegistryHelper;
+import com.barion.dungeons_enhanced.world.DEJigsawTypes;
+import com.barion.dungeons_enhanced.world.DEPools;
+import com.legacy.structure_gel.api.structure.jigsaw.*;
+import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
+import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
-import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 
 public class DEPillagerCamp{
-    private DEPillagerCamp() {}
 
-    public static class Piece extends AbstractGelStructurePiece {
-        public Piece(StructureTemplateManager structureManager, StructurePoolElement poolElement, BlockPos pos, int groundLevelDelta, Rotation rotation, BoundingBox bounds) {
-            super(structureManager, poolElement, pos, groundLevelDelta, rotation, bounds);
-        }
+    public static class Capability implements JigsawCapability.IJigsawCapability{
+        public static final Capability Instance = new Capability();
+        public static final Codec<Capability> CODEC = Codec.unit(Instance);
+
+        @Override
+        public JigsawCapability.JigsawType<?> getType(){return DEJigsawTypes.PillagerCamp;}
+        @Override
+        public IPieceFactory getPieceFactory() {return Piece::new;}
+    }
+    public static class Piece extends ExtendedJigsawStructurePiece {
+        public Piece(IPieceFactory.Context context) {super(context);}
         public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) {super(serializationContext, nbt);}
 
         @Override
@@ -34,27 +38,22 @@ public class DEPillagerCamp{
         public void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) {}
     }
 
-    public static class Pool{
-        public static Holder<StructureTemplatePool> Root;
-        public static void init() {}
+    public static void pool(BootstapContext<StructureTemplatePool> context){
+        JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.ModID, "pillager_camp/", context);
+        registry.registerBuilder().pools(registry.poolBuilder().names("tent/general").maintainWater(false)).register(DEPools.PillagerCamp);
 
-        static {
-            JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.ModID, "pillager_camp/");
-            Root = registry.register("root", registry.builder().names("tent/general").maintainWater(false).build());
+        JigsawPoolBuilder basicPool = registry.poolBuilder().maintainWater(false);
+        JigsawPoolBuilder SleepingTents = basicPool.clone().names("tent/sleep1", "tent/sleep2");
+        JigsawPoolBuilder Kitchen = basicPool.clone().names("tent/kitchen");
+        JigsawPoolBuilder Decoration = basicPool.clone().names("decoration/campfire", "decoration/cage");
+        JigsawPoolBuilder Pillars = basicPool.clone().names("decoration/bell", "decoration/pillar");
+        JigsawPoolBuilder VanillaDecoration = basicPool.clone().namesR(mcPiece("logs"), mcPiece("targets"), mcPiece("tent1"), mcPiece("tent2"));
 
-            JigsawPoolBuilder poolBuilder = registry.builder().maintainWater(false);
-            JigsawPoolBuilder SleepingTents = poolBuilder.clone().names("tent/sleep1", "tent/sleep2");
-            JigsawPoolBuilder Kitchen = poolBuilder.clone().names("tent/kitchen");
-            JigsawPoolBuilder Decoration = poolBuilder.clone().names("decoration/campfire", "decoration/cage");
-            JigsawPoolBuilder Pillars = poolBuilder.clone().names("decoration/bell", "decoration/pillar");
-            JigsawPoolBuilder VanillaDecoration = poolBuilder.clone().namesR(mcPiece("logs"), mcPiece("targets"), mcPiece("tent1"), mcPiece("tent2"));
+        registry.registerBuilder().pools(basicPool.clone().names("plate/var1", "plate/var2")).projection(StructureTemplatePool.Projection.TERRAIN_MATCHING).register("feature_plates");
+        registry.register("features", JigsawPoolBuilder.collect(SleepingTents.weight(2), Kitchen.weight(2), VanillaDecoration.weight(2), Decoration.weight(3), Pillars.weight(1)));
+    }
 
-            registry.register("feature_plates", poolBuilder.clone().names("plate/var1", "plate/var2").build(), StructureTemplatePool.Projection.TERRAIN_MATCHING);
-            registry.register("features", JigsawPoolBuilder.collect(SleepingTents.weight(2), Kitchen.weight(2), VanillaDecoration.weight(2), Decoration.weight(3), Pillars.weight(1)));
-        }
-
-        private static ResourceLocation mcPiece(String key){
-            return new ResourceLocation("pillager_outpost/feature_" + key);
-        }
+    private static ResourceLocation mcPiece(String key){
+        return new ResourceLocation("pillager_outpost/feature_" + key);
     }
 }

@@ -4,8 +4,10 @@ import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.world.DEJigsawTypes;
 import com.barion.dungeons_enhanced.world.DEPools;
-import com.barion.dungeons_enhanced.world.DEProcessors;
-import com.legacy.structure_gel.api.structure.jigsaw.*;
+import com.legacy.structure_gel.api.structure.jigsaw.ExtendedJigsawStructurePiece;
+import com.legacy.structure_gel.api.structure.jigsaw.IPieceFactory;
+import com.legacy.structure_gel.api.structure.jigsaw.JigsawCapability;
+import com.legacy.structure_gel.api.structure.jigsaw.JigsawRegistryHelper;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.data.worldgen.BootstapContext;
@@ -17,35 +19,33 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSeriali
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
-public class DEDeepCrypt{
+public class DEDruidCircle {
+
     public static class Capability implements JigsawCapability.IJigsawCapability{
         public static final Capability Instance = new Capability();
         public static final Codec<Capability> CODEC = Codec.unit(Instance);
 
         @Override
-        public JigsawCapability.JigsawType<?> getType(){return DEJigsawTypes.DeepCrypt;}
-        @Override
-        public IPieceFactory getPieceFactory() {return Piece::new;}
-    }
-    public static class Piece extends ExtendedJigsawStructurePiece {
-        public Piece(IPieceFactory.Context context) {super(context);}
-        public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) {super(serializationContext, nbt);}
+        public JigsawCapability.JigsawType<?> getType(){return DEJigsawTypes.DruidCircle;}
 
         @Override
-        public StructurePieceType getType() {return DEStructures.DeepCrypt.getPieceType().get();}
+        public IPieceFactory getPieceFactory() {return Piece::new;}
+
+    }
+
+    public static class Piece extends ExtendedJigsawStructurePiece {
+        public Piece(IPieceFactory.Context context) {super(context);}
+        public Piece(StructurePieceSerializationContext context, CompoundTag nbt) {super(context, nbt);}
         @Override
-        public void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) {}
+        public StructurePieceType getType() {return DEStructures.DruidCircle.getPieceType().get();}
+        @Override
+        public void handleDataMarker(String key, BlockPos blockPos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) {}
     }
 
     public static void pool(BootstapContext<StructureTemplatePool> context){
-        JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.ModID, "deep_crypt/", context);
-        registry.registerBuilder().pools(registry.poolBuilder().names("root").maintainWater(false)).register(DEPools.DeepCrypt);
+        JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.ModID, "druid_circle/", context);
+        registry.registerBuilder().pools(registry.poolBuilder().names("top_big", "small").maintainWater(false)).register(DEPools.DruidCircle);
 
-        JigsawPoolBuilder basicPool = registry.poolBuilder().maintainWater(false);
-        JigsawPoolBuilder Tunnels = basicPool.clone().processors(DEProcessors.AirToCobweb.getKey()).names("tunnel", "cross");
-        JigsawPoolBuilder Treasure = basicPool.clone().names("treasure");
-        JigsawPoolBuilder Rooms = basicPool.clone().names("big_tunnel", "large_tomb", "prison", "tomb", "tombs", "root");
-
-        registry.register("main", JigsawPoolBuilder.collect(Tunnels.weight(6), Rooms.weight(2), Treasure.weight(1)));
+        registry.register("bottom_big", registry.poolBuilder().maintainWater(false).names("bottom_big").build());
     }
 }
