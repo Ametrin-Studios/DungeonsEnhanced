@@ -43,11 +43,11 @@ public class DungeonsEnhanced{
     public static class DataGenerators{
         @SubscribeEvent
         public static void gatherData(GatherDataEvent event){
-            DataGenerator dataGen = event.getGenerator();
+            DataGenerator generator = event.getGenerator();
             ExistingFileHelper exFileHelper = event.getExistingFileHelper();
 
-            dataGen.addProvider(true, new DELootTableProvider(dataGen));
-            dataGen.addProvider(true, new DEAdvancementProvider(dataGen, exFileHelper));
+            generator.addProvider(true, new DELootTableProvider(generator));
+            generator.addProvider(true, new DEAdvancementProvider(generator, exFileHelper));
         }
     }
 }

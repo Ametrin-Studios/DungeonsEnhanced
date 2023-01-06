@@ -1,17 +1,18 @@
 modLoader="javafml" #mandatory
-loaderVersion="[43,)" #mandatory
+loaderVersion="[44,)" #mandatory
 license="All rights reserved"
 issueTrackerURL="https://github.com/BarionLP/DungeonsEnhanced/issues" #optional
 
 [[mods]] #mandatory
     modId="dungeons_enhanced" #mandatory
-    version="4.1.1" #mandatory
+    version="${file.jarVersion}" #mandatory
     displayName="Dungeons Enhanced" #mandatory
     #updateJSONURL="https://change.me.example.invalid/updates.json" #optional See the JSON update specification https://mcforge.readthedocs.io/en/latest/gettingstarted/autoupdate/
     displayURL="https://www.curseforge.com/minecraft/mc-mods/dungeonsenhanced" #optional A URL for the "homepage" for this mod
     logoFile="logo.png"
     credits="Thanks Modding Legacy for their genius Structure Gel API" #optional
     authors="Ametrin Studios" #optional
+    displayTest="MATCH_VERSION"
     description='''
 Minecraft is great game, but exploring always felt a bit boring for us.
 There aren't many structures or dungeons you can explore and the ones you find, are getting repetitive.
@@ -26,18 +27,18 @@ We hope you have fun!
 [[dependencies.dungeons_enhanced]]
     modId="forge" #mandatory
     mandatory=true #mandatory
-    versionRange="[43.2,)" #mandatory
+    versionRange="[44.1,)" #mandatory
     ordering="NONE"
     side="BOTH" #BOTH, CLIENT or SERVER
 [[dependencies.dungeons_enhanced]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.19.2,1.20)"
+    versionRange="[1.19.3,1.20)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.dungeons_enhanced]]
     modId="structure_gel"
     mandatory=true
-    versionRange="[2.7.1,]"
+    versionRange="[2.8.0,]"
     ordering="NONE"
     side="BOTH"
