@@ -11,9 +11,13 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
+
+import javax.annotation.Nonnull;
+import java.util.Optional;
 
 import static com.barion.dungeons_enhanced.DEUtil.location;
 
@@ -23,14 +27,16 @@ public class DEEldersTemple extends DEUnderwaterStructure {
     private static final ResourceLocation SE = location("elders_temple/se");
     private static final ResourceLocation SW = location("elders_temple/sw");
 
-    public DEEldersTemple(StructureSettings settings) {super(settings, DEUtil.pieceBuilder().add("elders_temple/se").build(), DEEldersTemple::assembleTemple, DEStructures.EldersTemple::getType);}
+    public DEEldersTemple(StructureSettings settings) {super(settings, DEUtil.pieceBuilder().add("elders_temple/se").build(), DEStructures.EldersTemple::getType);}
 
-    @Override
-    protected boolean checkLocation(GenerationContext context) {
-        if(DETerrainAnalyzer.isUnderwater(context.chunkPos(), context.chunkGenerator(), 32, context.heightAccessor(), context.randomState())){
-            return DETerrainAnalyzer.areNearbyBiomesValid(context.biomeSource(), context.chunkPos(), context.chunkGenerator(), 30, context.validBiome(), context.randomState());
-        }
-        return false;
+    @Override @Nonnull
+    public Optional<GenerationStub> findGenerationPoint(@Nonnull GenerationContext context) {
+        final BlockPos pos = DEUtil.ChunkPosToBlockPosFromHeightMap(context.chunkPos(), context.chunkGenerator(), Heightmap.Types.OCEAN_FLOOR_WG, context.heightAccessor(), context.randomState());
+
+        if(!DETerrainAnalyzer.isUnderwater(pos, context.chunkGenerator(), 32, context.heightAccessor(), context.randomState())) {return Optional.empty();}
+        if(!DETerrainAnalyzer.areNearbyBiomesValid(context.biomeSource(), pos, context.chunkGenerator(), 30, context.validBiome(), context.randomState())) {return Optional.empty();}
+
+        return at(pos, (builder) -> generatePieces(builder, pos, variants.getRandomPiece(context.random()), Rotation.getRandom(context.random()), context, DEEldersTemple::assembleTemple));
     }
 
     public static void assembleTemple(DEPieceAssembler.Context context) {
@@ -45,7 +51,6 @@ public class DEEldersTemple extends DEUnderwaterStructure {
         public Piece(StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation){
             super(DEStructures.EldersTemple.getPieceType(), structureManager, templateName, pos, rotation);
         }
-
         public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt){
             super(DEStructures.EldersTemple.getPieceType(), serializationContext, nbt);
         }

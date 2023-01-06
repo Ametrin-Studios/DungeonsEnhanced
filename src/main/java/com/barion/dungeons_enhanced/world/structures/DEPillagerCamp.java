@@ -47,14 +47,14 @@ public class DEPillagerCamp{
             JigsawPoolBuilder Kitchen = poolBuilder.clone().names("tent/kitchen");
             JigsawPoolBuilder Decoration = poolBuilder.clone().names("decoration/campfire", "decoration/cage");
             JigsawPoolBuilder Pillars = poolBuilder.clone().names("decoration/bell", "decoration/pillar");
-            JigsawPoolBuilder VanillaDecoration = poolBuilder.clone().namesR(mcFeaturePiece("logs"), mcFeaturePiece("targets"), mcFeaturePiece("tent1"), mcFeaturePiece("tent2"));
+            JigsawPoolBuilder VanillaDecoration = poolBuilder.clone().namesR(mcPiece("logs"), mcPiece("targets"), mcPiece("tent1"), mcPiece("tent2"));
 
             registry.register("feature_plates", poolBuilder.clone().names("plate/var1", "plate/var2").build(), StructureTemplatePool.Projection.TERRAIN_MATCHING);
             registry.register("features", JigsawPoolBuilder.collect(SleepingTents.weight(2), Kitchen.weight(2), VanillaDecoration.weight(2), Decoration.weight(3), Pillars.weight(1)));
         }
 
-        private static ResourceLocation mcFeaturePiece(String key){
-            return new ResourceLocation("minecraft", "pillager_outpost/feature_" + key);
+        private static ResourceLocation mcPiece(String key){
+            return new ResourceLocation("pillager_outpost/feature_" + key);
         }
     }
 }

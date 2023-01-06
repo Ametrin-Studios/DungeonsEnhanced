@@ -2,7 +2,6 @@ package com.barion.dungeons_enhanced.world.structures.prefabs;
 
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
-import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.legacy.structure_gel.api.structure.jigsaw.AbstractGelStructurePiece;
 import com.legacy.structure_gel.api.structure.jigsaw.JigsawPoolBuilder;
 import com.legacy.structure_gel.api.structure.jigsaw.JigsawRegistryHelper;
@@ -13,7 +12,6 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
-import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
@@ -21,10 +19,9 @@ import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 
 public class DECellarStructure{
-    public static boolean checkLocation(Structure.GenerationContext context, BlockPos placementPos, DETerrainAnalyzer.Settings checkSettings){
-//        DungeonsEnhanced.LOGGER.info("Check Pos: " + DEUtil.ChunkPosToBlockPosFromHeightMap(context.chunkPos(), context.chunkGenerator(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor(), context.randomState()));
+    /*public static boolean checkLocation(Structure.GenerationContext context, BlockPos placementPos, DETerrainAnalyzer.Settings checkSettings){
         return DETerrainAnalyzer.isFlatEnough(context.chunkPos(), context.chunkGenerator(), checkSettings, context.heightAccessor(), context.randomState());
-    }
+    }*/
 
     public static class Piece extends AbstractGelStructurePiece {
         public Piece(StructureTemplateManager structureManager, StructurePoolElement poolElement, BlockPos pos, int groundLevelDelta, Rotation rotation, BoundingBox box) {

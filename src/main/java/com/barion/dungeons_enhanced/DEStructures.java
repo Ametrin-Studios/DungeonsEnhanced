@@ -25,6 +25,7 @@ import java.util.function.Supplier;
 import static com.barion.dungeons_enhanced.DEUtil.location;
 import static com.barion.dungeons_enhanced.DEUtil.pieceBuilder;
 
+@SuppressWarnings("removal")
 public class DEStructures {
     public static StructureRegistrar<ExtendedJigsawStructure> Castle;
     public static StructureRegistrar<ExtendedJigsawStructure> DeepCrypt;
@@ -103,7 +104,7 @@ public class DEStructures {
                 .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.DruidCircle).allowedNearSpawn(true).build(DruidCircle))
                 .build();
 
-        Function<Structure.StructureSettings, DEUndergroundStructure> dungeonVariant = (settings)-> new DEUndergroundStructure(settings, pieceBuilder().offset(-6, 0, -6).add("dungeon_variant/zombie").add("dungeon_variant/skeleton").add("dungeon_variant/spider").build(), DungeonVariant::getType);
+        Function<Structure.StructureSettings, DEUndergroundStructure> dungeonVariant = (settings)-> new DEUndergroundStructure(settings, pieceBuilder().add("dungeon_variant/zombie").add("dungeon_variant/skeleton").add("dungeon_variant/spider").build(), DungeonVariant::getType);
         DungeonVariant = StructureRegistrar.builder(location("dungeon_variant"), codecOf(dungeonVariant))
                 .addPiece(()-> DEUndergroundStructure.Piece::new)
                 .pushStructure(dungeonVariant)
@@ -123,7 +124,7 @@ public class DEStructures {
                 .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.EldersTemple).build(EldersTemple))
                 .build();
 
-        Function<Structure.StructureSettings, DESwimmingStructure> fishingShip = (settings)-> new DESwimmingStructure(settings, pieceBuilder().offset(-4, -3, -14).add("fishing_ship").build(), FishingShip::getType);
+        Function<Structure.StructureSettings, DESwimmingStructure> fishingShip = (settings)-> new DESwimmingStructure(settings, pieceBuilder().yOffset(-3).add("fishing_ship").build(), FishingShip::getType);
         FishingShip = StructureRegistrar.builder(location("fishing_ship"), codecOf(fishingShip))
                 .addPiece(()-> DESimpleStructure.Piece::new)
                 .pushStructure(fishingShip)
@@ -132,7 +133,7 @@ public class DEStructures {
                 .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.FishingShip).allowedNearSpawn(true).build(FishingShip))
                 .build();
 
-        Function<Structure.StructureSettings, DEFlyingStructure> flyingDutchman = (settings) -> new DEFlyingStructure(settings, pieceBuilder().offset(-4, 0, -15).add("flying_dutchman").build(), FlyingDutchman::getType);
+        Function<Structure.StructureSettings, DEFlyingStructure> flyingDutchman = (settings) -> new DEFlyingStructure(settings, pieceBuilder().add("flying_dutchman").build(), FlyingDutchman::getType);
         FlyingDutchman = StructureRegistrar.builder(location("flying_dutchman"), codecOf(flyingDutchman))
                 .addPiece(()-> DEFlyingStructure.Piece::new)
                 .pushStructure(flyingDutchman)
@@ -141,7 +142,7 @@ public class DEStructures {
                 .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.FlyingDutchman).build(FlyingDutchman))
                 .build();
 
-        Function<Structure.StructureSettings, DESimpleStructure> hayStorage = (settings)-> new DESimpleStructure(settings, pieceBuilder().offset(-7, 0, -7).add("hay_storage/small").offset(-9, 0, -9).add("hay_storage/big").build(), HayStorage::getType);
+        Function<Structure.StructureSettings, DESimpleStructure> hayStorage = (settings)-> new DESimpleStructure(settings, pieceBuilder().add("hay_storage/small").add("hay_storage/big").build(), HayStorage::getType);
         HayStorage = StructureRegistrar.builder(location("hay_storage"), codecOf(hayStorage))
                 .addPiece(()-> DESimpleStructure.Piece::new)
                 .pushStructure(hayStorage)
@@ -159,7 +160,7 @@ public class DEStructures {
                 .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.IcePit).build(IcePit))
                 .build();
 
-        Function<Structure.StructureSettings, DESimpleStructure> jungleMonument = (settings)-> new DESimpleStructure(settings, pieceBuilder().offset(-12, -9, -12).add("jungle_monument").build(), JungleMonument::getType);
+        Function<Structure.StructureSettings, DESimpleStructure> jungleMonument = (settings)-> new DESimpleStructure(settings, pieceBuilder().yOffset(-9).add("jungle_monument").build(), JungleMonument::getType);
         JungleMonument = StructureRegistrar.builder(location("jungle_monument"), codecOf(jungleMonument))
                 .addPiece(()-> DESimpleStructure.Piece::new)
                 .pushStructure(jungleMonument)
@@ -177,7 +178,7 @@ public class DEStructures {
                 .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.LargeDungeon).allowedNearSpawn(true).build(LargeDungeon))
                 .build();
 
-        Function<Structure.StructureSettings, DESimpleStructure> minersHouse = (settings)-> new DESimpleStructure(settings, pieceBuilder().offset(-5, 0, -5).add("miners_house").build(), MinersHouse::getType);
+        Function<Structure.StructureSettings, DESimpleStructure> minersHouse = (settings)-> new DESimpleStructure(settings, pieceBuilder().add("miners_house").build(), MinersHouse::getType);
         MinersHouse = StructureRegistrar.builder(location("miners_house"), codecOf(minersHouse))
                 .addPiece(()-> DESimpleStructure.Piece::new)
                 .pushStructure(minersHouse)
@@ -196,7 +197,7 @@ public class DEStructures {
                 .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.MonsterMaze).build(MonsterMaze))
                 .build();
 
-        Function<Structure.StructureSettings, DESimpleStructure> mushroomHouse = (settings)-> new DESimpleStructure(settings, pieceBuilder().offset(-7, 0, -7).add("mushroom_house/red").add("mushroom_house/brown").build(), MushroomHouse::getType);
+        Function<Structure.StructureSettings, DESimpleStructure> mushroomHouse = (settings)-> new DESimpleStructure(settings, pieceBuilder().add("mushroom_house/red").add("mushroom_house/brown").build(), MushroomHouse::getType);
         MushroomHouse = StructureRegistrar.builder(location("mushroom_house"), codecOf(mushroomHouse))
                 .addPiece(()-> DESimpleStructure.Piece::new)
                 .pushStructure(mushroomHouse)
@@ -227,7 +228,7 @@ public class DEStructures {
                 .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.PirateShip).build(PirateShip))
                 .build();
 
-        Function<Structure.StructureSettings, DESimpleStructure> ruinedBuilding = (settings)-> new DESimpleStructure(settings, pieceBuilder().offset(-5, 0, -5).weight(3).add("ruined_building/house").offset(-6, 0, -8).weight(2).add("ruined_building/house_big").offset(-4, 0, -5).weight(3).add("ruined_building/barn").build(), RuinedBuilding::getType);
+        Function<Structure.StructureSettings, DESimpleStructure> ruinedBuilding = (settings)-> new DESimpleStructure(settings, pieceBuilder().weight(3).add("ruined_building/house").weight(2).add("ruined_building/house_big").weight(3).add("ruined_building/barn").build(), RuinedBuilding::getType);
         RuinedBuilding = StructureRegistrar.builder(location("ruined_building"), codecOf(ruinedBuilding))
                 .addPiece(()-> DESimpleStructure.Piece::new)
                 .pushStructure(ruinedBuilding)
@@ -237,7 +238,7 @@ public class DEStructures {
                 .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.RuinedBuilding).allowedNearSpawn(true).build(RuinedBuilding))
                 .build();
 
-        Function<Structure.StructureSettings, DESimpleStructure> stables = (settings)-> new DESimpleStructure(settings, pieceBuilder().offset(-8, -6, -13).add("stables").build(), Stables::getType);
+        Function<Structure.StructureSettings, DESimpleStructure> stables = (settings)-> new DESimpleStructure(settings, pieceBuilder().yOffset(-6).add("stables").build(), Stables::getType);
         Stables = StructureRegistrar.builder(location("stables"), codecOf(stables))
                 .addPiece(()-> DESimpleStructure.Piece::new)
                 .pushStructure(stables)
@@ -246,7 +247,7 @@ public class DEStructures {
                 .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.Stables).allowedNearSpawn(true).build(Stables))
                 .build();
 
-        Function<Structure.StructureSettings, DEUnderwaterStructure> sunkenShrine = (settings)-> new DEUnderwaterStructure(settings, pieceBuilder().offset(-5, -1, -8).add("sunken_shrine").build(), SunkenShrine::getType);
+        Function<Structure.StructureSettings, DEUnderwaterStructure> sunkenShrine = (settings)-> new DEUnderwaterStructure(settings, pieceBuilder().yOffset(-1).add("sunken_shrine").build(), SunkenShrine::getType);
         SunkenShrine = StructureRegistrar.builder(location("sunken_shrine"), codecOf(sunkenShrine))
                 .addPiece(()-> DEUnderwaterStructure.Piece::new)
                 .pushStructure(sunkenShrine)
@@ -255,7 +256,7 @@ public class DEStructures {
                 .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.SunkenShrine).allowedNearSpawn(true).build(SunkenShrine))
                 .build();
 
-        Function<Structure.StructureSettings, DESimpleStructure> tallWitchHut = (settings)-> new DESimpleStructure(settings, pieceBuilder().offset(-3, -3, -4).add("tall_witch_hut").build(), TallWitchHut::getType);
+        Function<Structure.StructureSettings, DESimpleStructure> tallWitchHut = (settings)-> new DESimpleStructure(settings, pieceBuilder().yOffset(-3).add("tall_witch_hut").build(), TallWitchHut::getType);
         TallWitchHut = StructureRegistrar.builder(location("tall_witch_hut"), codecOf(tallWitchHut))
                 .addPiece(()-> DESimpleStructure.Piece::new)
                 .pushStructure(tallWitchHut)
@@ -265,7 +266,7 @@ public class DEStructures {
                 .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.TallWitchHut).allowedNearSpawn(true).build(TallWitchHut))
                 .build();
 
-        Function<Structure.StructureSettings, DESimpleStructure> treeHouse = (settings)-> new DESimpleStructure(settings, pieceBuilder().offset(-11, 0, -12).add("tree_house").build(), TreeHouse::getType);
+        Function<Structure.StructureSettings, DESimpleStructure> treeHouse = (settings)-> new DESimpleStructure(settings, pieceBuilder().add("tree_house").build(), TreeHouse::getType);
         TreeHouse = StructureRegistrar.builder(location("tree_house"), codecOf(treeHouse))
                 .addPiece(()-> DESimpleStructure.Piece::new)
                 .pushStructure(treeHouse)
@@ -275,7 +276,7 @@ public class DEStructures {
                 .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.TreeHouse).allowedNearSpawn(true).build(TreeHouse))
                 .build();
 
-        Function<Structure.StructureSettings, DESimpleStructure> undeadTower = (settings)-> new DESimpleStructure(settings, pieceBuilder().offset(-5, 0, -5).weight(3).add("tower_of_the_undead/small").offset(-7, 0, -7).weight(2).add("tower_of_the_undead/big").build(), TowerOfTheUndead::getType);
+        Function<Structure.StructureSettings, DESimpleStructure> undeadTower = (settings)-> new DESimpleStructure(settings, pieceBuilder().weight(3).add("tower_of_the_undead/small").weight(2).add("tower_of_the_undead/big").build(), TowerOfTheUndead::getType);
         TowerOfTheUndead = StructureRegistrar.builder(location("tower_of_the_undead"), codecOf(undeadTower))
                 .addPiece(()-> DESimpleStructure.Piece::new)
                 .pushStructure(undeadTower)
@@ -285,7 +286,7 @@ public class DEStructures {
                 .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.TowerOfTheUndead).allowedNearSpawn(true).build(TowerOfTheUndead))
                 .build();
 
-        Function<Structure.StructureSettings, DESimpleStructure> watchTower = (settings)-> new DESimpleStructure(settings, pieceBuilder().offset(-4,0,-4).add("watch_tower").build(), WatchTower::getType);
+        Function<Structure.StructureSettings, DESimpleStructure> watchTower = (settings)-> new DESimpleStructure(settings, pieceBuilder().add("watch_tower").build(), WatchTower::getType);
         WatchTower = StructureRegistrar.builder(location("watch_tower"), codecOf(watchTower))
                 .addPiece(()-> DESimpleStructure.Piece::new)
                 .pushStructure(watchTower)
@@ -295,7 +296,7 @@ public class DEStructures {
                 .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.WatchTower).allowedNearSpawn(true).build(WatchTower))
                 .build();
 
-        Function<Structure.StructureSettings, DESimpleStructure> witchTower = (settings)-> new DESimpleStructure(settings, pieceBuilder().offset(-6, 0, -5).weight(3).add("witch_tower/normal").offset(-7, 0, -7).weight(2).add("witch_tower/big").build(), WitchTower::getType);
+        Function<Structure.StructureSettings, DESimpleStructure> witchTower = (settings)-> new DESimpleStructure(settings, pieceBuilder().weight(3).add("witch_tower/normal").weight(2).add("witch_tower/big").build(), WitchTower::getType);
         WitchTower = StructureRegistrar.builder(location("witch_tower"), codecOf(witchTower))
                 .addPiece(()-> DESimpleStructure.Piece::new)
                 .pushStructure(witchTower)

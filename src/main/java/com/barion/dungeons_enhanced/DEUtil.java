@@ -1,7 +1,6 @@
 package com.barion.dungeons_enhanced;
 
-import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
-import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
+import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePieces;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEUnderwaterProcessor;
 import com.legacy.structure_gel.api.registry.RegistryHelper;
 import com.legacy.structure_gel.api.structure.processor.RandomBlockSwapProcessor;
@@ -9,7 +8,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.level.block.Blocks;
@@ -51,30 +49,6 @@ public class DEUtil{
         }
     }
 
-    public static int getRandomPiece(DEStructurePiece[] variants, int maxWeight, RandomSource rand){
-        int piece = 0;
-        if(variants.length > 1) {
-            int i = rand.nextInt(maxWeight+1);
-            for (int j = 0; j < variants.length; j++) {
-                if (variants[j].Weight >= i) {
-                    piece = j;
-                    break;
-                } else {
-                    i -= variants[j].Weight;
-                }
-            }
-        }
-        return piece;
-    }
-
-    public static int getMaxWeight(DEStructurePiece[] variants){
-        int i = 0;
-        for (DEStructurePiece piece : variants){
-            i += piece.Weight;
-        }
-        return i;
-    }
-
     public static BlockPos ChunkPosToBlockPos(ChunkPos chunkPos) {return ChunkPosToBlockPos(chunkPos, 0);}
     public static BlockPos ChunkPosToBlockPos(ChunkPos chunkPos, int y){
         return new BlockPos(chunkPos.getMinBlockX(), y, chunkPos.getMinBlockZ());
@@ -85,6 +59,5 @@ public class DEUtil{
         return pos.atY(chunkGenerator.getBaseHeight(pos.getX(), pos.getZ(), heightmapType, heightAccessor, randomState));
     }
 
-    public static DEStructurePiece.Builder pieceBuilder() {return new DEStructurePiece.Builder();}
-    public static DETerrainAnalyzer.Settings analyzeSettings(int steps, int stepSize, int spreading) {return new DETerrainAnalyzer.Settings(steps, stepSize, spreading);}
+    public static DEStructurePieces.Builder pieceBuilder() {return new DEStructurePieces.Builder();}
 }
