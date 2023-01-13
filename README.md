@@ -8,4 +8,4 @@ Get ready to find huge mazes under trees, castles, towers and forgotten temples.
 We hope you have fun!
 
 ### Translating
-If you want to help translating Dungeons Enhanced check out [OneSky](https://ametrin-studios-mods.oneskyapp.com/collaboration/project?id=187381)
+If you want to help translating Dungeons Enhanced check out [OneSky](https://ametrin-studios-mods.oneskyapp.com/collaboration/project/189202)
