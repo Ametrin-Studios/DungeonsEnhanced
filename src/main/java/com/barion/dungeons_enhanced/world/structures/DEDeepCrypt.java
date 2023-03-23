@@ -38,8 +38,8 @@ public class DEDeepCrypt{
     }
 
     public static void pool(BootstapContext<StructureTemplatePool> context){
-        JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.ModID, "deep_crypt/", context);
-        registry.registerBuilder().pools(registry.poolBuilder().names("root").maintainWater(false)).register(DEPools.DeepCrypt);
+        JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "deep_crypt/", context);
+        registry.registerBuilder().pools(registry.poolBuilder().names("root").maintainWater(false)).register(DEPools.DEEP_CRYPT);
 
         JigsawPoolBuilder basicPool = registry.poolBuilder().maintainWater(false);
         JigsawPoolBuilder Tunnels = basicPool.clone().processors(DEProcessors.AirToCobweb.getKey()).names("tunnel", "cross");

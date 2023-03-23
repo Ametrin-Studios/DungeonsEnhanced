@@ -763,7 +763,7 @@ public class DELootTableProvider extends LootTableProvider {
         private NumberProvider number(int minAmount, int maxAmount) {return UniformGenerator.between(minAmount, maxAmount);}
         private LootPool.Builder pool(NumberProvider rolls) {return LootPool.lootPool().setRolls(rolls);}
 
-        private static ResourceLocation location(String name) {return new ResourceLocation(DungeonsEnhanced.ModID, "chests/" + name);}
+        private static ResourceLocation location(String name) {return new ResourceLocation(DungeonsEnhanced.MOD_ID, "chests/" + name);}
     }
 
     @Override @Nonnull

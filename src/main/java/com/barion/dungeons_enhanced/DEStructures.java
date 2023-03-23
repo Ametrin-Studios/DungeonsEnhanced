@@ -1,21 +1,24 @@
 package com.barion.dungeons_enhanced;
 
+import com.barion.dungeons_enhanced.world.DEPools;
 import com.barion.dungeons_enhanced.world.structures.*;
 import com.barion.dungeons_enhanced.world.structures.prefabs.*;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
 import com.legacy.structure_gel.api.structure.ExtendedJigsawStructure;
 import com.legacy.structure_gel.api.structure.GridStructurePlacement;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
-import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.heightproviders.ConstantHeight;
+import net.minecraft.world.level.levelgen.heightproviders.UniformHeight;
 import net.minecraft.world.level.levelgen.structure.Structure;
-import net.minecraft.world.level.levelgen.structure.StructureSpawnOverride;
 import net.minecraft.world.level.levelgen.structure.StructureType;
 import net.minecraft.world.level.levelgen.structure.TerrainAdjustment;
+import net.minecraft.world.level.levelgen.structure.placement.StructurePlacement;
 
 import java.util.Arrays;
 import java.util.List;
@@ -56,23 +59,27 @@ public class DEStructures {
 
     private DEStructures(){}
 
+    //@formatter: off
+
     static {
         Castle = StructureRegistrar.jigsawBuilder(location("castle"))
-                .addPiece(()-> DECellarStructure.Piece::new)
-                .pushStructure((settings)-> new ExtendedJigsawStructure(settings, DECellarStructure.CastlePool.Root, 1, ConstantHeight.ZERO, false, Heightmap.Types.WORLD_SURFACE_WG).withPieceFactory(Castle.getRegistryName(), DECellarStructure.Piece::new)/*.withPlacementTest(DEUtil.location("is_flat_enough"), (context, pos, jigsawContext)-> DECellarStructure.checkLocation(context, pos, new DETerrainAnalyzer.Settings(1, 2, 2)))*/)
-                        .config(DEConfig.COMMON.Castle::getStructure)
+                .placement(()-> GridStructurePlacement.builder().spacing(56).offset(37).probability(52).build(Castle))
+                .addPiece(()-> DECastle.Piece::new)
+                .pushStructure((context, settings) -> ExtendedJigsawStructure.builder(settings, context.lookup(Registries.TEMPLATE_POOL).getOrThrow(DEPools.CASTLE)).maxDepth(2).startHeight(0).capability(new DECastle.Capability()).build())
+                        .biomes(BiomeTags.IS_OVERWORLD)
+                        .dimensions(Level.OVERWORLD)
                         .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
                 .popStructure()
-                .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.Castle).build(Castle))
                 .build();
 
         DeepCrypt = StructureRegistrar.jigsawBuilder(location("deep_crypt"))
+                .placement(()-> GridStructurePlacement.builder().spacing(35).offset(23).probability(74).build(DeepCrypt))
                 .addPiece(()-> DEDeepCrypt.Piece::new)
-                .pushStructure((settings)-> new ExtendedJigsawStructure(settings, DEDeepCrypt.Pool.Root, 4, ConstantHeight.of(VerticalAnchor.absolute(-16)), false).withPieceFactory(DeepCrypt.getRegistryName(), DEDeepCrypt.Piece::new))
-                        .config(DEConfig.COMMON.DeepCrypt::getStructure)
+                .pushStructure((context, settings) -> ExtendedJigsawStructure.builder(settings, context.lookup(Registries.TEMPLATE_POOL).getOrThrow(DEPools.DEEP_CRYPT)).maxDepth(4).startHeight(UniformHeight.of(VerticalAnchor.aboveBottom(16), VerticalAnchor.aboveBottom(48))).capability(new DEDeepCrypt.Capability()).build())
+                        .biomes(BiomeTags.IS_OVERWORLD)
+                        .dimensions(Level.OVERWORLD)
                         .generationStep(GenerationStep.Decoration.UNDERGROUND_STRUCTURES)
                 .popStructure()
-                .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.DeepCrypt).build(DeepCrypt))
                 .build();
 
         DesertTemple = StructureRegistrar.builder(location("desert_temple"), codecOf(DEDesertTemple::new))
@@ -224,12 +231,13 @@ public class DEStructures {
 
         Function<Structure.StructureSettings, DESimpleStructure> ruinedBuilding = (settings)-> new DESimpleStructure(settings, pieceBuilder().weight(3).add("ruined_building/house").weight(2).add("ruined_building/house_big").weight(3).add("ruined_building/barn").build(), RuinedBuilding::getType);
         RuinedBuilding = StructureRegistrar.builder(location("ruined_building"), codecOf(ruinedBuilding))
+                .placement(()-> GridStructurePlacement.builder().spacing(27).offset(18).probability(45).allowedNearSpawn(true).build(RuinedBuilding))
                 .addPiece(()-> DESimpleStructure.Piece::new)
                 .pushStructure(ruinedBuilding)
-                        .config(DEConfig.COMMON.RuinedBuilding::getStructure)
+                        .dimensions(Level.OVERWORLD)
+                        .biomes(BiomeTags.IS_OVERWORLD)
                         .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
                 .popStructure()
-                .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.RuinedBuilding).allowedNearSpawn(true).build(RuinedBuilding))
                 .build();
 
         Function<Structure.StructureSettings, DESimpleStructure> stables = (settings)-> new DESimpleStructure(settings, pieceBuilder().yOffset(-6).add("stables").build(), Stables::getType);
@@ -339,6 +347,10 @@ public class DEStructures {
     }
     private static <S extends Structure> Supplier<StructureType<S>> codecOf(Function<Structure.StructureSettings, S> constructor){
         return ()-> ()-> Structure.simpleCodec(constructor);
+    }
+
+    private static Supplier<StructurePlacement> gridPlacement(int spacing, int probability, StructureRegistrar<?> registrar){
+        return ()-> GridStructurePlacement.builder(spacing, probability).build(registrar);
     }
 
     public static void init() {}

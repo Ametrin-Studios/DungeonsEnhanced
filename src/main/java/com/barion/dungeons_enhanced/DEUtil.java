@@ -10,7 +10,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.RandomState;
 
 public class DEUtil{
-    public static ResourceLocation location(String key){ return new ResourceLocation(DungeonsEnhanced.ModID, key);}
+    public static ResourceLocation location(String key){ return new ResourceLocation(DungeonsEnhanced.MOD_ID, key);}
 
     public static class Processors {
 

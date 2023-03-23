@@ -38,8 +38,8 @@ public class DEMonsterMaze{
     }
 
     public static void pool(BootstapContext<StructureTemplatePool> context){
-        JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.ModID, "monster_maze/", context);
-        registry.registerBuilder().pools(registry.poolBuilder().names("root").maintainWater(false)).register(DEPools.MonsterMaze);
+        JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "monster_maze/", context);
+        registry.registerBuilder().pools(registry.poolBuilder().names("root").maintainWater(false)).register(DEPools.MONSTER_MAZE);
 
         JigsawPoolBuilder basicPool = registry.poolBuilder().maintainWater(false);
         JigsawPoolBuilder CrossTunnels = basicPool.clone().names("tunnels/cross1", "tunnels/cross2");

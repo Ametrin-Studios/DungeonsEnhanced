@@ -39,8 +39,8 @@ public class DEPillagerCamp{
     }
 
     public static void pool(BootstapContext<StructureTemplatePool> context){
-        JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.ModID, "pillager_camp/", context);
-        registry.registerBuilder().pools(registry.poolBuilder().names("tent/general").maintainWater(false)).register(DEPools.PillagerCamp);
+        JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "pillager_camp/", context);
+        registry.registerBuilder().pools(registry.poolBuilder().names("tent/general").maintainWater(false)).register(DEPools.PILLAGER_CAMP);
 
         JigsawPoolBuilder basicPool = registry.poolBuilder().maintainWater(false);
         JigsawPoolBuilder SleepingTents = basicPool.clone().names("tent/sleep1", "tent/sleep2");

@@ -9,15 +9,15 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
 public class DEPools {
-    public static final RegistrarHandler<StructureTemplatePool> Handler = RegistrarHandler.getOrCreate(Registries.TEMPLATE_POOL, DungeonsEnhanced.ModID).bootstrap(DEPools::init);
+    public static final RegistrarHandler<StructureTemplatePool> HANDLER = RegistrarHandler.getOrCreate(Registries.TEMPLATE_POOL, DungeonsEnhanced.MOD_ID).bootstrap(DEPools::init);
 
-    public static final ResourceKey<StructureTemplatePool> Castle = Handler.key("castle/root");
-    public static final ResourceKey<StructureTemplatePool> DeepCrypt = Handler.key("deep_crypt/root");
-    public static final ResourceKey<StructureTemplatePool> DesertTomb = Handler.key("desert_tomb/root");
-    public static final ResourceKey<StructureTemplatePool> DruidCircle = Handler.key("druid_circle/root");
-    public static final ResourceKey<StructureTemplatePool> LargeDungeon = Handler.key("large_dungeon/root");
-    public static final ResourceKey<StructureTemplatePool> MonsterMaze = Handler.key("monster_maze/root");
-    public static final ResourceKey<StructureTemplatePool> PillagerCamp = Handler.key("pillager_camp/root");
+    public static final ResourceKey<StructureTemplatePool> CASTLE = HANDLER.key("castle/root");
+    public static final ResourceKey<StructureTemplatePool> DEEP_CRYPT = HANDLER.key("deep_crypt/root");
+    public static final ResourceKey<StructureTemplatePool> DESERT_TOMB = HANDLER.key("desert_tomb/root");
+    public static final ResourceKey<StructureTemplatePool> DRUID_CIRCLE = HANDLER.key("druid_circle/root");
+    public static final ResourceKey<StructureTemplatePool> LARGE_DUNGEON = HANDLER.key("large_dungeon/root");
+    public static final ResourceKey<StructureTemplatePool> MONSTER_MAZE = HANDLER.key("monster_maze/root");
+    public static final ResourceKey<StructureTemplatePool> PILLAGER_CAMP = HANDLER.key("pillager_camp/root");
 
     private static void init(BootstapContext<StructureTemplatePool> context){
         DECastle.pool(context);

@@ -46,8 +46,8 @@ public class DELargeDungeon{
     }
 
     public static void pool(BootstapContext<StructureTemplatePool> context){
-        JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.ModID, "large_dungeon/", context);
-        registry.registerBuilder().pools(registry.poolBuilder().names("root").maintainWater(false)).register(DEPools.LargeDungeon);
+        JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "large_dungeon/", context);
+        registry.registerBuilder().pools(registry.poolBuilder().names("root").maintainWater(false)).register(DEPools.LARGE_DUNGEON);
 
         JigsawPoolBuilder basicPool = registry.poolBuilder().maintainWater(false);
         JigsawPoolBuilder Cross = basicPool.clone().names("cross");

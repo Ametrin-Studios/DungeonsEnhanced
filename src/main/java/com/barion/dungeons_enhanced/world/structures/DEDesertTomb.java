@@ -48,8 +48,8 @@ public class DEDesertTomb{
     }
 
     public static void pool(BootstapContext<StructureTemplatePool> context){
-        JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.ModID, "desert_tomb/", context);
-        registry.registerBuilder().pools(registry.poolBuilder().names("root").maintainWater(false)).register(DEPools.DesertTomb);
+        JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "desert_tomb/", context);
+        registry.registerBuilder().pools(registry.poolBuilder().names("root").maintainWater(false)).register(DEPools.DESERT_TOMB);
 
         JigsawPoolBuilder basicPool = registry.poolBuilder().maintainWater(false);
         registry.register("down", basicPool.clone().names("down"));

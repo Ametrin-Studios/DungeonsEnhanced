@@ -24,10 +24,6 @@ public class DECastle {
         @Override
         public JigsawCapability.JigsawType<?> getType(){return DEJigsawTypes.Castle;}
 
-        /*@Override
-        public boolean canPlace(Structure.GenerationContext generationContext, BlockPos placementPos, ExtendedJigsawStructure.PlaceContext placeContext) {
-            return DETerrainAnalyzer.isFlatEnough(context.chunkPos(), context.chunkGenerator(), checkSettings, context.heightAccessor(), context.randomState());
-        }*/
         @Override
         public IPieceFactory getPieceFactory() {return Piece::new;}
 
@@ -43,8 +39,8 @@ public class DECastle {
     }
 
     public static void pool(BootstapContext<StructureTemplatePool> context){
-        JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.ModID, "castle/", context);
-        registry.registerBuilder().pools(registry.poolBuilder().names("top1", "top2").maintainWater(false)).register(DEPools.Castle);
+        JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "castle/", context);
+        registry.registerBuilder().pools(registry.poolBuilder().names("top1", "top2").maintainWater(false)).register(DEPools.CASTLE);
 
         JigsawPoolBuilder basicPool = registry.poolBuilder().maintainWater(false);
         registry.register("bottom1", basicPool.clone().names("bottom1"));

@@ -17,7 +17,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProc
 import java.util.List;
 
 public class DEProcessors {
-    private static final RegistrarHandler<StructureProcessorList> Handler = RegistrarHandler.getOrCreate(Registries.PROCESSOR_LIST, DungeonsEnhanced.ModID);
+    private static final RegistrarHandler<StructureProcessorList> Handler = RegistrarHandler.getOrCreate(Registries.PROCESSOR_LIST, DungeonsEnhanced.MOD_ID);
 
     public static final Registrar.Pointer<StructureProcessorList> AirToCobweb = Handler.createPointer("air_to_cobweb", ()-> listOf(new RandomBlockSwapProcessor(Blocks.AIR, 0.02f, Blocks.COBWEB)));
 

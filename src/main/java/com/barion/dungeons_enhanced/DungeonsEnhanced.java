@@ -1,11 +1,10 @@
 package com.barion.dungeons_enhanced;
 
+import com.barion.dungeons_enhanced.world.DEPools;
 import com.barion.dungeons_enhanced.world.DEProcessors;
 import com.legacy.structure_gel.api.registry.registrar.RegistrarHandler;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -17,9 +16,9 @@ import net.minecraftforge.registries.RegisterEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(DungeonsEnhanced.ModID)
+@Mod(DungeonsEnhanced.MOD_ID)
 public class DungeonsEnhanced{
-    public static final String ModID = "dungeons_enhanced";
+    public static final String MOD_ID = "dungeons_enhanced";
     public static final Logger LOGGER = LogManager.getLogger();
 
     public DungeonsEnhanced() {
@@ -31,7 +30,7 @@ public class DungeonsEnhanced{
         modBus.register(DEStructures.class);
 
         DEStructures.init();
-        RegistrarHandler.registerHandlers(ModID, modBus);
+        RegistrarHandler.registerHandlers(MOD_ID, modBus, DEPools.HANDLER);
     }
 
     public static void register(RegisterEvent event){
@@ -40,15 +39,16 @@ public class DungeonsEnhanced{
         });
     }
 
-    @Mod.EventBusSubscriber(modid = DungeonsEnhanced.ModID, bus = Mod.EventBusSubscriber.Bus.MOD)
-    public static class DataGenerators{
-        @SubscribeEvent
-        public static void gatherData(GatherDataEvent event){
-            DataGenerator generator = event.getGenerator();
-            ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
+    @SubscribeEvent
+    public static void gatherData(GatherDataEvent event){
+        var generator = event.getGenerator();
+        var output = generator.getPackOutput();
+        var existingFileHelper = event.getExistingFileHelper();
 
-            generator.addProvider(true, new DELootTableProvider(generator.getPackOutput()));
-            generator.addProvider(true, new DEAdvancementProvider(generator.getPackOutput(), existingFileHelper));
-        }
+        var registrarProvider = RegistrarHandler.createGenerator(output, MOD_ID);
+        generator.addProvider(event.includeServer(), registrarProvider);
+
+        generator.addProvider(event.includeServer(), new DELootTableProvider(output));
+        generator.addProvider(event.includeServer(), new DEAdvancementProvider(output, existingFileHelper));
     }
 }

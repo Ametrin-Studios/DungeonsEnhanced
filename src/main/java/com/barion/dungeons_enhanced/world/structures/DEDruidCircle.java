@@ -43,8 +43,8 @@ public class DEDruidCircle {
     }
 
     public static void pool(BootstapContext<StructureTemplatePool> context){
-        JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.ModID, "druid_circle/", context);
-        registry.registerBuilder().pools(registry.poolBuilder().names("top_big", "small").maintainWater(false)).register(DEPools.DruidCircle);
+        JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "druid_circle/", context);
+        registry.registerBuilder().pools(registry.poolBuilder().names("top_big", "small").maintainWater(false)).register(DEPools.DRUID_CIRCLE);
 
         registry.register("bottom_big", registry.poolBuilder().maintainWater(false).names("bottom_big").build());
     }

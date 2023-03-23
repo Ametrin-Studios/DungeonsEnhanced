@@ -85,6 +85,6 @@ public class DEAdvancementProvider extends ForgeAdvancementProvider {
         }
 
         private Component translate(String key) {return Component.translatable("advancements.dungeons_enhanced." + key);}
-        private String location(String key) {return new ResourceLocation(DungeonsEnhanced.ModID, key).toString();}
+        private String location(String key) {return new ResourceLocation(DungeonsEnhanced.MOD_ID, key).toString();}
     }
 }
