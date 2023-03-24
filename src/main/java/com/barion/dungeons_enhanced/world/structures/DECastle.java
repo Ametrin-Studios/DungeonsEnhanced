@@ -33,7 +33,7 @@ public class DECastle {
         public Piece(IPieceFactory.Context context) {super(context);}
         public Piece(StructurePieceSerializationContext context, CompoundTag nbt) {super(context, nbt);}
         @Override
-        public StructurePieceType getType() {return DEStructures.Castle.getPieceType().get();}
+        public StructurePieceType getType() {return DEStructures.CASTLE.getPieceType().get();}
         @Override
         public void handleDataMarker(String key, BlockPos blockPos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) {}
     }

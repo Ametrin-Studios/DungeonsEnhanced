@@ -16,7 +16,7 @@ import static com.barion.dungeons_enhanced.DEUtil.location;
 
 public class DEPirateShip extends DESwimmingStructure {
     private static final ResourceLocation Back = location("pirate_ship/back");
-    public DEPirateShip(StructureSettings settings) {super(settings, DEUtil.pieceBuilder().yOffset(-3).add("pirate_ship/front").build(), DEPirateShip::assembleShip, DEStructures.PirateShip::getType);}
+    public DEPirateShip(StructureSettings settings) {super(settings, DEUtil.pieceBuilder().yOffset(-3).add("pirate_ship/front").build(), DEStructures.PirateShip::getType);}
 
     @Override @Nonnull
     public Optional<GenerationStub> findGenerationPoint(@Nonnull GenerationContext context) {

@@ -4,6 +4,7 @@ import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEPieceAssembler;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePieces;
+import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
@@ -17,13 +18,15 @@ import javax.annotation.Nonnull;
 import java.util.Optional;
 import java.util.function.Supplier;
 
-public class DESwimmingStructure extends DEBaseStructure {
+import static com.barion.dungeons_enhanced.DEUtil.pieceBuilder;
 
-    public DESwimmingStructure(StructureSettings settings, DEStructurePieces variants, DEPieceAssembler assembler, Supplier<StructureType<?>> type){
-        super(settings, variants, type);
+public class DESwimmingStructure extends DEBaseStructure {
+    public static final Codec<DESwimmingStructure> CODEC_FISHING_SHIP = simpleCodec(DESwimmingStructure::FishingShip);
+    public static DESwimmingStructure FishingShip(StructureSettings settings){
+        return new DESwimmingStructure(settings, pieceBuilder().yOffset(-3).add("fishing_ship").build(), DEStructures.FISHING_SHIP::getType);
     }
 
-    public DESwimmingStructure(StructureSettings settings, DEStructurePieces variants, Supplier<StructureType<?>> type){
+    protected DESwimmingStructure(StructureSettings settings, DEStructurePieces variants, Supplier<StructureType<?>> type){
         super(settings, variants, type);
     }
 
@@ -45,10 +48,10 @@ public class DESwimmingStructure extends DEBaseStructure {
 
     public static class Piece extends DEBaseStructure.Piece{
         public Piece(StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation) {
-            super(DEStructures.FishingShip.getPieceType(), structureManager, templateName, pos, rotation);
+            super(DEStructures.FISHING_SHIP.getPieceType(), structureManager, templateName, pos, rotation);
         }
         public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) {
-            super(DEStructures.FishingShip.getPieceType(), serializationContext, nbt);
+            super(DEStructures.FISHING_SHIP.getPieceType(), serializationContext, nbt);
         }
     }
 }

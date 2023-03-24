@@ -12,9 +12,6 @@ import net.minecraft.world.level.levelgen.RandomState;
 public class DEUtil{
     public static ResourceLocation location(String key){ return new ResourceLocation(DungeonsEnhanced.MOD_ID, key);}
 
-    public static class Processors {
-
-    }
 
     public static BlockPos ChunkPosToBlockPos(ChunkPos chunkPos) {return ChunkPosToBlockPos(chunkPos, 0);}
     public static BlockPos ChunkPosToBlockPos(ChunkPos chunkPos, int y){

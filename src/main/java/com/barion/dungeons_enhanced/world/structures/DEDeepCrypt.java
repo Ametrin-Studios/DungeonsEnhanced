@@ -32,7 +32,7 @@ public class DEDeepCrypt{
         public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) {super(serializationContext, nbt);}
 
         @Override
-        public StructurePieceType getType() {return DEStructures.DeepCrypt.getPieceType().get();}
+        public StructurePieceType getType() {return DEStructures.DEEP_CRYPT.getPieceType().get();}
         @Override
         public void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) {}
     }

@@ -4,6 +4,7 @@ import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEPieceAssembler;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePieces;
+import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
@@ -17,8 +18,15 @@ import javax.annotation.Nonnull;
 import java.util.Optional;
 import java.util.function.Supplier;
 
+import static com.barion.dungeons_enhanced.DEUtil.pieceBuilder;
+
 public class DEUndergroundStructure extends DEBaseStructure{
-    public DEUndergroundStructure(StructureSettings settings, DEStructurePieces variants, Supplier<StructureType<?>> type) {super(settings, variants, type);}
+    public static final Codec<DEUndergroundStructure> CODEC_DUNGEON_VARIANT = simpleCodec(DEUndergroundStructure::DungeonVariant);
+    public static DEUndergroundStructure DungeonVariant(StructureSettings settings){
+        return new DEUndergroundStructure(settings, pieceBuilder().add("dungeon_variant/zombie").add("dungeon_variant/skeleton").add("dungeon_variant/spider").build(), DEStructures.DUNGEON_VARIANT::getType);
+    }
+
+    protected DEUndergroundStructure(StructureSettings settings, DEStructurePieces variants, Supplier<StructureType<?>> type) {super(settings, variants, type);}
 
     @Override @Nonnull
     public Optional<GenerationStub> findGenerationPoint(@Nonnull GenerationContext context) {
@@ -42,10 +50,10 @@ public class DEUndergroundStructure extends DEBaseStructure{
 
     public static class Piece extends DEBaseStructure.Piece{
         public Piece(StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation) {
-            super(DEStructures.DungeonVariant.getPieceType(), structureManager, templateName, pos, rotation);
+            super(DEStructures.DUNGEON_VARIANT.getPieceType(), structureManager, templateName, pos, rotation);
         }
         public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) {
-            super(DEStructures.DungeonVariant.getPieceType(), serializationContext, nbt);
+            super(DEStructures.DUNGEON_VARIANT.getPieceType(), serializationContext, nbt);
         }
     }
 }

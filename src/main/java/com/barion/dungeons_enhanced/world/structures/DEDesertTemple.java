@@ -22,7 +22,7 @@ import static com.barion.dungeons_enhanced.DEUtil.location;
 
 public class DEDesertTemple extends DESimpleStructure {
     private static final ResourceLocation Bottom = location("desert_temple/down");
-    public DEDesertTemple(StructureSettings structureSettings) {super(structureSettings, DEUtil.pieceBuilder().yOffset(-6).add("desert_temple/main").build(), DEStructures.DesertTemple::getType);}
+    public DEDesertTemple(StructureSettings structureSettings) {super(structureSettings, DEUtil.pieceBuilder().yOffset(-6).add("desert_temple/main").build(), DEStructures.DESERT_TEMPLE::getType);}
 
     @Override @Nonnull
     public Optional<GenerationStub> findGenerationPoint(@Nonnull GenerationContext context) {
@@ -49,10 +49,10 @@ public class DEDesertTemple extends DESimpleStructure {
 
     public static class Piece extends DEBaseStructure.Piece{
         public Piece(StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation) {
-            super(DEStructures.DesertTemple.getPieceType(), structureManager, templateName, pos, rotation);
+            super(DEStructures.DESERT_TEMPLE.getPieceType(), structureManager, templateName, pos, rotation);
         }
         public Piece(StructurePieceSerializationContext context, CompoundTag nbt) {
-            super(DEStructures.DesertTemple.getPieceType(), context, nbt);
+            super(DEStructures.DESERT_TEMPLE.getPieceType(), context, nbt);
         }
     }
 }

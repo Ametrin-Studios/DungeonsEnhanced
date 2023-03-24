@@ -22,8 +22,8 @@ import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 public class DEDruidCircle {
 
     public static class Capability implements JigsawCapability.IJigsawCapability{
-        public static final Capability Instance = new Capability();
-        public static final Codec<Capability> CODEC = Codec.unit(Instance);
+        public static final Capability INSTANCE = new Capability();
+        public static final Codec<Capability> CODEC = Codec.unit(INSTANCE);
 
         @Override
         public JigsawCapability.JigsawType<?> getType(){return DEJigsawTypes.DruidCircle;}
@@ -37,7 +37,7 @@ public class DEDruidCircle {
         public Piece(IPieceFactory.Context context) {super(context);}
         public Piece(StructurePieceSerializationContext context, CompoundTag nbt) {super(context, nbt);}
         @Override
-        public StructurePieceType getType() {return DEStructures.DruidCircle.getPieceType().get();}
+        public StructurePieceType getType() {return DEStructures.DRUID_CIRCLE.getPieceType().get();}
         @Override
         public void handleDataMarker(String key, BlockPos blockPos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) {}
     }

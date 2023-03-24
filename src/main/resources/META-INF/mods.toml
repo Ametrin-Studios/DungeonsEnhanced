@@ -1,5 +1,5 @@
 modLoader="javafml" #mandatory
-loaderVersion="[44,)" #mandatory
+loaderVersion="[45,)" #mandatory
 license="All rights reserved"
 issueTrackerURL="https://github.com/BarionLP/DungeonsEnhanced/issues" #optional
 
@@ -27,18 +27,18 @@ We hope you have fun!
 [[dependencies.dungeons_enhanced]]
     modId="forge" #mandatory
     mandatory=true #mandatory
-    versionRange="[44.1,)" #mandatory
+    versionRange="[45,46)" #mandatory
     ordering="NONE"
     side="BOTH" #BOTH, CLIENT or SERVER
 [[dependencies.dungeons_enhanced]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.19.3,1.20)"
+    versionRange="[1.19.4,1.20)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.dungeons_enhanced]]
     modId="structure_gel"
     mandatory=true
-    versionRange="[2.9.0,]"
+    versionRange="[2.10.0,]"
     ordering="NONE"
     side="BOTH"

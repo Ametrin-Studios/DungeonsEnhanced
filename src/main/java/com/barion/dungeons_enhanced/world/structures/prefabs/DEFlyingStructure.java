@@ -4,6 +4,7 @@ import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEPieceAssembler;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePieces;
+import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
@@ -17,8 +18,16 @@ import javax.annotation.Nonnull;
 import java.util.Optional;
 import java.util.function.Supplier;
 
+import static com.barion.dungeons_enhanced.DEUtil.pieceBuilder;
+
 public class DEFlyingStructure extends DEBaseStructure{
-    public DEFlyingStructure(StructureSettings settings, DEStructurePieces variants, Supplier<StructureType<?>> type) {
+
+    public static final Codec<DEFlyingStructure> CODEC_FLYING_DUTCHMAN = simpleCodec(DEFlyingStructure::FlyingDutchman);
+    public static DEFlyingStructure FlyingDutchman(StructureSettings settings){
+        return new DEFlyingStructure(settings, pieceBuilder().add("flying_dutchman").build(), DEStructures.FLYING_DUTCHMAN::getType);
+    }
+
+    protected DEFlyingStructure(StructureSettings settings, DEStructurePieces variants, Supplier<StructureType<?>> type) {
         super(settings, variants, type);
     }
 
@@ -43,10 +52,10 @@ public class DEFlyingStructure extends DEBaseStructure{
 
     public static class Piece extends DEBaseStructure.Piece {
         public Piece(StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation){
-            super(DEStructures.FlyingDutchman.getPieceType(), structureManager, templateName, pos, rotation);
+            super(DEStructures.FLYING_DUTCHMAN.getPieceType(), structureManager, templateName, pos, rotation);
         }
         public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt){
-            super(DEStructures.FlyingDutchman.getPieceType(), serializationContext, nbt);
+            super(DEStructures.FLYING_DUTCHMAN.getPieceType(), serializationContext, nbt);
         }
     }
 }

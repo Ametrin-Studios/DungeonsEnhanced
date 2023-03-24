@@ -6,19 +6,26 @@ import com.barion.dungeons_enhanced.world.structures.prefabs.*;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
 import com.legacy.structure_gel.api.structure.ExtendedJigsawStructure;
 import com.legacy.structure_gel.api.structure.GridStructurePlacement;
+import com.legacy.structure_gel.api.structure.jigsaw.JigsawCapability;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.heightproviders.ConstantHeight;
+import net.minecraft.world.level.levelgen.heightproviders.HeightProvider;
 import net.minecraft.world.level.levelgen.heightproviders.UniformHeight;
 import net.minecraft.world.level.levelgen.structure.Structure;
+import net.minecraft.world.level.levelgen.structure.StructureSpawnOverride;
 import net.minecraft.world.level.levelgen.structure.StructureType;
 import net.minecraft.world.level.levelgen.structure.TerrainAdjustment;
 import net.minecraft.world.level.levelgen.structure.placement.StructurePlacement;
+import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
 import java.util.Arrays;
 import java.util.List;
@@ -30,15 +37,15 @@ import static com.barion.dungeons_enhanced.DEUtil.pieceBuilder;
 
 @SuppressWarnings("removal")
 public class DEStructures {
-    public static StructureRegistrar<ExtendedJigsawStructure> Castle;
-    public static StructureRegistrar<ExtendedJigsawStructure> DeepCrypt;
-    public static StructureRegistrar<DEDesertTemple> DesertTemple;
-    public static StructureRegistrar<ExtendedJigsawStructure> DesertTomb;
-    public static StructureRegistrar<ExtendedJigsawStructure> DruidCircle;
-    public static StructureRegistrar<DEUndergroundStructure> DungeonVariant;
-    public static StructureRegistrar<DEEldersTemple> EldersTemple;
-    public static StructureRegistrar<DESwimmingStructure> FishingShip;
-    public static StructureRegistrar<DEFlyingStructure> FlyingDutchman;
+    public static StructureRegistrar<ExtendedJigsawStructure> CASTLE;
+    public static StructureRegistrar<ExtendedJigsawStructure> DEEP_CRYPT;
+    public static StructureRegistrar<DEDesertTemple> DESERT_TEMPLE;
+    public static StructureRegistrar<ExtendedJigsawStructure> DESERT_TOMB;
+    public static StructureRegistrar<ExtendedJigsawStructure> DRUID_CIRCLE;
+    public static StructureRegistrar<DEUndergroundStructure> DUNGEON_VARIANT;
+    public static StructureRegistrar<DEEldersTemple> ELDERS_TEMPLE;
+    public static StructureRegistrar<DESwimmingStructure> FISHING_SHIP;
+    public static StructureRegistrar<DEFlyingStructure> FLYING_DUTCHMAN;
     public static StructureRegistrar<DESimpleStructure> HayStorage;
     public static StructureRegistrar<DEIcePit> IcePit;
     public static StructureRegistrar<DESimpleStructure> JungleMonument;
@@ -62,8 +69,8 @@ public class DEStructures {
     //@formatter: off
 
     static {
-        Castle = StructureRegistrar.jigsawBuilder(location("castle"))
-                .placement(()-> GridStructurePlacement.builder().spacing(56).offset(37).probability(52).build(Castle))
+        CASTLE = StructureRegistrar.jigsawBuilder(location("castle"))
+                .placement(gridPlacement(56, 52, CASTLE))
                 .addPiece(()-> DECastle.Piece::new)
                 .pushStructure((context, settings) -> ExtendedJigsawStructure.builder(settings, context.lookup(Registries.TEMPLATE_POOL).getOrThrow(DEPools.CASTLE)).maxDepth(2).startHeight(0).capability(new DECastle.Capability()).build())
                         .biomes(BiomeTags.IS_OVERWORLD)
@@ -72,77 +79,82 @@ public class DEStructures {
                 .popStructure()
                 .build();
 
-        DeepCrypt = StructureRegistrar.jigsawBuilder(location("deep_crypt"))
-                .placement(()-> GridStructurePlacement.builder().spacing(35).offset(23).probability(74).build(DeepCrypt))
+        DEEP_CRYPT = StructureRegistrar.jigsawBuilder(location("deep_crypt"))
+                .placement(gridPlacement(35, 74, DEEP_CRYPT))
                 .addPiece(()-> DEDeepCrypt.Piece::new)
-                .pushStructure((context, settings) -> ExtendedJigsawStructure.builder(settings, context.lookup(Registries.TEMPLATE_POOL).getOrThrow(DEPools.DEEP_CRYPT)).maxDepth(4).startHeight(UniformHeight.of(VerticalAnchor.aboveBottom(16), VerticalAnchor.aboveBottom(48))).capability(new DEDeepCrypt.Capability()).build())
+                .pushStructure((context, settings) -> extendedJigsawStructure(context, settings, DEDeepCrypt.Capability.Instance, DEPools.DEEP_CRYPT, 4, UniformHeight.of(VerticalAnchor.aboveBottom(16), VerticalAnchor.aboveBottom(48))).build())
+                //.pushStructure((context, settings) -> ExtendedJigsawStructure.builder(settings, context.lookup(Registries.TEMPLATE_POOL).getOrThrow(DEPools.DEEP_CRYPT)).maxDepth(4).startHeight(UniformHeight.of(VerticalAnchor.aboveBottom(16), VerticalAnchor.aboveBottom(48))).capability(new DEDeepCrypt.Capability()).build())
                         .biomes(BiomeTags.IS_OVERWORLD)
                         .dimensions(Level.OVERWORLD)
                         .generationStep(GenerationStep.Decoration.UNDERGROUND_STRUCTURES)
                 .popStructure()
                 .build();
 
-        DesertTemple = StructureRegistrar.builder(location("desert_temple"), codecOf(DEDesertTemple::new))
+        DESERT_TEMPLE = StructureRegistrar.builder(location("desert_temple"), codecOf(DEDesertTemple::new))
+                .placement(gridPlacement(31, 65, DESERT_TEMPLE))
                 .addPiece(()-> DEDesertTemple.Piece::new)
                 .pushStructure(DEDesertTemple::new)
-                        .config(DEConfig.COMMON.DesertTemple::getStructure)
+                        .biomes(BiomeTags.HAS_DESERT_PYRAMID)
+                        .dimensions(Level.OVERWORLD)
                 .popStructure()
-                .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.DesertTemple).build(DesertTemple))
                 .build();
 
-        DesertTomb = StructureRegistrar.jigsawBuilder(location("desert_tomb"))
+        DESERT_TOMB = StructureRegistrar.jigsawBuilder(location("desert_tomb"))
+                .placement(nearSpawnGridPlacement(25, 75, DESERT_TOMB))
                 .addPiece(()-> DEDesertTomb.Piece::new)
-                .pushStructure(((settings)-> new ExtendedJigsawStructure(settings, DEDesertTomb.Pool.Root, 4, ConstantHeight.ZERO, false, Heightmap.Types.WORLD_SURFACE_WG).withPieceFactory(DesertTomb.getRegistryName(), DEDesertTomb.Piece::new)))
-                        .config(DEConfig.COMMON.DesertTomb::getStructure)
+                .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DEDesertTomb.Capability.INSTANCE, DEPools.DESERT_TOMB, 5, ConstantHeight.ZERO).onSurface().build())
+                        .biomes(BiomeTags.HAS_DESERT_PYRAMID)
+                        .dimensions(Level.OVERWORLD)
                 .popStructure()
-                .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.DesertTemple).allowedNearSpawn(true).build(DesertTomb))
                 .build();
 
-        DruidCircle = StructureRegistrar.jigsawBuilder(location("druid_circle"))
-                .addPiece(()-> DECellarStructure.Piece::new)
-                .pushStructure((settings)-> new ExtendedJigsawStructure(settings, DECellarStructure.DruidCirclePool.Root, 1, ConstantHeight.ZERO, false, Heightmap.Types.WORLD_SURFACE_WG).withPieceFactory(DruidCircle.getRegistryName(), DECellarStructure.Piece::new))
-                        .config(DEConfig.COMMON.DruidCircle::getStructure)
+        DRUID_CIRCLE = StructureRegistrar.jigsawBuilder(location("druid_circle"))
+                .placement(nearSpawnGridPlacement(41, 68, DRUID_CIRCLE))
+                .addPiece(()-> DEDruidCircle.Piece::new)
+                .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DEDruidCircle.Capability.INSTANCE, DEPools.DRUID_CIRCLE, 1, ConstantHeight.ZERO).onSurface().build())
+                        .biomes(BiomeTags.HAS_PILLAGER_OUTPOST) //TODO: make own tag
+                        .dimensions(Level.OVERWORLD)
                         .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
                 .popStructure()
-                .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.DruidCircle).allowedNearSpawn(true).build(DruidCircle))
                 .build();
 
-        Function<Structure.StructureSettings, DEUndergroundStructure> dungeonVariant = (settings)-> new DEUndergroundStructure(settings, pieceBuilder().add("dungeon_variant/zombie").add("dungeon_variant/skeleton").add("dungeon_variant/spider").build(), DungeonVariant::getType);
-        DungeonVariant = StructureRegistrar.builder(location("dungeon_variant"), codecOf(dungeonVariant))
+        DUNGEON_VARIANT = StructureRegistrar.builder(location("dungeon_variant"), ()-> ()-> DEUndergroundStructure.CODEC_DUNGEON_VARIANT)
+                .placement(nearSpawnGridPlacement(17, 80, DUNGEON_VARIANT))
                 .addPiece(()-> DEUndergroundStructure.Piece::new)
-                .pushStructure(dungeonVariant)
-                        .config(DEConfig.COMMON.DungeonVariant::getStructure)
+                .pushStructure(DEUndergroundStructure::DungeonVariant)
+                        .biomes(BiomeTags.IS_OVERWORLD)
+                        .dimensions(Level.OVERWORLD)
                         .generationStep(GenerationStep.Decoration.UNDERGROUND_STRUCTURES)
                 .popStructure()
-                .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.DungeonVariant).allowedNearSpawn(true).build(DungeonVariant))
                 .build();
 
-        EldersTemple = StructureRegistrar.builder(location("elders_temple"), codecOf(DEEldersTemple::new))
+        ELDERS_TEMPLE = StructureRegistrar.builder(location("elders_temple"), ()-> ()-> DEEldersTemple.CODEC)
+                .placement(gridPlacement(29, ELDERS_TEMPLE))
                 .addPiece(()-> DEEldersTemple.Piece::new)
                 .pushStructure(DEEldersTemple::new)
-                        .config(DEConfig.COMMON.EldersTemple::getStructure)
-                        .spawns(MobCategory.MONSTER, StructureSpawnOverride.BoundingBoxType.STRUCTURE, spawns(spawn(EntityType.GUARDIAN, 1,2,4)))
+                        .biomes(BiomeTags.HAS_OCEAN_MONUMENT)
+                        .dimensions(Level.OVERWORLD)
                         .noSpawns(StructureSpawnOverride.BoundingBoxType.STRUCTURE, MobCategory.UNDERGROUND_WATER_CREATURE, MobCategory.AXOLOTLS, MobCategory.WATER_AMBIENT, MobCategory.WATER_CREATURE)
+                        .spawns(MobCategory.MONSTER, StructureSpawnOverride.BoundingBoxType.STRUCTURE, spawns(spawn(EntityType.GUARDIAN, 1,2,4)))
                 .popStructure()
-                .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.EldersTemple).build(EldersTemple))
                 .build();
 
-        Function<Structure.StructureSettings, DESwimmingStructure> fishingShip = (settings)-> new DESwimmingStructure(settings, pieceBuilder().yOffset(-3).add("fishing_ship").build(), FishingShip::getType);
-        FishingShip = StructureRegistrar.builder(location("fishing_ship"), codecOf(fishingShip))
+        FISHING_SHIP = StructureRegistrar.builder(location("fishing_ship"), ()-> ()-> DESwimmingStructure.CODEC_FISHING_SHIP)
+                .placement(nearSpawnGridPlacement(48, 68, FISHING_SHIP))
                 .addPiece(()-> DESimpleStructure.Piece::new)
-                .pushStructure(fishingShip)
-                        .config(DEConfig.COMMON.FishingShip::getStructure)
+                .pushStructure(DESwimmingStructure::FishingShip)
+                        .biomes(BiomeTags.IS_OCEAN)
+                        .dimensions(Level.OVERWORLD)
                 .popStructure()
-                .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.FishingShip).allowedNearSpawn(true).build(FishingShip))
                 .build();
 
-        Function<Structure.StructureSettings, DEFlyingStructure> flyingDutchman = (settings) -> new DEFlyingStructure(settings, pieceBuilder().add("flying_dutchman").build(), FlyingDutchman::getType);
-        FlyingDutchman = StructureRegistrar.builder(location("flying_dutchman"), codecOf(flyingDutchman))
+        FLYING_DUTCHMAN = StructureRegistrar.builder(location("flying_dutchman"), ()-> ()-> DEFlyingStructure.CODEC_FLYING_DUTCHMAN)
+                .placement(gridPlacement(73, 49, FLYING_DUTCHMAN))
                 .addPiece(()-> DEFlyingStructure.Piece::new)
-                .pushStructure(flyingDutchman)
-                        .config(DEConfig.COMMON.FlyingDutchman::getStructure)
+                .pushStructure(DEFlyingStructure::FlyingDutchman)
+                        .biomes(BiomeTags.IS_OCEAN)
+                        .dimensions(Level.OVERWORLD)
                 .popStructure()
-                .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.FlyingDutchman).build(FlyingDutchman))
                 .build();
 
         Function<Structure.StructureSettings, DESimpleStructure> hayStorage = (settings)-> new DESimpleStructure(settings, pieceBuilder().add("hay_storage/small").add("hay_storage/big").build(), HayStorage::getType);
@@ -311,15 +323,15 @@ public class DEStructures {
 
     public static StructureRegistrar<?>[] getAllStructureRegistrars() {
         return new StructureRegistrar<?>[] {
-                Castle,
-                DeepCrypt,
-                DesertTemple,
-                DesertTomb,
-                DruidCircle,
-                DungeonVariant,
-                EldersTemple,
-                FishingShip,
-                FlyingDutchman,
+                CASTLE,
+                DEEP_CRYPT,
+                DESERT_TEMPLE,
+                DESERT_TOMB,
+                DRUID_CIRCLE,
+                DUNGEON_VARIANT,
+                ELDERS_TEMPLE,
+                FISHING_SHIP,
+                FLYING_DUTCHMAN,
                 HayStorage,
                 IcePit,
                 JungleMonument,
@@ -345,12 +357,30 @@ public class DEStructures {
     private static MobSpawnSettings.SpawnerData spawn(EntityType<?> entity, int weight, int min, int max) {
         return new MobSpawnSettings.SpawnerData(entity, weight, min, max);
     }
+    @Deprecated(forRemoval = true)
     private static <S extends Structure> Supplier<StructureType<S>> codecOf(Function<Structure.StructureSettings, S> constructor){
         return ()-> ()-> Structure.simpleCodec(constructor);
     }
 
+    private static Supplier<StructurePlacement> nearSpawnGridPlacement(int spacing, int probability, StructureRegistrar<?> registrar){
+        return ()-> gridPlacement(spacing, probability).allowedNearSpawn(true).build(registrar);
+    }
     private static Supplier<StructurePlacement> gridPlacement(int spacing, int probability, StructureRegistrar<?> registrar){
-        return ()-> GridStructurePlacement.builder(spacing, probability).build(registrar);
+        return ()-> gridPlacement(spacing, probability).build(registrar);
+    }
+    private static Supplier<StructurePlacement> gridPlacement(int spacing, StructureRegistrar<?> registrar){
+        return ()-> gridPlacement(spacing).build(registrar);
+    }
+
+    private static GridStructurePlacement.Builder gridPlacement(int spacing, int probability){
+        return gridPlacement(spacing).probability(probability/100f);
+    }
+    private static GridStructurePlacement.Builder gridPlacement(int spacing){
+        return GridStructurePlacement.builder().spacing(spacing).offset((int) (spacing*0.8));
+    }
+
+    private static ExtendedJigsawStructure.Builder extendedJigsawStructure(BootstapContext<?> context, Structure.StructureSettings settings, JigsawCapability.IJigsawCapability capability, ResourceKey<StructureTemplatePool> poolKey, int maxDepth, HeightProvider heightProvider){
+        return ExtendedJigsawStructure.builder(settings, context.lookup(Registries.TEMPLATE_POOL).getOrThrow(poolKey)).maxDepth(maxDepth).startHeight(heightProvider).capability(capability);
     }
 
     public static void init() {}

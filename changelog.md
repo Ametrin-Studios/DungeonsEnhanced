@@ -1,5 +1,8 @@
-## 4.1
+## 4.2
+* ported to 1.19.4
 * fixed canon in Flying Dutchman
+* Monster Maze now generates betweem -48 and -16
+* requires Structure Gel API 2.10.0
 
 ## 4.1
 * added german translation

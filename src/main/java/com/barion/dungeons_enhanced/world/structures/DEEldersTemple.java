@@ -2,11 +2,13 @@ package com.barion.dungeons_enhanced.world.structures;
 
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DEUtil;
+import com.barion.dungeons_enhanced.world.DEProcessors;
 import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structures.prefabs.DEBaseStructure;
 import com.barion.dungeons_enhanced.world.structures.prefabs.DEUnderwaterStructure;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEPieceAssembler;
 import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEUnderwaterProcessor;
+import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
@@ -22,12 +24,13 @@ import java.util.Optional;
 import static com.barion.dungeons_enhanced.DEUtil.location;
 
 public class DEEldersTemple extends DEUnderwaterStructure {
+    public static final Codec<DEEldersTemple> CODEC = simpleCodec(DEEldersTemple::new);
     private static final ResourceLocation NE = location("elders_temple/ne");
     private static final ResourceLocation NW = location("elders_temple/nw");
     private static final ResourceLocation SE = location("elders_temple/se");
     private static final ResourceLocation SW = location("elders_temple/sw");
 
-    public DEEldersTemple(StructureSettings settings) {super(settings, DEUtil.pieceBuilder().add("elders_temple/se").build(), DEStructures.EldersTemple::getType);}
+    public DEEldersTemple(StructureSettings settings) {super(settings, DEUtil.pieceBuilder().add("elders_temple/se").build(), DEStructures.ELDERS_TEMPLE::getType);}
 
     @Override @Nonnull
     public Optional<GenerationStub> findGenerationPoint(@Nonnull GenerationContext context) {
@@ -49,21 +52,21 @@ public class DEEldersTemple extends DEUnderwaterStructure {
 
     public static class Piece extends DEBaseStructure.Piece {
         public Piece(StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation){
-            super(DEStructures.EldersTemple.getPieceType(), structureManager, templateName, pos, rotation);
+            super(DEStructures.ELDERS_TEMPLE.getPieceType(), structureManager, templateName, pos, rotation);
         }
         public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt){
-            super(DEStructures.EldersTemple.getPieceType(), serializationContext, nbt);
+            super(DEStructures.ELDERS_TEMPLE.getPieceType(), serializationContext, nbt);
         }
 
         @Override
         protected void addProcessors(StructurePlaceSettings settings) {
             settings.clearProcessors();
             settings.addProcessor(DEUnderwaterProcessor.Instance)
-                    .addProcessor(DEUtil.Processors.BrainCoral)
-                    .addProcessor(DEUtil.Processors.BubbleCoral)
-                    .addProcessor(DEUtil.Processors.FireCoral)
-                    .addProcessor(DEUtil.Processors.HornCoral)
-                    .addProcessor(DEUtil.Processors.TubeCoral);
+                    .addProcessor(DEProcessors.BrainCoral)
+                    .addProcessor(DEProcessors.BubbleCoral)
+                    .addProcessor(DEProcessors.FireCoral)
+                    .addProcessor(DEProcessors.HornCoral)
+                    .addProcessor(DEProcessors.TubeCoral);
         }
     }
 }
