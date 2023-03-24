@@ -1,7 +1,7 @@
 package com.barion.dungeons_enhanced.world;
 
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
-import com.barion.dungeons_enhanced.world.structures.*;
+import com.barion.dungeons_enhanced.world.structure.*;
 import com.legacy.structure_gel.api.registry.registrar.RegistrarHandler;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;

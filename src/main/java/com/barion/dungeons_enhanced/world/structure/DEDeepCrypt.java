@@ -1,15 +1,15 @@
-package com.barion.dungeons_enhanced.world.structures;
+package com.barion.dungeons_enhanced.world.structure;
 
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.world.DEJigsawTypes;
 import com.barion.dungeons_enhanced.world.DEPools;
+import com.barion.dungeons_enhanced.world.structure.processor.DEProcessors;
 import com.legacy.structure_gel.api.structure.jigsaw.*;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
@@ -17,14 +17,13 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSeriali
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
-public class DEPillagerCamp{
-
+public class DEDeepCrypt{
     public static class Capability implements JigsawCapability.IJigsawCapability{
         public static final Capability Instance = new Capability();
         public static final Codec<Capability> CODEC = Codec.unit(Instance);
 
         @Override
-        public JigsawCapability.JigsawType<?> getType(){return DEJigsawTypes.PillagerCamp;}
+        public JigsawCapability.JigsawType<?> getType(){return DEJigsawTypes.DEEP_CRYPT;}
         @Override
         public IPieceFactory getPieceFactory() {return Piece::new;}
     }
@@ -33,27 +32,20 @@ public class DEPillagerCamp{
         public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) {super(serializationContext, nbt);}
 
         @Override
-        public StructurePieceType getType() {return DEStructures.PillagerCamp.getPieceType().get();}
+        public StructurePieceType getType() {return DEStructures.DEEP_CRYPT.getPieceType().get();}
         @Override
         public void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) {}
     }
 
     public static void pool(BootstapContext<StructureTemplatePool> context){
-        JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "pillager_camp/", context);
-        registry.registerBuilder().pools(registry.poolBuilder().names("tent/general").maintainWater(false)).register(DEPools.PILLAGER_CAMP);
+        JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "deep_crypt/", context);
+        registry.registerBuilder().pools(registry.poolBuilder().names("root").maintainWater(false)).register(DEPools.DEEP_CRYPT);
 
         JigsawPoolBuilder basicPool = registry.poolBuilder().maintainWater(false);
-        JigsawPoolBuilder SleepingTents = basicPool.clone().names("tent/sleep1", "tent/sleep2");
-        JigsawPoolBuilder Kitchen = basicPool.clone().names("tent/kitchen");
-        JigsawPoolBuilder Decoration = basicPool.clone().names("decoration/campfire", "decoration/cage");
-        JigsawPoolBuilder Pillars = basicPool.clone().names("decoration/bell", "decoration/pillar");
-        JigsawPoolBuilder VanillaDecoration = basicPool.clone().namesR(mcPiece("logs"), mcPiece("targets"), mcPiece("tent1"), mcPiece("tent2"));
+        JigsawPoolBuilder Tunnels = basicPool.clone().processors(DEProcessors.AIR_TO_COBWEB.getKey()).names("tunnel", "cross");
+        JigsawPoolBuilder Treasure = basicPool.clone().names("treasure");
+        JigsawPoolBuilder Rooms = basicPool.clone().names("big_tunnel", "large_tomb", "prison", "tomb", "tombs", "root");
 
-        registry.registerBuilder().pools(basicPool.clone().names("plate/var1", "plate/var2")).projection(StructureTemplatePool.Projection.TERRAIN_MATCHING).register("feature_plates");
-        registry.register("features", JigsawPoolBuilder.collect(SleepingTents.weight(2), Kitchen.weight(2), VanillaDecoration.weight(2), Decoration.weight(3), Pillars.weight(1)));
-    }
-
-    private static ResourceLocation mcPiece(String key){
-        return new ResourceLocation("pillager_outpost/feature_" + key);
+        registry.register("main", JigsawPoolBuilder.collect(Tunnels.weight(6), Rooms.weight(2), Treasure.weight(1)));
     }
 }

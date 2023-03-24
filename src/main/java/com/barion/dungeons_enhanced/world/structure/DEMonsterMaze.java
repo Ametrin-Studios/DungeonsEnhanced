@@ -1,4 +1,4 @@
-package com.barion.dungeons_enhanced.world.structures;
+package com.barion.dungeons_enhanced.world.structure;
 
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
@@ -23,7 +23,7 @@ public class DEMonsterMaze{
         public static final Codec<Capability> CODEC = Codec.unit(Instance);
 
         @Override
-        public JigsawCapability.JigsawType<?> getType(){return DEJigsawTypes.MonsterMaze;}
+        public JigsawCapability.JigsawType<?> getType(){return DEJigsawTypes.MONSTER_MAZE;}
         @Override
         public IPieceFactory getPieceFactory() {return Piece::new;}
     }

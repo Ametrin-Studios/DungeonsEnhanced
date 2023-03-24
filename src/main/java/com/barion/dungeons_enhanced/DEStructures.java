@@ -1,8 +1,8 @@
 package com.barion.dungeons_enhanced;
 
 import com.barion.dungeons_enhanced.world.DEPools;
-import com.barion.dungeons_enhanced.world.structures.*;
-import com.barion.dungeons_enhanced.world.structures.prefabs.*;
+import com.barion.dungeons_enhanced.world.structure.*;
+import com.barion.dungeons_enhanced.world.structure.prefabs.*;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
 import com.legacy.structure_gel.api.structure.ExtendedJigsawStructure;
 import com.legacy.structure_gel.api.structure.GridStructurePlacement;

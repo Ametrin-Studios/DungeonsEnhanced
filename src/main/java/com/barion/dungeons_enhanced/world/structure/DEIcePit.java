@@ -1,10 +1,10 @@
-package com.barion.dungeons_enhanced.world.structures;
+package com.barion.dungeons_enhanced.world.structure;
 
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DEUtil;
-import com.barion.dungeons_enhanced.world.structures.prefabs.DESimpleStructure;
-import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEPieceAssembler;
-import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePieces;
+import com.barion.dungeons_enhanced.world.structure.prefabs.DESimpleStructure;
+import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEPieceAssembler;
+import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEStructurePieces;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Rotation;

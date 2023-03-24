@@ -1,7 +1,6 @@
-package com.barion.dungeons_enhanced.world.structures.prefabs.utils;
+package com.barion.dungeons_enhanced.world.structure.processor;
 
-import com.barion.dungeons_enhanced.world.DEProcessors;
-import com.legacy.structure_gel.api.data.tags.SGTags;
+import com.legacy.structure_gel.api.block.base.IStructureGel;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.LevelReader;
@@ -17,8 +16,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 public class DEUnderwaterProcessor extends StructureProcessor {
-    public static final DEUnderwaterProcessor Instance = new DEUnderwaterProcessor();
-    public static final Codec<DEUnderwaterProcessor> CODEC = Codec.unit(() -> Instance);
+    public static final DEUnderwaterProcessor INSTANCE = new DEUnderwaterProcessor();
+    public static final Codec<DEUnderwaterProcessor> CODEC = Codec.unit(() -> INSTANCE);
 
     private DEUnderwaterProcessor() {}
 
@@ -28,7 +27,7 @@ public class DEUnderwaterProcessor extends StructureProcessor {
             return null;
         }
 
-        if(placed.state.is(SGTags.BlockTags.GEL)){
+        if(placed.state.getBlock() instanceof IStructureGel){
             return new StructureTemplate.StructureBlockInfo(placed.pos, Blocks.WATER.defaultBlockState(), null);
         }
 
@@ -40,5 +39,5 @@ public class DEUnderwaterProcessor extends StructureProcessor {
     }
 
     @Override @Nonnull
-    protected StructureProcessorType<?> getType() {return DEProcessors.Types.Underwater;}
+    protected StructureProcessorType<?> getType() {return DEProcessors.Types.UNDERWATER;}
 }

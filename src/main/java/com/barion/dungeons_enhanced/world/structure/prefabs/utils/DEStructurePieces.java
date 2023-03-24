@@ -1,4 +1,4 @@
-package com.barion.dungeons_enhanced.world.structures.prefabs.utils;
+package com.barion.dungeons_enhanced.world.structure.prefabs.utils;
 
 import com.barion.dungeons_enhanced.DEUtil;
 import net.minecraft.resources.ResourceLocation;

@@ -1,13 +1,13 @@
-package com.barion.dungeons_enhanced.world.structures;
+package com.barion.dungeons_enhanced.world.structure;
 
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DEUtil;
-import com.barion.dungeons_enhanced.world.DEProcessors;
 import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
-import com.barion.dungeons_enhanced.world.structures.prefabs.DEBaseStructure;
-import com.barion.dungeons_enhanced.world.structures.prefabs.DEUnderwaterStructure;
-import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEPieceAssembler;
-import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEUnderwaterProcessor;
+import com.barion.dungeons_enhanced.world.structure.prefabs.DEBaseStructure;
+import com.barion.dungeons_enhanced.world.structure.prefabs.DEUnderwaterStructure;
+import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEPieceAssembler;
+import com.barion.dungeons_enhanced.world.structure.processor.DESwapDeadCoralsProcessor;
+import com.barion.dungeons_enhanced.world.structure.processor.DEUnderwaterProcessor;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -61,12 +61,8 @@ public class DEEldersTemple extends DEUnderwaterStructure {
         @Override
         protected void addProcessors(StructurePlaceSettings settings) {
             settings.clearProcessors();
-            settings.addProcessor(DEUnderwaterProcessor.Instance)
-                    .addProcessor(DEProcessors.BrainCoral)
-                    .addProcessor(DEProcessors.BubbleCoral)
-                    .addProcessor(DEProcessors.FireCoral)
-                    .addProcessor(DEProcessors.HornCoral)
-                    .addProcessor(DEProcessors.TubeCoral);
+            settings.addProcessor(DEUnderwaterProcessor.INSTANCE)
+                    .addProcessor(DESwapDeadCoralsProcessor.INSTANCE);
         }
     }
 }

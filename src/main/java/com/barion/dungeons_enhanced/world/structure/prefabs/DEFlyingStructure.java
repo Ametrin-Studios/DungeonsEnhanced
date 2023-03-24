@@ -1,9 +1,9 @@
-package com.barion.dungeons_enhanced.world.structures.prefabs;
+package com.barion.dungeons_enhanced.world.structure.prefabs;
 
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DEUtil;
-import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEPieceAssembler;
-import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePieces;
+import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEPieceAssembler;
+import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEStructurePieces;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;

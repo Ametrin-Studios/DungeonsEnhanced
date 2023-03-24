@@ -1,7 +1,7 @@
-package com.barion.dungeons_enhanced.world.structures.prefabs;
+package com.barion.dungeons_enhanced.world.structure.prefabs;
 
-import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEPieceAssembler;
-import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePieces;
+import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEPieceAssembler;
+import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEStructurePieces;
 import com.legacy.structure_gel.api.registry.registrar.Registrar;
 import com.legacy.structure_gel.api.structure.GelTemplateStructurePiece;
 import com.legacy.structure_gel.api.structure.processor.RemoveGelStructureProcessor;

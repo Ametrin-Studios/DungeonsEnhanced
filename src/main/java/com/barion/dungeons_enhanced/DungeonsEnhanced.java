@@ -1,7 +1,10 @@
 package com.barion.dungeons_enhanced;
 
+import com.barion.dungeons_enhanced.data.provider.DEAdvancementProvider;
+import com.barion.dungeons_enhanced.data.provider.DELootTableProvider;
+import com.barion.dungeons_enhanced.data.provider.DEStructureTagsProvider;
 import com.barion.dungeons_enhanced.world.DEPools;
-import com.barion.dungeons_enhanced.world.DEProcessors;
+import com.barion.dungeons_enhanced.world.structure.processor.DEProcessors;
 import com.legacy.structure_gel.api.registry.registrar.RegistrarHandler;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraftforge.common.MinecraftForge;
@@ -44,11 +47,15 @@ public class DungeonsEnhanced{
         var generator = event.getGenerator();
         var output = generator.getPackOutput();
         var existingFileHelper = event.getExistingFileHelper();
+        var runServer = event.includeServer();
 
         var registrarProvider = RegistrarHandler.createGenerator(output, MOD_ID);
         generator.addProvider(event.includeServer(), registrarProvider);
+        var lookup = registrarProvider.getLookupProvider();
 
-        generator.addProvider(event.includeServer(), new DELootTableProvider(output));
-        generator.addProvider(event.includeServer(), new DEAdvancementProvider(output, existingFileHelper));
+        generator.addProvider(runServer, new DELootTableProvider(output));
+        generator.addProvider(runServer, new DEAdvancementProvider(output, existingFileHelper));
+        generator.addProvider(runServer, new DEAdvancementProvider(output, existingFileHelper));
+        generator.addProvider(runServer, new DEStructureTagsProvider(output, lookup, existingFileHelper));
     }
 }

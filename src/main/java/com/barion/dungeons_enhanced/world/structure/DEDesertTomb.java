@@ -1,4 +1,4 @@
-package com.barion.dungeons_enhanced.world.structures;
+package com.barion.dungeons_enhanced.world.structure;
 
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
@@ -32,7 +32,7 @@ public class DEDesertTomb{
         public static final Codec<Capability> CODEC = Codec.unit(INSTANCE);
 
         @Override
-        public JigsawCapability.JigsawType<?> getType(){return DEJigsawTypes.DesertTomb;}
+        public JigsawCapability.JigsawType<?> getType(){return DEJigsawTypes.DESERT_TOMB;}
         @Override
         public IPieceFactory getPieceFactory() {return Piece::new;}
     }

@@ -1,4 +1,4 @@
-package com.barion.dungeons_enhanced.world.structures;
+package com.barion.dungeons_enhanced.world.structure;
 
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
@@ -26,7 +26,7 @@ public class DEDruidCircle {
         public static final Codec<Capability> CODEC = Codec.unit(INSTANCE);
 
         @Override
-        public JigsawCapability.JigsawType<?> getType(){return DEJigsawTypes.DruidCircle;}
+        public JigsawCapability.JigsawType<?> getType(){return DEJigsawTypes.DRUID_CIRCLE;}
 
         @Override
         public IPieceFactory getPieceFactory() {return Piece::new;}
