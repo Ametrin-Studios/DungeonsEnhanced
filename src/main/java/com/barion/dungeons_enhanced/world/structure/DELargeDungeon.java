@@ -26,8 +26,8 @@ public class DELargeDungeon{
     }*/
 
     public static class Capability implements JigsawCapability.IJigsawCapability{
-        public static final Capability Instance = new Capability();
-        public static final Codec<Capability> CODEC = Codec.unit(Instance);
+        public static final Capability INSTANCE = new Capability();
+        public static final Codec<Capability> CODEC = Codec.unit(INSTANCE);
 
         @Override
         public JigsawCapability.JigsawType<?> getType(){return DEJigsawTypes.LARGE_DUNGEON;}
@@ -40,7 +40,7 @@ public class DELargeDungeon{
         public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) {super(serializationContext, nbt);}
 
         @Override
-        public StructurePieceType getType() {return DEStructures.LargeDungeon.getPieceType().get();}
+        public StructurePieceType getType() {return DEStructures.LARGE_DUNGEON.getPieceType().get();}
         @Override
         public void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) {}
     }

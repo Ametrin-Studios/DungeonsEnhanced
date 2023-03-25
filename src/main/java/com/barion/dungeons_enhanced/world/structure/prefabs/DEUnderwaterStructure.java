@@ -39,10 +39,10 @@ public class DEUnderwaterStructure extends DEBaseStructure {
 
     public static class Piece extends DEBaseStructure.Piece {
         public Piece(StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation){
-            super(DEStructures.SunkenShrine.getPieceType(), structureManager, templateName, pos, rotation);
+            super(DEStructures.SUNKEN_SHRINE.getPieceType(), structureManager, templateName, pos, rotation);
         }
         public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt){
-            super(DEStructures.SunkenShrine.getPieceType(), serializationContext, nbt);
+            super(DEStructures.SUNKEN_SHRINE.getPieceType(), serializationContext, nbt);
         }
 
         @Override

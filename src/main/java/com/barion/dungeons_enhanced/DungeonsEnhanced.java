@@ -5,15 +5,14 @@ import com.barion.dungeons_enhanced.data.provider.DELootTableProvider;
 import com.barion.dungeons_enhanced.data.provider.DEStructureTagsProvider;
 import com.barion.dungeons_enhanced.world.DEPools;
 import com.barion.dungeons_enhanced.world.structure.processor.DEProcessors;
+import com.google.common.reflect.Reflection;
 import com.legacy.structure_gel.api.registry.registrar.RegistrarHandler;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.RegisterEvent;
 import org.apache.logging.log4j.LogManager;
@@ -25,14 +24,14 @@ public class DungeonsEnhanced{
     public static final Logger LOGGER = LogManager.getLogger();
 
     public DungeonsEnhanced() {
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DEConfig.COMMON_SPEC);
+        //ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DEConfig.COMMON_SPEC);
         final IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
         final IEventBus forgeBus = MinecraftForge.EVENT_BUS;
 
         forgeBus.register(this);
         modBus.register(DEStructures.class);
 
-        DEStructures.init();
+        Reflection.initialize(DEStructures.class);
         RegistrarHandler.registerHandlers(MOD_ID, modBus, DEPools.HANDLER);
     }
 

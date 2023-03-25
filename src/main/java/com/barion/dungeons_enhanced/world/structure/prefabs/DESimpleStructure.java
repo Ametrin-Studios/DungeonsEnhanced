@@ -6,6 +6,7 @@ import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEPieceAssembler;
 import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEStructurePieces;
 import com.mojang.datafixers.util.Pair;
+import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Vec3i;
 import net.minecraft.nbt.CompoundTag;
@@ -20,7 +21,42 @@ import javax.annotation.Nonnull;
 import java.util.Optional;
 import java.util.function.Supplier;
 
+import static com.barion.dungeons_enhanced.DEStructures.*;
+import static com.barion.dungeons_enhanced.DEUtil.pieceBuilder;
+
 public class DESimpleStructure extends DEBaseStructure {
+    public static final Codec<DESimpleStructure> CODEC_HAY_STORAGE = simpleCodec(DESimpleStructure::HayStorage);
+    public static DESimpleStructure HayStorage(StructureSettings settings){
+        return new DESimpleStructure(settings, pieceBuilder().add("hay_storage/small").add("hay_storage/big").build(), HAY_STORAGE::getType);
+    }
+
+    public static final Codec<DESimpleStructure> CODEC_JUNGLE_MONUMENT = simpleCodec(DESimpleStructure::JungleMonument);
+    public static DESimpleStructure JungleMonument(StructureSettings settings){
+        return new DESimpleStructure(settings, pieceBuilder().yOffset(-9).add("jungle_monument").build(), JUNGLE_MONUMENT::getType);
+    }
+
+    public static final Codec<DESimpleStructure> CODEC_MINERS_HOUSE = simpleCodec(DESimpleStructure::JungleMonument);
+    public static DESimpleStructure MinersHouse(StructureSettings settings){
+        return new DESimpleStructure(settings, pieceBuilder().add("miners_house").build(), MINERS_HOUSE::getType);
+    }
+
+    public static final Codec<DESimpleStructure> CODEC_MUSHROOM_HOUSE = simpleCodec(DESimpleStructure::MushroomHouse);
+    public static DESimpleStructure MushroomHouse(StructureSettings settings){
+        return new DESimpleStructure(settings, pieceBuilder().add("mushroom_house/red").add("mushroom_house/brown").build(), MUSHROOM_HOUSE::getType);
+    }
+
+    public static final Codec<DESimpleStructure> CODEC_RUINED_BUILDING = simpleCodec(DESimpleStructure::RuinedBuilding);
+    public static DESimpleStructure RuinedBuilding(StructureSettings settings){
+        return new DESimpleStructure(settings, pieceBuilder().weight(3).add("ruined_building/house").weight(2).add("ruined_building/house_big").weight(3).add("ruined_building/barn").build(), RUINED_BUILDING::getType);
+    }
+
+    public static final Codec<DESimpleStructure> CODEC_STABLES = simpleCodec(DESimpleStructure::Stables);
+    public static DESimpleStructure Stables(StructureSettings settings){
+        return new DESimpleStructure(settings, pieceBuilder().yOffset(-6).add("stables").build(), STABLES::getType);
+    }
+
+
+
     public DESimpleStructure(StructureSettings settings, DEStructurePieces variants, Supplier<StructureType<?>> type){
         super(settings, variants, type);
     }
@@ -50,11 +86,11 @@ public class DESimpleStructure extends DEBaseStructure {
 
     public static class Piece extends DEBaseStructure.Piece{
         public Piece(StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation){
-            super(DEStructures.RuinedBuilding.getPieceType(), structureManager, templateName, pos, rotation);
+            super(DEStructures.RUINED_BUILDING.getPieceType(), structureManager, templateName, pos, rotation);
         }
 
         public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt){
-            super(DEStructures.RuinedBuilding.getPieceType(), serializationContext, nbt);
+            super(DEStructures.RUINED_BUILDING.getPieceType(), serializationContext, nbt);
         }
     }
 }
