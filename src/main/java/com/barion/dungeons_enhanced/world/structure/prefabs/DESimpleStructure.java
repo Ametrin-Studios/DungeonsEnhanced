@@ -5,10 +5,8 @@ import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEPieceAssembler;
 import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEStructurePieces;
-import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Vec3i;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ChunkPos;
@@ -92,15 +90,15 @@ public class DESimpleStructure extends DEBaseStructure {
 
     @Override @Nonnull
     public Optional<GenerationStub> findGenerationPoint(@Nonnull GenerationContext context) {
-        final DEStructurePieces.Piece piece = variants.getRandomPiece(context.random());
-        final BlockPos rawPos = getGenPos(context.chunkPos()).above(piece.yOffset);
-        final Rotation rotation = Rotation.getRandom(context.random());
+        final var piece = variants.getRandomPiece(context.random());
+        final var rawPos = getGenPos(context.chunkPos()).above(piece.yOffset);
+        final var rotation = Rotation.getRandom(context.random());
 
-        final Vec3i size = context.structureTemplateManager().get(piece.Resource).get().getSize(rotation);
+        final var size = context.structureTemplateManager().getOrCreate(piece.Resource).getSize(rotation);
 
-        final Pair<Float, Boolean> result =  DETerrainAnalyzer.isFlatEnough(rawPos, size, 1, 4, context.chunkGenerator(), context.heightAccessor(), context.randomState());
+        final var result = DETerrainAnalyzer.isFlatEnough(rawPos, size, 1, 4, context.chunkGenerator(), context.heightAccessor(), context.randomState());
         if(!result.getSecond()) {return Optional.empty();}
-        final BlockPos pos = rawPos.atY(Math.round(result.getFirst())).above(piece.yOffset);
+        final var pos = rawPos.atY(Math.round(result.getFirst())).above(piece.yOffset);
 
         return at(pos, (builder)-> generatePieces(builder, pos, piece, rotation, context, DESimpleStructure::assemble));
     }

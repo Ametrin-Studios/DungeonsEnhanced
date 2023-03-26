@@ -22,7 +22,7 @@ public class DECastle {
         public static final Codec<Capability> CODEC = Codec.unit(Instance);
 
         @Override
-        public JigsawCapability.JigsawType<?> getType(){return DEJigsawTypes.CASTLE;}
+        public JigsawCapability.JigsawType<?> getType() {return DEJigsawTypes.CASTLE;}
 
         @Override
         public IPieceFactory getPieceFactory() {return Piece::new;}

@@ -6,9 +6,8 @@ import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structure.prefabs.DEBaseStructure;
 import com.barion.dungeons_enhanced.world.structure.prefabs.DESimpleStructure;
 import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEPieceAssembler;
-import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEStructurePieces;
+import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Vec3i;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Rotation;
@@ -21,14 +20,15 @@ import java.util.Optional;
 import static com.barion.dungeons_enhanced.DEUtil.location;
 
 public class DEDesertTemple extends DESimpleStructure {
-    private static final ResourceLocation Bottom = location("desert_temple/down");
+    public static final Codec<DEDesertTemple> CODEC = simpleCodec(DEDesertTemple::new);
+    private static final ResourceLocation BOTTOM = location("desert_temple/down");
     public DEDesertTemple(StructureSettings structureSettings) {super(structureSettings, DEUtil.pieceBuilder().yOffset(-6).add("desert_temple/main").build(), DEStructures.DESERT_TEMPLE::getType);}
 
     @Override @Nonnull
     public Optional<GenerationStub> findGenerationPoint(@Nonnull GenerationContext context) {
-        final BlockPos rawPos = getGenPos(context.chunkPos());
-        DEStructurePieces.Piece piece = variants.getRandomPiece(context.random());
-        Vec3i size = context.structureTemplateManager().get(piece.Resource).get().getSize();
+        final var rawPos = getGenPos(context.chunkPos());
+        final var piece = variants.getRandomPiece(context.random());
+        final var size = context.structureTemplateManager().getOrCreate(piece.Resource).getSize();
 
         if(!DETerrainAnalyzer.areNearbyBiomesValid(context.biomeSource(), rawPos, context.chunkGenerator(), 20, context.validBiome(), context.randomState())) {return Optional.empty();}
 
@@ -42,9 +42,9 @@ public class DEDesertTemple extends DESimpleStructure {
     public static void assembleTemple(DEPieceAssembler.Context context) {
         BlockPos pos = context.pos();
         context.piecesBuilder().addPiece(new Piece(context.structureManager(), context.piece(), pos, context.rotation()));
-        context.piecesBuilder().addPiece(new Piece(context.structureManager(), Bottom, pos.offset(15, -11, 2), context.rotation()));
-        context.piecesBuilder().addPiece(new Piece(context.structureManager(), Bottom, pos.offset(25, -11, 16), context.rotation()));
-        context.piecesBuilder().addPiece(new Piece(context.structureManager(), Bottom, pos.offset(13, -11, 14), context.rotation()));
+        context.piecesBuilder().addPiece(new Piece(context.structureManager(), BOTTOM, pos.offset(15, -11, 2), context.rotation()));
+        context.piecesBuilder().addPiece(new Piece(context.structureManager(), BOTTOM, pos.offset(25, -11, 16), context.rotation()));
+        context.piecesBuilder().addPiece(new Piece(context.structureManager(), BOTTOM, pos.offset(13, -11, 14), context.rotation()));
     }
 
     public static class Piece extends DEBaseStructure.Piece{

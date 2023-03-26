@@ -3,6 +3,7 @@ package com.barion.dungeons_enhanced;
 import com.barion.dungeons_enhanced.data.provider.DEAdvancementProvider;
 import com.barion.dungeons_enhanced.data.provider.DELootTableProvider;
 import com.barion.dungeons_enhanced.data.provider.DEStructureTagsProvider;
+import com.barion.dungeons_enhanced.world.DEJigsawTypes;
 import com.barion.dungeons_enhanced.world.DEPools;
 import com.barion.dungeons_enhanced.world.structure.processor.DEProcessors;
 import com.google.common.reflect.Reflection;
@@ -23,14 +24,13 @@ public class DungeonsEnhanced{
     public static final Logger LOGGER = LogManager.getLogger();
 
     public DungeonsEnhanced() {
-        //ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DEConfig.COMMON_SPEC);
         final IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
         final IEventBus forgeBus = MinecraftForge.EVENT_BUS;
-
-        Reflection.initialize(DEStructures.class);
+        Reflection.initialize(DEStructures.class, DEProcessors.class, DEPools.class);
 
         modBus.addListener(DungeonsEnhanced::register);
         modBus.addListener(DungeonsEnhanced::gatherData);
+        modBus.addListener(DEJigsawTypes::register);
 
         RegistrarHandler.registerHandlers(MOD_ID, modBus, DEPools.HANDLER, DEProcessors.HANDLER);
     }

@@ -64,8 +64,6 @@ public class DEStructures {
 
     private DEStructures(){}
 
-    //@formatter: off
-
     static {
         CASTLE = StructureRegistrar.jigsawBuilder(location("castle"))
                 .placement(()-> gridPlacement(56, 52).build(DEStructures.CASTLE))
@@ -87,7 +85,7 @@ public class DEStructures {
                 .popStructure()
                 .build();
 
-        DESERT_TEMPLE = StructureRegistrar.builder(location("desert_temple"), codecOf(DEDesertTemple::new))
+        DESERT_TEMPLE = StructureRegistrar.builder(location("desert_temple"), ()-> ()-> DEDesertTemple.CODEC)
                 .placement(()-> gridPlacement(31, 65).build(DEStructures.DESERT_TEMPLE))
                 .addPiece(()-> DEDesertTemple.Piece::new)
                 .pushStructure(DEDesertTemple::new)

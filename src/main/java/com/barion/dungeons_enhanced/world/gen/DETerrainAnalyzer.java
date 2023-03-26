@@ -49,7 +49,7 @@ public class DETerrainAnalyzer {
     }
 
     public static boolean areNearbyBiomesValid(BiomeSource biomeSource, BlockPos pos, ChunkGenerator generator, int radius, Predicate<Holder<Biome>> biomePredicate, RandomState randomState){
-        for(Holder<Biome> biome : biomeSource.getBiomesWithin(pos.getX(), generator.getSeaLevel(), pos.getZ(), radius, randomState.sampler())) {
+        for(var biome : biomeSource.getBiomesWithin(pos.getX(), generator.getSeaLevel(), pos.getZ(), radius, randomState.sampler())) {
             if (!biomePredicate.test(biome)) {return false;}
         }
         return true;

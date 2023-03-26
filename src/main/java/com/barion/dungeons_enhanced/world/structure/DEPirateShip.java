@@ -4,9 +4,7 @@ import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.world.structure.prefabs.DESwimmingStructure;
 import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEPieceAssembler;
-import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEStructurePieces;
 import com.mojang.serialization.Codec;
-import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Rotation;
 
@@ -22,8 +20,8 @@ public class DEPirateShip extends DESwimmingStructure {
 
     @Override @Nonnull
     public Optional<GenerationStub> findGenerationPoint(@Nonnull GenerationContext context) {
-        final DEStructurePieces.Piece piece = variants.getRandomPiece(context.random());
-        final BlockPos pos = getGenPos(context).above(piece.yOffset);
+        final var piece = variants.getRandomPiece(context.random());
+        final var pos = getGenPos(context).above(piece.yOffset);
 
         return at(pos, (builder) -> generatePieces(builder, pos, piece, Rotation.NONE, context, DEPirateShip::assembleShip));
     }
