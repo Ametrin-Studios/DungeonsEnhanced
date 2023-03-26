@@ -33,7 +33,6 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 import static com.barion.dungeons_enhanced.DEUtil.location;
-import static com.barion.dungeons_enhanced.DEUtil.pieceBuilder;
 
 public class DEStructures {
     public static final StructureRegistrar<ExtendedJigsawStructure> CASTLE;
@@ -71,7 +70,7 @@ public class DEStructures {
         CASTLE = StructureRegistrar.jigsawBuilder(location("castle"))
                 .placement(()-> gridPlacement(56, 52).build(DEStructures.CASTLE))
                 .addPiece(()-> DECastle.Piece::new)
-                .pushStructure((context, settings) -> ExtendedJigsawStructure.builder(settings, context.lookup(Registries.TEMPLATE_POOL).getOrThrow(DEPools.CASTLE)).maxDepth(2).startHeight(0).capability(new DECastle.Capability()).build())
+                .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DECastle.Capability.Instance, DEPools.CASTLE, 1, ConstantHeight.ZERO).onSurface().build())
                         .biomes(BiomeTags.IS_OVERWORLD)
                         .dimensions(Level.OVERWORLD)
                         .terrainAdjustment(TerrainAdjustment.BEARD_BOX)
@@ -262,63 +261,63 @@ public class DEStructures {
                 .popStructure()
                 .build();
 
-        Function<Structure.StructureSettings, DEUnderwaterStructure> sunkenShrine = (settings)-> new DEUnderwaterStructure(settings, pieceBuilder().yOffset(-1).add("sunken_shrine").build(), SUNKEN_SHRINE::getType);
-        SUNKEN_SHRINE = StructureRegistrar.builder(location("sunken_shrine"), ()-> ()-> codecOf(sunkenShrine))
+        SUNKEN_SHRINE = StructureRegistrar.builder(location("sunken_shrine"), ()-> ()-> DEUnderwaterStructure.CODEC_SUNKEN_SHRINE)
+                .placement(()-> gridPlacement(32, 55).allowedNearSpawn(true).build(DEStructures.SUNKEN_SHRINE))
                 .addPiece(()-> DEUnderwaterStructure.Piece::new)
-                .pushStructure(sunkenShrine)
-                        .config(DEConfig.COMMON.SunkenShrine::getStructure)
+                .pushStructure(DEUnderwaterStructure::SunkenShrine)
+                        .biomes(BiomeTags.IS_OCEAN)
+                        .dimensions(Level.OVERWORLD)
                 .popStructure()
-                .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.SunkenShrine).allowedNearSpawn(true).build(DEStructures.SUNKEN_SHRINE))
                 .build();
 
-        Function<Structure.StructureSettings, DESimpleStructure> tallWitchHut = (settings)-> new DESimpleStructure(settings, pieceBuilder().yOffset(-3).add("tall_witch_hut").build(), TALL_WITCH_HUT::getType);
-        TALL_WITCH_HUT = StructureRegistrar.builder(location("tall_witch_hut"), ()-> ()-> codecOf(tallWitchHut))
+        TALL_WITCH_HUT = StructureRegistrar.builder(location("tall_witch_hut"), ()-> ()-> DESimpleStructure.CODEC_TALL_WITCH_HUT)
+                .placement(()-> gridPlacement(19, 60).allowedNearSpawn(true).build(DEStructures.TALL_WITCH_HUT))
                 .addPiece(()-> DESimpleStructure.Piece::new)
-                .pushStructure(tallWitchHut)
-                        .config(DEConfig.COMMON.TallWitchHut::getStructure)
-                        .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
+                .pushStructure(DESimpleStructure::TallWitchHut)
+                        .biomes(BiomeTags.HAS_SWAMP_HUT)
+                        .dimensions(Level.OVERWORLD)
+                        //.terrainAdjustment(TerrainAdjustment.BEARD_THIN)
                 .popStructure()
-                .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.TallWitchHut).allowedNearSpawn(true).build(DEStructures.TALL_WITCH_HUT))
                 .build();
 
-        Function<Structure.StructureSettings, DESimpleStructure> treeHouse = (settings)-> new DESimpleStructure(settings, pieceBuilder().add("tree_house").build(), TREE_HOUSE::getType);
-        TREE_HOUSE = StructureRegistrar.builder(location("tree_house"), ()-> ()-> codecOf(treeHouse))
+        TOWER_OF_THE_UNDEAD = StructureRegistrar.builder(location("tower_of_the_undead"), ()-> ()-> DESimpleStructure.CODEC_TOWER_OF_THE_UNDEAD)
+                .placement(()-> gridPlacement(37, 35).allowedNearSpawn(true).build(DEStructures.TOWER_OF_THE_UNDEAD))
                 .addPiece(()-> DESimpleStructure.Piece::new)
-                .pushStructure(treeHouse)
-                        .config(DEConfig.COMMON.TreeHouse::getStructure)
+                .pushStructure(DESimpleStructure::TowerOfTheUndead)
+                        .biomes(BiomeTags.HAS_VILLAGE_PLAINS) // TODO: own tag
+                        .dimensions(Level.OVERWORLD)
                         .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
                 .popStructure()
-                .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.TreeHouse).allowedNearSpawn(true).build(DEStructures.TREE_HOUSE))
                 .build();
 
-        Function<Structure.StructureSettings, DESimpleStructure> undeadTower = (settings)-> new DESimpleStructure(settings, pieceBuilder().weight(3).add("tower_of_the_undead/small").weight(2).add("tower_of_the_undead/big").build(), TOWER_OF_THE_UNDEAD::getType);
-        TOWER_OF_THE_UNDEAD = StructureRegistrar.builder(location("tower_of_the_undead"), ()-> ()-> codecOf(undeadTower))
+        TREE_HOUSE = StructureRegistrar.builder(location("tree_house"), ()-> ()-> DESimpleStructure.CODEC_TREE_HOUSE)
+                .placement(()-> gridPlacement(29, 40).allowedNearSpawn(true).build(DEStructures.TREE_HOUSE))
                 .addPiece(()-> DESimpleStructure.Piece::new)
-                .pushStructure(undeadTower)
-                        .config(DEConfig.COMMON.TowerOfTheUndead::getStructure)
+                .pushStructure(DESimpleStructure::TreeHouse)
+                        .biomes(BiomeTags.IS_JUNGLE)
+                        .dimensions(Level.OVERWORLD)
                         .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
                 .popStructure()
-                .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.TowerOfTheUndead).allowedNearSpawn(true).build(DEStructures.TOWER_OF_THE_UNDEAD))
                 .build();
 
-        Function<Structure.StructureSettings, DESimpleStructure> watchTower = (settings)-> new DESimpleStructure(settings, pieceBuilder().add("watch_tower").build(), WATCH_TOWER::getType);
-        WATCH_TOWER = StructureRegistrar.builder(location("watch_tower"), ()-> ()-> codecOf(watchTower))
+        WATCH_TOWER = StructureRegistrar.builder(location("watch_tower"), ()-> ()-> DESimpleStructure.CODEC_WATCH_TOWER)
                 .addPiece(()-> DESimpleStructure.Piece::new)
-                .pushStructure(watchTower)
-                        .config(DEConfig.COMMON.WatchTower::getStructure)
+                .pushStructure(DESimpleStructure::WatchTower)
+                        .biomes(BiomeTags.HAS_VILLAGE_PLAINS)
+                        .dimensions(Level.OVERWORLD)
                         .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
                 .popStructure()
-                .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.WatchTower).allowedNearSpawn(true).build(DEStructures.WATCH_TOWER))
+                .placement(()-> gridPlacement(33, 45).allowedNearSpawn(true).build(DEStructures.WATCH_TOWER))
                 .build();
 
-        Function<Structure.StructureSettings, DESimpleStructure> witchTower = (settings)-> new DESimpleStructure(settings, pieceBuilder().weight(3).add("witch_tower/normal").weight(2).add("witch_tower/big").build(), WITCH_TOWER::getType);
-        WITCH_TOWER = StructureRegistrar.builder(location("witch_tower"), ()-> ()-> codecOf(witchTower))
+        WITCH_TOWER = StructureRegistrar.builder(location("witch_tower"), ()-> ()-> DESimpleStructure.CODEC_WITCH_TOWER)
+                .placement(()-> gridPlacement(29, 45).allowedNearSpawn(true).build(DEStructures.WITCH_TOWER))
                 .addPiece(()-> DESimpleStructure.Piece::new)
-                .pushStructure(witchTower)
-                        .config(DEConfig.COMMON.WitchTower::getStructure)
+                .pushStructure(DESimpleStructure::WitchTower)
+                        .biomes(BiomeTags.IS_TAIGA)
+                        .dimensions(Level.OVERWORLD)
                         .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
                 .popStructure()
-                .placement(()-> GridStructurePlacement.builder().config(()-> DEConfig.COMMON.WitchTower).allowedNearSpawn(true).build(DEStructures.WITCH_TOWER))
                 .build();
     }
 
@@ -346,8 +345,8 @@ public class DEStructures {
                 STABLES,
                 SUNKEN_SHRINE,
                 TALL_WITCH_HUT,
-                TREE_HOUSE,
                 TOWER_OF_THE_UNDEAD,
+                TREE_HOUSE,
                 WATCH_TOWER,
                 WITCH_TOWER
         };

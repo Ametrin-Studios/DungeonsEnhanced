@@ -55,6 +55,31 @@ public class DESimpleStructure extends DEBaseStructure {
         return new DESimpleStructure(settings, pieceBuilder().yOffset(-6).add("stables").build(), STABLES::getType);
     }
 
+    public static final Codec<DESimpleStructure> CODEC_TALL_WITCH_HUT = simpleCodec(DESimpleStructure::TallWitchHut);
+    public static DESimpleStructure TallWitchHut(StructureSettings settings){
+        return new DESimpleStructure(settings, pieceBuilder().yOffset(-3).add("tall_witch_hut").build(), TALL_WITCH_HUT::getType);
+    }
+
+    public static final Codec<DESimpleStructure> CODEC_TREE_HOUSE = simpleCodec(DESimpleStructure::TreeHouse);
+    public static DESimpleStructure TreeHouse(StructureSettings settings){
+        return new DESimpleStructure(settings, pieceBuilder().add("tree_house").build(), TREE_HOUSE::getType);
+    }
+
+    public static final Codec<DESimpleStructure> CODEC_TOWER_OF_THE_UNDEAD = simpleCodec(DESimpleStructure::TowerOfTheUndead);
+    public static DESimpleStructure TowerOfTheUndead(StructureSettings settings){
+        return new DESimpleStructure(settings, pieceBuilder().weight(3).add("tower_of_the_undead/small").weight(2).add("tower_of_the_undead/big").build(), TOWER_OF_THE_UNDEAD::getType);
+    }
+
+    public static final Codec<DESimpleStructure> CODEC_WATCH_TOWER = simpleCodec(DESimpleStructure::WatchTower);
+    public static DESimpleStructure WatchTower(StructureSettings settings){
+        return new DESimpleStructure(settings, pieceBuilder().add("watch_tower").build(), WATCH_TOWER::getType);
+    }
+
+    public static final Codec<DESimpleStructure> CODEC_WITCH_TOWER = simpleCodec(DESimpleStructure::WitchTower);
+    public static DESimpleStructure WitchTower(StructureSettings settings){
+        return new DESimpleStructure(settings, pieceBuilder().weight(3).add("witch_tower/normal").weight(2).add("witch_tower/big").build(), WITCH_TOWER::getType);
+    }
+
 
 
     public DESimpleStructure(StructureSettings settings, DEStructurePieces variants, Supplier<StructureType<?>> type){

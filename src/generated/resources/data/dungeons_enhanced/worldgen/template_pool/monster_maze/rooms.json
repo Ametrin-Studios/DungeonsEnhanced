@@ -1,0 +1,65 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:monster_maze/big_room",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:monster_maze/prison",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:monster_maze/storage",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:monster_maze/church",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:monster_maze/room1",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:monster_maze/brewery",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

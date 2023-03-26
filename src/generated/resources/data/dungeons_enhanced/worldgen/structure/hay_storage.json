@@ -1,0 +1,7 @@
+{
+  "type": "dungeons_enhanced:hay_storage",
+  "biomes": "#minecraft:is_savanna",
+  "spawn_overrides": {},
+  "step": "surface_structures",
+  "terrain_adaptation": "beard_thin"
+}

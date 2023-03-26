@@ -1,0 +1,12 @@
+{
+  "processors": [
+    {
+      "chance": 0.02,
+      "change_to": {
+        "Name": "minecraft:cobweb"
+      },
+      "condition": "minecraft:air",
+      "processor_type": "structure_gel:replace_block"
+    }
+  ]
+}

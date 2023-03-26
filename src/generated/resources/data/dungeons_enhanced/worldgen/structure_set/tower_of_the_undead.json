@@ -1,0 +1,17 @@
+{
+  "placement": {
+    "type": "structure_gel:grid_placement",
+    "allowed_near_spawn": true,
+    "frequency": 0.35,
+    "offset": 29,
+    "salt": 1455509953,
+    "spacing": 37,
+    "structure": "dungeons_enhanced:tower_of_the_undead"
+  },
+  "structures": [
+    {
+      "structure": "dungeons_enhanced:tower_of_the_undead",
+      "weight": 1
+    }
+  ]
+}

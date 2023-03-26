@@ -1,11 +1,11 @@
 package com.barion.dungeons_enhanced.world.structure.prefabs;
 
-import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEPieceAssembler;
 import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEStructurePieces;
 import com.barion.dungeons_enhanced.world.structure.processor.DEUnderwaterProcessor;
+import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
@@ -20,7 +20,17 @@ import javax.annotation.Nonnull;
 import java.util.Optional;
 import java.util.function.Supplier;
 
+import static com.barion.dungeons_enhanced.DEStructures.SUNKEN_SHRINE;
+import static com.barion.dungeons_enhanced.DEUtil.pieceBuilder;
+
 public class DEUnderwaterStructure extends DEBaseStructure {
+
+    public static final Codec<DEUnderwaterStructure> CODEC_SUNKEN_SHRINE = simpleCodec(DEUnderwaterStructure::SunkenShrine);
+
+    public static DEUnderwaterStructure SunkenShrine(StructureSettings settings){
+        return new DEUnderwaterStructure(settings, pieceBuilder().yOffset(-1).add("sunken_shrine").build(), SUNKEN_SHRINE::getType);
+    }
+
     public DEUnderwaterStructure(StructureSettings settings, DEStructurePieces variants, Supplier<StructureType<?>> type) {super(settings, variants, type);}
 
     @Override @Nonnull
@@ -39,10 +49,10 @@ public class DEUnderwaterStructure extends DEBaseStructure {
 
     public static class Piece extends DEBaseStructure.Piece {
         public Piece(StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation){
-            super(DEStructures.SUNKEN_SHRINE.getPieceType(), structureManager, templateName, pos, rotation);
+            super(SUNKEN_SHRINE.getPieceType(), structureManager, templateName, pos, rotation);
         }
         public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt){
-            super(DEStructures.SUNKEN_SHRINE.getPieceType(), serializationContext, nbt);
+            super(SUNKEN_SHRINE.getPieceType(), serializationContext, nbt);
         }
 
         @Override

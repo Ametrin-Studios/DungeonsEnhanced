@@ -1,0 +1,95 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:deep_crypt/tunnel",
+        "maintainWater": false,
+        "processors": "dungeons_enhanced:air_to_cobweb",
+        "projection": "rigid"
+      },
+      "weight": 6
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:deep_crypt/cross",
+        "maintainWater": false,
+        "processors": "dungeons_enhanced:air_to_cobweb",
+        "projection": "rigid"
+      },
+      "weight": 6
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:deep_crypt/large_tomb",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:deep_crypt/prison",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:deep_crypt/root",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:deep_crypt/big_tunnel",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:deep_crypt/tomb",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:deep_crypt/tombs",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:deep_crypt/treasure",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

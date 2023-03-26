@@ -1,0 +1,7 @@
+{
+  "type": "dungeons_enhanced:watch_tower",
+  "biomes": "#minecraft:has_structure/village_plains",
+  "spawn_overrides": {},
+  "step": "surface_structures",
+  "terrain_adaptation": "beard_thin"
+}

@@ -1,0 +1,115 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:pillager_camp/tent/sleep1",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:pillager_camp/tent/sleep2",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:pillager_camp/tent/kitchen",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "minecraft:pillager_outpost/feature_targets",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "minecraft:pillager_outpost/feature_logs",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "minecraft:pillager_outpost/feature_tent2",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "minecraft:pillager_outpost/feature_tent1",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:pillager_camp/decoration/campfire",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:pillager_camp/decoration/cage",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:pillager_camp/decoration/pillar",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:pillager_camp/decoration/bell",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

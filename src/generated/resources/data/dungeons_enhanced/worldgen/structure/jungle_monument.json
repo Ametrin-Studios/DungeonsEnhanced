@@ -1,0 +1,6 @@
+{
+  "type": "dungeons_enhanced:jungle_monument",
+  "biomes": "#minecraft:has_structure/jungle_temple",
+  "spawn_overrides": {},
+  "step": "surface_structures"
+}

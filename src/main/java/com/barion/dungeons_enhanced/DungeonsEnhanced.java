@@ -11,7 +11,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.RegisterEvent;
@@ -28,11 +27,12 @@ public class DungeonsEnhanced{
         final IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
         final IEventBus forgeBus = MinecraftForge.EVENT_BUS;
 
-        forgeBus.register(this);
-        modBus.register(DEStructures.class);
-
         Reflection.initialize(DEStructures.class);
-        RegistrarHandler.registerHandlers(MOD_ID, modBus, DEPools.HANDLER);
+
+        modBus.addListener(DungeonsEnhanced::register);
+        modBus.addListener(DungeonsEnhanced::gatherData);
+
+        RegistrarHandler.registerHandlers(MOD_ID, modBus, DEPools.HANDLER, DEProcessors.HANDLER);
     }
 
     public static void register(RegisterEvent event){
@@ -41,7 +41,6 @@ public class DungeonsEnhanced{
         });
     }
 
-    @SubscribeEvent
     public static void gatherData(GatherDataEvent event){
         var generator = event.getGenerator();
         var output = generator.getPackOutput();
@@ -53,7 +52,6 @@ public class DungeonsEnhanced{
         var lookup = registrarProvider.getLookupProvider();
 
         generator.addProvider(runServer, new DELootTableProvider(output));
-        generator.addProvider(runServer, new DEAdvancementProvider(output, existingFileHelper));
         generator.addProvider(runServer, new DEAdvancementProvider(output, existingFileHelper));
         generator.addProvider(runServer, new DEStructureTagsProvider(output, lookup, existingFileHelper));
     }

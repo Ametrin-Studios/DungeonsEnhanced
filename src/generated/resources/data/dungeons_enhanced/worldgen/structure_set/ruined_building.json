@@ -1,0 +1,17 @@
+{
+  "placement": {
+    "type": "structure_gel:grid_placement",
+    "allowed_near_spawn": true,
+    "frequency": 0.54,
+    "offset": 21,
+    "salt": 321095470,
+    "spacing": 27,
+    "structure": "dungeons_enhanced:ruined_building"
+  },
+  "structures": [
+    {
+      "structure": "dungeons_enhanced:ruined_building",
+      "weight": 1
+    }
+  ]
+}

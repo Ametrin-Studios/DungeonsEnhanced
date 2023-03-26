@@ -1,0 +1,6 @@
+{
+  "type": "dungeons_enhanced:flying_dutchman",
+  "biomes": "#minecraft:is_ocean",
+  "spawn_overrides": {},
+  "step": "surface_structures"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "dungeons_enhanced:miners_house",
+  "biomes": "#minecraft:has_structure/mineshaft_mesa",
+  "spawn_overrides": {},
+  "step": "surface_structures",
+  "terrain_adaptation": "beard_thin"
+}

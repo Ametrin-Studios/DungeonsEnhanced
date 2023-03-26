@@ -1,0 +1,105 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:large_dungeon/tunnel",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:large_dungeon/stairs",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:large_dungeon/cross",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:large_dungeon/room_small2",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:large_dungeon/room_small1",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:large_dungeon/room_big",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:large_dungeon/storage",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:large_dungeon/parkour",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:large_dungeon/room1",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:large_dungeon/room2",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}
