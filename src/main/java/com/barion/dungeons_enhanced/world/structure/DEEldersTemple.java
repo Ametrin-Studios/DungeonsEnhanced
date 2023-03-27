@@ -24,6 +24,7 @@ import java.util.Optional;
 import static com.barion.dungeons_enhanced.DEUtil.location;
 
 public class DEEldersTemple extends DEUnderwaterStructure {
+    public static final String ID = "elders_temple";
     public static final Codec<DEEldersTemple> CODEC = simpleCodec(DEEldersTemple::new);
     private static final ResourceLocation NE = location("elders_temple/ne");
     private static final ResourceLocation NW = location("elders_temple/nw");

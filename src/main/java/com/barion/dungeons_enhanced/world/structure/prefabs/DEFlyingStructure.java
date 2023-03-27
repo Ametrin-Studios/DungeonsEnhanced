@@ -21,7 +21,7 @@ import java.util.function.Supplier;
 import static com.barion.dungeons_enhanced.DEUtil.pieceBuilder;
 
 public class DEFlyingStructure extends DEBaseStructure{
-
+    public static final String ID_FLYING_DUTCHMAN = "flying_dutchman";
     public static final Codec<DEFlyingStructure> CODEC_FLYING_DUTCHMAN = simpleCodec(DEFlyingStructure::FlyingDutchman);
     public static DEFlyingStructure FlyingDutchman(StructureSettings settings){
         return new DEFlyingStructure(settings, pieceBuilder().add("flying_dutchman").build(), DEStructures.FLYING_DUTCHMAN::getType);

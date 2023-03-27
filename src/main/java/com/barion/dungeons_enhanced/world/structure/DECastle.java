@@ -17,6 +17,8 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
 public class DECastle {
+    public static final String ID = "castle";
+
     public static class Capability implements JigsawCapability.IJigsawCapability{
         public static final Capability Instance = new Capability();
         public static final Codec<Capability> CODEC = Codec.unit(Instance);

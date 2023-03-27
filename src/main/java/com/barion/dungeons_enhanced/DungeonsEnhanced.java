@@ -1,6 +1,7 @@
 package com.barion.dungeons_enhanced;
 
 import com.barion.dungeons_enhanced.data.provider.DEAdvancementProvider;
+import com.barion.dungeons_enhanced.data.provider.DEBiomeTagsProvider;
 import com.barion.dungeons_enhanced.data.provider.DELootTableProvider;
 import com.barion.dungeons_enhanced.data.provider.DEStructureTagsProvider;
 import com.barion.dungeons_enhanced.world.DEJigsawTypes;
@@ -51,6 +52,7 @@ public class DungeonsEnhanced{
         generator.addProvider(event.includeServer(), registrarProvider);
         var lookup = registrarProvider.getLookupProvider();
 
+        generator.addProvider(runServer, new DEBiomeTagsProvider(output, event.getLookupProvider(), existingFileHelper));
         generator.addProvider(runServer, new DELootTableProvider(output));
         generator.addProvider(runServer, new DEAdvancementProvider(output, existingFileHelper));
         generator.addProvider(runServer, new DEStructureTagsProvider(output, lookup, existingFileHelper));

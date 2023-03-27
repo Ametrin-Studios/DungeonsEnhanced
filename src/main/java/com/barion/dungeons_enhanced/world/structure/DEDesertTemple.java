@@ -4,7 +4,7 @@ import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structure.prefabs.DEBaseStructure;
-import com.barion.dungeons_enhanced.world.structure.prefabs.DESimpleStructure;
+import com.barion.dungeons_enhanced.world.structure.prefabs.DEGroundStructure;
 import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEPieceAssembler;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
@@ -19,7 +19,8 @@ import java.util.Optional;
 
 import static com.barion.dungeons_enhanced.DEUtil.location;
 
-public class DEDesertTemple extends DESimpleStructure {
+public class DEDesertTemple extends DEGroundStructure {
+    public static final String ID = "desert_temple";
     public static final Codec<DEDesertTemple> CODEC = simpleCodec(DEDesertTemple::new);
     private static final ResourceLocation BOTTOM = location("desert_temple/down");
     public DEDesertTemple(StructureSettings structureSettings) {super(structureSettings, DEUtil.pieceBuilder().yOffset(-6).add("desert_temple/main").build(), DEStructures.DESERT_TEMPLE::getType);}

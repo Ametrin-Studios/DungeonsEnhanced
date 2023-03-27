@@ -20,6 +20,7 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
 public class DEDruidCircle {
+    public static final String ID = "druid_circle";
 
     public static class Capability implements JigsawCapability.IJigsawCapability{
         public static final Capability INSTANCE = new Capability();

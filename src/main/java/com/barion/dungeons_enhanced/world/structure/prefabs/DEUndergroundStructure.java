@@ -21,6 +21,7 @@ import java.util.function.Supplier;
 import static com.barion.dungeons_enhanced.DEUtil.pieceBuilder;
 
 public class DEUndergroundStructure extends DEBaseStructure{
+    public static final String ID_DUNGEON_VARIANT = "dungeon_variant";
     public static final Codec<DEUndergroundStructure> CODEC_DUNGEON_VARIANT = simpleCodec(DEUndergroundStructure::DungeonVariant);
     public static DEUndergroundStructure DungeonVariant(StructureSettings settings){
         return new DEUndergroundStructure(settings, pieceBuilder().add("dungeon_variant/zombie").add("dungeon_variant/skeleton").add("dungeon_variant/spider").build(), DEStructures.DUNGEON_VARIANT::getType);

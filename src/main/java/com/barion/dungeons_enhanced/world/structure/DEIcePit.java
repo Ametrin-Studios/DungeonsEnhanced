@@ -2,7 +2,7 @@ package com.barion.dungeons_enhanced.world.structure;
 
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DEUtil;
-import com.barion.dungeons_enhanced.world.structure.prefabs.DESimpleStructure;
+import com.barion.dungeons_enhanced.world.structure.prefabs.DEGroundStructure;
 import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEPieceAssembler;
 import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEStructurePieces;
 import com.mojang.serialization.Codec;
@@ -16,7 +16,8 @@ import java.util.Optional;
 
 import static com.barion.dungeons_enhanced.DEUtil.location;
 
-public class DEIcePit extends DESimpleStructure {
+public class DEIcePit extends DEGroundStructure {
+    public static final String ID = "ice_pit";
     public static final Codec<DEIcePit> CODEC = simpleCodec(DEIcePit::new);
     private static final ResourceLocation ENTRANCE = location("ice_pit/top");
     public DEIcePit(StructureSettings settings) {super(settings, DEUtil.pieceBuilder().yOffset(-25).add("ice_pit/var1").add("ice_pit/var2").add("ice_pit/var3").build(), DEStructures.ICE_PIT::getType);}

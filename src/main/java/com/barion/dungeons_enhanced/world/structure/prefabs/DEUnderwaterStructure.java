@@ -24,9 +24,8 @@ import static com.barion.dungeons_enhanced.DEStructures.SUNKEN_SHRINE;
 import static com.barion.dungeons_enhanced.DEUtil.pieceBuilder;
 
 public class DEUnderwaterStructure extends DEBaseStructure {
-
+    public static final String ID_SUNKEN_SHRINE = "sunken_shrine";
     public static final Codec<DEUnderwaterStructure> CODEC_SUNKEN_SHRINE = simpleCodec(DEUnderwaterStructure::SunkenShrine);
-
     public static DEUnderwaterStructure SunkenShrine(StructureSettings settings){
         return new DEUnderwaterStructure(settings, pieceBuilder().yOffset(-1).add("sunken_shrine").build(), SUNKEN_SHRINE::getType);
     }

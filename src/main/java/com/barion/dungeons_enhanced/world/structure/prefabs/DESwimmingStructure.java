@@ -21,6 +21,7 @@ import java.util.function.Supplier;
 import static com.barion.dungeons_enhanced.DEUtil.pieceBuilder;
 
 public class DESwimmingStructure extends DEBaseStructure {
+    public static final String ID_FISHING_SHIP = "fishing_ship";
     public static final Codec<DESwimmingStructure> CODEC_FISHING_SHIP = simpleCodec(DESwimmingStructure::FishingShip);
     public static DESwimmingStructure FishingShip(StructureSettings settings){
         return new DESwimmingStructure(settings, pieceBuilder().yOffset(-3).add("fishing_ship").build(), DEStructures.FISHING_SHIP::getType);

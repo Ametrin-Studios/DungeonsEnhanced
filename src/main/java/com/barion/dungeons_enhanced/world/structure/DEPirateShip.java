@@ -14,6 +14,7 @@ import java.util.Optional;
 import static com.barion.dungeons_enhanced.DEUtil.location;
 
 public class DEPirateShip extends DESwimmingStructure {
+    public static final String ID = "pirate_ship";
     public static final Codec<DEPirateShip> CODEC = simpleCodec(DEPirateShip::new);
     private static final ResourceLocation BACK = location("pirate_ship/back");
     public DEPirateShip(StructureSettings settings) {super(settings, DEUtil.pieceBuilder().yOffset(-3).add("pirate_ship/front").build(), DEStructures.PIRATE_SHIP::getType);}

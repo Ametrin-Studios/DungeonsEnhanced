@@ -17,13 +17,7 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
 public class DELargeDungeon{
-    /*private static boolean checkLocation(PieceGeneratorSupplier.Context<NoneFeatureConfiguration> context){
-        if(context.validBiomeOnTop(Heightmap.Types.WORLD_SURFACE_WG)){
-            return DETerrainAnalyzer.isFlatEnough(context.chunkPos(), context.chunkGenerator(), new DETerrainAnalyzer.Settings(1, 2, 2), context.heightAccessor(), context.randomState());
-        }
-
-        return false;
-    }*/
+    public static final String ID = "large_dungeon";
 
     public static class Capability implements JigsawCapability.IJigsawCapability{
         public static final Capability INSTANCE = new Capability();
