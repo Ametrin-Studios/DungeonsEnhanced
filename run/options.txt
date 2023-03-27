@@ -1,5 +1,6 @@
-version:3120
+version:3337
 autoJump:false
+operatorItemsTab:true
 autoSuggestions:true
 chatColors:true
 chatLinks:true
@@ -12,7 +13,7 @@ invertYMouse:false
 realmsNotifications:false
 reducedDebugInfo:false
 showSubtitles:false
-directionalAudio:false
+directionalAudio:true
 touchscreen:false
 fullscreen:false
 bobView:false
@@ -25,6 +26,10 @@ fov:0.0
 screenEffectScale:1.0
 fovEffectScale:1.0
 darknessEffectScale:1.0
+glintSpeed:0.5
+glintStrength:0.75
+damageTiltStrength:1.0
+highContrast:false
 gamma:1.0
 renderDistance:12
 simulationDistance:8
@@ -33,7 +38,7 @@ guiScale:3
 particles:0
 maxFps:260
 graphicsMode:1
-ao:2
+ao:true
 prioritizeChunkUpdates:0
 biomeBlendRadius:3
 renderClouds:"false"
@@ -52,12 +57,12 @@ advancedItemTooltips:true
 pauseOnLostFocus:true
 overrideWidth:0
 overrideHeight:0
-heldItemTooltips:true
 chatHeightFocused:1.0
 chatDelay:0.0
 chatHeightUnfocused:0.44366195797920227
 chatScale:0.8685445785522461
 chatWidth:1.0
+notificationDisplayTime:1.0
 mipmapLevels:4
 useNativeTransport:true
 mainHand:"right"
@@ -75,8 +80,10 @@ hideBundleTutorial:false
 syncChunkWrites:true
 showAutosaveIndicator:true
 allowServerListing:false
-chatPreview:1
 onlyShowSecureChat:false
+panoramaScrollSpeed:1.0
+telemetryOptInExtra:false
+onboardAccessibility:false
 key_key.attack:key.mouse.left
 key_key.use:key.mouse.right
 key_key.forward:key.keyboard.w
@@ -113,6 +120,7 @@ key_key.hotbar.8:key.keyboard.8
 key_key.hotbar.9:key.keyboard.9
 key_info.structure_gel.building_tool.undo:key.keyboard.z:CONTROL
 key_info.structure_gel.building_tool.redo:key.keyboard.y:CONTROL
+key_key.structure_gel.open_building_tool_gui:key.keyboard.r
 soundCategory_master:1.0
 soundCategory_music:0.0
 soundCategory_record:0.5105634

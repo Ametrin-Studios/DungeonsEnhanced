@@ -3,7 +3,7 @@ package com.barion.dungeons_enhanced.world.structure.prefabs;
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEPieceAssembler;
-import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEStructurePieces;
+import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEStructureTemplates;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -27,7 +27,7 @@ public class DEUndergroundStructure extends DEBaseStructure{
         return new DEUndergroundStructure(settings, pieceBuilder().add("dungeon_variant/zombie").add("dungeon_variant/skeleton").add("dungeon_variant/spider").build(), DEStructures.DUNGEON_VARIANT::getType);
     }
 
-    protected DEUndergroundStructure(StructureSettings settings, DEStructurePieces variants, Supplier<StructureType<?>> type) {super(settings, variants, type);}
+    protected DEUndergroundStructure(StructureSettings settings, DEStructureTemplates variants, Supplier<StructureType<?>> type) {super(settings, variants, type);}
 
     @Override @Nonnull
     public Optional<GenerationStub> findGenerationPoint(@Nonnull GenerationContext context) {
@@ -39,10 +39,10 @@ public class DEUndergroundStructure extends DEBaseStructure{
         int maxY = rawPos.getY() - 24;
         int y = maxY;
         if (maxY > minY) {y = minY + context.random().nextInt(maxY - minY);}
-        DEStructurePieces.Piece piece = variants.getRandomPiece(context.random());
-        final BlockPos pos = rawPos.atY(y).above(piece.yOffset);
+        DEStructureTemplates.Template template = Templates.getRandom(context.random());
+        final BlockPos pos = rawPos.atY(y).above(template.yOffset);
 
-        return at(pos, (builder)-> generatePieces(builder, pos, piece, Rotation.getRandom(context.random()), context, DEUndergroundStructure::assemble));
+        return at(pos, (builder)-> generatePieces(builder, pos, template, Rotation.getRandom(context.random()), context, DEUndergroundStructure::assemble));
     }
 
     protected static void assemble(DEPieceAssembler.Context context) {

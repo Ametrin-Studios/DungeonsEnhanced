@@ -1,7 +1,7 @@
 package com.barion.dungeons_enhanced.world.structure.prefabs;
 
 import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEPieceAssembler;
-import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEStructurePieces;
+import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEStructureTemplates;
 import com.legacy.structure_gel.api.registry.registrar.Registrar;
 import com.legacy.structure_gel.api.structure.GelTemplateStructurePiece;
 import com.legacy.structure_gel.api.structure.processor.RemoveGelStructureProcessor;
@@ -29,12 +29,12 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public abstract class DEBaseStructure extends Structure{
-    protected final DEStructurePieces variants;
-    protected final Supplier<StructureType<?>> type;
-    public DEBaseStructure(StructureSettings settings, DEStructurePieces variants, Supplier<StructureType<?>> type){
+    protected final DEStructureTemplates Templates;
+    protected final Supplier<StructureType<?>> TypeSupplier;
+    public DEBaseStructure(StructureSettings settings, DEStructureTemplates templates, Supplier<StructureType<?>> type){
         super(settings);
-        this.variants = variants;
-        this.type = type;
+        Templates = templates;
+        TypeSupplier = type;
     }
 
     protected static Optional<Structure.GenerationStub> at(BlockPos pos, Consumer<StructurePiecesBuilder> piecesBuilder){
@@ -42,10 +42,10 @@ public abstract class DEBaseStructure extends Structure{
     }
 
     @Override @Nonnull
-    public StructureType<?> type() {return type.get();}
+    public StructureType<?> type() {return TypeSupplier.get();}
 
-    protected static void generatePieces(StructurePiecesBuilder piecesBuilder, BlockPos pos, DEStructurePieces.Piece piece, Rotation rotation, GenerationContext context, DEPieceAssembler assembler) {
-        assembler.assemble(new DEPieceAssembler.Context(context.structureTemplateManager(), piece.Resource, pos, rotation, piecesBuilder));
+    protected static void generatePieces(StructurePiecesBuilder piecesBuilder, BlockPos pos, DEStructureTemplates.Template template, Rotation rotation, GenerationContext context, DEPieceAssembler assembler) {
+        assembler.assemble(new DEPieceAssembler.Context(context.structureTemplateManager(), template.Resource, pos, rotation, piecesBuilder));
     }
 
     public static class Piece extends GelTemplateStructurePiece{

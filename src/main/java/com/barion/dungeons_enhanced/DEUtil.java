@@ -1,6 +1,6 @@
 package com.barion.dungeons_enhanced;
 
-import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEStructurePieces;
+import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEStructureTemplates;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ChunkPos;
@@ -22,5 +22,5 @@ public class DEUtil{
         return pos.atY(chunkGenerator.getBaseHeight(pos.getX(), pos.getZ(), heightmapType, heightAccessor, randomState));
     }
 
-    public static DEStructurePieces.Builder pieceBuilder() {return new DEStructurePieces.Builder();}
+    public static DEStructureTemplates.Builder pieceBuilder() {return new DEStructureTemplates.Builder();}
 }

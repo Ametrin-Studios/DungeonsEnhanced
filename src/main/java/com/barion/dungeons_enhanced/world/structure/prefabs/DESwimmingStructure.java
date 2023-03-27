@@ -3,7 +3,7 @@ package com.barion.dungeons_enhanced.world.structure.prefabs;
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEPieceAssembler;
-import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEStructurePieces;
+import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEStructureTemplates;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -27,7 +27,7 @@ public class DESwimmingStructure extends DEBaseStructure {
         return new DESwimmingStructure(settings, pieceBuilder().yOffset(-3).add("fishing_ship").build(), DEStructures.FISHING_SHIP::getType);
     }
 
-    protected DESwimmingStructure(StructureSettings settings, DEStructurePieces variants, Supplier<StructureType<?>> type){
+    protected DESwimmingStructure(StructureSettings settings, DEStructureTemplates variants, Supplier<StructureType<?>> type){
         super(settings, variants, type);
     }
 
@@ -37,10 +37,10 @@ public class DESwimmingStructure extends DEBaseStructure {
 
     @Override @Nonnull
     public Optional<GenerationStub> findGenerationPoint(@Nonnull GenerationContext context) {
-        DEStructurePieces.Piece piece = variants.getRandomPiece(context.random());
-        BlockPos pos = getGenPos(context).above(piece.yOffset);
+        DEStructureTemplates.Template template = Templates.getRandom(context.random());
+        BlockPos pos = getGenPos(context).above(template.yOffset);
 
-        return at(pos, (builder) -> generatePieces(builder, pos, piece, Rotation.getRandom(context.random()), context, DESwimmingStructure::assemble));
+        return at(pos, (builder) -> generatePieces(builder, pos, template, Rotation.getRandom(context.random()), context, DESwimmingStructure::assemble));
     }
 
     protected BlockPos getGenPos(GenerationContext context){

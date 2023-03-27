@@ -3,7 +3,7 @@ package com.barion.dungeons_enhanced.world.structure.prefabs;
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEPieceAssembler;
-import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEStructurePieces;
+import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEStructureTemplates;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -27,7 +27,7 @@ public class DEFlyingStructure extends DEBaseStructure{
         return new DEFlyingStructure(settings, pieceBuilder().add("flying_dutchman").build(), DEStructures.FLYING_DUTCHMAN::getType);
     }
 
-    protected DEFlyingStructure(StructureSettings settings, DEStructurePieces variants, Supplier<StructureType<?>> type) {
+    protected DEFlyingStructure(StructureSettings settings, DEStructureTemplates variants, Supplier<StructureType<?>> type) {
         super(settings, variants, type);
     }
 
@@ -47,7 +47,7 @@ public class DEFlyingStructure extends DEBaseStructure{
         if (maxY > minY) {y = minY + context.random().nextInt(maxY - minY);}
         final BlockPos pos = rawPos.atY(y);
 
-        return at(pos, (builder)-> generatePieces(builder, pos, variants.getRandomPiece(context.random()), Rotation.getRandom(context.random()), context, DEFlyingStructure::assemble));
+        return at(pos, (builder)-> generatePieces(builder, pos, Templates.getRandom(context.random()), Rotation.getRandom(context.random()), context, DEFlyingStructure::assemble));
     }
 
     public static class Piece extends DEBaseStructure.Piece {

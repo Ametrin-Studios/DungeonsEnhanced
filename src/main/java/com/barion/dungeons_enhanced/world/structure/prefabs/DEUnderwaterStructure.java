@@ -3,7 +3,7 @@ package com.barion.dungeons_enhanced.world.structure.prefabs;
 import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEPieceAssembler;
-import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEStructurePieces;
+import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEStructureTemplates;
 import com.barion.dungeons_enhanced.world.structure.processor.DEUnderwaterProcessor;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
@@ -27,15 +27,15 @@ public class DEUnderwaterStructure extends DEBaseStructure {
     public static final String ID_SUNKEN_SHRINE = "sunken_shrine";
     public static final Codec<DEUnderwaterStructure> CODEC_SUNKEN_SHRINE = simpleCodec(DEUnderwaterStructure::SunkenShrine);
     public static DEUnderwaterStructure SunkenShrine(StructureSettings settings){
-        return new DEUnderwaterStructure(settings, pieceBuilder().yOffset(-1).add("sunken_shrine").build(), SUNKEN_SHRINE::getType);
+        return new DEUnderwaterStructure(settings, pieceBuilder().yOffset(-1).add("sunken_shrine/big").weight(3).add("sunken_shrine/small").build(), SUNKEN_SHRINE::getType);
     }
 
-    public DEUnderwaterStructure(StructureSettings settings, DEStructurePieces variants, Supplier<StructureType<?>> type) {super(settings, variants, type);}
+    public DEUnderwaterStructure(StructureSettings settings, DEStructureTemplates variants, Supplier<StructureType<?>> type) {super(settings, variants, type);}
 
     @Override @Nonnull
     public Optional<GenerationStub> findGenerationPoint(@Nonnull GenerationContext context) {
-        final DEStructurePieces.Piece piece = variants.getRandomPiece(context.random());
-        final BlockPos pos = DEUtil.ChunkPosToBlockPosFromHeightMap(context.chunkPos(), context.chunkGenerator(), Heightmap.Types.OCEAN_FLOOR_WG, context.heightAccessor(), context.randomState()).above(piece.yOffset);
+        final var piece = Templates.getRandom(context.random());
+        final var pos = DEUtil.ChunkPosToBlockPosFromHeightMap(context.chunkPos(), context.chunkGenerator(), Heightmap.Types.OCEAN_FLOOR_WG, context.heightAccessor(), context.randomState()).above(piece.yOffset);
 
         if(!DETerrainAnalyzer.isUnderwater(pos, context.chunkGenerator(), 16, context.heightAccessor(), context.randomState())) {return Optional.empty();}
 

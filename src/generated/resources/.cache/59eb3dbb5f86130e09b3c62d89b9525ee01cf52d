@@ -1,4 +1,4 @@
-// 1.19.4	2023-03-26T11:04:40.1686442	Loot Tables
+// 1.19.4	2023-03-27T20:45:10.1534941	Loot Tables
 b298edd9d51e662a67963f2e2ad382c09a1dde15 data/dungeons_enhanced/loot_tables/chests/castle/armory.json
 84d79af734d23944bfaef3145ad3151634d6e83a data/dungeons_enhanced/loot_tables/chests/castle/bedroom.json
 aedf0d8a5e845e85eda28962e659c7442d6cdf3c data/dungeons_enhanced/loot_tables/chests/castle/cellar.json
@@ -16,6 +16,7 @@ cb8f0577c1edf521f25f7a4d24a8ce1cc54b3660 data/dungeons_enhanced/loot_tables/ches
 761ce65e759ddc9a08615495dc8532c0741e9df6 data/dungeons_enhanced/loot_tables/chests/fishing_ship.json
 e5b59b055f664dc1691350bb8608258afedfe147 data/dungeons_enhanced/loot_tables/chests/flying_dutchman.json
 0172a9f4d0106dfd757d44e020e28668d1609bb3 data/dungeons_enhanced/loot_tables/chests/large_dungeon.json
+a1a102355c02bb003e8d74c3a0c9c3baa3732af6 data/dungeons_enhanced/loot_tables/chests/miners_house.json
 f6b92f312fca91468c98500d2990b17a78bf2111 data/dungeons_enhanced/loot_tables/chests/monster_maze/brewery.json
 90bcfd63183c4e56b8a64481e0843b65c829daab data/dungeons_enhanced/loot_tables/chests/monster_maze/church.json
 e7557fe5b56b403d1925b7181f17196bdae86035 data/dungeons_enhanced/loot_tables/chests/monster_maze/prison.json

@@ -5,9 +5,11 @@ import com.barion.dungeons_enhanced.data.provider.DEBiomeTagsProvider;
 import com.barion.dungeons_enhanced.data.provider.DELootTableProvider;
 import com.barion.dungeons_enhanced.data.provider.DEStructureTagsProvider;
 import com.barion.dungeons_enhanced.world.DEJigsawTypes;
+import com.barion.dungeons_enhanced.world.DELootTables;
 import com.barion.dungeons_enhanced.world.DEPools;
 import com.barion.dungeons_enhanced.world.structure.processor.DEProcessors;
 import com.google.common.reflect.Reflection;
+import com.legacy.structure_gel.api.events.RegisterLootTableAliasEvent;
 import com.legacy.structure_gel.api.registry.registrar.RegistrarHandler;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraftforge.common.MinecraftForge;
@@ -18,6 +20,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.RegisterEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import static com.barion.dungeons_enhanced.DEUtil.location;
 
 @Mod(DungeonsEnhanced.MOD_ID)
 public class DungeonsEnhanced{
@@ -32,6 +36,7 @@ public class DungeonsEnhanced{
         modBus.addListener(DungeonsEnhanced::register);
         modBus.addListener(DungeonsEnhanced::gatherData);
         modBus.addListener(DEJigsawTypes::register);
+        modBus.addListener(DungeonsEnhanced::registerLootTableAlias);
 
         RegistrarHandler.registerHandlers(MOD_ID, modBus, DEPools.HANDLER, DEProcessors.HANDLER);
     }
@@ -56,5 +61,10 @@ public class DungeonsEnhanced{
         generator.addProvider(runServer, new DELootTableProvider(output));
         generator.addProvider(runServer, new DEAdvancementProvider(output, existingFileHelper));
         generator.addProvider(runServer, new DEStructureTagsProvider(output, lookup, existingFileHelper));
+    }
+
+    public static void registerLootTableAlias(final RegisterLootTableAliasEvent event){
+        event.register(location("sunken_shrine"), DELootTables.SUNKEN_SHRINE);
+        event.register(location("miners_house"), DELootTables.MINERS_HOUSE);
     }
 }

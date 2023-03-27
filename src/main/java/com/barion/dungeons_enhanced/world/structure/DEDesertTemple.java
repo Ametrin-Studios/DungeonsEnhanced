@@ -28,7 +28,7 @@ public class DEDesertTemple extends DEGroundStructure {
     @Override @Nonnull
     public Optional<GenerationStub> findGenerationPoint(@Nonnull GenerationContext context) {
         final var rawPos = getGenPos(context.chunkPos());
-        final var piece = variants.getRandomPiece(context.random());
+        final var piece = Templates.getRandom(context.random());
         final var size = context.structureTemplateManager().getOrCreate(piece.Resource).getSize();
 
         if(!DETerrainAnalyzer.areNearbyBiomesValid(context.biomeSource(), rawPos, context.chunkGenerator(), 20, context.validBiome(), context.randomState())) {return Optional.empty();}

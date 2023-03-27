@@ -21,7 +21,7 @@ public class DEPirateShip extends DESwimmingStructure {
 
     @Override @Nonnull
     public Optional<GenerationStub> findGenerationPoint(@Nonnull GenerationContext context) {
-        final var piece = variants.getRandomPiece(context.random());
+        final var piece = Templates.getRandom(context.random());
         final var pos = getGenPos(context).above(piece.yOffset);
 
         return at(pos, (builder) -> generatePieces(builder, pos, piece, Rotation.NONE, context, DEPirateShip::assembleShip));

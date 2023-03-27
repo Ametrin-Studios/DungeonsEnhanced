@@ -40,7 +40,7 @@ public class DEEldersTemple extends DEUnderwaterStructure {
         if(!DETerrainAnalyzer.isUnderwater(pos, context.chunkGenerator(), 32, context.heightAccessor(), context.randomState())) {return Optional.empty();}
         if(!DETerrainAnalyzer.areNearbyBiomesValid(context.biomeSource(), pos, context.chunkGenerator(), 30, context.validBiome(), context.randomState())) {return Optional.empty();}
 
-        return at(pos, (builder) -> generatePieces(builder, pos, variants.getRandomPiece(context.random()), Rotation.getRandom(context.random()), context, DEEldersTemple::assembleTemple));
+        return at(pos, (builder) -> generatePieces(builder, pos, Templates.getRandom(context.random()), Rotation.getRandom(context.random()), context, DEEldersTemple::assembleTemple));
     }
 
     public static void assembleTemple(DEPieceAssembler.Context context) {
