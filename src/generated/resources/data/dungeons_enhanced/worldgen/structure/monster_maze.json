@@ -1,6 +1,6 @@
 {
   "type": "structure_gel:extended_jigsaw",
-  "biomes": "minecraft:dark_forest",
+  "biomes": "#minecraft:is_overworld",
   "capability": {
     "type": "dungeons_enhanced:monster_maze"
   },

@@ -1,6 +1,6 @@
 {
   "type": "structure_gel:extended_jigsaw",
-  "biomes": "#minecraft:has_structure/jungle_temple",
+  "biomes": "#minecraft:is_overworld",
   "capability": {
     "type": "dungeons_enhanced:large_dungeon"
   },

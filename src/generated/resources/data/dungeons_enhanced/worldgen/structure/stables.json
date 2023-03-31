@@ -1,6 +1,6 @@
 {
   "type": "dungeons_enhanced:stables",
-  "biomes": "#minecraft:has_structure/village_plains",
+  "biomes": "#minecraft:is_overworld",
   "spawn_overrides": {},
   "step": "surface_structures"
 }

@@ -1,6 +1,6 @@
 {
   "type": "dungeons_enhanced:tall_witch_hut",
-  "biomes": "#minecraft:has_structure/swamp_hut",
+  "biomes": "#minecraft:is_overworld",
   "spawn_overrides": {},
   "step": "surface_structures"
 }

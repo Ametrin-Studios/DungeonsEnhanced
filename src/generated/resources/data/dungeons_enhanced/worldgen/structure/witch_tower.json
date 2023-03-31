@@ -1,6 +1,6 @@
 {
   "type": "dungeons_enhanced:witch_tower",
-  "biomes": "#minecraft:is_taiga",
+  "biomes": "#minecraft:is_overworld",
   "spawn_overrides": {},
   "step": "surface_structures",
   "terrain_adaptation": "beard_thin"

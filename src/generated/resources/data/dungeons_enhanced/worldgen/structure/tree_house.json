@@ -1,6 +1,6 @@
 {
   "type": "dungeons_enhanced:tree_house",
-  "biomes": "#minecraft:is_jungle",
+  "biomes": "#minecraft:is_overworld",
   "spawn_overrides": {},
   "step": "surface_structures",
   "terrain_adaptation": "beard_thin"

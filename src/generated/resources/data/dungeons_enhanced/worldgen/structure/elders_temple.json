@@ -1,6 +1,6 @@
 {
   "type": "dungeons_enhanced:elders_temple",
-  "biomes": "#minecraft:has_structure/ocean_monument",
+  "biomes": "#minecraft:is_overworld",
   "spawn_overrides": {
     "axolotls": {
       "bounding_box": "full",

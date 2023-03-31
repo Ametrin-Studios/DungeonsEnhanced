@@ -1,6 +1,6 @@
 {
   "type": "dungeons_enhanced:sunken_shrine",
-  "biomes": "#minecraft:is_ocean",
+  "biomes": "#minecraft:is_overworld",
   "spawn_overrides": {},
   "step": "surface_structures"
 }
