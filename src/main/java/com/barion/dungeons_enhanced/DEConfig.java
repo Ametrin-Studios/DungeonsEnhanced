@@ -1,7 +1,19 @@
 package com.barion.dungeons_enhanced;
 
+import com.barion.dungeons_enhanced.data.DETags;
+import com.legacy.structure_gel.api.config.StructureConfig;
+import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.BiomeTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biomes;
+import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.common.Tags;
 import org.apache.commons.lang3.tuple.Pair;
+
+import java.security.InvalidParameterException;
 
 public class DEConfig {
     public static final Common COMMON;
@@ -14,33 +26,61 @@ public class DEConfig {
 
     public static class Common{
         protected Common(ForgeConfigSpec.Builder builder) {
-            /*this.builder = builder;
-            Castle = config("castle", 56, 42, Level.OVERWORLD, "#forge:is_cold/overworld", "#forge:is_snowy", "!#forge:is_water", "!#forge:is_mountain", "!#minecraft:is_beach");
-            DeepCrypt = config("deep_crypt", 35, 75, Level.OVERWORLD, "#minecraft:is_overworld");
-            DesertTemple = config("desert_temple", 31, 60, Level.OVERWORLD, "minecraft:desert");
-            DesertTomb = config("desert_tomb", 25, 75, Level.OVERWORLD, "minecraft:desert");
-            DruidCircle = config("druid_circle", 39, 40, Level.OVERWORLD, "#minecraft:is_overworld", "!#forge:is_cold/overworld", "!#forge:is_hot/overworld", "!#minecraft:is_forest", "!#forge:is_water", "!#forge:is_mountain", "!#minecraft:is_beach", "!#forge:is_underground");
-            DungeonVariant = config("dungeon_variant", 16, 80, Level.OVERWORLD, "#minecraft:is_overworld");
-            EldersTemple = config("elders_temple", 29, 100, Level.OVERWORLD, "#minecraft:is_ocean");
-            FishingShip = config("fishing_ship", 48, 68, Level.OVERWORLD, "#minecraft:is_ocean", "!minecraft:frozen_ocean", "!minecraft:deep_frozen_ocean");
-            FlyingDutchman = config("flying_dutchman", 67, 40, Level.OVERWORLD, "#minecraft:is_ocean");
-            HayStorage = config("hay_storage", 24, 75, Level.OVERWORLD, "#minecraft:is_savanna");
-            IcePit = config("ice_pit", 35, 70, Level.OVERWORLD, "#forge:is_snowy", "!#forge:is_water", "!#forge:is_mountain", "!#minecraft:is_beach");
-            JungleMonument = config("jungle_monument", 41, 75, Level.OVERWORLD, "#minecraft:is_jungle");
-            LargeDungeon = config("large_dungeon", 39, 35, Level.OVERWORLD, "#minecraft:is_overworld", "!#forge:is_hot/overworld", "!#forge:is_water", "!#forge:is_mountain", "!#minecraft:is_beach", "!#forge:is_underground");
-            MinersHouse = config("miners_mouse", 24, 80, Level.OVERWORLD, "#minecraft:is_badlands");
-            MonsterMaze = config("monster_maze", 34, 50, Level.OVERWORLD, "minecraft:dark_forest");
-            MushroomHouse = config("mushroom_house", 15, 75, Level.OVERWORLD, "minecraft:mushroom_fields", "minecraft:mushroom_field_shore");
-            PillagerCamp = config("pillager_camp", 49, 35, Level.OVERWORLD, "#minecraft:is_overworld", "!#forge:is_cold/overworld", "!#forge:is_hot/overworld", "!#minecraft:is_forest", "!#forge:is_water", "!#forge:is_mountain", "!#minecraft:is_beach", "!#forge:is_underground");
-            PirateShip = config("pirate_ship", 65, 49, Level.OVERWORLD, "#minecraft:is_ocean", "!minecraft:frozen_ocean", "!minecraft:deep_frozen_ocean");
-            RuinedBuilding = config("ruined_building", 27, 45, Level.OVERWORLD, "#minecraft:is_overworld", "!#forge:is_hot/overworld", "!#forge:is_water", "!#forge:is_mountain", "!#forge:is_underground");
-            Stables = config("stables", 46, 32, Level.OVERWORLD, "#minecraft:is_overworld", "!#forge:is_cold/overworld", "!#forge:is_hot/overworld", "!#minecraft:is_forest", "!#forge:is_water", "!#forge:is_mountain", "!#minecraft:is_beach", "!#forge:is_underground");
-            SunkenShrine = config("sunken_shrine", 32, 55, Level.OVERWORLD, "#minecraft:is_ocean");
-            TallWitchHut = config("tall_witch_hut", 18, 60, Level.OVERWORLD, "#forge:is_swamp");
-            TowerOfTheUndead = config("tower_of_the_undead", 37, 35, Level.OVERWORLD, "#minecraft:is_overworld", "!#forge:is_sandy", "!#forge:is_water", "!#minecraft:is_beach", "!#forge:is_underground");
-            TreeHouse = config("tree_house", 29, 40, Level.OVERWORLD, "#minecraft:is_jungle");
-            WatchTower = config("watch_tower", 33, 45, Level.OVERWORLD, "#forge:is_cold/overworld", "!#forge:is_water");
-            WitchTower = config("witch_tower", 29, 45, Level.OVERWORLD, "#minecraft:is_taiga");*/
+            StructureBiomes(DEStructures.CASTLE).whitelist(Tags.Biomes.IS_COLD_OVERWORLD, Tags.Biomes.IS_SNOWY).blacklist(Tags.Biomes.IS_WATER, Tags.Biomes.IS_MOUNTAIN, DETags.Biomes.IS_SHORE).popBiomes().build(builder);
+            OverworldExceptStructure(builder, DEStructures.DEEP_CRYPT);
+            TagsStructure(builder, DEStructures.DESERT_TEMPLE, BiomeTags.HAS_DESERT_PYRAMID);
+            TagsStructure(builder, DEStructures.DESERT_TOMB, BiomeTags.HAS_DESERT_PYRAMID);
+            TagsStructure(builder, DEStructures.DRUID_CIRCLE, Tags.Biomes.IS_PLAINS);
+            OverworldExceptStructure(builder, DEStructures.DUNGEON_VARIANT);
+            TagsStructure(builder, DEStructures.ELDERS_TEMPLE, BiomeTags.IS_DEEP_OCEAN);
+            ShipStructure(builder, DEStructures.FISHING_SHIP);
+            TagsStructure(builder, DEStructures.FLYING_DUTCHMAN, Tags.Biomes.IS_WATER);
+            StructureBiomes(DEStructures.HAY_STORAGE).whitelist(BiomeTags.IS_SAVANNA).blacklist(DETags.Biomes.IS_BAD_FOR_STRUCTURE).popBiomes().build(builder);
+            StructureBiomes(DEStructures.ICE_PIT).whitelist(Tags.Biomes.IS_SNOWY).blacklist(Tags.Biomes.IS_WATER, Tags.Biomes.IS_MOUNTAIN, DETags.Biomes.IS_SHORE).popBiomes().build(builder);
+            TagsStructure(builder, DEStructures.JUNGLE_MONUMENT, BiomeTags.HAS_JUNGLE_TEMPLE);
+            StructureBiomes(DEStructures.LARGE_DUNGEON).whitelist(Tags.Biomes.IS_PLAINS, BiomeTags.IS_FOREST, BiomeTags.IS_TAIGA).blacklist(DETags.Biomes.IS_BAD_FOR_STRUCTURE, Tags.Biomes.IS_MOUNTAIN, Tags.Biomes.IS_WATER);
+            TagsStructure(builder, DEStructures.MINERS_HOUSE, BiomeTags.IS_BADLANDS);
+            BiomesStructure(builder, DEStructures.MONSTER_MAZE, Biomes.DARK_FOREST);
+            BiomesStructure(builder, DEStructures.MUSHROOM_HOUSE, Biomes.MUSHROOM_FIELDS);
+            TagsStructure(builder, DEStructures.PILLAGER_CAMP, BiomeTags.HAS_PILLAGER_OUTPOST);
+            ShipStructure(builder, DEStructures.PIRATE_SHIP);
+            StructureBiomes(DEStructures.RUINED_BUILDING).whitelist(Tags.Biomes.IS_PLAINS, BiomeTags.IS_FOREST, BiomeTags.IS_TAIGA).blacklist(DETags.Biomes.IS_BAD_FOR_STRUCTURE, Tags.Biomes.IS_MOUNTAIN, Tags.Biomes.IS_WATER);
+            StructureBiomes(DEStructures.STABLES).whitelist(Tags.Biomes.IS_PLAINS, BiomeTags.IS_FOREST).blacklist(DETags.Biomes.IS_BAD_FOR_STRUCTURE, Tags.Biomes.IS_MOUNTAIN, Tags.Biomes.IS_WATER);
+            TagsStructure(builder, DEStructures.SUNKEN_SHRINE, BiomeTags.IS_OCEAN);
+            TagsStructure(builder, DEStructures.TALL_WITCH_HUT, BiomeTags.HAS_SWAMP_HUT);
+            OverworldExceptStructure(builder, DEStructures.TOWER_OF_THE_UNDEAD, Tags.Biomes.IS_SANDY, Tags.Biomes.IS_WATER, DETags.Biomes.IS_BAD_FOR_STRUCTURE);
+            TagsStructure(builder, DEStructures.TREE_HOUSE, BiomeTags.IS_JUNGLE);
+            TagsNoWaterStructure(builder, DEStructures.WATCH_TOWER, Tags.Biomes.IS_COLD_OVERWORLD);
+            TagsStructure(builder, DEStructures.WITCH_TOWER, BiomeTags.IS_TAIGA);
+        }
+
+        @SafeVarargs
+        private static void TagsStructure(ForgeConfigSpec.Builder builder, StructureRegistrar<? extends Structure> structure, TagKey<Biome>... tagKeys){
+            StructureBiomes(structure).whitelist(tagKeys).popBiomes().build(builder);
+        }
+        @SafeVarargs
+        private static void TagsNoWaterStructure(ForgeConfigSpec.Builder builder, StructureRegistrar<? extends Structure> structure, TagKey<Biome>... tagKeys){
+            StructureBiomes(structure).whitelist(tagKeys).blacklist(Tags.Biomes.IS_WATER).popBiomes().build(builder);
+        }
+        @SafeVarargs
+        private static void OverworldExceptStructure(ForgeConfigSpec.Builder builder, StructureRegistrar<? extends Structure> structure, TagKey<Biome>... tagKeys){
+            StructureBiomes(structure).whitelist(BiomeTags.IS_OVERWORLD).blacklist(tagKeys).popBiomes().build(builder);
+        }
+        private static void ShipStructure(ForgeConfigSpec.Builder builder, StructureRegistrar<? extends Structure> structure){
+            OceanExceptStructure(builder, structure, Tags.Biomes.IS_SNOWY);
+        }
+        @SafeVarargs
+        private static void OceanExceptStructure(ForgeConfigSpec.Builder builder, StructureRegistrar<? extends Structure> structure, TagKey<Biome>... tagKeys){
+            StructureBiomes(structure).whitelist(BiomeTags.IS_OCEAN).blacklist(tagKeys).popBiomes().build(builder);
+        }
+        @SafeVarargs
+        private static void BiomesStructure(ForgeConfigSpec.Builder builder, StructureRegistrar<? extends Structure> structure, ResourceKey<Biome>... biomes){
+            StructureBiomes(structure).whitelist(biomes).popBiomes().build(builder);
+        }
+
+        private static StructureConfig.Builder.BiomeConfigBuilder StructureBiomes(StructureRegistrar<? extends Structure> structure){
+            if(structure.getStructure() == null) throw new InvalidParameterException("Need to be a single structure");
+            return StructureConfig.builder(structure.getStructure()).pushBiomes();
         }
     }
 }

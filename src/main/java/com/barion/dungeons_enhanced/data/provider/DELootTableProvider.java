@@ -7,7 +7,9 @@ import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.data.loot.packs.VanillaLootTableProvider;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.Potions;
@@ -16,6 +18,7 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
+import net.minecraft.world.level.storage.loot.entries.TagEntry;
 import net.minecraft.world.level.storage.loot.functions.*;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
@@ -195,6 +198,7 @@ public class DELootTableProvider extends LootTableProvider {
 
                 consumer.accept(location("castle/spring"), LootTable.lootTable()
                         .withPool(pool(number(11,22))
+//                                .add(tag(DETags.Items.CASTLE_TREASURE, 1, one()))
                                 .add(item(Items.DIAMOND, 1, one()))
                                 .add(item(Items.IRON_INGOT, 8, one()))
                                 .add(item(Items.IRON_NUGGET, 6, one()))
@@ -208,20 +212,24 @@ public class DELootTableProvider extends LootTableProvider {
                                 .add(item(Items.ENDER_PEARL, 2, one()))));
 
                 consumer.accept(location("castle/throne"), LootTable.lootTable()
-                        .withPool(pool(number(10,12))
-                                .add(item(Items.GOLD_NUGGET, 10, one()))
+                        .withPool(pool(number(9, 13))
+                                .add(item(Items.GOLD_NUGGET, 10, number(1, 4)))
                                 .add(item(Items.GOLD_INGOT, 15, one()))
                                 .add(item(Items.GOLD_BLOCK, 5, one()))
                                 .add(item(Items.DIAMOND, 2, one()))
                                 .add(item(Items.IRON_INGOT, 20, one()))
-                                .add(item(Items.IRON_NUGGET, 15, one())))
-                        .withPool(pool(number(0,2))
-                                .add(enchantedItem(Items.DIAMOND_SWORD, 5, number(0, 12), one()))
-                                .add(enchantedItem(Items.DIAMOND_AXE, 5, number(0, 12), one()))
-                                .add(enchantedItem(Items.DIAMOND_HELMET, 5, number(0, 10), one()))
-                                .add(enchantedItem(Items.DIAMOND_CHESTPLATE, 3, number(0, 10), one()))
-                                .add(enchantedItem(Items.DIAMOND_LEGGINGS, 3, number(0, 10), one()))
-                                .add(enchantedItem(Items.DIAMOND_BOOTS, 2, number(0, 10), one()))));} // Castle
+                                .add(item(Items.IRON_NUGGET, 15, number(2, 5))))
+                        .withPool(pool(number(0, 2))
+//                                .add(tag(DETags.Items.CASTLE_TREASURE, 2, one()))
+                                .add(enchantedItem(Items.DIAMOND_SWORD, 4, number(4, 12), one()))
+                                .add(enchantedItem(Items.DIAMOND_AXE, 4, number(4, 12), one()))
+                                .add(enchantedItem(Items.DIAMOND_HELMET, 4, number(4, 10), one()))
+                                .add(enchantedItem(Items.DIAMOND_CHESTPLATE, 3, number(3, 10), one()))
+                                .add(enchantedItem(Items.DIAMOND_LEGGINGS, 3, number(3, 10), one()))
+                                .add(enchantedItem(Items.DIAMOND_BOOTS, 4, number(3, 10), one()))
+                        )
+                );
+            } // Castle
             {consumer.accept(location("deep_crypt"), LootTable.lootTable()
                     .withPool(pool(number(8, 13))
                             .add(item(Items.DIAMOND, 2, one()))
@@ -770,6 +778,9 @@ public class DELootTableProvider extends LootTableProvider {
 
         protected static LootPoolEntryContainer.Builder<?> item(ItemLike item, int weight, NumberProvider amount){
             return LootItem.lootTableItem(item).setWeight(weight).apply(SetItemCountFunction.setCount(amount));
+        }
+        protected static LootPoolEntryContainer.Builder<?> tag(TagKey<Item> item, int weight, NumberProvider amount){
+            return TagEntry.expandTag(item).setWeight(weight).apply(SetItemCountFunction.setCount(amount));
         }
         protected static LootPoolEntryContainer.Builder<?> enchantedItem(ItemLike item, int weight, NumberProvider enchant, NumberProvider amount){
             return LootItem.lootTableItem(item).setWeight(weight).apply(SetItemCountFunction.setCount(amount)).apply(EnchantWithLevelsFunction.enchantWithLevels(enchant));

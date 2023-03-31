@@ -1,4 +1,4 @@
-// 1.19.4	2023-03-27T20:45:10.1534941	Loot Tables
+// 1.19.4	2023-03-31T17:03:48.36699	Loot Tables
 b298edd9d51e662a67963f2e2ad382c09a1dde15 data/dungeons_enhanced/loot_tables/chests/castle/armory.json
 84d79af734d23944bfaef3145ad3151634d6e83a data/dungeons_enhanced/loot_tables/chests/castle/bedroom.json
 aedf0d8a5e845e85eda28962e659c7442d6cdf3c data/dungeons_enhanced/loot_tables/chests/castle/cellar.json
@@ -8,7 +8,7 @@ a50da09c46532261d89e8623b112204e4a85e2b1 data/dungeons_enhanced/loot_tables/ches
 e14053ed94d0da00139dd8158ec55e6353fc63a6 data/dungeons_enhanced/loot_tables/chests/castle/prison.json
 b89460869ecf8de8449f6e43b83ec5828444023c data/dungeons_enhanced/loot_tables/chests/castle/quarters.json
 5c0ff0ecfc51090c5ef42162b1418753e45f9e35 data/dungeons_enhanced/loot_tables/chests/castle/spring.json
-d9f95950e46f5811a3f9ffb6a69aa7bcee32866f data/dungeons_enhanced/loot_tables/chests/castle/throne.json
+e83b97a68d9bc9682d1717d33805726988c555c9 data/dungeons_enhanced/loot_tables/chests/castle/throne.json
 3316af39f80afc0c60be437339d5757b5277acca data/dungeons_enhanced/loot_tables/chests/deep_crypt.json
 6be25074566b62fc91c1e9822f4bdc79e4fc15dc data/dungeons_enhanced/loot_tables/chests/desert_tomb.json
 cb8f0577c1edf521f25f7a4d24a8ce1cc54b3660 data/dungeons_enhanced/loot_tables/chests/elders_temple/elder_room.json

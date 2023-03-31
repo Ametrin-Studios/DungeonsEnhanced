@@ -1,7 +1,7 @@
 package com.barion.dungeons_enhanced.data.provider;
 
 import com.barion.dungeons_enhanced.DEStructures;
-import com.barion.dungeons_enhanced.DungeonsEnhanced;
+import com.barion.dungeons_enhanced.DEUtil;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
 import net.minecraft.Util;
 import net.minecraft.advancements.Advancement;
@@ -49,20 +49,17 @@ public class DEAdvancementProvider extends ForgeAdvancementProvider {
             Advancement InTheAir = enterStructure(advancement(Items.LANTERN, "in_the_air", FrameType.TASK, true, true, false), DEStructures.FLYING_DUTCHMAN).parent(root).save(consumer, location("in_the_air"));
             Advancement SunkenDepths = enterStructure(advancement(Items.NAUTILUS_SHELL, "sunken_deeps", FrameType.TASK, true, true, false), DEStructures.ELDERS_TEMPLE).parent(root).save(consumer, location("sunken_deeps"));
             Advancement SevenWorldWonders = enterAnyStructure(advancement(Items.SPYGLASS, "seven_world_wonders", FrameType.GOAL, true, true, false),
-                    new StructureRegistrar<?>[] {
-                            DEStructures.CASTLE,
-                            DEStructures.DEEP_CRYPT,
-                            DEStructures.DESERT_TEMPLE,
-                            DEStructures.ICE_PIT,
-                            DEStructures.JUNGLE_MONUMENT,
-                            DEStructures.MONSTER_MAZE,
-                            DEStructures.ELDERS_TEMPLE
-                    }
-            ).requirements(RequirementsStrategy.AND).parent(root).save(consumer, location("seven_world_wonders"));
+                    DEStructures.CASTLE,
+                    DEStructures.DEEP_CRYPT,
+                    DEStructures.DESERT_TEMPLE,
+                    DEStructures.ICE_PIT,
+                    DEStructures.JUNGLE_MONUMENT,
+                    DEStructures.MONSTER_MAZE,
+                    DEStructures.ELDERS_TEMPLE).requirements(RequirementsStrategy.AND).parent(root).save(consumer, location("seven_world_wonders"));
             Advancement AmbitiousExplorer = enterAnyStructure(advancement(Items.FILLED_MAP, "ambitious_explorer", FrameType.CHALLENGE, true, true, false), DEStructures.getAllStructureRegistrars()).requirements(RequirementsStrategy.AND).parent(SevenWorldWonders).save(consumer, location("ambitious_explorer"));
         }
 
-        private Advancement.Builder enterAnyStructure(Advancement.Builder builder, StructureRegistrar<?>[] structures){
+        private Advancement.Builder enterAnyStructure(Advancement.Builder builder, StructureRegistrar<?>... structures){
             for(StructureRegistrar<?> structure : structures){
                 builder = enterStructure(builder, structure);
             }
@@ -87,6 +84,6 @@ public class DEAdvancementProvider extends ForgeAdvancementProvider {
         }
 
         private Component translate(String key) {return Component.translatable("advancements.dungeons_enhanced." + key);}
-        private String location(String key) {return new ResourceLocation(DungeonsEnhanced.MOD_ID, key).toString();}
+        private String location(String key) {return DEUtil.location(key).toString();}
     }
 }
