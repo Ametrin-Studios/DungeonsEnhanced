@@ -11,7 +11,8 @@ We hope you have fun!
 If you want to help translating Dungeons Enhanced check out [OneSky](https://ametrin-studios-mods.oneskyapp.com/collaboration/project/189202)
 
 #### Translators
-[PExPE3](https://github.com/PExPE3)
-[Rad233](https://github.com/Rad233)
-[BardinTheDwarf](https://github.com/BardinTheDwarf)
-[Zeno1999](https://github.com/Zano1999)
+[PExPE3](https://github.com/PExPE3)<br>
+[Rad233](https://github.com/Rad233)<br>
+[BardinTheDwarf](https://github.com/BardinTheDwarf)<br>
+[Zeno1999](https://github.com/Zano1999)<br>
+If we forgot you just contact us! 
