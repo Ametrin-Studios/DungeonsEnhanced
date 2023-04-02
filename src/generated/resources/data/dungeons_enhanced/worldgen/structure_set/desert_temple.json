@@ -2,10 +2,10 @@
   "placement": {
     "type": "structure_gel:grid_placement",
     "allowed_near_spawn": false,
-    "frequency": 0.65,
-    "offset": 24,
+    "frequency": 0.78,
+    "offset": 20,
     "salt": 2136557383,
-    "spacing": 31,
+    "spacing": 26,
     "structure": "dungeons_enhanced:desert_temple"
   },
   "structures": [

@@ -2,10 +2,10 @@
   "placement": {
     "type": "structure_gel:grid_placement",
     "allowed_near_spawn": false,
-    "frequency": 0.51,
-    "offset": 52,
+    "frequency": 0.49,
+    "offset": 53,
     "salt": 1025563108,
-    "spacing": 65,
+    "spacing": 67,
     "structure": "dungeons_enhanced:pirate_ship"
   },
   "structures": [

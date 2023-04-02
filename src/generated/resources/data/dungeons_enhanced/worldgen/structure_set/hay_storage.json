@@ -2,10 +2,10 @@
   "placement": {
     "type": "structure_gel:grid_placement",
     "allowed_near_spawn": true,
-    "frequency": 0.75,
-    "offset": 19,
+    "frequency": 0.77,
+    "offset": 18,
     "salt": 392153438,
-    "spacing": 24,
+    "spacing": 23,
     "structure": "dungeons_enhanced:hay_storage"
   },
   "structures": [
