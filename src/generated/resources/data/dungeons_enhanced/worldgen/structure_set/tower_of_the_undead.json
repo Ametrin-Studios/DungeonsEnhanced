@@ -3,9 +3,9 @@
     "type": "structure_gel:grid_placement",
     "allowed_near_spawn": true,
     "frequency": 0.65,
-    "offset": 37,
+    "offset": 39,
     "salt": 1455509953,
-    "spacing": 47,
+    "spacing": 49,
     "structure": "dungeons_enhanced:tower_of_the_undead"
   },
   "structures": [

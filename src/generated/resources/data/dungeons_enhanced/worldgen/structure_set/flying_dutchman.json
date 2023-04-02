@@ -2,10 +2,10 @@
   "placement": {
     "type": "structure_gel:grid_placement",
     "allowed_near_spawn": false,
-    "frequency": 0.44,
-    "offset": 60,
+    "frequency": 0.63,
+    "offset": 107,
     "salt": 1464339740,
-    "spacing": 75,
+    "spacing": 134,
     "structure": "dungeons_enhanced:flying_dutchman"
   },
   "structures": [

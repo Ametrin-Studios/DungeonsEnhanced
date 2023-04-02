@@ -62,7 +62,7 @@ public class DEStructures {
 
     static {
         CASTLE = StructureRegistrar.jigsawBuilder(location(DECastle.ID))
-                .placement(()-> gridPlacement(65, 72).build(DEStructures.CASTLE))
+                .placement(()-> gridPlacement(69, 78).build(DEStructures.CASTLE))
                 .addPiece(()-> DECastle.Piece::new)
                 .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DECastle.Capability.Instance, DEPools.CASTLE, 1, ConstantHeight.ZERO).onSurface().build())
                         .dimensions(Level.OVERWORLD)
@@ -80,7 +80,7 @@ public class DEStructures {
                 .build();
 
         DESERT_TEMPLE = StructureRegistrar.builder(location(DEDesertTemple.ID), ()-> ()-> DEDesertTemple.CODEC)
-                .placement(()-> gridPlacement(26, 78).build(DEStructures.DESERT_TEMPLE))
+                .placement(()-> gridPlacement(35, 86).build(DEStructures.DESERT_TEMPLE))
                 .addPiece(()-> DEDesertTemple.Piece::new)
                 .pushStructure(DEDesertTemple::new)
                         .dimensions(Level.OVERWORLD)
@@ -88,7 +88,7 @@ public class DEStructures {
                 .build();
 
         DESERT_TOMB = StructureRegistrar.jigsawBuilder(location(DEDesertTomb.ID))
-                .placement(()-> gridPlacement(27, 75).allowedNearSpawn(true).build(DEStructures.DESERT_TOMB))
+                .placement(()-> gridPlacement(29, 65).allowedNearSpawn(true).build(DEStructures.DESERT_TOMB))
                 .addPiece(()-> DEDesertTomb.Piece::new)
                 .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DEDesertTomb.Capability.INSTANCE, DEPools.DESERT_TOMB, 5, ConstantHeight.ZERO).onSurface().build())
                         .dimensions(Level.OVERWORLD)
@@ -105,7 +105,7 @@ public class DEStructures {
                 .build();
 
         DUNGEON_VARIANT = StructureRegistrar.builder(location(DEUndergroundStructure.ID_DUNGEON_VARIANT), ()-> ()-> DEUndergroundStructure.CODEC_DUNGEON_VARIANT)
-                .placement(()-> gridPlacement(19, 76).allowedNearSpawn(true).build(DEStructures.DUNGEON_VARIANT))
+                .placement(()-> gridPlacement(19, 59).allowedNearSpawn(true).build(DEStructures.DUNGEON_VARIANT))
                 .addPiece(()-> DEUndergroundStructure.Piece::new)
                 .pushStructure(DEUndergroundStructure::DungeonVariant)
                         .dimensions(Level.OVERWORLD)
@@ -132,7 +132,7 @@ public class DEStructures {
                 .build();
 
         FLYING_DUTCHMAN = StructureRegistrar.builder(location(DEFlyingStructure.ID_FLYING_DUTCHMAN), ()-> ()-> DEFlyingStructure.CODEC_FLYING_DUTCHMAN)
-                .placement(()-> gridPlacement(75, 44).build(DEStructures.FLYING_DUTCHMAN))
+                .placement(()-> gridPlacement(134, 63).build(DEStructures.FLYING_DUTCHMAN))
                 .addPiece(()-> DEFlyingStructure.Piece::new)
                 .pushStructure(DEFlyingStructure::FlyingDutchman)
                         .dimensions(Level.OVERWORLD)
@@ -157,7 +157,7 @@ public class DEStructures {
                 .build();
 
         JUNGLE_MONUMENT = StructureRegistrar.builder(location(DEGroundStructure.ID_JUNGLE_MONUMENT), ()-> ()-> DEGroundStructure.CODEC_JUNGLE_MONUMENT)
-                .placement(()-> gridPlacement(41, 75).build(DEStructures.JUNGLE_MONUMENT))
+                .placement(()-> gridPlacement(46, 74).build(DEStructures.JUNGLE_MONUMENT))
                 .addPiece(()-> DEGroundStructure.Piece::new)
                 .pushStructure(DEGroundStructure::JungleMonument)
                         .dimensions(Level.OVERWORLD)
@@ -165,7 +165,7 @@ public class DEStructures {
                 .build();
 
         LARGE_DUNGEON = StructureRegistrar.jigsawBuilder(location(DELargeDungeon.ID))
-                .placement(()-> gridPlacement(56, 56).allowedNearSpawn(true).build(DEStructures.LARGE_DUNGEON))
+                .placement(()-> gridPlacement(59, 56).allowedNearSpawn(true).build(DEStructures.LARGE_DUNGEON))
                 .addPiece(()-> DELargeDungeon.Piece::new)
                 .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DELargeDungeon.Capability.INSTANCE, DEPools.LARGE_DUNGEON, 5, height(-16)).onSurface().build())
                         .dimensions(Level.OVERWORLD)
@@ -182,7 +182,7 @@ public class DEStructures {
                 .build();
 
         MONSTER_MAZE = StructureRegistrar.jigsawBuilder(location(DEMonsterMaze.ID))
-                .placement(()-> gridPlacement(32, 42).build(DEStructures.MONSTER_MAZE))
+                .placement(()-> gridPlacement(32, 52).build(DEStructures.MONSTER_MAZE))
                 .addPiece(()-> DEMonsterMaze.Piece::new)
                 .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DEMonsterMaze.Capability.INSTANCE, DEPools.MONSTER_MAZE, 12, height(-17)).onSurface().build())
                         .dimensions(Level.OVERWORLD)
@@ -228,7 +228,7 @@ public class DEStructures {
                 .build();
 
         STABLES = StructureRegistrar.builder(location(DEGroundStructure.ID_STABLES), ()-> ()-> DEGroundStructure.CODEC_STABLES)
-                .placement(()-> gridPlacement(48, 52).allowedNearSpawn(true).build(DEStructures.STABLES))
+                .placement(()-> gridPlacement(53, 52).allowedNearSpawn(true).build(DEStructures.STABLES))
                 .addPiece(()-> DEGroundStructure.Piece::new)
                 .pushStructure(DEGroundStructure::Stables)
                         .dimensions(Level.OVERWORLD)
@@ -244,7 +244,7 @@ public class DEStructures {
                 .build();
 
         TALL_WITCH_HUT = StructureRegistrar.builder(location(DEGroundStructure.ID_TALL_WITCH_HUT), ()-> ()-> DEGroundStructure.CODEC_TALL_WITCH_HUT)
-                .placement(()-> gridPlacement(19, 60).allowedNearSpawn(true).build(DEStructures.TALL_WITCH_HUT))
+                .placement(()-> gridPlacement(21, 61).allowedNearSpawn(true).build(DEStructures.TALL_WITCH_HUT))
                 .addPiece(()-> DEGroundStructure.Piece::new)
                 .pushStructure(DEGroundStructure::TallWitchHut)
                         .dimensions(Level.OVERWORLD)
@@ -253,7 +253,7 @@ public class DEStructures {
                 .build();
 
         TOWER_OF_THE_UNDEAD = StructureRegistrar.builder(location(DEGroundStructure.ID_TOWER_OF_THE_UNDEAD), ()-> ()-> DEGroundStructure.CODEC_TOWER_OF_THE_UNDEAD)
-                .placement(()-> gridPlacement(47, 65).allowedNearSpawn(true).build(DEStructures.TOWER_OF_THE_UNDEAD))
+                .placement(()-> gridPlacement(49, 65).allowedNearSpawn(true).build(DEStructures.TOWER_OF_THE_UNDEAD))
                 .addPiece(()-> DEGroundStructure.Piece::new)
                 .pushStructure(DEGroundStructure::TowerOfTheUndead)
                         .dimensions(Level.OVERWORLD)
@@ -271,7 +271,7 @@ public class DEStructures {
                 .build();
 
         WATCH_TOWER = StructureRegistrar.builder(location(DEGroundStructure.ID_WATCH_TOWER), ()-> ()-> DEGroundStructure.CODEC_WATCH_TOWER)
-                .placement(()-> gridPlacement(33, 45).allowedNearSpawn(true).build(DEStructures.WATCH_TOWER))
+                .placement(()-> gridPlacement(27, 45).allowedNearSpawn(true).build(DEStructures.WATCH_TOWER))
                 .addPiece(()-> DEGroundStructure.Piece::new)
                 .pushStructure(DEGroundStructure::WatchTower)
                         .dimensions(Level.OVERWORLD)

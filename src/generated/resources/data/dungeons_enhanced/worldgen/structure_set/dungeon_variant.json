@@ -2,7 +2,7 @@
   "placement": {
     "type": "structure_gel:grid_placement",
     "allowed_near_spawn": true,
-    "frequency": 0.76,
+    "frequency": 0.59,
     "offset": 15,
     "salt": 1158392702,
     "spacing": 19,
