@@ -6,7 +6,7 @@ import com.barion.dungeons_enhanced.data.provider.DELootTableProvider;
 import com.barion.dungeons_enhanced.data.provider.DEStructureTagsProvider;
 import com.barion.dungeons_enhanced.world.DEJigsawTypes;
 import com.barion.dungeons_enhanced.world.DELootTables;
-import com.barion.dungeons_enhanced.world.DEPools;
+import com.barion.dungeons_enhanced.world.DETemplatePools;
 import com.barion.dungeons_enhanced.world.structure.processor.DEProcessors;
 import com.google.common.reflect.Reflection;
 import com.legacy.structure_gel.api.events.RegisterLootTableAliasEvent;
@@ -34,14 +34,14 @@ public class DungeonsEnhanced{
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DEConfig.COMMON_SPEC);
         final IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
         final IEventBus forgeBus = MinecraftForge.EVENT_BUS;
-        Reflection.initialize(DEStructures.class, DEProcessors.class, DEPools.class);
+        Reflection.initialize(DEStructures.class, DEProcessors.class, DETemplatePools.class);
 
         modBus.addListener(DungeonsEnhanced::register);
         modBus.addListener(DungeonsEnhanced::gatherData);
         modBus.addListener(DEJigsawTypes::register);
         modBus.addListener(DungeonsEnhanced::registerLootTableAlias);
 
-        RegistrarHandler.registerHandlers(MOD_ID, modBus, DEPools.HANDLER, DEProcessors.HANDLER);
+        RegistrarHandler.registerHandlers(MOD_ID, modBus, DETemplatePools.HANDLER, DEProcessors.HANDLER);
     }
 
     public static void register(RegisterEvent event){
@@ -69,5 +69,7 @@ public class DungeonsEnhanced{
     public static void registerLootTableAlias(final RegisterLootTableAliasEvent event){
         event.register(location("sunken_shrine"), DELootTables.SUNKEN_SHRINE);
         event.register(location("miners_house"), DELootTables.MINERS_HOUSE);
+        event.register(location("pillager_camp/general"), DELootTables.PILLAGER_CAMP.GENERAL);
+        event.register(location("pillager_camp/kitchen"), DELootTables.PILLAGER_CAMP.KITCHEN);
     }
 }

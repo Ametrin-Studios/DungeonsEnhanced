@@ -3,7 +3,7 @@ package com.barion.dungeons_enhanced.world.structure;
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.world.DEJigsawTypes;
-import com.barion.dungeons_enhanced.world.DEPools;
+import com.barion.dungeons_enhanced.world.DETemplatePools;
 import com.barion.dungeons_enhanced.world.structure.processor.DEProcessors;
 import com.legacy.structure_gel.api.structure.jigsaw.*;
 import com.mojang.serialization.Codec;
@@ -40,7 +40,7 @@ public class DEDeepCrypt{
 
     public static void pool(BootstapContext<StructureTemplatePool> context){
         JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "deep_crypt/", context);
-        registry.registerBuilder().pools(registry.poolBuilder().names("root").maintainWater(false)).register(DEPools.DEEP_CRYPT);
+        registry.registerBuilder().pools(registry.poolBuilder().names("root").maintainWater(false)).register(DETemplatePools.DEEP_CRYPT);
 
         JigsawPoolBuilder basicPool = registry.poolBuilder().maintainWater(false);
         JigsawPoolBuilder Tunnels = basicPool.clone().processors(DEProcessors.AIR_TO_COBWEB.getKey()).names("tunnel", "cross");

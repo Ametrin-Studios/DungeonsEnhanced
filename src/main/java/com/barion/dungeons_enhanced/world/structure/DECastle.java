@@ -3,7 +3,7 @@ package com.barion.dungeons_enhanced.world.structure;
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.world.DEJigsawTypes;
-import com.barion.dungeons_enhanced.world.DEPools;
+import com.barion.dungeons_enhanced.world.DETemplatePools;
 import com.legacy.structure_gel.api.structure.jigsaw.*;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
@@ -42,7 +42,7 @@ public class DECastle {
 
     public static void pool(BootstapContext<StructureTemplatePool> context){
         JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "castle/", context);
-        registry.registerBuilder().pools(registry.poolBuilder().names("top1", "top2").maintainWater(false)).register(DEPools.CASTLE);
+        registry.registerBuilder().pools(registry.poolBuilder().names("top1", "top2").maintainWater(false)).register(DETemplatePools.CASTLE);
 
         JigsawPoolBuilder basicPool = registry.poolBuilder().maintainWater(false);
         registry.register("bottom1", basicPool.clone().names("bottom1"));

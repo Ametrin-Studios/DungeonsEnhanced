@@ -3,7 +3,7 @@ package com.barion.dungeons_enhanced.world.structure;
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.world.DEJigsawTypes;
-import com.barion.dungeons_enhanced.world.DEPools;
+import com.barion.dungeons_enhanced.world.DETemplatePools;
 import com.legacy.structure_gel.api.structure.jigsaw.*;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
@@ -25,7 +25,7 @@ public class DEPillagerCamp{
         public static final Codec<Capability> CODEC = Codec.unit(INSTANCE);
 
         @Override
-        public JigsawCapability.JigsawType<?> getType(){return DEJigsawTypes.PILLAGER_CAMP;}
+        public JigsawCapability.JigsawType<?> getType() {return DEJigsawTypes.PILLAGER_CAMP;}
         @Override
         public IPieceFactory getPieceFactory() {return Piece::new;}
     }
@@ -36,17 +36,17 @@ public class DEPillagerCamp{
         @Override
         public StructurePieceType getType() {return DEStructures.PILLAGER_CAMP.getPieceType().get();}
         @Override
-        public void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) {}
+        public void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor level, RandomSource random, BoundingBox box) {}
     }
 
     public static void pool(BootstapContext<StructureTemplatePool> context){
         JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "pillager_camp/", context);
-        registry.registerBuilder().pools(registry.poolBuilder().names("tent/general").maintainWater(false)).register(DEPools.PILLAGER_CAMP);
+        registry.registerBuilder().pools(registry.poolBuilder().names("tent/general").maintainWater(false)).register(DETemplatePools.PILLAGER_CAMP);
 
         JigsawPoolBuilder basicPool = registry.poolBuilder().maintainWater(false);
         JigsawPoolBuilder SleepingTents = basicPool.clone().names("tent/sleep1", "tent/sleep2");
         JigsawPoolBuilder Kitchen = basicPool.clone().names("tent/kitchen");
-        JigsawPoolBuilder Decoration = basicPool.clone().names("decoration/campfire", "decoration/cage");
+        JigsawPoolBuilder Decoration = basicPool.clone().names("decoration/campfire", "decoration/cage1");
         JigsawPoolBuilder Pillars = basicPool.clone().names("decoration/bell", "decoration/pillar");
         JigsawPoolBuilder VanillaDecoration = basicPool.clone().namesR(mcPiece("logs"), mcPiece("targets"), mcPiece("tent1"), mcPiece("tent2"));
 

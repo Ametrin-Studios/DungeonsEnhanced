@@ -3,7 +3,7 @@ package com.barion.dungeons_enhanced.world.structure;
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.world.DEJigsawTypes;
-import com.barion.dungeons_enhanced.world.DEPools;
+import com.barion.dungeons_enhanced.world.DETemplatePools;
 import com.legacy.structure_gel.api.structure.jigsaw.ExtendedJigsawStructurePiece;
 import com.legacy.structure_gel.api.structure.jigsaw.IPieceFactory;
 import com.legacy.structure_gel.api.structure.jigsaw.JigsawCapability;
@@ -45,7 +45,7 @@ public class DEDruidCircle {
 
     public static void pool(BootstapContext<StructureTemplatePool> context){
         JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "druid_circle/", context);
-        registry.registerBuilder().pools(registry.poolBuilder().names("top_big", "small").maintainWater(false)).register(DEPools.DRUID_CIRCLE);
+        registry.registerBuilder().pools(registry.poolBuilder().names("top_big", "small").maintainWater(false)).register(DETemplatePools.DRUID_CIRCLE);
 
         registry.register("bottom_big", registry.poolBuilder().maintainWater(false).names("bottom_big").build());
     }
