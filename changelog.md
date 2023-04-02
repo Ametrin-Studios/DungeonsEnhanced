@@ -1,3 +1,16 @@
+## 4.2.1
+* reimplemented biome config (spreading needs data packs for now)
+* added Sunken Shrine variant
+* tweaked config
+* tweaked spreading
+* spaced out Pillager Camp
+* updated translations
+* added Spanish
+* added French
+* added Romanian
+* added Portuguese
+* requires Structure Gel API 2.11.0 
+
 ## 4.2
 * ported to 1.19.4
 * fixed canon in Flying Dutchman

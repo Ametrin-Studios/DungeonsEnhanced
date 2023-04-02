@@ -30,7 +30,7 @@ only valid with vanilla word gen
 | Tower of the Undead | Y   | 994     | 2456  | 60      | -          | -      | up c
 | Tree House          | Y   | 2444    | 7773  | 60      | 535        | 1446   | 
 | Watch Tower         | Y   | 2027    | 5678  | 60      | 534        | 1276   | down c
-| Witch Tower         | Y   | 1970    | 5139  | 60      | 500        | 1563   | down
+| Witch Tower         | Y   | 1970    | 5139  | 60      | 500        | 1563   | down c
 
 ANS: allowed near spawn<br>
 -b: biomes independent (in a single biome world)<br>
