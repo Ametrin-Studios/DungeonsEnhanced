@@ -104,8 +104,8 @@ public class DEStructures {
         DEUtil.Processors.Types.register();
     }
 
-    public static StructureRegistrar2<?,?>[] getAllStructureRegistrars(){
-        return new StructureRegistrar2<?,?>[]{
+    public static StructureRegistrar2<?, ?>[] getAllStructureRegistrars(){
+        return new StructureRegistrar2<?, ?>[]{
                 Castle,
                 DesertTemple,
                 DesertTomb,
