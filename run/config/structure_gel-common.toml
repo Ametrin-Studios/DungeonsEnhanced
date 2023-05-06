@@ -2,7 +2,7 @@
 [building_tool]
 	#
 	# The amount of undo operations saved by the Building Tool.
-	# Default: 32
+	# Default: 64
 	#Range: 8 ~ 256
 	max_undos = 32
 
