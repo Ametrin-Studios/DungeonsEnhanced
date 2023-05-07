@@ -35,7 +35,7 @@ public class DEStructureTagsProvider extends StructureTagsProvider {
 
     private void allStructures(TagKey<Structure> tagKey){
         var appender = tag(tagKey);
-        for(var registrar : DEStructures.getAllStructureRegistrars()){
+        for(var registrar : DEStructures.ALL_STRUCTURE_REGISTRARS){
             allStructures(appender, registrar);
         }
     }

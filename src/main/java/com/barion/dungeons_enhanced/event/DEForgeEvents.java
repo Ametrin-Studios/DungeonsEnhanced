@@ -16,6 +16,6 @@ public class DEForgeEvents {
         var trades = event.getTrades();
         trades.get(2).add(DEVillagerTrades.DESERT_EXPLORER_MAP_TRADE);
         trades.get(3).add(DEVillagerTrades.CASTLE_EXPLORER_MAP_TRADE);
-        trades.get(3).add(DEVillagerTrades.MONSTER_MAZE_EXPLORER_MAP_TRADE);
+        trades.get(4).add(DEVillagerTrades.MONSTER_MAZE_EXPLORER_MAP_TRADE);
     }
 }
