@@ -22,6 +22,7 @@ public class DETags {
 
     public interface Structures{
         TagKey<Structure> ON_CASTLE_EXPLORER_MAPS = create("on_castle_explorer_maps");
+        TagKey<Structure> ON_ELDER_EXPLORER_MAPS = create("on_elder_explorer_maps");
         TagKey<Structure> ON_DESERT_EXPLORER_MAPS = create("on_desert_explorer_maps");
         TagKey<Structure> ON_MONSTER_MAZE_EXPLORER_MAPS = create("on_monster_maze_explorer_maps");
 

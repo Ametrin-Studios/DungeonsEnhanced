@@ -10,7 +10,6 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.StructureTagsProvider;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.tags.StructureTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -25,10 +24,10 @@ public class DEStructureTagsProvider extends StructureTagsProvider {
     }
 
     @Override
-    protected void addTags(HolderLookup.@NotNull Provider provider) {
+    protected void addTags(@NotNull HolderLookup.Provider provider) {
         allStructures(SGTags.StructureTags.LAKE_PROOF);
-        tag(StructureTags.ON_OCEAN_EXPLORER_MAPS).add(DEStructures.ELDERS_TEMPLE.getStructure().getKey());
         tag(DETags.Structures.ON_CASTLE_EXPLORER_MAPS).add(DEStructures.CASTLE.getStructure().getKey());
+        tag(DETags.Structures.ON_ELDER_EXPLORER_MAPS).add(DEStructures.ELDERS_TEMPLE.getStructure().getKey());
         tag(DETags.Structures.ON_DESERT_EXPLORER_MAPS).add(DEStructures.DESERT_TEMPLE.getStructure().getKey());
         tag(DETags.Structures.ON_MONSTER_MAZE_EXPLORER_MAPS).add(DEStructures.MONSTER_MAZE.getStructure().getKey());
     }
