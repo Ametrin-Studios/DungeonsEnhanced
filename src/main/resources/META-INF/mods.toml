@@ -41,6 +41,6 @@ issueTrackerURL="https://github.com/BarionLP/DungeonsEnhanced/issues" #optional
 [[dependencies.dungeons_enhanced]]
     modId="structure_gel"
     mandatory=true
-    versionRange="[2.11.0,]"
+    versionRange="[2.12.0,]"
     ordering="NONE"
     side="BOTH"
