@@ -2,6 +2,7 @@ package com.barion.dungeons_enhanced.data.provider;
 
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
+import com.barion.dungeons_enhanced.data.DETags;
 import com.legacy.structure_gel.api.data.tags.SGTags;
 import com.legacy.structure_gel.api.registry.registrar.Registrar;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
@@ -23,13 +24,17 @@ public class DEStructureTagsProvider extends StructureTagsProvider {
     }
 
     @Override
-    protected void addTags(HolderLookup.@NotNull Provider provider) {
+    protected void addTags(@NotNull HolderLookup.Provider provider) {
         allStructures(SGTags.StructureTags.LAKE_PROOF);
+        tag(DETags.Structures.ON_CASTLE_EXPLORER_MAPS).add(DEStructures.CASTLE.getStructure().getKey());
+        tag(DETags.Structures.ON_ELDER_EXPLORER_MAPS).add(DEStructures.ELDERS_TEMPLE.getStructure().getKey());
+        tag(DETags.Structures.ON_DESERT_EXPLORER_MAPS).add(DEStructures.DESERT_TEMPLE.getStructure().getKey());
+        tag(DETags.Structures.ON_MONSTER_MAZE_EXPLORER_MAPS).add(DEStructures.MONSTER_MAZE.getStructure().getKey());
     }
 
     private void allStructures(TagKey<Structure> tagKey){
         var appender = tag(tagKey);
-        for(var registrar : DEStructures.getAllStructureRegistrars()){
+        for(var registrar : DEStructures.ALL_STRUCTURE_REGISTRARS){
             allStructures(appender, registrar);
         }
     }

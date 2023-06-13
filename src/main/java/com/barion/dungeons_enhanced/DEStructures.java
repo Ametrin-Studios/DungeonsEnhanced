@@ -289,36 +289,34 @@ public class DEStructures {
                 .build();
     }
 
-    public static StructureRegistrar<?>[] getAllStructureRegistrars() {
-        return new StructureRegistrar<?>[] {
-                CASTLE,
-                DEEP_CRYPT,
-                DESERT_TEMPLE,
-                DESERT_TOMB,
-                DRUID_CIRCLE,
-                DUNGEON_VARIANT,
-                ELDERS_TEMPLE,
-                FISHING_SHIP,
-                FLYING_DUTCHMAN,
-                HAY_STORAGE,
-                ICE_PIT,
-                JUNGLE_MONUMENT,
-                LARGE_DUNGEON,
-                MINERS_HOUSE,
-                MONSTER_MAZE,
-                MUSHROOM_HOUSE,
-                PILLAGER_CAMP,
-                PIRATE_SHIP,
-                RUINED_BUILDING,
-                STABLES,
-                SUNKEN_SHRINE,
-                TALL_WITCH_HUT,
-                TOWER_OF_THE_UNDEAD,
-                TREE_HOUSE,
-                WATCH_TOWER,
-                WITCH_TOWER
-        };
-    }
+    public static final StructureRegistrar<?>[] ALL_STRUCTURE_REGISTRARS = {
+            CASTLE,
+            DEEP_CRYPT,
+            DESERT_TEMPLE,
+            DESERT_TOMB,
+            DRUID_CIRCLE,
+            DUNGEON_VARIANT,
+            ELDERS_TEMPLE,
+            FISHING_SHIP,
+            FLYING_DUTCHMAN,
+            HAY_STORAGE,
+            ICE_PIT,
+            JUNGLE_MONUMENT,
+            LARGE_DUNGEON,
+            MINERS_HOUSE,
+            MONSTER_MAZE,
+            MUSHROOM_HOUSE,
+            PILLAGER_CAMP,
+            PIRATE_SHIP,
+            RUINED_BUILDING,
+            STABLES,
+            SUNKEN_SHRINE,
+            TALL_WITCH_HUT,
+            TOWER_OF_THE_UNDEAD,
+            TREE_HOUSE,
+            WATCH_TOWER,
+            WITCH_TOWER
+    };
 
     private static ConstantHeight height(int y) {return ConstantHeight.of(new VerticalAnchor.Absolute(y));}
     private static Supplier<List<MobSpawnSettings.SpawnerData>> spawns(MobSpawnSettings.SpawnerData... spawns) {return ()-> Arrays.stream(spawns).toList();}
