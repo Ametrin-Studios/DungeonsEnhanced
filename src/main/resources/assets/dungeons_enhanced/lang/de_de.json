@@ -24,5 +24,9 @@
     "advancements.dungeons_enhanced.ambitious_explorer": "Aufstrebender Entdecker",
     "advancements.dungeons_enhanced.ambitious_explorer.desc": "Finde alle Strukturen",
     "advancements.dungeons_enhanced.sunken_deeps.desc": "Finde einen \u00c4lterentemple",
-    "advancements.dungeons_enhanced.sunken_deeps": "Versunken in den Tiefen"
+    "advancements.dungeons_enhanced.sunken_deeps": "Versunken in den Tiefen",
+    "filled_map.dungeons_enhanced.castle": "Schloss-Entdeckerkarte",
+    "filled_map.dungeons_enhanced.desert_temple": "W\u00fcsten-Entdeckerkarte",
+    "filled_map.dungeons_enhanced.monster_maze": "Monster-Entdeckerkarte",
+    "filled_map.dungeons_enhanced.elders_temple": "\u00c4lteren-Entdeckerkarte"
 }

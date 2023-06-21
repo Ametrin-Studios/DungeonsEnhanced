@@ -24,5 +24,9 @@
     "advancements.dungeons_enhanced.ambitious_explorer": "Esploratore ambizioso",
     "advancements.dungeons_enhanced.ambitious_explorer.desc": "Trova tutte le strutture della mod",
     "advancements.dungeons_enhanced.sunken_deeps.desc": "Find an Elder's Temple",
-    "advancements.dungeons_enhanced.sunken_deeps": "Sunken in the Depths"
+    "advancements.dungeons_enhanced.sunken_deeps": "Sunken in the Depths",
+    "filled_map.dungeons_enhanced.castle": "Castle Explorer Map",
+    "filled_map.dungeons_enhanced.desert_temple": "Desert Explorer Map",
+    "filled_map.dungeons_enhanced.monster_maze": "Monster Explorer Map",
+    "filled_map.dungeons_enhanced.elders_temple": "Elder Explorer Map"
 }
