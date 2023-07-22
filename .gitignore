@@ -19,7 +19,7 @@ build
 
 # other
 eclipse
-run
+/run
 !/run/config
 !/run/saves/JigsawStructures
 !/run/saves/Structures

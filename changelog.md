@@ -1,3 +1,7 @@
+## 4.3
+- added Elder, Castle and Monster Explorer Maps to Cartographer trades
+- requires Structure Gel API 2.12.0
+
 ## 4.2.1
 * reimplemented biome config (spreading needs data packs for now)
 * added Sunken Shrine variant
