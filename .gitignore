@@ -19,9 +19,7 @@ build
 
 # other
 eclipse
-run
-!run/saves/JigsawStructures/generated/dungeons_enhanced
-!run/saves/Structures/generated/dungeons_enhanced
+run/
 
 /structureList.xcf
 /structures.xcf
