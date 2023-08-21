@@ -20,7 +20,7 @@ public class DESwapDeadCoralsProcessor extends StructureProcessor {
     public static final DESwapDeadCoralsProcessor INSTANCE = new DESwapDeadCoralsProcessor();
     public static final Codec<DESwapDeadCoralsProcessor> CODEC = Codec.unit(() -> INSTANCE);
 
-    private static final Map<Block, Block> DeathToLivingCoral = new ImmutableMap.Builder<Block, Block>()
+    private static final Map<Block, Block> DEATH_TO_LIVING_CORAL = new ImmutableMap.Builder<Block, Block>()
             .put(Blocks.DEAD_BRAIN_CORAL, Blocks.BRAIN_CORAL)
             .put(Blocks.DEAD_BUBBLE_CORAL, Blocks.BUBBLE_CORAL)
             .put(Blocks.DEAD_FIRE_CORAL, Blocks.FIRE_CORAL)
@@ -50,10 +50,10 @@ public class DESwapDeadCoralsProcessor extends StructureProcessor {
 
     @Override @Nullable @ParametersAreNonnullByDefault
     public StructureTemplate.StructureBlockInfo process(LevelReader level, BlockPos pos, BlockPos pos2, StructureTemplate.StructureBlockInfo existing, StructureTemplate.StructureBlockInfo placed, StructurePlaceSettings settings, @Nullable StructureTemplate template) {
-        if(!DeathToLivingCoral.containsKey(placed.state.getBlock())) return placed;
+        if(!DEATH_TO_LIVING_CORAL.containsKey(placed.state().getBlock())) return placed;
 
-        var livingCoral = DeathToLivingCoral.get(placed.state.getBlock()).withPropertiesOf(placed.state);
-        return new StructureTemplate.StructureBlockInfo(placed.pos, livingCoral, null);
+        var livingCoral = DEATH_TO_LIVING_CORAL.get(placed.state().getBlock()).withPropertiesOf(placed.state());
+        return new StructureTemplate.StructureBlockInfo(placed.pos(), livingCoral, null);
     }
 
     @Override
