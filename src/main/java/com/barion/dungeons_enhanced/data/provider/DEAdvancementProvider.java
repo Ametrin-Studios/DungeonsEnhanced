@@ -55,7 +55,8 @@ public class DEAdvancementProvider extends ForgeAdvancementProvider {
                     DEStructures.ICE_PIT,
                     DEStructures.JUNGLE_MONUMENT,
                     DEStructures.MONSTER_MAZE,
-                    DEStructures.ELDERS_TEMPLE).requirements(RequirementsStrategy.AND).parent(root).save(consumer, location("seven_world_wonders"));
+                    DEStructures.ELDERS_TEMPLE)
+                    .requirements(RequirementsStrategy.AND).parent(root).save(consumer, location("seven_world_wonders"));
             var AmbitiousExplorer = enterAnyStructure(advancement(Items.FILLED_MAP, "ambitious_explorer", FrameType.CHALLENGE, true, true, false), DEStructures.ALL_STRUCTURE_REGISTRARS).requirements(RequirementsStrategy.AND).parent(SevenWorldWonders).save(consumer, location("ambitious_explorer"));
         }
 

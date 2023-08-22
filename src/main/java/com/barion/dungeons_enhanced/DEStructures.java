@@ -58,7 +58,7 @@ public class DEStructures {
     public static final StructureRegistrar<DEGroundStructure> WATCH_TOWER;
     public static final StructureRegistrar<DEGroundStructure> WITCH_TOWER;
 
-    private DEStructures(){}
+    private DEStructures() {}
 
     static {
         CASTLE = StructureRegistrar.jigsawBuilder(location(DECastle.ID))
