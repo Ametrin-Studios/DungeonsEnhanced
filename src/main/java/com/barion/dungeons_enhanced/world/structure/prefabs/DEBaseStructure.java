@@ -49,6 +49,7 @@ public abstract class DEBaseStructure extends Structure{
     }
 
     public static class Piece extends GelTemplateStructurePiece{
+        private Rotation rotation;
         public Piece(Registrar.Static<StructurePieceType> pieceType, StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation){
             super(pieceType.get(), 0, structureManager, templateName, pos);
             this.rotation = rotation;
@@ -63,7 +64,7 @@ public abstract class DEBaseStructure extends Structure{
         protected StructurePlaceSettings getPlaceSettings(StructureTemplateManager structureManager) {
             Vec3i size = structureManager.get(makeTemplateLocation()).get().getSize();
             BlockPos pivot = new BlockPos(size.getX() / 2, 0, size.getZ() / 2);
-            StructurePlaceSettings settings = new StructurePlaceSettings().setKeepLiquids(false).setRotationPivot(pivot);
+            StructurePlaceSettings settings = new StructurePlaceSettings().setKeepLiquids(false).setRotationPivot(pivot).setRotation(this.rotation);
             settings.addProcessor(BlockIgnoreProcessor.STRUCTURE_AND_AIR).addProcessor(RemoveGelStructureProcessor.INSTANCE);
             addProcessors(settings);
             return settings;
