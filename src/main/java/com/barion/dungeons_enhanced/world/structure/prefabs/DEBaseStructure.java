@@ -6,7 +6,6 @@ import com.legacy.structure_gel.api.registry.registrar.Registrar;
 import com.legacy.structure_gel.api.structure.GelTemplateStructurePiece;
 import com.legacy.structure_gel.api.structure.processor.RemoveGelStructureProcessor;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Vec3i;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
@@ -62,9 +61,9 @@ public abstract class DEBaseStructure extends Structure{
 
         @Override
         protected StructurePlaceSettings getPlaceSettings(StructureTemplateManager structureManager) {
-            Vec3i size = structureManager.get(makeTemplateLocation()).get().getSize();
-            BlockPos pivot = new BlockPos(size.getX() / 2, 0, size.getZ() / 2);
-            StructurePlaceSettings settings = new StructurePlaceSettings().setKeepLiquids(false).setRotationPivot(pivot).setRotation(this.rotation);
+            var size = structureManager.get(makeTemplateLocation()).get().getSize();
+            var pivot = new BlockPos(size.getX() / 2, 0, size.getZ() / 2);
+            var settings = new StructurePlaceSettings().setKeepLiquids(false).setRotationPivot(pivot).setRotation(this.rotation);
             settings.addProcessor(BlockIgnoreProcessor.STRUCTURE_AND_AIR).addProcessor(RemoveGelStructureProcessor.INSTANCE);
             addProcessors(settings);
             return settings;
@@ -73,6 +72,5 @@ public abstract class DEBaseStructure extends Structure{
         protected void addProcessors(StructurePlaceSettings settings) {}
         @Override @ParametersAreNonnullByDefault
         protected void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor level, RandomSource random, BoundingBox box) {}
-
     }
 }

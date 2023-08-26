@@ -39,19 +39,19 @@ public class DEMonsterMaze{
     }
 
     public static void pool(BootstapContext<StructureTemplatePool> context){
-        JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "monster_maze/", context);
+        var registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "monster_maze/", context);
         registry.registerBuilder().pools(registry.poolBuilder().names("root").maintainWater(false)).register(DETemplatePools.MONSTER_MAZE);
 
-        JigsawPoolBuilder basicPool = registry.poolBuilder().maintainWater(false);
-        JigsawPoolBuilder CrossTunnels = basicPool.clone().names("tunnels/cross1", "tunnels/cross2");
-        JigsawPoolBuilder EdgeTunnels = basicPool.clone().names("tunnels/edge1", "tunnels/edge2");
-        JigsawPoolBuilder RoomTunnels = basicPool.clone().names("tunnels/room1", "tunnels/room2", "tunnels/room3");
-        JigsawPoolBuilder ShortTunnels = basicPool.clone().names("tunnels/small1", "tunnels/small2", "tunnels/small3");
-        JigsawPoolBuilder LongTunnels = basicPool.clone().names("tunnels/big1", "tunnels/big2", "tunnels/big3", "tunnels/big4", "tunnels/big5");
-        JigsawPoolBuilder StartStairs = basicPool.clone().names("stairs/big1", "stairs/big2");
-        JigsawPoolBuilder Stairs = basicPool.clone().names("stairs/big1", "stairs/big2", "stairs/big3");
-        JigsawPoolBuilder Rooms = basicPool.clone().names("big_room", "church", "prison", "room1", "storage", "brewery");
-        JigsawPoolBuilder Boss = basicPool.clone().names("boss");
+        var basicPool = registry.poolBuilder().maintainWater(false);
+        var CrossTunnels = basicPool.clone().names("tunnels/cross1", "tunnels/cross2");
+        var EdgeTunnels = basicPool.clone().names("tunnels/edge1", "tunnels/edge2");
+        var RoomTunnels = basicPool.clone().names("tunnels/room1", "tunnels/room2", "tunnels/room3");
+        var ShortTunnels = basicPool.clone().names("tunnels/small1", "tunnels/small2", "tunnels/small3");
+        var LongTunnels = basicPool.clone().names("tunnels/big1", "tunnels/big2", "tunnels/big3", "tunnels/big4", "tunnels/big5");
+        var StartStairs = basicPool.clone().names("stairs/big1", "stairs/big2");
+        var Stairs = basicPool.clone().names("stairs/big1", "stairs/big2", "stairs/big3");
+        var Rooms = basicPool.clone().names("big_room", "church", "prison", "room1", "storage", "brewery");
+        var Boss = basicPool.clone().names("boss");
 
         registry.register("tunnels/cross", CrossTunnels);
         registry.register("tunnels/edge", EdgeTunnels);

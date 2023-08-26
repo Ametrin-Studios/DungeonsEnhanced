@@ -40,15 +40,15 @@ public class DEPillagerCamp{
     }
 
     public static void pool(BootstapContext<StructureTemplatePool> context){
-        JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "pillager_camp/", context);
+        var registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "pillager_camp/", context);
         registry.registerBuilder().pools(registry.poolBuilder().names("tent/general").maintainWater(false)).register(DETemplatePools.PILLAGER_CAMP);
 
-        JigsawPoolBuilder basicPool = registry.poolBuilder().maintainWater(false);
-        JigsawPoolBuilder SleepingTents = basicPool.clone().names("tent/sleep1", "tent/sleep2");
-        JigsawPoolBuilder Kitchen = basicPool.clone().names("tent/kitchen");
-        JigsawPoolBuilder Decoration = basicPool.clone().names("decoration/campfire", "decoration/cage1");
-        JigsawPoolBuilder Pillars = basicPool.clone().names("decoration/bell", "decoration/pillar");
-        JigsawPoolBuilder VanillaDecoration = basicPool.clone().namesR(mcPiece("logs"), mcPiece("targets"), mcPiece("tent1"), mcPiece("tent2"));
+        var basicPool = registry.poolBuilder().maintainWater(false);
+        var SleepingTents = basicPool.clone().names("tent/sleep1", "tent/sleep2");
+        var Kitchen = basicPool.clone().names("tent/kitchen");
+        var Decoration = basicPool.clone().names("decoration/campfire", "decoration/cage1");
+        var Pillars = basicPool.clone().names("decoration/bell", "decoration/pillar");
+        var VanillaDecoration = basicPool.clone().namesR(mcPiece("logs"), mcPiece("targets"), mcPiece("tent1"), mcPiece("tent2"));
 
         registry.registerBuilder().pools(basicPool.clone().names("plate/var1", "plate/var2")).projection(StructureTemplatePool.Projection.TERRAIN_MATCHING).register("feature_plates");
         registry.register("features", JigsawPoolBuilder.collect(SleepingTents.weight(2), Kitchen.weight(2), VanillaDecoration.weight(2), Decoration.weight(3), Pillars.weight(1)));

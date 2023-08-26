@@ -29,6 +29,6 @@ public class DEPirateShip extends DESwimmingStructure {
 
     public static void assembleShip(DEPieceAssembler.Context context) {
         context.piecesBuilder().addPiece(new Piece(context.structureManager(), context.piece(), context.pos(), context.rotation()));
-        context.piecesBuilder().addPiece(new Piece(context.structureManager(), BACK, context.pos().offset(0, 0, 25), context.rotation()));
+        context.piecesBuilder().addPiece(new Piece(context.structureManager(), BACK, context.pos().offset(25, 0, 0), context.rotation()));
     }
 }

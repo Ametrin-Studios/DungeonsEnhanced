@@ -44,7 +44,7 @@ public class DEEldersTemple extends DEUnderwaterStructure {
     }
 
     public static void assembleTemple(DEPieceAssembler.Context context) {
-        Rotation rotation = Rotation.NONE;
+        var rotation = Rotation.NONE;
         context.piecesBuilder().addPiece(new Piece(context.structureManager(), SE, context.pos().offset(0,0,0), rotation));
         context.piecesBuilder().addPiece(new Piece(context.structureManager(), SW, context.pos().offset(-30, 0, 0), rotation));
         context.piecesBuilder().addPiece(new Piece(context.structureManager(), NE, context.pos().offset(0, 0, -29), rotation));

@@ -36,12 +36,12 @@ public class DEDesertTemple extends DEGroundStructure {
         var result = DETerrainAnalyzer.isFlatEnough(rawPos, size, 1, 6, context.chunkGenerator(), context.heightAccessor(), context.randomState());
 //        if(!result.getSecond()) {return Optional.empty();}
 
-        final BlockPos pos = rawPos.atY(Math.round(result.getFirst())).above(piece.yOffset);
+        final var pos = rawPos.atY(Math.round(result.getFirst())).above(piece.yOffset);
         return at(pos, (builder)-> generatePieces(builder, pos, piece, Rotation.NONE, context, DEDesertTemple::assembleTemple));
     }
 
     public static void assembleTemple(DEPieceAssembler.Context context) {
-        BlockPos pos = context.pos();
+        var pos = context.pos();
         context.piecesBuilder().addPiece(new Piece(context.structureManager(), context.piece(), pos, context.rotation()));
         context.piecesBuilder().addPiece(new Piece(context.structureManager(), BOTTOM, pos.offset(15, -11, 2), context.rotation()));
         context.piecesBuilder().addPiece(new Piece(context.structureManager(), BOTTOM, pos.offset(25, -11, 16), context.rotation()));

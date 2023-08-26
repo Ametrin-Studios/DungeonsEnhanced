@@ -4,9 +4,7 @@ import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.world.structure.prefabs.DEGroundStructure;
 import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEPieceAssembler;
-import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEStructureTemplates;
 import com.mojang.serialization.Codec;
-import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -24,13 +22,13 @@ public class DEIcePit extends DEGroundStructure {
 
     @Override @Nonnull
     public Optional<GenerationStub> findGenerationPoint(@Nonnull GenerationContext context) {
-        DEStructureTemplates.Template template = Templates.getRandom(context.random());
-        final BlockPos pos = DEUtil.ChunkPosToBlockPosFromHeightMap(context.chunkPos(), context.chunkGenerator(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor(), context.randomState()).above(template.yOffset);
+        var template = Templates.getRandom(context.random());
+        final var pos = DEUtil.ChunkPosToBlockPosFromHeightMap(context.chunkPos(), context.chunkGenerator(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor(), context.randomState()).above(template.yOffset);
         return at(pos, (builder)-> generatePieces(builder, pos, template, Rotation.getRandom(context.random()), context, DEIcePit::assembleIcePit));
     }
 
     private static void assembleIcePit(DEPieceAssembler.Context context) {
-        BlockPos pos = context.pos();
+        var pos = context.pos();
         context.piecesBuilder().addPiece(new Piece(context.structureManager(), ENTRANCE, pos, context.rotation()));
         int yOffset = -6;
         if(context.piece().getPath().contains("var3")) {yOffset = -11;}
