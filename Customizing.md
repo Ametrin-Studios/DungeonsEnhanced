@@ -26,4 +26,4 @@ Example
 - when creating a world add the data pack
 - test the data pack and check the log for any errors
 - let us know what you changed and why so we can balance the default values better
-- you may need to update your data pack with major updates, check the [changelog.md] for any notes
+- you may need to update your data pack with major updates, check the [changelog](https://github.com/BarionLP/DungeonsEnhanced/blob/master/changelog.md) for any notes
