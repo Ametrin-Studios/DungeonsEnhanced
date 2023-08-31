@@ -11,10 +11,10 @@ We hope you have fun!
 (1.19.3+) Checkout [Customizing.md](https://github.com/BarionLP/DungeonsEnhanced/blob/master/Customizing.md)<br>
 (1.16.5-1.19.2) The config file should be self-explanatory
 
-### Translating
+## Translating
 If you want to help translating Dungeons Enhanced check out [OneSky](https://ametrin-studios-mods.oneskyapp.com/collaboration/project/189202)
 
-#### Translators
+### Translators
 [PExPE3](https://github.com/PExPE3)<br>
 [Rad233](https://github.com/Rad233)<br>
 [BardinTheDwarf](https://github.com/BardinTheDwarf)<br>
