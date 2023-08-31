@@ -38,5 +38,5 @@
       "entered_flying_dutchman"
     ]
   ],
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

@@ -77,7 +77,8 @@ public class DEAdvancementProvider extends ForgeAdvancementProvider {
         }
 
         private Advancement.Builder advancement(ItemLike displayItem, String name, ResourceLocation background, FrameType frameType, boolean showToast, boolean announceToChat, boolean hidden) {
-            return Advancement.Builder.advancement().display(displayItem, translate(name), translate(name + ".desc"), background, frameType, showToast, announceToChat, hidden);
+            //only difference between recipeAdvancement and advancement is that it does not send telemetry events
+            return Advancement.Builder.recipeAdvancement().display(displayItem, translate(name), translate(name + ".desc"), background, frameType, showToast, announceToChat, hidden);
         }
 
         private Advancement.Builder advancement(ItemLike displayItem, String name, FrameType frameType, boolean showToast, boolean announceToChat, boolean hidden){

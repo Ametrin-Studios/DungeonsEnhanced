@@ -38,5 +38,5 @@
       "entered_mushroom_house"
     ]
   ],
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }
