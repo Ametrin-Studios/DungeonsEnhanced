@@ -37,5 +37,6 @@
     [
       "entered_ice_pit"
     ]
-  ]
+  ],
+  "sends_telemetry_event": true
 }

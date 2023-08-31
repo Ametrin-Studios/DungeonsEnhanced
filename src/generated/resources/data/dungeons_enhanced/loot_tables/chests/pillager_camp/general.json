@@ -153,5 +153,6 @@
         "min": 6.0
       }
     }
-  ]
+  ],
+  "random_sequence": "dungeons_enhanced:chests/pillager_camp/general"
 }

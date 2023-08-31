@@ -512,5 +512,6 @@
     [
       "entered_witch_tower"
     ]
-  ]
+  ],
+  "sends_telemetry_event": true
 }

@@ -37,5 +37,6 @@
     [
       "entered_elders_temple"
     ]
-  ]
+  ],
+  "sends_telemetry_event": true
 }

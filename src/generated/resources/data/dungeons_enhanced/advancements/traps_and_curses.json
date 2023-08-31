@@ -37,5 +37,6 @@
     [
       "entered_desert_temple"
     ]
-  ]
+  ],
+  "sends_telemetry_event": true
 }

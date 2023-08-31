@@ -305,5 +305,6 @@
         "min": 8.0
       }
     }
-  ]
+  ],
+  "random_sequence": "dungeons_enhanced:chests/pirate_ship"
 }

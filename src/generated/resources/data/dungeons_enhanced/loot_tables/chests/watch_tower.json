@@ -468,5 +468,6 @@
       ],
       "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "dungeons_enhanced:chests/watch_tower"
 }

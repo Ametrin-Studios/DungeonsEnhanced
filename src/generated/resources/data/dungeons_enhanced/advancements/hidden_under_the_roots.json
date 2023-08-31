@@ -37,5 +37,6 @@
     [
       "entered_monster_maze"
     ]
-  ]
+  ],
+  "sends_telemetry_event": true
 }

@@ -317,5 +317,6 @@
         "min": 5.0
       }
     }
-  ]
+  ],
+  "random_sequence": "dungeons_enhanced:chests/castle/armory"
 }

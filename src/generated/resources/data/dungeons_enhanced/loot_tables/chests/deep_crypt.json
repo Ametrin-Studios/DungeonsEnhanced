@@ -499,5 +499,6 @@
         "min": 8.0
       }
     }
-  ]
+  ],
+  "random_sequence": "dungeons_enhanced:chests/deep_crypt"
 }

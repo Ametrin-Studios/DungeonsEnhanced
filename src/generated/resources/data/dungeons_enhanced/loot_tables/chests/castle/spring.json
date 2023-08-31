@@ -142,5 +142,6 @@
         "min": 11.0
       }
     }
-  ]
+  ],
+  "random_sequence": "dungeons_enhanced:chests/castle/spring"
 }

@@ -339,5 +339,6 @@
         "min": 7.0
       }
     }
-  ]
+  ],
+  "random_sequence": "dungeons_enhanced:chests/flying_dutchman"
 }

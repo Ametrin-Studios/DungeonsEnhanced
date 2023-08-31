@@ -196,5 +196,6 @@
         "min": 2.0
       }
     }
-  ]
+  ],
+  "random_sequence": "dungeons_enhanced:chests/miners_house"
 }

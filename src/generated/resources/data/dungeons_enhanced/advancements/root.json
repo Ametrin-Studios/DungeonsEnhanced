@@ -462,5 +462,6 @@
       "entered_watch_tower",
       "entered_witch_tower"
     ]
-  ]
+  ],
+  "sends_telemetry_event": true
 }

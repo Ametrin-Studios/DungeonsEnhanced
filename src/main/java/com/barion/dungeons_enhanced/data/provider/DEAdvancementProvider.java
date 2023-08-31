@@ -37,17 +37,17 @@ public class DEAdvancementProvider extends ForgeAdvancementProvider {
     public static class DEExplorerAdvancementSubProvider implements AdvancementGenerator{
         @Override
         public void generate(@Nonnull HolderLookup.Provider registries, @Nonnull Consumer<Advancement> consumer, @Nonnull ExistingFileHelper existingFileHelper) {
-            var root = enterAnyStructure(advancement(Blocks.MOSSY_STONE_BRICKS, "root", new ResourceLocation("textures/block/mossy_cobblestone.png"), FrameType.TASK, false, false, false), DEStructures.ALL_STRUCTURE_REGISTRARS).requirements(RequirementsStrategy.OR).save(consumer, location("root"));
-            var HiddenUnderTheRoots = enterStructure(advancement(Blocks.JACK_O_LANTERN, "hidden_under_the_roots", FrameType.TASK, true, true, false), DEStructures.MONSTER_MAZE).parent(root).save(consumer, location("hidden_under_the_roots"));
-            var ThatsADungeon = enterStructure(advancement(Blocks.SKELETON_SKULL, "thats_a_dungeon", FrameType.TASK, true, true, false), DEStructures.LARGE_DUNGEON).parent(root).save(consumer, location("thats_a_dungeon"));
-            var TrapsAndCurses = enterStructure(advancement(Blocks.TNT, "traps_and_curses", FrameType.TASK, true, true, false), DEStructures.DESERT_TEMPLE).parent(root).save(consumer, location("traps_and_curses"));
-            var AncientCivilizations = enterStructure(advancement(Blocks.BAMBOO, "ancient_civilizations", FrameType.TASK, true, true, false), DEStructures.JUNGLE_MONUMENT).parent(root).save(consumer, location("ancient_civilizations"));
-            var WarsAndKingdoms = enterStructure(advancement(Blocks.STONE_BRICKS, "wars_and_kingdoms", FrameType.TASK, true, true, false), DEStructures.CASTLE).parent(root).save(consumer, location("wars_and_kingdoms"));
-            var RarestStructure = enterStructure(advancement(Items.RED_MUSHROOM, "rarest_structure", FrameType.TASK, true, true, false), DEStructures.MUSHROOM_HOUSE).parent(root).save(consumer, location("rarest_structure"));
-            var ChilledHalls = enterStructure(advancement(Items.BONE, "chilled_halls", FrameType.TASK, true, true, false), DEStructures.ICE_PIT).parent(root).save(consumer, location("chilled_halls"));
-            var Ahoy = enterStructure(advancement(Items.WITHER_SKELETON_SKULL, "ahoy", FrameType.TASK, true, true, false), DEStructures.PIRATE_SHIP).parent(root).save(consumer, location("ahoy"));
-            var InTheAir = enterStructure(advancement(Items.LANTERN, "in_the_air", FrameType.TASK, true, true, false), DEStructures.FLYING_DUTCHMAN).parent(root).save(consumer, location("in_the_air"));
-            var SunkenDepths = enterStructure(advancement(Items.NAUTILUS_SHELL, "sunken_deeps", FrameType.TASK, true, true, false), DEStructures.ELDERS_TEMPLE).parent(root).save(consumer, location("sunken_deeps"));
+            var root = enterAnyStructure(advancement(Blocks.MOSSY_STONE_BRICKS, "root", new ResourceLocation("textures/block/mossy_cobblestone.png"), FrameType.TASK, false, false, false), DEStructures.ALL_STRUCTURE_REGISTRARS).requirements(RequirementsStrategy.OR).save(consumer, location("root"), existingFileHelper);
+            var HiddenUnderTheRoots = enterStructure(advancement(Blocks.JACK_O_LANTERN, "hidden_under_the_roots", FrameType.TASK, true, true, false), DEStructures.MONSTER_MAZE).parent(root).save(consumer, location("hidden_under_the_roots"), existingFileHelper);
+            var ThatsADungeon = enterStructure(advancement(Blocks.SKELETON_SKULL, "thats_a_dungeon", FrameType.TASK, true, true, false), DEStructures.LARGE_DUNGEON).parent(root).save(consumer, location("thats_a_dungeon"), existingFileHelper);
+            var TrapsAndCurses = enterStructure(advancement(Blocks.TNT, "traps_and_curses", FrameType.TASK, true, true, false), DEStructures.DESERT_TEMPLE).parent(root).save(consumer, location("traps_and_curses"), existingFileHelper);
+            var AncientCivilizations = enterStructure(advancement(Blocks.BAMBOO, "ancient_civilizations", FrameType.TASK, true, true, false), DEStructures.JUNGLE_MONUMENT).parent(root).save(consumer, location("ancient_civilizations"), existingFileHelper);
+            var WarsAndKingdoms = enterStructure(advancement(Blocks.STONE_BRICKS, "wars_and_kingdoms", FrameType.TASK, true, true, false), DEStructures.CASTLE).parent(root).save(consumer, location("wars_and_kingdoms"), existingFileHelper);
+            var RarestStructure = enterStructure(advancement(Items.RED_MUSHROOM, "rarest_structure", FrameType.TASK, true, true, false), DEStructures.MUSHROOM_HOUSE).parent(root).save(consumer, location("rarest_structure"), existingFileHelper);
+            var ChilledHalls = enterStructure(advancement(Items.BONE, "chilled_halls", FrameType.TASK, true, true, false), DEStructures.ICE_PIT).parent(root).save(consumer, location("chilled_halls"), existingFileHelper);
+            var Ahoy = enterStructure(advancement(Items.WITHER_SKELETON_SKULL, "ahoy", FrameType.TASK, true, true, false), DEStructures.PIRATE_SHIP).parent(root).save(consumer, location("ahoy"), existingFileHelper);
+            var InTheAir = enterStructure(advancement(Items.LANTERN, "in_the_air", FrameType.TASK, true, true, false), DEStructures.FLYING_DUTCHMAN).parent(root).save(consumer, location("in_the_air"), existingFileHelper);
+            var SunkenDepths = enterStructure(advancement(Items.NAUTILUS_SHELL, "sunken_deeps", FrameType.TASK, true, true, false), DEStructures.ELDERS_TEMPLE).parent(root).save(consumer, location("sunken_deeps"), existingFileHelper);
             var SevenWorldWonders = enterAnyStructure(advancement(Items.SPYGLASS, "seven_world_wonders", FrameType.GOAL, true, true, false),
                     DEStructures.CASTLE,
                     DEStructures.DEEP_CRYPT,
@@ -56,8 +56,8 @@ public class DEAdvancementProvider extends ForgeAdvancementProvider {
                     DEStructures.JUNGLE_MONUMENT,
                     DEStructures.MONSTER_MAZE,
                     DEStructures.ELDERS_TEMPLE)
-                    .requirements(RequirementsStrategy.AND).parent(root).save(consumer, location("seven_world_wonders"));
-            var AmbitiousExplorer = enterAnyStructure(advancement(Items.FILLED_MAP, "ambitious_explorer", FrameType.CHALLENGE, true, true, false), DEStructures.ALL_STRUCTURE_REGISTRARS).requirements(RequirementsStrategy.AND).parent(SevenWorldWonders).save(consumer, location("ambitious_explorer"));
+                    .requirements(RequirementsStrategy.AND).parent(root).save(consumer, location("seven_world_wonders"), existingFileHelper);
+            var AmbitiousExplorer = enterAnyStructure(advancement(Items.FILLED_MAP, "ambitious_explorer", FrameType.CHALLENGE, true, true, false), DEStructures.ALL_STRUCTURE_REGISTRARS).requirements(RequirementsStrategy.AND).parent(SevenWorldWonders).save(consumer, location("ambitious_explorer"), existingFileHelper);
         }
 
         private Advancement.Builder enterAnyStructure(Advancement.Builder builder, StructureRegistrar<?>... structures){
@@ -85,6 +85,6 @@ public class DEAdvancementProvider extends ForgeAdvancementProvider {
         }
 
         private Component translate(String key) {return Component.translatable("advancements.dungeons_enhanced." + key);}
-        private String location(String key) {return DEUtil.location(key).toString();}
+        private ResourceLocation location(String key) {return DEUtil.location(key);}
     }
 }

@@ -260,5 +260,6 @@
         "min": 0.0
       }
     }
-  ]
+  ],
+  "random_sequence": "dungeons_enhanced:chests/castle/bedroom"
 }
