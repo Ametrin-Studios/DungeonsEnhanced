@@ -7,6 +7,10 @@ Some of our structures also look like they could be an upgraded version of a van
 Get ready to find huge mazes under trees, castles, towers and forgotten temples.
 We hope you have fun!
 
+## Customizing Stuctures
+(1.19.3+) Checkout [Customizing.md](https://github.com/BarionLP/DungeonsEnhanced/blob/master/Customizing.md)
+(1.16.5-1.19.2) The config file should be self-explanatory
+
 ### Translating
 If you want to help translating Dungeons Enhanced check out [OneSky](https://ametrin-studios-mods.oneskyapp.com/collaboration/project/189202)
 
