@@ -27,3 +27,6 @@ Example
 - test the data pack and check the log for any errors
 - let us know what you changed and why so we can balance the default values better
 - you may need to update your data pack with major updates, check the [changelog](https://github.com/BarionLP/DungeonsEnhanced/blob/master/changelog.md) for any notes
+
+## Loot Tables
+- data pack only there is no template right now. 

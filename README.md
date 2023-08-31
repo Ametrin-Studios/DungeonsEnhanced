@@ -8,7 +8,7 @@ Get ready to find huge mazes under trees, castles, towers and forgotten temples.
 We hope you have fun!
 
 ## Customizing Stuctures
-(1.19.3+) Checkout [Customizing.md](https://github.com/BarionLP/DungeonsEnhanced/blob/master/Customizing.md)<br>
+(1.19.4+) Checkout [Customizing.md](https://github.com/BarionLP/DungeonsEnhanced/blob/master/Customizing.md)<br>
 (1.16.5-1.19.2) The config file should be self-explanatory
 
 ## Translating
