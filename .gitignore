@@ -20,10 +20,6 @@ build
 # other
 eclipse
 run
-!run/config
-!run/saves/JigsawStructures
-!run/saves/Structures
-!run/options.txt
 
 # Files from Forge MDK
 forge*changelog.txt
