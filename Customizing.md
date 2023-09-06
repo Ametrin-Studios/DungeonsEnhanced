@@ -22,11 +22,11 @@ Example
   - spacing: the average distance between generation attempts
   - offset: offsets the generation attempt randomly, MUST be lower than spacing
   - frequency: probability for the generation attempt to happen
-- delete all files that you didn't change
+- delete all structure files that you didn't change
 - when creating a world add the data pack
 - test the data pack and check the log for any errors
 - let us know what you changed and why so we can balance the default values better
 - you may need to update your data pack with major updates, check the [changelog](https://github.com/BarionLP/DungeonsEnhanced/blob/master/changelog.md) for any notes
 
 ## Loot Tables
-- data pack only there is no template right now. 
+- data pack only there is no template right now.
