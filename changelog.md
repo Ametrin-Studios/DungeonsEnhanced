@@ -1,3 +1,6 @@
+## 4.3.1
+- fixes
+
 ## 4.3
 - added Elder, Castle and Monster Explorer Maps to Cartographer trades
 - requires Structure Gel API 2.12.0

@@ -15,4 +15,6 @@
 	permissionHandler = "forge:default_handler"
 	#Set this to true to remove any Entity (Note: Does not include BlockEntities) that throws an error in its tick method instead of closing the server and reporting a crash log. BE WARNED THIS COULD SCREW UP EVERYTHING USE SPARINGLY WE ARE NOT RESPONSIBLE FOR DAMAGES.
 	removeErroringEntities = false
+	#Set this to true to enable advertising the dedicated server to local LAN clients so that it shows up in the Multiplayer screen automatically.
+	advertiseDedicatedServerToLan = true
 

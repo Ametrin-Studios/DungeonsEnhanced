@@ -37,7 +37,7 @@ public class DEGroundStructure extends DEBaseStructure {
     }
 
     public static final String ID_MINERS_HOUSE = "miners_house";
-    public static final Codec<DEGroundStructure> CODEC_MINERS_HOUSE = simpleCodec(DEGroundStructure::JungleMonument);
+    public static final Codec<DEGroundStructure> CODEC_MINERS_HOUSE = simpleCodec(DEGroundStructure::MinersHouse);
     public static DEGroundStructure MinersHouse(StructureSettings settings){
         return new DEGroundStructure(settings, pieceBuilder().add("miners_house").build(), MINERS_HOUSE::getType);
     }

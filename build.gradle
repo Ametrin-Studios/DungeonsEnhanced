@@ -1,7 +1,8 @@
 plugins {
     id 'eclipse'
+    id 'idea'
     id 'maven-publish'
-    id 'net.minecraftforge.gradle' version '5.1.+'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
 
@@ -97,7 +98,7 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
     implementation fg.deobf("com.legacy:structure-gel:${mc_version}-${gel_version}")
-    runtimeOnly fg.deobf("curse.maven:xaeros-world-map-317780:4705950")
+    runtimeOnly fg.deobf("curse.maven:xaeros-world-map-317780:4812590")
     runtimeOnly fg.deobf("curse.maven:chunky-485681:4179716")
 }
 
