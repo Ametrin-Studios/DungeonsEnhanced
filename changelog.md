@@ -1,3 +1,7 @@
+## 5.2.1
+- fixes
+- requires Structure Gel API 1.15.0+
+
 ## 5.2
 - fixed pillager camp
 - fixed flying dutchman

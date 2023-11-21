@@ -199,7 +199,7 @@ public class DEStructures {
                 .build();
 
         PILLAGER_CAMP = StructureRegistrar.jigsawBuilder(location(DEPillagerCamp.ID))
-                .placement(()-> gridPlacement(53, 36).build(DEStructures.PILLAGER_CAMP))
+                .placement(()-> gridPlacement(56, 39).build(DEStructures.PILLAGER_CAMP))
                 .addPiece(()-> DEPillagerCamp.Piece::new)
                 .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DEPillagerCamp.Capability.INSTANCE, DETemplatePools.PILLAGER_CAMP, 4, ConstantHeight.ZERO).onSurface().build())
                         .dimensions(Level.OVERWORLD)
