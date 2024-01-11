@@ -52,7 +52,7 @@ public class DEStructures {
     public static final StructureRegistrar<DEGroundStructure> RUINED_BUILDING;
     public static final StructureRegistrar<DEGroundStructure> STABLES;
     public static final StructureRegistrar<DEUnderwaterStructure> SUNKEN_SHRINE;
-    public static final StructureRegistrar<DEGroundStructure> TALL_WITCH_HUT;
+    public static final StructureRegistrar<DETallWitchHut> TALL_WITCH_HUT;
     public static final StructureRegistrar<DEGroundStructure> TREE_HOUSE;
     public static final StructureRegistrar<DEGroundStructure> TOWER_OF_THE_UNDEAD;
     public static final StructureRegistrar<DEGroundStructure> WATCH_TOWER;
@@ -243,12 +243,11 @@ public class DEStructures {
                 .popStructure()
                 .build();
 
-        TALL_WITCH_HUT = StructureRegistrar.builder(location(DEGroundStructure.ID_TALL_WITCH_HUT), ()-> ()-> DEGroundStructure.CODEC_TALL_WITCH_HUT)
+        TALL_WITCH_HUT = StructureRegistrar.builder(location(DETallWitchHut.ID), ()-> ()-> DETallWitchHut.CODEC)
                 .placement(()-> gridPlacement(21, 61).allowedNearSpawn(true).build(DEStructures.TALL_WITCH_HUT))
                 .addPiece(()-> DEGroundStructure.Piece::new)
-                .pushStructure(DEGroundStructure::TallWitchHut)
+                .pushStructure(DETallWitchHut::new)
                         .dimensions(Level.OVERWORLD)
-                        //.terrainAdjustment(TerrainAdjustment.BEARD_THIN)
                 .popStructure()
                 .build();
 

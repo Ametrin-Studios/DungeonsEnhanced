@@ -4,14 +4,15 @@ import com.barion.dungeons_enhanced.DEUtil;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.random.SimpleWeightedRandomList;
+import org.jetbrains.annotations.NotNull;
 
 public class DEStructureTemplates {
     private final SimpleWeightedRandomList<Template> templates;
 
-    public DEStructureTemplates(final Builder builder) {this(builder.buildList());}
-    public DEStructureTemplates(final SimpleWeightedRandomList<Template> templates){
+    public DEStructureTemplates(@NotNull final Builder builder) {this(builder.buildList());}
+    public DEStructureTemplates(@NotNull final SimpleWeightedRandomList<Template> templates){
         if(templates.isEmpty()) {
-            throw new IllegalArgumentException("The given builder is empty");
+            throw new IllegalArgumentException("The Structure Template builder is empty");
         }
         this.templates = templates;
     }
@@ -29,12 +30,10 @@ public class DEStructureTemplates {
 
     public static class Builder{
         private final SimpleWeightedRandomList.Builder<Template> pieces;
-        private int yOffset;
-        private int weight;
+        private int yOffset = 0;
+        private int weight = 1;
 
         public Builder(){
-            this.yOffset = 0;
-            this.weight = 1;
             pieces = SimpleWeightedRandomList.builder();
         }
 
@@ -52,6 +51,7 @@ public class DEStructureTemplates {
             return this;
         }
 
+        @NotNull
         private SimpleWeightedRandomList<Template> buildList() {
             return pieces.build();
         }

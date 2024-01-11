@@ -43,11 +43,11 @@ public class DELargeDungeon{
         var registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "large_dungeon/", context);
         registry.registerBuilder().pools(registry.poolBuilder().names("root").maintainWater(false)).register(DETemplatePools.LARGE_DUNGEON);
 
-        var basicPool = registry.poolBuilder().maintainWater(false);
-        var Cross = basicPool.clone().names("cross");
-        var Rooms = basicPool.clone().names("room_small1", "room_small2", "room1", "room2", "room_big", "parkour", "storage");
-        var Tunnels = basicPool.clone().names("tunnel");
-        var Stairs = basicPool.clone().names("stairs");
+        var basePool = registry.poolBuilder().maintainWater(false);
+        var Cross = basePool.clone().names("cross");
+        var Rooms = basePool.clone().names("room_small1", "room_small2", "room1", "room2", "room_big", "parkour", "storage");
+        var Tunnels = basePool.clone().names("tunnel");
+        var Stairs = basePool.clone().names("stairs");
 
         registry.register("cross", Cross.build());
         registry.register("main", JigsawPoolBuilder.collect(Tunnels.weight(4), Stairs.weight(2), Cross.weight(2), Rooms.weight(1)));

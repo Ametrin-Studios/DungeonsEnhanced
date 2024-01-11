@@ -130,7 +130,7 @@ key_info.structure_gel.building_tool.undo:key.keyboard.unknown
 key_info.structure_gel.building_tool.redo:key.keyboard.unknown
 key_key.structure_gel.open_building_tool_gui:key.keyboard.r
 soundCategory_master:1.0
-soundCategory_music:1.0
+soundCategory_music:0.0
 soundCategory_record:1.0
 soundCategory_weather:1.0
 soundCategory_block:1.0

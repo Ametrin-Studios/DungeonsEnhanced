@@ -32,7 +32,7 @@ public class DEUnderwaterProcessor extends StructureProcessor {
         }
 
         if(placed.state().hasProperty(BlockStateProperties.WATERLOGGED)){
-            return new StructureTemplate.StructureBlockInfo(placed.pos(), placed.state().setValue(BlockStateProperties.WATERLOGGED, true), null);
+            return new StructureTemplate.StructureBlockInfo(placed.pos(), placed.state().setValue(BlockStateProperties.WATERLOGGED, true), placed.nbt());
         }
 
         return placed;

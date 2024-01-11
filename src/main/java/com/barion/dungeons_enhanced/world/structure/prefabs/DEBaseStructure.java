@@ -20,6 +20,7 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePiecesBuilde
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockIgnoreProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -38,6 +39,11 @@ public abstract class DEBaseStructure extends Structure{
 
     protected static Optional<Structure.GenerationStub> at(BlockPos pos, Consumer<StructurePiecesBuilder> piecesBuilder){
         return Optional.of(new GenerationStub(pos, piecesBuilder));
+    }
+
+    @Override @NotNull
+    protected Optional<GenerationStub> findGenerationPoint(@NotNull GenerationContext generationContext) {
+        return Optional.empty();
     }
 
     @Override @Nonnull

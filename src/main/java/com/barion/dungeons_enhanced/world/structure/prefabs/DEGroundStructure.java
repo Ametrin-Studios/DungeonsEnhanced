@@ -60,12 +60,6 @@ public class DEGroundStructure extends DEBaseStructure {
         return new DEGroundStructure(settings, pieceBuilder().yOffset(-6).add("stables").build(), STABLES::getType);
     }
 
-    public static final String ID_TALL_WITCH_HUT = "tall_witch_hut";
-    public static final Codec<DEGroundStructure> CODEC_TALL_WITCH_HUT = simpleCodec(DEGroundStructure::TallWitchHut);
-    public static DEGroundStructure TallWitchHut(StructureSettings settings){
-        return new DEGroundStructure(settings, pieceBuilder().yOffset(-3).add("tall_witch_hut").build(), TALL_WITCH_HUT::getType);
-    }
-
     public static final String ID_TREE_HOUSE = "tree_house";
     public static final Codec<DEGroundStructure> CODEC_TREE_HOUSE = simpleCodec(DEGroundStructure::TreeHouse);
     public static DEGroundStructure TreeHouse(StructureSettings settings){
