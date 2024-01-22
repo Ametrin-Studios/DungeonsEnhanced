@@ -25,22 +25,25 @@ issueTrackerURL="https://github.com/BarionLP/DungeonsEnhanced/issues"
     '''
 
 [[dependencies.${mod_id}]]
-    modId="forge"
-    mandatory=true
+    modId="neoforge"
+    type="required"
     versionRange="${forge_version_range}"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.${mod_id}]]
     modId="minecraft"
-    mandatory=true
+    type="required"
     versionRange="${minecraft_version_range}"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.${mod_id}]]
     modId="structure_gel"
-    mandatory=true
+    type="required"
     versionRange="${gel_version_range}"
     ordering="NONE"
     side="BOTH"
+
+[[accessTransformers]]
+    file="dungeons_enhanced_base.cfg"

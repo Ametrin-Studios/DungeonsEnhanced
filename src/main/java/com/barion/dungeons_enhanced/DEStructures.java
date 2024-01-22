@@ -64,7 +64,7 @@ public class DEStructures {
         CASTLE = StructureRegistrar.jigsawBuilder(location(DECastle.ID))
                 .placement(()-> gridPlacement(69, 78).build(DEStructures.CASTLE))
                 .addPiece(()-> DECastle.Piece::new)
-                .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DECastle.Capability.Instance, DETemplatePools.CASTLE, 1, ConstantHeight.ZERO).onSurface().build())
+                .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DECastle.Capability.INSTANCE, DETemplatePools.CASTLE, 1, ConstantHeight.ZERO).onSurface().build())
                         .dimensions(Level.OVERWORLD)
                         .terrainAdjustment(TerrainAdjustment.BEARD_BOX)
                 .popStructure()
@@ -73,7 +73,7 @@ public class DEStructures {
         DEEP_CRYPT = StructureRegistrar.jigsawBuilder(location(DEDeepCrypt.ID))
                 .placement(()-> gridPlacement(39, 67).build(DEStructures.DEEP_CRYPT))
                 .addPiece(()-> DEDeepCrypt.Piece::new)
-                .pushStructure((context, settings) -> extendedJigsawStructure(context, settings, DEDeepCrypt.Capability.Instance, DETemplatePools.DEEP_CRYPT, 4, UniformHeight.of(VerticalAnchor.aboveBottom(16), VerticalAnchor.aboveBottom(48))).build())
+                .pushStructure((context, settings) -> extendedJigsawStructure(context, settings, DEDeepCrypt.Capability.INSTANCE, DETemplatePools.DEEP_CRYPT, 4, UniformHeight.of(VerticalAnchor.aboveBottom(16), VerticalAnchor.aboveBottom(48))).build())
                         .dimensions(Level.OVERWORLD)
                         .generationStep(GenerationStep.Decoration.UNDERGROUND_STRUCTURES)
                 .popStructure()
@@ -330,7 +330,7 @@ public class DEStructures {
         return GridStructurePlacement.builder().spacing(spacing).offset((int) (spacing*0.8));
     }
 
-    private static ExtendedJigsawStructure.Builder extendedJigsawStructure(BootstapContext<?> context, Structure.StructureSettings settings, JigsawCapability.IJigsawCapability capability, ResourceKey<StructureTemplatePool> poolKey, int maxDepth, HeightProvider heightProvider){
+    private static ExtendedJigsawStructure.Builder extendedJigsawStructure(BootstapContext<?> context, Structure.StructureSettings settings, JigsawCapability capability, ResourceKey<StructureTemplatePool> poolKey, int maxDepth, HeightProvider heightProvider){
         return ExtendedJigsawStructure.builder(settings, context.lookup(Registries.TEMPLATE_POOL).getOrThrow(poolKey)).maxDepth(maxDepth).startHeight(heightProvider).capability(capability);
     }
 }

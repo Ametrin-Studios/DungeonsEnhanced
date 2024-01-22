@@ -1,3 +1,10 @@
+## 5.3
+- neoforge / 1.20.4 port
+- requires Structure Gel 2.17.0 or above
+
+## 5.2.2
+- rewrite tall witch hut generation (fixes #37)
+
 ## 5.2.1
 - fixes
 - requires Structure Gel API 1.15.0+
