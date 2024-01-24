@@ -115,16 +115,13 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "advancements.dungeons_enhanced.seven_world_wonders.desc"
     },
     "frame": "goal",
-    "hidden": false,
     "icon": {
       "item": "minecraft:spyglass"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancements.dungeons_enhanced.seven_world_wonders"
     }
@@ -151,6 +148,5 @@
     [
       "entered_elders_temple"
     ]
-  ],
-  "sends_telemetry_event": false
+  ]
 }

@@ -27,7 +27,7 @@ issueTrackerURL="https://github.com/BarionLP/DungeonsEnhanced/issues"
 [[dependencies.${mod_id}]]
     modId="neoforge"
     type="required"
-    versionRange="${forge_version_range}"
+    versionRange="${neo_version_range}"
     ordering="NONE"
     side="BOTH"
 

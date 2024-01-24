@@ -19,16 +19,12 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "advancements.dungeons_enhanced.ancient_civilizations.desc"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "minecraft:bamboo"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancements.dungeons_enhanced.ancient_civilizations"
     }
@@ -37,6 +33,5 @@
     [
       "entered_jungle_monument"
     ]
-  ],
-  "sends_telemetry_event": false
+  ]
 }

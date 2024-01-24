@@ -1,13 +1,15 @@
-package com.barion.dungeons_enhanced.world;
+package com.barion.dungeons_enhanced.registry;
 
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.world.structure.*;
+import com.legacy.structure_gel.api.registry.RegistrarHolder;
 import com.legacy.structure_gel.api.registry.registrar.RegistrarHandler;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
+@RegistrarHolder
 public class DETemplatePools {
     public static final RegistrarHandler<StructureTemplatePool> HANDLER = RegistrarHandler.getOrCreate(Registries.TEMPLATE_POOL, DungeonsEnhanced.MOD_ID).bootstrap(DETemplatePools::init);
 

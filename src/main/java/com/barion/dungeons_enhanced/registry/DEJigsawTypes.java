@@ -1,12 +1,14 @@
-package com.barion.dungeons_enhanced.world;
+package com.barion.dungeons_enhanced.registry;
 
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.world.structure.*;
+import com.legacy.structure_gel.api.registry.RegistrarHolder;
 import com.legacy.structure_gel.api.registry.StructureGelRegistries;
 import com.legacy.structure_gel.api.registry.registrar.Registrar;
 import com.legacy.structure_gel.api.registry.registrar.RegistrarHandler;
 import com.legacy.structure_gel.api.structure.jigsaw.JigsawCapabilityType;
 
+@RegistrarHolder
 public class DEJigsawTypes {
     public static final RegistrarHandler<JigsawCapabilityType<?>> HANDLER = RegistrarHandler.getOrCreate(StructureGelRegistries.Keys.JIGSAW_TYPE, DungeonsEnhanced.MOD_ID);
     public static final Registrar.Static<JigsawCapabilityType<DECastle.Capability>> CASTLE = HANDLER.createStatic(DECastle.ID, () -> () -> DECastle.Capability.CODEC);

@@ -2,12 +2,9 @@ package com.barion.dungeons_enhanced.world.structure;
 
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
-import com.barion.dungeons_enhanced.world.DEJigsawTypes;
-import com.barion.dungeons_enhanced.world.DETemplatePools;
-import com.legacy.structure_gel.api.structure.jigsaw.ExtendedJigsawStructurePiece;
-import com.legacy.structure_gel.api.structure.jigsaw.IPieceFactory;
-import com.legacy.structure_gel.api.structure.jigsaw.JigsawCapability;
-import com.legacy.structure_gel.api.structure.jigsaw.JigsawRegistryHelper;
+import com.barion.dungeons_enhanced.registry.DEJigsawTypes;
+import com.barion.dungeons_enhanced.registry.DETemplatePools;
+import com.legacy.structure_gel.api.structure.jigsaw.*;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.data.worldgen.BootstapContext;
@@ -24,12 +21,12 @@ import java.util.Map;
 public class DEDesertTomb{
     public static final String ID = "desert_tomb";
 
-    public static class Capability implements JigsawCapability.IJigsawCapability{
+    public static class Capability implements JigsawCapability{
         public static final Capability INSTANCE = new Capability();
         public static final Codec<Capability> CODEC = Codec.unit(INSTANCE);
 
         @Override
-        public JigsawCapability.JigsawType<?> getType(){return DEJigsawTypes.DESERT_TOMB;}
+        public JigsawCapabilityType<?> getType(){return DEJigsawTypes.DESERT_TOMB.get();}
         @Override
         public IPieceFactory getPieceFactory() {return Piece::new;}
     }

@@ -1,8 +1,9 @@
 package com.barion.dungeons_enhanced;
 
-import com.barion.dungeons_enhanced.world.DETemplatePools;
+import com.barion.dungeons_enhanced.registry.DETemplatePools;
 import com.barion.dungeons_enhanced.world.structure.*;
 import com.barion.dungeons_enhanced.world.structure.prefabs.*;
+import com.legacy.structure_gel.api.registry.RegistrarHolder;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
 import com.legacy.structure_gel.api.structure.ExtendedJigsawStructure;
 import com.legacy.structure_gel.api.structure.GridStructurePlacement;
@@ -30,6 +31,7 @@ import java.util.function.Supplier;
 
 import static com.barion.dungeons_enhanced.DEUtil.location;
 
+@RegistrarHolder
 public class DEStructures {
     public static final StructureRegistrar<ExtendedJigsawStructure> CASTLE;
     public static final StructureRegistrar<ExtendedJigsawStructure> DEEP_CRYPT;
@@ -61,6 +63,7 @@ public class DEStructures {
     private DEStructures() {}
 
     static {
+
         CASTLE = StructureRegistrar.jigsawBuilder(location(DECastle.ID))
                 .placement(()-> gridPlacement(69, 78).build(DEStructures.CASTLE))
                 .addPiece(()-> DECastle.Piece::new)

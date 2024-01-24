@@ -1,4 +1,4 @@
-package com.barion.dungeons_enhanced.world;
+package com.barion.dungeons_enhanced.registry;
 
 import com.barion.dungeons_enhanced.data.DETags;
 import net.minecraft.world.entity.npc.VillagerTrades;

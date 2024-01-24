@@ -1,7 +1,7 @@
 package com.barion.dungeons_enhanced.data.provider;
 
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
-import com.barion.dungeons_enhanced.world.DELootTables;
+import com.barion.dungeons_enhanced.registry.DELootTables;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.data.loot.LootTableSubProvider;

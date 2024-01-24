@@ -2,8 +2,8 @@ package com.barion.dungeons_enhanced.world.structure;
 
 import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
-import com.barion.dungeons_enhanced.world.DEJigsawTypes;
-import com.barion.dungeons_enhanced.world.DETemplatePools;
+import com.barion.dungeons_enhanced.registry.DEJigsawTypes;
+import com.barion.dungeons_enhanced.registry.DETemplatePools;
 import com.barion.dungeons_enhanced.world.structure.processor.DEProcessors;
 import com.legacy.structure_gel.api.structure.jigsaw.*;
 import com.mojang.serialization.Codec;

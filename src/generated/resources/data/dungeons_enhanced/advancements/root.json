@@ -423,8 +423,6 @@
     "description": {
       "translate": "advancements.dungeons_enhanced.root.desc"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "minecraft:mossy_stone_bricks"
     },
@@ -462,6 +460,5 @@
       "entered_watch_tower",
       "entered_witch_tower"
     ]
-  ],
-  "sends_telemetry_event": false
+  ]
 }

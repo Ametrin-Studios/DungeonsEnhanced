@@ -19,16 +19,12 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "advancements.dungeons_enhanced.chilled_halls.desc"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "minecraft:bone"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancements.dungeons_enhanced.chilled_halls"
     }
@@ -37,6 +33,5 @@
     [
       "entered_ice_pit"
     ]
-  ],
-  "sends_telemetry_event": false
+  ]
 }

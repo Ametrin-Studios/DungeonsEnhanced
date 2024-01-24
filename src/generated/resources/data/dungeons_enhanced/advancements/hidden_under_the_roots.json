@@ -19,16 +19,12 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "advancements.dungeons_enhanced.hidden_under_the_roots.desc"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "minecraft:jack_o_lantern"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancements.dungeons_enhanced.hidden_under_the_roots"
     }
@@ -37,6 +33,5 @@
     [
       "entered_monster_maze"
     ]
-  ],
-  "sends_telemetry_event": false
+  ]
 }

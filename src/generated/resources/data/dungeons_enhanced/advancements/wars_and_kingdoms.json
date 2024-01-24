@@ -19,16 +19,12 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "advancements.dungeons_enhanced.wars_and_kingdoms.desc"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "minecraft:stone_bricks"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancements.dungeons_enhanced.wars_and_kingdoms"
     }
@@ -37,6 +33,5 @@
     [
       "entered_castle"
     ]
-  ],
-  "sends_telemetry_event": false
+  ]
 }
