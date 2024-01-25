@@ -1,16 +1,21 @@
 package com.barion.dungeons_enhanced.world.structure;
 
+import com.barion.dungeons_enhanced.DEStructures;
+import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.world.structure.prefabs.DEGroundStructure;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
 import com.legacy.structure_gel.api.structure.GridStructurePlacement;
 import com.mojang.serialization.Codec;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.TerrainAdjustment;
+import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Supplier;
 
 public final class DEStructureBuilder<S extends Structure> {
     private final StructureRegistrar.Builder<S> _builder;
@@ -20,6 +25,18 @@ public final class DEStructureBuilder<S extends Structure> {
         _builder = builder;
     }
 
+    static {
+        DEStructureBuilder.create(DEGroundStructure.ID_RUINED_BUILDING, DEGroundStructure.CODEC_RUINED_BUILDING)
+                .placement(12, 1).allowNearSpawn()
+                .addPiece(()-> DEGroundStructure.Piece::new)
+                .addStructure(DEGroundStructure::RuinedBuilding)
+                    .dimensions(Level.OVERWORLD)
+                    .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
+                .popStructure()
+                .build(DEStructures.RUINED_BUILDING);
+    }
+
+    public static <S extends Structure> DEStructureBuilder<S> create(String id, Codec<S> codec) {return create(DEUtil.location(id), codec);}
     public static <S extends Structure> DEStructureBuilder<S> create(ResourceLocation id, Codec<S> codec){
         return new DEStructureBuilder<>(StructureRegistrar.builder(id, ()-> () -> codec));
     }
@@ -45,14 +62,41 @@ public final class DEStructureBuilder<S extends Structure> {
         return this;
     }
 
-    public StructureRegistrar<S> build(StructureRegistrar<S> registrar, Function<Structure.StructureSettings, S> pieceFactory){
-         return _builder
-                 .placement(()-> _placement.build(registrar))
-                .addPiece(()-> DEGroundStructure.Piece::new)
-                .pushStructure(pieceFactory)
-                .dimensions(Level.OVERWORLD)
-                .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
-                .popStructure()
-                .build();
+    public DEStructureBuilder<S> addPiece(Supplier<StructurePieceType> piece){
+        _builder.addPiece(piece);
+        return this;
+    }
+
+    public DEStructureBuilder<S>.SubStructure addStructure(Function<Structure.StructureSettings, S> factory){
+        return new SubStructure(this, _builder.pushStructure(factory));
+    }
+
+    public StructureRegistrar<S> build(StructureRegistrar<S> registrar){
+         return _builder.placement(()-> _placement.build(registrar)).build();
+    }
+
+    public class SubStructure{
+        private final DEStructureBuilder<S> _parent;
+        private final StructureRegistrar.StructureBuilder<S> _builder;
+
+        public SubStructure(DEStructureBuilder<S> parent, StructureRegistrar.StructureBuilder<S> builder) {
+            _parent = parent;
+            _builder = builder;
+        }
+
+        @SafeVarargs
+        public final SubStructure dimensions(final ResourceKey<Level>... dimensions){
+            _builder.dimensions(dimensions);
+            return this;
+        }
+
+        public SubStructure terrainAdjustment(TerrainAdjustment adjustment){
+            _builder.terrainAdjustment(adjustment);
+            return this;
+        }
+
+        public DEStructureBuilder<S> popStructure(){
+            return _parent;
+        }
     }
 }
