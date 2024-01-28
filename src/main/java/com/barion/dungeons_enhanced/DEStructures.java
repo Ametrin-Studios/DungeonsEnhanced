@@ -231,8 +231,7 @@ public class DEStructures {
 //                .popStructure()
 //                .build();
 
-        RUINED_BUILDING = DEModularRegistrarBuilder.create(DEStructures.RUINED_BUILDING, DEGroundStructure.ID_RUINED_BUILDING)
-                .placement(12, 1).allowNearSpawn()
+        RUINED_BUILDING = DEModularRegistrarBuilder.create(()-> DEStructures.RUINED_BUILDING, DEGroundStructure.ID_RUINED_BUILDING)
                 .addStructure(pieceFactory -> pieceFactory
                                 .add(3, "ruined_building/house")
                                 .add(3, "ruined_building/barn")
@@ -241,6 +240,7 @@ public class DEStructures {
                         config -> config
                                 .dimensions(Level.OVERWORLD)
                                 .terrainAdjustment(TerrainAdjustment.BEARD_THIN))
+                .placement(27, 0.54f).allowNearSpawn()
                 .build();
 
         STABLES = StructureRegistrar.builder(location(DEGroundStructure.ID_STABLES), ()-> ()-> DEGroundStructure.CODEC_STABLES)

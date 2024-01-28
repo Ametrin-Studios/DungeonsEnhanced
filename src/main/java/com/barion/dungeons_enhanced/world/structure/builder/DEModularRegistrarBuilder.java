@@ -10,20 +10,21 @@ import net.minecraft.world.level.levelgen.structure.Structure;
 
 import javax.annotation.Nullable;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 public final class DEModularRegistrarBuilder {
-    public static DEModularRegistrarBuilder create(StructureRegistrar<DEModularStructure> registrar, String id){return create(registrar, id, null);}
-    public static DEModularRegistrarBuilder create(StructureRegistrar<DEModularStructure> registrar, String id, Codec<DEModularStructure> codec) {return create(registrar, DEUtil.location(id), codec);}
-    public static DEModularRegistrarBuilder create(StructureRegistrar<DEModularStructure> registrar, ResourceLocation id, Codec<DEModularStructure> codec){
+    public static DEModularRegistrarBuilder create(Supplier<StructureRegistrar<DEModularStructure>> registrar, String id){return create(registrar, id, null);}
+    public static DEModularRegistrarBuilder create(Supplier<StructureRegistrar<DEModularStructure>> registrar, String id, Codec<DEModularStructure> codec) {return create(registrar, DEUtil.location(id), codec);}
+    public static DEModularRegistrarBuilder create(Supplier<StructureRegistrar<DEModularStructure>> registrar, ResourceLocation id, Codec<DEModularStructure> codec){
         return new DEModularRegistrarBuilder(registrar, id, codec);
     }
 
-    private final StructureRegistrar<DEModularStructure> _registrar;
+    private final Supplier<StructureRegistrar<DEModularStructure>> _registrar;
     private final StructureRegistrar.Builder<DEModularStructure> _builder;
     private final GridStructurePlacement.Builder _placement = GridStructurePlacement.builder();
     private Codec<DEModularStructure> _codec;
 
-    public DEModularRegistrarBuilder(StructureRegistrar<DEModularStructure> registrar, ResourceLocation resourceLocation, @Nullable Codec<DEModularStructure> codec) {
+    public DEModularRegistrarBuilder(Supplier<StructureRegistrar<DEModularStructure>> registrar, ResourceLocation resourceLocation, @Nullable Codec<DEModularStructure> codec) {
         _registrar = registrar;
         _codec = codec;
         _builder = StructureRegistrar.builder(resourceLocation, ()-> ()-> _codec);
@@ -53,15 +54,14 @@ public final class DEModularRegistrarBuilder {
     public DEModularRegistrarBuilder addStructure(Consumer<DERandomPieceFactory.Builder> pieceFactoryConsumer, Consumer<DEModularStructure.Builder> builderConsumer, Consumer<StructureRegistrar.StructureBuilder<DEModularStructure>> configuratorConsumer){
         var pieceFactoryBuilder = new DERandomPieceFactory.Builder();
         pieceFactoryConsumer.accept(pieceFactoryBuilder);
-        var pieceFactory = pieceFactoryBuilder.build(()-> _registrar.getPieceType().get());
+        var pieceFactory = pieceFactoryBuilder.build(()-> _registrar.get().getPieceType().get());
         _builder.addPiece(()-> pieceFactory::createPiece);
 
-        var builder = new DEModularStructure.Builder(pieceFactory, _registrar::getType);
+        var builder = new DEModularStructure.Builder(pieceFactory, ()-> _registrar.get().getType());
         builderConsumer.accept(builder);
         if(_codec == null) _codec = Structure.simpleCodec(builder::build);
 
         var configurator = _builder.pushStructure(builder::build);
-//        configurator.lakeProof(true);
         configuratorConsumer.accept(configurator);
         configurator.popStructure();
 
@@ -69,6 +69,6 @@ public final class DEModularRegistrarBuilder {
     }
 
     public StructureRegistrar<DEModularStructure> build(){
-         return _builder.placement(()-> _placement.build(_registrar)).build();
+         return _builder.placement(()-> _placement.build(_registrar.get().getRegistryName())).build();
     }
 }
