@@ -2,6 +2,7 @@ package com.barion.dungeons_enhanced;
 
 import com.barion.dungeons_enhanced.registry.DETemplatePools;
 import com.barion.dungeons_enhanced.world.structure.*;
+import com.barion.dungeons_enhanced.world.structure.builder.DEModularRegistrarBuilder;
 import com.barion.dungeons_enhanced.world.structure.prefabs.*;
 import com.legacy.structure_gel.api.registry.RegistrarHolder;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
@@ -51,7 +52,7 @@ public class DEStructures {
     public static final StructureRegistrar<DEGroundStructure> MUSHROOM_HOUSE;
     public static final StructureRegistrar<ExtendedJigsawStructure> PILLAGER_CAMP;
     public static final StructureRegistrar<DEPirateShip> PIRATE_SHIP;
-    public static final StructureRegistrar<DEGroundStructure> RUINED_BUILDING;
+    public static final StructureRegistrar<DEModularStructure> RUINED_BUILDING;
     public static final StructureRegistrar<DEGroundStructure> STABLES;
     public static final StructureRegistrar<DEUnderwaterStructure> SUNKEN_SHRINE;
     public static final StructureRegistrar<DETallWitchHut> TALL_WITCH_HUT;
@@ -221,13 +222,25 @@ public class DEStructures {
                 .popStructure()
                 .build();
 
-        RUINED_BUILDING = StructureRegistrar.builder(location(DEGroundStructure.ID_RUINED_BUILDING), ()-> ()-> DEGroundStructure.CODEC_RUINED_BUILDING)
-                .placement(()-> gridPlacement(27, 54).allowedNearSpawn(true).build(DEStructures.RUINED_BUILDING))
-                .addPiece(()-> DEGroundStructure.Piece::new)
-                .pushStructure(DEGroundStructure::RuinedBuilding)
-                        .dimensions(Level.OVERWORLD)
-                        .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
-                .popStructure()
+//        RUINED_BUILDING = StructureRegistrar.builder(location(DEGroundStructure.ID_RUINED_BUILDING), ()-> ()-> DEGroundStructure.CODEC_RUINED_BUILDING)
+//                .placement(()-> gridPlacement(27, 54).allowedNearSpawn(true).build(DEStructures.RUINED_BUILDING))
+//                .addPiece(()-> DEGroundStructure.Piece::new)
+//                .pushStructure(DEGroundStructure::RuinedBuilding)
+//                        .dimensions(Level.OVERWORLD)
+//                        .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
+//                .popStructure()
+//                .build();
+
+        RUINED_BUILDING = DEModularRegistrarBuilder.create(DEStructures.RUINED_BUILDING, DEGroundStructure.ID_RUINED_BUILDING)
+                .placement(12, 1).allowNearSpawn()
+                .addStructure(pieceFactory -> pieceFactory
+                                .add(3, "ruined_building/house")
+                                .add(3, "ruined_building/barn")
+                                .add(2, "ruined_building/house_big"),
+                        structure -> structure.placement(),
+                        config -> config
+                                .dimensions(Level.OVERWORLD)
+                                .terrainAdjustment(TerrainAdjustment.BEARD_THIN))
                 .build();
 
         STABLES = StructureRegistrar.builder(location(DEGroundStructure.ID_STABLES), ()-> ()-> DEGroundStructure.CODEC_STABLES)
