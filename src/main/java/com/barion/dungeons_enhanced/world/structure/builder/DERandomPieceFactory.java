@@ -14,7 +14,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 
 import java.util.function.Supplier;
 
-public final class DERandomPieceFactory implements IDETemplatePieceFactory {
+public final class DERandomPieceFactory implements IDEPieceFactory {
     private final SimpleWeightedRandomList<DEStructureTemplate> _templates;
     private final Supplier<StructurePieceType> _pieceTypeSupplier;
 

@@ -1,7 +1,7 @@
 package com.barion.dungeons_enhanced.world.structure;
 
 import com.barion.dungeons_enhanced.world.structure.builder.DEPlacement;
-import com.barion.dungeons_enhanced.world.structure.builder.DERandomPieceFactory;
+import com.barion.dungeons_enhanced.world.structure.builder.IDEPieceFactory;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureType;
 import org.jetbrains.annotations.NotNull;
@@ -10,11 +10,11 @@ import java.util.Optional;
 import java.util.function.Supplier;
 
 public final class DEModularStructure extends Structure {
-    private final DERandomPieceFactory _pieceFactory;
+    private final IDEPieceFactory _pieceFactory;
     private final DEPlacement _placementProvider;
     private final Supplier<StructureType<?>> _typeSupplier;
 
-    public DEModularStructure(StructureSettings settings, DERandomPieceFactory pieceFactory, DEPlacement placement, Supplier<StructureType<?>> typeSupplier) {
+    public DEModularStructure(StructureSettings settings, IDEPieceFactory pieceFactory, DEPlacement placement, Supplier<StructureType<?>> typeSupplier) {
         super(settings);
         _pieceFactory = pieceFactory;
         _placementProvider = placement;
@@ -30,11 +30,11 @@ public final class DEModularStructure extends Structure {
     public StructureType<?> type() {return _typeSupplier.get();}
 
     public static class Builder{
-        private final DERandomPieceFactory _pieceFactory;
+        private final IDEPieceFactory _pieceFactory;
         private DEPlacement _placementProvider;
         private final Supplier<StructureType<?>> _typeSupplier;
 
-        public Builder(DERandomPieceFactory pieceFactory, Supplier<StructureType<?>> typeSupplier) {
+        public Builder(IDEPieceFactory pieceFactory, Supplier<StructureType<?>> typeSupplier) {
             _pieceFactory = pieceFactory;
             _typeSupplier = typeSupplier;
         }

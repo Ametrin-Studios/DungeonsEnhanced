@@ -55,10 +55,25 @@ public final class DEModularRegistrarBuilder {
         var pieceFactoryBuilder = new DERandomPieceFactory.Builder();
         pieceFactoryConsumer.accept(pieceFactoryBuilder);
         var pieceFactory = pieceFactoryBuilder.build(()-> _registrar.get().getPieceType().get());
-        _builder.addPiece(()-> pieceFactory::createPiece);
 
         var structureBuilder = new DEModularStructure.Builder(pieceFactory, ()-> _registrar.get().getType());
         builderConsumer.accept(structureBuilder);
+
+        return addStructure(pieceFactory, structureBuilder, configuratorConsumer);
+    }
+
+    public DEModularRegistrarBuilder addStructure(ResourceLocation template, Consumer<DEModularStructure.Builder> builderConsumer, Consumer<StructureRegistrar.StructureBuilder<DEModularStructure>> configuratorConsumer){
+        var pieceFactory = new DESinglePieceFactory(new DEStructureTemplate(template, 0), ()-> _registrar.get().getPieceType().get());
+
+        var structureBuilder = new DEModularStructure.Builder(pieceFactory, ()-> _registrar.get().getType());
+        builderConsumer.accept(structureBuilder);
+
+        return addStructure(pieceFactory, structureBuilder, configuratorConsumer);
+    }
+
+    public DEModularRegistrarBuilder addStructure(IDEPieceFactory pieceFactory, DEModularStructure.Builder structureBuilder, Consumer<StructureRegistrar.StructureBuilder<DEModularStructure>> configuratorConsumer){
+        _builder.addPiece(()-> pieceFactory::createPiece);
+
         if(_codec == null) _codec = Structure.simpleCodec(structureBuilder::build);
 
         var configurator = _builder.pushStructure(structureBuilder::build);

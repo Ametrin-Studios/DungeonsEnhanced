@@ -43,7 +43,7 @@ public class DEStructures {
     public static final StructureRegistrar<DEUndergroundStructure> DUNGEON_VARIANT;
     public static final StructureRegistrar<DEEldersTemple> ELDERS_TEMPLE;
     public static final StructureRegistrar<DESwimmingStructure> FISHING_SHIP;
-    public static final StructureRegistrar<DEFlyingStructure> FLYING_DUTCHMAN;
+    public static final StructureRegistrar<DEModularStructure> FLYING_DUTCHMAN;
     public static final StructureRegistrar<DEGroundStructure> HAY_STORAGE;
     public static final StructureRegistrar<DEIcePit> ICE_PIT;
     public static final StructureRegistrar<DEGroundStructure> JUNGLE_MONUMENT;
@@ -136,13 +136,22 @@ public class DEStructures {
                 .popStructure()
                 .build();
 
-        FLYING_DUTCHMAN = StructureRegistrar.builder(location(DEFlyingStructure.ID_FLYING_DUTCHMAN), ()-> ()-> DEFlyingStructure.CODEC_FLYING_DUTCHMAN)
-                .placement(()-> gridPlacement(134, 63).build(DEStructures.FLYING_DUTCHMAN))
-                .addPiece(()-> DEFlyingStructure.Piece::new)
-                .pushStructure(DEFlyingStructure::FlyingDutchman)
-                        .dimensions(Level.OVERWORLD)
-                .popStructure()
+        FLYING_DUTCHMAN = DEModularRegistrarBuilder.create(()-> DEStructures.FLYING_DUTCHMAN, DEFlyingStructure.ID_FLYING_DUTCHMAN)
+                .addStructure(DEUtil.location("flying_dutchman"),
+                        structure -> structure
+                                .placement(DEPlacement.DEFAULT_ABOVE_GROUND),
+                        config -> config
+                                .dimensions(Level.OVERWORLD))
+                .placement(134, 0.63f)
                 .build();
+
+//        FLYING_DUTCHMAN = StructureRegistrar.builder(location(DEFlyingStructure.ID_FLYING_DUTCHMAN), ()-> ()-> DEFlyingStructure.CODEC_FLYING_DUTCHMAN)
+//                .placement(()-> gridPlacement(134, 63).build(DEStructures.FLYING_DUTCHMAN))
+//                .addPiece(()-> DEFlyingStructure.Piece::new)
+//                .pushStructure(DEFlyingStructure::FlyingDutchman)
+//                        .dimensions(Level.OVERWORLD)
+//                .popStructure()
+//                .build();
 
         HAY_STORAGE = StructureRegistrar.builder(location(DEGroundStructure.ID_HAY_STORAGE), ()-> ()-> DEGroundStructure.CODEC_HAY_STORAGE)
                 .placement(()-> gridPlacement(23, 77).allowedNearSpawn(true).build(DEStructures.HAY_STORAGE))
