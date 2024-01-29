@@ -3,6 +3,7 @@ package com.barion.dungeons_enhanced;
 import com.barion.dungeons_enhanced.registry.DETemplatePools;
 import com.barion.dungeons_enhanced.world.structure.*;
 import com.barion.dungeons_enhanced.world.structure.builder.DEModularRegistrarBuilder;
+import com.barion.dungeons_enhanced.world.structure.builder.DEPlacement;
 import com.barion.dungeons_enhanced.world.structure.prefabs.*;
 import com.legacy.structure_gel.api.registry.RegistrarHolder;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
@@ -236,7 +237,8 @@ public class DEStructures {
                                 .add(3, "ruined_building/house")
                                 .add(3, "ruined_building/barn")
                                 .add(2, "ruined_building/house_big"),
-                        structure -> structure.placement(),
+                        structure -> structure
+                                .placement(DEPlacement.DEFAULT_ON_GROUND),
                         config -> config
                                 .dimensions(Level.OVERWORLD)
                                 .terrainAdjustment(TerrainAdjustment.BEARD_THIN))

@@ -57,11 +57,11 @@ public final class DEModularRegistrarBuilder {
         var pieceFactory = pieceFactoryBuilder.build(()-> _registrar.get().getPieceType().get());
         _builder.addPiece(()-> pieceFactory::createPiece);
 
-        var builder = new DEModularStructure.Builder(pieceFactory, ()-> _registrar.get().getType());
-        builderConsumer.accept(builder);
-        if(_codec == null) _codec = Structure.simpleCodec(builder::build);
+        var structureBuilder = new DEModularStructure.Builder(pieceFactory, ()-> _registrar.get().getType());
+        builderConsumer.accept(structureBuilder);
+        if(_codec == null) _codec = Structure.simpleCodec(structureBuilder::build);
 
-        var configurator = _builder.pushStructure(builder::build);
+        var configurator = _builder.pushStructure(structureBuilder::build);
         configuratorConsumer.accept(configurator);
         configurator.popStructure();
 
@@ -69,6 +69,7 @@ public final class DEModularRegistrarBuilder {
     }
 
     public StructureRegistrar<DEModularStructure> build(){
-         return _builder.placement(()-> _placement.build(_registrar.get().getRegistryName())).build();
+        if (_codec == null) throw new IllegalArgumentException("codec was not given and could not be constructed");
+        return _builder.placement(()-> _placement.build(_registrar.get().getRegistryName())).build();
     }
 }

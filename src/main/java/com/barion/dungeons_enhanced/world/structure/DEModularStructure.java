@@ -1,7 +1,6 @@
 package com.barion.dungeons_enhanced.world.structure;
 
-import com.barion.dungeons_enhanced.DEUtil;
-import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
+import com.barion.dungeons_enhanced.world.structure.builder.DEPlacement;
 import com.barion.dungeons_enhanced.world.structure.builder.DERandomPieceFactory;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureType;
@@ -12,26 +11,19 @@ import java.util.function.Supplier;
 
 public final class DEModularStructure extends Structure {
     private final DERandomPieceFactory _pieceFactory;
+    private final DEPlacement _placementProvider;
     private final Supplier<StructureType<?>> _typeSupplier;
 
-    public DEModularStructure(StructureSettings settings, DERandomPieceFactory pieceFactory, Supplier<StructureType<?>> typeSupplier) {
+    public DEModularStructure(StructureSettings settings, DERandomPieceFactory pieceFactory, DEPlacement placement, Supplier<StructureType<?>> typeSupplier) {
         super(settings);
         _pieceFactory = pieceFactory;
+        _placementProvider = placement;
         _typeSupplier = typeSupplier;
     }
 
     @Override @NotNull
     protected Optional<GenerationStub> findGenerationPoint(@NotNull GenerationContext context) {
-        final var rawPos = DEUtil.ChunkPosToBlockPos(context.chunkPos(), 0);
-        var piece = _pieceFactory.createPiece(context.structureTemplateManager(), rawPos, context.random());
-
-        final var size = piece.getSize();
-        final var result = DETerrainAnalyzer.isFlatEnough(rawPos, size, 1, 4, context.chunkGenerator(), context.heightAccessor(), context.randomState());
-        if(!result.getSecond()) {return Optional.empty();}
-        final var pos = rawPos.atY(Math.round(result.getFirst()));
-        piece.setPosition(pos);
-
-        return Optional.of(new GenerationStub(pos, (builder)-> builder.addPiece(piece)));
+        return _placementProvider.getPlacement(context, _pieceFactory);
     }
 
     @Override @NotNull
@@ -39,6 +31,7 @@ public final class DEModularStructure extends Structure {
 
     public static class Builder{
         private final DERandomPieceFactory _pieceFactory;
+        private DEPlacement _placementProvider;
         private final Supplier<StructureType<?>> _typeSupplier;
 
         public Builder(DERandomPieceFactory pieceFactory, Supplier<StructureType<?>> typeSupplier) {
@@ -46,13 +39,14 @@ public final class DEModularStructure extends Structure {
             _typeSupplier = typeSupplier;
         }
 
-        public Builder placement(){
-
+        public Builder placement(DEPlacement placement){
+            _placementProvider = placement;
             return this;
         }
 
         public DEModularStructure build(StructureSettings settings){
-            return new DEModularStructure(settings, _pieceFactory, _typeSupplier);
+            if(_placementProvider == null) throw new IllegalArgumentException("placement not set");
+            return new DEModularStructure(settings, _pieceFactory, _placementProvider, _typeSupplier);
         }
     }
 }
