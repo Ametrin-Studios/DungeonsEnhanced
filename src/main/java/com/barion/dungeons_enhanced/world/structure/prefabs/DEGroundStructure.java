@@ -25,10 +25,6 @@ import static com.barion.dungeons_enhanced.DEUtil.pieceBuilder;
 public class DEGroundStructure extends DEBaseStructure {
 
     public static final String ID_HAY_STORAGE = "hay_storage";
-    public static final Codec<DEGroundStructure> CODEC_HAY_STORAGE = simpleCodec(DEGroundStructure::HayStorage);
-    public static DEGroundStructure HayStorage(StructureSettings settings){
-        return new DEGroundStructure(settings, pieceBuilder().add("hay_storage/small").add("hay_storage/big").build(), HAY_STORAGE::getType);
-    }
 
     public static final String ID_JUNGLE_MONUMENT = "jungle_monument";
     public static final Codec<DEGroundStructure> CODEC_JUNGLE_MONUMENT = simpleCodec(DEGroundStructure::JungleMonument);
@@ -49,10 +45,6 @@ public class DEGroundStructure extends DEBaseStructure {
     }
 
     public static final String ID_RUINED_BUILDING = "ruined_building";
-    public static final Codec<DEGroundStructure> CODEC_RUINED_BUILDING = simpleCodec(DEGroundStructure::RuinedBuilding);
-    public static DEGroundStructure RuinedBuilding(StructureSettings settings){
-        return new DEGroundStructure(settings, pieceBuilder().weight(3).add("ruined_building/house").weight(2).add("ruined_building/house_big").weight(3).add("ruined_building/barn").build(), RUINED_BUILDING::getType);
-    }
 
     public static final String ID_STABLES = "stables";
     public static final Codec<DEGroundStructure> CODEC_STABLES = simpleCodec(DEGroundStructure::Stables);

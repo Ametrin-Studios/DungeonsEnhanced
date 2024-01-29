@@ -9,7 +9,7 @@ import com.legacy.structure_gel.api.registry.registrar.RegistrarHandler;
 import com.legacy.structure_gel.api.structure.jigsaw.JigsawCapabilityType;
 
 @RegistrarHolder
-public class DEJigsawTypes {
+public final class DEJigsawTypes {
     public static final RegistrarHandler<JigsawCapabilityType<?>> HANDLER = RegistrarHandler.getOrCreate(StructureGelRegistries.Keys.JIGSAW_TYPE, DungeonsEnhanced.MOD_ID);
     public static final Registrar.Static<JigsawCapabilityType<DECastle.Capability>> CASTLE = HANDLER.createStatic(DECastle.ID, () -> () -> DECastle.Capability.CODEC);
     public static final Registrar.Static<JigsawCapabilityType<DEDeepCrypt.Capability>> DEEP_CRYPT = HANDLER.createStatic(DEDeepCrypt.ID, () -> () -> DEDeepCrypt.Capability.CODEC);

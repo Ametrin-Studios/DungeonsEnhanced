@@ -44,7 +44,7 @@ public class DEStructures {
     public static final StructureRegistrar<DEEldersTemple> ELDERS_TEMPLE;
     public static final StructureRegistrar<DESwimmingStructure> FISHING_SHIP;
     public static final StructureRegistrar<DEModularStructure> FLYING_DUTCHMAN;
-    public static final StructureRegistrar<DEGroundStructure> HAY_STORAGE;
+    public static final StructureRegistrar<DEModularStructure> HAY_STORAGE;
     public static final StructureRegistrar<DEIcePit> ICE_PIT;
     public static final StructureRegistrar<DEGroundStructure> JUNGLE_MONUMENT;
     public static final StructureRegistrar<ExtendedJigsawStructure> LARGE_DUNGEON;
@@ -145,21 +145,16 @@ public class DEStructures {
                 .placement(134, 0.63f)
                 .build();
 
-//        FLYING_DUTCHMAN = StructureRegistrar.builder(location(DEFlyingStructure.ID_FLYING_DUTCHMAN), ()-> ()-> DEFlyingStructure.CODEC_FLYING_DUTCHMAN)
-//                .placement(()-> gridPlacement(134, 63).build(DEStructures.FLYING_DUTCHMAN))
-//                .addPiece(()-> DEFlyingStructure.Piece::new)
-//                .pushStructure(DEFlyingStructure::FlyingDutchman)
-//                        .dimensions(Level.OVERWORLD)
-//                .popStructure()
-//                .build();
-
-        HAY_STORAGE = StructureRegistrar.builder(location(DEGroundStructure.ID_HAY_STORAGE), ()-> ()-> DEGroundStructure.CODEC_HAY_STORAGE)
-                .placement(()-> gridPlacement(23, 77).allowedNearSpawn(true).build(DEStructures.HAY_STORAGE))
-                .addPiece(()-> DEGroundStructure.Piece::new)
-                .pushStructure(DEGroundStructure::HayStorage)
-                        .dimensions(Level.OVERWORLD)
-                        .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
-                .popStructure()
+        HAY_STORAGE = DEModularRegistrarBuilder.create(()-> DEStructures.HAY_STORAGE, DEGroundStructure.ID_HAY_STORAGE)
+                .addStructure(pieceFactory -> pieceFactory
+                                .add("hay_storage/small")
+                                .add("hay_storage/big"),
+                        structure -> structure
+                                .placement(DEPlacement.DEFAULT_ON_GROUND),
+                        config -> config
+                                .dimensions(Level.OVERWORLD)
+                                .terrainAdjustment(TerrainAdjustment.BEARD_THIN))
+                .placement(23, 0.77f).allowNearSpawn()
                 .build();
 
         ICE_PIT = StructureRegistrar.builder(location(DEIcePit.ID), ()-> ()-> DEIcePit.CODEC)
@@ -231,15 +226,6 @@ public class DEStructures {
                         .noSpawns(StructureSpawnOverride.BoundingBoxType.STRUCTURE, MobCategory.UNDERGROUND_WATER_CREATURE, MobCategory.AXOLOTLS, MobCategory.WATER_AMBIENT, MobCategory.WATER_CREATURE)
                 .popStructure()
                 .build();
-
-//        RUINED_BUILDING = StructureRegistrar.builder(location(DEGroundStructure.ID_RUINED_BUILDING), ()-> ()-> DEGroundStructure.CODEC_RUINED_BUILDING)
-//                .placement(()-> gridPlacement(27, 54).allowedNearSpawn(true).build(DEStructures.RUINED_BUILDING))
-//                .addPiece(()-> DEGroundStructure.Piece::new)
-//                .pushStructure(DEGroundStructure::RuinedBuilding)
-//                        .dimensions(Level.OVERWORLD)
-//                        .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
-//                .popStructure()
-//                .build();
 
         RUINED_BUILDING = DEModularRegistrarBuilder.create(()-> DEStructures.RUINED_BUILDING, DEGroundStructure.ID_RUINED_BUILDING)
                 .addStructure(pieceFactory -> pieceFactory

@@ -45,8 +45,8 @@ public final class DEModularRegistrarBuilder {
         return this;
     }
 
-    public DEModularRegistrarBuilder allowNearSpawn() {return allowNearSpawn(true);}
-    public DEModularRegistrarBuilder allowNearSpawn(boolean allow){
+    public DEModularRegistrarBuilder allowNearSpawn() {return allowedNearSpawn(true);}
+    public DEModularRegistrarBuilder allowedNearSpawn(boolean allow){
         _placement.allowedNearSpawn(allow);
         return this;
     }
