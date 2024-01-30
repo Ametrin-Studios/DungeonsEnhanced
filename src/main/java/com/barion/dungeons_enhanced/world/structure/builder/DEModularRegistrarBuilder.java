@@ -1,7 +1,7 @@
 package com.barion.dungeons_enhanced.world.structure.builder;
 
 import com.barion.dungeons_enhanced.DEUtil;
-import com.barion.dungeons_enhanced.world.structure.DEModularStructure;
+import com.barion.dungeons_enhanced.world.structure.prefabs.DEModularStructure;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
 import com.legacy.structure_gel.api.structure.GridStructurePlacement;
 import com.mojang.serialization.Codec;
@@ -10,6 +10,7 @@ import net.minecraft.world.level.levelgen.structure.Structure;
 
 import javax.annotation.Nullable;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 public final class DEModularRegistrarBuilder {
@@ -51,33 +52,34 @@ public final class DEModularRegistrarBuilder {
         return this;
     }
 
-    public DEModularRegistrarBuilder addStructure(Consumer<DERandomPieceFactory.Builder> pieceFactoryConsumer, Consumer<DEModularStructure.Builder> builderConsumer, Consumer<StructureRegistrar.StructureBuilder<DEModularStructure>> configuratorConsumer){
-        var pieceFactoryBuilder = new DERandomPieceFactory.Builder();
-        pieceFactoryConsumer.accept(pieceFactoryBuilder);
+    public DEModularRegistrarBuilder addStructure(Function<DERandomPieceFactory.Builder, DERandomPieceFactory.Builder> pieceFactoryConsumer, Function<DEModularStructure.Builder, DEModularStructure.Builder> builderConsumer, Function<StructureRegistrar.StructureBuilder<DEModularStructure>, StructureRegistrar.StructureBuilder<DEModularStructure>> configuratorConsumer){
+        var pieceFactoryBuilder = pieceFactoryConsumer.apply(new DERandomPieceFactory.Builder());
         var pieceFactory = pieceFactoryBuilder.build(()-> _registrar.get().getPieceType().get());
 
+        var structureBuilder =  builderConsumer.apply(new DEModularStructure.Builder(pieceFactory, ()-> _registrar.get().getType()));
+
+        return addStructure(pieceFactory, structureBuilder, configuratorConsumer);
+    }
+
+    public DEModularRegistrarBuilder addStructure(ResourceLocation template, Consumer<DEModularStructure.Builder> builderConsumer, Function<StructureRegistrar.StructureBuilder<DEModularStructure>, StructureRegistrar.StructureBuilder<DEModularStructure>> configuratorConsumer){
+        return addStructure(new DEStructureTemplate(template, 0), builderConsumer, configuratorConsumer);
+    }
+    public DEModularRegistrarBuilder addStructure(DEStructureTemplate template, Consumer<DEModularStructure.Builder> builderConsumer, Function<StructureRegistrar.StructureBuilder<DEModularStructure>, StructureRegistrar.StructureBuilder<DEModularStructure>> configuratorConsumer){
+        var pieceFactory = new DESinglePieceFactory(template, ()-> _registrar.get().getPieceType().get());
+
         var structureBuilder = new DEModularStructure.Builder(pieceFactory, ()-> _registrar.get().getType());
         builderConsumer.accept(structureBuilder);
 
         return addStructure(pieceFactory, structureBuilder, configuratorConsumer);
     }
 
-    public DEModularRegistrarBuilder addStructure(ResourceLocation template, Consumer<DEModularStructure.Builder> builderConsumer, Consumer<StructureRegistrar.StructureBuilder<DEModularStructure>> configuratorConsumer){
-        var pieceFactory = new DESinglePieceFactory(new DEStructureTemplate(template, 0), ()-> _registrar.get().getPieceType().get());
-
-        var structureBuilder = new DEModularStructure.Builder(pieceFactory, ()-> _registrar.get().getType());
-        builderConsumer.accept(structureBuilder);
-
-        return addStructure(pieceFactory, structureBuilder, configuratorConsumer);
-    }
-
-    public DEModularRegistrarBuilder addStructure(IDEPieceFactory pieceFactory, DEModularStructure.Builder structureBuilder, Consumer<StructureRegistrar.StructureBuilder<DEModularStructure>> configuratorConsumer){
+    public DEModularRegistrarBuilder addStructure(IDEPieceFactory pieceFactory, DEModularStructure.Builder structureBuilder, Function<StructureRegistrar.StructureBuilder<DEModularStructure>, StructureRegistrar.StructureBuilder<DEModularStructure>> configuratorConsumer){
         _builder.addPiece(()-> pieceFactory::createPiece);
 
         if(_codec == null) _codec = Structure.simpleCodec(structureBuilder::build);
 
         var configurator = _builder.pushStructure(structureBuilder::build);
-        configuratorConsumer.accept(configurator);
+        configuratorConsumer.apply(configurator);
         configurator.popStructure();
 
         return this;

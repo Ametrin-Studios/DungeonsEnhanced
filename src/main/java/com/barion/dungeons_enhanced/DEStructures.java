@@ -4,6 +4,8 @@ import com.barion.dungeons_enhanced.registry.DETemplatePools;
 import com.barion.dungeons_enhanced.world.structure.*;
 import com.barion.dungeons_enhanced.world.structure.builder.DEModularRegistrarBuilder;
 import com.barion.dungeons_enhanced.world.structure.builder.DEPlacement;
+import com.barion.dungeons_enhanced.world.structure.builder.DEPlacementFilter;
+import com.barion.dungeons_enhanced.world.structure.builder.DEStructureTemplate;
 import com.barion.dungeons_enhanced.world.structure.prefabs.*;
 import com.legacy.structure_gel.api.registry.RegistrarHolder;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
@@ -56,7 +58,7 @@ public class DEStructures {
     public static final StructureRegistrar<DEModularStructure> RUINED_BUILDING;
     public static final StructureRegistrar<DEGroundStructure> STABLES;
     public static final StructureRegistrar<DEUnderwaterStructure> SUNKEN_SHRINE;
-    public static final StructureRegistrar<DETallWitchHut> TALL_WITCH_HUT;
+    public static final StructureRegistrar<DEModularStructure> TALL_WITCH_HUT;
     public static final StructureRegistrar<DEGroundStructure> TREE_HOUSE;
     public static final StructureRegistrar<DEGroundStructure> TOWER_OF_THE_UNDEAD;
     public static final StructureRegistrar<DEGroundStructure> WATCH_TOWER;
@@ -139,7 +141,7 @@ public class DEStructures {
         FLYING_DUTCHMAN = DEModularRegistrarBuilder.create(()-> DEStructures.FLYING_DUTCHMAN, DEFlyingStructure.ID_FLYING_DUTCHMAN)
                 .addStructure(DEUtil.location("flying_dutchman"),
                         structure -> structure
-                                .placement(DEPlacement.DEFAULT_ABOVE_GROUND),
+                                .placement(DEPlacement.ABOVE_GROUND),
                         config -> config
                                 .dimensions(Level.OVERWORLD))
                 .placement(134, 0.63f)
@@ -150,7 +152,7 @@ public class DEStructures {
                                 .add("hay_storage/small")
                                 .add("hay_storage/big"),
                         structure -> structure
-                                .placement(DEPlacement.DEFAULT_ON_GROUND),
+                                .placement(DEPlacement.ON_OCEAN_FLOOR),
                         config -> config
                                 .dimensions(Level.OVERWORLD)
                                 .terrainAdjustment(TerrainAdjustment.BEARD_THIN))
@@ -233,7 +235,7 @@ public class DEStructures {
                                 .add(3, "ruined_building/barn")
                                 .add(2, "ruined_building/house_big"),
                         structure -> structure
-                                .placement(DEPlacement.DEFAULT_ON_GROUND),
+                                .placement(DEPlacement.ON_OCEAN_FLOOR),
                         config -> config
                                 .dimensions(Level.OVERWORLD)
                                 .terrainAdjustment(TerrainAdjustment.BEARD_THIN))
@@ -256,12 +258,14 @@ public class DEStructures {
                 .popStructure()
                 .build();
 
-        TALL_WITCH_HUT = StructureRegistrar.builder(location(DETallWitchHut.ID), ()-> ()-> DETallWitchHut.CODEC)
-                .placement(()-> gridPlacement(21, 61).allowedNearSpawn(true).build(DEStructures.TALL_WITCH_HUT))
-                .addPiece(()-> DEGroundStructure.Piece::new)
-                .pushStructure(DETallWitchHut::new)
-                        .dimensions(Level.OVERWORLD)
-                .popStructure()
+        TALL_WITCH_HUT = DEModularRegistrarBuilder.create(()-> DEStructures.TALL_WITCH_HUT, DETallWitchHut.ID)
+                .addStructure(DEStructureTemplate.of("tall_witch_hut", -3),
+                        structure -> structure
+                                .placement(DEPlacement.ON_WORLD_SURFACE)
+                                .filter(DEPlacementFilter.DIFFERENCE_OCEAN_FLOOR),
+                        config -> config
+                                .dimensions(Level.OVERWORLD))
+                .placement(21, 0.61f).allowNearSpawn()
                 .build();
 
         TOWER_OF_THE_UNDEAD = StructureRegistrar.builder(location(DEGroundStructure.ID_TOWER_OF_THE_UNDEAD), ()-> ()-> DEGroundStructure.CODEC_TOWER_OF_THE_UNDEAD)
