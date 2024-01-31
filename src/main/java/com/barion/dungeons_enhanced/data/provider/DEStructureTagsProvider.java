@@ -1,8 +1,8 @@
 package com.barion.dungeons_enhanced.data.provider;
 
-import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.data.DETags;
+import com.barion.dungeons_enhanced.registry.DEStructures;
 import com.legacy.structure_gel.api.data.tags.SGTags;
 import com.legacy.structure_gel.api.registry.registrar.Registrar;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;

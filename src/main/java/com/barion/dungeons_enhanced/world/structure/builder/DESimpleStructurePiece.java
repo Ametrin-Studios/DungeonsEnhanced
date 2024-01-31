@@ -29,10 +29,9 @@ public class DESimpleStructurePiece extends GelTemplateStructurePiece {
     public Vec3i getSize(){
         return template().getSize(getRotation());
     }
-    // probably not good
     public void setPosition(BlockPos pos){
         templatePosition = pos;
-    }
+    } // probably not good
 
     @Override @ParametersAreNonnullByDefault
     protected void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor levelAccessor, RandomSource randomSource, BoundingBox boundingBox) {}

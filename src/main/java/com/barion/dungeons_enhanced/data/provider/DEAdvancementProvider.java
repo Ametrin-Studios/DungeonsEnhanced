@@ -1,6 +1,6 @@
 package com.barion.dungeons_enhanced.data.provider;
 
-import com.barion.dungeons_enhanced.DEStructures;
+import com.barion.dungeons_enhanced.registry.DEStructures;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
 import net.minecraft.Util;
 import net.minecraft.advancements.Advancement;

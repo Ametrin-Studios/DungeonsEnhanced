@@ -20,8 +20,8 @@ import javax.annotation.Nonnull;
 import java.util.Optional;
 import java.util.function.Supplier;
 
-import static com.barion.dungeons_enhanced.DEStructures.SUNKEN_SHRINE;
 import static com.barion.dungeons_enhanced.DEUtil.pieceBuilder;
+import static com.barion.dungeons_enhanced.registry.DEStructures.SUNKEN_SHRINE;
 
 public class DEUnderwaterStructure extends DEBaseStructure {
     public static final String ID_SUNKEN_SHRINE = "sunken_shrine";

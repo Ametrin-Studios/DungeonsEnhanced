@@ -1,6 +1,7 @@
 package com.barion.dungeons_enhanced;
 
 import com.barion.dungeons_enhanced.data.DETags;
+import com.barion.dungeons_enhanced.registry.DEStructures;
 import com.legacy.structure_gel.api.config.StructureConfig;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
 import net.minecraft.resources.ResourceKey;

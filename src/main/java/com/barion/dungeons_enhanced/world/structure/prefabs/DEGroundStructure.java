@@ -1,7 +1,7 @@
 package com.barion.dungeons_enhanced.world.structure.prefabs;
 
-import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DEUtil;
+import com.barion.dungeons_enhanced.registry.DEStructures;
 import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
 import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEPieceAssembler;
 import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEStructureTemplates;
@@ -19,8 +19,8 @@ import javax.annotation.Nonnull;
 import java.util.Optional;
 import java.util.function.Supplier;
 
-import static com.barion.dungeons_enhanced.DEStructures.*;
 import static com.barion.dungeons_enhanced.DEUtil.pieceBuilder;
+import static com.barion.dungeons_enhanced.registry.DEStructures.*;
 
 public class DEGroundStructure extends DEBaseStructure {
 
@@ -43,8 +43,6 @@ public class DEGroundStructure extends DEBaseStructure {
     public static DEGroundStructure MushroomHouse(StructureSettings settings){
         return new DEGroundStructure(settings, pieceBuilder().add("mushroom_house/red").add("mushroom_house/brown").build(), MUSHROOM_HOUSE::getType);
     }
-
-    public static final String ID_RUINED_BUILDING = "ruined_building";
 
     public static final String ID_STABLES = "stables";
     public static final Codec<DEGroundStructure> CODEC_STABLES = simpleCodec(DEGroundStructure::Stables);

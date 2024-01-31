@@ -1,6 +1,6 @@
-package com.barion.dungeons_enhanced;
+package com.barion.dungeons_enhanced.registry;
 
-import com.barion.dungeons_enhanced.registry.DETemplatePools;
+import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.world.structure.*;
 import com.barion.dungeons_enhanced.world.structure.builder.DEModularRegistrarBuilder;
 import com.barion.dungeons_enhanced.world.structure.builder.DEPlacement;
@@ -138,7 +138,7 @@ public class DEStructures {
                 .popStructure()
                 .build();
 
-        FLYING_DUTCHMAN = DEModularRegistrarBuilder.create(()-> DEStructures.FLYING_DUTCHMAN, DEFlyingStructure.ID_FLYING_DUTCHMAN)
+        FLYING_DUTCHMAN = DEModularRegistrarBuilder.create(()-> DEStructures.FLYING_DUTCHMAN, DEStructureIDs.FLYING_DUTCHMAN)
                 .addStructure(DEUtil.location("flying_dutchman"),
                         structure -> structure
                                 .placement(DEPlacement.ABOVE_GROUND),
@@ -229,7 +229,7 @@ public class DEStructures {
                 .popStructure()
                 .build();
 
-        RUINED_BUILDING = DEModularRegistrarBuilder.create(()-> DEStructures.RUINED_BUILDING, DEGroundStructure.ID_RUINED_BUILDING)
+        RUINED_BUILDING = DEModularRegistrarBuilder.create(()-> DEStructures.RUINED_BUILDING, DEStructureIDs.RUINED_BUILDING)
                 .addStructure(pieceFactory -> pieceFactory
                                 .add(3, "ruined_building/house")
                                 .add(3, "ruined_building/barn")
@@ -258,7 +258,7 @@ public class DEStructures {
                 .popStructure()
                 .build();
 
-        TALL_WITCH_HUT = DEModularRegistrarBuilder.create(()-> DEStructures.TALL_WITCH_HUT, DETallWitchHut.ID)
+        TALL_WITCH_HUT = DEModularRegistrarBuilder.create(()-> DEStructures.TALL_WITCH_HUT, DEStructureIDs.TALL_WITCH_HUT)
                 .addStructure(DEStructureTemplate.of("tall_witch_hut", -3),
                         structure -> structure
                                 .placement(DEPlacement.ON_WORLD_SURFACE)
