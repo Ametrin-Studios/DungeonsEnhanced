@@ -12,6 +12,7 @@ import net.minecraft.world.level.levelgen.RandomState;
 public class DEUtil{
     public static ResourceLocation location(String key){ return new ResourceLocation(DungeonsEnhanced.MOD_ID, key);}
 
+    @Deprecated(forRemoval = true)
     public static BlockPos ChunkPosToBlockPos(ChunkPos chunkPos) {return ChunkPosToBlockPos(chunkPos, 0);}
     public static BlockPos ChunkPosToBlockPos(ChunkPos chunkPos, int y){
         return new BlockPos(chunkPos.getMinBlockX(), y, chunkPos.getMinBlockZ());

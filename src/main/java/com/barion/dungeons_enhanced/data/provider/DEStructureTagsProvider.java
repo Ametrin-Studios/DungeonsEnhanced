@@ -23,7 +23,7 @@ public class DEStructureTagsProvider extends StructureTagsProvider {
         super(output, lookup, DungeonsEnhanced.MOD_ID, existingFileHelper);
     }
 
-    @Override
+    @Override @SuppressWarnings("null")
     protected void addTags(@NotNull HolderLookup.Provider provider) {
         allStructures(SGTags.StructureTags.LAKE_PROOF);
         tag(DETags.Structures.ON_CASTLE_EXPLORER_MAPS).add(DEStructures.CASTLE.getStructure().getKey());
