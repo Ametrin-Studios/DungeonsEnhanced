@@ -1,5 +1,6 @@
 package com.barion.dungeons_enhanced.world.structure.processor;
 
+import com.barion.dungeons_enhanced.registry.DEProcessorTypes;
 import com.legacy.structure_gel.api.block.base.IStructureGel;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
@@ -39,5 +40,5 @@ public class DEUnderwaterProcessor extends StructureProcessor {
     }
 
     @Override @Nonnull
-    protected StructureProcessorType<?> getType() {return DEProcessors.Types.UNDERWATER;}
+    protected StructureProcessorType<?> getType() {return DEProcessorTypes.UNDERWATER;}
 }

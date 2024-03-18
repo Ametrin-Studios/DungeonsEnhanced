@@ -1,6 +1,22 @@
 {
   "parent": "dungeons_enhanced:seven_world_wonders",
   "criteria": {
+    "entered_black_citadel": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "dungeons_enhanced:black_citadel"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
     "entered_castle": {
       "conditions": {
         "player": [
@@ -508,6 +524,9 @@
     ],
     [
       "entered_witch_tower"
+    ],
+    [
+      "entered_black_citadel"
     ]
   ]
 }

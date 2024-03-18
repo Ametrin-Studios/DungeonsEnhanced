@@ -37,6 +37,7 @@ import static com.barion.dungeons_enhanced.DEUtil.location;
 
 @RegistrarHolder
 public class DEStructures {
+    //Overworld
     public static final StructureRegistrar<ExtendedJigsawStructure> CASTLE;
     public static final StructureRegistrar<ExtendedJigsawStructure> DEEP_CRYPT;
     public static final StructureRegistrar<DEDesertTemple> DESERT_TEMPLE;
@@ -64,10 +65,13 @@ public class DEStructures {
     public static final StructureRegistrar<DEGroundStructure> WATCH_TOWER;
     public static final StructureRegistrar<DEGroundStructure> WITCH_TOWER;
 
+    //Nether
+    public static final StructureRegistrar<ExtendedJigsawStructure> BLACK_CITADEL;
+
     private DEStructures() {}
 
     static {
-
+        //Overworld
         CASTLE = StructureRegistrar.jigsawBuilder(location(DECastle.ID))
                 .placement(()-> gridPlacement(69, 78).build(DEStructures.CASTLE))
                 .addPiece(()-> DECastle.Piece::new)
@@ -303,6 +307,15 @@ public class DEStructures {
                         .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
                 .popStructure()
                 .build();
+
+        // Nether
+        BLACK_CITADEL = StructureRegistrar.jigsawBuilder(location(DEStructureIDs.BLACK_CITADEL))
+                .placement(()-> gridPlacement(69, 78).build(DEStructures.BLACK_CITADEL))
+                .addPiece(()-> DEBlackCitadel.Piece::new)
+                .pushStructure((context, settings) -> extendedJigsawStructure(context, settings, DEBlackCitadel.Capability.INSTANCE, DETemplatePools.BLACK_CITADEL, 6, height(28)).maxDistanceFromCenter(120).build())
+                    .dimensions(Level.NETHER)
+                .popStructure()
+                .build();
     }
 
     public static final StructureRegistrar<?>[] ALL_STRUCTURE_REGISTRARS = {
@@ -331,7 +344,9 @@ public class DEStructures {
             TOWER_OF_THE_UNDEAD,
             TREE_HOUSE,
             WATCH_TOWER,
-            WITCH_TOWER
+            WITCH_TOWER,
+
+            BLACK_CITADEL,
     };
 
     private static ConstantHeight height(int y) {return ConstantHeight.of(new VerticalAnchor.Absolute(y));}

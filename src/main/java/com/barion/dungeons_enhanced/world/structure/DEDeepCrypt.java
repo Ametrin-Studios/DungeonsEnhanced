@@ -2,9 +2,9 @@ package com.barion.dungeons_enhanced.world.structure;
 
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.registry.DEJigsawTypes;
+import com.barion.dungeons_enhanced.registry.DEProcessorLists;
 import com.barion.dungeons_enhanced.registry.DEStructures;
 import com.barion.dungeons_enhanced.registry.DETemplatePools;
-import com.barion.dungeons_enhanced.world.structure.processor.DEProcessors;
 import com.legacy.structure_gel.api.structure.jigsaw.*;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
@@ -43,7 +43,7 @@ public class DEDeepCrypt{
         registry.registerBuilder().pools(registry.poolBuilder().names("root").maintainWater(false)).register(DETemplatePools.DEEP_CRYPT);
 
         var basicPool = registry.poolBuilder().maintainWater(false);
-        var Tunnels = basicPool.clone().processors(DEProcessors.AIR_TO_COBWEB.getKey()).names("tunnel", "cross");
+        var Tunnels = basicPool.clone().processors(DEProcessorLists.AIR_TO_COBWEB.getKey()).names("tunnel", "cross");
         var Treasure = basicPool.clone().names("treasure");
         var Rooms = basicPool.clone().names("big_tunnel", "large_tomb", "prison", "tomb", "tombs", "root");
 

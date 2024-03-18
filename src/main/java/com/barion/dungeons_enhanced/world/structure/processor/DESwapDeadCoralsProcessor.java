@@ -1,5 +1,6 @@
 package com.barion.dungeons_enhanced.world.structure.processor;
 
+import com.barion.dungeons_enhanced.registry.DEProcessorTypes;
 import com.google.common.collect.ImmutableMap;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
@@ -57,5 +58,5 @@ public class DESwapDeadCoralsProcessor extends StructureProcessor {
     }
 
     @Override
-    protected @NotNull StructureProcessorType<?> getType() {return DEProcessors.Types.SWAP_DEAD_CORALS_PROCESSOR;}
+    protected @NotNull StructureProcessorType<?> getType() {return DEProcessorTypes.SWAP_DEAD_CORALS_PROCESSOR;}
 }

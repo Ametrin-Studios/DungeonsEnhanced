@@ -1,0 +1,16 @@
+{
+  "type": "structure_gel:extended_jigsaw",
+  "biomes": "#minecraft:is_overworld",
+  "capability": {
+    "type": "dungeons_enhanced:pillager_camp"
+  },
+  "max_distance_from_center": 120,
+  "size": 6,
+  "spawn_overrides": {},
+  "start_height": {
+    "absolute": 28
+  },
+  "start_pool": "dungeons_enhanced:black_citadel/root",
+  "step": "surface_structures",
+  "use_expansion_hack": false
+}

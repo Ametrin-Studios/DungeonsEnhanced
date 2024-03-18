@@ -13,6 +13,7 @@ import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 public class DETemplatePools {
     public static final RegistrarHandler<StructureTemplatePool> HANDLER = RegistrarHandler.getOrCreate(Registries.TEMPLATE_POOL, DungeonsEnhanced.MOD_ID).bootstrap(DETemplatePools::init);
 
+    // Overworld
     public static final ResourceKey<StructureTemplatePool> CASTLE = HANDLER.key("castle/root");
     public static final ResourceKey<StructureTemplatePool> DEEP_CRYPT = HANDLER.key("deep_crypt/root");
     public static final ResourceKey<StructureTemplatePool> DESERT_TOMB = HANDLER.key("desert_tomb/root");
@@ -21,7 +22,11 @@ public class DETemplatePools {
     public static final ResourceKey<StructureTemplatePool> MONSTER_MAZE = HANDLER.key("monster_maze/root");
     public static final ResourceKey<StructureTemplatePool> PILLAGER_CAMP = HANDLER.key("pillager_camp/root");
 
+    // Nether
+    public static final ResourceKey<StructureTemplatePool> BLACK_CITADEL = HANDLER.key("black_citadel/root");
+
     private static void init(BootstapContext<StructureTemplatePool> context){
+        // Overworld
         DECastle.pool(context);
         DEDeepCrypt.pool(context);
         DEDesertTomb.pool(context);
@@ -29,5 +34,8 @@ public class DETemplatePools {
         DELargeDungeon.pool(context);
         DEMonsterMaze.pool(context);
         DEPillagerCamp.pool(context);
+
+        // Nether
+        DEBlackCitadel.pool(context);
     }
 }

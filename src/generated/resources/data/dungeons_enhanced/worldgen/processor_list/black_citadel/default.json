@@ -1,0 +1,20 @@
+{
+  "processors": [
+    {
+      "chance": 0.1,
+      "change_to": {
+        "Name": "minecraft:cracked_polished_blackstone_bricks"
+      },
+      "condition": "minecraft:polished_blackstone_bricks",
+      "processor_type": "structure_gel:replace_block"
+    },
+    {
+      "chance": 0.1,
+      "change_to": {
+        "Name": "minecraft:cracked_nether_bricks"
+      },
+      "condition": "minecraft:nether_bricks",
+      "processor_type": "structure_gel:replace_block"
+    }
+  ]
+}

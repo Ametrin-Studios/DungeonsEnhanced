@@ -16,7 +16,12 @@ public class DELootTableAliases {
     protected static void register(RegisterHelper<ResourceLocation> event){
         event.register(location("sunken_shrine"), DELootTables.SUNKEN_SHRINE);
         event.register(location("miners_house"), DELootTables.MINERS_HOUSE);
+
         event.register(location("pillager_camp/general"), DELootTables.PILLAGER_CAMP.GENERAL);
         event.register(location("pillager_camp/kitchen"), DELootTables.PILLAGER_CAMP.KITCHEN);
+
+        event.register(location("black_citadel/normal"), DELootTables.BLACK_CITADEL.NORMAL);
+        event.register(location("black_citadel/kitchen"), DELootTables.BLACK_CITADEL.KITCHEN);
+        event.register(location("black_citadel/treasure"), DELootTables.BLACK_CITADEL.TREASURE);
     }
 }

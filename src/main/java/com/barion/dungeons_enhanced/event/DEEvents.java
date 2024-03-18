@@ -1,7 +1,7 @@
 package com.barion.dungeons_enhanced.event;
 
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
-import com.barion.dungeons_enhanced.world.structure.processor.DEProcessors;
+import com.barion.dungeons_enhanced.registry.DEProcessorTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
@@ -12,7 +12,7 @@ public class DEEvents {
     @SubscribeEvent
     public static void register(RegisterEvent event){
         event.register(BuiltInRegistries.STRUCTURE_PROCESSOR.key(), helper ->{
-            DEProcessors.Types.register();
+            DEProcessorTypes.register();
         });
     }
 }

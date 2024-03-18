@@ -4,8 +4,8 @@ import com.barion.dungeons_enhanced.data.provider.DEAdvancementProvider;
 import com.barion.dungeons_enhanced.data.provider.DEBiomeTagsProvider;
 import com.barion.dungeons_enhanced.data.provider.DELootTableProvider;
 import com.barion.dungeons_enhanced.data.provider.DEStructureTagsProvider;
+import com.barion.dungeons_enhanced.registry.DEProcessorLists;
 import com.barion.dungeons_enhanced.registry.DETemplatePools;
-import com.barion.dungeons_enhanced.world.structure.processor.DEProcessors;
 import com.legacy.structure_gel.api.registry.registrar.RegistrarHandler;
 import net.minecraft.core.RegistrySetBuilder;
 import net.neoforged.bus.api.IEventBus;
@@ -23,11 +23,10 @@ public class DungeonsEnhanced{
 
     public DungeonsEnhanced(IEventBus modEventBus) {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DEConfig.COMMON_SPEC);
-//        Reflection.initialize(DEStructures.class, DEProcessors.class, DETemplatePools.class);
 
         modEventBus.addListener(DungeonsEnhanced::gatherData);
 
-        RegistrarHandler.registerHandlers(MOD_ID, modEventBus, DETemplatePools.HANDLER, DEProcessors.HANDLER);
+        RegistrarHandler.registerHandlers(MOD_ID, modEventBus, DETemplatePools.HANDLER, DEProcessorLists.HANDLER);
     }
 
     public static void gatherData(GatherDataEvent event){

@@ -26,6 +26,7 @@ public class DEConfig {
 
     public static class Common{
         protected Common(ModConfigSpec.Builder builder) {
+            // Overworld
             StructureBiomes(DEStructures.CASTLE).whitelist(Tags.Biomes.IS_COLD_OVERWORLD, Tags.Biomes.IS_SNOWY).blacklist(Tags.Biomes.IS_WATER, Tags.Biomes.IS_MOUNTAIN, DETags.Biomes.IS_SHORE).popBiomes().build(builder);
             overworldExceptStructure(builder, DEStructures.DEEP_CRYPT);
             tagsStructure(builder, DEStructures.DESERT_TEMPLE, BiomeTags.HAS_DESERT_PYRAMID);
@@ -52,6 +53,11 @@ public class DEConfig {
             tagsStructure(builder, DEStructures.TREE_HOUSE, BiomeTags.IS_JUNGLE);
             tagsNoWaterStructure(builder, DEStructures.WATCH_TOWER, Tags.Biomes.IS_COLD_OVERWORLD);
             tagsStructure(builder, DEStructures.WITCH_TOWER, BiomeTags.IS_TAIGA);
+
+            // Nether
+            structureConfigBuilder(DEStructures.BLACK_CITADEL).pushBiomes()
+                    .whitelist(BiomeTags.IS_NETHER)
+                    .popBiomes().build(builder);
         }
 
         @SafeVarargs
@@ -79,8 +85,11 @@ public class DEConfig {
         }
 
         private static StructureConfig.Builder.BiomeConfigBuilder StructureBiomes(StructureRegistrar<? extends Structure> structure){
+            return structureConfigBuilder(structure).pushBiomes();
+        }
+        private static  StructureConfig.Builder structureConfigBuilder(StructureRegistrar<? extends Structure> structure){
             if(structure.getStructure() == null) throw new InvalidParameterException("Need to be a single structure");
-            return StructureConfig.builder(structure.getStructure()).pushBiomes();
+            return StructureConfig.builder(structure.getStructure());
         }
     }
 }

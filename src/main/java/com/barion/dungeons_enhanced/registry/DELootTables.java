@@ -12,6 +12,12 @@ public interface DELootTables {
         ResourceLocation KITCHEN = chest("pillager_camp/kitchen");
     }
 
+    interface BLACK_CITADEL{
+        ResourceLocation NORMAL = chest("black_citadel/normal");
+        ResourceLocation KITCHEN = chest("black_citadel/kitchen");
+        ResourceLocation TREASURE = chest("black_citadel/treasure");
+    }
+
     private static ResourceLocation chest(String key) {
         return DEUtil.location("chests/" + key);
     }
