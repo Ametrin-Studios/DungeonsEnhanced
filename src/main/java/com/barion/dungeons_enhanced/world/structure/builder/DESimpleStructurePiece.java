@@ -11,19 +11,29 @@ import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.function.Function;
 
 public class DESimpleStructurePiece extends GelTemplateStructurePiece {
-    public DESimpleStructurePiece(StructurePieceType structurePieceType, StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation) {
+    private final Function<StructurePlaceSettings, StructurePlaceSettings> _settingsFunction;
+    public DESimpleStructurePiece(StructurePieceType structurePieceType, StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Function<StructurePlaceSettings, StructurePlaceSettings> settingsFunction, Rotation rotation) {
         super(structurePieceType, 0, structureManager, templateName, pos);
+        _settingsFunction = settingsFunction;
         this.rotation = rotation;
         setupPlaceSettings(structureManager);
     }
-    public DESimpleStructurePiece(StructurePieceType structurePieceType, CompoundTag nbt, StructurePieceSerializationContext context) {
+    public DESimpleStructurePiece(StructurePieceType structurePieceType, CompoundTag nbt, StructurePieceSerializationContext context, Function<StructurePlaceSettings, StructurePlaceSettings> settingsFunction) {
         super(structurePieceType, nbt, context.structureTemplateManager());
+        _settingsFunction = settingsFunction;
         setupPlaceSettings(context.structureTemplateManager());
+    }
+
+    @Override
+    protected StructurePlaceSettings getPlaceSettings(StructureTemplateManager structureManager) {
+        return _settingsFunction.apply(super.getPlaceSettings(structureManager));
     }
 
     public Vec3i getSize(){
@@ -31,6 +41,7 @@ public class DESimpleStructurePiece extends GelTemplateStructurePiece {
     }
     public void setPosition(BlockPos pos){
         templatePosition = pos;
+        boundingBox = template.getBoundingBox(placeSettings, templatePosition);
     } // probably not good
 
     @Override @ParametersAreNonnullByDefault

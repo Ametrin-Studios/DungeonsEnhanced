@@ -10,15 +10,20 @@ import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 public final class DERandomPieceFactory implements IDEPieceFactory {
     private final SimpleWeightedRandomList<DEStructureTemplate> _templates;
     private final Supplier<StructurePieceType> _pieceTypeSupplier;
+    private final Function<StructurePlaceSettings, StructurePlaceSettings> _settingsFunction;
 
-    public DERandomPieceFactory(SimpleWeightedRandomList<DEStructureTemplate> templates, Supplier<StructurePieceType> pieceTypeSupplier) {
+
+    public DERandomPieceFactory(SimpleWeightedRandomList<DEStructureTemplate> templates, Supplier<StructurePieceType> pieceTypeSupplier, Function<StructurePlaceSettings, StructurePlaceSettings> settingsFunction) {
+        _settingsFunction = settingsFunction;
         if(templates.isEmpty()) throw new IllegalArgumentException("The template list is empty");
         _pieceTypeSupplier = pieceTypeSupplier;
         _templates = templates;
@@ -27,16 +32,22 @@ public final class DERandomPieceFactory implements IDEPieceFactory {
 
     @Override
     public StructurePiece createPiece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) {
-        return new DESimpleStructurePiece(_pieceTypeSupplier.get(), nbt, serializationContext);
+        return new DESimpleStructurePiece(_pieceTypeSupplier.get(), nbt, serializationContext, _settingsFunction);
     }
     @Override
     public DESimpleStructurePiece createPiece(StructureTemplateManager templateManager, BlockPos position, RandomSource random) {
         var template = _templates.getRandomValue(random).get();
-        return new DESimpleStructurePiece(_pieceTypeSupplier.get(), templateManager, template.resourceLocation(), position.above(template.yOffset()), Rotation.getRandom(random));
+        return new DESimpleStructurePiece(_pieceTypeSupplier.get(), templateManager, template.resourceLocation(), position.above(template.yOffset()), _settingsFunction, Rotation.getRandom(random));
     }
 
     public static class Builder{
         private final SimpleWeightedRandomList.Builder<DEStructureTemplate> _templates = new SimpleWeightedRandomList.Builder<>();
+        private Function<StructurePlaceSettings, StructurePlaceSettings> _settingsFunction = settings -> settings;
+
+        public Builder settings(Function<StructurePlaceSettings, StructurePlaceSettings> settingsFunction){
+            _settingsFunction = settingsFunction;
+            return this;
+        }
 
         public Builder add(String location) {return add(DEUtil.location(location));}
         public Builder add(int weight, String location) {return add(weight, DEUtil.location(location), 0);}
@@ -50,7 +61,7 @@ public final class DERandomPieceFactory implements IDEPieceFactory {
         }
 
         public DERandomPieceFactory build(Supplier<StructurePieceType> pieceTypeSupplier){
-            return new DERandomPieceFactory(_templates.build(), pieceTypeSupplier);
+            return new DERandomPieceFactory(_templates.build(), pieceTypeSupplier, _settingsFunction);
         }
     }
 }

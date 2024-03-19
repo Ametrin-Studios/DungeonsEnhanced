@@ -6,7 +6,10 @@ import com.barion.dungeons_enhanced.world.structure.builder.DEModularRegistrarBu
 import com.barion.dungeons_enhanced.world.structure.builder.DEPlacement;
 import com.barion.dungeons_enhanced.world.structure.builder.DEPlacementFilter;
 import com.barion.dungeons_enhanced.world.structure.builder.DEStructureTemplate;
-import com.barion.dungeons_enhanced.world.structure.prefabs.*;
+import com.barion.dungeons_enhanced.world.structure.prefabs.DEGroundStructure;
+import com.barion.dungeons_enhanced.world.structure.prefabs.DEModularStructure;
+import com.barion.dungeons_enhanced.world.structure.prefabs.DESwimmingStructure;
+import com.barion.dungeons_enhanced.world.structure.prefabs.DEUnderwaterStructure;
 import com.legacy.structure_gel.api.registry.RegistrarHolder;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
 import com.legacy.structure_gel.api.structure.ExtendedJigsawStructure;
@@ -119,7 +122,12 @@ public class DEStructures {
                 .addStructure(pieceFactory->pieceFactory
                                 .add("dungeon_variant/zombie")
                                 .add("dungeon_variant/skeleton")
-                                .add("dungeon_variant/spider"),
+                                .add("dungeon_variant/spider")
+                                .settings(settings -> settings
+                                        .addProcessor(DEProcessors.MOSSY_COBBLESTONE_40)
+                                        .addProcessor(DEProcessors.MOSSY_COBBLESTONE_STAIRS_40)
+                                        .addProcessor(DEProcessors.MOSSY_COBBLESTONE_SLAB_40)
+                                ),
                         structure->structure
                                 .placement(DEPlacement.UNDERGROUND),
                         config->config
@@ -316,7 +324,8 @@ public class DEStructures {
                 .placement(()-> gridPlacement(69, 78).build(DEStructures.BLACK_CITADEL))
                 .addPiece(()-> DEBlackCitadel.Piece::new)
                 .pushStructure((context, settings) -> extendedJigsawStructure(context, settings, DEBlackCitadel.Capability.INSTANCE, DETemplatePools.BLACK_CITADEL, 6, height(28)).maxDistanceFromCenter(120).build())
-                    .dimensions(Level.NETHER)
+                        .spawns(MobCategory.MONSTER, StructureSpawnOverride.BoundingBoxType.PIECE, spawns(spawn(EntityType.WITHER_SKELETON, 4, 2, 5), spawn(EntityType.SKELETON, 1, 1, 3)))
+                        .dimensions(Level.NETHER)
                 .popStructure()
                 .build();
     }
