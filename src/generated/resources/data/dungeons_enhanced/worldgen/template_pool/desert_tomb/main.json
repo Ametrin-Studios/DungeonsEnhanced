@@ -3,22 +3,22 @@
     {
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
-        "location": "dungeons_enhanced:desert_tomb/room",
-        "maintainWater": false,
-        "processors": "minecraft:empty",
-        "projection": "rigid"
-      },
-      "weight": 4
-    },
-    {
-      "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:desert_tomb/tunnel",
         "maintainWater": false,
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 5
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:desert_tomb/room",
+        "maintainWater": false,
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 4
     },
     {
       "element": {

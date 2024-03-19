@@ -43,7 +43,7 @@ public class DEStructures {
     public static final StructureRegistrar<DEDesertTemple> DESERT_TEMPLE;
     public static final StructureRegistrar<ExtendedJigsawStructure> DESERT_TOMB;
     public static final StructureRegistrar<ExtendedJigsawStructure> DRUID_CIRCLE;
-    public static final StructureRegistrar<DEUndergroundStructure> DUNGEON_VARIANT;
+    public static final StructureRegistrar<DEModularStructure> DUNGEON_VARIANT;
     public static final StructureRegistrar<DEEldersTemple> ELDERS_TEMPLE;
     public static final StructureRegistrar<DESwimmingStructure> FISHING_SHIP;
     public static final StructureRegistrar<DEModularStructure> FLYING_DUTCHMAN;
@@ -57,7 +57,7 @@ public class DEStructures {
     public static final StructureRegistrar<ExtendedJigsawStructure> PILLAGER_CAMP;
     public static final StructureRegistrar<DEPirateShip> PIRATE_SHIP;
     public static final StructureRegistrar<DEModularStructure> RUINED_BUILDING;
-    public static final StructureRegistrar<DEGroundStructure> STABLES;
+    public static final StructureRegistrar<DEModularStructure> STABLES;
     public static final StructureRegistrar<DEUnderwaterStructure> SUNKEN_SHRINE;
     public static final StructureRegistrar<DEModularStructure> TALL_WITCH_HUT;
     public static final StructureRegistrar<DEGroundStructure> TREE_HOUSE;
@@ -115,13 +115,17 @@ public class DEStructures {
                 .popStructure()
                 .build();
 
-        DUNGEON_VARIANT = StructureRegistrar.builder(location(DEUndergroundStructure.ID_DUNGEON_VARIANT), ()-> ()-> DEUndergroundStructure.CODEC_DUNGEON_VARIANT)
-                .placement(()-> gridPlacement(19, 59).allowedNearSpawn(true).build(DEStructures.DUNGEON_VARIANT))
-                .addPiece(()-> DEUndergroundStructure.Piece::new)
-                .pushStructure(DEUndergroundStructure::DungeonVariant)
-                        .dimensions(Level.OVERWORLD)
-                        .generationStep(GenerationStep.Decoration.UNDERGROUND_STRUCTURES)
-                .popStructure()
+        DUNGEON_VARIANT = DEModularRegistrarBuilder.create(()-> DEStructures.DUNGEON_VARIANT, DEStructureIDs.DUNGEON_VARIANT)
+                .addStructure(pieceFactory->pieceFactory
+                                .add("dungeon_variant/zombie")
+                                .add("dungeon_variant/skeleton")
+                                .add("dungeon_variant/spider"),
+                        structure->structure
+                                .placement(DEPlacement.UNDERGROUND),
+                        config->config
+                                .dimensions(Level.OVERWORLD)
+                                .generationStep(GenerationStep.Decoration.UNDERGROUND_STRUCTURES))
+                .placement(19, 0.59f).allowNearSpawn()
                 .build();
 
         ELDERS_TEMPLE = StructureRegistrar.builder(location(DEEldersTemple.ID), ()-> ()-> DEEldersTemple.CODEC)
@@ -246,12 +250,11 @@ public class DEStructures {
                 .placement(27, 0.54f).allowNearSpawn()
                 .build();
 
-        STABLES = StructureRegistrar.builder(location(DEGroundStructure.ID_STABLES), ()-> ()-> DEGroundStructure.CODEC_STABLES)
-                .placement(()-> gridPlacement(53, 52).allowedNearSpawn(true).build(DEStructures.STABLES))
-                .addPiece(()-> DEGroundStructure.Piece::new)
-                .pushStructure(DEGroundStructure::Stables)
-                        .dimensions(Level.OVERWORLD)
-                .popStructure()
+        STABLES = DEModularRegistrarBuilder.create(()-> DEStructures.STABLES, DEStructureIDs.STABLES)
+                .addStructure(DEStructureTemplate.of("stables", -6),
+                        structure -> structure.placement(DEPlacement.ON_OCEAN_FLOOR),
+                        config -> config.dimensions(Level.OVERWORLD))
+                .placement(53, 0.52f).allowNearSpawn()
                 .build();
 
         SUNKEN_SHRINE = StructureRegistrar.builder(location(DEUnderwaterStructure.ID_SUNKEN_SHRINE), ()-> ()-> DEUnderwaterStructure.CODEC_SUNKEN_SHRINE)

@@ -44,12 +44,6 @@ public class DEGroundStructure extends DEBaseStructure {
         return new DEGroundStructure(settings, pieceBuilder().add("mushroom_house/red").add("mushroom_house/brown").build(), MUSHROOM_HOUSE::getType);
     }
 
-    public static final String ID_STABLES = "stables";
-    public static final Codec<DEGroundStructure> CODEC_STABLES = simpleCodec(DEGroundStructure::Stables);
-    public static DEGroundStructure Stables(StructureSettings settings){
-        return new DEGroundStructure(settings, pieceBuilder().yOffset(-6).add("stables").build(), STABLES::getType);
-    }
-
     public static final String ID_TREE_HOUSE = "tree_house";
     public static final Codec<DEGroundStructure> CODEC_TREE_HOUSE = simpleCodec(DEGroundStructure::TreeHouse);
     public static DEGroundStructure TreeHouse(StructureSettings settings){

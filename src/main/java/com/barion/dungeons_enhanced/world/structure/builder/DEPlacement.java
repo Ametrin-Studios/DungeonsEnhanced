@@ -44,10 +44,29 @@ public interface DEPlacement {
         int y = maxY;
         if (maxY > minY) {y = minY + context.random().nextInt(maxY - minY);}
         final BlockPos pos = rawPos.atY(y);
+
         if(filter.cannotGenerate(pos, context)) { return Optional.empty(); }
         final var piece = pieceFactory.createPiece(context.structureTemplateManager(), pos, context.random());
 
         return Optional.of(new Structure.GenerationStub(pos, builder -> builder.addPiece(piece)));
     });
+
+    DEPlacement UNDERGROUND = ((context, filter, pieceFactory)->{
+        var groundPos = DEUtil.ChunkPosToBlockPosFromHeightMap(context.chunkPos(), context.chunkGenerator(), Heightmap.Types.OCEAN_FLOOR_WG, context.heightAccessor(), context.randomState());
+
+        if(groundPos.getY() < 0) {return Optional.empty();}
+
+        final int minY = context.chunkGenerator().getMinY() + 8;
+        final int maxY = groundPos.getY() - 32;
+        int y = maxY;
+        if (maxY > minY) {y = minY + context.random().nextInt(maxY - minY);}
+        final var pos = groundPos.atY(y);
+
+        if(filter.cannotGenerate(pos, context)) { return Optional.empty(); }
+        final var piece = pieceFactory.createPiece(context.structureTemplateManager(), pos, context.random());
+
+        return Optional.of(new Structure.GenerationStub(pos, builder -> builder.addPiece(piece)));
+    });
+
     Optional<Structure.GenerationStub> getPlacement(Structure.GenerationContext context, DEPlacementFilter filter, IDEPieceFactory pieceFactory);
 }

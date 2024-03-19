@@ -38,6 +38,7 @@ public final class DEModularRegistrarBuilder {
         return placement(spacing, (int)(spacing*0.8), probability);
     }
     public DEModularRegistrarBuilder placement(int spacing, int offset, float probability){
+        if(probability > 1) throw new IllegalArgumentException("Probability needs to be between 0 and 1");
         _placement.spacing(spacing).offset(offset).probability(probability);
         return this;
     }
@@ -61,14 +62,14 @@ public final class DEModularRegistrarBuilder {
         return addStructure(pieceFactory, structureBuilder, configuratorConsumer);
     }
 
-    public DEModularRegistrarBuilder addStructure(ResourceLocation template, Consumer<DEModularStructure.Builder> builderConsumer, Function<StructureRegistrar.StructureBuilder<DEModularStructure>, StructureRegistrar.StructureBuilder<DEModularStructure>> configuratorConsumer){
+    public DEModularRegistrarBuilder addStructure(ResourceLocation template, Function<DEModularStructure.Builder, DEModularStructure.Builder> builderConsumer, Function<StructureRegistrar.StructureBuilder<DEModularStructure>, StructureRegistrar.StructureBuilder<DEModularStructure>> configuratorConsumer){
         return addStructure(new DEStructureTemplate(template, 0), builderConsumer, configuratorConsumer);
     }
-    public DEModularRegistrarBuilder addStructure(DEStructureTemplate template, Consumer<DEModularStructure.Builder> builderConsumer, Function<StructureRegistrar.StructureBuilder<DEModularStructure>, StructureRegistrar.StructureBuilder<DEModularStructure>> configuratorConsumer){
+    public DEModularRegistrarBuilder addStructure(DEStructureTemplate template, Function<DEModularStructure.Builder, DEModularStructure.Builder> builderConsumer, Function<StructureRegistrar.StructureBuilder<DEModularStructure>, StructureRegistrar.StructureBuilder<DEModularStructure>> configuratorConsumer){
         var pieceFactory = new DESinglePieceFactory(template, ()-> _registrar.get().getPieceType().get());
 
         var structureBuilder = new DEModularStructure.Builder(pieceFactory, ()-> _registrar.get().getType());
-        builderConsumer.accept(structureBuilder);
+        structureBuilder = builderConsumer.apply(structureBuilder);
 
         return addStructure(pieceFactory, structureBuilder, configuratorConsumer);
     }
