@@ -141,7 +141,7 @@
         {
           "type": "minecraft:item",
           "weight": 3,
-          "name": "minecraft:enchanted_book",
+          "name": "minecraft:book",
           "functions": [
             {
               "function": "minecraft:enchant_randomly"

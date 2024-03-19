@@ -10,10 +10,16 @@ import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.StructureManager;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 public class DEBlackCitadel {
     public static class Capability implements JigsawCapability {
@@ -22,7 +28,7 @@ public class DEBlackCitadel {
         @Override
         public JigsawCapabilityType<?> getType() {return DEJigsawTypes.BLACK_CITADEL.get();}
         @Override
-        public IPieceFactory getPieceFactory() {return DECastle.Piece::new;}
+        public IPieceFactory getPieceFactory() {return Piece::new;}
     }
 
     public static class Piece extends ExtendedJigsawStructurePiece {
@@ -30,6 +36,15 @@ public class DEBlackCitadel {
         public Piece(StructurePieceSerializationContext context, CompoundTag nbt) {super(context, nbt);}
         @Override
         public StructurePieceType getType() {return DEStructures.BLACK_CITADEL.getPieceType().get();}
+
+        @Override @ParametersAreNonnullByDefault
+        public void place(WorldGenLevel level, StructureManager structureManager, ChunkGenerator generator, RandomSource random, BoundingBox bounds, BlockPos pos, boolean keepJigsaws) {
+            super.place(level, structureManager, generator, random, bounds, pos, keepJigsaws);
+            if(getLocation().getPath().contains("pillar") || getLocation().getPath().contains("tower")){
+                this.extendDown(level, Blocks.POLISHED_BLACKSTONE_BRICKS.defaultBlockState(), bounds, rotation, random);
+            }
+        }
+
         @Override
         public void handleDataMarker(String key, BlockPos blockPos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) {}
     }
