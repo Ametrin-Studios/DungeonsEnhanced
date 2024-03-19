@@ -11,10 +11,10 @@ import net.neoforged.neoforge.registries.RegisterEvent.RegisterHelper;
 import static com.barion.dungeons_enhanced.DEUtil.location;
 
 @RegistrarHolder
-public class DELootTableAliases {
+public final class DELootTableAliases {
     public static final RegistrarHandler<ResourceLocation> HANDLER = RegistrarHandler.getOrCreate(StructureGelRegistries.Keys.LOOT_TABLE_ALIAS, DungeonsEnhanced.MOD_ID).addListener(DELootTableAliases::register);
 
-    protected static void register(RegisterHelper<ResourceLocation> event){
+    private static void register(RegisterHelper<ResourceLocation> event){
         event.register(new ResourceLocation("simple_dungeon"), BuiltInLootTables.SIMPLE_DUNGEON);
 
         event.register(location("sunken_shrine"), DELootTables.SUNKEN_SHRINE);
