@@ -39,7 +39,7 @@ import java.util.function.Supplier;
 import static com.barion.dungeons_enhanced.DEUtil.location;
 
 @RegistrarHolder
-public class DEStructures {
+public final class DEStructures {
     //Overworld
     public static final StructureRegistrar<ExtendedJigsawStructure> CASTLE;
     public static final StructureRegistrar<ExtendedJigsawStructure> DEEP_CRYPT;
@@ -323,9 +323,10 @@ public class DEStructures {
         BLACK_CITADEL = StructureRegistrar.jigsawBuilder(location(DEStructureIDs.BLACK_CITADEL))
                 .placement(()-> gridPlacement(69, 78).build(DEStructures.BLACK_CITADEL))
                 .addPiece(()-> DEBlackCitadel.Piece::new)
-                .pushStructure((context, settings) -> extendedJigsawStructure(context, settings, DEBlackCitadel.Capability.INSTANCE, DETemplatePools.BLACK_CITADEL, 6, height(28)).maxDistanceFromCenter(120).build())
+                .pushStructure((context, settings) -> extendedJigsawStructure(context, settings, DEBlackCitadel.Capability.INSTANCE, DETemplatePools.BLACK_CITADEL, 6, height(28)).maxDistanceFromCenter(116).build())
                         .spawns(MobCategory.MONSTER, StructureSpawnOverride.BoundingBoxType.PIECE, spawns(spawn(EntityType.WITHER_SKELETON, 4, 2, 5), spawn(EntityType.SKELETON, 1, 1, 3)))
                         .dimensions(Level.NETHER)
+                        .terrainAdjustment(TerrainAdjustment.BEARD_BOX)
                 .popStructure()
                 .build();
     }

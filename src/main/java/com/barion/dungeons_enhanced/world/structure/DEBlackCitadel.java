@@ -51,9 +51,9 @@ public class DEBlackCitadel {
 
     public static void pool(BootstapContext<StructureTemplatePool> context){
         var registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, DEStructureIDs.BLACK_CITADEL + "/", context);
-        registry.registerBuilder().pools(registry.poolBuilder().names("main").processors(DEProcessorLists.BLACK_CITADEL_ROOT.getKey())).register(DETemplatePools.BLACK_CITADEL);
+        registry.registerBuilder().pools(registry.poolBuilder().names("main").processors(DEProcessorLists.BLACK_CITADEL.getKey())).register(DETemplatePools.BLACK_CITADEL);
 
-        var basicPool = registry.poolBuilder().processors(DEProcessorLists.BLACK_CITADEL_DEFAULT.getKey());
+        var basicPool = registry.poolBuilder().processors(DEProcessorLists.BLACK_CITADEL.getKey());
         var bridges = basicPool.clone().names(ImmutableMap.<String, Integer>builder().put("bridge/normal", 2).put("bridge/bones", 1).put("bridge/broken", 1).build());
         var pillars = basicPool.clone().names(ImmutableMap.<String, Integer>builder().put("bridge_pillar/normal", 2).put("bridge_pillar/end", 1).put("bridge_pillar/end_cage", 1).put("bridge_tower/middle_1", 2).put("bridge_tower/middle_2", 2).build());
         var tower_top = basicPool.clone().names("bridge_tower/top_1");

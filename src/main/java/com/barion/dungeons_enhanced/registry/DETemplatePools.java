@@ -23,7 +23,7 @@ public class DETemplatePools {
     public static final ResourceKey<StructureTemplatePool> PILLAGER_CAMP = HANDLER.key("pillager_camp/root");
 
     // Nether
-    public static final ResourceKey<StructureTemplatePool> BLACK_CITADEL = HANDLER.key("black_citadel/root");
+    public static final ResourceKey<StructureTemplatePool> BLACK_CITADEL = root(DEStructureIDs.BLACK_CITADEL);
 
     private static void init(BootstapContext<StructureTemplatePool> context){
         // Overworld
@@ -37,5 +37,9 @@ public class DETemplatePools {
 
         // Nether
         DEBlackCitadel.pool(context);
+    }
+
+    private static ResourceKey<StructureTemplatePool> root(String structure_id){
+        return HANDLER.key(structure_id+"/root");
     }
 }

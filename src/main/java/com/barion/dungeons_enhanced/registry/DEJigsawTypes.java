@@ -22,5 +22,5 @@ public final class DEJigsawTypes {
     public static final Registrar.Static<JigsawCapabilityType<DEPillagerCamp.Capability>> PILLAGER_CAMP = HANDLER.createStatic(DEPillagerCamp.ID, () -> () -> DEPillagerCamp.Capability.CODEC);
 
     // Nether
-    public static final Registrar.Static<JigsawCapabilityType<DEBlackCitadel.Capability>> BLACK_CITADEL = HANDLER.createStatic(DEPillagerCamp.ID, () -> () -> DEBlackCitadel.Capability.CODEC);
+    public static final Registrar.Static<JigsawCapabilityType<DEBlackCitadel.Capability>> BLACK_CITADEL = HANDLER.createStatic(DEStructureIDs.BLACK_CITADEL, () -> () -> DEBlackCitadel.Capability.CODEC);
 }
