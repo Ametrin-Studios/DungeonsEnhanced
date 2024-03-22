@@ -18,6 +18,7 @@ public interface DEPlacement {
         final var result = DETerrainAnalyzer.isFlatEnough(rawPos, size, 1, 4, Heightmap.Types.WORLD_SURFACE_WG, context.chunkGenerator(), context.heightAccessor(), context.randomState());
         if(!result.getSecond()) {return Optional.empty();}
         final var pos = rawPos.atY(Math.round(result.getFirst()));
+        if(filter.cannotGenerate(pos, context)) { return Optional.empty(); }
         piece.setPosition(pos);
 
         return Optional.of(new Structure.GenerationStub(pos, (builder)-> builder.addPiece(piece)));
@@ -30,6 +31,7 @@ public interface DEPlacement {
         final var result = DETerrainAnalyzer.isFlatEnough(rawPos, size, 1, 4, context.chunkGenerator(), context.heightAccessor(), context.randomState());
         if(!result.getSecond()) {return Optional.empty();}
         final var pos = rawPos.atY(Math.round(result.getFirst()));
+        if(filter.cannotGenerate(pos, context)) { return Optional.empty(); }
         piece.setPosition(pos);
 
         return Optional.of(new Structure.GenerationStub(pos, (builder)-> builder.addPiece(piece)));

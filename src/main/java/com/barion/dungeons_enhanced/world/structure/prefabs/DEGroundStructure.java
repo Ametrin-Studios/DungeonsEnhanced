@@ -3,6 +3,7 @@ package com.barion.dungeons_enhanced.world.structure.prefabs;
 import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.registry.DEStructures;
 import com.barion.dungeons_enhanced.world.gen.DETerrainAnalyzer;
+import com.barion.dungeons_enhanced.world.structure.builder.DEPlacementFilter;
 import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEPieceAssembler;
 import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEStructureTemplates;
 import com.mojang.serialization.Codec;
@@ -89,6 +90,9 @@ public class DEGroundStructure extends DEBaseStructure {
         final var result = DETerrainAnalyzer.isFlatEnough(rawPos, size, 1, 4, context.chunkGenerator(), context.heightAccessor(), context.randomState());
         if(!result.getSecond()) {return Optional.empty();}
         final var pos = rawPos.atY(Math.round(result.getFirst())).above(piece.yOffset);
+        if(DEPlacementFilter.IS_WATER.cannotGenerate(pos, context)){
+            return Optional.empty();
+        }
 
         return at(pos, (builder)-> generatePieces(builder, pos, piece, rotation, context, DEGroundStructure::assemble));
     }

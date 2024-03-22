@@ -277,7 +277,7 @@ public final class DEStructures {
                 .addStructure(DEStructureTemplate.of("tall_witch_hut", -3),
                         structure -> structure
                                 .placement(DEPlacement.ON_WORLD_SURFACE)
-                                .filter(DEPlacementFilter.DIFFERENCE_OCEAN_FLOOR),
+                                .filter(DEPlacementFilter.DIFFERENCE_OCEAN_FLOOR(4)),
                         config -> config
                                 .dimensions(Level.OVERWORLD))
                 .placement(21, 0.61f).allowNearSpawn()
