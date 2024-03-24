@@ -19,6 +19,7 @@ build
 
 # other
 eclipse
+runs
 run
 !run/config
 !run/saves/Structures

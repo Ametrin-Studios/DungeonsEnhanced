@@ -1,6 +1,6 @@
 {
     "pack": {
-        "description": "Dungeons Enhanced Resources",
+        "description": "${mod_name} resources",
         "pack_format": 6
     }
 }
