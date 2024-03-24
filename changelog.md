@@ -1,3 +1,8 @@
+## 5.5
+- added Black Citadel
+- small Dungeon Variant overhaul
+- fixes & tweaks
+
 ## 5.3
 - neoforge / 1.20.4 port
 - requires Structure Gel 2.17.0 or above
@@ -15,7 +20,7 @@
 - updated more .nbt files
 
 ## 5.1
-- fixed #34
+- fixed #34 
 - updated some .nbt files
 
 ## 5.0

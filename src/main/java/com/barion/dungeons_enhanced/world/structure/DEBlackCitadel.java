@@ -54,14 +54,18 @@ public class DEBlackCitadel {
         registry.registerBuilder().pools(registry.poolBuilder().names("main").processors(DEProcessorLists.BLACK_CITADEL.getKey())).register(DETemplatePools.BLACK_CITADEL);
 
         var basicPool = registry.poolBuilder().processors(DEProcessorLists.BLACK_CITADEL.getKey());
-        var bridges = basicPool.clone().names(ImmutableMap.<String, Integer>builder().put("bridge/normal", 2).put("bridge/bones", 1).put("bridge/broken", 1).build());
-        var pillars = basicPool.clone().names(ImmutableMap.<String, Integer>builder().put("bridge_pillar/normal", 2).put("bridge_pillar/end", 1).put("bridge_pillar/end_cage", 1).put("bridge_tower/middle_1", 2).put("bridge_tower/middle_2", 2).build());
-        var tower_top = basicPool.clone().names("bridge_tower/top_1");
+        var tower = basicPool.clone().names("tower/broken", "tower/normal");
+        var bridge = basicPool.clone().names(ImmutableMap.<String, Integer>builder().put("bridge/normal", 2).put("bridge/bones", 1).put("bridge/broken", 1).put("bridge/short", 2).put("bridge/shorter", 1).build());
+        var shortBridge = basicPool.clone().names("bridge/short");
+        var pillar = basicPool.clone().names(ImmutableMap.<String, Integer>builder().put("bridge_pillar/normal", 3).put("bridge_pillar/bones", 3).put("bridge_pillar/end", 2).put("bridge_pillar/end_cage", 2).put("bridge_tower/broken", 3).build());
+        var thickPillar = basicPool.clone().names("bridge_tower/normal");
         var mainExtensions = basicPool.clone().names("main_bridge_extension");
 
-        registry.register("tower_top", tower_top);
-        registry.register("bridge", bridges);
-        registry.register("pillar", pillars);
+        registry.register("tower", tower);
+        registry.register("bridge", bridge);
+        registry.register("short_bridge", shortBridge);
+        registry.register("pillar", pillar);
+        registry.register("thick_pillar", thickPillar);
         registry.register("main_extension", mainExtensions);
     }
 }

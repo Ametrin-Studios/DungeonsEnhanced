@@ -21,6 +21,24 @@
     {
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:black_citadel/bridge/shorter",
+        "processors": "dungeons_enhanced:black_citadel/default",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:black_citadel/bridge/short",
+        "processors": "dungeons_enhanced:black_citadel/default",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:black_citadel/bridge/bones",
         "processors": "dungeons_enhanced:black_citadel/default",
         "projection": "rigid"
