@@ -63,7 +63,7 @@ public abstract class DEBaseStructure extends Structure{
         protected StructurePlaceSettings getPlaceSettings(StructureTemplateManager structureManager) {
             var size = structureManager.get(makeTemplateLocation()).get().getSize();
             var pivot = new BlockPos(size.getX() / 2, 0, size.getZ() / 2);
-            var settings = new StructurePlaceSettings().setKeepLiquids(false).setRotationPivot(pivot).setRotation(this.rotation);
+            var settings = super.getPlaceSettings(structureManager).setKeepLiquids(false).setRotationPivot(pivot).setRotation(this.rotation);
             settings.addProcessor(BlockIgnoreProcessor.STRUCTURE_AND_AIR).addProcessor(RemoveGelStructureProcessor.INSTANCE);
             addProcessors(settings);
             return settings;

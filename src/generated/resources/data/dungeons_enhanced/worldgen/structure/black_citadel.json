@@ -29,7 +29,7 @@
     "absolute": 28
   },
   "start_pool": "dungeons_enhanced:black_citadel/root",
-  "step": "surface_structures",
+  "step": "underground_decoration",
   "terrain_adaptation": "beard_box",
   "use_expansion_hack": false
 }

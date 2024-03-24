@@ -55,8 +55,10 @@ public class DEUnderwaterStructure extends DEBaseStructure {
         }
 
         @Override
+        protected boolean useGelProcessor() {return false;}
+
+        @Override
         protected void addProcessors(StructurePlaceSettings settings) {
-            settings.clearProcessors();
             settings.addProcessor(DEUnderwaterProcessor.INSTANCE);
         }
     }
