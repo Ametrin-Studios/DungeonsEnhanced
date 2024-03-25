@@ -1,48 +1,19 @@
 package com.barion.dungeons_enhanced;
 
-import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEStructurePiece;
-import com.barion.dungeons_enhanced.world.structures.prefabs.utils.DEUnderwaterProcessor;
-import com.legacy.structure_gel.util.RegistryHelper;
-import com.legacy.structure_gel.worldgen.processors.RandomBlockSwapProcessor;
-import com.mojang.serialization.Codec;
-import net.minecraft.block.Blocks;
+import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEStructurePiece;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.state.Property;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.gen.feature.template.IStructureProcessorType;
-import net.minecraft.world.gen.feature.template.StructureProcessor;
-import net.minecraft.world.gen.feature.template.StructureProcessorList;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
+import net.minecraft.world.gen.ChunkGenerator;
+import net.minecraft.world.gen.Heightmap;
 
 import java.util.Random;
 
 public class DEUtil{
-    public static ResourceLocation location(String key) {return new ResourceLocation(DungeonsEnhanced.ModID, key);}
-
-    public static class Processors {
-        public static final StructureProcessorList AirToCobweb = register("air_to_cobweb", new RandomBlockSwapProcessor(Blocks.AIR, 0.02f, Blocks.COBWEB));
-        public static final StructureProcessor BrainCoral = new RandomBlockSwapProcessor(Blocks.DEAD_BRAIN_CORAL_BLOCK, 1, Blocks.BRAIN_CORAL_BLOCK);
-        public static final StructureProcessor FireCoral = new RandomBlockSwapProcessor(Blocks.DEAD_FIRE_CORAL_BLOCK, 1, Blocks.FIRE_CORAL_BLOCK);
-        public static final StructureProcessor BubbleCoral = new RandomBlockSwapProcessor(Blocks.DEAD_BUBBLE_CORAL_BLOCK, 1, Blocks.BUBBLE_CORAL_BLOCK);
-        public static final StructureProcessor HornCoral = new RandomBlockSwapProcessor(Blocks.DEAD_HORN_CORAL_BLOCK, 1, Blocks.HORN_CORAL_BLOCK);
-        public static final StructureProcessor TubeCoral = new RandomBlockSwapProcessor(Blocks.DEAD_TUBE_CORAL_BLOCK, 1, Blocks.TUBE_CORAL_BLOCK);
-
-        private static StructureProcessorList register(String key, StructureProcessor processor){
-            return RegistryHelper.registerProcessor(location(key), processor);
-        }
-        private static StructureProcessorList register(String key, StructureProcessorList processorList){
-            return RegistryHelper.registerProcessor(location(key), processorList);
-        }
-
-        public static class Types{
-            public static IStructureProcessorType<DEUnderwaterProcessor> Underwater;
-
-            public static void register(){
-                Underwater = register("underwater", DEUnderwaterProcessor.CODEC);
-            }
-            protected static <P extends StructureProcessor> IStructureProcessorType<P> register(String key, Codec<P> codec) {
-                return Registry.register(Registry.STRUCTURE_PROCESSOR, DEUtil.location(key), () -> codec);
-            }
-        }
-    }
+    public static ResourceLocation location(String key) {return new ResourceLocation(DungeonsEnhanced.MOD_ID, key);}
 
     public static int getRandomPiece(DEStructurePiece[] variants, int maxWeight, Random rand){
         int piece = 0;
@@ -66,6 +37,32 @@ public class DEUtil{
             i += piece.Weight;
         }
         return i;
+    }
+
+    public static BlockPos ChunkPosToBlockPos(int chunkX, int chunkY, int y){
+        return ChunkPosToBlockPos(new ChunkPos(chunkY, chunkY), y);
+    }
+    public static BlockPos ChunkPosToBlockPos(ChunkPos chunkPos, int y){
+        return new BlockPos(chunkPos.getMinBlockX(), y, chunkPos.getMinBlockZ());
+    }
+    public static BlockPos ChunkPosToBlockPosFromHeightMap(ChunkPos chunkPos, ChunkGenerator chunkGenerator, Heightmap.Type heightmapType){
+        BlockPos pos = DEUtil.ChunkPosToBlockPos(chunkPos, 0);
+        return new BlockPos(pos.getX(), chunkGenerator.getBaseHeight(pos.getX(), pos.getZ(), heightmapType), pos.getZ());
+    }
+
+    public static BlockState withPropertiesOf(Block base, BlockState state) {
+        BlockState blockstate = base.defaultBlockState();
+
+        for (Property<?> value : state.getBlock().getStateDefinition().getProperties()) {
+            if (blockstate.hasProperty(value)) {
+                blockstate = copyProperty(state, blockstate, value);
+            }
+        }
+
+        return blockstate;
+    }
+    private static <T extends Comparable<T>> BlockState copyProperty(BlockState sourceState, BlockState targetState, Property<T> property) {
+        return targetState.setValue(property, sourceState.getValue(property));
     }
 
     public static DEStructurePiece.Builder pieceBuilder() {return new DEStructurePiece.Builder();}

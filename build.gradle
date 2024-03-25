@@ -65,11 +65,19 @@ repositories {
         name = "Modding Legacy Maven"
         url = "https://maven.moddinglegacy.com/artifactory/modding-legacy/"
     }
+    maven {
+        url "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     implementation fg.deobf("com.legacy:structure-gel:${minecraft_version}-${gel_version}")
+    implementation fg.deobf("curse.maven:xaeros-world-map-317780:5189384")
+    implementation fg.deobf("curse.maven:chunky-pregenerator-forge-485681:3426932")
 }
 
 tasks.named('processResources', ProcessResources).configure {

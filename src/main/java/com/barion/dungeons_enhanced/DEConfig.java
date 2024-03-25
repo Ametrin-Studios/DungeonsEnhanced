@@ -6,9 +6,9 @@ import net.minecraft.world.Dimension;
 import net.minecraftforge.common.ForgeConfigSpec;
 import org.apache.commons.lang3.tuple.Pair;
 
-public class DEConfig {
+public final class DEConfig {
     public static final Common COMMON;
-    protected static final ForgeConfigSpec COMMON_SPEC;
+    public static final ForgeConfigSpec COMMON_SPEC;
     static {
         Pair<Common, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(Common::new);
         COMMON_SPEC = specPair.getRight();
@@ -22,10 +22,10 @@ public class DEConfig {
         public final StructureConfig DesertTemple;
         public final StructureConfig DesertTomb;
         public final StructureConfig DruidCircle;
-        public final StructureConfig DungeonVariant;
+        public final StructureConfig DUNGEON_VARIANT;
         public final StructureConfig EldersTemple;
         public final StructureConfig FishingShip;
-        public final StructureConfig FlyingDutchman;
+        public final StructureConfig FLYING_DUTCHMAN;
         public final StructureConfig HayStorage;
         public final StructureConfig IcePit;
         public final StructureConfig JungleMonument;
@@ -35,7 +35,7 @@ public class DEConfig {
         public final StructureConfig MushroomHouse;
         public final StructureConfig PillagerCamp;
         public final StructureConfig PirateShip;
-        public final StructureConfig RuinedBuilding;
+        public final StructureConfig RUINED_BUILDING;
         public final StructureConfig SunkenShrine;
         public final StructureConfig Stables;
         public final StructureConfig TallWitchHut;
@@ -50,10 +50,10 @@ public class DEConfig {
             DesertTemple = config("Desert Temple", 32, 0.6, Dimension.OVERWORLD, true, "minecraft:desert");
             DesertTomb = config("Desert Tomb", 29, 0.65, Dimension.OVERWORLD, true, "minecraft:desert");
             DruidCircle = config("Druid Circle", 36, 0.4, Dimension.OVERWORLD, true, "#structure_gel:neutral_temp, !#structure_gel:wooded, !#structure_gel:mountain, !#structure_gel:beach");
-            DungeonVariant = config("Dungeon Variant", 16, 0.8, Dimension.OVERWORLD, false, "");
+            DUNGEON_VARIANT = config("Dungeon Variant", 16, 0.8, Dimension.OVERWORLD, false, "");
             EldersTemple = config("Elders Temple", 29, 1, Dimension.OVERWORLD, true, "#structure_gel:ocean");
             FishingShip = config("Fishing Ship", 48, 0.68, Dimension.OVERWORLD, true, "#structure_gel:ocean");
-            FlyingDutchman = config("Flying Dutchman", 67, 0.4, Dimension.OVERWORLD, true, "#structure_gel:ocean");
+            FLYING_DUTCHMAN = config("Flying Dutchman", 67, 0.4, Dimension.OVERWORLD, true, "#structure_gel:ocean");
             HayStorage = config("Hay Storage", 24, 0.75, Dimension.OVERWORLD, true, "#structure_gel:savanna");
             IcePit = config("Ice Pit", 35, 0.70, Dimension.OVERWORLD, true, "#structure_gel:snowy, #structure_gel:frozen, !#structure_gel:mountain, !#structure_gel:river, !#structure_gel:beach");
             JungleMonument = config("Jungle Monument", 30, 0.65, Dimension.OVERWORLD, true, "#structure_gel:jungle, !#structure_gel:bamboo_jungle");
@@ -63,7 +63,7 @@ public class DEConfig {
             MushroomHouse = config("Mushroom House", 15, 0.75, Dimension.OVERWORLD, true, "minecraft:mushroom_fields, minecraft:mushroom_field_shore");
             PillagerCamp = config("Pillager Camp", 49, 0.35, Dimension.OVERWORLD, true, "#structure_gel:neutral_temp, !#structure_gel:mountain, !#structure_gel:wooded, !#structure_gel:river, !#structure_gel:beach");
             PirateShip = config("Pirate Ship", 65, 0.49, Dimension.OVERWORLD, true, "#structure_gel:ocean");
-            RuinedBuilding = config("Ruined Building", 27, 0.45, Dimension.OVERWORLD, true, "#structure_gel:neutral_temp, !#structure_gel:river, !#structure_gel:beach, !#structure_gel:mountain");
+            RUINED_BUILDING = config("Ruined Building", 27, 0.45, Dimension.OVERWORLD, true, "#structure_gel:neutral_temp, !#structure_gel:river, !#structure_gel:beach, !#structure_gel:mountain");
             SunkenShrine = config("Sunken Shrine", 32, 0.55, Dimension.OVERWORLD, true, "#structure_gel:ocean");
             Stables = config("Stables", 43, 0.57, Dimension.OVERWORLD, true, "#structure_gel:neutral_temp, !#structure_gel:mountain, !#structure_gel:wooded, !#structure_gel:beach");
             TallWitchHut = config("Tall Witch Hut", 18, 0.6, Dimension.OVERWORLD, true, "#structure_gel:swamp");
@@ -73,8 +73,8 @@ public class DEConfig {
             WitchTower = config("Witch Tower", 25, 0.5, Dimension.OVERWORLD, true, "#structure_gel:spruce_forest, #structure_gel:large_spruce_forest");
         }
 
-        private StructureConfig config(String name, int spacing, double prob, RegistryKey<Dimension> dimension, boolean isWhite, String biomes) {
-            return new StructureConfig(this.builder, name).spacing(spacing).probability(prob).offset((int) (spacing/1.5f)).biomes(isWhite, biomes).validDimensions(dimension.location().toString());
+        private StructureConfig config(String name, int spacing, double probability, RegistryKey<Dimension> dimension, boolean isWhitelist, String biomes) {
+            return new StructureConfig(this.builder, name).spacing(spacing).probability(probability).offset((int) (spacing/1.5f)).biomes(isWhitelist, biomes).validDimensions(dimension.location().toString());
         }
     }
 }

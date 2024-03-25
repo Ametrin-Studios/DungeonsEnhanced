@@ -1,10 +1,7 @@
 package com.barion.dungeons_enhanced.world.gen;
-// Tool to determine if a surface is suitable for structure generation
-// created by BarionLP https://github.com/BarionLP/DungeonsEnhanced/blob/1.18.2/src/main/java/com/barion/dungeons_enhanced/world/gen/DETerrainAnalyzer.java
-// version 1.1
-// (c) you can only use it if you link the file and give credits to BarionLP
 
 import com.legacy.structure_gel.util.ConfigTemplates;
+import com.mojang.datafixers.util.Pair;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -12,9 +9,40 @@ import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
+import net.minecraft.world.gen.FlatChunkGenerator;
 import net.minecraft.world.gen.Heightmap;
 
 public class DETerrainAnalyzer {
+    /**
+     * @return whether the average height difference between the corner points are smaller than the threshold and the average height, always true on {@link FlatChunkGenerator}
+     */
+    public static Pair<Float, Boolean> isFlatEnough(BlockPos pos, BlockPos size, int padding, int threshold, Heightmap.Type heightMap, ChunkGenerator generator){
+        if(generator instanceof FlatChunkGenerator) {return Pair.of((float)generator.getBaseHeight(pos.getX(), pos.getZ(), heightMap), true);}
+
+        int x1 = pos.getX()+padding;
+        int x2 = pos.getX()+size.getX()-padding;
+        int z1 = pos.getZ()+padding;
+        int z2 = pos.getZ()+size.getZ()-padding;
+
+
+        int height1 = generator.getBaseHeight(x1, z1, heightMap);
+        int height2 = generator.getBaseHeight(x2, z1, heightMap);
+        int height3 = generator.getBaseHeight(x2, z2, heightMap);
+        int height4 = generator.getBaseHeight(x1, z2, heightMap);
+
+        float averageHeight = (height1+height2+height3+height4)/4f;
+        float averageHeightDifference = (Math.abs(averageHeight-height1)+Math.abs(averageHeight-height2)+Math.abs(averageHeight-height3)+Math.abs(averageHeight-height4))/4f;
+        return Pair.of(averageHeight, averageHeightDifference < threshold);
+    }
+
+
+
+
+
+
+
+
+
     public static Settings defaultSettings = new Settings(1, 3, 3);
     protected static ChunkGenerator chunkGenerator;
 
