@@ -440,7 +440,7 @@
       "translate": "advancements.dungeons_enhanced.root.desc"
     },
     "icon": {
-      "item": "minecraft:mossy_stone_bricks"
+      "item": "minecraft:compass"
     },
     "show_toast": false,
     "title": {

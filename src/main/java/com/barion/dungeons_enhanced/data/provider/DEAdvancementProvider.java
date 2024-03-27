@@ -3,6 +3,7 @@ package com.barion.dungeons_enhanced.data.provider;
 import com.barion.dungeons_enhanced.registry.DEStructures;
 import com.legacy.structure_gel.api.registry.registrar.Registrar;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
+import com.mojang.datafixers.util.Pair;
 import net.minecraft.Util;
 import net.minecraft.advancements.*;
 import net.minecraft.advancements.critereon.LocationPredicate;
@@ -18,7 +19,6 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BannerPattern;
 import net.minecraft.world.level.block.entity.BannerPatterns;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -27,9 +27,8 @@ import net.neoforged.neoforge.common.data.AdvancementProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
@@ -47,18 +46,62 @@ public class DEAdvancementProvider extends AdvancementProvider {
     public static class DEExplorerAdvancementSubProvider implements AdvancementGenerator{
         @Override
         public void generate(@NotNull HolderLookup.Provider provider, @NotNull Consumer<AdvancementHolder> consumer, @NotNull ExistingFileHelper existingFileHelper) {
-            var root = enterAnyStructure(advancement(Blocks.MOSSY_STONE_BRICKS, "root", new ResourceLocation("textures/block/mossy_cobblestone.png"), AdvancementType.TASK, false, false, false), DEStructures.ALL_STRUCTURE_REGISTRARS).requirements(AdvancementRequirements.Strategy.OR).save(consumer, location("root"), existingFileHelper);
-            enterStructure(advancement(Blocks.JACK_O_LANTERN, "hidden_under_the_roots", AdvancementType.TASK, true, true, false), DEStructures.MONSTER_MAZE).parent(root).save(consumer, location("hidden_under_the_roots"), existingFileHelper);
-            enterStructure(advancement(Blocks.SKELETON_SKULL, "thats_a_dungeon", AdvancementType.TASK, true, true, false), DEStructures.LARGE_DUNGEON).parent(root).save(consumer, location("thats_a_dungeon"), existingFileHelper);
-            enterStructure(advancement(Blocks.TNT, "traps_and_curses", AdvancementType.TASK, true, true, false), DEStructures.DESERT_TEMPLE).parent(root).save(consumer, location("traps_and_curses"), existingFileHelper);
-            enterStructure(advancement(Blocks.BAMBOO, "ancient_civilizations", AdvancementType.TASK, true, true, false), DEStructures.JUNGLE_MONUMENT).parent(root).save(consumer, location("ancient_civilizations"), existingFileHelper);
-            enterStructure(advancement(Blocks.STONE_BRICKS, "wars_and_kingdoms", AdvancementType.TASK, true, true, false), DEStructures.CASTLE).parent(root).save(consumer, location("wars_and_kingdoms"), existingFileHelper);
-            enterStructure(advancement(Items.RED_MUSHROOM, "rarest_structure", AdvancementType.TASK, true, true, false), DEStructures.MUSHROOM_HOUSE).parent(root).save(consumer, location("rarest_structure"), existingFileHelper);
-            enterStructure(advancement(Items.BONE, "chilled_halls", AdvancementType.TASK, true, true, false), DEStructures.ICE_PIT).parent(root).save(consumer, location("chilled_halls"), existingFileHelper);
-            enterStructure(advancement(Items.WITHER_SKELETON_SKULL, "ahoy", AdvancementType.TASK, true, true, false), DEStructures.PIRATE_SHIP).parent(root).save(consumer, location("ahoy"), existingFileHelper);
-            enterStructure(advancement(Items.LANTERN, "in_the_air", AdvancementType.TASK, true, true, false), DEStructures.FLYING_DUTCHMAN).parent(root).save(consumer, location("in_the_air"), existingFileHelper);
-            enterStructure(advancement(Items.NAUTILUS_SHELL, "sunken_deeps", AdvancementType.TASK, true, true, false), DEStructures.ELDERS_TEMPLE).parent(root).save(consumer, location("sunken_deeps"), existingFileHelper);
+            var root = new AdvancementBuilder("root", Items.COMPASS)
+                    .background("textures/block/mossy_cobblestone.png")
+                    .hideToast().hideInChat()
+                    .orCriterions()
+                    .onEnterStructures(DEStructures.ALL_STRUCTURE_REGISTRARS)
+                    .save(consumer, existingFileHelper);
 
+            new AdvancementBuilder("hidden_under_the_roots", Items.JACK_O_LANTERN)
+                    .parent(root)
+                    .onEnterStructure(DEStructures.MONSTER_MAZE)
+                    .save(consumer, existingFileHelper);
+
+            new AdvancementBuilder("thats_a_dungeon", Items.SKELETON_SKULL)
+                    .parent(root)
+                    .onEnterStructure(DEStructures.LARGE_DUNGEON)
+                    .save(consumer, existingFileHelper);
+
+            new AdvancementBuilder("traps_and_curses", Items.TNT)
+                    .parent(root)
+                    .onEnterStructure(DEStructures.DESERT_TEMPLE)
+                    .save(consumer, existingFileHelper);
+
+            new AdvancementBuilder("ancient_civilizations", Items.BAMBOO)
+                    .parent(root)
+                    .onEnterStructure(DEStructures.JUNGLE_MONUMENT)
+                    .save(consumer, existingFileHelper);
+
+            new AdvancementBuilder("wars_and_kingdoms", Items.STONE_BRICKS)
+                    .parent(root)
+                    .onEnterStructure(DEStructures.CASTLE)
+                    .save(consumer, existingFileHelper);
+
+            new AdvancementBuilder("rarest_structure", Items.RED_MUSHROOM)
+                    .parent(root)
+                    .onEnterStructure(DEStructures.MUSHROOM_HOUSE)
+                    .save(consumer, existingFileHelper);
+
+            new AdvancementBuilder("chilled_halls", Items.BONE)
+                    .parent(root)
+                    .onEnterStructure(DEStructures.ICE_PIT)
+                    .save(consumer, existingFileHelper);
+
+            new AdvancementBuilder("ahoy", Items.WITHER_SKELETON_SKULL)
+                    .parent(root)
+                    .onEnterStructure(DEStructures.PIRATE_SHIP)
+                    .save(consumer, existingFileHelper);
+
+            new AdvancementBuilder("in_the_air", Items.LANTERN)
+                    .parent(root)
+                    .onEnterStructure(DEStructures.FLYING_DUTCHMAN)
+                    .save(consumer, existingFileHelper);
+
+            new AdvancementBuilder("sunken_deeps", Items.NAUTILUS_SHELL)
+                    .parent(root)
+                    .onEnterStructure(DEStructures.ELDERS_TEMPLE)
+                    .save(consumer, existingFileHelper);
 
             new AdvancementBuilder("spooky_scary_citadel",
                     new BannerBuilder(Items.RED_BANNER)
@@ -71,47 +114,26 @@ public class DEAdvancementProvider extends AdvancementProvider {
                     .onEnterStructure(DEStructures.BLACK_CITADEL)
                     .save(consumer, existingFileHelper);
 
-            var SevenWorldWonders = enterAnyStructure(advancement(Items.SPYGLASS, "seven_world_wonders", AdvancementType.GOAL, true, true, false),
-                    DEStructures.CASTLE,
-                    DEStructures.DEEP_CRYPT,
-                    DEStructures.DESERT_TEMPLE,
-                    DEStructures.ICE_PIT,
-                    DEStructures.JUNGLE_MONUMENT,
-                    DEStructures.MONSTER_MAZE,
-                    DEStructures.ELDERS_TEMPLE)
-                    .requirements(AdvancementRequirements.Strategy.AND).parent(root).save(consumer, location("seven_world_wonders"), existingFileHelper);
-            enterAnyStructure(advancement(Items.FILLED_MAP, "ambitious_explorer", AdvancementType.CHALLENGE, true, true, false), DEStructures.ALL_STRUCTURE_REGISTRARS).requirements(AdvancementRequirements.Strategy.AND).parent(SevenWorldWonders).save(consumer, location("ambitious_explorer"), existingFileHelper);
+            var sevenWorldWonders = new AdvancementBuilder("seven_world_wonders", Items.SPYGLASS)
+                    .parent(root)
+                    .type(AdvancementType.GOAL)
+                    .onEnterStructures(
+                            DEStructures.CASTLE,
+                            DEStructures.DEEP_CRYPT,
+                            DEStructures.DESERT_TEMPLE,
+                            DEStructures.ICE_PIT,
+                            DEStructures.JUNGLE_MONUMENT,
+                            DEStructures.MONSTER_MAZE,
+                            DEStructures.ELDERS_TEMPLE
+                    )
+                    .save(consumer, existingFileHelper);
+
+            new AdvancementBuilder("ambitious_explorer", Items.FILLED_MAP)
+                    .parent(sevenWorldWonders)
+                    .type(AdvancementType.CHALLENGE)
+                    .onEnterStructures(DEStructures.ALL_STRUCTURE_REGISTRARS)
+                    .save(consumer, existingFileHelper);
         }
-
-        private static Advancement.Builder enterAnyStructure(Advancement.Builder builder, StructureRegistrar<?>... structures){
-            for(StructureRegistrar<?> structure : structures){
-                builder = enterStructure(builder, structure);
-            }
-
-            return builder;
-        }
-
-        private static Advancement.Builder enterStructure(Advancement.Builder builder, StructureRegistrar<?> structure){
-            return builder.addCriterion(enterFeatureText(structure), PlayerTrigger.TriggerInstance.located(LocationPredicate.Builder.inStructure(Objects.requireNonNull(structure.getStructure()).getKey())));
-        }
-
-        private static String enterFeatureText(StructureRegistrar<?> structure){
-            return "entered_" + Objects.requireNonNull(structure.getRegistryName()).getPath();
-        }
-
-        private static Advancement.Builder advancement(ItemLike displayItem, String name, ResourceLocation background, AdvancementType frameType, boolean showToast, boolean announceToChat, boolean hidden) {
-            return new Advancement.Builder().display(displayItem, component(name), component(name + ".desc"), background, frameType, showToast, announceToChat, hidden);
-        }
-
-        private static Advancement.Builder advancement(ItemLike displayItem, String name, AdvancementType frameType, boolean showToast, boolean announceToChat, boolean hidden){
-            return advancement(displayItem, name, null, frameType, showToast, announceToChat, hidden);
-        }
-
-        private static Advancement.Builder advancement(ItemLike displayItem, String name){
-            return advancement(displayItem, name, null, AdvancementType.TASK, true, true, false);
-        }
-
-        private static Component component(String key) {return Component.translatable("advancements.dungeons_enhanced." + key);}
     }
 
     private static class AdvancementBuilder{
@@ -124,11 +146,14 @@ public class DEAdvancementProvider extends AdvancementProvider {
         private boolean _announceToChat = true;
         private boolean _hidden = false;
         private AdvancementRequirements.Strategy _criterionStrategy = AdvancementRequirements.Strategy.AND;
-        private final Map<String, Criterion<?>> _criterions = new HashMap<>();
+        private final List<Pair<String, Criterion<?>>> _criterions = new ArrayList<>();
 
         private AdvancementBuilder(String id, ItemStack displayItem) {
             _id = id;
             _displayItem = displayItem;
+        }
+        private AdvancementBuilder(String id, ItemLike displayItem) {
+            this(id, displayItem.asItem().getDefaultInstance());
         }
 
         private AdvancementBuilder parent(AdvancementHolder parent){
@@ -136,6 +161,7 @@ public class DEAdvancementProvider extends AdvancementProvider {
             return this;
         }
 
+        public AdvancementBuilder background(String background) {return background(new ResourceLocation(background));}
         public AdvancementBuilder background(ResourceLocation background){
             _background = background;
             return this;
@@ -181,11 +207,11 @@ public class DEAdvancementProvider extends AdvancementProvider {
             return this;
         }
 
-        public AdvancementBuilder onEnterStructure(@NotNull StructureRegistrar<?> structureRegistrar){return onEnterStructure(structureRegistrar.getStructure());}
+        public AdvancementBuilder onEnterStructure(@NotNull StructureRegistrar<?> structureRegistrar){return onEnterStructure(Objects.requireNonNull(structureRegistrar.getStructure()));}
         public AdvancementBuilder onEnterStructure(@NotNull Registrar.Pointer<Structure> structurePointer){
-            _criterions.put(
+            _criterions.add(new Pair<>(
                     "entered_" + structurePointer.getKey().location().getPath(),
-                    PlayerTrigger.TriggerInstance.located(LocationPredicate.Builder.inStructure(structurePointer.getKey())));
+                    PlayerTrigger.TriggerInstance.located(LocationPredicate.Builder.inStructure(structurePointer.getKey()))));
             return this;
         }
 
@@ -193,8 +219,8 @@ public class DEAdvancementProvider extends AdvancementProvider {
             var builder =  new Advancement.Builder()
                     .display(_displayItem, component(_id), component(_id + ".desc"), _background, _type, _showToast, _announceToChat, _hidden)
                     .requirements(_criterionStrategy);
-            for (var pair : _criterions.entrySet()){
-                builder.addCriterion(pair.getKey(), pair.getValue());
+            for (var pair : _criterions){
+                builder.addCriterion(pair.getFirst(), pair.getSecond());
             }
             if(_parent != null) builder.parent(_parent);
             return builder.save(consumer, location(_id), existingFileHelper);
@@ -217,7 +243,7 @@ public class DEAdvancementProvider extends AdvancementProvider {
 
         public BannerBuilder addPattern(ResourceKey<BannerPattern> pattern, DyeColor color){
             var patternTag = new CompoundTag();
-            patternTag.putString(PATTERN, BuiltInRegistries.BANNER_PATTERN.get(pattern).getHashname());
+            patternTag.putString(PATTERN, Objects.requireNonNull(BuiltInRegistries.BANNER_PATTERN.get(pattern)).getHashname());
             patternTag.putInt(COLOR, color.getId());
             _patternsTag.add(patternTag);
             return this;
