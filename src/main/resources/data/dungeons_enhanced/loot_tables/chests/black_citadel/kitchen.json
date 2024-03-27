@@ -54,10 +54,80 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 40,
+          "weight": 19,
           "name": "minecraft:mushroom_stew"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:suspicious_stew",
+          "functions": [
+            {
+              "function": "minecraft:set_stew_effect",
+              "effects": [
+                {
+                  "type": "minecraft:saturation",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "min": 7,
+                    "max": 10
+                  }
+                },
+                {
+                  "type": "minecraft:regeneration",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "min": 10,
+                    "max": 13
+                  }
+                },
+                {
+                  "type": "minecraft:fire_resistance",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "min": 7,
+                    "max": 10
+                  }
+                },
+                {
+                  "type": "minecraft:health_boost",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "min": 7,
+                    "max": 10
+                  }
+                },
+                {
+                  "type": "minecraft:invisibility",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "min": 7,
+                    "max": 10
+                  }
+                },
+                {
+                  "type": "minecraft:glowing",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "min": 7,
+                    "max": 10
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 15,
+          "name": "minecraft:porkchop"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 6,
+          "name": "minecraft:golden_carrot"
         }
       ]
     }
-  ]
+  ],
+  "random_sequence": "dungeons_enhanced:chests/black_citadel/kitchen"
 }

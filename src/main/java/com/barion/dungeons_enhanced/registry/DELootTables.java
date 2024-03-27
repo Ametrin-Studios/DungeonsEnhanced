@@ -14,8 +14,10 @@ public interface DELootTables {
 
     interface BLACK_CITADEL{
         ResourceLocation NORMAL = chest("black_citadel/normal");
+        ResourceLocation NORMAL_ALT = chest("black_citadel/normal_alt");
         ResourceLocation KITCHEN = chest("black_citadel/kitchen");
         ResourceLocation TREASURE = chest("black_citadel/treasure");
+        ResourceLocation TREASURE_ALT = chest("black_citadel/treasure_alt");
     }
 
     private static ResourceLocation chest(String key) {

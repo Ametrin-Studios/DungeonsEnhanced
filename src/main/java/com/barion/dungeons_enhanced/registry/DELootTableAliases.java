@@ -25,7 +25,9 @@ public final class DELootTableAliases {
         event.register(location("pillager_camp/kitchen"), DELootTables.PILLAGER_CAMP.KITCHEN);
 
         event.register(location("black_citadel/normal"), DELootTables.BLACK_CITADEL.NORMAL);
+        event.register(location("black_citadel/normal_alt"), DELootTables.BLACK_CITADEL.NORMAL_ALT);
         event.register(location("black_citadel/kitchen"), DELootTables.BLACK_CITADEL.KITCHEN);
         event.register(location("black_citadel/treasure"), DELootTables.BLACK_CITADEL.TREASURE);
+        event.register(location("black_citadel/treasure_alt"), DELootTables.BLACK_CITADEL.TREASURE_ALT);
     }
 }

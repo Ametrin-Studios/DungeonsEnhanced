@@ -2,10 +2,10 @@
   "placement": {
     "type": "structure_gel:grid_placement",
     "allowed_near_spawn": false,
-    "frequency": 0.36,
-    "offset": 42,
+    "frequency": 0.39,
+    "offset": 44,
     "salt": 2080732202,
-    "spacing": 53,
+    "spacing": 56,
     "structure": "dungeons_enhanced:pillager_camp"
   },
   "structures": [

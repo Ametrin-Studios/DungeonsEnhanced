@@ -57,6 +57,6 @@ public class DESwapDeadCoralsProcessor extends StructureProcessor {
         return new StructureTemplate.StructureBlockInfo(placed.pos(), livingCoral, null);
     }
 
-    @Override
-    protected @NotNull StructureProcessorType<?> getType() {return DEProcessorTypes.SWAP_DEAD_CORALS_PROCESSOR;}
+    @Override @NotNull
+    protected StructureProcessorType<?> getType() {return DEProcessorTypes.SWAP_DEAD_CORALS_PROCESSOR;}
 }

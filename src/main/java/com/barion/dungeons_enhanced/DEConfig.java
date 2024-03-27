@@ -57,6 +57,7 @@ public class DEConfig {
             // Nether
             structureConfigBuilder(DEStructures.BLACK_CITADEL).pushBiomes()
                     .whitelist(BiomeTags.IS_NETHER)
+                    .blacklist(Biomes.BASALT_DELTAS)
                     .popBiomes().build(builder);
         }
 
