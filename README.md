@@ -12,11 +12,11 @@ We hope you have fun!
 (1.16.5-1.19.2) The config file should be self-explanatory
 
 ## Translating
-If you want to help translating Dungeons Enhanced check out [OneSky](https://ametrin-studios-mods.oneskyapp.com/collaboration/project/189202)
+We look for translators at [OneSky](https://ametrin-studios-mods.oneskyapp.com/collaboration/project/189202)
 
 ### Translators
 [PExPE3](https://github.com/PExPE3)<br>
 [Rad233](https://github.com/Rad233)<br>
 [BardinTheDwarf](https://github.com/BardinTheDwarf)<br>
 [Zeno1999](https://github.com/Zano1999)<br>
-If we forgot you just contact us! 
+In case we forgot you just contact us! 
