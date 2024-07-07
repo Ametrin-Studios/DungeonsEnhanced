@@ -123,10 +123,13 @@ public final class DEStructures {
                                 .add("dungeon_variant/zombie")
                                 .add("dungeon_variant/skeleton")
                                 .add("dungeon_variant/spider")
+                                .add("dungeon_variant/special")
                                 .settings(settings -> settings
                                         .addProcessor(DEProcessors.MOSSY_COBBLESTONE_40)
                                         .addProcessor(DEProcessors.MOSSY_COBBLESTONE_STAIRS_40)
                                         .addProcessor(DEProcessors.MOSSY_COBBLESTONE_SLAB_40)
+                                        .addProcessor(DEProcessors.MOSSY_STONE_BRICKS_30)
+                                        .addProcessor(DEProcessors.CRACK_STONE_BRICKS_20)
                                 ),
                         structure->structure
                                 .placement(DEPlacement.UNDERGROUND),

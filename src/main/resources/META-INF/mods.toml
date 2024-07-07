@@ -1,7 +1,7 @@
 modLoader="javafml" #mandatory
 loaderVersion="${loader_version_range}" #mandatory
 license="${mod_license}"
-issueTrackerURL="https://github.com/BarionLP/DungeonsEnhanced/issues"
+issueTrackerURL="https://github.com/Ametrin-Studios/DungeonsEnhanced/issues"
 
 [[mods]] #mandatory
     modId="${mod_id}" #mandatory

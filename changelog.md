@@ -1,6 +1,8 @@
 ## 5.5
 - added Black Citadel
-- small Dungeon Variant overhaul
+  - new advancement
+- minor Dungeon Variant overhaul
+- more backend changes
 - fixes & tweaks
 
 ## 5.3

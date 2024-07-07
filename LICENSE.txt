@@ -21,4 +21,4 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 All contributed translations must be self-made.
-All contributed translations are owned by Ametrin Studios.
+By contributing a translation to this project, the contributor agrees to grant Ametrin Studios full rights to use, modify, and distribute the contribution without any restrictions.

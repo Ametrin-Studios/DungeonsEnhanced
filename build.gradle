@@ -6,11 +6,16 @@ plugins {
     id 'net.neoforged.gradle.userdev' version '7.0.97'
 }
 
+
+tasks.named('wrapper', Wrapper).configure {
+    distributionType = Wrapper.DistributionType.BIN
+}
+
 version = mod_version
 group = mod_group_id
 
 base {
-    archivesName = mod_id
+    archivesName = "$mod_id-$minecraft_version"
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
@@ -66,8 +71,8 @@ repositories {
 dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
     implementation "com.legacy:structure-gel:${minecraft_version}-${gel_version}"
-    runtimeOnly "curse.maven:xaeros-world-map-317780:5189419"
-    runtimeOnly "curse.maven:chunky-485681:5036032"
+    runtimeOnly "curse.maven:xaeros-world-map-317780:5394848"
+    runtimeOnly "curse.maven:chunky-485681:5320031"
 }
 
 tasks.withType(ProcessResources).configureEach {
@@ -102,4 +107,11 @@ publishing {
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+}
+
+idea {
+    module {
+        downloadSources = true
+        downloadJavadoc = true
+    }
 }
