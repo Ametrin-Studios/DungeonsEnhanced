@@ -15,7 +15,7 @@ import java.util.function.Supplier;
 
 public final class DEModularRegistrarBuilder {
     public static DEModularRegistrarBuilder create(Supplier<StructureRegistrar<DEModularStructure>> registrar, String id){return create(registrar, id, null);}
-    public static DEModularRegistrarBuilder create(Supplier<StructureRegistrar<DEModularStructure>> registrar, String id, Codec<DEModularStructure> codec) {return create(registrar, DEUtil.location(id), codec);}
+    public static DEModularRegistrarBuilder create(Supplier<StructureRegistrar<DEModularStructure>> registrar, String id, Codec<DEModularStructure> codec) {return create(registrar, DEUtil.locate(id), codec);}
     public static DEModularRegistrarBuilder create(Supplier<StructureRegistrar<DEModularStructure>> registrar, ResourceLocation id, Codec<DEModularStructure> codec){
         return new DEModularRegistrarBuilder(registrar, id, codec);
     }

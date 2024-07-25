@@ -8,7 +8,7 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.registries.RegisterEvent;
 
 @Mod.EventBusSubscriber(modid = DungeonsEnhanced.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class DEEvents {
+public final class DEEvents {
     @SubscribeEvent
     public static void register(RegisterEvent event){
         event.register(BuiltInRegistries.STRUCTURE_PROCESSOR.key(), helper ->{

@@ -21,6 +21,6 @@ public final class DEProcessorTypes {
     }
 
     private static <P extends StructureProcessor> void register(String key, StructureProcessorType<P> processorType) {
-        Registry.register(BuiltInRegistries.STRUCTURE_PROCESSOR, DEUtil.location(key), processorType);
+        Registry.register(BuiltInRegistries.STRUCTURE_PROCESSOR, DEUtil.locate(key), processorType);
     }
 }

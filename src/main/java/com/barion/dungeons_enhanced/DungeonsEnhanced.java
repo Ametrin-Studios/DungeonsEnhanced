@@ -20,7 +20,7 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 import java.util.Set;
 
 @Mod(DungeonsEnhanced.MOD_ID)
-public class DungeonsEnhanced{
+public final class DungeonsEnhanced {
     public static final String MOD_ID = "dungeons_enhanced";
 
     public DungeonsEnhanced(IEventBus modEventBus) {
@@ -43,7 +43,7 @@ public class DungeonsEnhanced{
 
         generator.addProvider(runServer, new DEBiomeTagsProvider(output, event.getLookupProvider(), existingFileHelper));
         generator.addProvider(runServer, new DELootTableProvider(output));
-        generator.addProvider(runServer, new DEAdvancementProvider(output, existingFileHelper));
+        generator.addProvider(runServer, new DEAdvancementProvider(output, event.getLookupProvider(), existingFileHelper));
         generator.addProvider(runServer, new DEStructureTagsProvider(output, lookup, existingFileHelper));
     }
 }

@@ -47,7 +47,7 @@ public class DEStructureTemplates {
         }
 
         public Builder add(String resource){
-            pieces.add(new Template(DEUtil.location(resource), yOffset), weight);
+            pieces.add(new Template(DEUtil.locate(resource), yOffset), weight);
             return this;
         }
 

@@ -89,7 +89,7 @@ public class DEConfig {
             return structureConfigBuilder(structure).pushBiomes();
         }
         private static  StructureConfig.Builder structureConfigBuilder(StructureRegistrar<? extends Structure> structure){
-            if(structure.getStructure() == null) throw new InvalidParameterException("Need to be a single structure");
+            if(structure.getStructure() == null) throw new InvalidParameterException("Needs to be a single structure registrar");
             return StructureConfig.builder(structure.getStructure());
         }
     }

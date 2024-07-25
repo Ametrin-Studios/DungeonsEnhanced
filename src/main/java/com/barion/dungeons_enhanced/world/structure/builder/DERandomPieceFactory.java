@@ -49,9 +49,9 @@ public final class DERandomPieceFactory implements IDEPieceFactory {
             return this;
         }
 
-        public Builder add(String location) {return add(DEUtil.location(location));}
-        public Builder add(int weight, String location) {return add(weight, DEUtil.location(location), 0);}
-        public Builder add(int weight, String location, int yOffset) {return add(weight, DEUtil.location(location), yOffset);}
+        public Builder add(String location) {return add(DEUtil.locate(location));}
+        public Builder add(int weight, String location) {return add(weight, DEUtil.locate(location), 0);}
+        public Builder add(int weight, String location, int yOffset) {return add(weight, DEUtil.locate(location), yOffset);}
         public Builder add(ResourceLocation resourceLocation) {return add(1, resourceLocation, 0);}
         public Builder add(int weight, ResourceLocation resourceLocation, int yOffset) {return add(weight, new DEStructureTemplate(resourceLocation, yOffset));}
         public Builder add(DEStructureTemplate template){return add(1, template);}

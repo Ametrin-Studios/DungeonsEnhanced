@@ -8,6 +8,6 @@ public record DEStructureTemplate(ResourceLocation resourceLocation, int yOffset
         return of(id, 0);
     }
     public static DEStructureTemplate of(String id, int yOffset){
-        return new DEStructureTemplate(DEUtil.location(id), yOffset);
+        return new DEStructureTemplate(DEUtil.locate(id), yOffset);
     }
 }

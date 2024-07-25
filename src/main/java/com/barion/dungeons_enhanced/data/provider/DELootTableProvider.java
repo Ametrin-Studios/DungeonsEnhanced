@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.function.BiConsumer;
 
-public class DELootTableProvider extends LootTableProvider {
+public final class DELootTableProvider extends LootTableProvider {
     private static List<SubProviderEntry> tables;
 
     public DELootTableProvider(PackOutput output){
@@ -38,7 +38,7 @@ public class DELootTableProvider extends LootTableProvider {
         tables = List.of(new SubProviderEntry(DEStructureLootTables::new, LootContextParamSets.CHEST));
     }
 
-    public static class DEStructureLootTables implements LootTableSubProvider {
+    public static final class DEStructureLootTables implements LootTableSubProvider {
         @Override
         public void generate(@Nonnull BiConsumer<ResourceLocation, LootTable.Builder> consumer) {
             {consumer.accept(location("castle/armory"), LootTable.lootTable()

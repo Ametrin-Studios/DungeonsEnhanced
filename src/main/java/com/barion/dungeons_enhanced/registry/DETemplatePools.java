@@ -10,7 +10,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
 @RegistrarHolder
-public class DETemplatePools {
+public final class DETemplatePools {
     public static final RegistrarHandler<StructureTemplatePool> HANDLER = RegistrarHandler.getOrCreate(Registries.TEMPLATE_POOL, DungeonsEnhanced.MOD_ID).bootstrap(DETemplatePools::init);
 
     // Overworld
@@ -39,7 +39,7 @@ public class DETemplatePools {
         DEBlackCitadel.pool(context);
     }
 
-    private static ResourceKey<StructureTemplatePool> root(String structure_id){
-        return HANDLER.key(structure_id+"/root");
+    private static ResourceKey<StructureTemplatePool> root(String structureId){
+        return HANDLER.key(structureId + "/root");
     }
 }

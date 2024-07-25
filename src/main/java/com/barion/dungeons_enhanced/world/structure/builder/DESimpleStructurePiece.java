@@ -17,7 +17,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.function.Function;
 
-public class DESimpleStructurePiece extends GelTemplateStructurePiece {
+public final class DESimpleStructurePiece extends GelTemplateStructurePiece {
     private final Function<StructurePlaceSettings, StructurePlaceSettings> _settingsFunction;
     public DESimpleStructurePiece(StructurePieceType structurePieceType, StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Function<StructurePlaceSettings, StructurePlaceSettings> settingsFunction, Rotation rotation) {
         super(structurePieceType, 0, structureManager, templateName, pos);

@@ -36,7 +36,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Supplier;
 
-import static com.barion.dungeons_enhanced.DEUtil.location;
+import static com.barion.dungeons_enhanced.DEUtil.locate;
 
 @RegistrarHolder
 public final class DEStructures {
@@ -75,7 +75,7 @@ public final class DEStructures {
 
     static {
         //Overworld
-        CASTLE = StructureRegistrar.jigsawBuilder(location(DECastle.ID))
+        CASTLE = StructureRegistrar.jigsawBuilder(locate(DECastle.ID))
                 .placement(()-> gridPlacement(69, 78).build(DEStructures.CASTLE))
                 .addPiece(()-> DECastle.Piece::new)
                 .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DECastle.Capability.INSTANCE, DETemplatePools.CASTLE, 1, ConstantHeight.ZERO).onSurface().build())
@@ -84,7 +84,7 @@ public final class DEStructures {
                 .popStructure()
                 .build();
 
-        DEEP_CRYPT = StructureRegistrar.jigsawBuilder(location(DEDeepCrypt.ID))
+        DEEP_CRYPT = StructureRegistrar.jigsawBuilder(locate(DEDeepCrypt.ID))
                 .placement(()-> gridPlacement(39, 67).build(DEStructures.DEEP_CRYPT))
                 .addPiece(()-> DEDeepCrypt.Piece::new)
                 .pushStructure((context, settings) -> extendedJigsawStructure(context, settings, DEDeepCrypt.Capability.INSTANCE, DETemplatePools.DEEP_CRYPT, 4, UniformHeight.of(VerticalAnchor.aboveBottom(16), VerticalAnchor.aboveBottom(48))).build())
@@ -93,7 +93,7 @@ public final class DEStructures {
                 .popStructure()
                 .build();
 
-        DESERT_TEMPLE = StructureRegistrar.builder(location(DEDesertTemple.ID), ()-> ()-> DEDesertTemple.CODEC)
+        DESERT_TEMPLE = StructureRegistrar.builder(locate(DEDesertTemple.ID), ()-> ()-> DEDesertTemple.CODEC)
                 .placement(()-> gridPlacement(39, 86).build(DEStructures.DESERT_TEMPLE))
                 .addPiece(()-> DEDesertTemple.Piece::new)
                 .pushStructure(DEDesertTemple::new)
@@ -101,7 +101,7 @@ public final class DEStructures {
                 .popStructure()
                 .build();
 
-        DESERT_TOMB = StructureRegistrar.jigsawBuilder(location(DEDesertTomb.ID))
+        DESERT_TOMB = StructureRegistrar.jigsawBuilder(locate(DEDesertTomb.ID))
                 .placement(()-> gridPlacement(29, 65).allowedNearSpawn(true).build(DEStructures.DESERT_TOMB))
                 .addPiece(()-> DEDesertTomb.Piece::new)
                 .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DEDesertTomb.Capability.INSTANCE, DETemplatePools.DESERT_TOMB, 5, ConstantHeight.ZERO).onSurface().build())
@@ -109,7 +109,7 @@ public final class DEStructures {
                 .popStructure()
                 .build();
 
-        DRUID_CIRCLE = StructureRegistrar.jigsawBuilder(location(DEDruidCircle.ID))
+        DRUID_CIRCLE = StructureRegistrar.jigsawBuilder(locate(DEDruidCircle.ID))
                 .placement(()-> gridPlacement(41, 68).allowedNearSpawn(true).build(DEStructures.DRUID_CIRCLE))
                 .addPiece(()-> DEDruidCircle.Piece::new)
                 .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DEDruidCircle.Capability.INSTANCE, DETemplatePools.DRUID_CIRCLE, 1, ConstantHeight.ZERO).onSurface().build())//TODO: make own tag
@@ -139,7 +139,7 @@ public final class DEStructures {
                 .placement(19, 0.59f).allowNearSpawn()
                 .build();
 
-        ELDERS_TEMPLE = StructureRegistrar.builder(location(DEEldersTemple.ID), ()-> ()-> DEEldersTemple.CODEC)
+        ELDERS_TEMPLE = StructureRegistrar.builder(locate(DEEldersTemple.ID), ()-> ()-> DEEldersTemple.CODEC)
                 .placement(()-> gridPlacement(24).build(DEStructures.ELDERS_TEMPLE))
                 .addPiece(()-> DEEldersTemple.Piece::new)
                 .pushStructure(DEEldersTemple::new)
@@ -149,7 +149,7 @@ public final class DEStructures {
                 .popStructure()
                 .build();
 
-        FISHING_SHIP = StructureRegistrar.builder(location(DESwimmingStructure.ID_FISHING_SHIP), ()-> ()-> DESwimmingStructure.CODEC_FISHING_SHIP)
+        FISHING_SHIP = StructureRegistrar.builder(locate(DESwimmingStructure.ID_FISHING_SHIP), ()-> ()-> DESwimmingStructure.CODEC_FISHING_SHIP)
                 .placement(()-> gridPlacement(48, 68).allowedNearSpawn(true).build(DEStructures.FISHING_SHIP))
                 .addPiece(()-> DEGroundStructure.Piece::new)
                 .pushStructure(DESwimmingStructure::FishingShip)
@@ -158,7 +158,7 @@ public final class DEStructures {
                 .build();
 
         FLYING_DUTCHMAN = DEModularRegistrarBuilder.create(()-> DEStructures.FLYING_DUTCHMAN, DEStructureIDs.FLYING_DUTCHMAN)
-                .addStructure(DEUtil.location("flying_dutchman"),
+                .addStructure(DEUtil.locate("flying_dutchman"),
                         structure -> structure
                                 .placement(DEPlacement.ABOVE_GROUND),
                         config -> config
@@ -178,7 +178,7 @@ public final class DEStructures {
                 .placement(23, 0.77f).allowNearSpawn()
                 .build();
 
-        ICE_PIT = StructureRegistrar.builder(location(DEIcePit.ID), ()-> ()-> DEIcePit.CODEC)
+        ICE_PIT = StructureRegistrar.builder(locate(DEIcePit.ID), ()-> ()-> DEIcePit.CODEC)
                 .addPiece(()-> DEGroundStructure.Piece::new)
                 .placement(()-> gridPlacement(34, 77).build(DEStructures.ICE_PIT))
                 .pushStructure(DEIcePit::new)
@@ -186,7 +186,7 @@ public final class DEStructures {
                 .popStructure()
                 .build();
 
-        JUNGLE_MONUMENT = StructureRegistrar.builder(location(DEGroundStructure.ID_JUNGLE_MONUMENT), ()-> ()-> DEGroundStructure.CODEC_JUNGLE_MONUMENT)
+        JUNGLE_MONUMENT = StructureRegistrar.builder(locate(DEGroundStructure.ID_JUNGLE_MONUMENT), ()-> ()-> DEGroundStructure.CODEC_JUNGLE_MONUMENT)
                 .placement(()-> gridPlacement(46, 74).build(DEStructures.JUNGLE_MONUMENT))
                 .addPiece(()-> DEGroundStructure.Piece::new)
                 .pushStructure(DEGroundStructure::JungleMonument)
@@ -194,7 +194,7 @@ public final class DEStructures {
                 .popStructure()
                 .build();
 
-        LARGE_DUNGEON = StructureRegistrar.jigsawBuilder(location(DELargeDungeon.ID))
+        LARGE_DUNGEON = StructureRegistrar.jigsawBuilder(locate(DELargeDungeon.ID))
                 .placement(()-> gridPlacement(59, 56).allowedNearSpawn(true).build(DEStructures.LARGE_DUNGEON))
                 .addPiece(()-> DELargeDungeon.Piece::new)
                 .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DELargeDungeon.Capability.INSTANCE, DETemplatePools.LARGE_DUNGEON, 5, height(-16)).onSurface().build())
@@ -202,7 +202,7 @@ public final class DEStructures {
                 .popStructure()
                 .build();
 
-        MINERS_HOUSE = StructureRegistrar.builder(location(DEGroundStructure.ID_MINERS_HOUSE), ()-> ()-> DEGroundStructure.CODEC_MINERS_HOUSE)
+        MINERS_HOUSE = StructureRegistrar.builder(locate(DEGroundStructure.ID_MINERS_HOUSE), ()-> ()-> DEGroundStructure.CODEC_MINERS_HOUSE)
                 .placement(()-> gridPlacement(24, 80).allowedNearSpawn(true).build(DEStructures.MINERS_HOUSE))
                 .addPiece(()-> DEGroundStructure.Piece::new)
                 .pushStructure(DEGroundStructure::MinersHouse)
@@ -211,7 +211,7 @@ public final class DEStructures {
                 .popStructure()
                 .build();
 
-        MONSTER_MAZE = StructureRegistrar.jigsawBuilder(location(DEMonsterMaze.ID))
+        MONSTER_MAZE = StructureRegistrar.jigsawBuilder(locate(DEMonsterMaze.ID))
                 .placement(()-> gridPlacement(32, 52).build(DEStructures.MONSTER_MAZE))
                 .addPiece(()-> DEMonsterMaze.Piece::new)
                 .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DEMonsterMaze.Capability.INSTANCE, DETemplatePools.MONSTER_MAZE, 12, height(-17)).onSurface().build())
@@ -219,7 +219,7 @@ public final class DEStructures {
                 .popStructure()
                 .build();
 
-        MUSHROOM_HOUSE = StructureRegistrar.builder(location(DEGroundStructure.ID_MUSHROOM_HOUSE), ()-> ()-> DEGroundStructure.CODEC_MUSHROOM_HOUSE)
+        MUSHROOM_HOUSE = StructureRegistrar.builder(locate(DEGroundStructure.ID_MUSHROOM_HOUSE), ()-> ()-> DEGroundStructure.CODEC_MUSHROOM_HOUSE)
                 .placement(()-> gridPlacement(19, 83).allowedNearSpawn(true).build(DEStructures.MUSHROOM_HOUSE))
                 .addPiece(()-> DEGroundStructure.Piece::new)
                 .pushStructure(DEGroundStructure::MushroomHouse)
@@ -228,7 +228,7 @@ public final class DEStructures {
                 .popStructure()
                 .build();
 
-        PILLAGER_CAMP = StructureRegistrar.jigsawBuilder(location(DEPillagerCamp.ID))
+        PILLAGER_CAMP = StructureRegistrar.jigsawBuilder(locate(DEPillagerCamp.ID))
                 .placement(()-> gridPlacement(56, 39).build(DEStructures.PILLAGER_CAMP))
                 .addPiece(()-> DEPillagerCamp.Piece::new)
                 .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DEPillagerCamp.Capability.INSTANCE, DETemplatePools.PILLAGER_CAMP, 4, ConstantHeight.ZERO).onSurface().build())
@@ -238,7 +238,7 @@ public final class DEStructures {
                 .popStructure()
                 .build();
 
-        PIRATE_SHIP = StructureRegistrar.builder(location(DEPirateShip.ID), ()-> ()-> DEPirateShip.CODEC)
+        PIRATE_SHIP = StructureRegistrar.builder(locate(DEPirateShip.ID), ()-> ()-> DEPirateShip.CODEC)
                 .placement(()-> gridPlacement(67, 49).build(DEStructures.PIRATE_SHIP))
                 .addPiece(()-> DEGroundStructure.Piece::new)
                 .pushStructure(DEPirateShip::new)
@@ -268,7 +268,7 @@ public final class DEStructures {
                 .placement(53, 0.52f).allowNearSpawn()
                 .build();
 
-        SUNKEN_SHRINE = StructureRegistrar.builder(location(DEUnderwaterStructure.ID_SUNKEN_SHRINE), ()-> ()-> DEUnderwaterStructure.CODEC_SUNKEN_SHRINE)
+        SUNKEN_SHRINE = StructureRegistrar.builder(locate(DEUnderwaterStructure.ID_SUNKEN_SHRINE), ()-> ()-> DEUnderwaterStructure.CODEC_SUNKEN_SHRINE)
                 .placement(()-> gridPlacement(32, 55).allowedNearSpawn(true).build(DEStructures.SUNKEN_SHRINE))
                 .addPiece(()-> DEUnderwaterStructure.Piece::new)
                 .pushStructure(DEUnderwaterStructure::SunkenShrine)
@@ -286,7 +286,7 @@ public final class DEStructures {
                 .placement(21, 0.61f).allowNearSpawn()
                 .build();
 
-        TOWER_OF_THE_UNDEAD = StructureRegistrar.builder(location(DEGroundStructure.ID_TOWER_OF_THE_UNDEAD), ()-> ()-> DEGroundStructure.CODEC_TOWER_OF_THE_UNDEAD)
+        TOWER_OF_THE_UNDEAD = StructureRegistrar.builder(locate(DEGroundStructure.ID_TOWER_OF_THE_UNDEAD), ()-> ()-> DEGroundStructure.CODEC_TOWER_OF_THE_UNDEAD)
                 .placement(()-> gridPlacement(49, 65).allowedNearSpawn(true).build(DEStructures.TOWER_OF_THE_UNDEAD))
                 .addPiece(()-> DEGroundStructure.Piece::new)
                 .pushStructure(DEGroundStructure::TowerOfTheUndead)
@@ -295,7 +295,7 @@ public final class DEStructures {
                 .popStructure()
                 .build();
 
-        TREE_HOUSE = StructureRegistrar.builder(location(DEGroundStructure.ID_TREE_HOUSE), ()-> ()-> DEGroundStructure.CODEC_TREE_HOUSE)
+        TREE_HOUSE = StructureRegistrar.builder(locate(DEGroundStructure.ID_TREE_HOUSE), ()-> ()-> DEGroundStructure.CODEC_TREE_HOUSE)
                 .placement(()-> gridPlacement(29, 40).allowedNearSpawn(true).build(DEStructures.TREE_HOUSE))
                 .addPiece(()-> DEGroundStructure.Piece::new)
                 .pushStructure(DEGroundStructure::TreeHouse)
@@ -304,7 +304,7 @@ public final class DEStructures {
                 .popStructure()
                 .build();
 
-        WATCH_TOWER = StructureRegistrar.builder(location(DEGroundStructure.ID_WATCH_TOWER), ()-> ()-> DEGroundStructure.CODEC_WATCH_TOWER)
+        WATCH_TOWER = StructureRegistrar.builder(locate(DEGroundStructure.ID_WATCH_TOWER), ()-> ()-> DEGroundStructure.CODEC_WATCH_TOWER)
                 .placement(()-> gridPlacement(27, 45).allowedNearSpawn(true).build(DEStructures.WATCH_TOWER))
                 .addPiece(()-> DEGroundStructure.Piece::new)
                 .pushStructure(DEGroundStructure::WatchTower)
@@ -313,7 +313,7 @@ public final class DEStructures {
                 .popStructure()
                 .build();
 
-        WITCH_TOWER = StructureRegistrar.builder(location(DEGroundStructure.ID_WITCH_TOWER), ()-> ()-> DEGroundStructure.CODEC_WITCH_TOWER)
+        WITCH_TOWER = StructureRegistrar.builder(locate(DEGroundStructure.ID_WITCH_TOWER), ()-> ()-> DEGroundStructure.CODEC_WITCH_TOWER)
                 .placement(()-> gridPlacement(79, 54).allowedNearSpawn(true).build(DEStructures.WITCH_TOWER))
                 .addPiece(()-> DEGroundStructure.Piece::new)
                 .pushStructure(DEGroundStructure::WitchTower)
@@ -323,7 +323,7 @@ public final class DEStructures {
                 .build();
 
         // Nether
-        BLACK_CITADEL = StructureRegistrar.jigsawBuilder(location(DEStructureIDs.BLACK_CITADEL))
+        BLACK_CITADEL = StructureRegistrar.jigsawBuilder(locate(DEStructureIDs.BLACK_CITADEL))
                 .placement(()-> gridPlacement(67, 75).build(DEStructures.BLACK_CITADEL))
                 .addPiece(()-> DEBlackCitadel.Piece::new)
                 .pushStructure((context, settings) -> extendedJigsawStructure(context, settings, DEBlackCitadel.Capability.INSTANCE, DETemplatePools.BLACK_CITADEL, 6, height(28)).maxDistanceFromCenter(116).build())

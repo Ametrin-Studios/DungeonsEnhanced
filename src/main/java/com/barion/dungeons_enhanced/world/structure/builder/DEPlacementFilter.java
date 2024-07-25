@@ -19,6 +19,5 @@ public interface DEPlacementFilter {
 
     DEPlacementFilter IS_WATER = (pos, context) -> context.chunkGenerator().getBaseColumn(pos.getX(), pos.getZ(), context.heightAccessor(), context.randomState()).getBlock(pos.getY()).is(Blocks.WATER);
 
-
     boolean cannotGenerate(BlockPos pos, Structure.GenerationContext context);
 }

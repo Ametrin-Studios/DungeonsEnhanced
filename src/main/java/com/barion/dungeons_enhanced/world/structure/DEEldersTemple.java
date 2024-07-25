@@ -21,15 +21,15 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 import javax.annotation.Nonnull;
 import java.util.Optional;
 
-import static com.barion.dungeons_enhanced.DEUtil.location;
+import static com.barion.dungeons_enhanced.DEUtil.locate;
 
 public class DEEldersTemple extends DEUnderwaterStructure {
     public static final String ID = "elders_temple";
     public static final Codec<DEEldersTemple> CODEC = simpleCodec(DEEldersTemple::new);
-    private static final ResourceLocation NE = location("elders_temple/ne");
-    private static final ResourceLocation NW = location("elders_temple/nw");
-    private static final ResourceLocation SE = location("elders_temple/se");
-    private static final ResourceLocation SW = location("elders_temple/sw");
+    private static final ResourceLocation NE = locate("elders_temple/ne");
+    private static final ResourceLocation NW = locate("elders_temple/nw");
+    private static final ResourceLocation SE = locate("elders_temple/se");
+    private static final ResourceLocation SW = locate("elders_temple/sw");
 
     public DEEldersTemple(StructureSettings settings) {super(settings, DEUtil.pieceBuilder().add("elders_temple/se").build(), DEStructures.ELDERS_TEMPLE::getType);}
 

@@ -17,12 +17,12 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 import javax.annotation.Nonnull;
 import java.util.Optional;
 
-import static com.barion.dungeons_enhanced.DEUtil.location;
+import static com.barion.dungeons_enhanced.DEUtil.locate;
 
 public class DEDesertTemple extends DEGroundStructure {
     public static final String ID = "desert_temple";
     public static final Codec<DEDesertTemple> CODEC = simpleCodec(DEDesertTemple::new);
-    private static final ResourceLocation BOTTOM = location("desert_temple/down");
+    private static final ResourceLocation BOTTOM = locate("desert_temple/down");
     public DEDesertTemple(StructureSettings structureSettings) {super(structureSettings, DEUtil.pieceBuilder().yOffset(-6).add("desert_temple/main").build(), DEStructures.DESERT_TEMPLE::getType);}
 
     @Override @Nonnull

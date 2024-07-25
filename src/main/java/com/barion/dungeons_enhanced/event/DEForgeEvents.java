@@ -9,7 +9,7 @@ import net.neoforged.neoforge.event.village.VillagerTradesEvent;
 
 
 @Mod.EventBusSubscriber(modid = DungeonsEnhanced.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
-public class DEForgeEvents {
+public final class DEForgeEvents {
     @SubscribeEvent
     public static void registerCustomTrades(final VillagerTradesEvent event){
         if(event.getType() != VillagerProfession.CARTOGRAPHER) return;

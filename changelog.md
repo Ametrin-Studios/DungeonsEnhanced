@@ -1,3 +1,7 @@
+## 5.6
+- Desert Temple loot rework
+- requires Structure Gel API 2.19 or above
+
 ## 5.5
 - added Black Citadel
   - new advancement

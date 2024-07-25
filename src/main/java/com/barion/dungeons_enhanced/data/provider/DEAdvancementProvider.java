@@ -4,14 +4,12 @@ import com.barion.dungeons_enhanced.registry.DEStructures;
 import com.legacy.structure_gel.api.registry.registrar.Registrar;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
 import com.mojang.datafixers.util.Pair;
-import net.minecraft.Util;
 import net.minecraft.advancements.*;
 import net.minecraft.advancements.critereon.LocationPredicate;
 import net.minecraft.advancements.critereon.PlayerTrigger;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.registries.VanillaRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
@@ -33,17 +31,14 @@ import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
-import static com.barion.dungeons_enhanced.DEUtil.location;
+import static com.barion.dungeons_enhanced.DEUtil.locate;
 
-public class DEAdvancementProvider extends AdvancementProvider {
-    public static final CompletableFuture<HolderLookup.Provider> registriesLookup = CompletableFuture.supplyAsync(VanillaRegistries::createLookup, Util.backgroundExecutor());
-
-
-    public DEAdvancementProvider(PackOutput output, ExistingFileHelper existingFileHelper){
-        super(output, registriesLookup, existingFileHelper, List.of(new DEExplorerAdvancementSubProvider()));
+public final class DEAdvancementProvider extends AdvancementProvider {
+    public DEAdvancementProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, ExistingFileHelper existingFileHelper){
+        super(output, lookupProvider, existingFileHelper, List.of(new DEExplorerAdvancementSubProvider()));
     }
 
-    public static class DEExplorerAdvancementSubProvider implements AdvancementGenerator{
+    public static final class DEExplorerAdvancementSubProvider implements AdvancementGenerator {
         @Override
         public void generate(@NotNull HolderLookup.Provider provider, @NotNull Consumer<AdvancementHolder> consumer, @NotNull ExistingFileHelper existingFileHelper) {
             var root = new AdvancementBuilder("root", Items.COMPASS)
@@ -223,7 +218,7 @@ public class DEAdvancementProvider extends AdvancementProvider {
                 builder.addCriterion(pair.getFirst(), pair.getSecond());
             }
             if(_parent != null) builder.parent(_parent);
-            return builder.save(consumer, location(_id), existingFileHelper);
+            return builder.save(consumer, locate(_id), existingFileHelper);
         }
 
         private static Component component(String key) {return Component.translatable("advancements.dungeons_enhanced." + key);}

@@ -14,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 import javax.annotation.Nonnull;
 import java.util.concurrent.CompletableFuture;
 
-public class DEBiomeTagsProvider extends BiomeTagsProvider {
+public final class DEBiomeTagsProvider extends BiomeTagsProvider {
     public DEBiomeTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookup, @Nullable ExistingFileHelper existingFileHelper) {
         super(output, lookup, DungeonsEnhanced.MOD_ID, existingFileHelper);
     }
@@ -25,6 +25,7 @@ public class DEBiomeTagsProvider extends BiomeTagsProvider {
                 .addTag(BiomeTags.IS_BEACH)
                 .add(Biomes.STONY_SHORE)
         ;
+
         tag(DETags.Biomes.IS_BAD_FOR_STRUCTURE)
                 .addTag(DETags.Biomes.IS_SHORE)
                 .addTag(Tags.Biomes.IS_CAVE)
