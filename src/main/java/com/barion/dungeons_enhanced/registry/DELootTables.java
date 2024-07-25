@@ -11,6 +11,8 @@ public interface DELootTables {
         ResourceLocation TREASURE = chest("desert_temple/treasure");
     }
 
+    ResourceLocation FISHING_SHIP = chest("fishing_ship");
+
     ResourceLocation MINERS_HOUSE = chest("miners_house");
 
     interface PILLAGER_CAMP {

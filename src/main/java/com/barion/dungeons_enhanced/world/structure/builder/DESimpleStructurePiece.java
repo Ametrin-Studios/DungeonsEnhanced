@@ -18,13 +18,16 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.function.Function;
 
 public final class DESimpleStructurePiece extends GelTemplateStructurePiece {
+
     private final Function<StructurePlaceSettings, StructurePlaceSettings> _settingsFunction;
+
     public DESimpleStructurePiece(StructurePieceType structurePieceType, StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Function<StructurePlaceSettings, StructurePlaceSettings> settingsFunction, Rotation rotation) {
         super(structurePieceType, 0, structureManager, templateName, pos);
         _settingsFunction = settingsFunction;
         this.rotation = rotation;
         setupPlaceSettings(structureManager);
     }
+
     public DESimpleStructurePiece(StructurePieceType structurePieceType, CompoundTag nbt, StructurePieceSerializationContext context, Function<StructurePlaceSettings, StructurePlaceSettings> settingsFunction) {
         super(structurePieceType, nbt, context.structureTemplateManager());
         _settingsFunction = settingsFunction;
@@ -33,13 +36,17 @@ public final class DESimpleStructurePiece extends GelTemplateStructurePiece {
 
     @Override
     protected StructurePlaceSettings getPlaceSettings(StructureTemplateManager structureManager) {
-        return _settingsFunction.apply(super.getPlaceSettings(structureManager));
+        // DO NOT USE getRotation in here!
+        var size = template().getSize(rotation);
+        var pivot = new BlockPos(size.getX() / 2, 0, size.getZ() / 2);
+        return _settingsFunction.apply(super.getPlaceSettings(structureManager).setKeepLiquids(false).setRotationPivot(pivot));
     }
 
     public Vec3i getSize(){
         return template().getSize(getRotation());
     }
-    public void setPosition(BlockPos pos){
+
+    public void setPosition(BlockPos pos) {
         templatePosition = pos;
         boundingBox = template.getBoundingBox(placeSettings, templatePosition);
     } // probably not good

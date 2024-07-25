@@ -40,7 +40,7 @@ public final class DERandomPieceFactory implements IDEPieceFactory {
         return new DESimpleStructurePiece(_pieceTypeSupplier.get(), templateManager, template.resourceLocation(), position.above(template.yOffset()), _settingsFunction, Rotation.getRandom(random));
     }
 
-    public static class Builder{
+    public static class Builder {
         private final SimpleWeightedRandomList.Builder<DEStructureTemplate> _templates = new SimpleWeightedRandomList.Builder<>();
         private Function<StructurePlaceSettings, StructurePlaceSettings> _settingsFunction = settings -> settings;
 

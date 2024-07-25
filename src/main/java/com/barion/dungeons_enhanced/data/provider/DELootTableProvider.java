@@ -329,29 +329,7 @@ public final class DELootTableProvider extends LootTableProvider {
                                 .add(potion(1, Potions.WATER_BREATHING, number(0, 1)))
                                 .add(item(Items.PRISMARINE_CRYSTALS, 3, number(0, 3)))
                         ));} // Elders Temple
-            {
-                consumer.accept(location("fishing_ship"), LootTable.lootTable()
-                        .withPool(pool(number(8, 16))
-                                .add(item(Items.COD, 3, one()))
-                                .add(item(Items.SALMON, 3, one()))
-                                .add(item(Items.COD_BUCKET, 1, one()))
-                                .add(item(Items.SALMON_BUCKET, 1, one()))
-                                .add(item(Items.STRING, 4, one()))
-                                .add(item(Items.FISHING_ROD, 1, one()))
-                                .add(item(Items.BRAIN_CORAL, 1, number(0,1)))
-                                .add(item(Items.BUBBLE_CORAL, 1, number(0,1)))
-                                .add(item(Items.FIRE_CORAL, 1, number(0,1)))
-                                .add(item(Items.HORN_CORAL, 1, number(0,1)))
-                                .add(item(Items.TUBE_CORAL, 1, number(0,1)))
-                                .add(item(Items.NAUTILUS_SHELL, 1, number(0,1)))
-                                .add(item(Items.BOWL, 1, number(0,1)))
-                                .add(item(Items.LEATHER, 2, number(0,3)))
-                                .add(item(Items.SADDLE, 1, number(0,1)))
-                                .add(item(Items.EMERALD, 1, number(0,2)))
-                                .add(item(Items.WHEAT, 1, number(0,2)))
-                                .add(item(Items.BREAD, 2, number(0,4)))
-                                .add(item(Items.PAPER, 1, number(0,3)))
-                        ));} // Fishing Ship
+
             {consumer.accept(location("flying_dutchman"), LootTable.lootTable()
                     .withPool(pool(number(7, 9))
                             .add(item(Items.SKULL_BANNER_PATTERN, 1, one()))
@@ -776,35 +754,35 @@ public final class DELootTableProvider extends LootTableProvider {
             );
         }
 
-        protected static LootPoolEntryContainer.Builder<?> item(ItemLike item, int weight, NumberProvider amount){
+        private static LootPoolEntryContainer.Builder<?> item(ItemLike item, int weight, NumberProvider amount){
             return LootItem.lootTableItem(item).setWeight(weight).apply(SetItemCountFunction.setCount(amount));
         }
-        protected static LootPoolEntryContainer.Builder<?> tag(TagKey<Item> item, int weight, NumberProvider amount){
+        private static LootPoolEntryContainer.Builder<?> tag(TagKey<Item> item, int weight, NumberProvider amount){
             return TagEntry.expandTag(item).setWeight(weight).apply(SetItemCountFunction.setCount(amount));
         }
-        protected static LootPoolEntryContainer.Builder<?> enchantedItem(ItemLike item, int weight, NumberProvider enchant, NumberProvider amount){
+        private static LootPoolEntryContainer.Builder<?> enchantedItem(ItemLike item, int weight, NumberProvider enchant, NumberProvider amount){
             return LootItem.lootTableItem(item).setWeight(weight).apply(SetItemCountFunction.setCount(amount)).apply(EnchantWithLevelsFunction.enchantWithLevels(enchant));
         }
-        protected static LootPoolEntryContainer.Builder<?> enchantedItem(ItemLike item, int weight, NumberProvider amount){
+        private static LootPoolEntryContainer.Builder<?> enchantedItem(ItemLike item, int weight, NumberProvider amount){
             return LootItem.lootTableItem(item).setWeight(weight).apply(SetItemCountFunction.setCount(amount)).apply(EnchantRandomlyFunction.randomApplicableEnchantment());
         }
-        protected static LootPoolEntryContainer.Builder<?> suspiciousStew(int weight, NumberProvider amount){
+        private static LootPoolEntryContainer.Builder<?> suspiciousStew(int weight, NumberProvider amount){
             return LootItem.lootTableItem(Items.SUSPICIOUS_STEW).setWeight(weight).apply(SetItemCountFunction.setCount(amount)).apply(SetStewEffectFunction.stewEffect().withEffect(MobEffects.NIGHT_VISION, number(7, 10)).withEffect(MobEffects.JUMP, number(7, 10)).withEffect(MobEffects.WEAKNESS, number(6, 8)).withEffect(MobEffects.BLINDNESS, number(5, 7)).withEffect(MobEffects.POISON, number(10, 20)).withEffect(MobEffects.SATURATION, number(7, 10)));
         }
-        protected static LootPoolEntryContainer.Builder<?> potion(int weight, Potion potion, NumberProvider amount){
+        private static LootPoolEntryContainer.Builder<?> potion(int weight, Potion potion, NumberProvider amount){
             return LootItem.lootTableItem(Items.POTION).setWeight(weight).apply(SetItemCountFunction.setCount(amount)).apply(SetPotionFunction.setPotion(potion));
         }
-        protected LootPoolEntryContainer.Builder<?> splashPotion(int weight, Potion potion, NumberProvider amount){
+        private LootPoolEntryContainer.Builder<?> splashPotion(int weight, Potion potion, NumberProvider amount){
             return LootItem.lootTableItem(Items.SPLASH_POTION).setWeight(weight).apply(SetItemCountFunction.setCount(amount)).apply(SetPotionFunction.setPotion(potion));
         }
-        protected LootPoolEntryContainer.Builder<?> lingeringPotion(int weight, Potion potion, NumberProvider amount){
+        private LootPoolEntryContainer.Builder<?> lingeringPotion(int weight, Potion potion, NumberProvider amount){
             return LootItem.lootTableItem(Items.LINGERING_POTION).setWeight(weight).apply(SetItemCountFunction.setCount(amount)).apply(SetPotionFunction.setPotion(potion));
         }
 
-        protected static NumberProvider one() {return number(1);}
-        protected static NumberProvider number(int amount) {return ConstantValue.exactly(amount);}
-        protected static NumberProvider number(int minAmount, int maxAmount) {return UniformGenerator.between(minAmount, maxAmount);}
-        protected static LootPool.Builder pool(NumberProvider rolls) {return LootPool.lootPool().setRolls(rolls);}
+        private static NumberProvider one() {return number(1);}
+        private static NumberProvider number(int amount) {return ConstantValue.exactly(amount);}
+        private static NumberProvider number(int minAmount, int maxAmount) {return UniformGenerator.between(minAmount, maxAmount);}
+        private static LootPool.Builder pool(NumberProvider rolls) {return LootPool.lootPool().setRolls(rolls);}
 
         @Deprecated(forRemoval = true)
         private static ResourceLocation location(String name) {return new ResourceLocation(DungeonsEnhanced.MOD_ID, "chests/" + name);}

@@ -1,4 +1,5 @@
 ## 5.6
+- added Dungeon Variant variant
 - Desert Temple loot rework
 - requires Structure Gel API 2.19 or above
 

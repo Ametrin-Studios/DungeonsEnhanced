@@ -17,28 +17,28 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSeriali
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
-public class DEDeepCrypt{
+public class DEDeepCrypt {
     public static final String ID = "deep_crypt";
     public static class Capability implements JigsawCapability{
         public static final Capability INSTANCE = new Capability();
         public static final Codec<Capability> CODEC = Codec.unit(INSTANCE);
 
         @Override
-        public JigsawCapabilityType<?> getType(){return DEJigsawTypes.DEEP_CRYPT.get();}
+        public JigsawCapabilityType<?> getType() { return DEJigsawTypes.DEEP_CRYPT.get(); }
         @Override
-        public IPieceFactory getPieceFactory() {return Piece::new;}
+        public IPieceFactory getPieceFactory() { return Piece::new; }
     }
     public static class Piece extends ExtendedJigsawStructurePiece {
         public Piece(IPieceFactory.Context context) {super(context);}
-        public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) {super(serializationContext, nbt);}
+        public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) { super(serializationContext, nbt); }
 
         @Override
-        public StructurePieceType getType() {return DEStructures.DEEP_CRYPT.getPieceType().get();}
+        public StructurePieceType getType() { return DEStructures.DEEP_CRYPT.getPieceType().get(); }
         @Override
         public void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) {}
     }
 
-    public static void pool(BootstapContext<StructureTemplatePool> context){
+    public static void pool(BootstapContext<StructureTemplatePool> context) {
         var registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "deep_crypt/", context);
         registry.registerBuilder().pools(registry.poolBuilder().names("root").maintainWater(false)).register(DETemplatePools.DEEP_CRYPT);
 

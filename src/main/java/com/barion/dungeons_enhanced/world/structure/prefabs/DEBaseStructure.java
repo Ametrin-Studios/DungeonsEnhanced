@@ -27,34 +27,35 @@ import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-public abstract class DEBaseStructure extends Structure{
-    protected final DEStructureTemplates Templates;
-    protected final Supplier<StructureType<?>> TypeSupplier;
-    public DEBaseStructure(StructureSettings settings, DEStructureTemplates templates, Supplier<StructureType<?>> type){
+public abstract class DEBaseStructure extends Structure {
+    protected final DEStructureTemplates _templates;
+    protected final Supplier<StructureType<?>> _typeSupplier;
+    public DEBaseStructure(StructureSettings settings, DEStructureTemplates templates, Supplier<StructureType<?>> type) {
         super(settings);
-        Templates = templates;
-        TypeSupplier = type;
+        _templates = templates;
+        _typeSupplier = type;
     }
 
-    protected static Optional<Structure.GenerationStub> at(BlockPos pos, Consumer<StructurePiecesBuilder> piecesBuilder){
+    protected static Optional<Structure.GenerationStub> at(BlockPos pos, Consumer<StructurePiecesBuilder> piecesBuilder) {
         return Optional.of(new GenerationStub(pos, piecesBuilder));
     }
 
     @Override @Nonnull
-    public StructureType<?> type() {return TypeSupplier.get();}
+    public StructureType<?> type() { return _typeSupplier.get(); }
 
     protected static void generatePieces(StructurePiecesBuilder piecesBuilder, BlockPos pos, DEStructureTemplates.Template template, Rotation rotation, GenerationContext context, DEPieceAssembler assembler) {
         assembler.assemble(new DEPieceAssembler.Context(context.structureTemplateManager(), template.Resource, pos, rotation, piecesBuilder));
     }
 
-    public static class Piece extends GelTemplateStructurePiece{
-        private Rotation rotation;
+    public static class Piece extends GelTemplateStructurePiece {
+        private Rotation _rotation;
         public Piece(Registrar.Static<StructurePieceType> pieceType, StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation){
             super(pieceType.get(), 0, structureManager, templateName, pos);
-            this.rotation = rotation;
+            this._rotation = rotation;
             setupPlaceSettings(structureManager);
         }
-        public Piece(Registrar.Static<StructurePieceType> pieceType, StructurePieceSerializationContext context, CompoundTag nbt){
+
+        public Piece(Registrar.Static<StructurePieceType> pieceType, StructurePieceSerializationContext context, CompoundTag nbt) {
             super(pieceType.get(), nbt, context.structureTemplateManager());
             setupPlaceSettings(context.structureTemplateManager());
         }
@@ -63,13 +64,14 @@ public abstract class DEBaseStructure extends Structure{
         protected StructurePlaceSettings getPlaceSettings(StructureTemplateManager structureManager) {
             var size = structureManager.get(makeTemplateLocation()).get().getSize();
             var pivot = new BlockPos(size.getX() / 2, 0, size.getZ() / 2);
-            var settings = super.getPlaceSettings(structureManager).setKeepLiquids(false).setRotationPivot(pivot).setRotation(this.rotation);
+            var settings = super.getPlaceSettings(structureManager).setKeepLiquids(false).setRotationPivot(pivot).setRotation(this._rotation);
             settings.addProcessor(BlockIgnoreProcessor.STRUCTURE_AND_AIR).addProcessor(RemoveGelStructureProcessor.INSTANCE);
             addProcessors(settings);
             return settings;
         }
 
         protected void addProcessors(StructurePlaceSettings settings) {}
+
         @Override @ParametersAreNonnullByDefault
         protected void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor level, RandomSource random, BoundingBox box) {}
     }

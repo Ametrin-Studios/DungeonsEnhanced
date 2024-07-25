@@ -8,13 +8,13 @@ import com.barion.dungeons_enhanced.world.structure.builder.DEPlacementFilter;
 import com.barion.dungeons_enhanced.world.structure.builder.DEStructureTemplate;
 import com.barion.dungeons_enhanced.world.structure.prefabs.DEGroundStructure;
 import com.barion.dungeons_enhanced.world.structure.prefabs.DEModularStructure;
-import com.barion.dungeons_enhanced.world.structure.prefabs.DESwimmingStructure;
-import com.barion.dungeons_enhanced.world.structure.prefabs.DEUnderwaterStructure;
+import com.barion.dungeons_enhanced.world.structure.processor.DEUnderwaterProcessor;
 import com.legacy.structure_gel.api.registry.RegistrarHolder;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
 import com.legacy.structure_gel.api.structure.ExtendedJigsawStructure;
 import com.legacy.structure_gel.api.structure.GridStructurePlacement;
 import com.legacy.structure_gel.api.structure.jigsaw.JigsawCapability;
+import com.legacy.structure_gel.api.structure.processor.RemoveGelStructureProcessor;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
@@ -48,7 +48,7 @@ public final class DEStructures {
     public static final StructureRegistrar<ExtendedJigsawStructure> DRUID_CIRCLE;
     public static final StructureRegistrar<DEModularStructure> DUNGEON_VARIANT;
     public static final StructureRegistrar<DEEldersTemple> ELDERS_TEMPLE;
-    public static final StructureRegistrar<DESwimmingStructure> FISHING_SHIP;
+    public static final StructureRegistrar<DEModularStructure> FISHING_SHIP;
     public static final StructureRegistrar<DEModularStructure> FLYING_DUTCHMAN;
     public static final StructureRegistrar<DEModularStructure> HAY_STORAGE;
     public static final StructureRegistrar<DEIcePit> ICE_PIT;
@@ -61,7 +61,7 @@ public final class DEStructures {
     public static final StructureRegistrar<DEPirateShip> PIRATE_SHIP;
     public static final StructureRegistrar<DEModularStructure> RUINED_BUILDING;
     public static final StructureRegistrar<DEModularStructure> STABLES;
-    public static final StructureRegistrar<DEUnderwaterStructure> SUNKEN_SHRINE;
+    public static final StructureRegistrar<DEModularStructure> SUNKEN_SHRINE;
     public static final StructureRegistrar<DEModularStructure> TALL_WITCH_HUT;
     public static final StructureRegistrar<DEGroundStructure> TREE_HOUSE;
     public static final StructureRegistrar<DEGroundStructure> TOWER_OF_THE_UNDEAD;
@@ -93,7 +93,7 @@ public final class DEStructures {
                 .popStructure()
                 .build();
 
-        DESERT_TEMPLE = StructureRegistrar.builder(locate(DEDesertTemple.ID), ()-> ()-> DEDesertTemple.CODEC)
+        DESERT_TEMPLE = StructureRegistrar.builder(locate(DEStructureIDs.DESERT_TEMPLE), ()-> ()-> DEDesertTemple.CODEC)
                 .placement(()-> gridPlacement(39, 86).build(DEStructures.DESERT_TEMPLE))
                 .addPiece(()-> DEDesertTemple.Piece::new)
                 .pushStructure(DEDesertTemple::new)
@@ -149,12 +149,13 @@ public final class DEStructures {
                 .popStructure()
                 .build();
 
-        FISHING_SHIP = StructureRegistrar.builder(locate(DESwimmingStructure.ID_FISHING_SHIP), ()-> ()-> DESwimmingStructure.CODEC_FISHING_SHIP)
-                .placement(()-> gridPlacement(48, 68).allowedNearSpawn(true).build(DEStructures.FISHING_SHIP))
-                .addPiece(()-> DEGroundStructure.Piece::new)
-                .pushStructure(DESwimmingStructure::FishingShip)
-                        .dimensions(Level.OVERWORLD)
-                .popStructure()
+        FISHING_SHIP = DEModularRegistrarBuilder.create(()-> DEStructures.FISHING_SHIP, DEStructureIDs.FISHING_SHIP)
+                .addStructure(DEStructureTemplate.of("fishing_ship", -3),
+                        structure -> structure
+                                .placement(DEPlacement.ON_WORLD_SURFACE),
+                        config -> config
+                                .dimensions(Level.OVERWORLD))
+                .placement(48, 0.68f).allowNearSpawn()
                 .build();
 
         FLYING_DUTCHMAN = DEModularRegistrarBuilder.create(()-> DEStructures.FLYING_DUTCHMAN, DEStructureIDs.FLYING_DUTCHMAN)
@@ -238,7 +239,7 @@ public final class DEStructures {
                 .popStructure()
                 .build();
 
-        PIRATE_SHIP = StructureRegistrar.builder(locate(DEPirateShip.ID), ()-> ()-> DEPirateShip.CODEC)
+        PIRATE_SHIP = StructureRegistrar.builder(locate(DEStructureIDs.PIRATE_SHIP), ()-> ()-> DEPirateShip.CODEC)
                 .placement(()-> gridPlacement(67, 49).build(DEStructures.PIRATE_SHIP))
                 .addPiece(()-> DEGroundStructure.Piece::new)
                 .pushStructure(DEPirateShip::new)
@@ -253,11 +254,11 @@ public final class DEStructures {
                                 .add(3, "ruined_building/house")
                                 .add(3, "ruined_building/barn")
                                 .add(2, "ruined_building/house_big"),
-                        structure -> structure
-                                .placement(DEPlacement.ON_OCEAN_FLOOR),
+                        structure -> structure.placement(DEPlacement.ON_OCEAN_FLOOR),
                         config -> config
                                 .dimensions(Level.OVERWORLD)
-                                .terrainAdjustment(TerrainAdjustment.BEARD_THIN))
+                                .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
+                )
                 .placement(27, 0.54f).allowNearSpawn()
                 .build();
 
@@ -268,18 +269,27 @@ public final class DEStructures {
                 .placement(53, 0.52f).allowNearSpawn()
                 .build();
 
-        SUNKEN_SHRINE = StructureRegistrar.builder(locate(DEUnderwaterStructure.ID_SUNKEN_SHRINE), ()-> ()-> DEUnderwaterStructure.CODEC_SUNKEN_SHRINE)
-                .placement(()-> gridPlacement(32, 55).allowedNearSpawn(true).build(DEStructures.SUNKEN_SHRINE))
-                .addPiece(()-> DEUnderwaterStructure.Piece::new)
-                .pushStructure(DEUnderwaterStructure::SunkenShrine)
-                        .dimensions(Level.OVERWORLD)
-                .popStructure()
+        SUNKEN_SHRINE = DEModularRegistrarBuilder.create(()-> DEStructures.SUNKEN_SHRINE, DEStructureIDs.SUNKEN_SHRINE)
+                .addStructure(
+                        pieces -> pieces
+                                .settings(
+                                        settings -> settings
+                                                .setKeepLiquids(true)
+                                                .popProcessor(RemoveGelStructureProcessor.INSTANCE)
+                                                .addProcessor(DEUnderwaterProcessor.INSTANCE)
+                                )
+                                .add(2, "sunken_shrine/small")
+                                .add(1, "sunken_shrine/big", -1),
+                        structure -> structure.placement(DEPlacement.ON_OCEAN_FLOOR),
+                        config -> config.dimensions(Level.OVERWORLD)
+                )
+                .placement(32, 0.55f).allowNearSpawn()
                 .build();
 
         TALL_WITCH_HUT = DEModularRegistrarBuilder.create(()-> DEStructures.TALL_WITCH_HUT, DEStructureIDs.TALL_WITCH_HUT)
                 .addStructure(DEStructureTemplate.of("tall_witch_hut", -3),
                         structure -> structure
-                                .placement(DEPlacement.ON_WORLD_SURFACE)
+                                .placement(DEPlacement.ON_WORLD_SURFACE_FLAT)
                                 .filter(DEPlacementFilter.DIFFERENCE_OCEAN_FLOOR(4)),
                         config -> config
                                 .dimensions(Level.OVERWORLD))

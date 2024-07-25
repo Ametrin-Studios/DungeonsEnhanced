@@ -40,5 +40,5 @@ public class DEUnderwaterProcessor extends StructureProcessor {
     }
 
     @Override @Nonnull
-    protected StructureProcessorType<?> getType() {return DEProcessorTypes.UNDERWATER;}
+    protected StructureProcessorType<?> getType() { return DEProcessorTypes.UNDERWATER; }
 }

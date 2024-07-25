@@ -33,9 +33,9 @@ public final class DEModularStructure extends Structure {
         return _placementProvider.getPlacement(context, this::cannotGenerate, _pieceFactory);
     }
 
-    public boolean cannotGenerate(BlockPos pos, GenerationContext context){
+    public boolean cannotGenerate(BlockPos pos, GenerationContext context) {
         for (var filter : _filters){
-            if(filter.cannotGenerate(pos, context)){
+            if(filter.cannotGenerate(pos, context)) {
                 return true;
             }
         }
@@ -43,7 +43,7 @@ public final class DEModularStructure extends Structure {
     }
 
     @Override @NotNull
-    public StructureType<?> type() {return _typeSupplier.get();}
+    public StructureType<?> type() { return _typeSupplier.get(); }
 
     public static class Builder{
         private final IDEPieceFactory _pieceFactory;
@@ -56,17 +56,17 @@ public final class DEModularStructure extends Structure {
             _typeSupplier = typeSupplier;
         }
 
-        public Builder placement(DEPlacement placement){
+        public Builder placement(DEPlacement placement) {
             _placementProvider = placement;
             return this;
         }
 
-        public Builder filter(DEPlacementFilter filter){
+        public Builder filter(DEPlacementFilter filter) {
             _filters.add(filter);
             return this;
         }
 
-        public DEModularStructure build(StructureSettings settings){
+        public DEModularStructure build(StructureSettings settings) {
             if(_placementProvider == null) throw new IllegalArgumentException("placement not set");
             return new DEModularStructure(settings, _pieceFactory, _placementProvider, ImmutableList.copyOf(_filters), _typeSupplier);
         }

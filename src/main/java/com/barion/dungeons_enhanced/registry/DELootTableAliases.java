@@ -24,6 +24,7 @@ public final class DELootTableAliases {
         event.register(locate("desert_temple/floor"), DELootTables.DESERT_TEMPLE.FLOOR);
         event.register(locate("desert_temple/treasure"), DELootTables.DESERT_TEMPLE.TREASURE);
 
+        event.register(locate("fishing_ship"), DELootTables.FISHING_SHIP);
         event.register(locate("miners_house"), DELootTables.MINERS_HOUSE);
 
         event.register(locate("pillager_camp/general"), DELootTables.PILLAGER_CAMP.GENERAL);
