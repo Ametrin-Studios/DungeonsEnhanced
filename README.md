@@ -12,7 +12,7 @@ We hope you have fun!
 (1.16.5-1.19.2) The config file should be self-explanatory
 
 ## Translating
-We look for translators over at [Crowdin](https://crowdin.com/project/dungeons-enhanced/invite?h=310ec120baf49569c4bbdcb877ccdc2d21766839)
+We look for translators over at [Crowdin](https://crowdin.com/project/dungeons-enhanced/invite?h=310ec120baf49569c4bbdcb877ccdc2d2176683)
 
 ### Translators
 [PExPE3](https://github.com/PExPE3)<br>
