@@ -15,7 +15,7 @@ We hope you have fun!
 We look for translators over at [Crowdin](https://crowdin.com/project/dungeons-enhanced/invite?h=310ec120baf49569c4bbdcb877ccdc2d2176683)
 
 ### Translators
-huge shout out to:
+huge shout out to:<br>
 [PExPE3](https://github.com/PExPE3)<br>
 [Rad233](https://github.com/Rad233)<br>
 [BardinTheDwarf](https://github.com/BardinTheDwarf)<br>
