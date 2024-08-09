@@ -12,7 +12,9 @@ We hope you have fun!
 (1.16.5-1.19.2) The config file should be self-explanatory
 
 ## Translating
-We look for translators over at [Crowdin](https://crowdin.com/project/dungeons-enhanced/invite?h=310ec120baf49569c4bbdcb877ccdc2d2176683)
+[![Crowdin](https://badges.crowdin.net/dungeons-enhanced/localized.svg)](https://crowdin.com/project/dungeons-enhanced)<br>
+We're looking for translators over at [Crowdin](https://crowdin.com/project/dungeons-enhanced/invite?h=310ec120baf49569c4bbdcb877ccdc2d2176683)<br>
+In case want to add more languages please open an issue or contact us on [discord](https://discord.com/invite/hwA9dd5bVh)
 
 ### Translators
 huge shout out to:<br>
