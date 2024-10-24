@@ -3,7 +3,7 @@ plugins {
     id 'eclipse'
     id 'idea'
     id 'maven-publish'
-    id 'net.neoforged.gradle.userdev' version '7.0.97'
+    id 'net.neoforged.gradle.userdev' version '7.0.165'
 }
 
 
@@ -75,7 +75,7 @@ repositories {
 dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
     implementation "com.legacy:structure-gel:${minecraft_version}-${gel_version}"
-    localRuntime "curse.maven:xaeros-world-map-317780:5394848"
+    localRuntime "curse.maven:xaeros-world-map-317780:5658230"
     localRuntime "curse.maven:chunky-485681:5320031"
 }
 
