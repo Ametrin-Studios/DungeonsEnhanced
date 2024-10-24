@@ -11,44 +11,23 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "weight": 15,
           "name": "minecraft:netherite_ingot",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1,
-              "add": false
-            }
-          ]
+          "weight": 15
         },
         {
           "type": "minecraft:item",
-          "weight": 10,
           "name": "minecraft:ancient_debris",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1,
-              "add": false
-            }
-          ]
+          "weight": 10
         },
         {
           "type": "minecraft:item",
-          "weight": 8,
           "name": "minecraft:netherite_scrap",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1,
-              "add": false
-            }
-          ]
+          "weight": 8
         },
         {
           "type": "minecraft:item",
-          "weight": 4,
           "name": "minecraft:ancient_debris",
+          "weight": 4,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -59,8 +38,8 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 6,
           "name": "minecraft:diamond_sword",
+          "weight": 9,
           "functions": [
             {
               "function": "minecraft:set_damage",
@@ -72,33 +51,20 @@
               "add": false
             },
             {
-              "function": "minecraft:enchant_randomly"
+              "function": "minecraft:enchant_randomly",
+              "conditions": [
+                {
+                  "condition": "minecraft:random_chance",
+                  "chance": 0.5
+                }
+              ]
             }
           ]
         },
         {
           "type": "minecraft:item",
-          "weight": 6,
-          "name": "minecraft:diamond_chestplate",
-          "functions": [
-            {
-              "function": "minecraft:set_damage",
-              "damage": {
-                "type": "minecraft:uniform",
-                "min": 0.8,
-                "max": 1
-              },
-              "add": false
-            },
-            {
-              "function": "minecraft:enchant_randomly"
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 6,
           "name": "minecraft:diamond_helmet",
+          "weight": 8,
           "functions": [
             {
               "function": "minecraft:set_damage",
@@ -110,14 +76,45 @@
               "add": false
             },
             {
-              "function": "minecraft:enchant_randomly"
+              "function": "minecraft:enchant_randomly",
+              "conditions": [
+                {
+                  "condition": "minecraft:random_chance",
+                  "chance": 0.5
+                }
+              ]
             }
           ]
         },
         {
           "type": "minecraft:item",
-          "weight": 6,
+          "name": "minecraft:diamond_chestplate",
+          "weight": 8,
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.8,
+                "max": 1
+              },
+              "add": false
+            },
+            {
+              "function": "minecraft:enchant_randomly",
+              "conditions": [
+                {
+                  "condition": "minecraft:random_chance",
+                  "chance": 0.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
           "name": "minecraft:diamond_leggings",
+          "weight": 8,
           "functions": [
             {
               "function": "minecraft:set_damage",
@@ -129,14 +126,20 @@
               "add": false
             },
             {
-              "function": "minecraft:enchant_randomly"
+              "function": "minecraft:enchant_randomly",
+              "conditions": [
+                {
+                  "condition": "minecraft:random_chance",
+                  "chance": 0.5
+                }
+              ]
             }
           ]
         },
         {
           "type": "minecraft:item",
-          "weight": 6,
           "name": "minecraft:diamond_boots",
+          "weight": 8,
           "functions": [
             {
               "function": "minecraft:set_damage",
@@ -148,39 +151,20 @@
               "add": false
             },
             {
-              "function": "minecraft:enchant_randomly"
+              "function": "minecraft:enchant_randomly",
+              "conditions": [
+                {
+                  "condition": "minecraft:random_chance",
+                  "chance": 0.5
+                }
+              ]
             }
           ]
         },
         {
           "type": "minecraft:item",
-          "weight": 6,
-          "name": "minecraft:diamond_sword"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:diamond_chestplate"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:diamond_helmet"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:diamond_boots"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 5,
-          "name": "minecraft:diamond_leggings"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 5,
           "name": "minecraft:diamond",
+          "weight": 5,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -195,15 +179,8 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 2,
           "name": "minecraft:enchanted_golden_apple",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1,
-              "add": false
-            }
-          ]
+          "weight": 2
         }
       ]
     },
@@ -354,14 +331,19 @@
     },
     {
       "rolls": 1,
-      "bonus_rolls": 0,
+      "bonus_rolls": 1,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:netherite_upgrade_smithing_template"
+          "name": "minecraft:netherite_upgrade_smithing_template",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:skull_banner_pattern"
         }
       ]
     }
   ],
-  "random_sequence": "dungeons_enhanced:chests/black_citadel_treasure_alt"
+  "random_sequence": "dungeons_enhanced:chests/black_citadel/treasure_alt"
 }

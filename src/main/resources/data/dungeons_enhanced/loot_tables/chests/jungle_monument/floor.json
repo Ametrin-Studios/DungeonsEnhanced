@@ -147,6 +147,18 @@
               }
             }
           ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:archer_pottery_sherd"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:shelter_pottery_sherd"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:explorer_pottery_sherd"
         }
       ]
     },

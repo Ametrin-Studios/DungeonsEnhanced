@@ -57,6 +57,14 @@
               }
             }
           ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:heart_pottery_sherd"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:heartbreak_pottery_sherd"
         }
       ]
     },

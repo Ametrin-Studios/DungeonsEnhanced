@@ -3,8 +3,8 @@
   "pools": [
     {
       "rolls": {
-        "min": 6,
-        "max": 7
+        "min": 5,
+        "max": 8
       },
       "bonus_rolls": {
         "min": 1,
@@ -13,99 +13,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:chainmail_helmet",
-          "weight": 3,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            },
-            {
-              "function": "enchant_with_levels",
-              "treasure": true,
-              "levels": {
-                "min": 0,
-                "max": 2
-              }
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:chainmail_chestplate",
-          "weight": 3,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            },
-            {
-              "function": "enchant_with_levels",
-              "treasure": true,
-              "levels": {
-                "min": 0,
-                "max": 2
-              }
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:chainmail_leggings",
-          "weight": 3,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            },
-            {
-              "function": "enchant_with_levels",
-              "treasure": true,
-              "levels": {
-                "min": 0,
-                "max": 2
-              }
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:chainmail_boots",
-          "weight": 3,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            },
-            {
-              "function": "enchant_with_levels",
-              "treasure": true,
-              "levels": {
-                "min": 0,
-                "max": 2
-              }
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
           "name": "minecraft:arrow",
           "weight": 5,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 6,
                 "max": 12
@@ -116,10 +28,10 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:iron_ingot",
-          "weight": 4,
+          "weight": 2,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 2,
                 "max": 4
@@ -133,7 +45,7 @@
           "weight": 6,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 3,
                 "max": 7
@@ -143,47 +55,11 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:iron_sword",
-          "weight": 3,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            },
-            {
-              "function": "enchant_with_levels",
-              "treasure": true,
-              "levels": {
-                "min": 0,
-                "max": 5
-              }
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:golden_apple",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
           "name": "minecraft:iron_nugget",
-          "weight": 7,
+          "weight": 5,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 4,
                 "max": 9
@@ -193,39 +69,11 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:iron_horse_armor",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:bow",
-          "weight": 2,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
           "name": "minecraft:string",
-          "weight": 10,
+          "weight": 6,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 1,
                 "max": 6
@@ -235,15 +83,86 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:shield",
-          "weight": 3,
-          "functions": [
+          "name": "minecraft:chain",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_horse_armor"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:golden_apple"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:blade_pottery_sherd"
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "min": 1,
+        "max": 3
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_sword"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:chainmail_helmet"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:chainmail_chestplate"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:chainmail_leggings"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:chainmail_boots"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:shield"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bow"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:stone_sword"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_damage",
+          "damage": {
+            "min": 0.5,
+            "max": 1
+          },
+          "conditions": [
             {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
+              "condition": "minecraft:random_chance",
+              "chance": 0.8
+            }
+          ]
+        },
+        {
+          "function": "minecraft:enchant_with_levels",
+          "levels": {
+            "min": 5,
+            "max": 12
+          },
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.5
             }
           ]
         }
