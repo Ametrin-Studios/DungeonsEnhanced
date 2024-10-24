@@ -11,15 +11,28 @@ public interface DELootTables {
         ResourceLocation TREASURE = chest("desert_temple/treasure");
     }
 
+    ResourceLocation DESERT_TOMB = chest("desert_tomb");
     ResourceLocation FISHING_SHIP = chest("fishing_ship");
+    ResourceLocation HAY_STORAGE = chest("hay_storage");
+
+    interface JUNGLE_MONUMENT {
+        ResourceLocation FLOOR = chest("jungle_monument/floor");
+        ResourceLocation TREASURE = chest("jungle_monument/treasure");
+    }
 
     ResourceLocation MINERS_HOUSE = chest("miners_house");
+    ResourceLocation MUSHROOM_HOUSE = chest("mushroom_house");
 
     interface PILLAGER_CAMP {
         ResourceLocation GENERAL = chest("pillager_camp/general");
         ResourceLocation KITCHEN = chest("pillager_camp/kitchen");
     }
 
+    interface RUINED {
+        ResourceLocation HOUSE = chest("ruined/house");
+    }
+
+    ResourceLocation STABLES = chest("stables");
     ResourceLocation SUNKEN_SHRINE = chest("sunken_shrine");
 
     // Nether

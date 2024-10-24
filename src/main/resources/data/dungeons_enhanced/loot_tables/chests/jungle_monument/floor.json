@@ -3,13 +3,10 @@
   "pools": [
     {
       "rolls": {
-        "min": 4,
+        "min": 3,
         "max": 5
       },
-      "bonus_rolls": {
-        "min": 1,
-        "max": 2
-      },
+      "bonus_rolls": 1,
       "entries": [
         {
           "type": "minecraft:item",
@@ -17,7 +14,7 @@
           "weight": 3,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 3,
                 "max": 4
@@ -31,7 +28,7 @@
           "weight": 2,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 2,
                 "max": 4
@@ -45,7 +42,7 @@
           "weight": 4,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 3,
                 "max": 5
@@ -59,7 +56,7 @@
           "weight": 2,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 2,
                 "max": 3
@@ -73,7 +70,7 @@
           "weight": 1,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 1,
                 "max": 2
@@ -87,7 +84,7 @@
           "weight": 2,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 2,
                 "max": 3
@@ -101,7 +98,7 @@
           "weight": 1,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 1,
                 "max": 1
@@ -115,7 +112,7 @@
           "weight": 2,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 3,
                 "max": 4
@@ -129,7 +126,7 @@
           "weight": 2,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 2,
                 "max": 4
@@ -143,7 +140,7 @@
           "weight": 1,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 1,
                 "max": 2
@@ -156,8 +153,9 @@
     {
       "rolls": {
         "min": 2,
-        "max": 3
+        "max": 4
       },
+      "bonus_rolls": 1,
       "entries": [
         {
           "type": "minecraft:item",
@@ -165,7 +163,7 @@
           "weight": 1,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 1,
                 "max": 2
@@ -179,7 +177,7 @@
           "weight": 2,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 4,
                 "max": 6
@@ -193,7 +191,7 @@
           "weight": 2,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 2,
                 "max": 3
@@ -207,7 +205,7 @@
           "weight": 3,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 6,
                 "max": 9
@@ -221,7 +219,7 @@
           "weight": 1,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 1,
                 "max": 1
@@ -235,15 +233,24 @@
           "weight": 4,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 2,
                 "max": 8
               }
             }
           ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:golden_hoe"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:stone_hoe"
         }
       ]
     }
-  ]
+  ],
+  "random_sequence": "dungeons_enhanced:chests/jungle_monument/floor"
 }

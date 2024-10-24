@@ -24,12 +24,22 @@ public final class DELootTableAliases {
         event.register(locate("desert_temple/floor"), DELootTables.DESERT_TEMPLE.FLOOR);
         event.register(locate("desert_temple/treasure"), DELootTables.DESERT_TEMPLE.TREASURE);
 
+        event.register(locate("desert_tomb"), DELootTables.DESERT_TOMB);
         event.register(locate("fishing_ship"), DELootTables.FISHING_SHIP);
+        event.register(locate("hay_storage"), DELootTables.HAY_STORAGE);
+
+        event.register(locate("jungle_monument/floor"), DELootTables.JUNGLE_MONUMENT.FLOOR);
+        event.register(locate("jungle_monument/treasure"), DELootTables.JUNGLE_MONUMENT.TREASURE);
+
         event.register(locate("miners_house"), DELootTables.MINERS_HOUSE);
+        event.register(locate("mushroom_house"), DELootTables.MUSHROOM_HOUSE);
 
         event.register(locate("pillager_camp/general"), DELootTables.PILLAGER_CAMP.GENERAL);
         event.register(locate("pillager_camp/kitchen"), DELootTables.PILLAGER_CAMP.KITCHEN);
 
+        event.register(locate("ruined/house"), DELootTables.RUINED.HOUSE);
+
+        event.register(locate("stables"), DELootTables.STABLES);
         event.register(locate("sunken_shrine"), DELootTables.SUNKEN_SHRINE);
 
         // Nether

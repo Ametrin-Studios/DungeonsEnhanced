@@ -10,87 +10,52 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:book",
-          "weight": 6,
+          "weight": 5,
           "functions": [
             {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 2
-              }
-            },
-            {
-              "function": "enchant_with_levels",
-              "treasure": true,
+              "function": "minecraft:enchant_with_levels",
               "levels": {
                 "min": 14,
                 "max": 18
-              }
+              },
+              "treasure": true,
+              "conditions": [
+                {
+                  "condition": "minecraft:random_chance",
+                  "chance": 0.5
+                }
+              ]
             }
           ]
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:golden_apple",
-          "weight": 5,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "weight": 5
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:enchanted_golden_apple",
-          "weight": 2,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "name": "minecraft:enchanted_golden_apple"
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:flower_banner_pattern",
-          "weight": 3,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "weight": 3
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:golden_horse_armor",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "name": "minecraft:golden_horse_armor"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:wild_armor_trim_smithing_template"
         }
       ]
     },
     {
       "rolls": {
-        "min": 5,
-        "max": 8
+        "min": 4,
+        "max": 7
       },
       "entries": [
         {
@@ -99,21 +64,21 @@
           "weight": 7,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
-                "min": 5,
-                "max": 10
+                "min": 2,
+                "max": 6
               }
             }
           ]
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:spider_eye",
+          "name": "minecraft:vine",
           "weight": 5,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 3,
                 "max": 4
@@ -124,12 +89,12 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:gold_ingot",
-          "weight": 6,
+          "weight": 5,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
-                "min": 2,
+                "min": 1,
                 "max": 3
               }
             }
@@ -141,7 +106,7 @@
           "weight": 3,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 1,
                 "max": 2
@@ -152,12 +117,11 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:emerald",
-          "weight": 1,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
-                "min": 3,
+                "min": 2,
                 "max": 4
               }
             }
@@ -169,10 +133,10 @@
           "weight": 4,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
-                "min": 4,
-                "max": 6
+                "min": 2,
+                "max": 5
               }
             }
           ]
@@ -183,7 +147,7 @@
           "weight": 3,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 2,
                 "max": 3
@@ -197,10 +161,24 @@
           "weight": 2,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 2,
                 "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:string",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 4
               }
             }
           ]
@@ -216,75 +194,43 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:iron_sword",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "name": "minecraft:iron_sword"
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:iron_helmet",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "name": "minecraft:golden_helmet"
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:iron_chestplate",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "name": "minecraft:iron_chestplate"
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:iron_leggings",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "name": "minecraft:golden_leggings"
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:iron_boots",
-          "weight": 1,
-          "functions": [
+          "name": "minecraft:iron_boots"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:golden_axe"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:enchant_with_levels",
+          "levels": 30,
+          "treasure": true,
+          "conditions": [
             {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
+              "condition": "minecraft:random_chance",
+              "chance": 0.45
             }
           ]
         }
       ]
     }
-  ]
+  ],
+  "random_sequence": "dungeons_enhanced:chests/jungle_monument/treasure"
 }

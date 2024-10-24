@@ -592,6 +592,7 @@ public final class DELootTableProvider extends LootTableProvider {
                             .add(item(Items.IRON_INGOT, 2, one()))
                             .add(item(Items.GOLD_NUGGET, 4, number(1,5)))
                             .add(item(Items.CAKE, 1, one()))
+//                            .add(item(Items.FIELD_MASONED_BANNER_PATTERN, 1, one()))
                             .add(item(Items.GOLDEN_APPLE, 1, one())))
                     .withPool(pool(number(6, 10))
                             .add(item(Items.STICK, 6, number(1,3)))

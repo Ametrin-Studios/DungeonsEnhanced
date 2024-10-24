@@ -14,102 +14,51 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:melon_slice",
-          "weight": 3,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "weight": 3
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:melon",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "name": "minecraft:melon"
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:pumpkin",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "name": "minecraft:pumpkin"
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:pumpkin_pie",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "name": "minecraft:pumpkin_pie"
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:wheat",
-          "weight": 2,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "weight": 2
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:bread",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "name": "minecraft:bread"
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:potato",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "name": "minecraft:potato"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:melon_seeds"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:pumpkin_seeds"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:cocoa_beans"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:cookie"
         }
       ]
     }
-  ]
+  ],
+  "random_sequence": "dungeons_enhanced:chests/tree_house/kitchen"
 }
