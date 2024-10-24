@@ -7,9 +7,9 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.event.village.VillagerTradesEvent;
 
-
+@SuppressWarnings("unused")
 @Mod.EventBusSubscriber(modid = DungeonsEnhanced.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
-public final class DEForgeEvents {
+public final class DEGameEvents {
     @SubscribeEvent
     public static void registerCustomTrades(final VillagerTradesEvent event){
         if(event.getType() != VillagerProfession.CARTOGRAPHER) return;

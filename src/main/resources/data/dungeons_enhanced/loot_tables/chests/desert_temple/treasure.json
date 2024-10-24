@@ -97,5 +97,5 @@
       ]
     }
   ],
-  "random_sequence": "minecraft:dungeons_enhanced/desert_temple/treasure"
+  "random_sequence": "dungeons_enhanced:chests/desert_temple/treasure"
 }

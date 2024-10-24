@@ -7,8 +7,9 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.registries.RegisterEvent;
 
+@SuppressWarnings("unused")
 @Mod.EventBusSubscriber(modid = DungeonsEnhanced.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public final class DEEvents {
+public final class DEModEvents {
     @SubscribeEvent
     public static void register(RegisterEvent event){
         event.register(BuiltInRegistries.STRUCTURE_PROCESSOR.key(), helper ->{

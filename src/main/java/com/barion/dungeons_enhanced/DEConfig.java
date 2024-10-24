@@ -15,9 +15,9 @@ import net.neoforged.neoforge.common.Tags;
 
 import java.security.InvalidParameterException;
 
-public class DEConfig {
+public final class DEConfig {
     public static final Common COMMON;
-    protected static final ModConfigSpec COMMON_SPEC;
+    public static final ModConfigSpec COMMON_SPEC;
     static {
         var builder = new ModConfigSpec.Builder();
         COMMON = new Common(builder);

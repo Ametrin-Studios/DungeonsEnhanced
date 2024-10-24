@@ -1,7 +1,9 @@
 ## 5.6
+- minor fishing ship overhaul
 - added Dungeon Variant variant
 - Desert Temple loot rework
 - requires Structure Gel API 2.19 or above
+- fixes & tweaks
 
 ## 5.5
 - added Black Citadel
