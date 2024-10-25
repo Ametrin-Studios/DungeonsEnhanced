@@ -25,9 +25,9 @@ public final class DELootTableAliases {
         event.register(new ResourceLocation("village/house/taiga"), BuiltInLootTables.VILLAGE_TAIGA_HOUSE);
 
         // Overworld
-        event.register(locate("desert_temple/coffin"), DELootTables.DESERT_TEMPLE.COFFIN);
-        event.register(locate("desert_temple/floor"), DELootTables.DESERT_TEMPLE.FLOOR);
-        event.register(locate("desert_temple/treasure"), DELootTables.DESERT_TEMPLE.TREASURE);
+        event.register(locate("desert_temple/coffin"), DELootTables.DesertTemple.COFFIN);
+        event.register(locate("desert_temple/floor"), DELootTables.DesertTemple.FLOOR);
+        event.register(locate("desert_temple/treasure"), DELootTables.DesertTemple.TREASURE);
 
         event.register(locate("desert_tomb"), DELootTables.DESERT_TOMB);
         event.register(locate("fishing_ship"), DELootTables.FISHING_SHIP);
@@ -39,25 +39,25 @@ public final class DELootTableAliases {
         event.register(locate("ice_pit/garden"), DELootTables.IcePit.GARDEN);
         event.register(locate("ice_pit/hall"), DELootTables.IcePit.HALL);
 
-        event.register(locate("jungle_monument/floor"), DELootTables.JUNGLE_MONUMENT.FLOOR);
-        event.register(locate("jungle_monument/treasure"), DELootTables.JUNGLE_MONUMENT.TREASURE);
+        event.register(locate("jungle_monument/floor"), DELootTables.JungleMonument.FLOOR);
+        event.register(locate("jungle_monument/treasure"), DELootTables.JungleMonument.TREASURE);
 
         event.register(locate("miners_house"), DELootTables.MINERS_HOUSE);
         event.register(locate("mushroom_house"), DELootTables.MUSHROOM_HOUSE);
 
-        event.register(locate("pillager_camp/general"), DELootTables.PILLAGER_CAMP.GENERAL);
-        event.register(locate("pillager_camp/kitchen"), DELootTables.PILLAGER_CAMP.KITCHEN);
+        event.register(locate("pillager_camp/general"), DELootTables.PillagerCamp.GENERAL);
+        event.register(locate("pillager_camp/kitchen"), DELootTables.PillagerCamp.KITCHEN);
 
-        event.register(locate("ruined/house"), DELootTables.RUINED.HOUSE);
+        event.register(locate("ruined/house"), DELootTables.Ruined.HOUSE);
 
         event.register(locate("stables"), DELootTables.STABLES);
         event.register(locate("sunken_shrine"), DELootTables.SUNKEN_SHRINE);
 
         // Nether
-        event.register(locate("black_citadel/normal"), DELootTables.BLACK_CITADEL.NORMAL);
-        event.register(locate("black_citadel/normal_alt"), DELootTables.BLACK_CITADEL.NORMAL_ALT);
-        event.register(locate("black_citadel/kitchen"), DELootTables.BLACK_CITADEL.KITCHEN);
-        event.register(locate("black_citadel/treasure"), DELootTables.BLACK_CITADEL.TREASURE);
-        event.register(locate("black_citadel/treasure_alt"), DELootTables.BLACK_CITADEL.TREASURE_ALT);
+        event.register(locate("black_citadel/normal"), DELootTables.BlackCitadel.NORMAL);
+        event.register(locate("black_citadel/normal_alt"), DELootTables.BlackCitadel.NORMAL_ALT);
+        event.register(locate("black_citadel/kitchen"), DELootTables.BlackCitadel.KITCHEN);
+        event.register(locate("black_citadel/treasure"), DELootTables.BlackCitadel.TREASURE);
+        event.register(locate("black_citadel/treasure_alt"), DELootTables.BlackCitadel.TREASURE_ALT);
     }
 }

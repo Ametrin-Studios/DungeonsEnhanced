@@ -5,7 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public interface DELootTables {
     // Overworld
-    interface DESERT_TEMPLE {
+    interface DesertTemple {
         ResourceLocation COFFIN = chest("desert_temple/coffin");
         ResourceLocation FLOOR = chest("desert_temple/floor");
         ResourceLocation TREASURE = chest("desert_temple/treasure");
@@ -22,7 +22,7 @@ public interface DELootTables {
         ResourceLocation GARDEN = chest("ice_pit/garden");
         ResourceLocation HALL = chest("ice_pit/hall");
     }
-    interface JUNGLE_MONUMENT {
+    interface JungleMonument {
         ResourceLocation FLOOR = chest("jungle_monument/floor");
         ResourceLocation TREASURE = chest("jungle_monument/treasure");
     }
@@ -30,12 +30,12 @@ public interface DELootTables {
     ResourceLocation MINERS_HOUSE = chest("miners_house");
     ResourceLocation MUSHROOM_HOUSE = chest("mushroom_house");
 
-    interface PILLAGER_CAMP {
+    interface PillagerCamp {
         ResourceLocation GENERAL = chest("pillager_camp/general");
         ResourceLocation KITCHEN = chest("pillager_camp/kitchen");
     }
 
-    interface RUINED {
+    interface Ruined {
         ResourceLocation HOUSE = chest("ruined/house");
     }
 
@@ -43,7 +43,7 @@ public interface DELootTables {
     ResourceLocation SUNKEN_SHRINE = chest("sunken_shrine");
 
     // Nether
-    interface BLACK_CITADEL {
+    interface BlackCitadel {
         ResourceLocation NORMAL = chest("black_citadel/normal");
         ResourceLocation NORMAL_ALT = chest("black_citadel/normal_alt");
         ResourceLocation KITCHEN = chest("black_citadel/kitchen");
