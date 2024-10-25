@@ -1,6 +1,12 @@
 {
   "homepage": "https://www.curseforge.com/minecraft/mc-mods/dungeonsenhanced",
   "promos": {
+    "1.20.1-latest": "5.2.2",
+    "1.20.1-recommended": "5.2.2",
+    "1.19.4-latest": "4.3.1",
+    "1.19.4-recommended": "4.3.1",
+    "1.19.2-latest": "4.1",
+    "1.19.2-recommended": "4.1",
     "1.18.2-latest": "3.3",
     "1.18.2-recommended": "3.3",
     "1.18.1-latest": "3.0",
@@ -9,6 +15,28 @@
     "1.17.1-recommended": "2.0",
     "1.16.5-latest": "1.8.2",
     "1.16.5-recommended": "1.8.2"
+  },
+  "1.20.4": {
+    "5.5": "Black Citadel",
+    "5.4": "new Structure Backend",
+    "5.3": "port, neoforge"
+  },
+  "1.20.1": {
+    "5.2.2": "new tall witch hut generation",
+    "5.2.1": "fixes",
+    "5.2": "fixes",
+    "5.1": "crash fix",
+    "5.0": "port"
+  },
+  "1.19.4": {
+    "4.3.1": "fixes",
+    "4.3": "Explorer Maps",
+    "4.2.1": "biome config, Spanish, French, Romanian, Portuguese",
+    "4.2": "port"
+  },
+  "1.19.2": {
+    "4.1": "German",
+    "4.0": "port"
   },
   "1.18.2": {
     "3.3": "fixes",
