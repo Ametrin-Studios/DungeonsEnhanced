@@ -1,9 +1,19 @@
 ## 5.6
-- minor fishing ship overhaul
 - added Dungeon Variant variant
-- Desert Temple loot rework
-- requires Structure Gel API 2.19 or above
+- update checker
+- loot table updates
+  - Black Citadel
+  - Desert Temple
+  - Hay Storage
+  - Ice Pit
+  - Jungle Temple
+  - Mushroom House
+  - Ruined Building
+  - Stables
+  - Tree House
+- minor fishing ship overhaul
 - fixes & tweaks
+- requires Structure Gel API 2.19 or above
 
 ## 5.5
 - added Black Citadel
