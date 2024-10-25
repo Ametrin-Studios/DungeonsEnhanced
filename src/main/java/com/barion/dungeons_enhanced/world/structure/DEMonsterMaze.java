@@ -16,29 +16,29 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSeriali
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
-public class DEMonsterMaze{
+public final class DEMonsterMaze {
     public static final String ID = "monster_maze";
 
-    public static class Capability implements JigsawCapability{
+    public static class Capability implements JigsawCapability {
         public static final Capability INSTANCE = new Capability();
         public static final Codec<Capability> CODEC = Codec.unit(INSTANCE);
 
         @Override
-        public JigsawCapabilityType<?> getType(){return DEJigsawTypes.MONSTER_MAZE.get();}
+        public JigsawCapabilityType<?> getType() { return DEJigsawTypes.MONSTER_MAZE.get(); }
         @Override
-        public IPieceFactory getPieceFactory() {return Piece::new;}
+        public IPieceFactory getPieceFactory() { return Piece::new; }
     }
     public static class Piece extends ExtendedJigsawStructurePiece {
-        public Piece(IPieceFactory.Context context) {super(context);}
-        public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) {super(serializationContext, nbt);}
+        public Piece(IPieceFactory.Context context) { super(context); }
+        public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) { super(serializationContext, nbt); }
 
         @Override
-        public StructurePieceType getType() {return DEStructures.MONSTER_MAZE.getPieceType().get();}
+        public StructurePieceType getType() { return DEStructures.MONSTER_MAZE.getPieceType().get(); }
         @Override
-        public void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) {}
+        public void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) { }
     }
 
-    public static void pool(BootstapContext<StructureTemplatePool> context){
+    public static void pool(BootstapContext<StructureTemplatePool> context) {
         var registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "monster_maze/", context);
         registry.registerBuilder().pools(registry.poolBuilder().names("root").maintainWater(false)).register(DETemplatePools.MONSTER_MAZE);
 

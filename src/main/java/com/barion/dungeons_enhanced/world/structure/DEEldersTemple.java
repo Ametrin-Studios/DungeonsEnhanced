@@ -23,7 +23,7 @@ import java.util.Optional;
 
 import static com.barion.dungeons_enhanced.DEUtil.locate;
 
-public class DEEldersTemple extends DEUnderwaterStructure {
+public final class DEEldersTemple extends DEUnderwaterStructure {
     public static final String ID = "elders_temple";
     public static final Codec<DEEldersTemple> CODEC = simpleCodec(DEEldersTemple::new);
     private static final ResourceLocation NE = locate("elders_temple/ne");
@@ -31,14 +31,16 @@ public class DEEldersTemple extends DEUnderwaterStructure {
     private static final ResourceLocation SE = locate("elders_temple/se");
     private static final ResourceLocation SW = locate("elders_temple/sw");
 
-    public DEEldersTemple(StructureSettings settings) {super(settings, DEUtil.pieceBuilder().add("elders_temple/se").build(), DEStructures.ELDERS_TEMPLE::getType);}
+    public DEEldersTemple(StructureSettings settings) {
+        super(settings, DEUtil.pieceBuilder().add("elders_temple/se").build(), DEStructures.ELDERS_TEMPLE::getType);
+    }
 
     @Override @Nonnull
     public Optional<GenerationStub> findGenerationPoint(@Nonnull GenerationContext context) {
         final BlockPos pos = DEUtil.ChunkPosToBlockPosFromHeightMap(context.chunkPos(), context.chunkGenerator(), Heightmap.Types.OCEAN_FLOOR_WG, context.heightAccessor(), context.randomState());
 
-        if(!DETerrainAnalyzer.isUnderwater(pos, context.chunkGenerator(), 32, context.heightAccessor(), context.randomState())) {return Optional.empty();}
-        if(!DETerrainAnalyzer.areNearbyBiomesValid(context.biomeSource(), pos, context.chunkGenerator(), 30, context.validBiome(), context.randomState())) {return Optional.empty();}
+        if(!DETerrainAnalyzer.isUnderwater(pos, context.chunkGenerator(), 32, context.heightAccessor(), context.randomState())) { return Optional.empty(); }
+        if(!DETerrainAnalyzer.areNearbyBiomesValid(context.biomeSource(), pos, context.chunkGenerator(), 30, context.validBiome(), context.randomState())) { return Optional.empty(); }
 
         return at(pos, (builder) -> generatePieces(builder, pos, _templates.getRandom(context.random()), Rotation.getRandom(context.random()), context, DEEldersTemple::assembleTemple));
     }

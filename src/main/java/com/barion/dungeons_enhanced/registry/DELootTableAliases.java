@@ -18,6 +18,11 @@ public final class DELootTableAliases {
         // Vanilla
         event.register(new ResourceLocation("desert_pyramid"), BuiltInLootTables.DESERT_PYRAMID);
         event.register(new ResourceLocation("simple_dungeon"), BuiltInLootTables.SIMPLE_DUNGEON);
+        event.register(new ResourceLocation("village/house/desert"), BuiltInLootTables.VILLAGE_DESERT_HOUSE);
+        event.register(new ResourceLocation("village/house/plains"), BuiltInLootTables.VILLAGE_PLAINS_HOUSE);
+        event.register(new ResourceLocation("village/house/savanna"), BuiltInLootTables.VILLAGE_SAVANNA_HOUSE);
+        event.register(new ResourceLocation("village/house/snowy"), BuiltInLootTables.VILLAGE_SNOWY_HOUSE);
+        event.register(new ResourceLocation("village/house/taiga"), BuiltInLootTables.VILLAGE_TAIGA_HOUSE);
 
         // Overworld
         event.register(locate("desert_temple/coffin"), DELootTables.DESERT_TEMPLE.COFFIN);
@@ -27,6 +32,12 @@ public final class DELootTableAliases {
         event.register(locate("desert_tomb"), DELootTables.DESERT_TOMB);
         event.register(locate("fishing_ship"), DELootTables.FISHING_SHIP);
         event.register(locate("hay_storage"), DELootTables.HAY_STORAGE);
+
+        event.register(locate("ice_pit/armory"), DELootTables.IcePit.ARMORY);
+        event.register(locate("ice_pit/bed"), DELootTables.IcePit.BED);
+        event.register(locate("ice_pit/food"), DELootTables.IcePit.FOOD);
+        event.register(locate("ice_pit/garden"), DELootTables.IcePit.GARDEN);
+        event.register(locate("ice_pit/hall"), DELootTables.IcePit.HALL);
 
         event.register(locate("jungle_monument/floor"), DELootTables.JUNGLE_MONUMENT.FLOOR);
         event.register(locate("jungle_monument/treasure"), DELootTables.JUNGLE_MONUMENT.TREASURE);

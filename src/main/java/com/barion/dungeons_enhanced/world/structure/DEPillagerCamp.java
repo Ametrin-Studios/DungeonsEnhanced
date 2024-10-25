@@ -17,29 +17,29 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSeriali
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
-public class DEPillagerCamp{
+public final class DEPillagerCamp {
     public static final String ID = "pillager_camp";
 
-    public static class Capability implements JigsawCapability{
+    public static class Capability implements JigsawCapability {
         public static final Capability INSTANCE = new Capability();
         public static final Codec<Capability> CODEC = Codec.unit(INSTANCE);
 
         @Override
-        public JigsawCapabilityType<?> getType() {return DEJigsawTypes.PILLAGER_CAMP.get();}
+        public JigsawCapabilityType<?> getType() { return DEJigsawTypes.PILLAGER_CAMP.get(); }
         @Override
-        public IPieceFactory getPieceFactory() {return Piece::new;}
+        public IPieceFactory getPieceFactory() { return Piece::new; }
     }
     public static class Piece extends ExtendedJigsawStructurePiece {
-        public Piece(IPieceFactory.Context context) {super(context);}
-        public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) {super(serializationContext, nbt);}
+        public Piece(IPieceFactory.Context context) { super(context); }
+        public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) { super(serializationContext, nbt); }
 
         @Override
-        public StructurePieceType getType() {return DEStructures.PILLAGER_CAMP.getPieceType().get();}
+        public StructurePieceType getType() { return DEStructures.PILLAGER_CAMP.getPieceType().get(); }
         @Override
-        public void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor level, RandomSource random, BoundingBox box) {}
+        public void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor level, RandomSource random, BoundingBox box) { }
     }
 
-    public static void pool(BootstapContext<StructureTemplatePool> context){
+    public static void pool(BootstapContext<StructureTemplatePool> context) {
         var registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "pillager_camp/", context);
         registry.registerBuilder().pools(registry.poolBuilder().names("tent/general").maintainWater(false)).register(DETemplatePools.PILLAGER_CAMP);
 
@@ -54,7 +54,7 @@ public class DEPillagerCamp{
         registry.register("features", JigsawPoolBuilder.collect(SleepingTents.weight(2), Kitchen.weight(2), VanillaDecoration.weight(2), Decoration.weight(3), Pillars.weight(1)));
     }
 
-    private static ResourceLocation mcPiece(String key){
+    private static ResourceLocation mcPiece(String key) {
         return new ResourceLocation("pillager_outpost/feature_" + key);
     }
 }

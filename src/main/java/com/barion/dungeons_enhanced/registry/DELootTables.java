@@ -15,6 +15,13 @@ public interface DELootTables {
     ResourceLocation FISHING_SHIP = chest("fishing_ship");
     ResourceLocation HAY_STORAGE = chest("hay_storage");
 
+    interface IcePit {
+        ResourceLocation ARMORY = chest("ice_pit/armory");
+        ResourceLocation BED = chest("ice_pit/bed");
+        ResourceLocation FOOD = chest("ice_pit/food");
+        ResourceLocation GARDEN = chest("ice_pit/garden");
+        ResourceLocation HALL = chest("ice_pit/hall");
+    }
     interface JUNGLE_MONUMENT {
         ResourceLocation FLOOR = chest("jungle_monument/floor");
         ResourceLocation TREASURE = chest("jungle_monument/treasure");
