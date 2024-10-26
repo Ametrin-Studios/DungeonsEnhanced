@@ -71,7 +71,7 @@ public final class DEStructures {
     //Nether
     public static final StructureRegistrar<ExtendedJigsawStructure> BLACK_CITADEL;
 
-    private DEStructures() {}
+    private DEStructures() { }
 
     static {
         //Overworld

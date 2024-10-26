@@ -15,7 +15,7 @@
     "1.18.1-recommended": "3.0",
     "1.17.1-latest": "2.0",
     "1.17.1-recommended": "2.0",
-    "1.16.5-latest": "1.8.2",
+    "1.16.5-latest": "1.9.0",
     "1.16.5-recommended": "1.8.2"
   },
   "1.20.4": {
@@ -53,6 +53,7 @@
     "2.0": "more variants / reworks"
   },
   "1.16.5": {
+    "1.9.0": "Dungeon Variant, Sunken Shrine variant, update checker, experimental backend",
     "1.8.2": "German, Russian",
     "1.8.1": "fixes",
     "1.8": "Elders Temple, Fishing Ship, Flying Dutchman, Sunken Shrine, Pirate Ship, Italian, overhauls",
