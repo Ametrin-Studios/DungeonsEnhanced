@@ -2,6 +2,7 @@
 * added Dungeon Variant variant (from 5.6)
 * added Sunken Shrine variant (from 4.2.1)
 * reworked backend (from 5.4)
+* updated checker
 * fixes & tweaks
 
 ## 1.8.2
