@@ -24,7 +24,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Optional;
 
-public class DEModularStructure extends GelConfigStructure<NoFeatureConfig> {
+public final class DEModularStructure extends GelConfigStructure<NoFeatureConfig> {
     private final IDEPieceFactory _pieceFactory;
     private final DEPlacement _placementProvider;
     private final ImmutableList<DEPlacementFilter> _filters;
@@ -36,19 +36,21 @@ public class DEModularStructure extends GelConfigStructure<NoFeatureConfig> {
         _placementProvider = placement;
         _filters = filters;
         _allowedNearSpawn = allowedNearSpawn;
+        setLakeProof(true);
     }
 
     @Override
     protected boolean isFeatureChunk(ChunkGenerator generator, BiomeProvider biomeProvider, long seed, SharedSeedRandom random, int chunkPosX, int chunkPosZ, Biome biomeIn, ChunkPos chunkPos, NoFeatureConfig config) {
-        if(super.isFeatureChunk(generator, biomeProvider, seed, random, chunkPosX, chunkPosZ, biomeIn, chunkPos, config)){
-            for (DEPlacementFilter filter : _filters){
-                if(filter.cannotGenerate(chunkPos, new GenerationContext(generator, chunkPos, biomeIn, random))){
-                    return false;
-                }
-            }
-            return true;
+        if (!super.isFeatureChunk(generator, biomeProvider, seed, random, chunkPosX, chunkPosZ, biomeIn, chunkPos, config)) {
+            return false;
         }
-        return false;
+
+        for (DEPlacementFilter filter : _filters) {
+            if(filter.cannotGenerate(chunkPos, new GenerationContext(generator, chunkPos, biomeIn, random))) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override

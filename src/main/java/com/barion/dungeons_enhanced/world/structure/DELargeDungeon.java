@@ -27,14 +27,14 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 
 import java.util.Random;
 
-public class DELargeDungeon extends GelConfigJigsawStructure {
+public final class DELargeDungeon extends GelConfigJigsawStructure {
     public DELargeDungeon(){
-        super(VillageConfig.CODEC, DEConfig.COMMON.LargeDungeon, -16, true, true);
+        super(VillageConfig.CODEC, DEConfig.COMMON.LARGE_DUNGEON, -16, true, true);
         Pool.init();
     }
 
     @Override
-    public boolean isAllowedNearWorldSpawn() {return true;}
+    public boolean isAllowedNearWorldSpawn() { return true; }
 
     @Override
     protected boolean isFeatureChunk(ChunkGenerator chunkGen, BiomeProvider biomeProvider, long seed, SharedSeedRandom sharedSeedRand, int chunkPosX, int chunkPosZ, Biome biomeIn, ChunkPos chunkPos, VillageConfig config) {
@@ -57,7 +57,7 @@ public class DELargeDungeon extends GelConfigJigsawStructure {
         public void handleDataMarker(String key, BlockPos pos, IServerWorld world, Random random, MutableBoundingBox box) {}
 
         @Override
-        public IStructurePieceType getType() {return DEStructures.LargeDungeon.getPieceType();}
+        public IStructurePieceType getType() {return DEStructures.LARGE_DUNGEON.getPieceType();}
     }
 
     public static class Pool{

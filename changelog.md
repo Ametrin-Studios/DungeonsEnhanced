@@ -1,3 +1,9 @@
+## 1.9.0
+* added Dungeon Variant variant (from 5.6)
+* added Sunken Shrine variant (from 4.2.1)
+* reworked backend (from 5.4)
+* fixes & tweaks
+
 ## 1.8.2
 * added Sunken in the Depths advancement
 * fixed Dungeon Variants default config

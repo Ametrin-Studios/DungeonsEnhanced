@@ -56,7 +56,7 @@ public class DECellarStructure extends GelConfigJigsawStructure {
         public Piece(TemplateManager templateManager, CompoundNBT nbt) {super(templateManager, nbt);}
 
         @Override
-        public IStructurePieceType getType() {return DEStructures.Castle.getPieceType();}
+        public IStructurePieceType getType() {return DEStructures.CASTLE.getPieceType();}
 
         @Override
         public void handleDataMarker(String key, BlockPos pos, IServerWorld world, Random random, MutableBoundingBox box) {}

@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Map;
 
-public class DESwapDeadCoralsProcessor extends StructureProcessor {
+public final class DESwapDeadCoralsProcessor extends StructureProcessor {
     public static final DESwapDeadCoralsProcessor INSTANCE = new DESwapDeadCoralsProcessor();
     public static final Codec<DESwapDeadCoralsProcessor> CODEC = Codec.unit(() -> INSTANCE);
 
@@ -51,7 +51,7 @@ public class DESwapDeadCoralsProcessor extends StructureProcessor {
 
     private DESwapDeadCoralsProcessor() {}
 
-    @Override @Nullable @ParametersAreNonnullByDefault
+    @Override @ParametersAreNonnullByDefault
     public Template.BlockInfo process(IWorldReader world, BlockPos pos1, BlockPos pos2, Template.BlockInfo existing, Template.BlockInfo placed, PlacementSettings settings, @Nullable Template template) {
         if(!DEATH_TO_LIVING_CORAL.containsKey(placed.state.getBlock())) return placed;
 

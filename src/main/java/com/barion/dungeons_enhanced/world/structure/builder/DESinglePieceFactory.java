@@ -29,7 +29,7 @@ public final class DESinglePieceFactory implements IDEPieceFactory {
 
     @Override
     public DESimpleStructurePiece createPiece(TemplateManager templateManager, BlockPos position, SharedSeedRandom random) {
-        return new DESimpleStructurePiece(_pieceTypeSupplier.get(), templateManager, _template.resourceLocation, position.offset(position), Rotation.getRandom(random), _settingsFunction);
+        return new DESimpleStructurePiece(_pieceTypeSupplier.get(), templateManager, _template.resourceLocation, position.above(_template.yOffset), Rotation.getRandom(random), _settingsFunction);
     }
     @Override
     public StructurePiece createPiece(TemplateManager templateManager, CompoundNBT nbt) {

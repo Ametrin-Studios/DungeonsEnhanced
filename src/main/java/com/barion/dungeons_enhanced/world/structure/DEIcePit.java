@@ -11,19 +11,28 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 
 import java.util.List;
 
-import static com.barion.dungeons_enhanced.DEUtil.location;
+import static com.barion.dungeons_enhanced.DEUtil.locate;
 import static com.barion.dungeons_enhanced.DEUtil.pieceBuilder;
 
-public class DEIcePit extends DESimpleStructure {
-    private final ResourceLocation Entrance = location("ice_pit/top");
-    public DEIcePit() {super(DEConfig.COMMON.IcePit, false, pieceBuilder().offset(-4, -25, -4).add("ice_pit/var1").add("ice_pit/var2").add("ice_pit/var3").build());}
+public final class DEIcePit extends DESimpleStructure {
+    private final ResourceLocation Entrance = locate("ice_pit/top");
+    public DEIcePit() {
+        super(DEConfig.COMMON.ICE_PIT, false,
+                pieceBuilder()
+                        .offset(-4, -25, -4)
+                        .add("ice_pit/var1")
+                        .add("ice_pit/var2")
+                        .add("ice_pit/var3")
+                        .build()
+        );
+    }
 
     @Override
     public void assemble(TemplateManager templateManager, DEStructurePiece variant, BlockPos pos, Rotation rotation, List<StructurePiece> pieces, int variantIndex) {
         pieces.add(new Piece(templateManager, Entrance, pos, rotation));
 
         int offsetY = -6;
-        if(variantIndex == 2) {offsetY = -11;}
+        if(variantIndex == 2) { offsetY = -11; }
         pieces.add(new Piece(templateManager, variant.Resource, pos.offset(-17, offsetY, -17), rotation));
     }
 }

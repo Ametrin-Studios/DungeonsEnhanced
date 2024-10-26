@@ -37,9 +37,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
-public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig>{
+public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig> {
     public DETerrainAnalyzer.Settings terrainAnalyzeSettings;
-    public DEStructurePiece[] Variants;
+    public DEStructurePiece[] variants;
     public final DETerrainAnalyzer.GenerationType generationType;
     public int maxWeight;
     protected boolean generateNear00;
@@ -48,15 +48,17 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig
         super(NoFeatureConfig.CODEC, config);
         this.generationType = generationType;
         this.generateNear00 = generateNear00;
-        this.Variants = variants;
-        maxWeight = DEUtil.getMaxWeight(Variants);
-        terrainAnalyzeSettings = DETerrainAnalyzer.defaultSettings;
+        this.variants = variants;
+        maxWeight = DEUtil.getMaxWeight(this.variants);
+        terrainAnalyzeSettings = DETerrainAnalyzer.DEFAULT_SETTINGS;
         setLakeProof(true);
     }
 
-    @Override @Nonnull public IStartFactory<NoFeatureConfig> getStartFactory() {return Start::new;}
+    @Override @Nonnull
+    public IStartFactory<NoFeatureConfig> getStartFactory() { return Start::new; }
 
-    @Override public boolean isAllowedNearWorldSpawn() {return generateNear00;}
+    @Override
+    public boolean isAllowedNearWorldSpawn() { return generateNear00; }
 
     @Override
     protected boolean isFeatureChunk(ChunkGenerator chunkGen, BiomeProvider biomeProvider, long seed, SharedSeedRandom sharedSeedRand, int chunkPosX, int chunkPosZ, Biome biomeIn, ChunkPos chunkPos, NoFeatureConfig config) {
@@ -66,13 +68,13 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig
         return false;
     }
 
-    protected boolean checkLocation(ChunkGenerator chunkGen, BiomeProvider biomeProvider, long seed, SharedSeedRandom sharedSeedRand, int chunkPosX, int chunkPosZ, Biome biomeIn, ChunkPos chunkPos, NoFeatureConfig config){
+    protected boolean checkLocation(ChunkGenerator chunkGen, BiomeProvider biomeProvider, long seed, SharedSeedRandom sharedSeedRand, int chunkPosX, int chunkPosZ, Biome biomeIn, ChunkPos chunkPos, NoFeatureConfig config) {
         return DETerrainAnalyzer.isFlatEnough(chunkPos, chunkGen, terrainAnalyzeSettings);
     }
 
     public abstract void assemble(TemplateManager templateManager, DEStructurePiece variant, BlockPos pos, Rotation rotation, List<StructurePiece> pieces, int variantIndex);
 
-    public class Start extends GelStructureStart<NoFeatureConfig>{
+    public class Start extends GelStructureStart<NoFeatureConfig> {
 
         public Start(Structure<NoFeatureConfig> structure, int chunkX, int chunkZ, MutableBoundingBox box, int reference, long seed) {
             super(structure, chunkX, chunkZ, box, reference, seed);
@@ -86,7 +88,7 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig
 
             int minY;
             int maxY;
-            switch (generationType){
+            switch (generationType) {
                 case onGround:
                 case onWater:
                     y = chunkGen.getBaseHeight(x, z, Heightmap.Type.WORLD_SURFACE_WG);
@@ -97,20 +99,20 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig
                 case inAir:
                     minY = chunkGen.getBaseHeight(x, z, Heightmap.Type.WORLD_SURFACE_WG) + 35;
                     maxY = 220;
-                    if (minY > maxY) {y = maxY;}
-                    else {y = minY + random.nextInt(maxY - minY);}
+                    if (minY > maxY) { y = maxY; }
+                    else {y = minY + random.nextInt(maxY - minY); }
                     break;
                 case underground:
                     minY = 10;
                     maxY = chunkGen.getBaseHeight(x, z, Heightmap.Type.OCEAN_FLOOR_WG) - 20;
-                    if (minY >= maxY) {y = maxY;}
-                    else {y = minY + random.nextInt(maxY - minY);}
+                    if (minY >= maxY) { y = maxY; }
+                    else {y = minY + random.nextInt(maxY - minY); }
                     break;
             }
 
-            int piece = DEUtil.getRandomPiece(Variants, maxWeight, random);
+            int piece = DEUtil.getRandomPiece(variants, maxWeight, random);
 
-            assemble(templateManager, Variants[piece], new BlockPos(x, y, z).offset(Variants[piece].Offset), Rotation.getRandom(random), this.pieces, piece);
+            assemble(templateManager, variants[piece], new BlockPos(x, y, z).offset(variants[piece].Offset), Rotation.getRandom(random), this.pieces, piece);
             calculateBoundingBox();
         }
     }

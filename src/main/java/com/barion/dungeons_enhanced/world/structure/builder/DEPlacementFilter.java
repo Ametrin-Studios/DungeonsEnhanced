@@ -8,13 +8,22 @@ import net.minecraft.world.gen.Heightmap;
 
 @FunctionalInterface
 public interface DEPlacementFilter {
-    static DEPlacementFilter DIFFERENCE_OCEAN_FLOOR(int maxDifference) {
+    static DEPlacementFilter DIFFERENCE_OCEAN_FLOOR_MAX(int maxDifference) {
         return (chunkPos, context) -> {
-            final BlockPos pos = DEUtil.ChunkPosToBlockPosFromHeightMap(chunkPos, context.chunkGenerator, Heightmap.Type.WORLD_SURFACE_WG);
+            final BlockPos pos = DEUtil.chunkPosToBlockPosFromHeightMap(chunkPos, context.chunkGenerator, Heightmap.Type.WORLD_SURFACE_WG);
             final int oceanFloor = context.chunkGenerator.getBaseHeight(pos.getX(), pos.getZ(), Heightmap.Type.OCEAN_FLOOR_WG);
             final int dif = pos.getY() - oceanFloor;
 
             return dif > maxDifference;
+        };
+    }
+    static DEPlacementFilter DIFFERENCE_OCEAN_FLOOR_MIN(int minDifference) {
+        return (chunkPos, context) -> {
+            final BlockPos pos = DEUtil.chunkPosToBlockPosFromHeightMap(chunkPos, context.chunkGenerator, Heightmap.Type.WORLD_SURFACE_WG);
+            final int oceanFloor = context.chunkGenerator.getBaseHeight(pos.getX(), pos.getZ(), Heightmap.Type.OCEAN_FLOOR_WG);
+            final int dif = pos.getY() - oceanFloor;
+
+            return dif < minDifference;
         };
     }
 

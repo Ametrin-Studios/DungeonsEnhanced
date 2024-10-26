@@ -7,7 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @Mod(DungeonsEnhanced.MOD_ID)
-public class DungeonsEnhanced{
+public final class DungeonsEnhanced {
     public static final String MOD_ID = "dungeons_enhanced";
     public static final Logger LOGGER = LogManager.getLogger();
 

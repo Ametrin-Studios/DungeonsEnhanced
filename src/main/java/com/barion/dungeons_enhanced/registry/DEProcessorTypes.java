@@ -13,6 +13,6 @@ public final class DEProcessorTypes {
     public static final IStructureProcessorType<DESwapDeadCoralsProcessor> SWAP_DEAD_CORALS_PROCESSOR = register("swap_dead_corals", DESwapDeadCoralsProcessor.CODEC);
 
     private static <P extends StructureProcessor> IStructureProcessorType<P> register(String key, Codec<P> codec) {
-        return Registry.register(Registry.STRUCTURE_PROCESSOR, DEUtil.location(key), () -> codec);
+        return Registry.register(Registry.STRUCTURE_PROCESSOR, DEUtil.locate(key), () -> codec);
     }
 }

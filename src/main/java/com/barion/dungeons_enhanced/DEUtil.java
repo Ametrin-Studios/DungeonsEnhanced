@@ -12,10 +12,10 @@ import net.minecraft.world.gen.Heightmap;
 
 import java.util.Random;
 
-public class DEUtil{
-    public static ResourceLocation location(String key) {return new ResourceLocation(DungeonsEnhanced.MOD_ID, key);}
+public final class DEUtil {
+    public static ResourceLocation locate(String key) { return new ResourceLocation(DungeonsEnhanced.MOD_ID, key); }
 
-    public static int getRandomPiece(DEStructurePiece[] variants, int maxWeight, Random rand){
+    public static int getRandomPiece(DEStructurePiece[] variants, int maxWeight, Random rand) {
         int piece = 0;
         if(variants.length > 1) {
             int i = rand.nextInt(maxWeight+1);
@@ -31,22 +31,22 @@ public class DEUtil{
         return piece;
     }
 
-    public static int getMaxWeight(DEStructurePiece[] variants){
+    public static int getMaxWeight(DEStructurePiece[] variants) {
         int i = 0;
-        for (DEStructurePiece piece : variants){
+        for (DEStructurePiece piece : variants) {
             i += piece.Weight;
         }
         return i;
     }
 
-    public static BlockPos ChunkPosToBlockPos(int chunkX, int chunkY, int y){
-        return ChunkPosToBlockPos(new ChunkPos(chunkY, chunkY), y);
+    public static BlockPos chunkPosToBlockPos(int chunkX, int chunkY, int y) {
+        return chunkPosToBlockPos(new ChunkPos(chunkY, chunkY), y);
     }
-    public static BlockPos ChunkPosToBlockPos(ChunkPos chunkPos, int y){
+    public static BlockPos chunkPosToBlockPos(ChunkPos chunkPos, int y) {
         return new BlockPos(chunkPos.getMinBlockX(), y, chunkPos.getMinBlockZ());
     }
-    public static BlockPos ChunkPosToBlockPosFromHeightMap(ChunkPos chunkPos, ChunkGenerator chunkGenerator, Heightmap.Type heightmapType){
-        BlockPos pos = DEUtil.ChunkPosToBlockPos(chunkPos, 0);
+    public static BlockPos chunkPosToBlockPosFromHeightMap(ChunkPos chunkPos, ChunkGenerator chunkGenerator, Heightmap.Type heightmapType) {
+        BlockPos pos = DEUtil.chunkPosToBlockPos(chunkPos, 0);
         return new BlockPos(pos.getX(), chunkGenerator.getBaseHeight(pos.getX(), pos.getZ(), heightmapType), pos.getZ());
     }
 
@@ -65,5 +65,5 @@ public class DEUtil{
         return targetState.setValue(property, sourceState.getValue(property));
     }
 
-    public static DEStructurePiece.Builder pieceBuilder() {return new DEStructurePiece.Builder();}
+    public static DEStructurePiece.Builder pieceBuilder() { return new DEStructurePiece.Builder(); }
 }

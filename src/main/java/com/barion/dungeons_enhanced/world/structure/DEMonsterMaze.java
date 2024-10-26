@@ -26,14 +26,16 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 
 import java.util.Random;
 
-public class DEMonsterMaze extends GelConfigJigsawStructure {
+public final class DEMonsterMaze extends GelConfigJigsawStructure {
     public DEMonsterMaze(){
-        super(VillageConfig.CODEC, DEConfig.COMMON.MonsterMaze, -17, true, true);
+        super(VillageConfig.CODEC, DEConfig.COMMON.MONSTER_MAZE, -17, true, true);
         Pool.init();
     }
 
     @Override
-    public boolean isAllowedNearWorldSpawn() {return false;}
+    public boolean isAllowedNearWorldSpawn() {
+        return false;
+    }
 
     @Override
     protected boolean isFeatureChunk(ChunkGenerator chunkGen, BiomeProvider biomeProvider, long seed, SharedSeedRandom sharedSeedRandom, int chunkPosX, int chunkPosZ, Biome biome, ChunkPos chunkPos, VillageConfig config) {
@@ -50,7 +52,7 @@ public class DEMonsterMaze extends GelConfigJigsawStructure {
         public Piece(TemplateManager templateManager, CompoundNBT nbt) {super(templateManager, nbt);}
 
         @Override
-        public IStructurePieceType getType() {return DEStructures.MonsterMaze.getPieceType();}
+        public IStructurePieceType getType() {return DEStructures.MONSTER_MAZE.getPieceType();}
         @Override
         public void handleDataMarker(String key, BlockPos pos, IServerWorld world, Random random, MutableBoundingBox box){}
     }

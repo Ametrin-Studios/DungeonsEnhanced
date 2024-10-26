@@ -21,7 +21,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Objects;
 import java.util.function.Consumer;
 
-public class DEAdvancementProvider extends AdvancementProvider {
+public final class DEAdvancementProvider extends AdvancementProvider {
     public DEAdvancementProvider(DataGenerator dataGenerator, ExistingFileHelper exFileHelper){
         super(dataGenerator, exFileHelper);
     }
@@ -29,24 +29,24 @@ public class DEAdvancementProvider extends AdvancementProvider {
     @Override @ParametersAreNonnullByDefault
     protected void registerAdvancements(Consumer<Advancement> consumer, ExistingFileHelper exFileHelper) {
         Advancement Root = enterAnyStructure(builder(Blocks.MOSSY_STONE_BRICKS.asItem(), "root", new ResourceLocation("textures/block/mossy_cobblestone.png"), FrameType.TASK, false, false, false), DEStructures.getAllStructures()).requirements(IRequirementsStrategy.OR).save(consumer, location("root"));
-        Advancement Ahoy = enterStructure(builder(Items.BLACK_BANNER, "ahoy", FrameType.TASK, true, true, false), DEStructures.PirateShip.getStructure()).parent(Root).save(consumer, location("ahoy"));
-        Advancement AncientCivilizations = enterStructure(builder(Blocks.BAMBOO.asItem(), "ancient_civilizations", FrameType.TASK, true, true, false), DEStructures.JungleMonument.getStructure()).parent(Root).save(consumer, location("ancient_civilizations"));
-        Advancement ChilledHalls = enterStructure(builder(Items.BONE, "chilled_halls", FrameType.TASK, true, true, false), DEStructures.IcePit.getStructure()).parent(Root).save(consumer, location("chilled_halls"));
-        Advancement HiddenUnderTheRoots = enterStructure(builder(Blocks.JACK_O_LANTERN.asItem(), "hidden_under_the_roots", FrameType.TASK, true, true, false), DEStructures.MonsterMaze.getStructure()).parent(Root).save(consumer, location("hidden_under_the_roots"));
+        Advancement Ahoy = enterStructure(builder(Items.BLACK_BANNER, "ahoy", FrameType.TASK, true, true, false), DEStructures.PIRATE_SHIP.getStructure()).parent(Root).save(consumer, location("ahoy"));
+        Advancement AncientCivilizations = enterStructure(builder(Blocks.BAMBOO.asItem(), "ancient_civilizations", FrameType.TASK, true, true, false), DEStructures.JUNGLE_MONUMENT.getStructure()).parent(Root).save(consumer, location("ancient_civilizations"));
+        Advancement ChilledHalls = enterStructure(builder(Items.BONE, "chilled_halls", FrameType.TASK, true, true, false), DEStructures.ICE_PIT.getStructure()).parent(Root).save(consumer, location("chilled_halls"));
+        Advancement HiddenUnderTheRoots = enterStructure(builder(Blocks.JACK_O_LANTERN.asItem(), "hidden_under_the_roots", FrameType.TASK, true, true, false), DEStructures.MONSTER_MAZE.getStructure()).parent(Root).save(consumer, location("hidden_under_the_roots"));
         Advancement InTheAir = enterStructure(builder(Items.FEATHER, "in_the_air", FrameType.TASK, true, true, false), DEStructures.FLYING_DUTCHMAN.getStructure()).parent(Root).save(consumer, location("in_the_air"));
-        Advancement RarestStructure = enterStructure(builder(Items.RED_MUSHROOM, "rarest_structure", FrameType.TASK, true, true, false), DEStructures.MushroomHouse.getStructure()).parent(Root).save(consumer, location("rarest_structure"));
-        Advancement SunkenDeeps = enterStructure(builder(Items.NAUTILUS_SHELL, "sunken_deeps", FrameType.TASK, true, true, false), DEStructures.EldersTemple.getStructure()).parent(Root).save(consumer, location("sunken_deeps"));
-        Advancement ThatsADungeon = enterStructure(builder(Blocks.SKELETON_SKULL.asItem(), "thats_a_dungeon", FrameType.TASK, true, true, false), DEStructures.LargeDungeon.getStructure()).parent(Root).save(consumer, location("thats_a_dungeon"));
-        Advancement TrapsAndCurses = enterStructure(builder(Blocks.TNT.asItem(), "traps_and_curses", FrameType.TASK, true, true, false), DEStructures.DesertTemple.getStructure()).parent(Root).save(consumer, location("traps_and_curses"));
-        Advancement WarsAndKingdoms = enterStructure(builder(Blocks.STONE_BRICKS.asItem(), "wars_and_kingdoms", FrameType.TASK, true, true, false), DEStructures.Castle.getStructure()).parent(Root).save(consumer, location("wars_and_kingdoms"));
+        Advancement RarestStructure = enterStructure(builder(Items.RED_MUSHROOM, "rarest_structure", FrameType.TASK, true, true, false), DEStructures.MUSHROOM_HOUSE.getStructure()).parent(Root).save(consumer, location("rarest_structure"));
+        Advancement SunkenDeeps = enterStructure(builder(Items.NAUTILUS_SHELL, "sunken_deeps", FrameType.TASK, true, true, false), DEStructures.ELDERS_TEMPLE.getStructure()).parent(Root).save(consumer, location("sunken_deeps"));
+        Advancement ThatsADungeon = enterStructure(builder(Blocks.SKELETON_SKULL.asItem(), "thats_a_dungeon", FrameType.TASK, true, true, false), DEStructures.LARGE_DUNGEON.getStructure()).parent(Root).save(consumer, location("thats_a_dungeon"));
+        Advancement TrapsAndCurses = enterStructure(builder(Blocks.TNT.asItem(), "traps_and_curses", FrameType.TASK, true, true, false), DEStructures.DESERT_TEMPLE.getStructure()).parent(Root).save(consumer, location("traps_and_curses"));
+        Advancement WarsAndKingdoms = enterStructure(builder(Blocks.STONE_BRICKS.asItem(), "wars_and_kingdoms", FrameType.TASK, true, true, false), DEStructures.CASTLE.getStructure()).parent(Root).save(consumer, location("wars_and_kingdoms"));
         Advancement SevenWorldWonders = enterAnyStructure(builder(Items.COMPASS, "seven_world_wonders", FrameType.GOAL, true, true, false),
-                DEStructures.Castle.getStructure(),
-                DEStructures.EldersTemple.getStructure(),
-                DEStructures.DesertTemple.getStructure(),
-                DEStructures.IcePit.getStructure(),
-                DEStructures.JungleMonument.getStructure(),
-                DEStructures.MonsterMaze.getStructure(),
-                DEStructures.MushroomHouse.getStructure()
+                DEStructures.CASTLE.getStructure(),
+                DEStructures.ELDERS_TEMPLE.getStructure(),
+                DEStructures.DESERT_TEMPLE.getStructure(),
+                DEStructures.ICE_PIT.getStructure(),
+                DEStructures.JUNGLE_MONUMENT.getStructure(),
+                DEStructures.MONSTER_MAZE.getStructure(),
+                DEStructures.MUSHROOM_HOUSE.getStructure()
         ).requirements(IRequirementsStrategy.AND).parent(Root).save(consumer, location("seven_world_wonders"));
         Advancement AmbitiousExplorer = enterAnyStructure(builder(Items.FILLED_MAP, "ambitious_explorer", FrameType.CHALLENGE, true, true, false), DEStructures.getAllStructures()).requirements(IRequirementsStrategy.AND).parent(SevenWorldWonders).save(consumer, location("ambitious_explorer"));
     }

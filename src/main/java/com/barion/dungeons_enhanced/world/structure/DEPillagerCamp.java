@@ -25,15 +25,15 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 
 import java.util.Random;
 
-public class DEPillagerCamp extends GelConfigJigsawStructure {
+public final class DEPillagerCamp extends GelConfigJigsawStructure {
     public DEPillagerCamp() {
-        super(VillageConfig.CODEC, DEConfig.COMMON.PillagerCamp, 0, true, true);
+        super(VillageConfig.CODEC, DEConfig.COMMON.PILLAGER_CAMP, 0, true, true);
         Pool.init();
         setSpawnList(EntityClassification.MONSTER, ImmutableList.of(new MobSpawnInfo.Spawners(EntityType.PILLAGER, 4, 1, 3), new MobSpawnInfo.Spawners(EntityType.VINDICATOR, 2, 1, 1)));
     }
 
     @Override
-    public boolean isAllowedNearWorldSpawn() {return true;}
+    public boolean isAllowedNearWorldSpawn() { return true; }
 
     public static class Piece extends AbstractGelStructurePiece {
         public Piece(TemplateManager templateManager, JigsawPiece jigsawPiece, BlockPos pos, int groundLevelDelta, Rotation rotation, MutableBoundingBox box) {
@@ -42,14 +42,14 @@ public class DEPillagerCamp extends GelConfigJigsawStructure {
         public Piece(TemplateManager templateManager, CompoundNBT nbt) {super(templateManager, nbt);}
 
         @Override
-        public IStructurePieceType getType() {return DEStructures.PillagerCamp.getPieceType();}
+        public IStructurePieceType getType() { return DEStructures.PILLAGER_CAMP.getPieceType(); }
         @Override
-        public void handleDataMarker(String key, BlockPos pos, IServerWorld world, Random random, MutableBoundingBox box){}
+        public void handleDataMarker(String key, BlockPos pos, IServerWorld world, Random random, MutableBoundingBox box) { }
     }
 
-    public static class Pool{
+    public static class Pool {
         public static JigsawPattern Root;
-        public static void init() {}
+        public static void init() { }
 
         static {
             JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "pillager_camp/");
@@ -66,6 +66,6 @@ public class DEPillagerCamp extends GelConfigJigsawStructure {
             registry.register("features", JigsawPoolBuilder.collect(SleepingTents.weight(2), Kitchen.weight(2), VanillaDecoration.weight(2), Decoration.weight(3), Pillars.weight(1)));
         }
 
-        private static ResourceLocation mcFeaturePiece(String key) {return new ResourceLocation("minecraft", "pillager_outpost/feature_" + key);}
+        private static ResourceLocation mcFeaturePiece(String key) { return new ResourceLocation("minecraft", "pillager_outpost/feature_" + key); }
     }
 }

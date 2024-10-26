@@ -6,7 +6,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.world.gen.feature.template.StructureProcessor;
 import net.minecraft.world.gen.feature.template.StructureProcessorList;
 
-import static com.barion.dungeons_enhanced.DEUtil.location;
+import static com.barion.dungeons_enhanced.DEUtil.locate;
 
 public final class DEProcessors {
     public static final StructureProcessorList AIR_TO_COBWEB = register("air_to_cobweb", new RandomBlockSwapProcessor(Blocks.AIR, 0.02f, Blocks.COBWEB));
@@ -17,9 +17,9 @@ public final class DEProcessors {
     public static final StructureProcessor TUBE_CORAL = new RandomBlockSwapProcessor(Blocks.DEAD_TUBE_CORAL_BLOCK, 1, Blocks.TUBE_CORAL_BLOCK);
 
     private static StructureProcessorList register(String key, StructureProcessor processor){
-        return RegistryHelper.registerProcessor(location(key), processor);
+        return RegistryHelper.registerProcessor(locate(key), processor);
     }
     private static StructureProcessorList register(String key, StructureProcessorList processorList){
-        return RegistryHelper.registerProcessor(location(key), processorList);
+        return RegistryHelper.registerProcessor(locate(key), processorList);
     }
 }

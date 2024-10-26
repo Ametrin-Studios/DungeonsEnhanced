@@ -16,7 +16,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 import java.util.function.Function;
 
-public class DESimpleStructurePiece extends GelTemplateStructurePiece {
+public final class DESimpleStructurePiece extends GelTemplateStructurePiece {
     private final Function<PlacementSettings, PlacementSettings> _settingsFunction;
     public DESimpleStructurePiece(IStructurePieceType structurePieceType, TemplateManager templateManager, ResourceLocation template, BlockPos pos, Rotation rotation, Function<PlacementSettings, PlacementSettings> settingsFunction) {
         super(structurePieceType, template, 0);
@@ -32,20 +32,20 @@ public class DESimpleStructurePiece extends GelTemplateStructurePiece {
         setupTemplate(templateManager);
     }
 
-    public BlockPos getSize() {return template.getSize(getRotation());}
+    public BlockPos getSize() { return template.getSize(getRotation()); }
 
     @Override
     public PlacementSettings createPlacementSettings(TemplateManager templateManager) {
-        BlockPos sizePos = getSize();
+        BlockPos sizePos = templateManager.get(name).getSize(); //rotation and template get set later. This is to determine where to rotate
         BlockPos pivot = new BlockPos(sizePos.getX() / 2, 0, sizePos.getZ() / 2);
         return _settingsFunction.apply(new GelPlacementSettings().setMaintainWater(false).setRotationPivot(pivot).setRotation(rotation).setMirror(mirror));
     }
 
-    public void setPosition(BlockPos pos){
+    public void setPosition(BlockPos pos) {
         templatePosition = pos;
         boundingBox = template.getBoundingBox(placeSettings, templatePosition);
     } // probably not good
 
     @Override @ParametersAreNonnullByDefault
-    protected void handleDataMarker(String key, BlockPos pos, IServerWorld serverWorld, Random random, MutableBoundingBox bounds) {}
+    protected void handleDataMarker(String key, BlockPos pos, IServerWorld serverWorld, Random random, MutableBoundingBox bounds) { }
 }

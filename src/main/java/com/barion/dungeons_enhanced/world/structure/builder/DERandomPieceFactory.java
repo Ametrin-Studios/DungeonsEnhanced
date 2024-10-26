@@ -39,27 +39,27 @@ public final class DERandomPieceFactory implements IDEPieceFactory {
         return new DESimpleStructurePiece(_pieceTypeSupplier.get(), templateManager, nbt, _settingsFunction);
     }
 
-    public static class Builder{
+    public static class Builder {
         private final WeightedList<DEStructureTemplate> _templates = new WeightedList<>();
         private Function<PlacementSettings, PlacementSettings> _settingsFunction = settings -> settings;
 
-        public Builder settings(Function<PlacementSettings, PlacementSettings> settingsFunction){
+        public Builder settings(Function<PlacementSettings, PlacementSettings> settingsFunction) {
             _settingsFunction = settingsFunction;
             return this;
         }
 
-        public Builder add(String location) {return add(DEUtil.location(location));}
-        public Builder add(int weight, String location) {return add(weight, DEUtil.location(location), 0);}
-        public Builder add(int weight, String location, int yOffset) {return add(weight, DEUtil.location(location), yOffset);}
-        public Builder add(ResourceLocation resourceLocation) {return add(1, resourceLocation, 0);}
-        public Builder add(int weight, ResourceLocation resourceLocation, int yOffset) {return add(weight, new DEStructureTemplate(resourceLocation, yOffset));}
-        public Builder add(DEStructureTemplate template){return add(1, template);}
-        public Builder add(int weight, DEStructureTemplate template){
+        public Builder add(String location) { return add(DEUtil.locate(location)); }
+        public Builder add(int weight, String location) { return add(weight, DEUtil.locate(location), 0); }
+        public Builder add(int weight, String location, int yOffset) { return add(weight, DEUtil.locate(location), yOffset); }
+        public Builder add(ResourceLocation resourceLocation) { return add(1, resourceLocation, 0); }
+        public Builder add(int weight, ResourceLocation resourceLocation, int yOffset) { return add(weight, new DEStructureTemplate(resourceLocation, yOffset)); }
+        public Builder add(DEStructureTemplate template) { return add(1, template); }
+        public Builder add(int weight, DEStructureTemplate template) {
             _templates.add(template, weight);
             return this;
         }
 
-        public DERandomPieceFactory build(Supplier<IStructurePieceType> pieceTypeSupplier){
+        public DERandomPieceFactory build(Supplier<IStructurePieceType> pieceTypeSupplier) {
             return new DERandomPieceFactory(_templates, pieceTypeSupplier, _settingsFunction);
         }
     }

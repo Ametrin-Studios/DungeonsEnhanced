@@ -23,17 +23,17 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 
 import java.util.List;
 
-import static com.barion.dungeons_enhanced.DEUtil.location;
+import static com.barion.dungeons_enhanced.DEUtil.locate;
 import static com.barion.dungeons_enhanced.DEUtil.pieceBuilder;
 
-public class DEEldersTemple extends DEUnderwaterStructure {
-    private static final ResourceLocation NE = location("elders_temple/ne");
-    private static final ResourceLocation NW = location("elders_temple/nw");
-    private static final ResourceLocation SE = location("elders_temple/se");
-    private static final ResourceLocation SW = location("elders_temple/sw");
+public final class DEEldersTemple extends DEUnderwaterStructure {
+    private static final ResourceLocation NE = locate("elders_temple/ne");
+    private static final ResourceLocation NW = locate("elders_temple/nw");
+    private static final ResourceLocation SE = locate("elders_temple/se");
+    private static final ResourceLocation SW = locate("elders_temple/sw");
 
     public DEEldersTemple() {
-        super(DEConfig.COMMON.EldersTemple, false, pieceBuilder().add("elders_temple/se").build());
+        super(DEConfig.COMMON.ELDERS_TEMPLE, false, pieceBuilder().add("elders_temple/se").build());
         setSpawnList(EntityClassification.MONSTER, ImmutableList.of(new MobSpawnInfo.Spawners(EntityType.GUARDIAN, 2, 2, 4)));
     }
 

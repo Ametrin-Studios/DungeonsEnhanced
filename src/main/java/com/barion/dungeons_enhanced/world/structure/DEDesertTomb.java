@@ -28,19 +28,19 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 
 import java.util.Random;
 
-public class DEDesertTomb extends GelConfigJigsawStructure {
-    public DEDesertTomb(){
-        super(VillageConfig.CODEC, DEConfig.COMMON.DesertTomb, 1, true, true);
+public final class DEDesertTomb extends GelConfigJigsawStructure {
+    public DEDesertTomb() {
+        super(VillageConfig.CODEC, DEConfig.COMMON.DESERT_TOMB, 1, true, true);
         Pool.init();
     }
 
     @Override
-    public boolean isAllowedNearWorldSpawn() {return true;}
+    public boolean isAllowedNearWorldSpawn() { return true; }
 
     @Override
     protected boolean isFeatureChunk(ChunkGenerator chunkGen, BiomeProvider biomeProvider, long seed, SharedSeedRandom sharedSeedRand, int chunkPosX, int chunkPosZ, Biome biomeIn, ChunkPos chunkPos, VillageConfig config) {
         boolean canGenerate = super.isFeatureChunk(chunkGen, biomeProvider, seed, sharedSeedRand, chunkPosX, chunkPosZ, biomeIn, chunkPos, config);
-        if(!canGenerate) {return false;}
+        if(!canGenerate) { return false; }
 
         return DETerrainAnalyzer.isFlatEnough(chunkPos, chunkGen);
     }
@@ -56,19 +56,19 @@ public class DEDesertTomb extends GelConfigJigsawStructure {
         }
 
         @Override
-        public IStructurePieceType getType() {return DEStructures.DesertTomb.getPieceType();}
+        public IStructurePieceType getType() { return DEStructures.DESERT_TOMB.getPieceType(); }
 
         @Override
-        public void handleDataMarker(String key, BlockPos pos, IServerWorld world, Random random, MutableBoundingBox box) {}
+        public void handleDataMarker(String key, BlockPos pos, IServerWorld world, Random random, MutableBoundingBox box) { }
     }
 
-    public static class Pool{
-        public static JigsawPattern Root;
-        public static void init(){}
-        static{
+    public static class Pool {
+        public static final JigsawPattern ROOT;
+        public static void init() { }
+        static {
             JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "desert_tomb/");
             JigsawPoolBuilder poolBuilder = registry.builder().maintainWater(false).processors(DEProcessors.AIR_TO_COBWEB);
-            Root = registry.register("root", poolBuilder.clone().names("root").build());
+            ROOT = registry.register("root", poolBuilder.clone().names("root").build());
 
             registry.register("down", poolBuilder.clone().names("down").build());
             registry.register("trap", poolBuilder.clone().names("trap").build());

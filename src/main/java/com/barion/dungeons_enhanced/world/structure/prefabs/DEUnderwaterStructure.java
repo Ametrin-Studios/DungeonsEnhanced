@@ -51,14 +51,14 @@ public class DEUnderwaterStructure extends DEBaseStructure {
 
     public static class Piece extends GelTemplateStructurePiece {
         public Piece(TemplateManager templateManager, ResourceLocation name, BlockPos pos, Rotation rotation) {
-            super(DEStructures.SunkenShrine.getPieceType(), name, 0);
+            super(DEStructures.SUNKEN_SHRINE.getPieceType(), name, 0);
             this.templatePosition = pos;
             this.rotation = rotation;
             this.setupTemplate(templateManager);
         }
 
         public Piece(TemplateManager templateManager, CompoundNBT nbt) {
-            super(DEStructures.SunkenShrine.getPieceType(), nbt);
+            super(DEStructures.SUNKEN_SHRINE.getPieceType(), nbt);
             setupTemplate(templateManager);
         }
 
