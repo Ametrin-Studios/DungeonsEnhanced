@@ -118,15 +118,21 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig
     }
 
     public static class Piece extends GelTemplateStructurePiece {
+        private final Rotation rotation;
+        private final Mirror mirror;
+
         public Piece(IStructurePieceType structurePieceType, TemplateManager templateManager, ResourceLocation name, BlockPos pos, Rotation rotation) {
             super(structurePieceType, name, 0);
             this.templatePosition = pos;
             this.rotation = rotation;
+            this.mirror = Mirror.NONE;
             this.setupTemplate(templateManager);
         }
 
         public Piece(IStructurePieceType structurePieceType, TemplateManager templateManager, CompoundNBT nbt) {
             super(structurePieceType, nbt);
+            this.rotation = Rotation.valueOf(nbt.getString("Rot"));
+            this.mirror = Mirror.valueOf(nbt.getString("Mirror"));
             setupTemplate(templateManager);
         }
 
