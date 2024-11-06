@@ -1,3 +1,6 @@
+## 1.9.1
+* crash fix
+
 ## 1.9.0
 * added Dungeon Variant variant (from 5.6)
 * added Sunken Shrine variant (from 4.2.1)
