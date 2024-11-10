@@ -3,51 +3,33 @@
   "pools": [
     {
       "rolls": {
-        "min": 0,
-        "max": 1
+        "min": 1,
+        "max": 3
       },
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:name_tag",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "name": "minecraft:name_tag"
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:saddle",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "name": "minecraft:saddle"
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:diamond",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 2
-              }
-            }
-          ]
+          "name": "minecraft:diamond"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:mourner_pottery_sherd"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:plenty_pottery_sherd"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:arms_up_pottery_sherd"
         }
       ]
     },
@@ -59,11 +41,24 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "name": "minecraft:packed_ice",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2,
+                "max": 6
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
           "name": "minecraft:soul_torch",
           "weight": 2,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 2,
                 "max": 3
@@ -77,7 +72,7 @@
           "weight": 2,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 3,
                 "max": 5
@@ -91,7 +86,7 @@
           "weight": 4,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 3,
                 "max": 6
@@ -105,7 +100,7 @@
           "weight": 3,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 2,
                 "max": 3
@@ -119,7 +114,7 @@
           "weight": 5,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 4,
                 "max": 5
@@ -133,7 +128,7 @@
           "weight": 4,
           "functions": [
             {
-              "function": "set_count",
+              "function": "minecraft:set_count",
               "count": {
                 "min": 3,
                 "max": 4
@@ -143,5 +138,6 @@
         }
       ]
     }
-  ]
+  ],
+  "random_sequence": "dungeons_enhanced:chests/ice_pit/hall"
 }

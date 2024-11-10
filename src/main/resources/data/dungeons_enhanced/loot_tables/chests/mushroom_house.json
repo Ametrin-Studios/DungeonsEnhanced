@@ -14,116 +14,104 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:brown_mushroom",
-          "weight": 6,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "weight": 6
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:red_mushroom",
-          "weight": 6,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "weight": 6
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:mushroom_stew",
-          "weight": 4,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "weight": 3
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:suspicious_stew",
-          "weight": 3,
+          "weight": 2,
           "functions": [
             {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
+              "function": "minecraft:set_stew_effect",
+              "effects": [
+                {
+                  "type": "minecraft:jump_boost",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "min": 7,
+                    "max": 10
+                  }
+                },
+                {
+                  "type": "minecraft:night_vision",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "min": 7,
+                    "max": 10
+                  }
+                },
+                {
+                  "type": "minecraft:saturation",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "min": 7,
+                    "max": 10
+                  }
+                },
+                {
+                  "type": "minecraft:regeneration",
+                  "duration": {
+                    "type": "minecraft:uniform",
+                    "min": 5,
+                    "max": 7
+                  }
+                }
+              ]
             }
           ]
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:leather",
-          "weight": 5,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "weight": 5
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:shears",
-          "weight": 2,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "weight": 2
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:bowl",
-          "weight": 6,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "weight": 6
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:diamond",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "name": "minecraft:diamond"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:milk_bucket"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:mycelium",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:mushroom_stem"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:red_mushroom_block"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:brown_mushroom_block"
         }
       ]
     }
-  ]
+  ],
+  "random_sequence": "dungeons_enhanced:chests/mushroom_house"
 }

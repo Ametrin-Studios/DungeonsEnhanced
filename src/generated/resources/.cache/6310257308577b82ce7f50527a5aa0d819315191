@@ -1,4 +1,4 @@
-// 1.20.1	2024-10-22T15:27:59.5204289	[Structure Gel] Registrar Registries
+// 1.20.1	2024-11-10T12:41:28.0198817	[Structure Gel] Registrar Registries
 dc8d76a2e8e326ec80abdb00b212eab88bfe1a4b data/dungeons_enhanced/worldgen/processor_list/air_to_cobweb.json
 6e4aff12c1df29bccbbf31581fc2445dc140ce22 data/dungeons_enhanced/worldgen/structure/castle.json
 61d0e2e6cfcba774ddcac6eb64f79c06a38d627f data/dungeons_enhanced/worldgen/structure/deep_crypt.json
@@ -59,7 +59,7 @@ a708816e71d2f49427cc635f60ef0e194b0b4ab8 data/dungeons_enhanced/worldgen/templat
 3567ff19264f9f8a0260915bf23ddea2e04f9852 data/dungeons_enhanced/worldgen/template_pool/deep_crypt/root.json
 843e7644596d800905c2ac338097aa86e598f0b8 data/dungeons_enhanced/worldgen/template_pool/desert_tomb/cross.json
 c93a4e760749bd0fdc08c6890d101a66ee7735a3 data/dungeons_enhanced/worldgen/template_pool/desert_tomb/down.json
-fbf1b17bf707b305397fd4d9be34b8fb98017726 data/dungeons_enhanced/worldgen/template_pool/desert_tomb/main.json
+8edac621140564c42e11c269a96dc6c536f40f95 data/dungeons_enhanced/worldgen/template_pool/desert_tomb/main.json
 9147a9be4e13ace2ef358acb520efd2f79450e1f data/dungeons_enhanced/worldgen/template_pool/desert_tomb/root.json
 abbf16434f3ab5448a17b2db8342fa03e8480517 data/dungeons_enhanced/worldgen/template_pool/desert_tomb/trap.json
 04f4bd83714fa22b19c885c4675834a056814745 data/dungeons_enhanced/worldgen/template_pool/druid_circle/bottom_big.json

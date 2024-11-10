@@ -14,116 +14,78 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:sand",
-          "weight": 10,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "weight": 10
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:rotten_flesh",
-          "weight": 6,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "weight": 6
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:bone",
-          "weight": 7,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "weight": 7
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:emerald",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "name": "minecraft:emerald"
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:gunpowder",
-          "weight": 5,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "weight": 5
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:book",
-          "weight": 2,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "weight": 2
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:charcoal",
-          "weight": 3,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "weight": 3
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:spider_eye",
-          "weight": 2,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:sandstone"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:stick",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:archer_pottery_sherd"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:miner_pottery_sherd"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:prize_pottery_sherd"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:skull_pottery_sherd"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:cactus",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:gunpowder"
         }
       ]
     }
-  ]
+  ],
+  "random_sequence": "dungeons_enhanced:chests/desert_temple/floor"
 }
