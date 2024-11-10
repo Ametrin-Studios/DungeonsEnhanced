@@ -47,7 +47,7 @@ public class DEUndergroundStructure extends DEBaseStructure {
         if (maxY > minY) {
             y = minY + context.random().nextInt(maxY - minY);
         }
-        DEStructureTemplates.Template template = Templates.getRandom(context.random());
+        DEStructureTemplates.Template template = _templates.getRandom(context.random());
         final BlockPos pos = rawPos.atY(y).above(template.yOffset);
 
         return at(pos, (builder) -> generatePieces(builder, pos, template, Rotation.getRandom(context.random()), context, DEUndergroundStructure::assemble));

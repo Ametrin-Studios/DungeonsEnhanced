@@ -53,7 +53,7 @@ public class DEFlyingStructure extends DEBaseStructure {
         }
         final BlockPos pos = rawPos.atY(y);
 
-        return at(pos, (builder) -> generatePieces(builder, pos, Templates.getRandom(context.random()), Rotation.getRandom(context.random()), context, DEFlyingStructure::assemble));
+        return at(pos, (builder) -> generatePieces(builder, pos, _templates.getRandom(context.random()), Rotation.getRandom(context.random()), context, DEFlyingStructure::assemble));
     }
 
     public static class Piece extends DEBaseStructure.Piece {

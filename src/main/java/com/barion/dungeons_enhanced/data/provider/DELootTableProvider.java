@@ -584,7 +584,7 @@ public final class DELootTableProvider extends LootTableProvider {
                         ));
             } // Pirate Ship
             {
-                consumer.accept(DELootTables.PILLAGER_CAMP.KITCHEN, LootTable.lootTable()
+                consumer.accept(DELootTables.PillagerCamp.KITCHEN, LootTable.lootTable()
                         .withPool(pool(number(12, 19))
                                 .add(item(Items.COOKED_MUTTON, 1, one()))
                                 .add(item(Items.COOKED_BEEF, 1, one()))
@@ -607,7 +607,7 @@ public final class DELootTableProvider extends LootTableProvider {
                                 .add(item(Items.WHEAT_SEEDS, 1, number(1, 3)))
                         ));
 
-                consumer.accept(DELootTables.PILLAGER_CAMP.GENERAL, LootTable.lootTable()
+                consumer.accept(DELootTables.PillagerCamp.GENERAL, LootTable.lootTable()
                         .withPool(pool(number(6, 16))
                                 .add(item(Items.MAP, 1, one()))
                                 .add(item(Items.EMERALD, 1, one()))

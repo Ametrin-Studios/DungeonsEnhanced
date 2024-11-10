@@ -38,7 +38,7 @@ public class DEUnderwaterStructure extends DEBaseStructure {
     @Override
     @Nonnull
     public Optional<GenerationStub> findGenerationPoint(@Nonnull GenerationContext context) {
-        final var piece = Templates.getRandom(context.random());
+        final var piece = _templates.getRandom(context.random());
         final var pos = DEUtil.chunkPosToBlockPosFromHeightMap(context.chunkPos(), context.chunkGenerator(), Heightmap.Types.OCEAN_FLOOR_WG, context.heightAccessor(), context.randomState()).above(piece.yOffset);
 
         if (!DETerrainAnalyzer.isUnderwater(pos, context.chunkGenerator(), 16, context.heightAccessor(), context.randomState())) {

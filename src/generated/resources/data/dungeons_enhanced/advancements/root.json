@@ -1,5 +1,21 @@
 {
   "criteria": {
+    "entered_black_citadel": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "dungeons_enhanced:black_citadel"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
     "entered_castle": {
       "conditions": {
         "player": [
@@ -426,7 +442,7 @@
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "minecraft:mossy_stone_bricks"
+      "item": "minecraft:compass"
     },
     "show_toast": false,
     "title": {
@@ -460,7 +476,8 @@
       "entered_tower_of_the_undead",
       "entered_tree_house",
       "entered_watch_tower",
-      "entered_witch_tower"
+      "entered_witch_tower",
+      "entered_black_citadel"
     ]
   ],
   "sends_telemetry_event": false

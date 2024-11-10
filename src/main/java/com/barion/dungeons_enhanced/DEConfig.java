@@ -54,6 +54,13 @@ public final class DEConfig {
             tagsStructure(builder, DEStructures.TREE_HOUSE, BiomeTags.IS_JUNGLE);
             tagsNoWaterStructure(builder, DEStructures.WATCH_TOWER, Tags.Biomes.IS_COLD_OVERWORLD);
             tagsStructure(builder, DEStructures.WITCH_TOWER, BiomeTags.IS_TAIGA);
+
+
+            // Nether
+            structureConfigBuilder(DEStructures.BLACK_CITADEL).pushBiomes()
+                    .whitelist(BiomeTags.IS_NETHER)
+                    .blacklist(Biomes.BASALT_DELTAS)
+                    .popBiomes().build(builder);
         }
 
         @SafeVarargs
@@ -86,8 +93,13 @@ public final class DEConfig {
         }
 
         private static StructureConfig.Builder.BiomeConfigBuilder structureBiomes(StructureRegistrar<? extends Structure> structure) {
-            if (structure.getStructure() == null) throw new InvalidParameterException("Need to be a single structure");
-            return StructureConfig.builder(structure.getStructure()).pushBiomes();
+            return structureConfigBuilder(structure).pushBiomes();
+        }
+
+        private static StructureConfig.Builder structureConfigBuilder(StructureRegistrar<? extends Structure> structure) {
+            if (structure.getStructure() == null)
+                throw new InvalidParameterException("Needs to be a single structure registrar");
+            return StructureConfig.builder(structure.getStructure());
         }
     }
 }

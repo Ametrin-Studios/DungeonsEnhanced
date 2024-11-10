@@ -23,8 +23,8 @@ public final class DECastle {
     public static final String ID = "castle";
 
     public static class Capability implements JigsawCapability.IJigsawCapability {
-        public static final Capability Instance = new Capability();
-        public static final Codec<Capability> CODEC = Codec.unit(Instance);
+        public static final Capability INSTANCE = new Capability();
+        public static final Codec<Capability> CODEC = Codec.unit(INSTANCE);
 
         @Override
         public JigsawCapability.JigsawType<?> getType() {
@@ -53,8 +53,7 @@ public final class DECastle {
         }
 
         @Override
-        public void handleDataMarker(String key, BlockPos blockPos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) {
-        }
+        public void handleDataMarker(String key, BlockPos blockPos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) { }
     }
 
     public static void pool(BootstapContext<StructureTemplatePool> context) {

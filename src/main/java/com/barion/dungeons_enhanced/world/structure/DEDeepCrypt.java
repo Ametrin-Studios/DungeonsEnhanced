@@ -2,7 +2,7 @@ package com.barion.dungeons_enhanced.world.structure;
 
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.registry.DEJigsawTypes;
-import com.barion.dungeons_enhanced.registry.DEProcessors;
+import com.barion.dungeons_enhanced.registry.DEProcessorLists;
 import com.barion.dungeons_enhanced.registry.DEStructures;
 import com.barion.dungeons_enhanced.registry.DETemplatePools;
 import com.legacy.structure_gel.api.structure.jigsaw.*;
@@ -21,8 +21,8 @@ public final class DEDeepCrypt {
     public static final String ID = "deep_crypt";
 
     public static class Capability implements JigsawCapability.IJigsawCapability {
-        public static final Capability Instance = new Capability();
-        public static final Codec<Capability> CODEC = Codec.unit(Instance);
+        public static final Capability INSTANCE = new Capability();
+        public static final Codec<Capability> CODEC = Codec.unit(INSTANCE);
 
         @Override
         public JigsawCapability.JigsawType<?> getType() {
@@ -59,7 +59,7 @@ public final class DEDeepCrypt {
         registry.registerBuilder().pools(registry.poolBuilder().names("root").maintainWater(false)).register(DETemplatePools.DEEP_CRYPT);
 
         var basicPool = registry.poolBuilder().maintainWater(false);
-        var Tunnels = basicPool.clone().processors(DEProcessors.AIR_TO_COBWEB.getKey()).names("tunnel", "cross");
+        var Tunnels = basicPool.clone().processors(DEProcessorLists.AIR_TO_COBWEB.getKey()).names("tunnel", "cross");
         var Treasure = basicPool.clone().names("treasure");
         var Rooms = basicPool.clone().names("big_tunnel", "large_tomb", "prison", "tomb", "tombs", "root");
 

@@ -49,8 +49,7 @@ public final class DELargeDungeon {
         }
 
         @Override
-        public void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) {
-        }
+        public void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) { }
     }
 
     public static void pool(BootstapContext<StructureTemplatePool> context) {

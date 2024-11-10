@@ -4,10 +4,7 @@ import com.barion.dungeons_enhanced.data.provider.DEAdvancementProvider;
 import com.barion.dungeons_enhanced.data.provider.DEBiomeTagsProvider;
 import com.barion.dungeons_enhanced.data.provider.DELootTableProvider;
 import com.barion.dungeons_enhanced.data.provider.DEStructureTagsProvider;
-import com.barion.dungeons_enhanced.registry.DEJigsawTypes;
-import com.barion.dungeons_enhanced.registry.DEProcessors;
-import com.barion.dungeons_enhanced.registry.DEStructures;
-import com.barion.dungeons_enhanced.registry.DETemplatePools;
+import com.barion.dungeons_enhanced.registry.*;
 import com.google.common.reflect.Reflection;
 import com.legacy.structure_gel.api.registry.registrar.RegistrarHandler;
 import net.minecraftforge.common.MinecraftForge;
@@ -34,7 +31,7 @@ public final class DungeonsEnhanced {
         modBus.addListener(DungeonsEnhanced::gatherData);
         modBus.addListener(DEJigsawTypes::register);
 
-        RegistrarHandler.registerHandlers(MOD_ID, modBus, DETemplatePools.HANDLER, DEProcessors.HANDLER);
+        RegistrarHandler.registerHandlers(MOD_ID, modBus, DETemplatePools.HANDLER, DEProcessorLists.HANDLER);
     }
 
     public static void gatherData(GatherDataEvent event) {

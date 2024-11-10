@@ -14,6 +14,8 @@ public final class DEJigsawTypes {
     public static final JigsawCapability.JigsawType<DEMonsterMaze.Capability> MONSTER_MAZE = () -> DEMonsterMaze.Capability.CODEC;
     public static final JigsawCapability.JigsawType<DEPillagerCamp.Capability> PILLAGER_CAMP = () -> DEPillagerCamp.Capability.CODEC;
 
+    public static final JigsawCapability.JigsawType<DEBlackCitadel.Capability> BLACK_CITADEL = () -> DEBlackCitadel.Capability.CODEC;
+
     // RegisterJigsawCapabilityEvent is deprecated but even used by Dungeons Plus
     public static void register(final RegisterJigsawCapabilityEvent event) {
         register(event, "castle", CASTLE);
@@ -23,6 +25,8 @@ public final class DEJigsawTypes {
         register(event, "large_dungeon", LARGE_DUNGEON);
         register(event, "monster_maze", MONSTER_MAZE);
         register(event, "pillager_camp", PILLAGER_CAMP);
+
+        register(event, DEBlackCitadel.ID, BLACK_CITADEL);
     }
 
     private static void register(final RegisterJigsawCapabilityEvent event, String key, JigsawCapability.JigsawType<?> type) {

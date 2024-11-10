@@ -39,7 +39,7 @@ public class DESwimmingStructure extends DEBaseStructure {
     @Override
     @Nonnull
     public Optional<GenerationStub> findGenerationPoint(@Nonnull GenerationContext context) {
-        DEStructureTemplates.Template template = Templates.getRandom(context.random());
+        DEStructureTemplates.Template template = _templates.getRandom(context.random());
         BlockPos pos = getGenPos(context).above(template.yOffset);
 
         return at(pos, (builder) -> generatePieces(builder, pos, template, Rotation.getRandom(context.random()), context, DESwimmingStructure::assemble));

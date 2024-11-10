@@ -22,7 +22,7 @@ eclipse
 run/
 !/run/config
 !/run/saves/JigsawStructures
-!/run/saves/Structures
+!/run/saves/Structures_old
 !run/options.txt
 
 /structureList.xcf

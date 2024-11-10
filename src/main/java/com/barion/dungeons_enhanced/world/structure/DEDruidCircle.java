@@ -53,8 +53,7 @@ public final class DEDruidCircle {
         }
 
         @Override
-        public void handleDataMarker(String key, BlockPos blockPos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) {
-        }
+        public void handleDataMarker(String key, BlockPos blockPos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) { }
     }
 
     public static void pool(BootstapContext<StructureTemplatePool> context) {

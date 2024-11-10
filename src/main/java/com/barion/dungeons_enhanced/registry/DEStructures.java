@@ -57,13 +57,16 @@ public final class DEStructures {
     public static final StructureRegistrar<DEGroundStructure> WATCH_TOWER;
     public static final StructureRegistrar<DEGroundStructure> WITCH_TOWER;
 
+    //Nether
+    public static final StructureRegistrar<ExtendedJigsawStructure> BLACK_CITADEL;
+
     private DEStructures() { }
 
     static {
         CASTLE = StructureRegistrar.jigsawBuilder(locate(DECastle.ID))
                 .placement(()-> gridPlacement(69, 78).build(DEStructures.CASTLE))
                 .addPiece(()-> DECastle.Piece::new)
-                .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DECastle.Capability.Instance, DETemplatePools.CASTLE, 1, ConstantHeight.ZERO).onSurface().build())
+                .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DECastle.Capability.INSTANCE, DETemplatePools.CASTLE, 1, ConstantHeight.ZERO).onSurface().build())
                         .dimensions(Level.OVERWORLD)
                         .terrainAdjustment(TerrainAdjustment.BEARD_BOX)
                 .popStructure()
@@ -72,7 +75,7 @@ public final class DEStructures {
         DEEP_CRYPT = StructureRegistrar.jigsawBuilder(locate(DEDeepCrypt.ID))
                 .placement(()-> gridPlacement(39, 67).build(DEStructures.DEEP_CRYPT))
                 .addPiece(()-> DEDeepCrypt.Piece::new)
-                .pushStructure((context, settings) -> extendedJigsawStructure(context, settings, DEDeepCrypt.Capability.Instance, DETemplatePools.DEEP_CRYPT, 4, UniformHeight.of(VerticalAnchor.aboveBottom(16), VerticalAnchor.aboveBottom(48))).build())
+                .pushStructure((context, settings) -> extendedJigsawStructure(context, settings, DEDeepCrypt.Capability.INSTANCE, DETemplatePools.DEEP_CRYPT, 4, UniformHeight.of(VerticalAnchor.aboveBottom(16), VerticalAnchor.aboveBottom(48))).build())
                         .dimensions(Level.OVERWORLD)
                         .generationStep(GenerationStep.Decoration.UNDERGROUND_STRUCTURES)
                 .popStructure()
@@ -285,6 +288,18 @@ public final class DEStructures {
                         .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
                 .popStructure()
                 .build();
+
+        // Nether
+        BLACK_CITADEL = StructureRegistrar.jigsawBuilder(locate(DEBlackCitadel.ID))
+                .placement(()-> gridPlacement(67, 75).build(DEStructures.BLACK_CITADEL))
+                .addPiece(()-> DEBlackCitadel.Piece::new)
+                .pushStructure((context, settings) -> extendedJigsawStructure(context, settings, DEBlackCitadel.Capability.INSTANCE, DETemplatePools.BLACK_CITADEL, 6, height(28)).maxDistanceFromCenter(116).build())
+                .spawns(MobCategory.MONSTER, StructureSpawnOverride.BoundingBoxType.PIECE, spawns(spawn(EntityType.WITHER_SKELETON, 4, 2, 5), spawn(EntityType.SKELETON, 1, 1, 3)))
+                .dimensions(Level.NETHER)
+                .generationStep(GenerationStep.Decoration.UNDERGROUND_STRUCTURES) //needs to generate after the basalt
+                .terrainAdjustment(TerrainAdjustment.BEARD_BOX)
+                .popStructure()
+                .build();
     }
 
     public static final StructureRegistrar<?>[] ALL_STRUCTURE_REGISTRARS = {
@@ -313,7 +328,9 @@ public final class DEStructures {
             TOWER_OF_THE_UNDEAD,
             TREE_HOUSE,
             WATCH_TOWER,
-            WITCH_TOWER
+            WITCH_TOWER,
+
+            BLACK_CITADEL
     };
 
     private static ConstantHeight height(int y) {

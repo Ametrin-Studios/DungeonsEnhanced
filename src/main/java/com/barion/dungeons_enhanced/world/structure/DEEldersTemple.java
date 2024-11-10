@@ -47,7 +47,7 @@ public final class DEEldersTemple extends DEUnderwaterStructure {
             return Optional.empty();
         }
 
-        return at(pos, (builder) -> generatePieces(builder, pos, Templates.getRandom(context.random()), Rotation.getRandom(context.random()), context, DEEldersTemple::assembleTemple));
+        return at(pos, (builder) -> generatePieces(builder, pos, _templates.getRandom(context.random()), Rotation.getRandom(context.random()), context, DEEldersTemple::assembleTemple));
     }
 
     public static void assembleTemple(DEPieceAssembler.Context context) {

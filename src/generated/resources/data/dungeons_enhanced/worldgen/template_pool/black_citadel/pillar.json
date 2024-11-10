@@ -1,0 +1,50 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:black_citadel/bridge_pillar/normal",
+        "processors": "dungeons_enhanced:black_citadel/default",
+        "projection": "rigid"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:black_citadel/bridge_pillar/bones",
+        "processors": "dungeons_enhanced:black_citadel/default",
+        "projection": "rigid"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:black_citadel/bridge_pillar/end_cage",
+        "processors": "dungeons_enhanced:black_citadel/default",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:black_citadel/bridge_tower/broken",
+        "processors": "dungeons_enhanced:black_citadel/default",
+        "projection": "rigid"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:black_citadel/bridge_pillar/end",
+        "processors": "dungeons_enhanced:black_citadel/default",
+        "projection": "rigid"
+      },
+      "weight": 2
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

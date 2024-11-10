@@ -1,6 +1,6 @@
 package com.barion.dungeons_enhanced.world.structure.processor;
 
-import com.barion.dungeons_enhanced.registry.DEProcessors;
+import com.barion.dungeons_enhanced.registry.DEProcessorTypes;
 import com.google.common.collect.ImmutableMap;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
@@ -47,16 +47,19 @@ public final class DESwapDeadCoralsProcessor extends StructureProcessor {
             .put(Blocks.DEAD_TUBE_CORAL_WALL_FAN, Blocks.TUBE_CORAL_WALL_FAN)
             .build();
 
-    private DESwapDeadCoralsProcessor() {}
+    private DESwapDeadCoralsProcessor() { }
 
-    @Override @Nullable @ParametersAreNonnullByDefault
+    @Override
+    @ParametersAreNonnullByDefault
     public StructureTemplate.StructureBlockInfo process(LevelReader level, BlockPos pos, BlockPos pos2, StructureTemplate.StructureBlockInfo existing, StructureTemplate.StructureBlockInfo placed, StructurePlaceSettings settings, @Nullable StructureTemplate template) {
-        if(!DEATH_TO_LIVING_CORAL.containsKey(placed.state().getBlock())) return placed;
+        if (!DEATH_TO_LIVING_CORAL.containsKey(placed.state().getBlock())) return placed;
 
         var livingCoral = DEATH_TO_LIVING_CORAL.get(placed.state().getBlock()).withPropertiesOf(placed.state());
         return new StructureTemplate.StructureBlockInfo(placed.pos(), livingCoral, null);
     }
 
     @Override
-    protected @NotNull StructureProcessorType<?> getType() {return DEProcessors.Types.SWAP_DEAD_CORALS_PROCESSOR;}
+    protected @NotNull StructureProcessorType<?> getType() {
+        return DEProcessorTypes.SWAP_DEAD_CORALS_PROCESSOR;
+    }
 }

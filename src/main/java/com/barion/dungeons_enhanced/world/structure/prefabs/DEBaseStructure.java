@@ -29,12 +29,12 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public abstract class DEBaseStructure extends Structure {
-    protected final DEStructureTemplates Templates;
+    protected final DEStructureTemplates _templates;
     protected final Supplier<StructureType<?>> TypeSupplier;
 
     public DEBaseStructure(StructureSettings settings, DEStructureTemplates templates, Supplier<StructureType<?>> type) {
         super(settings);
-        Templates = templates;
+        _templates = templates;
         TypeSupplier = type;
     }
 

@@ -106,7 +106,7 @@ public class DEGroundStructure extends DEBaseStructure {
     @Override
     @Nonnull
     public Optional<GenerationStub> findGenerationPoint(@Nonnull GenerationContext context) {
-        final var piece = Templates.getRandom(context.random());
+        final var piece = _templates.getRandom(context.random());
         final var rawPos = getGenPos(context.chunkPos()).above(piece.yOffset);
         final var rotation = Rotation.getRandom(context.random());
 

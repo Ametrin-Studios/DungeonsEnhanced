@@ -1,3 +1,7 @@
+## 5.3.0
+- added Black Citadel
+- updated various loot tables
+
 ## 5.2.1
 - fixes
 - requires Structure Gel API 1.15.0+
