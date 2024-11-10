@@ -35,29 +35,35 @@ public final class DEEldersTemple extends DEUnderwaterStructure {
         super(settings, DEUtil.pieceBuilder().add("elders_temple/se").build(), DEStructures.ELDERS_TEMPLE::getType);
     }
 
-    @Override @Nonnull
+    @Override
+    @Nonnull
     public Optional<GenerationStub> findGenerationPoint(@Nonnull GenerationContext context) {
         final BlockPos pos = DEUtil.chunkPosToBlockPosFromHeightMap(context.chunkPos(), context.chunkGenerator(), Heightmap.Types.OCEAN_FLOOR_WG, context.heightAccessor(), context.randomState());
 
-        if(!DETerrainAnalyzer.isUnderwater(pos, context.chunkGenerator(), 32, context.heightAccessor(), context.randomState())) { return Optional.empty(); }
-        if(!DETerrainAnalyzer.areNearbyBiomesValid(context.biomeSource(), pos, context.chunkGenerator(), 30, context.validBiome(), context.randomState())) { return Optional.empty(); }
+        if (!DETerrainAnalyzer.isUnderwater(pos, context.chunkGenerator(), 32, context.heightAccessor(), context.randomState())) {
+            return Optional.empty();
+        }
+        if (!DETerrainAnalyzer.areNearbyBiomesValid(context.biomeSource(), pos, context.chunkGenerator(), 30, context.validBiome(), context.randomState())) {
+            return Optional.empty();
+        }
 
         return at(pos, (builder) -> generatePieces(builder, pos, _templates.getRandom(context.random()), Rotation.getRandom(context.random()), context, DEEldersTemple::assembleTemple));
     }
 
     public static void assembleTemple(DEPieceAssembler.Context context) {
         var rotation = Rotation.NONE;
-        context.piecesBuilder().addPiece(new Piece(context.structureManager(), SE, context.pos().offset(0,0,0), rotation));
+        context.piecesBuilder().addPiece(new Piece(context.structureManager(), SE, context.pos().offset(0, 0, 0), rotation));
         context.piecesBuilder().addPiece(new Piece(context.structureManager(), SW, context.pos().offset(-30, 0, 0), rotation));
         context.piecesBuilder().addPiece(new Piece(context.structureManager(), NE, context.pos().offset(0, 0, -29), rotation));
         context.piecesBuilder().addPiece(new Piece(context.structureManager(), NW, context.pos().offset(-30, 0, -29), rotation));
     }
 
     public static class Piece extends DEBaseStructure.Piece {
-        public Piece(StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation){
+        public Piece(StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation) {
             super(DEStructures.ELDERS_TEMPLE.getPieceType(), structureManager, templateName, pos, rotation);
         }
-        public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt){
+
+        public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) {
             super(DEStructures.ELDERS_TEMPLE.getPieceType(), serializationContext, nbt);
         }
 

@@ -34,7 +34,7 @@ import java.util.function.Consumer;
 import static com.barion.dungeons_enhanced.DEUtil.locate;
 
 public final class DEAdvancementProvider extends AdvancementProvider {
-    public DEAdvancementProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, ExistingFileHelper existingFileHelper){
+    public DEAdvancementProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, ExistingFileHelper existingFileHelper) {
         super(output, lookupProvider, existingFileHelper, List.of(new DEExplorerAdvancementSubProvider()));
     }
 
@@ -131,7 +131,7 @@ public final class DEAdvancementProvider extends AdvancementProvider {
         }
     }
 
-    private static class AdvancementBuilder{
+    private static class AdvancementBuilder {
         private final String _id;
         private final ItemStack _displayItem;
         private AdvancementHolder _parent = null;
@@ -147,84 +147,105 @@ public final class DEAdvancementProvider extends AdvancementProvider {
             _id = id;
             _displayItem = displayItem;
         }
+
         private AdvancementBuilder(String id, ItemLike displayItem) {
             this(id, displayItem.asItem().getDefaultInstance());
         }
 
-        private AdvancementBuilder parent(AdvancementHolder parent){
+        private AdvancementBuilder parent(AdvancementHolder parent) {
             _parent = parent;
             return this;
         }
 
-        public AdvancementBuilder background(String background) {return background(new ResourceLocation(background));}
-        public AdvancementBuilder background(ResourceLocation background){
+        public AdvancementBuilder background(String background) {
+            return background(new ResourceLocation(background));
+        }
+
+        public AdvancementBuilder background(ResourceLocation background) {
             _background = background;
             return this;
         }
 
-        public AdvancementBuilder type(AdvancementType type){
+        public AdvancementBuilder type(AdvancementType type) {
             _type = type;
             return this;
         }
 
-        public AdvancementBuilder hideCompletely(){
+        public AdvancementBuilder hideCompletely() {
             return hideToast().hideInChat().hide();
         }
 
-        public AdvancementBuilder hideToast(){return showToast(false);}
-        public AdvancementBuilder showToast(boolean show){
+        public AdvancementBuilder hideToast() {
+            return showToast(false);
+        }
+
+        public AdvancementBuilder showToast(boolean show) {
             _showToast = show;
             return this;
         }
 
-        public AdvancementBuilder hideInChat(){return announceToChat(false);}
-        public AdvancementBuilder announceToChat(boolean announce){
+        public AdvancementBuilder hideInChat() {
+            return announceToChat(false);
+        }
+
+        public AdvancementBuilder announceToChat(boolean announce) {
             _announceToChat = announce;
             return this;
         }
 
-        public AdvancementBuilder hide(){return hidden(true);}
-        public AdvancementBuilder hidden(boolean hidden){
+        public AdvancementBuilder hide() {
+            return hidden(true);
+        }
+
+        public AdvancementBuilder hidden(boolean hidden) {
             _hidden = hidden;
             return this;
         }
 
-        public AdvancementBuilder orCriterions() {return criterionStrategy(AdvancementRequirements.Strategy.OR);}
-        public AdvancementBuilder criterionStrategy(AdvancementRequirements.Strategy strategy){
+        public AdvancementBuilder orCriterions() {
+            return criterionStrategy(AdvancementRequirements.Strategy.OR);
+        }
+
+        public AdvancementBuilder criterionStrategy(AdvancementRequirements.Strategy strategy) {
             _criterionStrategy = strategy;
             return this;
         }
 
-        public AdvancementBuilder onEnterStructures(StructureRegistrar<?>... structureRegistrars){
-            for(StructureRegistrar<?> structure : structureRegistrars){
+        public AdvancementBuilder onEnterStructures(StructureRegistrar<?>... structureRegistrars) {
+            for (StructureRegistrar<?> structure : structureRegistrars) {
                 onEnterStructure(structure);
             }
             return this;
         }
 
-        public AdvancementBuilder onEnterStructure(@NotNull StructureRegistrar<?> structureRegistrar){return onEnterStructure(Objects.requireNonNull(structureRegistrar.getStructure()));}
-        public AdvancementBuilder onEnterStructure(@NotNull Registrar.Pointer<Structure> structurePointer){
+        public AdvancementBuilder onEnterStructure(@NotNull StructureRegistrar<?> structureRegistrar) {
+            return onEnterStructure(Objects.requireNonNull(structureRegistrar.getStructure()));
+        }
+
+        public AdvancementBuilder onEnterStructure(@NotNull Registrar.Pointer<Structure> structurePointer) {
             _criterions.add(new Pair<>(
                     "entered_" + structurePointer.getKey().location().getPath(),
                     PlayerTrigger.TriggerInstance.located(LocationPredicate.Builder.inStructure(structurePointer.getKey()))));
             return this;
         }
 
-        public AdvancementHolder save(@NotNull Consumer<AdvancementHolder> consumer, @NotNull ExistingFileHelper existingFileHelper){
-            var builder =  new Advancement.Builder()
+        public AdvancementHolder save(@NotNull Consumer<AdvancementHolder> consumer, @NotNull ExistingFileHelper existingFileHelper) {
+            var builder = new Advancement.Builder()
                     .display(_displayItem, component(_id), component(_id + ".desc"), _background, _type, _showToast, _announceToChat, _hidden)
                     .requirements(_criterionStrategy);
-            for (var pair : _criterions){
+            for (var pair : _criterions) {
                 builder.addCriterion(pair.getFirst(), pair.getSecond());
             }
-            if(_parent != null) builder.parent(_parent);
+            if (_parent != null) builder.parent(_parent);
             return builder.save(consumer, locate(_id), existingFileHelper);
         }
 
-        private static Component component(String key) {return Component.translatable("advancements.dungeons_enhanced." + key);}
+        private static Component component(String key) {
+            return Component.translatable("advancements.dungeons_enhanced." + key);
+        }
     }
 
-    private static class BannerBuilder{
+    private static class BannerBuilder {
         private static final String PATTERNS = "Patterns";
         private static final String PATTERN = "Pattern";
         private static final String COLOR = "Color";
@@ -232,11 +253,11 @@ public final class DEAdvancementProvider extends AdvancementProvider {
         private final CompoundTag _blockTag = new CompoundTag();
         private final ListTag _patternsTag = _blockTag.getList(PATTERNS, 10);
 
-        public BannerBuilder(Item item){
+        public BannerBuilder(Item item) {
             _bannerStack = item.getDefaultInstance().copy();
         }
 
-        public BannerBuilder addPattern(ResourceKey<BannerPattern> pattern, DyeColor color){
+        public BannerBuilder addPattern(ResourceKey<BannerPattern> pattern, DyeColor color) {
             var patternTag = new CompoundTag();
             patternTag.putString(PATTERN, Objects.requireNonNull(BuiltInRegistries.BANNER_PATTERN.get(pattern)).getHashname());
             patternTag.putInt(COLOR, color.getId());
@@ -244,7 +265,7 @@ public final class DEAdvancementProvider extends AdvancementProvider {
             return this;
         }
 
-        public ItemStack build(){
+        public ItemStack build() {
             _blockTag.put(PATTERNS, _patternsTag);
             BlockItem.setBlockEntityData(_bannerStack, BlockEntityType.BANNER, _blockTag);
             return _bannerStack;

@@ -26,17 +26,30 @@ public final class DEDesertTomb {
         public static final Codec<Capability> CODEC = Codec.unit(INSTANCE);
 
         @Override
-        public JigsawCapabilityType<?> getType() { return DEJigsawTypes.DESERT_TOMB.get(); }
+        public JigsawCapabilityType<?> getType() {
+            return DEJigsawTypes.DESERT_TOMB.get();
+        }
+
         @Override
-        public IPieceFactory getPieceFactory() { return Piece::new; }
+        public IPieceFactory getPieceFactory() {
+            return Piece::new;
+        }
     }
 
     public static class Piece extends ExtendedJigsawStructurePiece {
-        public Piece(IPieceFactory.Context context) { super(context); }
-        public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) { super(serializationContext, nbt); }
+        public Piece(IPieceFactory.Context context) {
+            super(context);
+        }
+
+        public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) {
+            super(serializationContext, nbt);
+        }
 
         @Override
-        public StructurePieceType getType() { return DEStructures.DESERT_TOMB.getPieceType().get(); }
+        public StructurePieceType getType() {
+            return DEStructures.DESERT_TOMB.getPieceType().get();
+        }
+
         @Override
         public void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) { }
     }

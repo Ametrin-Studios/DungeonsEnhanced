@@ -18,22 +18,26 @@ public final class DEIcePit extends DEGroundStructure {
     public static final String ID = "ice_pit";
     public static final Codec<DEIcePit> CODEC = simpleCodec(DEIcePit::new);
     private static final ResourceLocation ENTRANCE = locate("ice_pit/top");
+
     public DEIcePit(StructureSettings settings) {
         super(settings, DEUtil.pieceBuilder().yOffset(-25).add("ice_pit/var1").add("ice_pit/var2").add("ice_pit/var3").build(), DEStructures.ICE_PIT::getType);
     }
 
-    @Override @Nonnull
+    @Override
+    @Nonnull
     public Optional<GenerationStub> findGenerationPoint(@Nonnull GenerationContext context) {
         var template = _templates.getRandom(context.random());
         final var pos = DEUtil.chunkPosToBlockPosFromHeightMap(context.chunkPos(), context.chunkGenerator(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor(), context.randomState()).above(template.yOffset);
-        return at(pos, (builder)-> generatePieces(builder, pos, template, Rotation.getRandom(context.random()), context, DEIcePit::assembleIcePit));
+        return at(pos, (builder) -> generatePieces(builder, pos, template, Rotation.getRandom(context.random()), context, DEIcePit::assembleIcePit));
     }
 
     private static void assembleIcePit(DEPieceAssembler.Context context) {
         var pos = context.pos();
         context.piecesBuilder().addPiece(new Piece(context.structureManager(), ENTRANCE, pos, context.rotation()));
         int yOffset = -6;
-        if(context.piece().getPath().contains("var3")) { yOffset = -11; }
-        context.piecesBuilder().addPiece(new Piece(context.structureManager(), context.piece(), pos.offset(-17, yOffset,-17), context.rotation()));
+        if (context.piece().getPath().contains("var3")) {
+            yOffset = -11;
+        }
+        context.piecesBuilder().addPiece(new Piece(context.structureManager(), context.piece(), pos.offset(-17, yOffset, -17), context.rotation()));
     }
 }

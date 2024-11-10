@@ -17,25 +17,41 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSeriali
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
-public class DEDeepCrypt {
+public final class DEDeepCrypt {
     public static final String ID = "deep_crypt";
-    public static class Capability implements JigsawCapability{
+
+    public static class Capability implements JigsawCapability {
         public static final Capability INSTANCE = new Capability();
         public static final Codec<Capability> CODEC = Codec.unit(INSTANCE);
 
         @Override
-        public JigsawCapabilityType<?> getType() { return DEJigsawTypes.DEEP_CRYPT.get(); }
-        @Override
-        public IPieceFactory getPieceFactory() { return Piece::new; }
-    }
-    public static class Piece extends ExtendedJigsawStructurePiece {
-        public Piece(IPieceFactory.Context context) {super(context);}
-        public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) { super(serializationContext, nbt); }
+        public JigsawCapabilityType<?> getType() {
+            return DEJigsawTypes.DEEP_CRYPT.get();
+        }
 
         @Override
-        public StructurePieceType getType() { return DEStructures.DEEP_CRYPT.getPieceType().get(); }
+        public IPieceFactory getPieceFactory() {
+            return Piece::new;
+        }
+    }
+
+    public static class Piece extends ExtendedJigsawStructurePiece {
+        public Piece(IPieceFactory.Context context) {
+            super(context);
+        }
+
+        public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) {
+            super(serializationContext, nbt);
+        }
+
         @Override
-        public void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) {}
+        public StructurePieceType getType() {
+            return DEStructures.DEEP_CRYPT.getPieceType().get();
+        }
+
+        @Override
+        public void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) {
+        }
     }
 
     public static void pool(BootstapContext<StructureTemplatePool> context) {

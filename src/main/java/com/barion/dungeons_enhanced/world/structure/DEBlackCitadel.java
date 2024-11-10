@@ -25,22 +25,37 @@ public final class DEBlackCitadel {
     public static class Capability implements JigsawCapability {
         public static final Capability INSTANCE = new Capability();
         public static final Codec<Capability> CODEC = Codec.unit(INSTANCE);
+
         @Override
-        public JigsawCapabilityType<?> getType() { return DEJigsawTypes.BLACK_CITADEL.get(); }
+        public JigsawCapabilityType<?> getType() {
+            return DEJigsawTypes.BLACK_CITADEL.get();
+        }
+
         @Override
-        public IPieceFactory getPieceFactory() { return Piece::new; }
+        public IPieceFactory getPieceFactory() {
+            return Piece::new;
+        }
     }
 
     public static class Piece extends ExtendedJigsawStructurePiece {
-        public Piece(IPieceFactory.Context context) { super(context); }
-        public Piece(StructurePieceSerializationContext context, CompoundTag nbt) { super(context, nbt); }
-        @Override
-        public StructurePieceType getType() { return DEStructures.BLACK_CITADEL.getPieceType().get(); }
+        public Piece(IPieceFactory.Context context) {
+            super(context);
+        }
 
-        @Override @ParametersAreNonnullByDefault
+        public Piece(StructurePieceSerializationContext context, CompoundTag nbt) {
+            super(context, nbt);
+        }
+
+        @Override
+        public StructurePieceType getType() {
+            return DEStructures.BLACK_CITADEL.getPieceType().get();
+        }
+
+        @Override
+        @ParametersAreNonnullByDefault
         public void place(WorldGenLevel level, StructureManager structureManager, ChunkGenerator generator, RandomSource random, BoundingBox bounds, BlockPos pos, boolean keepJigsaws) {
             super.place(level, structureManager, generator, random, bounds, pos, keepJigsaws);
-            if(getLocation().getPath().contains("pillar") || getLocation().getPath().contains("tower")){
+            if (getLocation().getPath().contains("pillar") || getLocation().getPath().contains("tower")) {
                 this.extendDown(level, Blocks.POLISHED_BLACKSTONE_BRICKS.defaultBlockState(), bounds, rotation, random);
             }
         }

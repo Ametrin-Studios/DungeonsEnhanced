@@ -16,30 +16,44 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSeriali
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
-public class DEDruidCircle {
+public final class DEDruidCircle {
     public static final String ID = "druid_circle";
 
-    public static class Capability implements JigsawCapability{
+    public static class Capability implements JigsawCapability {
         public static final Capability INSTANCE = new Capability();
         public static final Codec<Capability> CODEC = Codec.unit(INSTANCE);
 
         @Override
-        public JigsawCapabilityType<?> getType(){return DEJigsawTypes.DRUID_CIRCLE.get();}
+        public JigsawCapabilityType<?> getType() {
+            return DEJigsawTypes.DRUID_CIRCLE.get();
+        }
+
         @Override
-        public IPieceFactory getPieceFactory() {return Piece::new;}
+        public IPieceFactory getPieceFactory() {
+            return Piece::new;
+        }
 
     }
 
     public static class Piece extends ExtendedJigsawStructurePiece {
-        public Piece(IPieceFactory.Context context) {super(context);}
-        public Piece(StructurePieceSerializationContext context, CompoundTag nbt) {super(context, nbt);}
+        public Piece(IPieceFactory.Context context) {
+            super(context);
+        }
+
+        public Piece(StructurePieceSerializationContext context, CompoundTag nbt) {
+            super(context, nbt);
+        }
+
         @Override
-        public StructurePieceType getType() {return DEStructures.DRUID_CIRCLE.getPieceType().get();}
+        public StructurePieceType getType() {
+            return DEStructures.DRUID_CIRCLE.getPieceType().get();
+        }
+
         @Override
-        public void handleDataMarker(String key, BlockPos blockPos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) {}
+        public void handleDataMarker(String key, BlockPos blockPos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) { }
     }
 
-    public static void pool(BootstapContext<StructureTemplatePool> context){
+    public static void pool(BootstapContext<StructureTemplatePool> context) {
         var registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "druid_circle/", context);
         registry.registerBuilder().pools(registry.poolBuilder().names("top_big", "small").maintainWater(false)).register(DETemplatePools.DRUID_CIRCLE);
 

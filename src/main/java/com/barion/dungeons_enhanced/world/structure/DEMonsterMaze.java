@@ -24,16 +24,30 @@ public final class DEMonsterMaze {
         public static final Codec<Capability> CODEC = Codec.unit(INSTANCE);
 
         @Override
-        public JigsawCapabilityType<?> getType() { return DEJigsawTypes.MONSTER_MAZE.get(); }
-        @Override
-        public IPieceFactory getPieceFactory() { return Piece::new; }
-    }
-    public static class Piece extends ExtendedJigsawStructurePiece {
-        public Piece(IPieceFactory.Context context) { super(context); }
-        public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) { super(serializationContext, nbt); }
+        public JigsawCapabilityType<?> getType() {
+            return DEJigsawTypes.MONSTER_MAZE.get();
+        }
 
         @Override
-        public StructurePieceType getType() { return DEStructures.MONSTER_MAZE.getPieceType().get(); }
+        public IPieceFactory getPieceFactory() {
+            return Piece::new;
+        }
+    }
+
+    public static class Piece extends ExtendedJigsawStructurePiece {
+        public Piece(IPieceFactory.Context context) {
+            super(context);
+        }
+
+        public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) {
+            super(serializationContext, nbt);
+        }
+
+        @Override
+        public StructurePieceType getType() {
+            return DEStructures.MONSTER_MAZE.getPieceType().get();
+        }
+
         @Override
         public void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) { }
     }
