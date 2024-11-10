@@ -11,7 +11,7 @@ import java.util.Optional;
 @FunctionalInterface
 public interface DEPlacement {
     DEPlacement ON_WORLD_SURFACE_FLAT = ((context, filter, pieceFactory) ->{
-        final var rawPos = DEUtil.ChunkPosToBlockPos(context.chunkPos(), 0);
+        final var rawPos = DEUtil.chunkPosToBlockPos(context.chunkPos(), 0);
         var piece = pieceFactory.createPiece(context.structureTemplateManager(), rawPos, context.random());
 
         final var size = piece.getSize();
@@ -24,7 +24,7 @@ public interface DEPlacement {
         return Optional.of(new Structure.GenerationStub(pos, (builder)-> builder.addPiece(piece)));
     });
     DEPlacement ON_OCEAN_FLOOR = ((context, filter, pieceFactory) ->{
-        final var rawPos = DEUtil.ChunkPosToBlockPos(context.chunkPos(), 0);
+        final var rawPos = DEUtil.chunkPosToBlockPos(context.chunkPos(), 0);
         var piece = pieceFactory.createPiece(context.structureTemplateManager(), rawPos, context.random());
 
         final var size = piece.getSize();
@@ -37,7 +37,7 @@ public interface DEPlacement {
         return Optional.of(new Structure.GenerationStub(pos, (builder)-> builder.addPiece(piece)));
     });
     DEPlacement ABOVE_GROUND = ((context, filter, pieceFactory) ->{
-        BlockPos rawPos = DEUtil.ChunkPosToBlockPosFromHeightMap(context.chunkPos(), context.chunkGenerator(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor(), context.randomState());
+        BlockPos rawPos = DEUtil.chunkPosToBlockPosFromHeightMap(context.chunkPos(), context.chunkGenerator(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor(), context.randomState());
 
         if(rawPos.getY() > 224) { return Optional.empty(); }
 
@@ -54,7 +54,7 @@ public interface DEPlacement {
     });
 
     DEPlacement UNDERGROUND = ((context, filter, pieceFactory)->{
-        var groundPos = DEUtil.ChunkPosToBlockPosFromHeightMap(context.chunkPos(), context.chunkGenerator(), Heightmap.Types.OCEAN_FLOOR_WG, context.heightAccessor(), context.randomState());
+        var groundPos = DEUtil.chunkPosToBlockPosFromHeightMap(context.chunkPos(), context.chunkGenerator(), Heightmap.Types.OCEAN_FLOOR_WG, context.heightAccessor(), context.randomState());
 
         if(groundPos.getY() < 0) { return Optional.empty(); }
 
@@ -71,7 +71,7 @@ public interface DEPlacement {
     });
 
     DEPlacement ON_WORLD_SURFACE = ((context, filter, pieceFactory) -> {
-        var pos = DEUtil.ChunkPosToBlockPosFromHeightMap(context.chunkPos(), context.chunkGenerator(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor(), context.randomState());
+        var pos = DEUtil.chunkPosToBlockPosFromHeightMap(context.chunkPos(), context.chunkGenerator(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor(), context.randomState());
 
         return Optional.of(new Structure.GenerationStub(pos, builder -> builder.addPiece(pieceFactory.createPiece(context.structureTemplateManager(), pos, context.random()))));
     });

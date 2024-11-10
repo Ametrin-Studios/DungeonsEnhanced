@@ -22,6 +22,7 @@ public interface DELootTables {
         ResourceLocation GARDEN = chest("ice_pit/garden");
         ResourceLocation HALL = chest("ice_pit/hall");
     }
+
     interface JungleMonument {
         ResourceLocation FLOOR = chest("jungle_monument/floor");
         ResourceLocation TREASURE = chest("jungle_monument/treasure");

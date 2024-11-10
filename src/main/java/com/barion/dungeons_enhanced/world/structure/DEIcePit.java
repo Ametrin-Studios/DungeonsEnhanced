@@ -25,7 +25,7 @@ public final class DEIcePit extends DEGroundStructure {
     @Override @Nonnull
     public Optional<GenerationStub> findGenerationPoint(@Nonnull GenerationContext context) {
         var template = _templates.getRandom(context.random());
-        final var pos = DEUtil.ChunkPosToBlockPosFromHeightMap(context.chunkPos(), context.chunkGenerator(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor(), context.randomState()).above(template.yOffset);
+        final var pos = DEUtil.chunkPosToBlockPosFromHeightMap(context.chunkPos(), context.chunkGenerator(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor(), context.randomState()).above(template.yOffset);
         return at(pos, (builder)-> generatePieces(builder, pos, template, Rotation.getRandom(context.random()), context, DEIcePit::assembleIcePit));
     }
 

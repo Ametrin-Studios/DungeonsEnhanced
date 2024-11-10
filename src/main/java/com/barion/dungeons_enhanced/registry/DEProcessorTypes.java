@@ -12,7 +12,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProc
 public final class DEProcessorTypes {
     public static final StructureProcessorType<DEUnderwaterProcessor> UNDERWATER = () -> DEUnderwaterProcessor.CODEC;
     public static final StructureProcessorType<DESwapDeadCoralsProcessor> SWAP_DEAD_CORALS_PROCESSOR = () -> DESwapDeadCoralsProcessor.CODEC;
-    public static final StructureProcessorType<KeepStateRandomBlockSwapProcessor> KEEP_STATE_RANDOM_BLOCK_SWAP = ()-> KeepStateRandomBlockSwapProcessor.CODEC;
+    public static final StructureProcessorType<KeepStateRandomBlockSwapProcessor> KEEP_STATE_RANDOM_BLOCK_SWAP = () -> KeepStateRandomBlockSwapProcessor.CODEC;
 
     public static void register() {
         register("underwater", UNDERWATER);

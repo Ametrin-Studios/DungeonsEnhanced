@@ -37,7 +37,7 @@ public final class DEEldersTemple extends DEUnderwaterStructure {
 
     @Override @Nonnull
     public Optional<GenerationStub> findGenerationPoint(@Nonnull GenerationContext context) {
-        final BlockPos pos = DEUtil.ChunkPosToBlockPosFromHeightMap(context.chunkPos(), context.chunkGenerator(), Heightmap.Types.OCEAN_FLOOR_WG, context.heightAccessor(), context.randomState());
+        final BlockPos pos = DEUtil.chunkPosToBlockPosFromHeightMap(context.chunkPos(), context.chunkGenerator(), Heightmap.Types.OCEAN_FLOOR_WG, context.heightAccessor(), context.randomState());
 
         if(!DETerrainAnalyzer.isUnderwater(pos, context.chunkGenerator(), 32, context.heightAccessor(), context.randomState())) { return Optional.empty(); }
         if(!DETerrainAnalyzer.areNearbyBiomesValid(context.biomeSource(), pos, context.chunkGenerator(), 30, context.validBiome(), context.randomState())) { return Optional.empty(); }

@@ -18,6 +18,7 @@ import java.security.InvalidParameterException;
 public final class DEConfig {
     public static final Common COMMON;
     public static final ModConfigSpec COMMON_SPEC;
+
     static {
         var builder = new ModConfigSpec.Builder();
         COMMON = new Common(builder);
@@ -65,21 +66,26 @@ public final class DEConfig {
         private static void tagsStructure(ModConfigSpec.Builder builder, StructureRegistrar<? extends Structure> structure, TagKey<Biome>... tagKeys) {
             StructureBiomes(structure).whitelist(tagKeys).popBiomes().build(builder);
         }
+
         @SafeVarargs
         private static void tagsNoWaterStructure(ModConfigSpec.Builder builder, StructureRegistrar<? extends Structure> structure, TagKey<Biome>... tagKeys) {
             StructureBiomes(structure).whitelist(tagKeys).blacklist(Tags.Biomes.IS_WATER).popBiomes().build(builder);
         }
+
         @SafeVarargs
         private static void overworldExceptStructure(ModConfigSpec.Builder builder, StructureRegistrar<? extends Structure> structure, TagKey<Biome>... tagKeys) {
             StructureBiomes(structure).whitelist(BiomeTags.IS_OVERWORLD).blacklist(tagKeys).popBiomes().build(builder);
         }
+
         private static void shipStructure(ModConfigSpec.Builder builder, StructureRegistrar<? extends Structure> structure) {
             oceanExceptStructure(builder, structure, Tags.Biomes.IS_SNOWY);
         }
+
         @SafeVarargs
         private static void oceanExceptStructure(ModConfigSpec.Builder builder, StructureRegistrar<? extends Structure> structure, TagKey<Biome>... tagKeys) {
             StructureBiomes(structure).whitelist(BiomeTags.IS_OCEAN).blacklist(tagKeys).popBiomes().build(builder);
         }
+
         @SafeVarargs
         private static void biomesStructure(ModConfigSpec.Builder builder, StructureRegistrar<? extends Structure> structure, ResourceKey<Biome>... biomes) {
             StructureBiomes(structure).whitelist(biomes).popBiomes().build(builder);
@@ -88,8 +94,10 @@ public final class DEConfig {
         private static StructureConfig.Builder.BiomeConfigBuilder StructureBiomes(StructureRegistrar<? extends Structure> structure) {
             return structureConfigBuilder(structure).pushBiomes();
         }
-        private static  StructureConfig.Builder structureConfigBuilder(StructureRegistrar<? extends Structure> structure) {
-            if(structure.getStructure() == null) throw new InvalidParameterException("Needs to be a single structure registrar");
+
+        private static StructureConfig.Builder structureConfigBuilder(StructureRegistrar<? extends Structure> structure) {
+            if (structure.getStructure() == null)
+                throw new InvalidParameterException("Needs to be a single structure registrar");
             return StructureConfig.builder(structure.getStructure());
         }
     }

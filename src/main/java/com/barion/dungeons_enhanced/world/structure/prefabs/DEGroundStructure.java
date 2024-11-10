@@ -98,7 +98,7 @@ public class DEGroundStructure extends DEBaseStructure {
     }
 
     protected BlockPos getGenPos(ChunkPos chunkPos){
-        return DEUtil.ChunkPosToBlockPos(chunkPos, 0);
+        return DEUtil.chunkPosToBlockPos(chunkPos, 0);
     }
 
     public static class Piece extends DEBaseStructure.Piece{

@@ -14,7 +14,7 @@ import static com.barion.dungeons_enhanced.DEUtil.locate;
 public final class DELootTableAliases {
     public static final RegistrarHandler<ResourceLocation> HANDLER = RegistrarHandler.getOrCreate(StructureGelRegistries.Keys.LOOT_TABLE_ALIAS, DungeonsEnhanced.MOD_ID).addListener(DELootTableAliases::register);
 
-    private static void register(RegisterHelper<ResourceLocation> event){
+    private static void register(RegisterHelper<ResourceLocation> event) {
         // Vanilla
         event.register(new ResourceLocation("desert_pyramid"), BuiltInLootTables.DESERT_PYRAMID);
         event.register(new ResourceLocation("simple_dungeon"), BuiltInLootTables.SIMPLE_DUNGEON);

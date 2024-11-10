@@ -118,8 +118,8 @@ public final class DEStructures {
                 .popStructure()
                 .build();
 
-        DUNGEON_VARIANT = DEModularRegistrarBuilder.create(()-> DEStructures.DUNGEON_VARIANT, DEStructureIDs.DUNGEON_VARIANT)
-                .addStructure(pieceFactory->pieceFactory
+        DUNGEON_VARIANT = DEModularRegistrarBuilder.create(() -> DEStructures.DUNGEON_VARIANT, DEStructureIDs.DUNGEON_VARIANT)
+                .addStructure(pieceFactory -> pieceFactory
                                 .add("dungeon_variant/zombie")
                                 .add("dungeon_variant/skeleton")
                                 .add("dungeon_variant/spider")
@@ -131,9 +131,9 @@ public final class DEStructures {
                                         .addProcessor(DEProcessors.MOSSY_STONE_BRICKS_30)
                                         .addProcessor(DEProcessors.CRACK_STONE_BRICKS_20)
                                 ),
-                        structure->structure
+                        structure -> structure
                                 .placement(DEPlacement.UNDERGROUND),
-                        config->config
+                        config -> config
                                 .dimensions(Level.OVERWORLD)
                                 .generationStep(GenerationStep.Decoration.UNDERGROUND_STRUCTURES))
                 .placement(19, 0.59f).allowNearSpawn()
@@ -149,7 +149,7 @@ public final class DEStructures {
                 .popStructure()
                 .build();
 
-        FISHING_SHIP = DEModularRegistrarBuilder.create(()-> DEStructures.FISHING_SHIP, DEStructureIDs.FISHING_SHIP)
+        FISHING_SHIP = DEModularRegistrarBuilder.create(() -> DEStructures.FISHING_SHIP, DEStructureIDs.FISHING_SHIP)
                 .addStructure(DEStructureTemplate.of("fishing_ship", -3),
                         structure -> structure
                                 .placement(DEPlacement.ON_WORLD_SURFACE),
@@ -158,7 +158,7 @@ public final class DEStructures {
                 .placement(48, 0.68f).allowNearSpawn()
                 .build();
 
-        FLYING_DUTCHMAN = DEModularRegistrarBuilder.create(()-> DEStructures.FLYING_DUTCHMAN, DEStructureIDs.FLYING_DUTCHMAN)
+        FLYING_DUTCHMAN = DEModularRegistrarBuilder.create(() -> DEStructures.FLYING_DUTCHMAN, DEStructureIDs.FLYING_DUTCHMAN)
                 .addStructure(DEUtil.locate("flying_dutchman"),
                         structure -> structure
                                 .placement(DEPlacement.ABOVE_GROUND),
@@ -167,7 +167,7 @@ public final class DEStructures {
                 .placement(134, 0.63f)
                 .build();
 
-        HAY_STORAGE = DEModularRegistrarBuilder.create(()-> DEStructures.HAY_STORAGE, DEGroundStructure.ID_HAY_STORAGE)
+        HAY_STORAGE = DEModularRegistrarBuilder.create(() -> DEStructures.HAY_STORAGE, DEGroundStructure.ID_HAY_STORAGE)
                 .addStructure(pieceFactory -> pieceFactory
                                 .add("hay_storage/small")
                                 .add("hay_storage/big"),
@@ -249,7 +249,7 @@ public final class DEStructures {
                 .popStructure()
                 .build();
 
-        RUINED_BUILDING = DEModularRegistrarBuilder.create(()-> DEStructures.RUINED_BUILDING, DEStructureIDs.RUINED_BUILDING)
+        RUINED_BUILDING = DEModularRegistrarBuilder.create(() -> DEStructures.RUINED_BUILDING, DEStructureIDs.RUINED_BUILDING)
                 .addStructure(pieceFactory -> pieceFactory
                                 .add(3, "ruined_building/house")
                                 .add(3, "ruined_building/barn")
@@ -269,7 +269,7 @@ public final class DEStructures {
                 .placement(53, 0.52f).allowNearSpawn()
                 .build();
 
-        SUNKEN_SHRINE = DEModularRegistrarBuilder.create(()-> DEStructures.SUNKEN_SHRINE, DEStructureIDs.SUNKEN_SHRINE)
+        SUNKEN_SHRINE = DEModularRegistrarBuilder.create(() -> DEStructures.SUNKEN_SHRINE, DEStructureIDs.SUNKEN_SHRINE)
                 .addStructure(
                         pieces -> pieces
                                 .settings(
