@@ -4,9 +4,10 @@ import com.barion.dungeons_enhanced.data.provider.DEAdvancementProvider;
 import com.barion.dungeons_enhanced.data.provider.DEBiomeTagsProvider;
 import com.barion.dungeons_enhanced.data.provider.DELootTableProvider;
 import com.barion.dungeons_enhanced.data.provider.DEStructureTagsProvider;
-import com.barion.dungeons_enhanced.world.DEJigsawTypes;
-import com.barion.dungeons_enhanced.world.DETemplatePools;
-import com.barion.dungeons_enhanced.world.structure.processor.DEProcessors;
+import com.barion.dungeons_enhanced.registry.DEJigsawTypes;
+import com.barion.dungeons_enhanced.registry.DEProcessors;
+import com.barion.dungeons_enhanced.registry.DEStructures;
+import com.barion.dungeons_enhanced.registry.DETemplatePools;
 import com.google.common.reflect.Reflection;
 import com.legacy.structure_gel.api.registry.registrar.RegistrarHandler;
 import net.minecraftforge.common.MinecraftForge;
@@ -20,7 +21,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @Mod(DungeonsEnhanced.MOD_ID)
-public class DungeonsEnhanced{
+public final class DungeonsEnhanced {
     public static final String MOD_ID = "dungeons_enhanced";
     public static final Logger LOGGER = LogManager.getLogger();
 
@@ -36,7 +37,7 @@ public class DungeonsEnhanced{
         RegistrarHandler.registerHandlers(MOD_ID, modBus, DETemplatePools.HANDLER, DEProcessors.HANDLER);
     }
 
-    public static void gatherData(GatherDataEvent event){
+    public static void gatherData(GatherDataEvent event) {
         var generator = event.getGenerator();
         var output = generator.getPackOutput();
         var existingFileHelper = event.getExistingFileHelper();

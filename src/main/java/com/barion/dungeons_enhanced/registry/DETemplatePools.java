@@ -1,4 +1,4 @@
-package com.barion.dungeons_enhanced.world;
+package com.barion.dungeons_enhanced.registry;
 
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.world.structure.*;
@@ -8,7 +8,7 @@ import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
-public class DETemplatePools {
+public final class DETemplatePools {
     public static final RegistrarHandler<StructureTemplatePool> HANDLER = RegistrarHandler.getOrCreate(Registries.TEMPLATE_POOL, DungeonsEnhanced.MOD_ID).bootstrap(DETemplatePools::init);
 
     public static final ResourceKey<StructureTemplatePool> CASTLE = HANDLER.key("castle/root");
@@ -19,7 +19,7 @@ public class DETemplatePools {
     public static final ResourceKey<StructureTemplatePool> MONSTER_MAZE = HANDLER.key("monster_maze/root");
     public static final ResourceKey<StructureTemplatePool> PILLAGER_CAMP = HANDLER.key("pillager_camp/root");
 
-    private static void init(BootstapContext<StructureTemplatePool> context){
+    private static void init(BootstapContext<StructureTemplatePool> context) {
         DECastle.pool(context);
         DEDeepCrypt.pool(context);
         DEDesertTomb.pool(context);

@@ -13,5 +13,5 @@ public interface DEPieceAssembler {
     @ParametersAreNonnullByDefault
     void assemble(Context context);
 
-    record Context(StructureTemplateManager structureManager, ResourceLocation piece, BlockPos pos, Rotation rotation, StructurePiecesBuilder piecesBuilder){}
+    record Context(StructureTemplateManager structureManager, ResourceLocation piece, BlockPos pos, Rotation rotation, StructurePiecesBuilder piecesBuilder) { }
 }

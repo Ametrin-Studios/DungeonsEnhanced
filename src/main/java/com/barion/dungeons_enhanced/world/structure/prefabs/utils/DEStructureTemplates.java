@@ -6,48 +6,55 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import org.jetbrains.annotations.NotNull;
 
-public class DEStructureTemplates {
+public final class DEStructureTemplates {
     private final SimpleWeightedRandomList<Template> templates;
 
-    public DEStructureTemplates(@NotNull final Builder builder) {this(builder.buildList());}
-    public DEStructureTemplates(@NotNull final SimpleWeightedRandomList<Template> templates){
-        if(templates.isEmpty()) {
+    public DEStructureTemplates(@NotNull final Builder builder) {
+        this(builder.buildList());
+    }
+
+    public DEStructureTemplates(@NotNull final SimpleWeightedRandomList<Template> templates) {
+        if (templates.isEmpty()) {
             throw new IllegalArgumentException("The Structure Template builder is empty");
         }
         this.templates = templates;
     }
 
-    public Template getRandom(RandomSource random) {return templates.getRandomValue(random).get();}
+    public Template getRandom(RandomSource random) {
+        return templates.getRandomValue(random).get();
+    }
 
     public static class Template {
         public final ResourceLocation Resource;
         public final int yOffset;
-        public Template(final ResourceLocation resource, final int offset){
+
+        public Template(final ResourceLocation resource, final int offset) {
             Resource = resource;
             yOffset = offset;
         }
     }
 
-    public static class Builder{
+    public static class Builder {
         private final SimpleWeightedRandomList.Builder<Template> pieces;
         private int yOffset = 0;
         private int weight = 1;
 
-        public Builder(){
+        public Builder() {
             pieces = SimpleWeightedRandomList.builder();
         }
 
-        public Builder weight(int weight){
+        public Builder weight(int weight) {
             this.weight = weight;
             return this;
         }
-        public Builder yOffset(int yOffset){
+
+        public Builder yOffset(int yOffset) {
             this.yOffset = yOffset;
             return this;
         }
 
-        public Builder add(String resource){
-            pieces.add(new Template(DEUtil.location(resource), yOffset), weight);
+        public Builder add(String resource) {
+            pieces.add(new Template(DEUtil.locate(resource), yOffset), weight);
             return this;
         }
 
@@ -56,6 +63,8 @@ public class DEStructureTemplates {
             return pieces.build();
         }
 
-        public DEStructureTemplates build() {return new DEStructureTemplates(this);}
+        public DEStructureTemplates build() {
+            return new DEStructureTemplates(this);
+        }
     }
 }

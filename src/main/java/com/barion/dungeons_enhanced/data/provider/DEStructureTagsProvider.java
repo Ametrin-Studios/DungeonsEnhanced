@@ -1,8 +1,8 @@
 package com.barion.dungeons_enhanced.data.provider;
 
-import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.data.DETags;
+import com.barion.dungeons_enhanced.registry.DEStructures;
 import com.legacy.structure_gel.api.data.tags.SGTags;
 import com.legacy.structure_gel.api.registry.registrar.Registrar;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
@@ -18,7 +18,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
 
-public class DEStructureTagsProvider extends StructureTagsProvider {
+public final class DEStructureTagsProvider extends StructureTagsProvider {
     public DEStructureTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookup, @Nullable ExistingFileHelper existingFileHelper) {
         super(output, lookup, DungeonsEnhanced.MOD_ID, existingFileHelper);
     }
@@ -32,18 +32,19 @@ public class DEStructureTagsProvider extends StructureTagsProvider {
         tag(DETags.Structures.ON_MONSTER_MAZE_EXPLORER_MAPS).add(DEStructures.MONSTER_MAZE.getStructure().getKey());
     }
 
-    private void allStructures(TagKey<Structure> tagKey){
+    private void allStructures(TagKey<Structure> tagKey) {
         var appender = tag(tagKey);
-        for(var registrar : DEStructures.ALL_STRUCTURE_REGISTRARS){
+        for (var registrar : DEStructures.ALL_STRUCTURE_REGISTRARS) {
             allStructures(appender, registrar);
         }
     }
 
-    private void allStructures(TagKey<Structure> tagKey, StructureRegistrar<?> registrar){
+    private void allStructures(TagKey<Structure> tagKey, StructureRegistrar<?> registrar) {
         allStructures(tag(tagKey), registrar);
     }
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-    private void allStructures(TagAppender<Structure> appender, StructureRegistrar<?> registrar){
+
+    @SuppressWarnings({"rawtypes", "unchecked"})
+    private void allStructures(TagAppender<Structure> appender, StructureRegistrar<?> registrar) {
         registrar.getStructures().values().stream().map(Registrar.Pointer::getKey).forEach(key -> appender.add((ResourceKey) key));
     }
 }

@@ -1,17 +1,17 @@
 package com.barion.dungeons_enhanced.event;
 
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
-import com.barion.dungeons_enhanced.world.DEVillagerTrades;
+import com.barion.dungeons_enhanced.registry.DEVillagerTrades;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = DungeonsEnhanced.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
-public class DEForgeEvents {
+public final class DEGameEvents {
     @SubscribeEvent
-    public static void registerCustomTrades(final VillagerTradesEvent event){
-        if(event.getType() != VillagerProfession.CARTOGRAPHER) return;
+    public static void registerCustomTrades(final VillagerTradesEvent event) {
+        if (event.getType() != VillagerProfession.CARTOGRAPHER) return;
 
         var trades = event.getTrades();
         trades.get(2).add(DEVillagerTrades.ELDER_EXPLORER_MAP_TRADE);

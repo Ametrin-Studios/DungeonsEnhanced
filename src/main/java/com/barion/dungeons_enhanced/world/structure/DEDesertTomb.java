@@ -1,9 +1,9 @@
 package com.barion.dungeons_enhanced.world.structure;
 
-import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
-import com.barion.dungeons_enhanced.world.DEJigsawTypes;
-import com.barion.dungeons_enhanced.world.DETemplatePools;
+import com.barion.dungeons_enhanced.registry.DEJigsawTypes;
+import com.barion.dungeons_enhanced.registry.DEStructures;
+import com.barion.dungeons_enhanced.registry.DETemplatePools;
 import com.legacy.structure_gel.api.structure.jigsaw.ExtendedJigsawStructurePiece;
 import com.legacy.structure_gel.api.structure.jigsaw.IPieceFactory;
 import com.legacy.structure_gel.api.structure.jigsaw.JigsawCapability;
@@ -21,30 +21,44 @@ import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
 import java.util.Map;
 
-public class DEDesertTomb{
+public final class DEDesertTomb {
     public static final String ID = "desert_tomb";
 
-    public static class Capability implements JigsawCapability.IJigsawCapability{
+    public static class Capability implements JigsawCapability.IJigsawCapability {
         public static final Capability INSTANCE = new Capability();
         public static final Codec<Capability> CODEC = Codec.unit(INSTANCE);
 
         @Override
-        public JigsawCapability.JigsawType<?> getType(){return DEJigsawTypes.DESERT_TOMB;}
+        public JigsawCapability.JigsawType<?> getType() {
+            return DEJigsawTypes.DESERT_TOMB;
+        }
+
         @Override
-        public IPieceFactory getPieceFactory() {return Piece::new;}
+        public IPieceFactory getPieceFactory() {
+            return Piece::new;
+        }
     }
 
     public static class Piece extends ExtendedJigsawStructurePiece {
-        public Piece(IPieceFactory.Context context) {super(context);}
-        public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) {super(serializationContext, nbt);}
+        public Piece(IPieceFactory.Context context) {
+            super(context);
+        }
+
+        public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) {
+            super(serializationContext, nbt);
+        }
 
         @Override
-        public StructurePieceType getType() {return DEStructures.DESERT_TOMB.getPieceType().get();}
+        public StructurePieceType getType() {
+            return DEStructures.DESERT_TOMB.getPieceType().get();
+        }
+
         @Override
-        public void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) {}
+        public void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) {
+        }
     }
 
-    public static void pool(BootstapContext<StructureTemplatePool> context){
+    public static void pool(BootstapContext<StructureTemplatePool> context) {
         var registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "desert_tomb/", context);
         registry.registerBuilder().pools(registry.poolBuilder().names("root").maintainWater(false)).register(DETemplatePools.DESERT_TOMB);
 

@@ -1,5 +1,6 @@
 package com.barion.dungeons_enhanced.world.structure.processor;
 
+import com.barion.dungeons_enhanced.registry.DEProcessors;
 import com.google.common.collect.ImmutableMap;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
@@ -16,7 +17,7 @@ import org.jetbrains.annotations.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Map;
 
-public class DESwapDeadCoralsProcessor extends StructureProcessor {
+public final class DESwapDeadCoralsProcessor extends StructureProcessor {
     public static final DESwapDeadCoralsProcessor INSTANCE = new DESwapDeadCoralsProcessor();
     public static final Codec<DESwapDeadCoralsProcessor> CODEC = Codec.unit(() -> INSTANCE);
 

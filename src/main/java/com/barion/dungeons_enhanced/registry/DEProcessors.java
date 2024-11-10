@@ -1,7 +1,9 @@
-package com.barion.dungeons_enhanced.world.structure.processor;
+package com.barion.dungeons_enhanced.registry;
 
 import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
+import com.barion.dungeons_enhanced.world.structure.processor.DESwapDeadCoralsProcessor;
+import com.barion.dungeons_enhanced.world.structure.processor.DEUnderwaterProcessor;
 import com.legacy.structure_gel.api.registry.registrar.Registrar;
 import com.legacy.structure_gel.api.registry.registrar.RegistrarHandler;
 import com.legacy.structure_gel.api.structure.processor.RandomBlockSwapProcessor;
@@ -15,13 +17,15 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProc
 
 import java.util.List;
 
-public class DEProcessors {
+public final class DEProcessors {
     public static final RegistrarHandler<StructureProcessorList> HANDLER = RegistrarHandler.getOrCreate(Registries.PROCESSOR_LIST, DungeonsEnhanced.MOD_ID);
 
-    public static final Registrar.Pointer<StructureProcessorList> AIR_TO_COBWEB = HANDLER.createPointer("air_to_cobweb", ()-> listOf(new RandomBlockSwapProcessor(Blocks.AIR, 0.02f, Blocks.COBWEB)));
+    public static final Registrar.Pointer<StructureProcessorList> AIR_TO_COBWEB = HANDLER.createPointer("air_to_cobweb", () -> listOf(new RandomBlockSwapProcessor(Blocks.AIR, 0.02f, Blocks.COBWEB)));
 
 
-    private static StructureProcessorList listOf(StructureProcessor... processors) {return new StructureProcessorList(List.of(processors));}
+    private static StructureProcessorList listOf(StructureProcessor... processors) {
+        return new StructureProcessorList(List.of(processors));
+    }
 
     public static class Types {
         public static final StructureProcessorType<DEUnderwaterProcessor> UNDERWATER = () -> DEUnderwaterProcessor.CODEC;
@@ -32,7 +36,7 @@ public class DEProcessors {
         }
 
         private static <P extends StructureProcessor> void register(String key, StructureProcessorType<P> processorType) {
-            Registry.register(BuiltInRegistries.STRUCTURE_PROCESSOR, DEUtil.location(key), processorType);
+            Registry.register(BuiltInRegistries.STRUCTURE_PROCESSOR, DEUtil.locate(key), processorType);
         }
     }
 }

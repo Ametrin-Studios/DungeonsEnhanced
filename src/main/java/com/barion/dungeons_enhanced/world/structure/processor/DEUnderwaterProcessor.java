@@ -1,5 +1,6 @@
 package com.barion.dungeons_enhanced.world.structure.processor;
 
+import com.barion.dungeons_enhanced.registry.DEProcessors;
 import com.legacy.structure_gel.api.block.base.IStructureGel;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
@@ -15,7 +16,7 @@ import org.jetbrains.annotations.Nullable;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-public class DEUnderwaterProcessor extends StructureProcessor {
+public final class DEUnderwaterProcessor extends StructureProcessor {
     public static final DEUnderwaterProcessor INSTANCE = new DEUnderwaterProcessor();
     public static final Codec<DEUnderwaterProcessor> CODEC = Codec.unit(() -> INSTANCE);
 

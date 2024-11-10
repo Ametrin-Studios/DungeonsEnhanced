@@ -16,7 +16,7 @@ import net.minecraft.world.level.levelgen.RandomState;
 
 import java.util.function.Predicate;
 
-public class DETerrainAnalyzer {
+public final class DETerrainAnalyzer {
 
     /**
      * @return whether the average height difference between the corner points are smaller than the threshold and the average height, always true on {@link FlatLevelSource}

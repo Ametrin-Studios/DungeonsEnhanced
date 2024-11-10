@@ -1,9 +1,9 @@
 package com.barion.dungeons_enhanced.world.structure;
 
-import com.barion.dungeons_enhanced.DEStructures;
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
-import com.barion.dungeons_enhanced.world.DEJigsawTypes;
-import com.barion.dungeons_enhanced.world.DETemplatePools;
+import com.barion.dungeons_enhanced.registry.DEJigsawTypes;
+import com.barion.dungeons_enhanced.registry.DEStructures;
+import com.barion.dungeons_enhanced.registry.DETemplatePools;
 import com.legacy.structure_gel.api.structure.jigsaw.ExtendedJigsawStructurePiece;
 import com.legacy.structure_gel.api.structure.jigsaw.IPieceFactory;
 import com.legacy.structure_gel.api.structure.jigsaw.JigsawCapability;
@@ -19,31 +19,45 @@ import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSeriali
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
-public class DECastle {
+public final class DECastle {
     public static final String ID = "castle";
 
-    public static class Capability implements JigsawCapability.IJigsawCapability{
+    public static class Capability implements JigsawCapability.IJigsawCapability {
         public static final Capability Instance = new Capability();
         public static final Codec<Capability> CODEC = Codec.unit(Instance);
 
         @Override
-        public JigsawCapability.JigsawType<?> getType() {return DEJigsawTypes.CASTLE;}
+        public JigsawCapability.JigsawType<?> getType() {
+            return DEJigsawTypes.CASTLE;
+        }
 
         @Override
-        public IPieceFactory getPieceFactory() {return Piece::new;}
+        public IPieceFactory getPieceFactory() {
+            return Piece::new;
+        }
 
     }
 
     public static class Piece extends ExtendedJigsawStructurePiece {
-        public Piece(IPieceFactory.Context context) {super(context);}
-        public Piece(StructurePieceSerializationContext context, CompoundTag nbt) {super(context, nbt);}
+        public Piece(IPieceFactory.Context context) {
+            super(context);
+        }
+
+        public Piece(StructurePieceSerializationContext context, CompoundTag nbt) {
+            super(context, nbt);
+        }
+
         @Override
-        public StructurePieceType getType() {return DEStructures.CASTLE.getPieceType().get();}
+        public StructurePieceType getType() {
+            return DEStructures.CASTLE.getPieceType().get();
+        }
+
         @Override
-        public void handleDataMarker(String key, BlockPos blockPos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) {}
+        public void handleDataMarker(String key, BlockPos blockPos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) {
+        }
     }
 
-    public static void pool(BootstapContext<StructureTemplatePool> context){
+    public static void pool(BootstapContext<StructureTemplatePool> context) {
         var registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "castle/", context);
         registry.registerBuilder().pools(registry.poolBuilder().names("top1", "top2").maintainWater(false)).register(DETemplatePools.CASTLE);
 

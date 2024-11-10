@@ -14,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 import javax.annotation.Nonnull;
 import java.util.concurrent.CompletableFuture;
 
-public class DEBiomeTagsProvider extends BiomeTagsProvider {
+public final class DEBiomeTagsProvider extends BiomeTagsProvider {
     public DEBiomeTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookup, @Nullable ExistingFileHelper existingFileHelper) {
         super(output, lookup, DungeonsEnhanced.MOD_ID, existingFileHelper);
     }
