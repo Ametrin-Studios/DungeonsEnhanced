@@ -3,7 +3,7 @@
   "promos": {
     "1.20.4-latest": "5.6",
     "1.20.4-recommended": "5.6",
-    "1.20.1-latest": "5.2.2",
+    "1.20.1-latest": "5.3.0",
     "1.20.1-recommended": "5.2.2",
     "1.19.4-latest": "4.3.1",
     "1.19.4-recommended": "4.3.1",
@@ -25,6 +25,7 @@
     "5.3": "port, neoforge"
   },
   "1.20.1": {
+    "5.3.0": "Black Citadel, loot table updates, update checker",
     "5.2.2": "new tall witch hut generation",
     "5.2.1": "fixes",
     "5.2": "fixes",
