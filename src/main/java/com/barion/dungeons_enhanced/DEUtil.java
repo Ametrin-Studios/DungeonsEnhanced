@@ -13,12 +13,14 @@ import net.minecraft.world.gen.Heightmap;
 import java.util.Random;
 
 public final class DEUtil {
-    public static ResourceLocation locate(String key) { return new ResourceLocation(DungeonsEnhanced.MOD_ID, key); }
+    public static ResourceLocation locate(String key) {
+        return new ResourceLocation(DungeonsEnhanced.MOD_ID, key);
+    }
 
     public static int getRandomPiece(DEStructurePiece[] variants, int maxWeight, Random rand) {
         int piece = 0;
-        if(variants.length > 1) {
-            int i = rand.nextInt(maxWeight+1);
+        if (variants.length > 1) {
+            int i = rand.nextInt(maxWeight + 1);
             for (int j = 0; j < variants.length; j++) {
                 if (variants[j].Weight >= i) {
                     piece = j;
@@ -42,9 +44,11 @@ public final class DEUtil {
     public static BlockPos chunkPosToBlockPos(int chunkX, int chunkY, int y) {
         return chunkPosToBlockPos(new ChunkPos(chunkY, chunkY), y);
     }
+
     public static BlockPos chunkPosToBlockPos(ChunkPos chunkPos, int y) {
         return new BlockPos(chunkPos.getMinBlockX(), y, chunkPos.getMinBlockZ());
     }
+
     public static BlockPos chunkPosToBlockPosFromHeightMap(ChunkPos chunkPos, ChunkGenerator chunkGenerator, Heightmap.Type heightmapType) {
         BlockPos pos = DEUtil.chunkPosToBlockPos(chunkPos, 0);
         return new BlockPos(pos.getX(), chunkGenerator.getBaseHeight(pos.getX(), pos.getZ(), heightmapType), pos.getZ());
@@ -61,9 +65,12 @@ public final class DEUtil {
 
         return blockstate;
     }
+
     private static <T extends Comparable<T>> BlockState copyProperty(BlockState sourceState, BlockState targetState, Property<T> property) {
         return targetState.setValue(property, sourceState.getValue(property));
     }
 
-    public static DEStructurePiece.Builder pieceBuilder() { return new DEStructurePiece.Builder(); }
+    public static DEStructurePiece.Builder pieceBuilder() {
+        return new DEStructurePiece.Builder();
+    }
 }

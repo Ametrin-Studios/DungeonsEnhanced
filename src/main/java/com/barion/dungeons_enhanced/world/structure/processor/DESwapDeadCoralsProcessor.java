@@ -49,16 +49,20 @@ public final class DESwapDeadCoralsProcessor extends StructureProcessor {
             .put(Blocks.DEAD_TUBE_CORAL_WALL_FAN, Blocks.TUBE_CORAL_WALL_FAN)
             .build();
 
-    private DESwapDeadCoralsProcessor() {}
+    private DESwapDeadCoralsProcessor() { }
 
-    @Override @ParametersAreNonnullByDefault
+    @Override
+    @ParametersAreNonnullByDefault
     public Template.BlockInfo process(IWorldReader world, BlockPos pos1, BlockPos pos2, Template.BlockInfo existing, Template.BlockInfo placed, PlacementSettings settings, @Nullable Template template) {
-        if(!DEATH_TO_LIVING_CORAL.containsKey(placed.state.getBlock())) return placed;
+        if (!DEATH_TO_LIVING_CORAL.containsKey(placed.state.getBlock())) return placed;
 
         BlockState livingCoral = DEUtil.withPropertiesOf(DEATH_TO_LIVING_CORAL.get(placed.state.getBlock()), placed.state);
         return new Template.BlockInfo(placed.pos, livingCoral, null);
     }
 
-    @Override @Nonnull
-    protected IStructureProcessorType<?> getType() {return DEProcessorTypes.SWAP_DEAD_CORALS_PROCESSOR;}
+    @Override
+    @Nonnull
+    protected IStructureProcessorType<?> getType() {
+        return DEProcessorTypes.SWAP_DEAD_CORALS_PROCESSOR;
+    }
 }

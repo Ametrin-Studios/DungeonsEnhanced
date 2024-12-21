@@ -46,7 +46,7 @@ public final class DEModularStructure extends GelConfigStructure<NoFeatureConfig
         }
 
         for (DEPlacementFilter filter : _filters) {
-            if(filter.cannotGenerate(chunkPos, new GenerationContext(generator, chunkPos, biomeIn, random))) {
+            if (filter.cannotGenerate(chunkPos, new GenerationContext(generator, chunkPos, biomeIn, random))) {
                 return false;
             }
         }
@@ -54,20 +54,24 @@ public final class DEModularStructure extends GelConfigStructure<NoFeatureConfig
     }
 
     @Override
-    public boolean isAllowedNearWorldSpawn() {return _allowedNearSpawn;}
+    public boolean isAllowedNearWorldSpawn() {
+        return _allowedNearSpawn;
+    }
 
-    @Override @Nonnull
+    @Override
+    @Nonnull
     public IStartFactory<NoFeatureConfig> getStartFactory() {
         return Start::new;
     }
 
-    public class Start extends GelStructureStart<NoFeatureConfig>{
+    public class Start extends GelStructureStart<NoFeatureConfig> {
 
         public Start(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ, MutableBoundingBox boundsIn, int referenceIn, long seed) {
             super(structureIn, chunkX, chunkZ, boundsIn, referenceIn, seed);
         }
 
-        @Override @ParametersAreNonnullByDefault
+        @Override
+        @ParametersAreNonnullByDefault
         public void generatePieces(DynamicRegistries dynamicRegistries, ChunkGenerator generator, TemplateManager templateManager, int chunkX, int chunkZ, Biome biomeIn, NoFeatureConfig noFeatureConfig) {
             Optional<StructurePiece> piece = _placementProvider.getPiece(new GenerationContext(generator, new ChunkPos(chunkX, chunkZ), biomeIn, random), _pieceFactory, templateManager);
             piece.ifPresent(pieces::add);

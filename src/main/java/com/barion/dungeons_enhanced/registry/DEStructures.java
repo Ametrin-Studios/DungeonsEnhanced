@@ -54,7 +54,8 @@ public final class DEStructures {
     public static final StructureRegistrar2<NoFeatureConfig, DESimpleStructure> WATCH_TOWER;
     public static final StructureRegistrar2<NoFeatureConfig, DESimpleStructure> WITCH_TOWER;
 
-    public DEStructures(){}
+    public DEStructures() {
+    }
 
     static {
         CASTLE = registerCellarStructure("castle", new DECellarStructure(DEConfig.COMMON.CASTLE, DETerrainAnalyzer.DEFAULT_SETTINGS, false), DECellarStructure.CastlePool.ROOT, DECellarStructure.Piece::new);
@@ -62,7 +63,7 @@ public final class DEStructures {
         DESERT_TOMB = registerJigsaw("desert_tomb", new DEDesertTomb(), DEDesertTomb.Pool.ROOT, 4, DEDesertTomb.Piece::new);
         DRUID_CIRCLE = registerCellarStructure("druid_circle", new DECellarStructure(DEConfig.COMMON.DRUID_CIRCLE, DETerrainAnalyzer.DEFAULT_SETTINGS, true), DECellarStructure.DruidCirclePool.ROOT, DECellarStructure.Piece::new);
 
-        DUNGEON_VARIANT = DEModularRegistrarBuilder.create("dungeon_variant", ()-> DEStructures.DUNGEON_VARIANT)
+        DUNGEON_VARIANT = DEModularRegistrarBuilder.create("dungeon_variant", () -> DEStructures.DUNGEON_VARIANT)
                 .config(DEConfig.COMMON.DUNGEON_VARIANT)
                 .piece(builder -> builder
                         .add("dungeon_variant/zombie")
@@ -77,7 +78,7 @@ public final class DEStructures {
         ELDERS_TEMPLE = register("elders_temple", new DEEldersTemple(), DEEldersTemple.Piece::new);
         FISHING_SHIP = register("fishing_ship", new DESwimmingStructure(DEConfig.COMMON.FISHING_SHIP, true, pieceBuilder().offset(-4, -3, -14).add("fishing_ship").build()), DESwimmingStructure.Piece::new);
 
-        FLYING_DUTCHMAN = DEModularRegistrarBuilder.create("flying_dutchman", ()-> DEStructures.FLYING_DUTCHMAN)
+        FLYING_DUTCHMAN = DEModularRegistrarBuilder.create("flying_dutchman", () -> DEStructures.FLYING_DUTCHMAN)
                 .config(DEConfig.COMMON.FLYING_DUTCHMAN)
                 .piece("flying_dutchman")
                 .placement(DEPlacement.ABOVE_GROUND)
@@ -91,10 +92,10 @@ public final class DEStructures {
         MINERS_HOUSE = register("miners_house", new DESimpleStructure(DEConfig.COMMON.MINERS_HOUSE, pieceBuilder().offset(-5, 0, -5).add("miners_house").build()), DESimpleStructure.Piece::new);
         MONSTER_MAZE = registerJigsaw("monster_maze", new DEMonsterMaze(), DEMonsterMaze.Pool.Root, 9, DEMonsterMaze.Piece::new);
         MUSHROOM_HOUSE = register("mushroom_house", new DESimpleStructure(DEConfig.COMMON.MUSHROOM_HOUSE, pieceBuilder().offset(-7, 0, -7).add("mushroom_house/red").add("mushroom_house/brown").build()), DESimpleStructure.Piece::new);
-        PILLAGER_CAMP = registerJigsaw("pillager_camp", new DEPillagerCamp(), DEPillagerCamp.Pool.Root, 4, DEPillagerCamp.Piece::new);
+        PILLAGER_CAMP = registerJigsaw("pillager_camp", new DEPillagerCamp(), DEPillagerCamp.Pool.ROOT, 4, DEPillagerCamp.Piece::new);
         PIRATE_SHIP = register("pirate_ship", new DEPirateShip(), DESwimmingStructure.Piece::new);
 
-        RUINED_BUILDING = DEModularRegistrarBuilder.create("ruined_building", ()-> DEStructures.RUINED_BUILDING)
+        RUINED_BUILDING = DEModularRegistrarBuilder.create("ruined_building", () -> DEStructures.RUINED_BUILDING)
                 .config(DEConfig.COMMON.RUINED_BUILDING)
                 .piece(builder -> builder
                         .add(3, "ruined_building/house")
@@ -105,7 +106,7 @@ public final class DEStructures {
 
         STABLES = register("stables", new DESimpleStructure(DEConfig.COMMON.STABLES, pieceBuilder().offset(-8, -6, -13).add("stables").build()), DESimpleStructure.Piece::new);
 
-        SUNKEN_SHRINE = DEModularRegistrarBuilder.create("sunken_shrine", ()-> DEStructures.SUNKEN_SHRINE)
+        SUNKEN_SHRINE = DEModularRegistrarBuilder.create("sunken_shrine", () -> DEStructures.SUNKEN_SHRINE)
                 .config(DEConfig.COMMON.SUNKEN_SHRINE)
                 .placement(DEPlacement.ON_OCEAN_FLOOR)
                 .piece(builder -> builder
@@ -123,9 +124,9 @@ public final class DEStructures {
         //        SUNKEN_SHRINE = register("sunken_shrine", new DEUnderwaterStructure(DEConfig.COMMON.SUNKEN_SHRINE, true, pieceBuilder().offset(-5, -1, -8).add("sunken_shrine").build()), DEUnderwaterStructure.Piece::new);
 
         TALL_WITCH_HUT = register("tall_witch_hut", new DESimpleStructure(DEConfig.COMMON.TALL_WITCH_HUT, pieceBuilder().offset(-3, -3, -4).add("tall_witch_hut").build()), DESimpleStructure.Piece::new);
-        TREE_HOUSE = register("tree_house", new DESimpleStructure(DEConfig.COMMON.TREE_HOUSE,pieceBuilder().offset(-11, 0, -12).add("tree_house").build()), DESimpleStructure.Piece::new);
+        TREE_HOUSE = register("tree_house", new DESimpleStructure(DEConfig.COMMON.TREE_HOUSE, pieceBuilder().offset(-11, 0, -12).add("tree_house").build()), DESimpleStructure.Piece::new);
         TOWER_OF_THE_UNDEAD = register("tower_of_the_undead", new DESimpleStructure(DEConfig.COMMON.TOWER_OF_THE_UNDEAD, true, pieceBuilder().offset(-5, 0, -5).weight(3).add("tower_of_the_undead/small").offset(-7, 0, -7).weight(2).add("tower_of_the_undead/big").build()), DESimpleStructure.Piece::new);
-        WATCH_TOWER = register("watch_tower", new DESimpleStructure(DEConfig.COMMON.WATCH_TOWER, pieceBuilder().offset(-4,0,-4).add("watch_tower").build()), DESimpleStructure.Piece::new);
+        WATCH_TOWER = register("watch_tower", new DESimpleStructure(DEConfig.COMMON.WATCH_TOWER, pieceBuilder().offset(-4, 0, -4).add("watch_tower").build()), DESimpleStructure.Piece::new);
         WITCH_TOWER = register("witch_tower", new DESimpleStructure(DEConfig.COMMON.WITCH_TOWER, true, pieceBuilder().offset(-6, 0, -5).weight(3).add("witch_tower/normal").offset(-7, 0, -7).weight(2).add("witch_tower/big").build()), DESimpleStructure.Piece::new);
     }
 
@@ -157,11 +158,11 @@ public final class DEStructures {
             WITCH_TOWER,
     };
 
-    private static  <S extends GelConfigStructure<NoFeatureConfig>> StructureRegistrar2<NoFeatureConfig, S> register(String registryName, S structure, IStructurePieceType piece) {
+    private static <S extends GelConfigStructure<NoFeatureConfig>> StructureRegistrar2<NoFeatureConfig, S> register(String registryName, S structure, IStructurePieceType piece) {
         return GelStructureRegistrar.of(locate(registryName), structure, piece, NoFeatureConfig.NONE, GenerationStage.Decoration.SURFACE_STRUCTURES).handle();
     }
 
-    private static  <S extends GelConfigJigsawStructure> StructureRegistrar2<VillageConfig, S> registerJigsaw(String registryName, S structure, JigsawPattern root, Integer level, IStructurePieceType piece) {
+    private static <S extends GelConfigJigsawStructure> StructureRegistrar2<VillageConfig, S> registerJigsaw(String registryName, S structure, JigsawPattern root, Integer level, IStructurePieceType piece) {
         return GelStructureRegistrar.of(locate(registryName), structure, piece, new VillageConfig(() -> root, level), GenerationStage.Decoration.SURFACE_STRUCTURES).handle();
     }
 
@@ -171,7 +172,7 @@ public final class DEStructures {
 
     public static Structure<?>[] getAllStructures() {
         Structure<?>[] temp = new Structure<?>[ALL_STRUCTURE_REGISTRARS.length];
-        for(int i = 0; i < ALL_STRUCTURE_REGISTRARS.length; i++){
+        for (int i = 0; i < ALL_STRUCTURE_REGISTRARS.length; i++) {
             temp[i] = ALL_STRUCTURE_REGISTRARS[i].getStructure();
         }
         return temp;

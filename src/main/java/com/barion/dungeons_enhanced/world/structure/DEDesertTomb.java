@@ -35,12 +35,16 @@ public final class DEDesertTomb extends GelConfigJigsawStructure {
     }
 
     @Override
-    public boolean isAllowedNearWorldSpawn() { return true; }
+    public boolean isAllowedNearWorldSpawn() {
+        return true;
+    }
 
     @Override
     protected boolean isFeatureChunk(ChunkGenerator chunkGen, BiomeProvider biomeProvider, long seed, SharedSeedRandom sharedSeedRand, int chunkPosX, int chunkPosZ, Biome biomeIn, ChunkPos chunkPos, VillageConfig config) {
         boolean canGenerate = super.isFeatureChunk(chunkGen, biomeProvider, seed, sharedSeedRand, chunkPosX, chunkPosZ, biomeIn, chunkPos, config);
-        if(!canGenerate) { return false; }
+        if (!canGenerate) {
+            return false;
+        }
 
         return DETerrainAnalyzer.isFlatEnough(chunkPos, chunkGen);
     }
@@ -56,7 +60,9 @@ public final class DEDesertTomb extends GelConfigJigsawStructure {
         }
 
         @Override
-        public IStructurePieceType getType() { return DEStructures.DESERT_TOMB.getPieceType(); }
+        public IStructurePieceType getType() {
+            return DEStructures.DESERT_TOMB.getPieceType();
+        }
 
         @Override
         public void handleDataMarker(String key, BlockPos pos, IServerWorld world, Random random, MutableBoundingBox box) { }
@@ -64,7 +70,10 @@ public final class DEDesertTomb extends GelConfigJigsawStructure {
 
     public static class Pool {
         public static final JigsawPattern ROOT;
-        public static void init() { }
+
+        public static void init() {
+        }
+
         static {
             JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "desert_tomb/");
             JigsawPoolBuilder poolBuilder = registry.builder().maintainWater(false).processors(DEProcessors.AIR_TO_COBWEB);

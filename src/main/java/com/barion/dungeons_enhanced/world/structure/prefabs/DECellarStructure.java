@@ -31,7 +31,7 @@ public class DECellarStructure extends GelConfigJigsawStructure {
     protected DETerrainAnalyzer.Settings terrainAnalyzeSettings;
 
 
-    public DECellarStructure(ConfigTemplates.StructureConfig config, DETerrainAnalyzer.Settings terrainAnalyzeSettings, boolean generateNear00){
+    public DECellarStructure(ConfigTemplates.StructureConfig config, DETerrainAnalyzer.Settings terrainAnalyzeSettings, boolean generateNear00) {
         super(VillageConfig.CODEC, config, 0, true, true);
         this.generateNear00 = generateNear00;
         this.terrainAnalyzeSettings = terrainAnalyzeSettings;
@@ -39,40 +39,49 @@ public class DECellarStructure extends GelConfigJigsawStructure {
 
     @Override
     protected boolean isFeatureChunk(ChunkGenerator chunkGen, BiomeProvider biomeProvider, long seed, SharedSeedRandom sharedSeedRand, int chunkPosX, int chunkPosZ, Biome biomeIn, ChunkPos chunkPos, VillageConfig config) {
-        if(super.isFeatureChunk(chunkGen, biomeProvider, seed, sharedSeedRand, chunkPosX, chunkPosZ, biomeIn, chunkPos, config)){
+        if (super.isFeatureChunk(chunkGen, biomeProvider, seed, sharedSeedRand, chunkPosX, chunkPosZ, biomeIn, chunkPos, config)) {
             return DETerrainAnalyzer.isFlatEnough(chunkPos, chunkGen, terrainAnalyzeSettings);
         }
         return false;
     }
 
     @Override
-    public boolean isAllowedNearWorldSpawn() {return generateNear00;}
+    public boolean isAllowedNearWorldSpawn() {
+        return generateNear00;
+    }
 
     public static class Piece extends AbstractGelStructurePiece {
         public Piece(TemplateManager templateManager, JigsawPiece jigsawPiece, BlockPos pos, int groundLevelDelta, Rotation rotation, MutableBoundingBox box) {
             super(templateManager, jigsawPiece, pos, groundLevelDelta, rotation, box);
         }
 
-        public Piece(TemplateManager templateManager, CompoundNBT nbt) {super(templateManager, nbt);}
+        public Piece(TemplateManager templateManager, CompoundNBT nbt) {
+            super(templateManager, nbt);
+        }
 
         @Override
-        public IStructurePieceType getType() {return DEStructures.CASTLE.getPieceType();}
+        public IStructurePieceType getType() {
+            return DEStructures.CASTLE.getPieceType();
+        }
 
         @Override
-        public void handleDataMarker(String key, BlockPos pos, IServerWorld world, Random random, MutableBoundingBox box) {}
+        public void handleDataMarker(String key, BlockPos pos, IServerWorld world, Random random, MutableBoundingBox box) {
+        }
     }
 
-    public static void init(){
+    public static void init() {
         CastlePool.init();
         DruidCirclePool.init();
     }
 
-    public static class CastlePool{
+    public static class CastlePool {
         public static final JigsawPattern ROOT;
-        public static void init() {}
+
+        public static void init() {
+        }
 
         static {
-            JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID,"castle/");
+            JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "castle/");
             JigsawPoolBuilder poolBuilder = registry.builder().maintainWater(false);
             ROOT = registry.register("root", poolBuilder.clone().names("top1", "top2").build());
 
@@ -81,12 +90,14 @@ public class DECellarStructure extends GelConfigJigsawStructure {
         }
     }
 
-    public static class DruidCirclePool{
+    public static class DruidCirclePool {
         public static final JigsawPattern ROOT;
-        public static void init(){}
+
+        public static void init() {
+        }
 
         static {
-            JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID,"druid_circle/");
+            JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "druid_circle/");
             JigsawPoolBuilder poolBuilder = registry.builder().maintainWater(false);
             ROOT = registry.register("root", poolBuilder.clone().names("top_big", "small").build());
 

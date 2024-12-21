@@ -28,18 +28,22 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 import java.util.Random;
 
 public final class DELargeDungeon extends GelConfigJigsawStructure {
-    public DELargeDungeon(){
+    public DELargeDungeon() {
         super(VillageConfig.CODEC, DEConfig.COMMON.LARGE_DUNGEON, -16, true, true);
         Pool.init();
     }
 
     @Override
-    public boolean isAllowedNearWorldSpawn() { return true; }
+    public boolean isAllowedNearWorldSpawn() {
+        return true;
+    }
 
     @Override
     protected boolean isFeatureChunk(ChunkGenerator chunkGen, BiomeProvider biomeProvider, long seed, SharedSeedRandom sharedSeedRand, int chunkPosX, int chunkPosZ, Biome biomeIn, ChunkPos chunkPos, VillageConfig config) {
         boolean canGenerate = super.isFeatureChunk(chunkGen, biomeProvider, seed, sharedSeedRand, chunkPosX, chunkPosZ, biomeIn, chunkPos, config);
-        if(!canGenerate) {return false;}
+        if (!canGenerate) {
+            return false;
+        }
 
         return DETerrainAnalyzer.isFlatEnough(chunkPos, chunkGen, new DETerrainAnalyzer.Settings(1, 3, 2));
     }
@@ -54,16 +58,20 @@ public final class DELargeDungeon extends GelConfigJigsawStructure {
         }
 
         @Override
-        public void handleDataMarker(String key, BlockPos pos, IServerWorld world, Random random, MutableBoundingBox box) {}
+        public void handleDataMarker(String key, BlockPos pos, IServerWorld world, Random random, MutableBoundingBox box) { }
 
         @Override
-        public IStructurePieceType getType() {return DEStructures.LARGE_DUNGEON.getPieceType();}
+        public IStructurePieceType getType() {
+            return DEStructures.LARGE_DUNGEON.getPieceType();
+        }
     }
 
-    public static class Pool{
+    public static class Pool {
         public static JigsawPattern Root;
-        public static void init(){}
-        static{
+
+        public static void init() { }
+
+        static {
             JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "large_dungeon/");
             JigsawPoolBuilder poolBuilder = registry.builder().maintainWater(false).processors(DEProcessors.AIR_TO_COBWEB);
             Root = registry.register("root", poolBuilder.clone().names("root").build());

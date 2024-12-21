@@ -29,7 +29,7 @@ public class DESimpleStructure extends DEBaseStructure {
     }
 
     public static class Piece extends DEBaseStructure.Piece {
-        public Piece(TemplateManager templateManager, ResourceLocation name, BlockPos pos, Rotation rotation){
+        public Piece(TemplateManager templateManager, ResourceLocation name, BlockPos pos, Rotation rotation) {
             super(DEStructures.RUINED_BUILDING.getPieceType(), templateManager, name, pos, rotation);
         }
 

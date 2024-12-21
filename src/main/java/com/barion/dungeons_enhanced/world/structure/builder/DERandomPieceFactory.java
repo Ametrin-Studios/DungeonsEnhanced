@@ -23,7 +23,7 @@ public final class DERandomPieceFactory implements IDEPieceFactory {
 
     public DERandomPieceFactory(WeightedList<DEStructureTemplate> templates, Supplier<IStructurePieceType> pieceTypeSupplier, Function<PlacementSettings, PlacementSettings> settingsFunction) {
         _settingsFunction = settingsFunction;
-        if(templates.isEmpty()) throw new IllegalArgumentException("The template list is empty");
+        if (templates.isEmpty()) throw new IllegalArgumentException("The template list is empty");
         _pieceTypeSupplier = pieceTypeSupplier;
         _templates = templates;
     }
@@ -48,12 +48,30 @@ public final class DERandomPieceFactory implements IDEPieceFactory {
             return this;
         }
 
-        public Builder add(String location) { return add(DEUtil.locate(location)); }
-        public Builder add(int weight, String location) { return add(weight, DEUtil.locate(location), 0); }
-        public Builder add(int weight, String location, int yOffset) { return add(weight, DEUtil.locate(location), yOffset); }
-        public Builder add(ResourceLocation resourceLocation) { return add(1, resourceLocation, 0); }
-        public Builder add(int weight, ResourceLocation resourceLocation, int yOffset) { return add(weight, new DEStructureTemplate(resourceLocation, yOffset)); }
-        public Builder add(DEStructureTemplate template) { return add(1, template); }
+        public Builder add(String location) {
+            return add(DEUtil.locate(location));
+        }
+
+        public Builder add(int weight, String location) {
+            return add(weight, DEUtil.locate(location), 0);
+        }
+
+        public Builder add(int weight, String location, int yOffset) {
+            return add(weight, DEUtil.locate(location), yOffset);
+        }
+
+        public Builder add(ResourceLocation resourceLocation) {
+            return add(1, resourceLocation, 0);
+        }
+
+        public Builder add(int weight, ResourceLocation resourceLocation, int yOffset) {
+            return add(weight, new DEStructureTemplate(resourceLocation, yOffset));
+        }
+
+        public Builder add(DEStructureTemplate template) {
+            return add(1, template);
+        }
+
         public Builder add(int weight, DEStructureTemplate template) {
             _templates.add(template, weight);
             return this;

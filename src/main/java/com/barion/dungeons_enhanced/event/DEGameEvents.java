@@ -15,8 +15,8 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = DungeonsEnhanced.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public final class DEGameEvents {
     @SubscribeEvent
-    public static <C extends IFeatureConfig, S extends GelStructure<C>, T extends StructureRegistrar2<C,S>> void onBiomeLoad(final BiomeLoadingEvent event) {
-        for(StructureRegistrar2<?, ?> structure : DEStructures.ALL_STRUCTURE_REGISTRARS) {
+    public static <C extends IFeatureConfig, S extends GelStructure<C>, T extends StructureRegistrar2<C, S>> void onBiomeLoad(final BiomeLoadingEvent event) {
+        for (StructureRegistrar2<?, ?> structure : DEStructures.ALL_STRUCTURE_REGISTRARS) {
             BiomeAccessHelper.addStructureIfAllowed(event, (StructureFeature<C, S>) structure.getStructureFeature());
         }
     }

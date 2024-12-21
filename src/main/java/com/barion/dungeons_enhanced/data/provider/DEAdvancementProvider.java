@@ -22,11 +22,12 @@ import java.util.Objects;
 import java.util.function.Consumer;
 
 public final class DEAdvancementProvider extends AdvancementProvider {
-    public DEAdvancementProvider(DataGenerator dataGenerator, ExistingFileHelper exFileHelper){
+    public DEAdvancementProvider(DataGenerator dataGenerator, ExistingFileHelper exFileHelper) {
         super(dataGenerator, exFileHelper);
     }
 
-    @Override @ParametersAreNonnullByDefault
+    @Override
+    @ParametersAreNonnullByDefault
     protected void registerAdvancements(Consumer<Advancement> consumer, ExistingFileHelper exFileHelper) {
         Advancement Root = enterAnyStructure(builder(Blocks.MOSSY_STONE_BRICKS.asItem(), "root", new ResourceLocation("textures/block/mossy_cobblestone.png"), FrameType.TASK, false, false, false), DEStructures.getAllStructures()).requirements(IRequirementsStrategy.OR).save(consumer, location("root"));
         Advancement Ahoy = enterStructure(builder(Items.BLACK_BANNER, "ahoy", FrameType.TASK, true, true, false), DEStructures.PIRATE_SHIP.getStructure()).parent(Root).save(consumer, location("ahoy"));
@@ -51,19 +52,19 @@ public final class DEAdvancementProvider extends AdvancementProvider {
         Advancement AmbitiousExplorer = enterAnyStructure(builder(Items.FILLED_MAP, "ambitious_explorer", FrameType.CHALLENGE, true, true, false), DEStructures.getAllStructures()).requirements(IRequirementsStrategy.AND).parent(SevenWorldWonders).save(consumer, location("ambitious_explorer"));
     }
 
-    private Advancement.Builder enterAnyStructure(Advancement.Builder builder, Structure<?>... structures){
-        for(Structure<?> structure : structures){
+    private Advancement.Builder enterAnyStructure(Advancement.Builder builder, Structure<?>... structures) {
+        for (Structure<?> structure : structures) {
             builder = enterStructure(builder, structure);
         }
 
         return builder;
     }
 
-    private Advancement.Builder enterStructure(Advancement.Builder builder, Structure<?> structure){
+    private Advancement.Builder enterStructure(Advancement.Builder builder, Structure<?> structure) {
         return builder.addCriterion(enterFeatureText(structure), PositionTrigger.Instance.located(LocationPredicate.inFeature(structure)));
     }
 
-    private String enterFeatureText(Structure<?> structure){
+    private String enterFeatureText(Structure<?> structure) {
         return "entered_" + Objects.requireNonNull(structure.getRegistryName()).getPath();
     }
 
@@ -71,11 +72,15 @@ public final class DEAdvancementProvider extends AdvancementProvider {
         return Advancement.Builder.advancement().display(displayItem, translate(name), translate(name + ".desc"), background, frameType, showToast, announceToChat, hidden);
     }
 
-    private Advancement.Builder builder(Item displayItem, String name, FrameType frameType, boolean showToast, boolean announceToChat, boolean hidden){
+    private Advancement.Builder builder(Item displayItem, String name, FrameType frameType, boolean showToast, boolean announceToChat, boolean hidden) {
         return builder(displayItem, name, null, frameType, showToast, announceToChat, hidden);
     }
 
-    private TranslationTextComponent translate(String key) {return new TranslationTextComponent("advancements.dungeons_enhanced." + key);}
+    private TranslationTextComponent translate(String key) {
+        return new TranslationTextComponent("advancements.dungeons_enhanced." + key);
+    }
 
-    private String location(String key) {return DungeonsEnhanced.MOD_ID + ":" + key;}
+    private String location(String key) {
+        return DungeonsEnhanced.MOD_ID + ":" + key;
+    }
 }

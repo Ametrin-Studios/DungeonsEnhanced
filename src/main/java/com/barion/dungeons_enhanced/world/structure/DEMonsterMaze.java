@@ -27,7 +27,7 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 import java.util.Random;
 
 public final class DEMonsterMaze extends GelConfigJigsawStructure {
-    public DEMonsterMaze(){
+    public DEMonsterMaze() {
         super(VillageConfig.CODEC, DEConfig.COMMON.MONSTER_MAZE, -17, true, true);
         Pool.init();
     }
@@ -39,7 +39,7 @@ public final class DEMonsterMaze extends GelConfigJigsawStructure {
 
     @Override
     protected boolean isFeatureChunk(ChunkGenerator chunkGen, BiomeProvider biomeProvider, long seed, SharedSeedRandom sharedSeedRandom, int chunkPosX, int chunkPosZ, Biome biome, ChunkPos chunkPos, VillageConfig config) {
-        if(super.isFeatureChunk(chunkGen, biomeProvider, seed, sharedSeedRandom, chunkPosX, chunkPosZ, biome, chunkPos, config)) {
+        if (super.isFeatureChunk(chunkGen, biomeProvider, seed, sharedSeedRandom, chunkPosX, chunkPosZ, biome, chunkPos, config)) {
             return DETerrainAnalyzer.isFlatEnough(chunkPos, chunkGen);
         }
         return false;
@@ -49,17 +49,25 @@ public final class DEMonsterMaze extends GelConfigJigsawStructure {
         public Piece(TemplateManager templateManager, JigsawPiece jigsawPiece, BlockPos pos, int groundLevelDelta, Rotation rotation, MutableBoundingBox bounds) {
             super(templateManager, jigsawPiece, pos, groundLevelDelta, rotation, bounds);
         }
-        public Piece(TemplateManager templateManager, CompoundNBT nbt) {super(templateManager, nbt);}
+
+        public Piece(TemplateManager templateManager, CompoundNBT nbt) {
+            super(templateManager, nbt);
+        }
 
         @Override
-        public IStructurePieceType getType() {return DEStructures.MONSTER_MAZE.getPieceType();}
+        public IStructurePieceType getType() {
+            return DEStructures.MONSTER_MAZE.getPieceType();
+        }
+
         @Override
-        public void handleDataMarker(String key, BlockPos pos, IServerWorld world, Random random, MutableBoundingBox box){}
+        public void handleDataMarker(String key, BlockPos pos, IServerWorld world, Random random, MutableBoundingBox box) {
+        }
     }
 
-    public static class Pool{
+    public static class Pool {
         public static JigsawPattern Root;
-        public static void init(){}
+
+        public static void init() { }
 
         static {
             JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "monster_maze/");

@@ -12,9 +12,10 @@ public class DEStructureTemplate {
         this.yOffset = yOffset;
     }
 
-    public static DEStructureTemplate of(String id){
+    public static DEStructureTemplate of(String id) {
         return of(id, 0);
     }
+
     public static DEStructureTemplate of(String id, int yOffset) {
         return new DEStructureTemplate(DEUtil.locate(id), yOffset);
     }

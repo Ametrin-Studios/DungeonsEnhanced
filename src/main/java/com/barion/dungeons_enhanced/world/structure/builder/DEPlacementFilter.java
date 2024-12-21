@@ -17,6 +17,7 @@ public interface DEPlacementFilter {
             return dif > maxDifference;
         };
     }
+
     static DEPlacementFilter DIFFERENCE_OCEAN_FLOOR_MIN(int minDifference) {
         return (chunkPos, context) -> {
             final BlockPos pos = DEUtil.chunkPosToBlockPosFromHeightMap(chunkPos, context.chunkGenerator, Heightmap.Type.WORLD_SURFACE_WG);

@@ -22,6 +22,7 @@ public final class DESimpleStructurePiece extends GelTemplateStructurePiece {
     private final Mirror mirror;
 
     private final Function<PlacementSettings, PlacementSettings> _settingsFunction;
+
     public DESimpleStructurePiece(IStructurePieceType structurePieceType, TemplateManager templateManager, ResourceLocation template, BlockPos pos, Rotation rotation, Function<PlacementSettings, PlacementSettings> settingsFunction) {
         super(structurePieceType, template, 0);
         this.templatePosition = pos;
@@ -39,7 +40,9 @@ public final class DESimpleStructurePiece extends GelTemplateStructurePiece {
         setupTemplate(templateManager);
     }
 
-    public BlockPos getSize() { return template.getSize(getRotation()); }
+    public BlockPos getSize() {
+        return template.getSize(getRotation());
+    }
 
     @Override
     public PlacementSettings createPlacementSettings(TemplateManager templateManager) {
@@ -54,6 +57,8 @@ public final class DESimpleStructurePiece extends GelTemplateStructurePiece {
         boundingBox = template.getBoundingBox(placeSettings, templatePosition);
     }
 
-    @Override @ParametersAreNonnullByDefault
-    protected void handleDataMarker(String key, BlockPos pos, IServerWorld serverWorld, Random random, MutableBoundingBox bounds) { }
+    @Override
+    @ParametersAreNonnullByDefault
+    protected void handleDataMarker(String key, BlockPos pos, IServerWorld serverWorld, Random random, MutableBoundingBox bounds) {
+    }
 }

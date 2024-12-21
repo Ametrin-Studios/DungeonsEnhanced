@@ -20,6 +20,7 @@ public final class DESinglePieceFactory implements IDEPieceFactory {
     public DESinglePieceFactory(DEStructureTemplate template, Supplier<IStructurePieceType> pieceTypeSupplier) {
         this(template, pieceTypeSupplier, settings -> settings);
     }
+
     public DESinglePieceFactory(DEStructureTemplate template, Supplier<IStructurePieceType> pieceTypeSupplier, Function<PlacementSettings, PlacementSettings> settingsFunction) {
         _template = template;
         _pieceTypeSupplier = pieceTypeSupplier;
@@ -31,6 +32,7 @@ public final class DESinglePieceFactory implements IDEPieceFactory {
     public DESimpleStructurePiece createPiece(TemplateManager templateManager, BlockPos position, SharedSeedRandom random) {
         return new DESimpleStructurePiece(_pieceTypeSupplier.get(), templateManager, _template.resourceLocation, position.above(_template.yOffset), Rotation.getRandom(random), _settingsFunction);
     }
+
     @Override
     public StructurePiece createPiece(TemplateManager templateManager, CompoundNBT nbt) {
         return new DESimpleStructurePiece(_pieceTypeSupplier.get(), templateManager, nbt, _settingsFunction);

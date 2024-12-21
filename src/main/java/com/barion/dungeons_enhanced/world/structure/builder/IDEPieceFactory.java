@@ -8,5 +8,6 @@ import net.minecraft.world.gen.feature.template.TemplateManager;
 
 public interface IDEPieceFactory {
     StructurePiece createPiece(TemplateManager templateManager, CompoundNBT nbt);
+
     DESimpleStructurePiece createPiece(TemplateManager templateManager, BlockPos position, SharedSeedRandom random);
 }

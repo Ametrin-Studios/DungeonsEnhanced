@@ -9,6 +9,7 @@ import org.apache.commons.lang3.tuple.Pair;
 public final class DEConfig {
     public static final Common COMMON;
     public static final ForgeConfigSpec COMMON_SPEC;
+
     static {
         Pair<Common, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(Common::new);
         COMMON_SPEC = specPair.getRight();
@@ -74,7 +75,7 @@ public final class DEConfig {
         }
 
         private StructureConfig config(String name, int spacing, double probability, RegistryKey<Dimension> dimension, boolean isWhitelist, String biomes) {
-            return new StructureConfig(this.builder, name).spacing(spacing).probability(probability).offset((int) (spacing/1.5f)).biomes(isWhitelist, biomes).validDimensions(dimension.location().toString());
+            return new StructureConfig(this.builder, name).spacing(spacing).probability(probability).offset((int) (spacing / 1.5f)).biomes(isWhitelist, biomes).validDimensions(dimension.location().toString());
         }
     }
 }

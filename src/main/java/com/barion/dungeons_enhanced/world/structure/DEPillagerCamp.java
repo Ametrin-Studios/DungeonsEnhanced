@@ -33,27 +33,36 @@ public final class DEPillagerCamp extends GelConfigJigsawStructure {
     }
 
     @Override
-    public boolean isAllowedNearWorldSpawn() { return true; }
+    public boolean isAllowedNearWorldSpawn() {
+        return true;
+    }
 
     public static class Piece extends AbstractGelStructurePiece {
         public Piece(TemplateManager templateManager, JigsawPiece jigsawPiece, BlockPos pos, int groundLevelDelta, Rotation rotation, MutableBoundingBox box) {
             super(templateManager, jigsawPiece, pos, groundLevelDelta, rotation, box);
         }
-        public Piece(TemplateManager templateManager, CompoundNBT nbt) {super(templateManager, nbt);}
+
+        public Piece(TemplateManager templateManager, CompoundNBT nbt) {
+            super(templateManager, nbt);
+        }
 
         @Override
-        public IStructurePieceType getType() { return DEStructures.PILLAGER_CAMP.getPieceType(); }
+        public IStructurePieceType getType() {
+            return DEStructures.PILLAGER_CAMP.getPieceType();
+        }
+
         @Override
         public void handleDataMarker(String key, BlockPos pos, IServerWorld world, Random random, MutableBoundingBox box) { }
     }
 
     public static class Pool {
-        public static JigsawPattern Root;
+        public static final JigsawPattern ROOT;
+
         public static void init() { }
 
         static {
             JigsawRegistryHelper registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "pillager_camp/");
-            Root = registry.register("root", registry.builder().names("tent/general").maintainWater(false).build());
+            ROOT = registry.register("root", registry.builder().names("tent/general").maintainWater(false).build());
 
             JigsawPoolBuilder poolBuilder = registry.builder().maintainWater(false);
             JigsawPoolBuilder SleepingTents = poolBuilder.clone().names("tent/sleep1", "tent/sleep2");
@@ -66,6 +75,8 @@ public final class DEPillagerCamp extends GelConfigJigsawStructure {
             registry.register("features", JigsawPoolBuilder.collect(SleepingTents.weight(2), Kitchen.weight(2), VanillaDecoration.weight(2), Decoration.weight(3), Pillars.weight(1)));
         }
 
-        private static ResourceLocation mcFeaturePiece(String key) { return new ResourceLocation("minecraft", "pillager_outpost/feature_" + key); }
+        private static ResourceLocation mcFeaturePiece(String key) {
+            return new ResourceLocation("minecraft", "pillager_outpost/feature_" + key);
+        }
     }
 }

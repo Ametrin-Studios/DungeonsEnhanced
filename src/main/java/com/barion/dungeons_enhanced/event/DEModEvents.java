@@ -24,14 +24,14 @@ import net.minecraftforge.registries.IForgeRegistry;
 public final class DEModEvents {
 
     @SubscribeEvent
-    public static void setup(FMLCommonSetupEvent event){
+    public static void setup(FMLCommonSetupEvent event) {
         BiomeDictionary.BEACH.biomes(Biomes.STONE_SHORE, Biomes.SNOWY_BEACH);
     }
 
     @SubscribeEvent
-    public static void structureRegistry(final RegistryEvent.Register<Structure<?>> event){
+    public static void structureRegistry(final RegistryEvent.Register<Structure<?>> event) {
         IForgeRegistry<Structure<?>> registry = event.getRegistry();
-        for(StructureRegistrar2<?,?> structure : DEStructures.ALL_STRUCTURE_REGISTRARS){
+        for (StructureRegistrar2<?, ?> structure : DEStructures.ALL_STRUCTURE_REGISTRARS) {
             structure.handleForge(registry);
         }
         DECellarStructure.init();
@@ -53,7 +53,7 @@ public final class DEModEvents {
     }
 
     @SubscribeEvent
-    public static void gatherData(GatherDataEvent event){
+    public static void gatherData(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 

@@ -39,7 +39,7 @@ public final class DEEldersTemple extends DEUnderwaterStructure {
 
     @Override
     protected boolean checkLocation(ChunkGenerator chunkGen, BiomeProvider biomeProvider, long seed, SharedSeedRandom sharedSeedRand, int chunkPosX, int chunkPosZ, Biome biomeIn, ChunkPos chunkPos, NoFeatureConfig config) {
-        if(DETerrainAnalyzer.isUnderwater(chunkPos, chunkGen, 32)){
+        if (DETerrainAnalyzer.isUnderwater(chunkPos, chunkGen, 32)) {
             return DETerrainAnalyzer.areNearbyBiomesValid(biomeProvider, chunkPos, chunkGen, 30, getConfig());
         }
         return false;
@@ -47,7 +47,7 @@ public final class DEEldersTemple extends DEUnderwaterStructure {
 
 
     @Override
-    public void assemble(TemplateManager templateManager, DEStructurePiece variant, BlockPos pos, Rotation rotation, List<StructurePiece> pieces, int variantIndex){
+    public void assemble(TemplateManager templateManager, DEStructurePiece variant, BlockPos pos, Rotation rotation, List<StructurePiece> pieces, int variantIndex) {
         rotation = Rotation.NONE;
         int Yoffset = -5;
         pieces.add(new Piece(templateManager, SE, pos.offset(0, Yoffset, 0), rotation));
@@ -56,7 +56,7 @@ public final class DEEldersTemple extends DEUnderwaterStructure {
         pieces.add(new Piece(templateManager, NW, pos.offset(-30, Yoffset, -29), rotation));
     }
 
-    public static class Piece extends DEUnderwaterStructure.Piece{
+    public static class Piece extends DEUnderwaterStructure.Piece {
         public Piece(TemplateManager templateManager, ResourceLocation name, BlockPos pos, Rotation rotation) {
             super(templateManager, name, pos, rotation);
         }

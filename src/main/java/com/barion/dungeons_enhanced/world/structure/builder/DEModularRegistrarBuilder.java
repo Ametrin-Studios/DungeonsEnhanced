@@ -17,7 +17,9 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 public final class DEModularRegistrarBuilder {
-    public static DEModularRegistrarBuilder create(String id, Supplier<StructureRegistrar2<NoFeatureConfig, DEModularStructure>> registrar) { return new DEModularRegistrarBuilder(()-> registrar.get().getPieceType(), DEUtil.locate(id)); }
+    public static DEModularRegistrarBuilder create(String id, Supplier<StructureRegistrar2<NoFeatureConfig, DEModularStructure>> registrar) {
+        return new DEModularRegistrarBuilder(() -> registrar.get().getPieceType(), DEUtil.locate(id));
+    }
 
     private final ResourceLocation _resourceLocation;
     private final Supplier<IStructurePieceType> _pieceType;
@@ -38,10 +40,22 @@ public final class DEModularRegistrarBuilder {
         return this;
     }
 
-    public DEModularRegistrarBuilder piece(String template) { return piece(template, 0); }
-    public DEModularRegistrarBuilder piece(ResourceLocation template) { return piece(template, 0); }
-    public DEModularRegistrarBuilder piece(String template, int yOffset) { return piece(new DEStructureTemplate(DEUtil.locate(template), yOffset)); }
-    public DEModularRegistrarBuilder piece(ResourceLocation template, int yOffset) { return piece(new DEStructureTemplate(template, yOffset)); }
+    public DEModularRegistrarBuilder piece(String template) {
+        return piece(template, 0);
+    }
+
+    public DEModularRegistrarBuilder piece(ResourceLocation template) {
+        return piece(template, 0);
+    }
+
+    public DEModularRegistrarBuilder piece(String template, int yOffset) {
+        return piece(new DEStructureTemplate(DEUtil.locate(template), yOffset));
+    }
+
+    public DEModularRegistrarBuilder piece(ResourceLocation template, int yOffset) {
+        return piece(new DEStructureTemplate(template, yOffset));
+    }
+
     public DEModularRegistrarBuilder piece(DEStructureTemplate template) {
         _pieceFactory = new DESinglePieceFactory(template, _pieceType);
         return this;
@@ -54,7 +68,7 @@ public final class DEModularRegistrarBuilder {
 
     public DEModularRegistrarBuilder placement(DEPlacement placement) {
         _placement = placement;
-        if(_placement == DEPlacement.UNDERGROUND) {
+        if (_placement == DEPlacement.UNDERGROUND) {
             return stage(GenerationStage.Decoration.UNDERGROUND_STRUCTURES);
         }
         return this;
@@ -70,14 +84,20 @@ public final class DEModularRegistrarBuilder {
         return this;
     }
 
-    public DEModularRegistrarBuilder allowNearSpawn() { return allowedNearSpawn(true); }
+    public DEModularRegistrarBuilder allowNearSpawn() {
+        return allowedNearSpawn(true);
+    }
+
     public DEModularRegistrarBuilder allowedNearSpawn(boolean allow) {
         _allowedNearSpawn = allow;
         return this;
     }
+
     public StructureRegistrar2<NoFeatureConfig, DEModularStructure> build() {
-        if(_config == null) throw new NullPointerException("structure config of " + _resourceLocation + " has not been configured");
-        if(_pieceFactory == null) throw new NullPointerException("structure pieces of " + _resourceLocation + " have not been configured");
+        if (_config == null)
+            throw new NullPointerException("structure config of " + _resourceLocation + " has not been configured");
+        if (_pieceFactory == null)
+            throw new NullPointerException("structure pieces of " + _resourceLocation + " have not been configured");
         return GelStructureRegistrar.of(_resourceLocation, new DEModularStructure(_config, _pieceFactory, _placement, ImmutableList.copyOf(_filters), _allowedNearSpawn), _pieceFactory::createPiece, NoFeatureConfig.NONE, _generationStage).handle();
     }
 }

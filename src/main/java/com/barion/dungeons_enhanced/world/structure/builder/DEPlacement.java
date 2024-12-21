@@ -18,7 +18,9 @@ public interface DEPlacement {
         DESimpleStructurePiece piece = pieceFactory.createPiece(templateManager, rawPos, context.random);
 
         final Pair<Float, Boolean> result = DETerrainAnalyzer.isFlatEnough(rawPos, piece.getSize(), 1, 4, Heightmap.Type.WORLD_SURFACE_WG, context.chunkGenerator);
-        if(!result.getSecond()) { return Optional.empty(); }
+        if (!result.getSecond()) {
+            return Optional.empty();
+        }
         piece.setPosition(new BlockPos(rawPos.getX(), Math.round(result.getFirst()), rawPos.getZ()));
 
         return Optional.of(piece);
@@ -28,7 +30,9 @@ public interface DEPlacement {
         DESimpleStructurePiece piece = pieceFactory.createPiece(templateManager, rawPos, context.random);
 
         final Pair<Float, Boolean> result = DETerrainAnalyzer.isFlatEnough(rawPos, piece.getSize(), 1, 4, Heightmap.Type.OCEAN_FLOOR_WG, context.chunkGenerator);
-        if(!result.getSecond()) { return Optional.empty(); }
+        if (!result.getSecond()) {
+            return Optional.empty();
+        }
         piece.setPosition(new BlockPos(rawPos.getX(), Math.round(result.getFirst()), rawPos.getZ()));
 
         return Optional.of(piece);
@@ -36,7 +40,9 @@ public interface DEPlacement {
     DEPlacement ABOVE_GROUND = ((context, pieceFactory, templateManager) -> {
         BlockPos rawPos = DEUtil.chunkPosToBlockPosFromHeightMap(context.chunkPos, context.chunkGenerator, Heightmap.Type.WORLD_SURFACE_WG);
 
-        if(rawPos.getY() > 224) { return Optional.empty(); }
+        if (rawPos.getY() > 224) {
+            return Optional.empty();
+        }
 
         final int minY = rawPos.getY() + 48;
         final int maxY = 224;
@@ -49,15 +55,19 @@ public interface DEPlacement {
         return Optional.of(pieceFactory.createPiece(templateManager, pos, context.random));
     });
 
-    DEPlacement UNDERGROUND = ((context, pieceFactory, templateManager)-> {
+    DEPlacement UNDERGROUND = ((context, pieceFactory, templateManager) -> {
         BlockPos groundPos = DEUtil.chunkPosToBlockPosFromHeightMap(context.chunkPos, context.chunkGenerator, Heightmap.Type.OCEAN_FLOOR_WG);
 
         final int minY = 16;
-        if(groundPos.getY() < minY) { return Optional.empty(); }
+        if (groundPos.getY() < minY) {
+            return Optional.empty();
+        }
 
         final int maxY = groundPos.getY() - 32;
         int y = maxY;
-        if (maxY > minY) {y = minY + context.random.nextInt(maxY - minY);}
+        if (maxY > minY) {
+            y = minY + context.random.nextInt(maxY - minY);
+        }
         final BlockPos pos = new BlockPos(groundPos.getX(), y, groundPos.getZ());
 
         return Optional.of(pieceFactory.createPiece(templateManager, pos, context.random));

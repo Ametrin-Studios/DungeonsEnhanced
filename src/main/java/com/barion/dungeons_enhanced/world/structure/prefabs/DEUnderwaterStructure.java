@@ -82,7 +82,8 @@ public class DEUnderwaterStructure extends DEBaseStructure {
             return super.postProcess(world, structureManager, chunkGenerator, rand, box, chunkPos, pos);
         }
 
-        @Override @ParametersAreNonnullByDefault
-        protected void handleDataMarker(String key, BlockPos pos, IServerWorld world, Random random, MutableBoundingBox box) {}
+        @Override
+        @ParametersAreNonnullByDefault
+        protected void handleDataMarker(String key, BlockPos pos, IServerWorld world, Random random, MutableBoundingBox box) { }
     }
 }

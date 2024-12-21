@@ -20,23 +20,28 @@ public final class DEUnderwaterProcessor extends StructureProcessor {
     public static final DEUnderwaterProcessor INSTANCE = new DEUnderwaterProcessor();
     public static final Codec<DEUnderwaterProcessor> CODEC = Codec.unit(() -> INSTANCE);
 
-    private DEUnderwaterProcessor() {}
+    private DEUnderwaterProcessor() { }
 
-    @Override @Nullable @ParametersAreNonnullByDefault
+    @Override
+    @Nullable
+    @ParametersAreNonnullByDefault
     public Template.BlockInfo process(IWorldReader world, BlockPos pos, BlockPos pos2, Template.BlockInfo existing, Template.BlockInfo placed, PlacementSettings settings, @Nullable Template template) {
-        if(placed.state.is(Blocks.AIR)) {
+        if (placed.state.is(Blocks.AIR)) {
             return null;
         }
-        if(placed.state.is(GelTags.GEL)) {
+        if (placed.state.is(GelTags.GEL)) {
             return new Template.BlockInfo(placed.pos, Blocks.WATER.defaultBlockState(), null);
         }
-        if(placed.state.hasProperty(BlockStateProperties.WATERLOGGED)) {
+        if (placed.state.hasProperty(BlockStateProperties.WATERLOGGED)) {
             return new Template.BlockInfo(placed.pos, placed.state.setValue(BlockStateProperties.WATERLOGGED, true), placed.nbt);
         }
 
         return placed;
     }
 
-    @Override @Nonnull
-    protected IStructureProcessorType<?> getType() { return DEProcessorTypes.UNDERWATER; }
+    @Override
+    @Nonnull
+    protected IStructureProcessorType<?> getType() {
+        return DEProcessorTypes.UNDERWATER;
+    }
 }

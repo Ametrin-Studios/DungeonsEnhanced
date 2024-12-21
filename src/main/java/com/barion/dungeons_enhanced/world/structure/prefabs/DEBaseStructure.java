@@ -54,15 +54,20 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig
         setLakeProof(true);
     }
 
-    @Override @Nonnull
-    public IStartFactory<NoFeatureConfig> getStartFactory() { return Start::new; }
+    @Override
+    @Nonnull
+    public IStartFactory<NoFeatureConfig> getStartFactory() {
+        return Start::new;
+    }
 
     @Override
-    public boolean isAllowedNearWorldSpawn() { return generateNear00; }
+    public boolean isAllowedNearWorldSpawn() {
+        return generateNear00;
+    }
 
     @Override
     protected boolean isFeatureChunk(ChunkGenerator chunkGen, BiomeProvider biomeProvider, long seed, SharedSeedRandom sharedSeedRand, int chunkPosX, int chunkPosZ, Biome biomeIn, ChunkPos chunkPos, NoFeatureConfig config) {
-        if(super.isFeatureChunk(chunkGen, biomeProvider, seed, sharedSeedRand, chunkPosX, chunkPosZ, biomeIn, chunkPos, config)){
+        if (super.isFeatureChunk(chunkGen, biomeProvider, seed, sharedSeedRand, chunkPosX, chunkPosZ, biomeIn, chunkPos, config)) {
             return checkLocation(chunkGen, biomeProvider, seed, sharedSeedRand, chunkPosX, chunkPosZ, biomeIn, chunkPos, config);
         }
         return false;
@@ -80,7 +85,8 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig
             super(structure, chunkX, chunkZ, box, reference, seed);
         }
 
-        @Override @ParametersAreNonnullByDefault
+        @Override
+        @ParametersAreNonnullByDefault
         public void generatePieces(DynamicRegistries registry, ChunkGenerator chunkGen, TemplateManager templateManager, int chunkX, int chunkZ, Biome biome, NoFeatureConfig featureConfig) {
             int x = chunkX << 4;
             int z = chunkZ << 4;
@@ -99,14 +105,20 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig
                 case inAir:
                     minY = chunkGen.getBaseHeight(x, z, Heightmap.Type.WORLD_SURFACE_WG) + 35;
                     maxY = 220;
-                    if (minY > maxY) { y = maxY; }
-                    else {y = minY + random.nextInt(maxY - minY); }
+                    if (minY > maxY) {
+                        y = maxY;
+                    } else {
+                        y = minY + random.nextInt(maxY - minY);
+                    }
                     break;
                 case underground:
                     minY = 10;
                     maxY = chunkGen.getBaseHeight(x, z, Heightmap.Type.OCEAN_FLOOR_WG) - 20;
-                    if (minY >= maxY) { y = maxY; }
-                    else {y = minY + random.nextInt(maxY - minY); }
+                    if (minY >= maxY) {
+                        y = maxY;
+                    } else {
+                        y = minY + random.nextInt(maxY - minY);
+                    }
                     break;
             }
 
@@ -140,7 +152,7 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig
         public PlacementSettings createPlacementSettings(TemplateManager templateManager) {
             BlockPos sizePos = Objects.requireNonNull(templateManager.get(this.name)).getSize();
             BlockPos centerPos = new BlockPos(sizePos.getX() / 2, 0, sizePos.getZ() / 2);
-            return new GelPlacementSettings().setMaintainWater(false).setRotation(rotation).setMirror(Mirror.NONE).setRotationPivot(centerPos);
+            return new GelPlacementSettings().setMaintainWater(false).setRotation(rotation).setMirror(mirror).setRotationPivot(centerPos);
         }
 
         @Override
@@ -153,7 +165,8 @@ public abstract class DEBaseStructure extends GelConfigStructure<NoFeatureConfig
             return super.postProcess(world, structureManager, chunkGenerator, rand, bounds, chunkPos, pos);
         }
 
-        @Override @ParametersAreNonnullByDefault
-        protected void handleDataMarker(String key, BlockPos pos, IServerWorld world, Random random, MutableBoundingBox box) {}
+        @Override
+        @ParametersAreNonnullByDefault
+        protected void handleDataMarker(String key, BlockPos pos, IServerWorld world, Random random, MutableBoundingBox box) { }
     }
 }
