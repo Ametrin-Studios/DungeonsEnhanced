@@ -102,55 +102,6 @@ public final class DETerrainAnalyzer {
         return true;
     }
 
-    @Deprecated //use specific methods instead
-    public static boolean isPositionSuitable(ChunkPos chunkPos, ChunkGenerator chunkGenerator, GenerationType generationType, Settings settings) {
-        if (generationType == GenerationType.onWater) {
-            return true;
-        }
-        DETerrainAnalyzer.chunkGenerator = chunkGenerator;
-        int x = chunkPos.getMinBlockX();
-        int z = chunkPos.getMinBlockZ();
-        if (generationType == GenerationType.underwater) {
-            return getBlockAt(x, chunkGenerator.getBaseHeight(x, z, Heightmap.Type.OCEAN_FLOOR_WG) + 16, z).is(Blocks.WATER);
-        }
-        int y = chunkGenerator.getBaseHeight(x, z, Heightmap.Type.WORLD_SURFACE_WG);
-
-        if (generationType == GenerationType.underground) {
-            return y > 24;
-        }
-        if (generationType == GenerationType.inAir) {
-            return y < (chunkGenerator.getGenDepth()) - 72;
-        }
-
-        if (getBlockAt(x, y - 1, z).is(Blocks.WATER)) {
-            //DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " failed because Water");
-            return false;
-        }
-
-        int columSpreading = settings.columSpreading;
-
-        if (isColumBlocked(new BlockPos(x + columSpreading, y, z), settings)) {
-            //DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " failed");
-            return false;
-        }
-        if (isColumBlocked(new BlockPos(x - columSpreading, y, z), settings)) {
-            //DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " failed");
-            return false;
-        }
-        if (isColumBlocked(new BlockPos(x, y, z + columSpreading), settings)) {
-            //DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " failed");
-            return false;
-        }
-        if (isColumBlocked(new BlockPos(x, y, z - columSpreading), settings)) {
-            //DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " failed");
-            return false;
-        }
-
-        //DungeonsEnhanced.LOGGER.info("Structure at " + x + ", " + y + ", " + z + " passed");
-
-        return true;
-    }
-
     private static boolean isColumBlocked(BlockPos pos, Settings settings) {
         if (!isDownwardsFree(pos, settings.stepSize, settings.steps)) {
             return isUpwardsBlocked(pos, settings.stepSize, settings.steps);
