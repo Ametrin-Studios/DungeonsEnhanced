@@ -4,16 +4,16 @@ license="${mod_license}"
 issueTrackerURL="https://github.com/Ametrin-Studios/DungeonsEnhanced/issues"
 
 [[mods]] #mandatory
-    modId="${mod_id}" #mandatory
-    version="${mod_version}" #mandatory
-    displayName="${mod_name}" #mandatory
-    updateJSONURL="https://raw.githubusercontent.com/Ametrin-Studios/DungeonsEnhanced/refs/heads/master/update.json"
-    displayURL="https://www.curseforge.com/minecraft/mc-mods/dungeonsenhanced"
-    logoFile="logo.png"
-    credits="Thanks Modding Legacy for their genius Structure Gel API"
-    authors="${mod_authors}"
-    displayTest="MATCH_VERSION"
-    description='''
+modId="${mod_id}" #mandatory
+version="${mod_version}" #mandatory
+displayName="${mod_name}" #mandatory
+updateJSONURL="https://raw.githubusercontent.com/Ametrin-Studios/DungeonsEnhanced/refs/heads/master/update.json"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/dungeonsenhanced"
+logoFile="logo.png"
+credits="Thanks Modding Legacy for their genius Structure Gel API"
+authors="${mod_authors}"
+displayTest="MATCH_VERSION"
+description='''
         Minecraft is great game, but exploring always felt a bit boring to us.
         There aren't many structures or dungeons you can explore and the ones you find, are getting repetitive.
         We decided to spice things up a bit, by adding new dungeons and structures for you to explore.
@@ -24,10 +24,13 @@ issueTrackerURL="https://github.com/Ametrin-Studios/DungeonsEnhanced/issues"
         We hope you have fun!
     '''
 
-[[dependencies.${mod_id}]]
-    modId="neoforge"
-    type="required"
-    versionRange="${neo_version_range}"
+[[accessTransformers]]
+file="dungeons_enhanced_base.cfg"
+
+[[dependencies.${mod_id}]] #optional
+    modId="neoforge" #mandatory
+    type="required" #mandatory
+    versionRange="${neo_version_range}" #mandatory
     ordering="NONE"
     side="BOTH"
 
@@ -37,13 +40,3 @@ issueTrackerURL="https://github.com/Ametrin-Studios/DungeonsEnhanced/issues"
     versionRange="${minecraft_version_range}"
     ordering="NONE"
     side="BOTH"
-
-[[dependencies.${mod_id}]]
-    modId="structure_gel"
-    type="required"
-    versionRange="${gel_version_range}"
-    ordering="NONE"
-    side="BOTH"
-
-[[accessTransformers]]
-    file="dungeons_enhanced_base.cfg"
