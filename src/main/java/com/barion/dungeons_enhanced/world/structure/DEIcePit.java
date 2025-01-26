@@ -4,7 +4,7 @@ import com.barion.dungeons_enhanced.DEUtil;
 import com.barion.dungeons_enhanced.registry.DEStructures;
 import com.barion.dungeons_enhanced.world.structure.prefabs.DEGroundStructure;
 import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEPieceAssembler;
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -16,7 +16,7 @@ import static com.barion.dungeons_enhanced.DEUtil.locate;
 
 public final class DEIcePit extends DEGroundStructure {
     public static final String ID = "ice_pit";
-    public static final Codec<DEIcePit> CODEC = simpleCodec(DEIcePit::new);
+    public static final MapCodec<DEIcePit> CODEC = simpleCodec(DEIcePit::new);
     private static final ResourceLocation ENTRANCE = locate("ice_pit/top");
 
     public DEIcePit(StructureSettings settings) {

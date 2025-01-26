@@ -4,11 +4,11 @@ import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.registry.DEVillagerTrades;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.village.VillagerTradesEvent;
 
 @SuppressWarnings("unused")
-@Mod.EventBusSubscriber(modid = DungeonsEnhanced.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+@EventBusSubscriber(modid = DungeonsEnhanced.MOD_ID, bus = EventBusSubscriber.Bus.GAME)
 public final class DEGameEvents {
     @SubscribeEvent
     public static void registerCustomTrades(final VillagerTradesEvent event){

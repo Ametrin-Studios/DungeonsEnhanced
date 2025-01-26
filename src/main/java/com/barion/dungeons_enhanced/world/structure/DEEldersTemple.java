@@ -8,7 +8,7 @@ import com.barion.dungeons_enhanced.world.structure.prefabs.DEUnderwaterStructur
 import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEPieceAssembler;
 import com.barion.dungeons_enhanced.world.structure.processor.DESwapDeadCoralsProcessor;
 import com.barion.dungeons_enhanced.world.structure.processor.DEUnderwaterProcessor;
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
@@ -25,7 +25,7 @@ import static com.barion.dungeons_enhanced.DEUtil.locate;
 
 public final class DEEldersTemple extends DEUnderwaterStructure {
     public static final String ID = "elders_temple";
-    public static final Codec<DEEldersTemple> CODEC = simpleCodec(DEEldersTemple::new);
+    public static final MapCodec<DEEldersTemple> CODEC = simpleCodec(DEEldersTemple::new);
     private static final ResourceLocation NE = locate("elders_temple/ne");
     private static final ResourceLocation NW = locate("elders_temple/nw");
     private static final ResourceLocation SE = locate("elders_temple/se");

@@ -12,15 +12,13 @@ import net.minecraft.data.tags.StructureTagsProvider;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.levelgen.structure.Structure;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
 
 public final class DEStructureTagsProvider extends StructureTagsProvider {
-    public DEStructureTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookup, @Nullable ExistingFileHelper existingFileHelper) {
-        super(output, lookup, DungeonsEnhanced.MOD_ID, existingFileHelper);
+    public DEStructureTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
+        super(output, lookup, DungeonsEnhanced.MOD_ID);
     }
 
     @Override @SuppressWarnings("null")

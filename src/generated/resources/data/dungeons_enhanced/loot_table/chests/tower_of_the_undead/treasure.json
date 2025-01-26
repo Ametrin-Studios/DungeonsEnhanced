@@ -11,190 +11,26 @@
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 4.0,
-                "min": 2.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:bone",
-          "weight": 3
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
                 "max": 2.0,
                 "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:rotten_flesh",
-          "weight": 4
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 2.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:string",
-          "weight": 3
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 2.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:cobweb",
-          "weight": 2
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 2.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:slime_ball",
-          "weight": 2
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": 1.0,
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:clock"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": 1.0,
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:compass"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 2.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:map",
-          "weight": 2
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 2.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:emerald",
-          "weight": 2
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 5.0,
-                "min": 2.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:iron_nugget",
-          "weight": 2
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 5.0,
-                "min": 2.0
               },
               "function": "minecraft:set_count"
             }
           ],
           "name": "minecraft:gold_nugget",
-          "weight": 2
-        }
-      ],
-      "rolls": {
-        "type": "minecraft:uniform",
-        "max": 9.0,
-        "min": 4.0
-      }
-    },
-    {
-      "bonus_rolls": 0.0,
-      "entries": [
+          "weight": 5
+        },
         {
           "type": "minecraft:item",
           "functions": [
             {
               "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 4.0,
-                "min": 2.0
-              },
+              "count": 1.0,
               "function": "minecraft:set_count"
             }
           ],
           "name": "minecraft:gold_ingot",
-          "weight": 2
+          "weight": 3
         },
         {
           "type": "minecraft:item",
@@ -213,11 +49,39 @@
           "functions": [
             {
               "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 2.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:iron_nugget",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
               "count": 1.0,
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:diamond",
+          "name": "minecraft:iron_ingot",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:golden_carrot",
           "weight": 2
         },
         {
@@ -227,55 +91,78 @@
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 2.0,
+                "max": 3.0,
                 "min": 1.0
               },
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:gold_block",
-          "weight": 2
+          "name": "minecraft:wheat_seeds",
+          "weight": 8
         },
         {
           "type": "minecraft:item",
           "functions": [
             {
               "add": false,
-              "count": 1.0,
-              "function": "minecraft:set_count"
-            },
-            {
-              "function": "minecraft:enchant_with_levels",
-              "levels": {
+              "count": {
                 "type": "minecraft:uniform",
-                "max": 22.0,
-                "min": 10.0
+                "max": 3.0,
+                "min": 1.0
               },
-              "treasure": false
+              "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:book",
-          "weight": 2
+          "name": "minecraft:wheat",
+          "weight": 6
         },
         {
           "type": "minecraft:item",
           "functions": [
             {
               "add": false,
-              "count": 1.0,
-              "function": "minecraft:set_count"
-            },
-            {
-              "function": "minecraft:enchant_with_levels",
-              "levels": {
+              "count": {
                 "type": "minecraft:uniform",
-                "max": 12.0,
-                "min": 0.0
+                "max": 3.0,
+                "min": 1.0
               },
-              "treasure": false
+              "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:bow"
+          "name": "minecraft:string",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:bone",
+          "weight": 7
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:rotten_flesh",
+          "weight": 10
         },
         {
           "type": "minecraft:item",
@@ -284,15 +171,28 @@
               "add": false,
               "count": 1.0,
               "function": "minecraft:set_count"
-            },
+            }
+          ],
+          "name": "minecraft:iron_axe"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
             {
-              "function": "minecraft:enchant_with_levels",
-              "levels": {
-                "type": "minecraft:uniform",
-                "max": 12.0,
-                "min": 0.0
-              },
-              "treasure": false
+              "add": false,
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:iron_sword"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": 1.0,
+              "function": "minecraft:set_count"
             }
           ],
           "name": "minecraft:crossbow"
@@ -304,18 +204,9 @@
               "add": false,
               "count": 1.0,
               "function": "minecraft:set_count"
-            },
-            {
-              "function": "minecraft:enchant_with_levels",
-              "levels": {
-                "type": "minecraft:uniform",
-                "max": 12.0,
-                "min": 0.0
-              },
-              "treasure": false
             }
           ],
-          "name": "minecraft:diamond_helmet"
+          "name": "minecraft:map"
         },
         {
           "type": "minecraft:item",
@@ -324,18 +215,10 @@
               "add": false,
               "count": 1.0,
               "function": "minecraft:set_count"
-            },
-            {
-              "function": "minecraft:enchant_with_levels",
-              "levels": {
-                "type": "minecraft:uniform",
-                "max": 12.0,
-                "min": 0.0
-              },
-              "treasure": false
             }
           ],
-          "name": "minecraft:diamond_chestplate"
+          "name": "minecraft:cobweb",
+          "weight": 4
         },
         {
           "type": "minecraft:item",
@@ -344,44 +227,32 @@
               "add": false,
               "count": 1.0,
               "function": "minecraft:set_count"
-            },
-            {
-              "function": "minecraft:enchant_with_levels",
-              "levels": {
-                "type": "minecraft:uniform",
-                "max": 12.0,
-                "min": 0.0
-              },
-              "treasure": false
             }
           ],
-          "name": "minecraft:diamond_leggings"
+          "name": "minecraft:golden_apple",
+          "weight": 2
         },
         {
           "type": "minecraft:item",
           "functions": [
             {
               "add": false,
-              "count": 1.0,
-              "function": "minecraft:set_count"
-            },
-            {
-              "function": "minecraft:enchant_with_levels",
-              "levels": {
+              "count": {
                 "type": "minecraft:uniform",
-                "max": 12.0,
-                "min": 0.0
+                "max": 3.0,
+                "min": 2.0
               },
-              "treasure": false
+              "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:diamond_boots"
+          "name": "minecraft:arrow",
+          "weight": 6
         }
       ],
       "rolls": {
         "type": "minecraft:uniform",
-        "max": 6.0,
-        "min": 4.0
+        "max": 18.0,
+        "min": 10.0
       }
     },
     {
@@ -392,203 +263,168 @@
           "functions": [
             {
               "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
+              "count": 1.0,
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:music_disc_11"
+          "name": "minecraft:leather_helmet",
+          "weight": 3
         },
         {
           "type": "minecraft:item",
           "functions": [
             {
               "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
+              "count": 1.0,
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:music_disc_13"
+          "name": "minecraft:leather_chestplate",
+          "weight": 3
         },
         {
           "type": "minecraft:item",
           "functions": [
             {
               "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
+              "count": 1.0,
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:music_disc_blocks"
+          "name": "minecraft:leather_leggings",
+          "weight": 3
         },
         {
           "type": "minecraft:item",
           "functions": [
             {
               "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
+              "count": 1.0,
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:music_disc_cat"
+          "name": "minecraft:leather_boots",
+          "weight": 3
         },
         {
           "type": "minecraft:item",
           "functions": [
             {
               "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
+              "count": 1.0,
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:music_disc_chirp"
+          "name": "minecraft:chainmail_helmet",
+          "weight": 2
         },
         {
           "type": "minecraft:item",
           "functions": [
             {
               "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
+              "count": 1.0,
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:music_disc_far"
+          "name": "minecraft:chainmail_chestplate",
+          "weight": 2
         },
         {
           "type": "minecraft:item",
           "functions": [
             {
               "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
+              "count": 1.0,
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:music_disc_mall"
+          "name": "minecraft:chainmail_leggings",
+          "weight": 2
         },
         {
           "type": "minecraft:item",
           "functions": [
             {
               "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
+              "count": 1.0,
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:music_disc_mellohi"
+          "name": "minecraft:chainmail_boots",
+          "weight": 2
         },
         {
           "type": "minecraft:item",
           "functions": [
             {
               "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
+              "count": 1.0,
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:music_disc_stal"
+          "name": "minecraft:iron_helmet"
         },
         {
           "type": "minecraft:item",
           "functions": [
             {
               "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
+              "count": 1.0,
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:music_disc_strad"
+          "name": "minecraft:iron_chestplate"
         },
         {
           "type": "minecraft:item",
           "functions": [
             {
               "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
+              "count": 1.0,
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:music_disc_otherside"
+          "name": "minecraft:iron_leggings"
         },
         {
           "type": "minecraft:item",
           "functions": [
             {
               "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
+              "count": 1.0,
               "function": "minecraft:set_count"
+            },
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
+                "type": "minecraft:uniform",
+                "max": 10.0,
+                "min": 4.0
+              },
+              "options": "#minecraft:on_random_loot"
             }
           ],
-          "name": "minecraft:music_disc_wait"
+          "name": "minecraft:book"
         },
         {
           "type": "minecraft:item",
           "functions": [
             {
               "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
+              "count": 1.0,
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:music_disc_ward"
+          "name": "minecraft:iron_boots"
         }
       ],
       "rolls": {
         "type": "minecraft:uniform",
-        "max": 1.0,
-        "min": 0.0
+        "max": 3.0,
+        "min": 1.0
       }
     }
   ],
-  "random_sequence": "dungeons_enhanced:chests/monster_maze/treasure"
+  "random_sequence": "dungeons_enhanced:chests/tower_of_the_undead/treasure"
 }

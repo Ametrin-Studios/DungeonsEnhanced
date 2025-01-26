@@ -9,105 +9,6 @@
           "functions": [
             {
               "add": false,
-              "count": 1.0,
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:cod",
-          "weight": 3
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": 1.0,
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:salmon",
-          "weight": 3
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:brain_coral"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:bubble_coral"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:fire_coral"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:horn_coral"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:tube_coral"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
               "count": {
                 "type": "minecraft:uniform",
                 "max": 1.0,
@@ -133,7 +34,7 @@
             }
           ],
           "name": "minecraft:emerald",
-          "weight": 3
+          "weight": 2
         },
         {
           "type": "minecraft:item",
@@ -148,7 +49,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:scute"
+          "name": "minecraft:turtle_scute"
         },
         {
           "type": "minecraft:item",
@@ -179,7 +80,8 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:golden_apple"
+          "name": "minecraft:golden_apple",
+          "weight": 2
         },
         {
           "type": "minecraft:item",
@@ -204,7 +106,52 @@
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
+                "max": 2.0,
+                "min": 0.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:gold_ingot"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
                 "max": 1.0,
+                "min": 0.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:heart_of_the_sea"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 1.0,
+                "min": 0.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:trident"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 2.0,
                 "min": 0.0
               },
               "function": "minecraft:set_count"
@@ -226,36 +173,6 @@
             }
           ],
           "name": "minecraft:turtle_egg"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:ink_sac"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:name_tag"
         },
         {
           "type": "minecraft:item",
@@ -306,7 +223,7 @@
             }
           ],
           "name": "minecraft:prismarine_crystals",
-          "weight": 2
+          "weight": 3
         }
       ],
       "rolls": {
@@ -316,5 +233,5 @@
       }
     }
   ],
-  "random_sequence": "dungeons_enhanced:chests/elders_temple/main"
+  "random_sequence": "dungeons_enhanced:chests/elders_temple/elder_room"
 }

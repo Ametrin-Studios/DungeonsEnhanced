@@ -4,14 +4,11 @@ import com.barion.dungeons_enhanced.data.provider.DEAdvancementProvider;
 import com.barion.dungeons_enhanced.data.provider.DEBiomeTagsProvider;
 import com.barion.dungeons_enhanced.data.provider.DELootTableProvider;
 import com.barion.dungeons_enhanced.data.provider.DEStructureTagsProvider;
-import com.barion.dungeons_enhanced.registry.DEJigsawTypes;
-import com.barion.dungeons_enhanced.registry.DELootTableAliases;
-import com.barion.dungeons_enhanced.registry.DEProcessorLists;
-import com.barion.dungeons_enhanced.registry.DETemplatePools;
+import com.barion.dungeons_enhanced.registry.*;
 import com.legacy.structure_gel.api.registry.registrar.RegistrarHandler;
 import net.minecraft.core.RegistrySetBuilder;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.fml.ModLoadingContext;
+import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
@@ -23,27 +20,24 @@ import java.util.Set;
 public final class DungeonsEnhanced {
     public static final String MOD_ID = "dungeons_enhanced";
 
-    public DungeonsEnhanced(IEventBus modEventBus) {
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DEConfig.COMMON_SPEC);
+    public DungeonsEnhanced(IEventBus modEventBus, ModContainer container) {
+        container.registerConfig(ModConfig.Type.COMMON, DEConfig.COMMON_SPEC);
 
         modEventBus.addListener(DungeonsEnhanced::gatherData);
+        DEStructures.ALL_STRUCTURE_REGISTRARS.clone();
 
         RegistrarHandler.registerHandlers(MOD_ID, modEventBus, DETemplatePools.HANDLER, DEProcessorLists.HANDLER, DEJigsawTypes.HANDLER, DELootTableAliases.HANDLER);
     }
 
-    public static void gatherData(GatherDataEvent event) {
-        var generator = event.getGenerator();
-        var output = generator.getPackOutput();
-        var existingFileHelper = event.getExistingFileHelper();
-        var runServer = event.includeServer();
+    public static void gatherData(GatherDataEvent.Client event) {
+        var output = event.getGenerator().getPackOutput();
 
         var registrarProvider = new DatapackBuiltinEntriesProvider(output, event.getLookupProvider(), RegistrarHandler.injectRegistries(new RegistrySetBuilder()), Set.of(DungeonsEnhanced.MOD_ID));
-        generator.addProvider(runServer, registrarProvider);
-        var lookup = registrarProvider.getRegistryProvider();
+        event.addProvider(registrarProvider);
 
-        generator.addProvider(runServer, new DEBiomeTagsProvider(output, event.getLookupProvider(), existingFileHelper));
-        generator.addProvider(runServer, new DELootTableProvider(output));
-        generator.addProvider(runServer, new DEAdvancementProvider(output, event.getLookupProvider(), existingFileHelper));
-        generator.addProvider(runServer, new DEStructureTagsProvider(output, lookup, existingFileHelper));
+        event.createProvider(DEBiomeTagsProvider::new);
+        event.createProvider(DELootTableProvider::new);
+        event.createProvider(DEAdvancementProvider::new);
+        event.createProvider(DEStructureTagsProvider::new);
     }
 }

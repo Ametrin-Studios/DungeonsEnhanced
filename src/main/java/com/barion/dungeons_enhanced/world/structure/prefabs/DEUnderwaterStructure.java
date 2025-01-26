@@ -22,15 +22,19 @@ import java.util.function.Supplier;
 import static com.barion.dungeons_enhanced.registry.DEStructures.SUNKEN_SHRINE;
 
 public class DEUnderwaterStructure extends DEBaseStructure {
+    public DEUnderwaterStructure(StructureSettings settings, DEStructureTemplates variants, Supplier<StructureType<?>> type) {
+        super(settings, variants, type);
+    }
 
-    public DEUnderwaterStructure(StructureSettings settings, DEStructureTemplates variants, Supplier<StructureType<?>> type) {super(settings, variants, type);}
-
-    @Override @Nonnull
+    @Override
+    @Nonnull
     public Optional<GenerationStub> findGenerationPoint(@Nonnull GenerationContext context) {
         final var piece = _templates.getRandom(context.random());
         final var pos = DEUtil.chunkPosToBlockPosFromHeightMap(context.chunkPos(), context.chunkGenerator(), Heightmap.Types.OCEAN_FLOOR_WG, context.heightAccessor(), context.randomState()).above(piece.yOffset);
 
-        if(!DETerrainAnalyzer.isUnderwater(pos, context.chunkGenerator(), 16, context.heightAccessor(), context.randomState())) {return Optional.empty();}
+        if (!DETerrainAnalyzer.isUnderwater(pos, context.chunkGenerator(), 16, context.heightAccessor(), context.randomState())) {
+            return Optional.empty();
+        }
 
         return at(pos, (builder) -> generatePieces(builder, pos, piece, Rotation.getRandom(context.random()), context, DEUnderwaterStructure::assemble));
     }
@@ -40,15 +44,18 @@ public class DEUnderwaterStructure extends DEBaseStructure {
     }
 
     public static class Piece extends DEBaseStructure.Piece {
-        public Piece(StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation){
+        public Piece(StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation) {
             super(SUNKEN_SHRINE.getPieceType(), structureManager, templateName, pos, rotation);
         }
-        public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt){
+
+        public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) {
             super(SUNKEN_SHRINE.getPieceType(), serializationContext, nbt);
         }
 
         @Override
-        protected boolean useGelProcessor() { return false; }
+        protected boolean useGelProcessor() {
+            return false;
+        }
 
         @Override
         protected void addProcessors(StructurePlaceSettings settings) {

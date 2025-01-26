@@ -109,7 +109,7 @@
                 "max": 12.0,
                 "min": 4.0
               },
-              "treasure": false
+              "options": "#minecraft:on_random_loot"
             }
           ],
           "name": "minecraft:diamond_sword",
@@ -130,7 +130,7 @@
                 "max": 12.0,
                 "min": 4.0
               },
-              "treasure": false
+              "options": "#minecraft:on_random_loot"
             }
           ],
           "name": "minecraft:diamond_axe",
@@ -151,7 +151,7 @@
                 "max": 10.0,
                 "min": 4.0
               },
-              "treasure": false
+              "options": "#minecraft:on_random_loot"
             }
           ],
           "name": "minecraft:diamond_helmet",
@@ -172,7 +172,7 @@
                 "max": 10.0,
                 "min": 3.0
               },
-              "treasure": false
+              "options": "#minecraft:on_random_loot"
             }
           ],
           "name": "minecraft:diamond_chestplate",
@@ -193,7 +193,7 @@
                 "max": 10.0,
                 "min": 3.0
               },
-              "treasure": false
+              "options": "#minecraft:on_random_loot"
             }
           ],
           "name": "minecraft:diamond_leggings",
@@ -214,7 +214,7 @@
                 "max": 10.0,
                 "min": 3.0
               },
-              "treasure": false
+              "options": "#minecraft:on_random_loot"
             }
           ],
           "name": "minecraft:diamond_boots",

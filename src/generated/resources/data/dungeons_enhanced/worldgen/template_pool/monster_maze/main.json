@@ -4,7 +4,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/edge1",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -14,7 +14,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/edge2",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -24,7 +24,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/room1",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -34,7 +34,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/room2",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -44,7 +44,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/room3",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -54,7 +54,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/small3",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -64,7 +64,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/small2",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -74,7 +74,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/small1",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -84,7 +84,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/big5",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -94,7 +94,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/big3",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -104,7 +104,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/big4",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -114,7 +114,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/big1",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -124,7 +124,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/big2",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -134,7 +134,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/cross2",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -144,7 +144,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/cross1",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -154,7 +154,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:monster_maze/big_room",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -164,7 +164,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:monster_maze/prison",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -174,7 +174,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:monster_maze/storage",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -184,7 +184,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:monster_maze/church",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -194,7 +194,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:monster_maze/room1",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -204,7 +204,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:monster_maze/brewery",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },

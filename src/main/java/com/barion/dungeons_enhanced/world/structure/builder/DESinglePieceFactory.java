@@ -19,10 +19,10 @@ public final class DESinglePieceFactory implements IDEPieceFactory {
     private final Function<StructurePlaceSettings, StructurePlaceSettings> _settingsFunction;
 
 
-
     public DESinglePieceFactory(DEStructureTemplate template, Supplier<StructurePieceType> pieceTypeSupplier) {
         this(template, pieceTypeSupplier, settings -> settings);
     }
+
     public DESinglePieceFactory(DEStructureTemplate template, Supplier<StructurePieceType> pieceTypeSupplier, Function<StructurePlaceSettings, StructurePlaceSettings> settingsFunction) {
         _template = template;
         _pieceTypeSupplier = pieceTypeSupplier;

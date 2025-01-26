@@ -4,7 +4,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:deep_crypt/tunnel",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:air_to_cobweb",
         "projection": "rigid"
       },
@@ -14,7 +14,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:deep_crypt/cross",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:air_to_cobweb",
         "projection": "rigid"
       },
@@ -24,7 +24,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:deep_crypt/large_tomb",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -34,7 +34,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:deep_crypt/prison",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -44,7 +44,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:deep_crypt/root",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -54,7 +54,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:deep_crypt/big_tunnel",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -64,7 +64,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:deep_crypt/tomb",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -74,7 +74,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:deep_crypt/tombs",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -84,7 +84,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:deep_crypt/treasure",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },

@@ -4,25 +4,27 @@ import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.legacy.structure_gel.api.registry.RegistrarHolder;
 import com.legacy.structure_gel.api.registry.StructureGelRegistries;
 import com.legacy.structure_gel.api.registry.registrar.RegistrarHandler;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
+import net.minecraft.world.level.storage.loot.LootTable;
 import net.neoforged.neoforge.registries.RegisterEvent.RegisterHelper;
 
 import static com.barion.dungeons_enhanced.DEUtil.locate;
 
 @RegistrarHolder
 public final class DELootTableAliases {
-    public static final RegistrarHandler<ResourceLocation> HANDLER = RegistrarHandler.getOrCreate(StructureGelRegistries.Keys.LOOT_TABLE_ALIAS, DungeonsEnhanced.MOD_ID).addListener(DELootTableAliases::register);
+    public static final RegistrarHandler<ResourceKey<LootTable>> HANDLER = RegistrarHandler.getOrCreate(StructureGelRegistries.Keys.LOOT_TABLE_ALIAS, DungeonsEnhanced.MOD_ID).addListener(DELootTableAliases::register);
 
-    private static void register(RegisterHelper<ResourceLocation> event) {
+    private static void register(RegisterHelper<ResourceKey<LootTable>> event) {
         // Vanilla
-        event.register(new ResourceLocation("desert_pyramid"), BuiltInLootTables.DESERT_PYRAMID);
-        event.register(new ResourceLocation("simple_dungeon"), BuiltInLootTables.SIMPLE_DUNGEON);
-        event.register(new ResourceLocation("village/house/desert"), BuiltInLootTables.VILLAGE_DESERT_HOUSE);
-        event.register(new ResourceLocation("village/house/plains"), BuiltInLootTables.VILLAGE_PLAINS_HOUSE);
-        event.register(new ResourceLocation("village/house/savanna"), BuiltInLootTables.VILLAGE_SAVANNA_HOUSE);
-        event.register(new ResourceLocation("village/house/snowy"), BuiltInLootTables.VILLAGE_SNOWY_HOUSE);
-        event.register(new ResourceLocation("village/house/taiga"), BuiltInLootTables.VILLAGE_TAIGA_HOUSE);
+        event.register(ResourceLocation.withDefaultNamespace("desert_pyramid"), BuiltInLootTables.DESERT_PYRAMID);
+//        event.register(ResourceLocation.withDefaultNamespace("simple_dungeon"), BuiltInLootTables.SIMPLE_DUNGEON);
+        event.register(ResourceLocation.withDefaultNamespace("village/house/desert"), BuiltInLootTables.VILLAGE_DESERT_HOUSE);
+        event.register(ResourceLocation.withDefaultNamespace("village/house/plains"), BuiltInLootTables.VILLAGE_PLAINS_HOUSE);
+        event.register(ResourceLocation.withDefaultNamespace("village/house/savanna"), BuiltInLootTables.VILLAGE_SAVANNA_HOUSE);
+        event.register(ResourceLocation.withDefaultNamespace("village/house/snowy"), BuiltInLootTables.VILLAGE_SNOWY_HOUSE);
+        event.register(ResourceLocation.withDefaultNamespace("village/house/taiga"), BuiltInLootTables.VILLAGE_TAIGA_HOUSE);
 
         // Overworld
         event.register(locate("desert_temple/coffin"), DELootTables.DesertTemple.COFFIN);

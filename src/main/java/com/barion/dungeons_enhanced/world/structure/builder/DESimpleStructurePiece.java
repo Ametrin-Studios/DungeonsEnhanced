@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
+import net.minecraft.world.level.levelgen.structure.templatesystem.LiquidSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 
@@ -39,10 +40,10 @@ public final class DESimpleStructurePiece extends GelTemplateStructurePiece {
         // DO NOT USE getRotation in here!
         var size = template().getSize(rotation);
         var pivot = new BlockPos(size.getX() / 2, 0, size.getZ() / 2);
-        return _settingsFunction.apply(super.getPlaceSettings(structureManager).setKeepLiquids(false).setRotationPivot(pivot));
+        return _settingsFunction.apply(super.getPlaceSettings(structureManager).setLiquidSettings(LiquidSettings.IGNORE_WATERLOGGING).setRotationPivot(pivot));
     }
 
-    public Vec3i getSize(){
+    public Vec3i getSize() {
         return template().getSize(getRotation());
     }
 
@@ -51,6 +52,7 @@ public final class DESimpleStructurePiece extends GelTemplateStructurePiece {
         boundingBox = template.getBoundingBox(placeSettings, templatePosition);
     } // probably not good
 
-    @Override @ParametersAreNonnullByDefault
-    protected void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor levelAccessor, RandomSource randomSource, BoundingBox boundingBox) {}
+    @Override
+    @ParametersAreNonnullByDefault
+    protected void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor levelAccessor, RandomSource randomSource, BoundingBox boundingBox) { }
 }

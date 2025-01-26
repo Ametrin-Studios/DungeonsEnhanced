@@ -33,15 +33,23 @@
           "functions": [
             {
               "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
+              "count": 1.0,
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:brain_coral"
+          "name": "minecraft:string",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:fishing_rod"
         },
         {
           "type": "minecraft:item",
@@ -56,7 +64,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:bubble_coral"
+          "name": "minecraft:nautilus_shell"
         },
         {
           "type": "minecraft:item",
@@ -71,7 +79,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:fire_coral"
+          "name": "minecraft:bowl"
         },
         {
           "type": "minecraft:item",
@@ -80,43 +88,13 @@
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 1.0,
+                "max": 2.0,
                 "min": 0.0
               },
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:horn_coral"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:tube_coral"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:nautilus_shell",
+          "name": "minecraft:leather",
           "weight": 2
         },
         {
@@ -142,13 +120,121 @@
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
+                "max": 2.0,
+                "min": 0.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:bread",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 2.0,
+                "min": 0.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:paper"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
                 "max": 1.0,
                 "min": 0.0
               },
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:scute"
+          "name": "minecraft:spyglass"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 1.0,
+                "min": 0.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:map",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 1.0,
+                "min": 0.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:iron_axe"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 4.0,
+                "min": 0.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:arrow",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 1.0,
+                "min": 0.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:crossbow"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 1.0,
+                "min": 0.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:turtle_scute"
         },
         {
           "type": "minecraft:item",
@@ -164,7 +250,22 @@
             }
           ],
           "name": "minecraft:prismarine_shard",
-          "weight": 3
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 1.0,
+                "min": 0.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:iron_sword"
         },
         {
           "type": "minecraft:item",
@@ -196,117 +297,6 @@
           ],
           "name": "minecraft:gold_nugget",
           "weight": 2
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:diamond"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:turtle_egg"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:ink_sac"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:name_tag"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:copper_ingot",
-          "weight": 4
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            },
-            {
-              "function": "minecraft:set_potion",
-              "id": "minecraft:water_breathing"
-            }
-          ],
-          "name": "minecraft:potion"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:prismarine_crystals",
-          "weight": 2
         }
       ],
       "rolls": {
@@ -316,5 +306,5 @@
       }
     }
   ],
-  "random_sequence": "dungeons_enhanced:chests/sunken_shrine"
+  "random_sequence": "dungeons_enhanced:chests/pirate_ship"
 }

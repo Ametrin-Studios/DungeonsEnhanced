@@ -176,7 +176,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:scute",
+          "name": "minecraft:turtle_scute",
           "weight": 2
         }
       ],

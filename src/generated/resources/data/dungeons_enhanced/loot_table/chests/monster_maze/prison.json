@@ -272,7 +272,7 @@
                 "max": 10.0,
                 "min": 5.0
               },
-              "treasure": false
+              "options": "#minecraft:on_random_loot"
             }
           ],
           "name": "minecraft:stone_pickaxe",
@@ -293,7 +293,7 @@
                 "max": 9.0,
                 "min": 4.0
               },
-              "treasure": false
+              "options": "#minecraft:on_random_loot"
             }
           ],
           "name": "minecraft:golden_pickaxe",
@@ -314,7 +314,7 @@
                 "max": 8.0,
                 "min": 3.0
               },
-              "treasure": false
+              "options": "#minecraft:on_random_loot"
             }
           ],
           "name": "minecraft:iron_pickaxe",
@@ -335,7 +335,7 @@
                 "max": 7.0,
                 "min": 2.0
               },
-              "treasure": false
+              "options": "#minecraft:on_random_loot"
             }
           ],
           "name": "minecraft:diamond_pickaxe"

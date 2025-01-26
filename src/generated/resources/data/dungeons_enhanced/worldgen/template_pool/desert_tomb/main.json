@@ -4,7 +4,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:desert_tomb/tunnel",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -14,7 +14,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:desert_tomb/room",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -24,7 +24,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:desert_tomb/tomb",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -34,7 +34,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:desert_tomb/exit",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -44,7 +44,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:desert_tomb/t-cross",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },

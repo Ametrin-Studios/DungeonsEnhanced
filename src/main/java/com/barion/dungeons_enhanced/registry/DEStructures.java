@@ -16,7 +16,7 @@ import com.legacy.structure_gel.api.structure.GridStructurePlacement;
 import com.legacy.structure_gel.api.structure.jigsaw.JigsawCapability;
 import com.legacy.structure_gel.api.structure.processor.RemoveGelStructureProcessor;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -31,6 +31,7 @@ import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureSpawnOverride;
 import net.minecraft.world.level.levelgen.structure.TerrainAdjustment;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
+import net.minecraft.world.level.levelgen.structure.templatesystem.LiquidSettings;
 
 import java.util.Arrays;
 import java.util.List;
@@ -274,7 +275,7 @@ public final class DEStructures {
                         pieces -> pieces
                                 .settings(
                                         settings -> settings
-                                                .setKeepLiquids(true)
+                                                .setLiquidSettings(LiquidSettings.APPLY_WATERLOGGING)
                                                 .popProcessor(RemoveGelStructureProcessor.INSTANCE)
                                                 .addProcessor(DEUnderwaterProcessor.INSTANCE)
                                 )
@@ -389,7 +390,7 @@ public final class DEStructures {
         return GridStructurePlacement.builder().spacing(spacing).offset((int) (spacing*0.8));
     }
 
-    private static ExtendedJigsawStructure.Builder extendedJigsawStructure(BootstapContext<?> context, Structure.StructureSettings settings, JigsawCapability capability, ResourceKey<StructureTemplatePool> poolKey, int maxDepth, HeightProvider heightProvider){
+    private static ExtendedJigsawStructure.Builder extendedJigsawStructure(BootstrapContext<?> context, Structure.StructureSettings settings, JigsawCapability capability, ResourceKey<StructureTemplatePool> poolKey, int maxDepth, HeightProvider heightProvider){
         return ExtendedJigsawStructure.builder(settings, context.lookup(Registries.TEMPLATE_POOL).getOrThrow(poolKey)).maxDepth(maxDepth).startHeight(heightProvider).capability(capability);
     }
 }

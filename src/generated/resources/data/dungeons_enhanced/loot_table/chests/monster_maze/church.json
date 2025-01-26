@@ -185,7 +185,7 @@
                 "max": 14.0,
                 "min": 6.0
               },
-              "treasure": false
+              "options": "#minecraft:on_random_loot"
             }
           ],
           "name": "minecraft:book"

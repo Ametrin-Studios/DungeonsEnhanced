@@ -1,58 +1,60 @@
 package com.barion.dungeons_enhanced.registry;
 
 import com.barion.dungeons_enhanced.DEUtil;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.storage.loot.LootTable;
 
 public interface DELootTables {
     // Overworld
     interface DesertTemple {
-        ResourceLocation COFFIN = chest("desert_temple/coffin");
-        ResourceLocation FLOOR = chest("desert_temple/floor");
-        ResourceLocation TREASURE = chest("desert_temple/treasure");
+        ResourceKey<LootTable> COFFIN = chest("desert_temple/coffin");
+        ResourceKey<LootTable> FLOOR = chest("desert_temple/floor");
+        ResourceKey<LootTable> TREASURE = chest("desert_temple/treasure");
     }
 
-    ResourceLocation DESERT_TOMB = chest("desert_tomb");
-    ResourceLocation FISHING_SHIP = chest("fishing_ship");
-    ResourceLocation HAY_STORAGE = chest("hay_storage");
+    ResourceKey<LootTable> DESERT_TOMB = chest("desert_tomb");
+    ResourceKey<LootTable> FISHING_SHIP = chest("fishing_ship");
+    ResourceKey<LootTable> HAY_STORAGE = chest("hay_storage");
 
     interface IcePit {
-        ResourceLocation ARMORY = chest("ice_pit/armory");
-        ResourceLocation BED = chest("ice_pit/bed");
-        ResourceLocation FOOD = chest("ice_pit/food");
-        ResourceLocation GARDEN = chest("ice_pit/garden");
-        ResourceLocation HALL = chest("ice_pit/hall");
+        ResourceKey<LootTable> ARMORY = chest("ice_pit/armory");
+        ResourceKey<LootTable> BED = chest("ice_pit/bed");
+        ResourceKey<LootTable> FOOD = chest("ice_pit/food");
+        ResourceKey<LootTable> GARDEN = chest("ice_pit/garden");
+        ResourceKey<LootTable> HALL = chest("ice_pit/hall");
     }
 
     interface JungleMonument {
-        ResourceLocation FLOOR = chest("jungle_monument/floor");
-        ResourceLocation TREASURE = chest("jungle_monument/treasure");
+        ResourceKey<LootTable> FLOOR = chest("jungle_monument/floor");
+        ResourceKey<LootTable> TREASURE = chest("jungle_monument/treasure");
     }
 
-    ResourceLocation MINERS_HOUSE = chest("miners_house");
-    ResourceLocation MUSHROOM_HOUSE = chest("mushroom_house");
+    ResourceKey<LootTable> MINERS_HOUSE = chest("miners_house");
+    ResourceKey<LootTable> MUSHROOM_HOUSE = chest("mushroom_house");
 
     interface PillagerCamp {
-        ResourceLocation GENERAL = chest("pillager_camp/general");
-        ResourceLocation KITCHEN = chest("pillager_camp/kitchen");
+        ResourceKey<LootTable> GENERAL = chest("pillager_camp/general");
+        ResourceKey<LootTable> KITCHEN = chest("pillager_camp/kitchen");
     }
 
     interface Ruined {
-        ResourceLocation HOUSE = chest("ruined/house");
+        ResourceKey<LootTable> HOUSE = chest("ruined/house");
     }
 
-    ResourceLocation STABLES = chest("stables");
-    ResourceLocation SUNKEN_SHRINE = chest("sunken_shrine");
+    ResourceKey<LootTable> STABLES = chest("stables");
+    ResourceKey<LootTable> SUNKEN_SHRINE = chest("sunken_shrine");
 
     // Nether
     interface BlackCitadel {
-        ResourceLocation NORMAL = chest("black_citadel/normal");
-        ResourceLocation NORMAL_ALT = chest("black_citadel/normal_alt");
-        ResourceLocation KITCHEN = chest("black_citadel/kitchen");
-        ResourceLocation TREASURE = chest("black_citadel/treasure");
-        ResourceLocation TREASURE_ALT = chest("black_citadel/treasure_alt");
+        ResourceKey<LootTable> NORMAL = chest("black_citadel/normal");
+        ResourceKey<LootTable> NORMAL_ALT = chest("black_citadel/normal_alt");
+        ResourceKey<LootTable> KITCHEN = chest("black_citadel/kitchen");
+        ResourceKey<LootTable> TREASURE = chest("black_citadel/treasure");
+        ResourceKey<LootTable> TREASURE_ALT = chest("black_citadel/treasure_alt");
     }
 
-    private static ResourceLocation chest(String key) {
-        return DEUtil.locate("chests/" + key);
+    private static ResourceKey<LootTable> chest(String key) {
+        return ResourceKey.create(Registries.LOOT_TABLE, DEUtil.locate("chests/" + key));
     }
 }

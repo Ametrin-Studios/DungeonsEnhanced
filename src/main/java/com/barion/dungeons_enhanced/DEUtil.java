@@ -10,8 +10,8 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.RandomState;
 
 public final class DEUtil {
-    public static ResourceLocation locate(String key) {
-        return new ResourceLocation(DungeonsEnhanced.MOD_ID, key);
+    public static ResourceLocation locate(String path) {
+        return ResourceLocation.fromNamespaceAndPath(DungeonsEnhanced.MOD_ID, path);
     }
 
     public static BlockPos chunkPosToBlockPos(ChunkPos chunkPos, int y) {
