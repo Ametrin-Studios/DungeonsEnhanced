@@ -30,7 +30,7 @@ public final class DEUnderwaterProcessor extends StructureProcessor {
             return null;
         }
 
-        if (placed.state().is(SGTags.BlockTags.STRUCTURE_GEL)) {
+        if (placed.state().is(SGTags.BlockTags.GEL)) {
             return new StructureTemplate.StructureBlockInfo(placed.pos(), Blocks.WATER.defaultBlockState(), null);
         }
 

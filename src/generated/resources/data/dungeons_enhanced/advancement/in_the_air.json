@@ -1,7 +1,7 @@
 {
   "parent": "dungeons_enhanced:root",
   "criteria": {
-    "entered_jungle_monument": {
+    "entered_flying_dutchman": {
       "conditions": {
         "player": [
           {
@@ -9,7 +9,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:jungle_monument"
+                "structures": "dungeons_enhanced:flying_dutchman"
               }
             }
           }
@@ -20,18 +20,19 @@
   },
   "display": {
     "description": {
-      "translate": "advancements.dungeons_enhanced.ancient_civilizations.desc"
+      "translate": "advancements.dungeons_enhanced.in_the_air.desc"
     },
     "icon": {
-      "item": "minecraft:bamboo"
+      "count": 1,
+      "id": "minecraft:lantern"
     },
     "title": {
-      "translate": "advancements.dungeons_enhanced.ancient_civilizations"
+      "translate": "advancements.dungeons_enhanced.in_the_air"
     }
   },
   "requirements": [
     [
-      "entered_jungle_monument"
+      "entered_flying_dutchman"
     ]
   ]
 }

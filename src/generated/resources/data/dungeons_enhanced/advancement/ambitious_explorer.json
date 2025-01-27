@@ -1,4 +1,5 @@
 {
+  "parent": "dungeons_enhanced:seven_world_wonders",
   "criteria": {
     "entered_black_citadel": {
       "conditions": {
@@ -8,7 +9,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:black_citadel"
+                "structures": "dungeons_enhanced:black_citadel"
               }
             }
           }
@@ -24,7 +25,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:castle"
+                "structures": "dungeons_enhanced:castle"
               }
             }
           }
@@ -40,7 +41,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:deep_crypt"
+                "structures": "dungeons_enhanced:deep_crypt"
               }
             }
           }
@@ -56,7 +57,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:desert_temple"
+                "structures": "dungeons_enhanced:desert_temple"
               }
             }
           }
@@ -72,7 +73,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:desert_tomb"
+                "structures": "dungeons_enhanced:desert_tomb"
               }
             }
           }
@@ -88,7 +89,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:druid_circle"
+                "structures": "dungeons_enhanced:druid_circle"
               }
             }
           }
@@ -104,7 +105,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:dungeon_variant"
+                "structures": "dungeons_enhanced:dungeon_variant"
               }
             }
           }
@@ -120,7 +121,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:elders_temple"
+                "structures": "dungeons_enhanced:elders_temple"
               }
             }
           }
@@ -136,7 +137,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:fishing_ship"
+                "structures": "dungeons_enhanced:fishing_ship"
               }
             }
           }
@@ -152,7 +153,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:flying_dutchman"
+                "structures": "dungeons_enhanced:flying_dutchman"
               }
             }
           }
@@ -168,7 +169,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:hay_storage"
+                "structures": "dungeons_enhanced:hay_storage"
               }
             }
           }
@@ -184,7 +185,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:ice_pit"
+                "structures": "dungeons_enhanced:ice_pit"
               }
             }
           }
@@ -200,7 +201,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:jungle_monument"
+                "structures": "dungeons_enhanced:jungle_monument"
               }
             }
           }
@@ -216,7 +217,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:large_dungeon"
+                "structures": "dungeons_enhanced:large_dungeon"
               }
             }
           }
@@ -232,7 +233,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:miners_house"
+                "structures": "dungeons_enhanced:miners_house"
               }
             }
           }
@@ -248,7 +249,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:monster_maze"
+                "structures": "dungeons_enhanced:monster_maze"
               }
             }
           }
@@ -264,7 +265,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:mushroom_house"
+                "structures": "dungeons_enhanced:mushroom_house"
               }
             }
           }
@@ -280,7 +281,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:pillager_camp"
+                "structures": "dungeons_enhanced:pillager_camp"
               }
             }
           }
@@ -296,7 +297,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:pirate_ship"
+                "structures": "dungeons_enhanced:pirate_ship"
               }
             }
           }
@@ -312,7 +313,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:ruined_building"
+                "structures": "dungeons_enhanced:ruined_building"
               }
             }
           }
@@ -328,7 +329,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:stables"
+                "structures": "dungeons_enhanced:stables"
               }
             }
           }
@@ -344,7 +345,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:sunken_shrine"
+                "structures": "dungeons_enhanced:sunken_shrine"
               }
             }
           }
@@ -360,7 +361,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:tall_witch_hut"
+                "structures": "dungeons_enhanced:tall_witch_hut"
               }
             }
           }
@@ -376,7 +377,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:tower_of_the_undead"
+                "structures": "dungeons_enhanced:tower_of_the_undead"
               }
             }
           }
@@ -392,7 +393,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:tree_house"
+                "structures": "dungeons_enhanced:tree_house"
               }
             }
           }
@@ -408,7 +409,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:watch_tower"
+                "structures": "dungeons_enhanced:watch_tower"
               }
             }
           }
@@ -424,7 +425,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:witch_tower"
+                "structures": "dungeons_enhanced:witch_tower"
               }
             }
           }
@@ -434,47 +435,98 @@
     }
   },
   "display": {
-    "announce_to_chat": false,
-    "background": "minecraft:textures/block/mossy_cobblestone.png",
     "description": {
-      "translate": "advancements.dungeons_enhanced.root.desc"
+      "translate": "advancements.dungeons_enhanced.ambitious_explorer.desc"
     },
+    "frame": "challenge",
     "icon": {
-      "item": "minecraft:compass"
+      "count": 1,
+      "id": "minecraft:filled_map"
     },
-    "show_toast": false,
     "title": {
-      "translate": "advancements.dungeons_enhanced.root"
+      "translate": "advancements.dungeons_enhanced.ambitious_explorer"
     }
   },
   "requirements": [
     [
-      "entered_castle",
-      "entered_deep_crypt",
-      "entered_desert_temple",
-      "entered_desert_tomb",
-      "entered_druid_circle",
-      "entered_dungeon_variant",
-      "entered_elders_temple",
-      "entered_fishing_ship",
-      "entered_flying_dutchman",
-      "entered_hay_storage",
-      "entered_ice_pit",
-      "entered_jungle_monument",
-      "entered_large_dungeon",
-      "entered_miners_house",
-      "entered_monster_maze",
-      "entered_mushroom_house",
-      "entered_pillager_camp",
-      "entered_pirate_ship",
-      "entered_ruined_building",
-      "entered_stables",
-      "entered_sunken_shrine",
-      "entered_tall_witch_hut",
-      "entered_tower_of_the_undead",
-      "entered_tree_house",
-      "entered_watch_tower",
-      "entered_witch_tower",
+      "entered_castle"
+    ],
+    [
+      "entered_deep_crypt"
+    ],
+    [
+      "entered_desert_temple"
+    ],
+    [
+      "entered_desert_tomb"
+    ],
+    [
+      "entered_druid_circle"
+    ],
+    [
+      "entered_dungeon_variant"
+    ],
+    [
+      "entered_elders_temple"
+    ],
+    [
+      "entered_fishing_ship"
+    ],
+    [
+      "entered_flying_dutchman"
+    ],
+    [
+      "entered_hay_storage"
+    ],
+    [
+      "entered_ice_pit"
+    ],
+    [
+      "entered_jungle_monument"
+    ],
+    [
+      "entered_large_dungeon"
+    ],
+    [
+      "entered_miners_house"
+    ],
+    [
+      "entered_monster_maze"
+    ],
+    [
+      "entered_mushroom_house"
+    ],
+    [
+      "entered_pillager_camp"
+    ],
+    [
+      "entered_pirate_ship"
+    ],
+    [
+      "entered_ruined_building"
+    ],
+    [
+      "entered_stables"
+    ],
+    [
+      "entered_sunken_shrine"
+    ],
+    [
+      "entered_tall_witch_hut"
+    ],
+    [
+      "entered_tower_of_the_undead"
+    ],
+    [
+      "entered_tree_house"
+    ],
+    [
+      "entered_watch_tower"
+    ],
+    [
+      "entered_witch_tower"
+    ],
+    [
       "entered_black_citadel"
     ]
   ]

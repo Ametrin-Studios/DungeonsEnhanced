@@ -1,7 +1,7 @@
 {
   "parent": "dungeons_enhanced:root",
   "criteria": {
-    "entered_ice_pit": {
+    "entered_large_dungeon": {
       "conditions": {
         "player": [
           {
@@ -9,7 +9,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:ice_pit"
+                "structures": "dungeons_enhanced:large_dungeon"
               }
             }
           }
@@ -20,18 +20,19 @@
   },
   "display": {
     "description": {
-      "translate": "advancements.dungeons_enhanced.chilled_halls.desc"
+      "translate": "advancements.dungeons_enhanced.thats_a_dungeon.desc"
     },
     "icon": {
-      "item": "minecraft:bone"
+      "count": 1,
+      "id": "minecraft:skeleton_skull"
     },
     "title": {
-      "translate": "advancements.dungeons_enhanced.chilled_halls"
+      "translate": "advancements.dungeons_enhanced.thats_a_dungeon"
     }
   },
   "requirements": [
     [
-      "entered_ice_pit"
+      "entered_large_dungeon"
     ]
   ]
 }

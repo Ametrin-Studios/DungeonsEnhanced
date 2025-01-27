@@ -1,7 +1,7 @@
 {
   "parent": "dungeons_enhanced:root",
   "criteria": {
-    "entered_flying_dutchman": {
+    "entered_monster_maze": {
       "conditions": {
         "player": [
           {
@@ -9,7 +9,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:flying_dutchman"
+                "structures": "dungeons_enhanced:monster_maze"
               }
             }
           }
@@ -20,18 +20,19 @@
   },
   "display": {
     "description": {
-      "translate": "advancements.dungeons_enhanced.in_the_air.desc"
+      "translate": "advancements.dungeons_enhanced.hidden_under_the_roots.desc"
     },
     "icon": {
-      "item": "minecraft:lantern"
+      "count": 1,
+      "id": "minecraft:jack_o_lantern"
     },
     "title": {
-      "translate": "advancements.dungeons_enhanced.in_the_air"
+      "translate": "advancements.dungeons_enhanced.hidden_under_the_roots"
     }
   },
   "requirements": [
     [
-      "entered_flying_dutchman"
+      "entered_monster_maze"
     ]
   ]
 }

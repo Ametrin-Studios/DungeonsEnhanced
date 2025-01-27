@@ -1,7 +1,7 @@
 {
   "parent": "dungeons_enhanced:root",
   "criteria": {
-    "entered_pirate_ship": {
+    "entered_jungle_monument": {
       "conditions": {
         "player": [
           {
@@ -9,7 +9,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:pirate_ship"
+                "structures": "dungeons_enhanced:jungle_monument"
               }
             }
           }
@@ -20,18 +20,19 @@
   },
   "display": {
     "description": {
-      "translate": "advancements.dungeons_enhanced.ahoy.desc"
+      "translate": "advancements.dungeons_enhanced.ancient_civilizations.desc"
     },
     "icon": {
-      "item": "minecraft:wither_skeleton_skull"
+      "count": 1,
+      "id": "minecraft:bamboo"
     },
     "title": {
-      "translate": "advancements.dungeons_enhanced.ahoy"
+      "translate": "advancements.dungeons_enhanced.ancient_civilizations"
     }
   },
   "requirements": [
     [
-      "entered_pirate_ship"
+      "entered_jungle_monument"
     ]
   ]
 }

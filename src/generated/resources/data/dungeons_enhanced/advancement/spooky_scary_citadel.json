@@ -9,7 +9,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:black_citadel"
+                "structures": "dungeons_enhanced:black_citadel"
               }
             }
           }
@@ -23,8 +23,28 @@
       "translate": "advancements.dungeons_enhanced.spooky_scary_citadel.desc"
     },
     "icon": {
-      "item": "minecraft:red_banner",
-      "nbt": "{BlockEntityTag:{Patterns:[{Color:15,Pattern:\"bri\"},{Color:14,Pattern:\"gru\"},{Color:15,Pattern:\"sku\"},{Color:15,Pattern:\"bo\"}],id:\"minecraft:banner\"}}"
+      "components": {
+        "minecraft:banner_patterns": [
+          {
+            "color": "black",
+            "pattern": "minecraft:bricks"
+          },
+          {
+            "color": "red",
+            "pattern": "minecraft:gradient_up"
+          },
+          {
+            "color": "black",
+            "pattern": "minecraft:skull"
+          },
+          {
+            "color": "black",
+            "pattern": "minecraft:border"
+          }
+        ]
+      },
+      "count": 1,
+      "id": "minecraft:red_banner"
     },
     "title": {
       "translate": "advancements.dungeons_enhanced.spooky_scary_citadel"

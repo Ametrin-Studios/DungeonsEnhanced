@@ -1,7 +1,7 @@
 {
   "parent": "dungeons_enhanced:root",
   "criteria": {
-    "entered_castle": {
+    "entered_ice_pit": {
       "conditions": {
         "player": [
           {
@@ -9,7 +9,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:castle"
+                "structures": "dungeons_enhanced:ice_pit"
               }
             }
           }
@@ -20,18 +20,19 @@
   },
   "display": {
     "description": {
-      "translate": "advancements.dungeons_enhanced.wars_and_kingdoms.desc"
+      "translate": "advancements.dungeons_enhanced.chilled_halls.desc"
     },
     "icon": {
-      "item": "minecraft:stone_bricks"
+      "count": 1,
+      "id": "minecraft:bone"
     },
     "title": {
-      "translate": "advancements.dungeons_enhanced.wars_and_kingdoms"
+      "translate": "advancements.dungeons_enhanced.chilled_halls"
     }
   },
   "requirements": [
     [
-      "entered_castle"
+      "entered_ice_pit"
     ]
   ]
 }

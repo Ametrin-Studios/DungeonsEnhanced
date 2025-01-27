@@ -1,7 +1,7 @@
 {
   "parent": "dungeons_enhanced:root",
   "criteria": {
-    "entered_large_dungeon": {
+    "entered_elders_temple": {
       "conditions": {
         "player": [
           {
@@ -9,7 +9,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:large_dungeon"
+                "structures": "dungeons_enhanced:elders_temple"
               }
             }
           }
@@ -20,18 +20,19 @@
   },
   "display": {
     "description": {
-      "translate": "advancements.dungeons_enhanced.thats_a_dungeon.desc"
+      "translate": "advancements.dungeons_enhanced.sunken_deeps.desc"
     },
     "icon": {
-      "item": "minecraft:skeleton_skull"
+      "count": 1,
+      "id": "minecraft:nautilus_shell"
     },
     "title": {
-      "translate": "advancements.dungeons_enhanced.thats_a_dungeon"
+      "translate": "advancements.dungeons_enhanced.sunken_deeps"
     }
   },
   "requirements": [
     [
-      "entered_large_dungeon"
+      "entered_elders_temple"
     ]
   ]
 }

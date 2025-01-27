@@ -9,7 +9,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:castle"
+                "structures": "dungeons_enhanced:castle"
               }
             }
           }
@@ -25,7 +25,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:deep_crypt"
+                "structures": "dungeons_enhanced:deep_crypt"
               }
             }
           }
@@ -41,7 +41,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:desert_temple"
+                "structures": "dungeons_enhanced:desert_temple"
               }
             }
           }
@@ -57,7 +57,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:elders_temple"
+                "structures": "dungeons_enhanced:elders_temple"
               }
             }
           }
@@ -73,7 +73,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:ice_pit"
+                "structures": "dungeons_enhanced:ice_pit"
               }
             }
           }
@@ -89,7 +89,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:jungle_monument"
+                "structures": "dungeons_enhanced:jungle_monument"
               }
             }
           }
@@ -105,7 +105,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:monster_maze"
+                "structures": "dungeons_enhanced:monster_maze"
               }
             }
           }
@@ -120,7 +120,8 @@
     },
     "frame": "goal",
     "icon": {
-      "item": "minecraft:spyglass"
+      "count": 1,
+      "id": "minecraft:spyglass"
     },
     "title": {
       "translate": "advancements.dungeons_enhanced.seven_world_wonders"

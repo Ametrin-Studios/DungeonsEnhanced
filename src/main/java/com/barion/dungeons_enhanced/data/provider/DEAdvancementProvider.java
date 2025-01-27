@@ -106,10 +106,10 @@ public final class DEAdvancementProvider extends AdvancementProvider {
 
             new AdvancementBuilder("spooky_scary_citadel",
                     new BannerBuilder(Items.RED_BANNER)
-                            .addPattern( bannerLookup, BannerPatterns.BRICKS, DyeColor.BLACK)
-                            .addPattern( bannerLookup, BannerPatterns.GRADIENT_UP, DyeColor.RED)
-                            .addPattern( bannerLookup, BannerPatterns.SKULL, DyeColor.BLACK)
-                            .addPattern( bannerLookup, BannerPatterns.BORDER, DyeColor.BLACK)
+                            .addPattern(bannerLookup, BannerPatterns.BRICKS, DyeColor.BLACK)
+                            .addPattern(bannerLookup, BannerPatterns.GRADIENT_UP, DyeColor.RED)
+                            .addPattern(bannerLookup, BannerPatterns.SKULL, DyeColor.BLACK)
+                            .addPattern(bannerLookup, BannerPatterns.BORDER, DyeColor.BLACK)
                             .build())
                     .parent(root)
                     .onEnterStructure(structureLookup, DEStructures.BLACK_CITADEL)

@@ -1,7 +1,7 @@
 {
   "parent": "dungeons_enhanced:root",
   "criteria": {
-    "entered_elders_temple": {
+    "entered_mushroom_house": {
       "conditions": {
         "player": [
           {
@@ -9,7 +9,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:elders_temple"
+                "structures": "dungeons_enhanced:mushroom_house"
               }
             }
           }
@@ -20,18 +20,19 @@
   },
   "display": {
     "description": {
-      "translate": "advancements.dungeons_enhanced.sunken_deeps.desc"
+      "translate": "advancements.dungeons_enhanced.rarest_structure.desc"
     },
     "icon": {
-      "item": "minecraft:nautilus_shell"
+      "count": 1,
+      "id": "minecraft:red_mushroom"
     },
     "title": {
-      "translate": "advancements.dungeons_enhanced.sunken_deeps"
+      "translate": "advancements.dungeons_enhanced.rarest_structure"
     }
   },
   "requirements": [
     [
-      "entered_elders_temple"
+      "entered_mushroom_house"
     ]
   ]
 }

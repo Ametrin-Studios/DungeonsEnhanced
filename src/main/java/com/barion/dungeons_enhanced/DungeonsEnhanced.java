@@ -33,11 +33,13 @@ public final class DungeonsEnhanced {
         var output = event.getGenerator().getPackOutput();
 
         var registrarProvider = new DatapackBuiltinEntriesProvider(output, event.getLookupProvider(), RegistrarHandler.injectRegistries(new RegistrySetBuilder()), Set.of(DungeonsEnhanced.MOD_ID));
+        var lookup = registrarProvider.getRegistryProvider();
+
         event.addProvider(registrarProvider);
 
         event.createProvider(DEBiomeTagsProvider::new);
         event.createProvider(DELootTableProvider::new);
-        event.createProvider(DEAdvancementProvider::new);
-        event.createProvider(DEStructureTagsProvider::new);
+        event.addProvider(new DEAdvancementProvider(output, lookup));
+        event.addProvider(new DEStructureTagsProvider(output, lookup));
     }
 }

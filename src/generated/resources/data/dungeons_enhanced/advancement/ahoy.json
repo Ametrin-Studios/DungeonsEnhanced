@@ -1,7 +1,7 @@
 {
   "parent": "dungeons_enhanced:root",
   "criteria": {
-    "entered_monster_maze": {
+    "entered_pirate_ship": {
       "conditions": {
         "player": [
           {
@@ -9,7 +9,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structure": "dungeons_enhanced:monster_maze"
+                "structures": "dungeons_enhanced:pirate_ship"
               }
             }
           }
@@ -20,18 +20,19 @@
   },
   "display": {
     "description": {
-      "translate": "advancements.dungeons_enhanced.hidden_under_the_roots.desc"
+      "translate": "advancements.dungeons_enhanced.ahoy.desc"
     },
     "icon": {
-      "item": "minecraft:jack_o_lantern"
+      "count": 1,
+      "id": "minecraft:wither_skeleton_skull"
     },
     "title": {
-      "translate": "advancements.dungeons_enhanced.hidden_under_the_roots"
+      "translate": "advancements.dungeons_enhanced.ahoy"
     }
   },
   "requirements": [
     [
-      "entered_monster_maze"
+      "entered_pirate_ship"
     ]
   ]
 }
