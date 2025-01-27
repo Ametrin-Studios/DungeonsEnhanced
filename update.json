@@ -1,6 +1,8 @@
 {
   "homepage": "https://www.curseforge.com/minecraft/mc-mods/dungeonsenhanced",
   "promos": {
+    "1.21.4-latest": "6.0",
+    "1.21.4-recommended": "6.0",
     "1.20.4-latest": "5.6",
     "1.20.4-recommended": "5.6",
     "1.20.1-latest": "5.3.0",
@@ -17,6 +19,9 @@
     "1.17.1-recommended": "2.0",
     "1.16.5-latest": "1.9.2",
     "1.16.5-recommended": "1.8.2"
+  },
+  "1.21.4": {
+    "6.0": "port, disable dimension checking"
   },
   "1.20.4": {
     "5.6": "new Dungeon Variant, loot table updates",
