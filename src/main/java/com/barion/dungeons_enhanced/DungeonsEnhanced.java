@@ -29,7 +29,7 @@ public final class DungeonsEnhanced {
         RegistrarHandler.registerHandlers(MOD_ID, modEventBus, DETemplatePools.HANDLER, DEProcessorLists.HANDLER, DEJigsawTypes.HANDLER, DELootTableAliases.HANDLER);
     }
 
-    public static void gatherData(GatherDataEvent.Client event) {
+    public static void gatherData(GatherDataEvent.Server event) {
         var output = event.getGenerator().getPackOutput();
 
         var registrarProvider = new DatapackBuiltinEntriesProvider(output, event.getLookupProvider(), RegistrarHandler.injectRegistries(new RegistrySetBuilder()), Set.of(DungeonsEnhanced.MOD_ID));
@@ -39,6 +39,7 @@ public final class DungeonsEnhanced {
 
         event.createProvider(DEBiomeTagsProvider::new);
         event.createProvider(DELootTableProvider::new);
+//        event.createProvider(StructureNbtUpdater::new);
         event.addProvider(new DEAdvancementProvider(output, lookup));
         event.addProvider(new DEStructureTagsProvider(output, lookup));
     }

@@ -21,7 +21,7 @@ build
 eclipse
 run
 runs
-!runs/client/saves/Structures
+!run/saves/Structures
 
 repo
 
