@@ -160,6 +160,7 @@ public final class DEBiomeTagsProvider extends BiomeTagsProvider {
                 .addTag(Tags.Biomes.IS_CAVE)
                 .addTag(Tags.Biomes.IS_MOUNTAIN_PEAK)
                 .addTag(Tags.Biomes.IS_WINDSWEPT)
+                .addTag(Tags.Biomes.IS_AQUATIC)
         ;
 
         tag(DETags.Biomes.NO_STRUCTURES_OVERWORLD_UNDERGROUND)
