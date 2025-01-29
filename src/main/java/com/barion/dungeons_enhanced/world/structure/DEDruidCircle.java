@@ -20,7 +20,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 
 public final class DEDruidCircle {
-    public static final String ID = "druid_circle";
 
     public static class Capability implements JigsawCapability {
         public static final Capability INSTANCE = new Capability();

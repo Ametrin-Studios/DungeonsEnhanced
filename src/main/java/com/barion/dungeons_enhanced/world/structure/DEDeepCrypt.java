@@ -21,8 +21,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 
 public final class DEDeepCrypt {
-    public static final String ID = "deep_crypt";
-
     public static class Capability implements JigsawCapability {
         public static final Capability INSTANCE = new Capability();
         public static final MapCodec<Capability> CODEC = MapCodec.unit(INSTANCE);

@@ -24,46 +24,26 @@ import static com.barion.dungeons_enhanced.DEUtil.pieceBuilder;
 import static com.barion.dungeons_enhanced.registry.DEStructures.*;
 
 public class DEGroundStructure extends DEBaseStructure {
-
-    public static final String ID_HAY_STORAGE = "hay_storage";
-
-    public static final String ID_JUNGLE_MONUMENT = "jungle_monument";
     public static final MapCodec<DEGroundStructure> CODEC_JUNGLE_MONUMENT = simpleCodec(DEGroundStructure::JungleMonument);
     public static DEGroundStructure JungleMonument(StructureSettings settings) {
         return new DEGroundStructure(settings, pieceBuilder().yOffset(-9).add("jungle_monument").build(), JUNGLE_MONUMENT::getType);
     }
 
-    public static final String ID_MINERS_HOUSE = "miners_house";
     public static final MapCodec<DEGroundStructure> CODEC_MINERS_HOUSE = simpleCodec(DEGroundStructure::MinersHouse);
     public static DEGroundStructure MinersHouse(StructureSettings settings) {
         return new DEGroundStructure(settings, pieceBuilder().add("miners_house").build(), MINERS_HOUSE::getType);
     }
 
-    public static final String ID_MUSHROOM_HOUSE = "mushroom_house";
     public static final MapCodec<DEGroundStructure> CODEC_MUSHROOM_HOUSE = simpleCodec(DEGroundStructure::MushroomHouse);
     public static DEGroundStructure MushroomHouse(StructureSettings settings) {
         return new DEGroundStructure(settings, pieceBuilder().add("mushroom_house/red").add("mushroom_house/brown").build(), MUSHROOM_HOUSE::getType);
     }
 
-    public static final String ID_TREE_HOUSE = "tree_house";
-    public static final MapCodec<DEGroundStructure> CODEC_TREE_HOUSE = simpleCodec(DEGroundStructure::TreeHouse);
-    public static DEGroundStructure TreeHouse(StructureSettings settings) {
-        return new DEGroundStructure(settings, pieceBuilder().add("tree_house").build(), TREE_HOUSE::getType);
-    }
-
-    public static final String ID_TOWER_OF_THE_UNDEAD = "tower_of_the_undead";
-    public static final MapCodec<DEGroundStructure> CODEC_TOWER_OF_THE_UNDEAD = simpleCodec(DEGroundStructure::TowerOfTheUndead);
-    public static DEGroundStructure TowerOfTheUndead(StructureSettings settings) {
-        return new DEGroundStructure(settings, pieceBuilder().weight(3).add("tower_of_the_undead/small").weight(2).add("tower_of_the_undead/big").build(), TOWER_OF_THE_UNDEAD::getType);
-    }
-
-    public static final String ID_WATCH_TOWER = "watch_tower";
     public static final MapCodec<DEGroundStructure> CODEC_WATCH_TOWER = simpleCodec(DEGroundStructure::WatchTower);
     public static DEGroundStructure WatchTower(StructureSettings settings) {
         return new DEGroundStructure(settings, pieceBuilder().add("watch_tower").build(), WATCH_TOWER::getType);
     }
 
-    public static final String ID_WITCH_TOWER = "witch_tower";
     public static final MapCodec<DEGroundStructure> CODEC_WITCH_TOWER = simpleCodec(DEGroundStructure::WitchTower);
     public static DEGroundStructure WitchTower(StructureSettings settings) {
         return new DEGroundStructure(settings, pieceBuilder().weight(3).add("witch_tower/normal").weight(2).add("witch_tower/big").build(), WITCH_TOWER::getType);
@@ -92,7 +72,7 @@ public class DEGroundStructure extends DEBaseStructure {
             return Optional.empty();
         }
         final var pos = rawPos.atY(Math.round(result.getFirst())).above(piece.yOffset);
-        if (DEPlacementFilter.IS_WATER.cannotGenerate(pos, context)) {
+        if (DEPlacementFilter.NO_WATER.cannotGenerate(pos, context)) {
             return Optional.empty();
         }
 

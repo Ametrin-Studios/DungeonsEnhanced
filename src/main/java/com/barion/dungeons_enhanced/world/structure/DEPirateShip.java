@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nonnull;
 import java.util.Optional;
 
-import static com.barion.dungeons_enhanced.DEUtil.locate;
+import static com.barion.dungeons_enhanced.DungeonsEnhanced.locate;
 
 public final class DEPirateShip extends Structure {
     public static final MapCodec<DEPirateShip> CODEC = simpleCodec(DEPirateShip::new);

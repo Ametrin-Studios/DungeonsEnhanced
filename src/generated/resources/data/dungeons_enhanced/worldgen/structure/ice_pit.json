@@ -1,6 +1,6 @@
 {
   "type": "dungeons_enhanced:ice_pit",
-  "biomes": "#minecraft:is_overworld",
+  "biomes": "#dungeons_enhanced:has_structure/ice_pit",
   "spawn_overrides": {},
   "step": "surface_structures"
 }

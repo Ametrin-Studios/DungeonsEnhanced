@@ -21,8 +21,6 @@ import java.util.Map;
 import java.util.Objects;
 
 public final class DEDesertTomb {
-    public static final String ID = "desert_tomb";
-
     public static class Capability implements JigsawCapability {
         public static final Capability INSTANCE = new Capability();
         public static final MapCodec<Capability> CODEC = MapCodec.unit(INSTANCE);
