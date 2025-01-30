@@ -247,7 +247,7 @@ public final class DEStructures {
                 .build();
 
         STABLES = DEModularRegistrarBuilder.create(()-> DEStructures.STABLES, DEStructureIDs.STABLES)
-                .addStructure(DEStructureTemplate.of("stables", -6),
+                .addStructure(DEStructureTemplate.of("stables", -5),
                         structure -> structure.placement(DEPlacement.ON_OCEAN_FLOOR),
                         config -> config
                 )
