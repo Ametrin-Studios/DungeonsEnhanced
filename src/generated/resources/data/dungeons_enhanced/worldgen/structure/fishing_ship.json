@@ -1,6 +1,6 @@
 {
   "type": "dungeons_enhanced:fishing_ship",
-  "biomes": "#minecraft:is_overworld",
+  "biomes": "#dungeons_enhanced:has_structure/fishing_ship",
   "spawn_overrides": {},
   "step": "surface_structures"
 }

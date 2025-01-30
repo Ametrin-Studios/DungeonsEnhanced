@@ -1,6 +1,6 @@
 package com.barion.dungeons_enhanced.registry;
 
-import com.barion.dungeons_enhanced.DEUtil;
+import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.world.structure.processor.DESwapDeadCoralsProcessor;
 import com.barion.dungeons_enhanced.world.structure.processor.DEUnderwaterProcessor;
 import com.barion.dungeons_enhanced.world.structure.processor.KeepStateRandomBlockSwapProcessor;
@@ -21,6 +21,6 @@ public final class DEProcessorTypes {
     }
 
     private static <P extends StructureProcessor> void register(String key, StructureProcessorType<P> processorType) {
-        Registry.register(BuiltInRegistries.STRUCTURE_PROCESSOR, DEUtil.locate(key), processorType);
+        Registry.register(BuiltInRegistries.STRUCTURE_PROCESSOR, DungeonsEnhanced.locate(key), processorType);
     }
 }

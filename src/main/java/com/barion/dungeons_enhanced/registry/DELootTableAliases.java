@@ -10,7 +10,7 @@ import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.neoforged.neoforge.registries.RegisterEvent.RegisterHelper;
 
-import static com.barion.dungeons_enhanced.DEUtil.locate;
+import static com.barion.dungeons_enhanced.DungeonsEnhanced.locate;
 
 @RegistrarHolder
 public final class DELootTableAliases {

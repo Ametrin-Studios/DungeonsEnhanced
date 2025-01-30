@@ -1,6 +1,6 @@
 {
   "type": "dungeons_enhanced:ruined_building",
-  "biomes": "#minecraft:is_overworld",
+  "biomes": "#dungeons_enhanced:has_structure/ruined_building",
   "spawn_overrides": {},
   "step": "surface_structures",
   "terrain_adaptation": "beard_thin"

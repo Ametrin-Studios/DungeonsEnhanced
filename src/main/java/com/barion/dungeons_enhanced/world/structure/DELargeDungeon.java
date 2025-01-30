@@ -20,8 +20,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 
 public final class DELargeDungeon {
-    public static final String ID = "large_dungeon";
-
     public static class Capability implements JigsawCapability {
         public static final Capability INSTANCE = new Capability();
         public static final MapCodec<Capability> CODEC = MapCodec.unit(INSTANCE);

@@ -1,6 +1,6 @@
 package com.barion.dungeons_enhanced.world.structure.builder;
 
-import com.barion.dungeons_enhanced.DEUtil;
+import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.world.structure.prefabs.DEModularStructure;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
 import com.legacy.structure_gel.api.structure.GridStructurePlacement;
@@ -19,7 +19,7 @@ public final class DEModularRegistrarBuilder {
     }
 
     public static DEModularRegistrarBuilder create(Supplier<StructureRegistrar<DEModularStructure>> registrar, String id, MapCodec<DEModularStructure> codec) {
-        return create(registrar, DEUtil.locate(id), codec);
+        return create(registrar, DungeonsEnhanced.locate(id), codec);
     }
 
     public static DEModularRegistrarBuilder create(Supplier<StructureRegistrar<DEModularStructure>> registrar, ResourceLocation id, MapCodec<DEModularStructure> codec) {

@@ -1,6 +1,6 @@
 package com.barion.dungeons_enhanced.world.structure.prefabs.utils;
 
-import com.barion.dungeons_enhanced.DEUtil;
+import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.random.SimpleWeightedRandomList;
@@ -54,7 +54,7 @@ public final class DEStructureTemplates {
         }
 
         public Builder add(String resource) {
-            pieces.add(new Template(DEUtil.locate(resource), yOffset), weight);
+            pieces.add(new Template(DungeonsEnhanced.locate(resource), yOffset), weight);
             return this;
         }
 

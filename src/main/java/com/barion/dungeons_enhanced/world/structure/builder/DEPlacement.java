@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @FunctionalInterface
 public interface DEPlacement {
-    DEPlacement ON_WORLD_SURFACE_FLAT = ((context, filter, pieceFactory) ->{
+    DEPlacement WORLD_SURFACE_FLAT = ((context, filter, pieceFactory) ->{
         final var rawPos = DEUtil.chunkPosToBlockPos(context.chunkPos(), 0);
         var piece = pieceFactory.createPiece(context.structureTemplateManager(), rawPos, context.random());
 
@@ -23,7 +23,7 @@ public interface DEPlacement {
 
         return Optional.of(new Structure.GenerationStub(pos, (builder)-> builder.addPiece(piece)));
     });
-    DEPlacement ON_OCEAN_FLOOR = ((context, filter, pieceFactory) ->{
+    DEPlacement OCEAN_FLOOR = ((context, filter, pieceFactory) ->{
         final var rawPos = DEUtil.chunkPosToBlockPos(context.chunkPos(), 0);
         var piece = pieceFactory.createPiece(context.structureTemplateManager(), rawPos, context.random());
 
@@ -70,7 +70,7 @@ public interface DEPlacement {
         return Optional.of(new Structure.GenerationStub(pos, builder -> builder.addPiece(piece)));
     });
 
-    DEPlacement ON_WORLD_SURFACE = ((context, filter, pieceFactory) -> {
+    DEPlacement WORLD_SURFACE = ((context, filter, pieceFactory) -> {
         var pos = DEUtil.chunkPosToBlockPosFromHeightMap(context.chunkPos(), context.chunkGenerator(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor(), context.randomState());
         var piece = pieceFactory.createPiece(context.structureTemplateManager(), pos, context.random());
 

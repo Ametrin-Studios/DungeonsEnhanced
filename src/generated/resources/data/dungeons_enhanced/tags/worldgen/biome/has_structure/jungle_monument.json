@@ -1,0 +1,10 @@
+{
+  "remove": [
+    "#dungeons_enhanced:no_structures/overworld/surface",
+    "#dungeons_enhanced:no_structures/overworld/surface"
+  ],
+  "values": [
+    "#minecraft:has_structure/jungle_temple",
+    "#minecraft:has_structure/jungle_temple"
+  ]
+}

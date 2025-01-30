@@ -1,6 +1,6 @@
 package com.barion.dungeons_enhanced.registry;
 
-import com.barion.dungeons_enhanced.DEUtil;
+import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -55,6 +55,6 @@ public interface DELootTables {
     }
 
     private static ResourceKey<LootTable> chest(String key) {
-        return ResourceKey.create(Registries.LOOT_TABLE, DEUtil.locate("chests/" + key));
+        return ResourceKey.create(Registries.LOOT_TABLE, DungeonsEnhanced.locate("chests/" + key));
     }
 }

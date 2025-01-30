@@ -1,6 +1,6 @@
 {
   "type": "dungeons_enhanced:dungeon_variant",
-  "biomes": "#minecraft:is_overworld",
+  "biomes": "#dungeons_enhanced:has_structure/dungeon_variant",
   "spawn_overrides": {},
   "step": "underground_structures"
 }

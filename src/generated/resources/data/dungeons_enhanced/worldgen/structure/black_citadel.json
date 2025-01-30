@@ -1,6 +1,6 @@
 {
   "type": "structure_gel:extended_jigsaw",
-  "biomes": "#minecraft:is_overworld",
+  "biomes": "#dungeons_enhanced:has_structure/black_citadel",
   "capability": {
     "type": "dungeons_enhanced:black_citadel"
   },

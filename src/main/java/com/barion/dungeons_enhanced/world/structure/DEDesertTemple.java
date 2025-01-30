@@ -17,7 +17,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 import javax.annotation.Nonnull;
 import java.util.Optional;
 
-import static com.barion.dungeons_enhanced.DEUtil.locate;
+import static com.barion.dungeons_enhanced.DungeonsEnhanced.locate;
 
 public final class DEDesertTemple extends DEGroundStructure {
     public static final MapCodec<DEDesertTemple> CODEC = simpleCodec(DEDesertTemple::new);

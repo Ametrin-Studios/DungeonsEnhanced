@@ -1,0 +1,9 @@
+{
+  "remove": [
+    "#c:is_aquatic",
+    "#dungeons_enhanced:no_structures"
+  ],
+  "values": [
+    "#c:is_cold/overworld"
+  ]
+}

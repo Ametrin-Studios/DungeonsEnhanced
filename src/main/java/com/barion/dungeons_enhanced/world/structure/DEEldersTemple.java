@@ -21,10 +21,9 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 import javax.annotation.Nonnull;
 import java.util.Optional;
 
-import static com.barion.dungeons_enhanced.DEUtil.locate;
+import static com.barion.dungeons_enhanced.DungeonsEnhanced.locate;
 
 public final class DEEldersTemple extends DEUnderwaterStructure {
-    public static final String ID = "elders_temple";
     public static final MapCodec<DEEldersTemple> CODEC = simpleCodec(DEEldersTemple::new);
     private static final ResourceLocation NE = locate("elders_temple/ne");
     private static final ResourceLocation NW = locate("elders_temple/nw");

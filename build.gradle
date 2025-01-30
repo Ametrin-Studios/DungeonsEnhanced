@@ -80,6 +80,7 @@ repositories {
 
 dependencies {
     implementation "com.legacy:structure-gel:${minecraft_version}-${gel_version}"
+//    localRuntime "curse.maven:biomes-o-plenty-220318:6083659"
     localRuntime "curse.maven:xaeros-world-map-317780:5987177"
     localRuntime "curse.maven:chunky-485681:5876828"
 //    localRuntime "curse.maven:emi-580555:5793024"
