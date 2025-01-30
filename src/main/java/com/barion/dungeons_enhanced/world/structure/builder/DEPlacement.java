@@ -72,8 +72,9 @@ public interface DEPlacement {
 
     DEPlacement WORLD_SURFACE = ((context, filter, pieceFactory) -> {
         var pos = DEUtil.chunkPosToBlockPosFromHeightMap(context.chunkPos(), context.chunkGenerator(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor(), context.randomState());
+        var piece = pieceFactory.createPiece(context.structureTemplateManager(), pos, context.random());
 
-        return Optional.of(new Structure.GenerationStub(pos, builder -> builder.addPiece(pieceFactory.createPiece(context.structureTemplateManager(), pos, context.random()))));
+        return Optional.of(new Structure.GenerationStub(pos, builder -> builder.addPiece(piece)));
     });
 
     Optional<Structure.GenerationStub> getPlacement(Structure.GenerationContext context, DEPlacementFilter filter, IDEPieceFactory pieceFactory);

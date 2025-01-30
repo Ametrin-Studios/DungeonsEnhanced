@@ -21,10 +21,12 @@ import java.util.function.Function;
 public final class DESimpleStructurePiece extends GelTemplateStructurePiece {
 
     private final Function<StructurePlaceSettings, StructurePlaceSettings> _settingsFunction;
+    public final int yOffset; // only works during generation. does not get stored!!
 
-    public DESimpleStructurePiece(StructurePieceType structurePieceType, StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Function<StructurePlaceSettings, StructurePlaceSettings> settingsFunction, Rotation rotation) {
-        super(structurePieceType, 0, structureManager, templateName, pos);
+    public DESimpleStructurePiece(StructurePieceType structurePieceType, StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Function<StructurePlaceSettings, StructurePlaceSettings> settingsFunction, int yOffset, Rotation rotation) {
+        super(structurePieceType, 0, structureManager, templateName, pos.above(yOffset));
         _settingsFunction = settingsFunction;
+        this.yOffset = yOffset;
         this.rotation = rotation;
         setupPlaceSettings(structureManager);
     }
@@ -32,6 +34,7 @@ public final class DESimpleStructurePiece extends GelTemplateStructurePiece {
     public DESimpleStructurePiece(StructurePieceType structurePieceType, CompoundTag nbt, StructurePieceSerializationContext context, Function<StructurePlaceSettings, StructurePlaceSettings> settingsFunction) {
         super(structurePieceType, nbt, context.structureTemplateManager());
         _settingsFunction = settingsFunction;
+        this.yOffset = 0; //y offset has been saved into position
         setupPlaceSettings(context.structureTemplateManager());
     }
 
@@ -48,7 +51,7 @@ public final class DESimpleStructurePiece extends GelTemplateStructurePiece {
     }
 
     public void setPosition(BlockPos pos) {
-        templatePosition = pos;
+        templatePosition = pos.above(yOffset);
         boundingBox = template.getBoundingBox(placeSettings, templatePosition);
     } // probably not good
 

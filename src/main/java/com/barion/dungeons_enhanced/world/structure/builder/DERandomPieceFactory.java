@@ -36,7 +36,7 @@ public final class DERandomPieceFactory implements IDEPieceFactory {
     @Override
     public DESimpleStructurePiece createPiece(StructureTemplateManager templateManager, BlockPos position, RandomSource random) {
         var template = _templates.getRandomValue(random).get();
-        return new DESimpleStructurePiece(_pieceTypeSupplier.get(), templateManager, template.resourceLocation(), position.above(template.yOffset()), _settingsFunction, Rotation.getRandom(random));
+        return new DESimpleStructurePiece(_pieceTypeSupplier.get(), templateManager, template.resourceLocation(), position, _settingsFunction, template.yOffset(), Rotation.getRandom(random));
     }
 
     public static class Builder {
