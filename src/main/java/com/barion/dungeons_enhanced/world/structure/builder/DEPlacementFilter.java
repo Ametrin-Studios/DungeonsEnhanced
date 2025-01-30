@@ -8,12 +8,23 @@ import net.minecraft.world.level.levelgen.structure.Structure;
 
 @FunctionalInterface
 public interface DEPlacementFilter {
-    static DEPlacementFilter DIFFERENCE_OCEAN_FLOOR(int maxDifference) {
+    /// Difference between the generation position and the water floor
+    static DEPlacementFilter MaxWaterDepth(int maxDifference) {
         return (pos, context) -> {
             final var oceanFloor = context.chunkGenerator().getBaseHeight(pos.getX(), pos.getZ(), Heightmap.Types.OCEAN_FLOOR_WG, context.heightAccessor(), context.randomState());
-            final var dif = pos.getY() - oceanFloor;
+            final var dif = Math.abs(pos.getY() - oceanFloor);
 
             return dif > maxDifference;
+        };
+    }
+
+    /// Difference between the generation position and the water surface
+    static DEPlacementFilter MinWaterHeight(int minDifference) {
+        return (pos, context) -> {
+            final var oceanFloor = context.chunkGenerator().getBaseHeight(pos.getX(), pos.getZ(), Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor(), context.randomState());
+            final var dif = Math.abs(pos.getY() - oceanFloor);
+
+            return dif < minDifference;
         };
     }
 

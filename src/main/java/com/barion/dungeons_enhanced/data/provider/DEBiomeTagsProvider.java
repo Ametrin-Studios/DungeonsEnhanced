@@ -126,6 +126,7 @@ public final class DEBiomeTagsProvider extends BiomeTagsProvider {
         ;
         tag(DETags.Biomes.HAS_TOWER_OF_THE_UNDEAD)
                 .addTag(Tags.Biomes.IS_OVERWORLD)
+                .remove(Biomes.CHERRY_GROVE)
                 .remove(Tags.Biomes.IS_JUNGLE)
                 .remove(Tags.Biomes.IS_BADLANDS)
                 .remove(Tags.Biomes.IS_MUSHROOM)

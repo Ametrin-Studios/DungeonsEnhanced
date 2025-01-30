@@ -293,7 +293,8 @@ public final class DEStructures {
                                 .add(2, "sunken_shrine/small")
                                 .add(1, "sunken_shrine/big", -1),
                         structure -> structure
-                                .placement(DEPlacement.OCEAN_FLOOR),
+                                .placement(DEPlacement.OCEAN_FLOOR)
+                                .filter(DEPlacementFilter.MinWaterHeight(12)),
                         config -> config
                                 .biomes(DETags.Biomes.HAS_SUNKEN_SHRINE)
                 )
@@ -304,7 +305,7 @@ public final class DEStructures {
                 .addStructure(DEStructureTemplate.of("tall_witch_hut", -3),
                         structure -> structure
                                 .placement(DEPlacement.WORLD_SURFACE_FLAT)
-                                .filter(DEPlacementFilter.DIFFERENCE_OCEAN_FLOOR(4)),
+                                .filter(DEPlacementFilter.MaxWaterDepth(4)),
                         config -> config
                                 .biomes(DETags.Biomes.HAS_TALL_WITCH_HUT)
                 )
