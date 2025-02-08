@@ -76,14 +76,23 @@ repositories {
             includeGroup "curse.maven"
         }
     }
+    maven {
+        name "Ametrin Studios Maven"
+        url "https://github.com/Ametrin-Studios/maven/raw/main/"
+    }
 }
 
 dependencies {
     implementation "com.legacy:structure-gel:${minecraft_version}-${gel_version}"
-//    localRuntime "curse.maven:biomes-o-plenty-220318:6083659"
+
+    localRuntime "com.ametrinstudios:ametrin:${minecraft_version}-${ametrin_version}"
     localRuntime "curse.maven:xaeros-world-map-317780:5987177"
     localRuntime "curse.maven:chunky-485681:5876828"
 //    localRuntime "curse.maven:emi-580555:5793024"
+
+    localRuntime "curse.maven:biomes-o-plenty-220318:6054330"
+    localRuntime "curse.maven:terrablender-neoforge-940057:6055021"
+    localRuntime "curse.maven:glitchcore-955399:6054289"
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
