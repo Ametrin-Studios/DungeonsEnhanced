@@ -1,6 +1,6 @@
 {
   "type": "dungeons_enhanced:pirate_ship",
-  "biomes": "#minecraft:is_overworld",
+  "biomes": "#dungeons_enhanced:has_structure/pirate_ship",
   "spawn_overrides": {
     "axolotls": {
       "bounding_box": "full",

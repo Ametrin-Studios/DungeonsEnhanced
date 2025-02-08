@@ -4,13 +4,16 @@ import com.barion.dungeons_enhanced.data.provider.DEAdvancementProvider;
 import com.barion.dungeons_enhanced.data.provider.DEBiomeTagsProvider;
 import com.barion.dungeons_enhanced.data.provider.DELootTableProvider;
 import com.barion.dungeons_enhanced.data.provider.DEStructureTagsProvider;
-import com.barion.dungeons_enhanced.registry.*;
+import com.barion.dungeons_enhanced.registry.DEJigsawTypes;
+import com.barion.dungeons_enhanced.registry.DELootTableAliases;
+import com.barion.dungeons_enhanced.registry.DEProcessorLists;
+import com.barion.dungeons_enhanced.registry.DETemplatePools;
 import com.legacy.structure_gel.api.registry.registrar.RegistrarHandler;
 import net.minecraft.core.RegistrySetBuilder;
+import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.config.ModConfig;
 import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
@@ -21,10 +24,9 @@ public final class DungeonsEnhanced {
     public static final String MOD_ID = "dungeons_enhanced";
 
     public DungeonsEnhanced(IEventBus modEventBus, ModContainer container) {
-        container.registerConfig(ModConfig.Type.COMMON, DEConfig.COMMON_SPEC);
+//        container.registerConfig(ModConfig.Type.COMMON, DEConfig.COMMON_SPEC);
 
         modEventBus.addListener(DungeonsEnhanced::gatherData);
-        DEStructures.ALL_STRUCTURE_REGISTRARS.clone();
 
         RegistrarHandler.registerHandlers(MOD_ID, modEventBus, DETemplatePools.HANDLER, DEProcessorLists.HANDLER, DEJigsawTypes.HANDLER, DELootTableAliases.HANDLER);
     }
@@ -42,5 +44,9 @@ public final class DungeonsEnhanced {
 //        event.createProvider(StructureNbtUpdater::new);
         event.addProvider(new DEAdvancementProvider(output, lookup));
         event.addProvider(new DEStructureTagsProvider(output, lookup));
+    }
+
+    public static ResourceLocation locate(String path) {
+        return ResourceLocation.fromNamespaceAndPath(DungeonsEnhanced.MOD_ID, path);
     }
 }

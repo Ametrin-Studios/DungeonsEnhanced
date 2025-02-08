@@ -21,8 +21,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 
 public final class DEPillagerCamp {
-    public static final String ID = "pillager_camp";
-
     public static class Capability implements JigsawCapability {
         public static final Capability INSTANCE = new Capability();
         public static final MapCodec<Capability> CODEC = MapCodec.unit(INSTANCE);

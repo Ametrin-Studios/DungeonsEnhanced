@@ -1,5 +1,6 @@
 package com.barion.dungeons_enhanced.data.provider;
 
+import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.registry.DEStructures;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
 import com.mojang.datafixers.util.Pair;
@@ -33,8 +34,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
-
-import static com.barion.dungeons_enhanced.DEUtil.locate;
 
 public final class DEAdvancementProvider extends AdvancementProvider {
     public DEAdvancementProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
@@ -243,7 +242,7 @@ public final class DEAdvancementProvider extends AdvancementProvider {
                 builder.addCriterion(pair.getFirst(), pair.getSecond());
             }
             if (_parent != null) builder.parent(_parent);
-            return builder.save(consumer, locate(_id));
+            return builder.save(consumer, DungeonsEnhanced.locate(_id));
         }
 
         private static Component component(String key) {

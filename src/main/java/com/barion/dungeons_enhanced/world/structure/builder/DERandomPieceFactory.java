@@ -1,6 +1,6 @@
 package com.barion.dungeons_enhanced.world.structure.builder;
 
-import com.barion.dungeons_enhanced.DEUtil;
+import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
@@ -49,15 +49,15 @@ public final class DERandomPieceFactory implements IDEPieceFactory {
         }
 
         public Builder add(String location) {
-            return add(DEUtil.locate(location));
+            return add(DungeonsEnhanced.locate(location));
         }
 
         public Builder add(int weight, String location) {
-            return add(weight, DEUtil.locate(location), 0);
+            return add(weight, DungeonsEnhanced.locate(location), 0);
         }
 
         public Builder add(int weight, String location, int yOffset) {
-            return add(weight, DEUtil.locate(location), yOffset);
+            return add(weight, DungeonsEnhanced.locate(location), yOffset);
         }
 
         public Builder add(ResourceLocation resourceLocation) {
