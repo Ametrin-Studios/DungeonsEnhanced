@@ -15,7 +15,7 @@ Example
 ```
 
 ## Structure Frequency
-- [download](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/BarionLP/DungeonsEnhanced/tree/master/DATA-PACK-TEMPLATE) the DATA-PACK-TEMPLATE folder and rename it
+- [download](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FAmetrin-Studios%2FDungeonsEnhanced%2Ftree%2F1.20.4%2FDATA-PACK-TEMPLATE) the DATA-PACK-TEMPLATE folder and rename it
 - locate the json file of the structure you want to modify in `data/dungeons_enhanced/worldgen/structure_set`
 - open it with a text editor and modify its values
 - ONLY MODIFY `spacing`, `frequency` and `offset` (if you know what you're doing you may change everything)
@@ -26,7 +26,7 @@ Example
 - when creating a world add the data pack
 - test the data pack and check the log for any errors
 - let us know what you changed and why so we can balance the default values better
-- you may need to update your data pack with major updates, check the [changelog](https://github.com/BarionLP/DungeonsEnhanced/blob/master/changelog.md) for any notes
+- you may need to update your data pack with major updates, check the [changelog](https://github.com/Ametrin-Studios/DungeonsEnhanced/blob/1.20.4/changelog.md) for any notes
 
 ## Loot Tables
 - data pack only, there is no template right now.
