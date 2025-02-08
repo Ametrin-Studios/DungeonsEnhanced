@@ -1,6 +1,8 @@
 ## 5.3.0
 - added Black Citadel
 - updated various loot tables
+- enabled update checker
+- updated logo.png
 
 ## 5.2.1
 - fixes
