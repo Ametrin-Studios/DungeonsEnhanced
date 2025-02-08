@@ -7,9 +7,8 @@ Some of our structures also look like they could be an upgraded version of a van
 Get ready to find huge mazes under trees, castles, towers and forgotten temples.
 We hope you have fun!
 
-## Customizing Stuctures
-(1.19.4+) Checkout [Customizing.md](https://github.com/BarionLP/DungeonsEnhanced/blob/master/Customizing.md)<br>
-(1.16.5-1.19.2) The config file should be self-explanatory
+## Customizing Structures
+Checkout [customizing.md](https://github.com/Ametrin-Studios/DungeonsEnhanced/blob/master/customizing.md)<br>
 
 ## Translating
 [![Crowdin](https://badges.crowdin.net/dungeons-enhanced/localized.svg)](https://crowdin.com/project/dungeons-enhanced)<br>
