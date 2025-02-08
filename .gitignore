@@ -24,6 +24,7 @@ run/
 !/run/saves/JigsawStructures
 !/run/saves/Structures_old
 !run/options.txt
+!.idea/icon.png
 
 /structureList.xcf
 /structures.xcf
