@@ -29,4 +29,4 @@ Example
 - you may need to update your data pack with major updates, check the [changelog](https://github.com/BarionLP/DungeonsEnhanced/blob/master/changelog.md) for any notes
 
 ## Loot Tables
-- data pack only there is no template right now.
+- data pack only, there is no template right now.
