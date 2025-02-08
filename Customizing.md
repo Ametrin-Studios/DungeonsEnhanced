@@ -1,32 +1,34 @@
-## Biomes to generate in
-- open the Dungeons Enhanced common config file in the config folder (`dungeons_enhanced-common.toml`)
-- find the structure you want to modify
-- Use # to define a tag. Use ! to define a blacklist.
-- Example: `["minecraft:plains, #minecraft:is_forest, !minecraft:birch_forest, !#minecraft:has_structure/woodland_mansion"]` this will generate in the plains and all forests except birch forests and biomes that have a woodland_mansion
+Starting with 1.21.4-6.1 all modifications have to be done via a data pack.
 
-Example
-```toml
-[druid_circle]
-    #
-    # The biomes this structure should generate in. Use # to define a tag. Use ! to define a blacklist. If no values are set, the structure's default biomes will be used.
-    # Example: ["minecraft:plains, #minecraft:is_forest, !minecraft:birch_forest, !#minecraft:has_structure/woodland_mansion"]
-    # Default: ["#forge:is_plains"]
-    "dungeons_enhanced:druid_circle" = ["#forge:is_plains", "minecraft:birch_forest"]
-```
+- [download](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FAmetrin-Studios%2FDungeonsEnhanced%2Ftree%2Fmaster%2FDATA-PACK-TEMPLATE) the DATA-PACK-TEMPLATE folder (you may rename it)
 
 ## Structure Frequency
-- [download](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/BarionLP/DungeonsEnhanced/tree/master/DATA-PACK-TEMPLATE) the DATA-PACK-TEMPLATE folder and rename it
 - locate the json file of the structure you want to modify in `data/dungeons_enhanced/worldgen/structure_set`
 - open it with a text editor and modify its values
 - ONLY MODIFY `spacing`, `frequency` and `offset` (if you know what you're doing you may change everything)
   - spacing: the average distance between generation attempts
   - offset: offsets the generation attempt randomly, MUST be lower than spacing
   - frequency: probability for the generation attempt to happen
-- delete all structure files that you didn't change
-- when creating a world add the data pack
-- test the data pack and check the log for any errors
-- let us know what you changed and why so we can balance the default values better
-- you may need to update your data pack with major updates, check the [changelog](https://github.com/BarionLP/DungeonsEnhanced/blob/master/changelog.md) for any notes
+
+## Biomes
+- locate the json file of the structure you want to modify in `data/dungeons_enhanced/tags/worldgen/biome/has_structure`
+- you can add or remove any biomes or biome-tags in `values`
+- if you want to remove a biome that is not explicitly in `values` add it to `remove`
 
 ## Loot Tables
-- data pack only, there is no template right now.
+- there is no template right now.
+
+## Using the data pack
+- delete all .json files that you didn't change
+- when creating a world add the data pack
+- test the data pack and check the log for any errors
+- let us know what you changed so we can improve the default values
+- you may need to update your data pack with major updates, check [changelog](https://github.com/Ametrin-Studios/DungeonsEnhanced/blob/master/changelog.md) for any notes
+
+## Older versions
+For older versions of Dungeons Enhanced check: https://github.com/Ametrin-Studios/DungeonsEnhanced/blob/1.20.1/Customizing.md
+
+### What happened to the config?
+We are aware that the config was a convenient and easy way to customize how structures generate.
+Mojang and the modding community are pushing towards data packs because they represent a uniform way of modifications.
+Unfortunately the config caused too many problems (e.g. with Structurify) so we decided to fully replace it with data packs

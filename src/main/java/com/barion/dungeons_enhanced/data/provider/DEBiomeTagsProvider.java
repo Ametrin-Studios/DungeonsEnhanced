@@ -71,10 +71,6 @@ public final class DEBiomeTagsProvider extends BiomeTagsProvider {
                 .addTag(BiomeTags.HAS_JUNGLE_TEMPLE)
                 .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
         ;
-        tag(DETags.Biomes.HAS_JUNGLE_MONUMENT)
-                .addTag(BiomeTags.HAS_JUNGLE_TEMPLE)
-                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
-        ;
         tag(DETags.Biomes.HAS_LARGE_DUNGEON)
                 .addTag(Tags.Biomes.IS_PLAINS)
                 .addTag(Tags.Biomes.IS_FOREST)
