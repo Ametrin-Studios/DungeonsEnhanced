@@ -1,0 +1,7 @@
+{
+  "values": [
+    "#dungeons_enhanced:no_structures",
+    "#minecraft:is_nether",
+    "#minecraft:is_end"
+  ]
+}

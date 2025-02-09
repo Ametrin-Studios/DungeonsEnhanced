@@ -1,0 +1,8 @@
+{
+  "remove": [
+    "#dungeons_enhanced:no_structures/overworld/ocean_surface"
+  ],
+  "values": [
+    "#minecraft:is_ocean"
+  ]
+}

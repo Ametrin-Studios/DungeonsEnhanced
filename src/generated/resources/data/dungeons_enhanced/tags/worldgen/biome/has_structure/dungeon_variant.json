@@ -1,0 +1,8 @@
+{
+  "remove": [
+    "#dungeons_enhanced:no_structures/overworld/underground"
+  ],
+  "values": [
+    "#minecraft:is_overworld"
+  ]
+}

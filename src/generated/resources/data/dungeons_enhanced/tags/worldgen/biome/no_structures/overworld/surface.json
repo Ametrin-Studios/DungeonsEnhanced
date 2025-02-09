@@ -1,0 +1,15 @@
+{
+  "values": [
+    "#dungeons_enhanced:no_structures",
+    "#dungeons_enhanced:is_shore",
+    "#forge:is_cave",
+    "#forge:is_mountain",
+    "minecraft:windswept_forest",
+    "minecraft:windswept_hills",
+    "minecraft:windswept_savanna",
+    "minecraft:windswept_gravelly_hills",
+    "#forge:is_water",
+    "#minecraft:is_nether",
+    "#minecraft:is_end"
+  ]
+}

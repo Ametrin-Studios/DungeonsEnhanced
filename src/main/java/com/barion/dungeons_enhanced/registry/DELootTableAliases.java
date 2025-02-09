@@ -4,7 +4,7 @@ import com.legacy.structure_gel.api.events.RegisterLootTableAliasEvent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 
-import static com.barion.dungeons_enhanced.DEUtil.locate;
+import static com.barion.dungeons_enhanced.DungeonsEnhanced.locate;
 
 @SuppressWarnings({"unused", "removal"})
 public final class DELootTableAliases {

@@ -1,0 +1,8 @@
+{
+  "remove": [
+    "#dungeons_enhanced:no_structures/nether"
+  ],
+  "values": [
+    "#minecraft:is_nether"
+  ]
+}

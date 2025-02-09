@@ -10,6 +10,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.RandomState;
 
 public final class DEUtil {
+    @Deprecated
     public static ResourceLocation locate(String key) {
         return new ResourceLocation(DungeonsEnhanced.MOD_ID, key);
     }

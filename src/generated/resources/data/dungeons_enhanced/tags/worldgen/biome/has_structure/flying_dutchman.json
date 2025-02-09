@@ -1,0 +1,8 @@
+{
+  "remove": [
+    "#dungeons_enhanced:no_structures"
+  ],
+  "values": [
+    "#forge:is_water"
+  ]
+}

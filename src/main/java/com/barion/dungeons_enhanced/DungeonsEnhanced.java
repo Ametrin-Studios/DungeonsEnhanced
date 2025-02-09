@@ -1,9 +1,13 @@
 package com.barion.dungeons_enhanced;
 
-import com.barion.dungeons_enhanced.data.provider.*;
+import com.barion.dungeons_enhanced.data.provider.DEAdvancementProvider;
+import com.barion.dungeons_enhanced.data.provider.DEBiomeTagsProvider;
+import com.barion.dungeons_enhanced.data.provider.DELootTableProvider;
+import com.barion.dungeons_enhanced.data.provider.DEStructureTagsProvider;
 import com.barion.dungeons_enhanced.registry.*;
 import com.google.common.reflect.Reflection;
 import com.legacy.structure_gel.api.registry.registrar.RegistrarHandler;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -43,6 +47,10 @@ public final class DungeonsEnhanced {
         generator.addProvider(runServer, new DELootTableProvider(output));
         generator.addProvider(runServer, new DEAdvancementProvider(output, existingFileHelper));
         generator.addProvider(runServer, new DEStructureTagsProvider(output, lookup, existingFileHelper));
-        generator.addProvider(runServer, new StructureNbtUpdater("structures", MOD_ID, existingFileHelper, output));
+//        generator.addProvider(runServer, new StructureNbtUpdater("structures", MOD_ID, existingFileHelper, output));
+    }
+
+    public static ResourceLocation locate(String key) {
+        return new ResourceLocation(DungeonsEnhanced.MOD_ID, key);
     }
 }

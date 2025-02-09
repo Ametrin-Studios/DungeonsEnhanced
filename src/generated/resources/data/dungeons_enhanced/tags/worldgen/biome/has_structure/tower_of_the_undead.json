@@ -1,0 +1,12 @@
+{
+  "remove": [
+    "minecraft:cherry_grove",
+    "#minecraft:is_jungle",
+    "#minecraft:is_badlands",
+    "#forge:is_mushroom",
+    "#dungeons_enhanced:no_structures/overworld/surface"
+  ],
+  "values": [
+    "#minecraft:is_overworld"
+  ]
+}

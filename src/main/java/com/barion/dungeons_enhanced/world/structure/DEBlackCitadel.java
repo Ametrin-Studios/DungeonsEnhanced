@@ -24,6 +24,7 @@ import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -56,7 +57,7 @@ public final class DEBlackCitadel {
         }
 
         @Override
-        public StructurePieceType getType() {
+        public @NotNull StructurePieceType getType() {
             return DEStructures.BLACK_CITADEL.getPieceType().get();
         }
 

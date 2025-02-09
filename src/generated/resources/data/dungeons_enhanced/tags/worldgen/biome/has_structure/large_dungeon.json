@@ -1,0 +1,10 @@
+{
+  "remove": [
+    "#dungeons_enhanced:no_structures/overworld/surface"
+  ],
+  "values": [
+    "#forge:is_plains",
+    "#minecraft:is_forest",
+    "#minecraft:is_taiga"
+  ]
+}

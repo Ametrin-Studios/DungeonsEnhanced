@@ -15,6 +15,7 @@ import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
+import org.jetbrains.annotations.NotNull;
 
 public final class DEMonsterMaze {
     public static final String ID = "monster_maze";
@@ -44,7 +45,7 @@ public final class DEMonsterMaze {
         }
 
         @Override
-        public StructurePieceType getType() {
+        public @NotNull StructurePieceType getType() {
             return DEStructures.MONSTER_MAZE.getPieceType().get();
         }
 

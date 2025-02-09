@@ -21,7 +21,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 import javax.annotation.Nonnull;
 import java.util.Optional;
 
-import static com.barion.dungeons_enhanced.DEUtil.locate;
+import static com.barion.dungeons_enhanced.DungeonsEnhanced.locate;
 
 public final class DEEldersTemple extends DEUnderwaterStructure {
     public static final String ID = "elders_temple";

@@ -12,7 +12,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import javax.annotation.Nonnull;
 import java.util.Optional;
 
-import static com.barion.dungeons_enhanced.DEUtil.locate;
+import static com.barion.dungeons_enhanced.DungeonsEnhanced.locate;
 
 public final class DEIcePit extends DEGroundStructure {
     public static final String ID = "ice_pit";

@@ -15,6 +15,7 @@ import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
+import org.jetbrains.annotations.NotNull;
 
 public final class DELargeDungeon {
     public static final String ID = "large_dungeon";
@@ -44,7 +45,7 @@ public final class DELargeDungeon {
         }
 
         @Override
-        public StructurePieceType getType() {
+        public @NotNull StructurePieceType getType() {
             return DEStructures.LARGE_DUNGEON.getPieceType().get();
         }
 

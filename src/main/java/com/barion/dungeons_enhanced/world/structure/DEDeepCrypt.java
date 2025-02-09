@@ -16,6 +16,7 @@ import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
+import org.jetbrains.annotations.NotNull;
 
 public final class DEDeepCrypt {
     public static final String ID = "deep_crypt";
@@ -45,7 +46,7 @@ public final class DEDeepCrypt {
         }
 
         @Override
-        public StructurePieceType getType() {
+        public @NotNull StructurePieceType getType() {
             return DEStructures.DEEP_CRYPT.getPieceType().get();
         }
 

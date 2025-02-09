@@ -16,6 +16,7 @@ import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
+import org.jetbrains.annotations.NotNull;
 
 public final class DEPillagerCamp {
     public static final String ID = "pillager_camp";
@@ -45,7 +46,7 @@ public final class DEPillagerCamp {
         }
 
         @Override
-        public StructurePieceType getType() {
+        public @NotNull StructurePieceType getType() {
             return DEStructures.PILLAGER_CAMP.getPieceType().get();
         }
 

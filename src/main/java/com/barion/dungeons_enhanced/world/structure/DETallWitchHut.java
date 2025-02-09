@@ -12,7 +12,6 @@ import javax.annotation.Nonnull;
 import java.util.Optional;
 
 public final class DETallWitchHut extends DEGroundStructure {
-    public static final String ID = "tall_witch_hut";
     public static final Codec<DETallWitchHut> CODEC = simpleCodec(DETallWitchHut::new);
 
     public DETallWitchHut(StructureSettings settings) {

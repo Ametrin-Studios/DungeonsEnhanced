@@ -1,0 +1,9 @@
+{
+  "remove": [
+    "#dungeons_enhanced:no_structures/overworld/surface"
+  ],
+  "values": [
+    "#forge:is_cold/overworld",
+    "#forge:is_snowy"
+  ]
+}

@@ -21,20 +21,180 @@ public final class DEBiomeTagsProvider extends BiomeTagsProvider {
 
     @Override
     protected void addTags(@Nonnull HolderLookup.Provider provider) {
+        // Overworld
+        tag(DETags.Biomes.HAS_CASTLE)
+                .addTag(Tags.Biomes.IS_COLD_OVERWORLD)
+                .addTag(Tags.Biomes.IS_SNOWY)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+        ;
+        tag(DETags.Biomes.HAS_DEEP_CRYPT)
+                .addTag(BiomeTags.IS_OVERWORLD)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_UNDERGROUND)
+        ;
+        tag(DETags.Biomes.HAS_DESERT_TEMPLE)
+                .addTag(BiomeTags.HAS_DESERT_PYRAMID)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+        ;
+        tag(DETags.Biomes.HAS_DESERT_TOMB)
+                .addTag(BiomeTags.HAS_DESERT_PYRAMID)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+        ;
+        tag(DETags.Biomes.HAS_DRUID_CIRCLE)
+                .add(Biomes.MEADOW)
+                .add(Biomes.CHERRY_GROVE)
+                .addTag(Tags.Biomes.IS_PLAINS)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+        ;
+        tag(DETags.Biomes.HAS_DUNGEON_VARIANT)
+                .addTag(BiomeTags.IS_OVERWORLD)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_UNDERGROUND)
+        ;
+        tag(DETags.Biomes.HAS_ELDERS_TEMPLE)
+                .addTag(BiomeTags.IS_DEEP_OCEAN)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_OCEAN_FLOOR)
+        ;
+        tag(DETags.Biomes.HAS_FISHING_SHIP)
+                .addTag(BiomeTags.IS_OCEAN)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_OCEAN_SURFACE)
+        ;
+        tag(DETags.Biomes.HAS_FLYING_DUTCHMAN)
+                .addTag(Tags.Biomes.IS_WATER)
+                .remove(DETags.Biomes.NO_STRUCTURES)
+        ;
+        tag(DETags.Biomes.HAS_HAY_STORAGE)
+                .addTag(BiomeTags.IS_SAVANNA)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+        ;
+        tag(DETags.Biomes.HAS_ICE_PIT)
+                .addTag(Tags.Biomes.IS_SNOWY)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+        ;
+        tag(DETags.Biomes.HAS_JUNGLE_MONUMENT)
+                .addTag(BiomeTags.HAS_JUNGLE_TEMPLE)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+        ;
+        tag(DETags.Biomes.HAS_LARGE_DUNGEON)
+                .addTag(Tags.Biomes.IS_PLAINS)
+                .addTag(BiomeTags.IS_FOREST)
+                .addTag(BiomeTags.IS_TAIGA)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+        ;
+        tag(DETags.Biomes.HAS_MINERS_HOUSE)
+                .addTag(BiomeTags.IS_BADLANDS)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+        ;
+        tag(DETags.Biomes.HAS_MONSTER_MAZE)
+                .add(Biomes.DARK_FOREST)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+        ;
+        tag(DETags.Biomes.HAS_MUSHROOM_HOUSE)
+                .add(Biomes.MUSHROOM_FIELDS)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+        ;
+        tag(DETags.Biomes.HAS_PILLAGER_CAMP)
+                .addTag(BiomeTags.HAS_PILLAGER_OUTPOST)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+        ;
+        tag(DETags.Biomes.HAS_PIRATE_SHIP)
+                .addTag(BiomeTags.IS_OCEAN)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_OCEAN_SURFACE)
+        ;
+        tag(DETags.Biomes.HAS_RUINED_BUILDING)
+                .addTag(Tags.Biomes.IS_PLAINS)
+                .addTag(BiomeTags.IS_FOREST)
+                .addTag(BiomeTags.IS_TAIGA)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+        ;
+        tag(DETags.Biomes.HAS_STABLES)
+                .addTag(Tags.Biomes.IS_PLAINS)
+                .addTag(BiomeTags.IS_FOREST)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+        ;
+        tag(DETags.Biomes.HAS_SUNKEN_SHRINE)
+                .addTag(BiomeTags.IS_OCEAN)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_OCEAN_FLOOR)
+        ;
+        tag(DETags.Biomes.HAS_TALL_WITCH_HUT)
+                .addTag(BiomeTags.HAS_SWAMP_HUT)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+        ;
+        tag(DETags.Biomes.HAS_TREE_HOUSE)
+                .addTag(BiomeTags.IS_JUNGLE)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+        ;
+        tag(DETags.Biomes.HAS_TOWER_OF_THE_UNDEAD)
+                .addTag(BiomeTags.IS_OVERWORLD)
+                .remove(Biomes.CHERRY_GROVE)
+                .remove(BiomeTags.IS_JUNGLE)
+                .remove(BiomeTags.IS_BADLANDS)
+                .remove(Tags.Biomes.IS_MUSHROOM)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+        ;
+        tag(DETags.Biomes.HAS_WATCH_TOWER)
+                .addTag(Tags.Biomes.IS_COLD_OVERWORLD)
+                .remove(Tags.Biomes.IS_WATER)
+                .remove(DETags.Biomes.NO_STRUCTURES)
+        ;
+        tag(DETags.Biomes.HAS_WITCH_TOWER)
+                .addTag(BiomeTags.IS_TAIGA)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+        ;
+
+        // Nether
+        tag(DETags.Biomes.HAS_BLACK_CITADEL)
+                .addTag(BiomeTags.IS_NETHER)
+                .remove(DETags.Biomes.NO_STRUCTURES_NETHER)
+        ;
+
+
+        // Other
         tag(DETags.Biomes.IS_SHORE)
                 .addTag(BiomeTags.IS_BEACH)
                 .add(Biomes.STONY_SHORE)
         ;
-        tag(DETags.Biomes.IS_BAD_FOR_STRUCTURE)
+
+        tag(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+                .addTag(DETags.Biomes.NO_STRUCTURES)
                 .addTag(DETags.Biomes.IS_SHORE)
                 .addTag(Tags.Biomes.IS_CAVE)
                 .addTag(Tags.Biomes.IS_MOUNTAIN)
-                .add(
-                        Biomes.WINDSWEPT_FOREST,
-                        Biomes.WINDSWEPT_SAVANNA,
-                        Biomes.WINDSWEPT_HILLS,
-                        Biomes.WINDSWEPT_GRAVELLY_HILLS
-                )
+                .add(Biomes.WINDSWEPT_FOREST)
+                .add(Biomes.WINDSWEPT_HILLS)
+                .add(Biomes.WINDSWEPT_SAVANNA)
+                .add(Biomes.WINDSWEPT_GRAVELLY_HILLS)
+                .addTag(Tags.Biomes.IS_WATER)
+                .addTag(BiomeTags.IS_NETHER)
+                .addTag(BiomeTags.IS_END)
         ;
+
+        tag(DETags.Biomes.NO_STRUCTURES_OVERWORLD_UNDERGROUND)
+                .addTag(DETags.Biomes.NO_STRUCTURES)
+                .addTag(BiomeTags.IS_NETHER)
+                .addTag(BiomeTags.IS_END)
+        ;
+
+        tag(DETags.Biomes.NO_STRUCTURES_OVERWORLD_OCEAN_SURFACE)
+                .addTag(DETags.Biomes.NO_STRUCTURES)
+                .addTag(BiomeTags.IS_NETHER)
+                .addTag(BiomeTags.IS_END)
+                .add(Biomes.FROZEN_OCEAN)
+                .add(Biomes.DEEP_FROZEN_OCEAN)
+                .add(Biomes.FROZEN_RIVER)
+        ;
+
+        tag(DETags.Biomes.NO_STRUCTURES_OVERWORLD_OCEAN_FLOOR)
+                .addTag(DETags.Biomes.NO_STRUCTURES)
+                .addTag(BiomeTags.IS_NETHER)
+                .addTag(BiomeTags.IS_END)
+        ;
+
+        tag(DETags.Biomes.NO_STRUCTURES_NETHER)
+                .addTag(DETags.Biomes.NO_STRUCTURES)
+                .addTag(BiomeTags.IS_OVERWORLD)
+                .addTag(BiomeTags.IS_END)
+                .add(Biomes.BASALT_DELTAS)
+        ;
+
+        tag(DETags.Biomes.NO_STRUCTURES);
     }
 }
