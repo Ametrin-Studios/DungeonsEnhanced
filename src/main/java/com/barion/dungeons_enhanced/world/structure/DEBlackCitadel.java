@@ -4,9 +4,9 @@ import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.registry.*;
 import com.google.common.collect.ImmutableMap;
 import com.legacy.structure_gel.api.structure.jigsaw.*;
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ServerLevelAccessor;
@@ -18,38 +18,55 @@ import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.Objects;
 
-public class DEBlackCitadel {
+public final class DEBlackCitadel {
     public static class Capability implements JigsawCapability {
         public static final Capability INSTANCE = new Capability();
-        public static final Codec<Capability> CODEC = Codec.unit(INSTANCE);
+        public static final MapCodec<Capability> CODEC = MapCodec.unit(INSTANCE);
+
         @Override
-        public JigsawCapabilityType<?> getType() {return DEJigsawTypes.BLACK_CITADEL.get();}
+        public JigsawCapabilityType<?> getType() {
+            return DEJigsawTypes.BLACK_CITADEL.get();
+        }
+
         @Override
-        public IPieceFactory getPieceFactory() {return Piece::new;}
+        public IPieceFactory getPieceFactory() {
+            return Piece::new;
+        }
     }
 
     public static class Piece extends ExtendedJigsawStructurePiece {
-        public Piece(IPieceFactory.Context context) {super(context);}
-        public Piece(StructurePieceSerializationContext context, CompoundTag nbt) {super(context, nbt);}
-        @Override
-        public StructurePieceType getType() {return DEStructures.BLACK_CITADEL.getPieceType().get();}
+        public Piece(IPieceFactory.Context context) {
+            super(context);
+        }
 
-        @Override @ParametersAreNonnullByDefault
+        public Piece(StructurePieceSerializationContext context, CompoundTag nbt) {
+            super(context, nbt);
+        }
+
+        @Override
+        public @NotNull StructurePieceType getType() {
+            return Objects.requireNonNull(DEStructures.BLACK_CITADEL.getPieceType().get());
+        }
+
+        @Override
+        @ParametersAreNonnullByDefault
         public void place(WorldGenLevel level, StructureManager structureManager, ChunkGenerator generator, RandomSource random, BoundingBox bounds, BlockPos pos, boolean keepJigsaws) {
             super.place(level, structureManager, generator, random, bounds, pos, keepJigsaws);
-            if(getLocation().getPath().contains("pillar") || getLocation().getPath().contains("tower")){
+            if (getLocation().getPath().contains("pillar") || getLocation().getPath().contains("tower")) {
                 this.extendDown(level, Blocks.POLISHED_BLACKSTONE_BRICKS.defaultBlockState(), bounds, rotation, random);
             }
         }
 
         @Override
-        public void handleDataMarker(String key, BlockPos blockPos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) {}
+        public void handleDataMarker(String key, BlockPos blockPos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) { }
     }
 
-    public static void pool(BootstapContext<StructureTemplatePool> context){
+    public static void pool(BootstrapContext<StructureTemplatePool> context) {
         var registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, DEStructureIDs.BLACK_CITADEL + "/", context);
         registry.registerBuilder().pools(registry.poolBuilder().names("main").processors(DEProcessorLists.BLACK_CITADEL.getKey())).register(DETemplatePools.BLACK_CITADEL);
 

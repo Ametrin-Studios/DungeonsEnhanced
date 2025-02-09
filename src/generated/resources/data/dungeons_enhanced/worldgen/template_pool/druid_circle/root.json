@@ -4,7 +4,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:druid_circle/small",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -14,7 +14,7 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:druid_circle/top_big",
-        "maintainWater": false,
+        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },

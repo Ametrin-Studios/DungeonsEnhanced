@@ -1,0 +1,153 @@
+{
+  "parent": "dungeons_enhanced:root",
+  "criteria": {
+    "entered_castle": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": "dungeons_enhanced:castle"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "entered_deep_crypt": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": "dungeons_enhanced:deep_crypt"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "entered_desert_temple": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": "dungeons_enhanced:desert_temple"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "entered_elders_temple": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": "dungeons_enhanced:elders_temple"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "entered_ice_pit": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": "dungeons_enhanced:ice_pit"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "entered_jungle_monument": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": "dungeons_enhanced:jungle_monument"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "entered_monster_maze": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": "dungeons_enhanced:monster_maze"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.dungeons_enhanced.seven_world_wonders.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:spyglass"
+    },
+    "title": {
+      "translate": "advancements.dungeons_enhanced.seven_world_wonders"
+    }
+  },
+  "requirements": [
+    [
+      "entered_castle"
+    ],
+    [
+      "entered_deep_crypt"
+    ],
+    [
+      "entered_desert_temple"
+    ],
+    [
+      "entered_ice_pit"
+    ],
+    [
+      "entered_jungle_monument"
+    ],
+    [
+      "entered_monster_maze"
+    ],
+    [
+      "entered_elders_temple"
+    ]
+  ]
+}

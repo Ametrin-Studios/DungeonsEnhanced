@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
+import net.minecraft.world.level.levelgen.structure.templatesystem.LiquidSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 
@@ -20,10 +21,12 @@ import java.util.function.Function;
 public final class DESimpleStructurePiece extends GelTemplateStructurePiece {
 
     private final Function<StructurePlaceSettings, StructurePlaceSettings> _settingsFunction;
+    public final int yOffset; // only works during generation. does not get stored!!
 
-    public DESimpleStructurePiece(StructurePieceType structurePieceType, StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Function<StructurePlaceSettings, StructurePlaceSettings> settingsFunction, Rotation rotation) {
-        super(structurePieceType, 0, structureManager, templateName, pos);
+    public DESimpleStructurePiece(StructurePieceType structurePieceType, StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Function<StructurePlaceSettings, StructurePlaceSettings> settingsFunction, int yOffset, Rotation rotation) {
+        super(structurePieceType, 0, structureManager, templateName, pos.above(yOffset));
         _settingsFunction = settingsFunction;
+        this.yOffset = yOffset;
         this.rotation = rotation;
         setupPlaceSettings(structureManager);
     }
@@ -31,6 +34,7 @@ public final class DESimpleStructurePiece extends GelTemplateStructurePiece {
     public DESimpleStructurePiece(StructurePieceType structurePieceType, CompoundTag nbt, StructurePieceSerializationContext context, Function<StructurePlaceSettings, StructurePlaceSettings> settingsFunction) {
         super(structurePieceType, nbt, context.structureTemplateManager());
         _settingsFunction = settingsFunction;
+        this.yOffset = 0; //y offset has been saved into position
         setupPlaceSettings(context.structureTemplateManager());
     }
 
@@ -39,18 +43,19 @@ public final class DESimpleStructurePiece extends GelTemplateStructurePiece {
         // DO NOT USE getRotation in here!
         var size = template().getSize(rotation);
         var pivot = new BlockPos(size.getX() / 2, 0, size.getZ() / 2);
-        return _settingsFunction.apply(super.getPlaceSettings(structureManager).setKeepLiquids(false).setRotationPivot(pivot));
+        return _settingsFunction.apply(super.getPlaceSettings(structureManager).setLiquidSettings(LiquidSettings.IGNORE_WATERLOGGING).setRotationPivot(pivot));
     }
 
-    public Vec3i getSize(){
+    public Vec3i getSize() {
         return template().getSize(getRotation());
     }
 
     public void setPosition(BlockPos pos) {
-        templatePosition = pos;
+        templatePosition = pos.above(yOffset);
         boundingBox = template.getBoundingBox(placeSettings, templatePosition);
     } // probably not good
 
-    @Override @ParametersAreNonnullByDefault
-    protected void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor levelAccessor, RandomSource randomSource, BoundingBox boundingBox) {}
+    @Override
+    @ParametersAreNonnullByDefault
+    protected void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor levelAccessor, RandomSource randomSource, BoundingBox boundingBox) { }
 }

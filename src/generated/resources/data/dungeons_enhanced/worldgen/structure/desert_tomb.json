@@ -1,6 +1,6 @@
 {
   "type": "structure_gel:extended_jigsaw",
-  "biomes": "#minecraft:is_overworld",
+  "biomes": "#dungeons_enhanced:has_structure/desert_tomb",
   "capability": {
     "type": "dungeons_enhanced:desert_tomb"
   },

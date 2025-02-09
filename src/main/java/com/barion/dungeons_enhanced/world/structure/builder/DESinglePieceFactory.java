@@ -19,10 +19,10 @@ public final class DESinglePieceFactory implements IDEPieceFactory {
     private final Function<StructurePlaceSettings, StructurePlaceSettings> _settingsFunction;
 
 
-
     public DESinglePieceFactory(DEStructureTemplate template, Supplier<StructurePieceType> pieceTypeSupplier) {
         this(template, pieceTypeSupplier, settings -> settings);
     }
+
     public DESinglePieceFactory(DEStructureTemplate template, Supplier<StructurePieceType> pieceTypeSupplier, Function<StructurePlaceSettings, StructurePlaceSettings> settingsFunction) {
         _template = template;
         _pieceTypeSupplier = pieceTypeSupplier;
@@ -31,7 +31,7 @@ public final class DESinglePieceFactory implements IDEPieceFactory {
 
     @Override
     public DESimpleStructurePiece createPiece(StructureTemplateManager templateManager, BlockPos position, RandomSource random) {
-        return new DESimpleStructurePiece(_pieceTypeSupplier.get(), templateManager, _template.resourceLocation(), position.above(_template.yOffset()), _settingsFunction, Rotation.getRandom(random));
+        return new DESimpleStructurePiece(_pieceTypeSupplier.get(), templateManager, _template.resourceLocation(), position, _settingsFunction, _template.yOffset(), Rotation.getRandom(random));
     }
 
     @Override

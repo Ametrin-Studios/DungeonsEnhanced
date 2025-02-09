@@ -1,0 +1,8 @@
+{
+  "values": [
+    "#dungeons_enhanced:no_structures",
+    "#c:is_overworld",
+    "#c:is_end",
+    "minecraft:basalt_deltas"
+  ]
+}

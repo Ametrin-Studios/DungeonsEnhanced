@@ -5,7 +5,7 @@ import com.barion.dungeons_enhanced.world.structure.*;
 import com.legacy.structure_gel.api.registry.RegistrarHolder;
 import com.legacy.structure_gel.api.registry.registrar.RegistrarHandler;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
@@ -25,7 +25,7 @@ public final class DETemplatePools {
     // Nether
     public static final ResourceKey<StructureTemplatePool> BLACK_CITADEL = root(DEStructureIDs.BLACK_CITADEL);
 
-    private static void init(BootstapContext<StructureTemplatePool> context){
+    private static void init(BootstrapContext<StructureTemplatePool> context) {
         // Overworld
         DECastle.pool(context);
         DEDeepCrypt.pool(context);
@@ -39,7 +39,7 @@ public final class DETemplatePools {
         DEBlackCitadel.pool(context);
     }
 
-    private static ResourceKey<StructureTemplatePool> root(String structureId){
+    private static ResourceKey<StructureTemplatePool> root(String structureId) {
         return HANDLER.key(structureId + "/root");
     }
 }

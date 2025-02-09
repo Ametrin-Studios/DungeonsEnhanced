@@ -1,6 +1,6 @@
 {
   "type": "dungeons_enhanced:desert_temple",
-  "biomes": "#minecraft:is_overworld",
+  "biomes": "#dungeons_enhanced:has_structure/desert_temple",
   "spawn_overrides": {},
   "step": "surface_structures"
 }

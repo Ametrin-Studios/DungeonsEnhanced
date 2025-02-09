@@ -9,5 +9,6 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 
 public interface IDEPieceFactory {
     StructurePiece createPiece(StructurePieceSerializationContext serializationContext, CompoundTag nbt);
+
     DESimpleStructurePiece createPiece(StructureTemplateManager templateManager, BlockPos position, RandomSource random);
 }

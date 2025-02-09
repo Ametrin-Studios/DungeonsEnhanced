@@ -2,7 +2,7 @@ package com.barion.dungeons_enhanced.world.structure.processor;
 
 import com.barion.dungeons_enhanced.registry.DEProcessorTypes;
 import com.google.common.collect.ImmutableMap;
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
@@ -17,9 +17,9 @@ import org.jetbrains.annotations.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Map;
 
-public class DESwapDeadCoralsProcessor extends StructureProcessor {
+public final class DESwapDeadCoralsProcessor extends StructureProcessor {
     public static final DESwapDeadCoralsProcessor INSTANCE = new DESwapDeadCoralsProcessor();
-    public static final Codec<DESwapDeadCoralsProcessor> CODEC = Codec.unit(() -> INSTANCE);
+    public static final MapCodec<DESwapDeadCoralsProcessor> CODEC = MapCodec.unit(INSTANCE);
 
     private static final Map<Block, Block> DEATH_TO_LIVING_CORAL = new ImmutableMap.Builder<Block, Block>()
             .put(Blocks.DEAD_BRAIN_CORAL, Blocks.BRAIN_CORAL)
@@ -47,16 +47,21 @@ public class DESwapDeadCoralsProcessor extends StructureProcessor {
             .put(Blocks.DEAD_TUBE_CORAL_WALL_FAN, Blocks.TUBE_CORAL_WALL_FAN)
             .build();
 
-    private DESwapDeadCoralsProcessor() {}
+    private DESwapDeadCoralsProcessor() { }
 
-    @Override @Nullable @ParametersAreNonnullByDefault
+    @Override
+    @Nullable
+    @ParametersAreNonnullByDefault
     public StructureTemplate.StructureBlockInfo process(LevelReader level, BlockPos pos, BlockPos pos2, StructureTemplate.StructureBlockInfo existing, StructureTemplate.StructureBlockInfo placed, StructurePlaceSettings settings, @Nullable StructureTemplate template) {
-        if(!DEATH_TO_LIVING_CORAL.containsKey(placed.state().getBlock())) return placed;
+        if (!DEATH_TO_LIVING_CORAL.containsKey(placed.state().getBlock())) return placed;
 
         var livingCoral = DEATH_TO_LIVING_CORAL.get(placed.state().getBlock()).withPropertiesOf(placed.state());
         return new StructureTemplate.StructureBlockInfo(placed.pos(), livingCoral, null);
     }
 
-    @Override @NotNull
-    protected StructureProcessorType<?> getType() {return DEProcessorTypes.SWAP_DEAD_CORALS_PROCESSOR;}
+    @Override
+    @NotNull
+    protected StructureProcessorType<?> getType() {
+        return DEProcessorTypes.SWAP_DEAD_CORALS_PROCESSOR;
+    }
 }

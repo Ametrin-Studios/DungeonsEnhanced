@@ -28,24 +28,28 @@ public final class DEModularStructure extends Structure {
         _typeSupplier = typeSupplier;
     }
 
-    @Override @NotNull
+    @Override
+    @NotNull
     protected Optional<GenerationStub> findGenerationPoint(@NotNull GenerationContext context) {
         return _placementProvider.getPlacement(context, this::cannotGenerate, _pieceFactory);
     }
 
     public boolean cannotGenerate(BlockPos pos, GenerationContext context) {
-        for (var filter : _filters){
-            if(filter.cannotGenerate(pos, context)) {
+        for (var filter : _filters) {
+            if (filter.cannotGenerate(pos, context)) {
                 return true;
             }
         }
         return false;
     }
 
-    @Override @NotNull
-    public StructureType<?> type() { return _typeSupplier.get(); }
+    @Override
+    @NotNull
+    public StructureType<?> type() {
+        return _typeSupplier.get();
+    }
 
-    public static class Builder{
+    public static class Builder {
         private final IDEPieceFactory _pieceFactory;
         private DEPlacement _placementProvider;
         private final List<DEPlacementFilter> _filters = new ArrayList<>();
@@ -67,7 +71,7 @@ public final class DEModularStructure extends Structure {
         }
 
         public DEModularStructure build(StructureSettings settings) {
-            if(_placementProvider == null) throw new IllegalArgumentException("placement not set");
+            if (_placementProvider == null) throw new IllegalArgumentException("placement not set");
             return new DEModularStructure(settings, _pieceFactory, _placementProvider, ImmutableList.copyOf(_filters), _typeSupplier);
         }
     }

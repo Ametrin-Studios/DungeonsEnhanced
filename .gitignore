@@ -12,6 +12,7 @@ out
 *.iws
 *.iml
 .idea
+!.idea/icon.png
 
 # gradle
 build
@@ -21,10 +22,8 @@ build
 eclipse
 run
 runs
-!runs/client/saves/Structures
+!run/saves/Structures
 
 repo
 
-/structureList.xcf
-/structures.xcf
 /Logo.xcf

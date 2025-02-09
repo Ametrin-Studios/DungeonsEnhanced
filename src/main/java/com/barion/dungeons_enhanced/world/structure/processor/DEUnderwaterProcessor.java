@@ -1,8 +1,8 @@
 package com.barion.dungeons_enhanced.world.structure.processor;
 
 import com.barion.dungeons_enhanced.registry.DEProcessorTypes;
-import com.legacy.structure_gel.api.block.base.IStructureGel;
-import com.mojang.serialization.Codec;
+import com.legacy.structure_gel.api.data.tags.SGTags;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
@@ -16,29 +16,34 @@ import org.jetbrains.annotations.Nullable;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-public class DEUnderwaterProcessor extends StructureProcessor {
+public final class DEUnderwaterProcessor extends StructureProcessor {
     public static final DEUnderwaterProcessor INSTANCE = new DEUnderwaterProcessor();
-    public static final Codec<DEUnderwaterProcessor> CODEC = Codec.unit(() -> INSTANCE);
+    public static final MapCodec<DEUnderwaterProcessor> CODEC = MapCodec.unit(INSTANCE);
 
-    private DEUnderwaterProcessor() {}
+    private DEUnderwaterProcessor() { }
 
-    @Override @Nullable @ParametersAreNonnullByDefault
+    @Override
+    @Nullable
+    @ParametersAreNonnullByDefault
     public StructureTemplate.StructureBlockInfo process(LevelReader level, BlockPos pos, BlockPos pos2, StructureTemplate.StructureBlockInfo existing, StructureTemplate.StructureBlockInfo placed, StructurePlaceSettings settings, @Nullable StructureTemplate template) {
-        if(placed.state().is(Blocks.AIR)){
+        if (placed.state().is(Blocks.AIR)) {
             return null;
         }
 
-        if(placed.state().getBlock() instanceof IStructureGel){
+        if (placed.state().is(SGTags.BlockTags.GEL)) {
             return new StructureTemplate.StructureBlockInfo(placed.pos(), Blocks.WATER.defaultBlockState(), null);
         }
 
-        if(placed.state().hasProperty(BlockStateProperties.WATERLOGGED)){
+        if (placed.state().hasProperty(BlockStateProperties.WATERLOGGED)) {
             return new StructureTemplate.StructureBlockInfo(placed.pos(), placed.state().setValue(BlockStateProperties.WATERLOGGED, true), placed.nbt());
         }
 
         return placed;
     }
 
-    @Override @Nonnull
-    protected StructureProcessorType<?> getType() { return DEProcessorTypes.UNDERWATER; }
+    @Override
+    @Nonnull
+    protected StructureProcessorType<?> getType() {
+        return DEProcessorTypes.UNDERWATER;
+    }
 }
