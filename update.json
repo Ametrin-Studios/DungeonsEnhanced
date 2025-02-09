@@ -1,11 +1,11 @@
 {
   "homepage": "https://www.curseforge.com/minecraft/mc-mods/dungeonsenhanced",
   "promos": {
-    "1.21.4-latest": "6.1.0",
+    "1.21.4-latest": "6.1.1",
     "1.21.4-recommended": "6.0",
     "1.20.4-latest": "5.6",
     "1.20.4-recommended": "5.6",
-    "1.20.1-latest": "5.3.0",
+    "1.20.1-latest": "5.4.0",
     "1.20.1-recommended": "5.3.0",
     "1.19.4-latest": "4.3.1",
     "1.19.4-recommended": "4.3.1",
@@ -21,6 +21,7 @@
     "1.16.5-recommended": "1.8.2"
   },
   "1.21.4": {
+    "6.1.1": "fixes",
     "6.1.0": "biome config via data packs",
     "6.0": "port, disable dimension checking"
   },
@@ -31,6 +32,7 @@
     "5.3": "port, neoforge"
   },
   "1.20.1": {
+    "5.4.0": "disable dimension checking, biome config via data packs, new Dungeon Variant, fixes",
     "5.3.0": "Black Citadel, loot table updates, update checker",
     "5.2.2": "new tall witch hut generation",
     "5.2.1": "fixes",
