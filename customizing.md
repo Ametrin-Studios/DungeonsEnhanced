@@ -1,3 +1,14 @@
+make sure you are on the right page
+
+| mc version      | mod version  | page                                                                                      |
+|-----------------|--------------|-------------------------------------------------------------------------------------------|
+| 1.16.5 - 1.19.2 | all          | check the config file                                                                     |
+| 1.19.4 - 1.20.1 | before 5.4.0 | this page                                                                                 |
+| 1.20.1 - 1.20.4 | all          | this page                                                                                 |
+| 1.21.4          | 6.0          | this page                                                                                 |
+| 1.20.1          | 5.4.0 +      | [go here](https://github.com/Ametrin-Studios/DungeonsEnhanced/blob/master/customizing.md) |
+| 1.21.4          | 6.1.0 +      | [go here](https://github.com/Ametrin-Studios/DungeonsEnhanced/blob/master/customizing.md) |
+
 ## Biomes to generate in
 - open the Dungeons Enhanced common config file in the config folder (`dungeons_enhanced-common.toml`)
 - find the structure you want to modify

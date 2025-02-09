@@ -1,3 +1,8 @@
+## 5.4.0
+- special Dungeon Variant (#46)
+- disabled dimension checks (#47)
+- replace config with data pack (#50)
+
 ## 5.3.0
 - added Black Citadel
 - updated various loot tables
