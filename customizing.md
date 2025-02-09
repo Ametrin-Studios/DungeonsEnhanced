@@ -49,9 +49,6 @@ make sure you are on the right page
 - let us know what you changed so we can improve the default values
 - you may need to update your data pack with major updates, check [changelog](https://github.com/Ametrin-Studios/DungeonsEnhanced/blob/master/changelog.md) for any notes
 
-## Older versions
-For older versions of Dungeons Enhanced check: https://github.com/Ametrin-Studios/DungeonsEnhanced/blob/1.20.1/Customizing.md
-
 ### What happened to the config?
 We are aware that the config was a convenient and easy way to customize how structures generate.
 Mojang and the modding community are pushing towards data packs because they represent a uniform way of modifications.
