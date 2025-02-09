@@ -37,7 +37,7 @@ make sure you are on the right page
   ]
 }
 ```
-- you can add biomes to `no_structures.json` to prevent all Dungeons Enhanced structure from generate in it.
+- you can add biomes to `no_structures.json` to prevent all Dungeons Enhanced structures from generate in it.
 
 ## Loot Tables
 - there is no template right now
