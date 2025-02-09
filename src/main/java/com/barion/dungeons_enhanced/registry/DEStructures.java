@@ -11,7 +11,6 @@ import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
@@ -67,7 +66,6 @@ public final class DEStructures {
                 .placement(()-> gridPlacement(69, 78).build(DEStructures.CASTLE))
                 .addPiece(()-> DECastle.Piece::new)
                 .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DECastle.Capability.INSTANCE, DETemplatePools.CASTLE, 1, ConstantHeight.ZERO).onSurface().build())
-                        .dimensions(Level.OVERWORLD)
                         .terrainAdjustment(TerrainAdjustment.BEARD_BOX)
                 .popStructure()
                 .build();
@@ -76,7 +74,6 @@ public final class DEStructures {
                 .placement(()-> gridPlacement(39, 67).build(DEStructures.DEEP_CRYPT))
                 .addPiece(()-> DEDeepCrypt.Piece::new)
                 .pushStructure((context, settings) -> extendedJigsawStructure(context, settings, DEDeepCrypt.Capability.INSTANCE, DETemplatePools.DEEP_CRYPT, 4, UniformHeight.of(VerticalAnchor.aboveBottom(16), VerticalAnchor.aboveBottom(48))).build())
-                        .dimensions(Level.OVERWORLD)
                         .generationStep(GenerationStep.Decoration.UNDERGROUND_STRUCTURES)
                 .popStructure()
                 .build();
@@ -85,7 +82,6 @@ public final class DEStructures {
                 .placement(()-> gridPlacement(39, 86).build(DEStructures.DESERT_TEMPLE))
                 .addPiece(()-> DEDesertTemple.Piece::new)
                 .pushStructure(DEDesertTemple::new)
-                        .dimensions(Level.OVERWORLD)
                 .popStructure()
                 .build();
 
@@ -93,7 +89,6 @@ public final class DEStructures {
                 .placement(()-> gridPlacement(29, 65).allowedNearSpawn(true).build(DEStructures.DESERT_TOMB))
                 .addPiece(()-> DEDesertTomb.Piece::new)
                 .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DEDesertTomb.Capability.INSTANCE, DETemplatePools.DESERT_TOMB, 5, ConstantHeight.ZERO).onSurface().build())
-                        .dimensions(Level.OVERWORLD)
                 .popStructure()
                 .build();
 
@@ -101,7 +96,6 @@ public final class DEStructures {
                 .placement(()-> gridPlacement(41, 68).allowedNearSpawn(true).build(DEStructures.DRUID_CIRCLE))
                 .addPiece(()-> DEDruidCircle.Piece::new)
                 .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DEDruidCircle.Capability.INSTANCE, DETemplatePools.DRUID_CIRCLE, 1, ConstantHeight.ZERO).onSurface().build())//TODO: make own tag
-                        .dimensions(Level.OVERWORLD)
                         .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
                 .popStructure()
                 .build();
@@ -110,7 +104,6 @@ public final class DEStructures {
                 .placement(()-> gridPlacement(19, 59).allowedNearSpawn(true).build(DEStructures.DUNGEON_VARIANT))
                 .addPiece(()-> DEUndergroundStructure.Piece::new)
                 .pushStructure(DEUndergroundStructure::DungeonVariant)
-                        .dimensions(Level.OVERWORLD)
                         .generationStep(GenerationStep.Decoration.UNDERGROUND_STRUCTURES)
                 .popStructure()
                 .build();
@@ -119,7 +112,6 @@ public final class DEStructures {
                 .placement(()-> gridPlacement(24).build(DEStructures.ELDERS_TEMPLE))
                 .addPiece(()-> DEEldersTemple.Piece::new)
                 .pushStructure(DEEldersTemple::new)
-                        .dimensions(Level.OVERWORLD)
                         .noSpawns(StructureSpawnOverride.BoundingBoxType.STRUCTURE, MobCategory.UNDERGROUND_WATER_CREATURE, MobCategory.AXOLOTLS, MobCategory.WATER_AMBIENT, MobCategory.WATER_CREATURE)
                         .spawns(MobCategory.MONSTER, StructureSpawnOverride.BoundingBoxType.STRUCTURE, spawns(spawn(EntityType.GUARDIAN, 1,2,4)))
                 .popStructure()
@@ -129,7 +121,6 @@ public final class DEStructures {
                 .placement(()-> gridPlacement(48, 68).allowedNearSpawn(true).build(DEStructures.FISHING_SHIP))
                 .addPiece(()-> DEGroundStructure.Piece::new)
                 .pushStructure(DESwimmingStructure::FishingShip)
-                        .dimensions(Level.OVERWORLD)
                 .popStructure()
                 .build();
 
@@ -137,7 +128,6 @@ public final class DEStructures {
                 .placement(()-> gridPlacement(134, 63).build(DEStructures.FLYING_DUTCHMAN))
                 .addPiece(()-> DEFlyingStructure.Piece::new)
                 .pushStructure(DEFlyingStructure::FlyingDutchman)
-                        .dimensions(Level.OVERWORLD)
                 .popStructure()
                 .build();
 
@@ -145,7 +135,6 @@ public final class DEStructures {
                 .placement(()-> gridPlacement(23, 77).allowedNearSpawn(true).build(DEStructures.HAY_STORAGE))
                 .addPiece(()-> DEGroundStructure.Piece::new)
                 .pushStructure(DEGroundStructure::HayStorage)
-                        .dimensions(Level.OVERWORLD)
                         .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
                 .popStructure()
                 .build();
@@ -154,7 +143,6 @@ public final class DEStructures {
                 .addPiece(()-> DEGroundStructure.Piece::new)
                 .placement(()-> gridPlacement(34, 77).build(DEStructures.ICE_PIT))
                 .pushStructure(DEIcePit::new)
-                        .dimensions(Level.OVERWORLD)
                 .popStructure()
                 .build();
 
@@ -162,7 +150,6 @@ public final class DEStructures {
                 .placement(()-> gridPlacement(46, 74).build(DEStructures.JUNGLE_MONUMENT))
                 .addPiece(()-> DEGroundStructure.Piece::new)
                 .pushStructure(DEGroundStructure::JungleMonument)
-                        .dimensions(Level.OVERWORLD)
                 .popStructure()
                 .build();
 
@@ -170,7 +157,6 @@ public final class DEStructures {
                 .placement(()-> gridPlacement(59, 56).allowedNearSpawn(true).build(DEStructures.LARGE_DUNGEON))
                 .addPiece(()-> DELargeDungeon.Piece::new)
                 .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DELargeDungeon.Capability.INSTANCE, DETemplatePools.LARGE_DUNGEON, 5, height(-16)).onSurface().build())
-                        .dimensions(Level.OVERWORLD)
                 .popStructure()
                 .build();
 
@@ -178,7 +164,6 @@ public final class DEStructures {
                 .placement(()-> gridPlacement(24, 80).allowedNearSpawn(true).build(DEStructures.MINERS_HOUSE))
                 .addPiece(()-> DEGroundStructure.Piece::new)
                 .pushStructure(DEGroundStructure::MinersHouse)
-                        .dimensions(Level.OVERWORLD)
                         .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
                 .popStructure()
                 .build();
@@ -187,7 +172,6 @@ public final class DEStructures {
                 .placement(()-> gridPlacement(32, 52).build(DEStructures.MONSTER_MAZE))
                 .addPiece(()-> DEMonsterMaze.Piece::new)
                 .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DEMonsterMaze.Capability.INSTANCE, DETemplatePools.MONSTER_MAZE, 12, height(-17)).onSurface().build())
-                        .dimensions(Level.OVERWORLD)
                 .popStructure()
                 .build();
 
@@ -195,7 +179,6 @@ public final class DEStructures {
                 .placement(()-> gridPlacement(19, 83).allowedNearSpawn(true).build(DEStructures.MUSHROOM_HOUSE))
                 .addPiece(()-> DEGroundStructure.Piece::new)
                 .pushStructure(DEGroundStructure::MushroomHouse)
-                        .dimensions(Level.OVERWORLD)
                         .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
                 .popStructure()
                 .build();
@@ -204,7 +187,6 @@ public final class DEStructures {
                 .placement(()-> gridPlacement(56, 39).build(DEStructures.PILLAGER_CAMP))
                 .addPiece(()-> DEPillagerCamp.Piece::new)
                 .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DEPillagerCamp.Capability.INSTANCE, DETemplatePools.PILLAGER_CAMP, 4, ConstantHeight.ZERO).onSurface().build())
-                        .dimensions(Level.OVERWORLD)
                         .spawns(MobCategory.MONSTER, StructureSpawnOverride.BoundingBoxType.STRUCTURE, spawns(spawn(EntityType.PILLAGER, 4, 2, 3), spawn(EntityType.VINDICATOR, 2, 1, 2)))
                         .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
                 .popStructure()
@@ -214,7 +196,6 @@ public final class DEStructures {
                 .placement(()-> gridPlacement(67, 49).build(DEStructures.PIRATE_SHIP))
                 .addPiece(()-> DEGroundStructure.Piece::new)
                 .pushStructure(DEPirateShip::new)
-                        .dimensions(Level.OVERWORLD)
                         .spawns(MobCategory.MONSTER, StructureSpawnOverride.BoundingBoxType.STRUCTURE, spawns(spawn(EntityType.PILLAGER, 4, 3, 4), spawn(EntityType.VINDICATOR, 3, 1, 2)))
                         .noSpawns(StructureSpawnOverride.BoundingBoxType.STRUCTURE, MobCategory.UNDERGROUND_WATER_CREATURE, MobCategory.AXOLOTLS, MobCategory.WATER_AMBIENT, MobCategory.WATER_CREATURE)
                 .popStructure()
@@ -224,7 +205,6 @@ public final class DEStructures {
                 .placement(()-> gridPlacement(27, 54).allowedNearSpawn(true).build(DEStructures.RUINED_BUILDING))
                 .addPiece(()-> DEGroundStructure.Piece::new)
                 .pushStructure(DEGroundStructure::RuinedBuilding)
-                        .dimensions(Level.OVERWORLD)
                         .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
                 .popStructure()
                 .build();
@@ -233,7 +213,6 @@ public final class DEStructures {
                 .placement(()-> gridPlacement(53, 52).allowedNearSpawn(true).build(DEStructures.STABLES))
                 .addPiece(()-> DEGroundStructure.Piece::new)
                 .pushStructure(DEGroundStructure::Stables)
-                        .dimensions(Level.OVERWORLD)
                 .popStructure()
                 .build();
 
@@ -241,7 +220,6 @@ public final class DEStructures {
                 .placement(()-> gridPlacement(32, 55).allowedNearSpawn(true).build(DEStructures.SUNKEN_SHRINE))
                 .addPiece(()-> DEUnderwaterStructure.Piece::new)
                 .pushStructure(DEUnderwaterStructure::SunkenShrine)
-                        .dimensions(Level.OVERWORLD)
                 .popStructure()
                 .build();
 
@@ -249,7 +227,6 @@ public final class DEStructures {
                 .placement(()-> gridPlacement(21, 61).allowedNearSpawn(true).build(DEStructures.TALL_WITCH_HUT))
                 .addPiece(()-> DEGroundStructure.Piece::new)
                 .pushStructure(DETallWitchHut::new)
-                        .dimensions(Level.OVERWORLD)
                 .popStructure()
                 .build();
 
@@ -257,7 +234,6 @@ public final class DEStructures {
                 .placement(()-> gridPlacement(49, 65).allowedNearSpawn(true).build(DEStructures.TOWER_OF_THE_UNDEAD))
                 .addPiece(()-> DEGroundStructure.Piece::new)
                 .pushStructure(DEGroundStructure::TowerOfTheUndead)
-                        .dimensions(Level.OVERWORLD)
                         .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
                 .popStructure()
                 .build();
@@ -266,7 +242,6 @@ public final class DEStructures {
                 .placement(()-> gridPlacement(29, 40).allowedNearSpawn(true).build(DEStructures.TREE_HOUSE))
                 .addPiece(()-> DEGroundStructure.Piece::new)
                 .pushStructure(DEGroundStructure::TreeHouse)
-                        .dimensions(Level.OVERWORLD)
                         .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
                 .popStructure()
                 .build();
@@ -275,7 +250,6 @@ public final class DEStructures {
                 .placement(()-> gridPlacement(27, 45).allowedNearSpawn(true).build(DEStructures.WATCH_TOWER))
                 .addPiece(()-> DEGroundStructure.Piece::new)
                 .pushStructure(DEGroundStructure::WatchTower)
-                        .dimensions(Level.OVERWORLD)
                         .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
                 .popStructure()
                 .build();
@@ -284,7 +258,6 @@ public final class DEStructures {
                 .placement(()-> gridPlacement(79, 54).allowedNearSpawn(true).build(DEStructures.WITCH_TOWER))
                 .addPiece(()-> DEGroundStructure.Piece::new)
                 .pushStructure(DEGroundStructure::WitchTower)
-                        .dimensions(Level.OVERWORLD)
                         .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
                 .popStructure()
                 .build();
@@ -294,10 +267,9 @@ public final class DEStructures {
                 .placement(()-> gridPlacement(67, 75).build(DEStructures.BLACK_CITADEL))
                 .addPiece(()-> DEBlackCitadel.Piece::new)
                 .pushStructure((context, settings) -> extendedJigsawStructure(context, settings, DEBlackCitadel.Capability.INSTANCE, DETemplatePools.BLACK_CITADEL, 6, height(28)).maxDistanceFromCenter(116).build())
-                .spawns(MobCategory.MONSTER, StructureSpawnOverride.BoundingBoxType.PIECE, spawns(spawn(EntityType.WITHER_SKELETON, 4, 2, 5), spawn(EntityType.SKELETON, 1, 1, 3)))
-                .dimensions(Level.NETHER)
-                .generationStep(GenerationStep.Decoration.UNDERGROUND_STRUCTURES) //needs to generate after the basalt
-                .terrainAdjustment(TerrainAdjustment.BEARD_BOX)
+                    .spawns(MobCategory.MONSTER, StructureSpawnOverride.BoundingBoxType.PIECE, spawns(spawn(EntityType.WITHER_SKELETON, 4, 2, 5), spawn(EntityType.SKELETON, 1, 1, 3)))
+                    .generationStep(GenerationStep.Decoration.UNDERGROUND_STRUCTURES) //needs to generate after the basalt
+                    .terrainAdjustment(TerrainAdjustment.BEARD_BOX)
                 .popStructure()
                 .build();
     }
