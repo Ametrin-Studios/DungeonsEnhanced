@@ -1,4 +1,14 @@
-Starting with 1.21.4-6.1 all modifications have to be done via a data pack.
+make sure you are on the right page
+
+| mc version      | mod version  | page                                                                                      |
+|-----------------|--------------|-------------------------------------------------------------------------------------------|
+| 1.16.5 - 1.19.2 | all          | check the config file                                                                     |
+| 1.19.4 - 1.20.1 | before 5.4.0 | [go here](https://github.com/Ametrin-Studios/DungeonsEnhanced/blob/1.20.1/customizing.md) |
+| 1.20.4          | all          | [go here](https://github.com/Ametrin-Studios/DungeonsEnhanced/blob/1.20.1/customizing.md) |
+| 1.21.4          | 6.0          | [go here](https://github.com/Ametrin-Studios/DungeonsEnhanced/blob/1.20.1/customizing.md) |
+| 1.20.1          | 5.4.0 +      | this page                                                                                 |
+| 1.21.4          | 6.1.0 +      | this page                                                                                 |
+
 
 - [download](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FAmetrin-Studios%2FDungeonsEnhanced%2Ftree%2Fmaster%2FDATA-PACK-TEMPLATE) the DATA-PACK-TEMPLATE folder (you may rename it)
 
@@ -14,9 +24,23 @@ Starting with 1.21.4-6.1 all modifications have to be done via a data pack.
 - locate the json file of the structure you want to modify in `data/dungeons_enhanced/tags/worldgen/biome/has_structure`
 - you can add or remove any biomes or biome-tags in `values`
 - if you want to remove a biome that is not explicitly in `values` add it to `remove`
+```json5
+// this will generate in all cold overworld biomes
+// except aquatic biomes and ice spikes
+{
+  "values": [
+    "#c:is_cold/overworld"
+  ],
+  "remove": [
+    "#c:is_aquatic",
+    "minecraft:ice_spikes"
+  ]
+}
+```
+- you can add biomes to `no_structures.json` to prevent all Dungeons Enhanced structure from generate in it.
 
 ## Loot Tables
-- there is no template right now.
+- there is no template right now
 
 ## Using the data pack
 - delete all .json files that you didn't change
@@ -31,4 +55,4 @@ For older versions of Dungeons Enhanced check: https://github.com/Ametrin-Studio
 ### What happened to the config?
 We are aware that the config was a convenient and easy way to customize how structures generate.
 Mojang and the modding community are pushing towards data packs because they represent a uniform way of modifications.
-Unfortunately the config caused too many problems (e.g. with Structurify) so we decided to fully replace it with data packs
+Unfortunately the config caused too many problems (e.g. with Structurify) so we decided to fully replace it with data packs.

@@ -158,23 +158,33 @@ public final class DEBiomeTagsProvider extends BiomeTagsProvider {
                 .addTag(Tags.Biomes.IS_MOUNTAIN_PEAK)
                 .addTag(Tags.Biomes.IS_WINDSWEPT)
                 .addTag(Tags.Biomes.IS_AQUATIC)
+                .addTag(Tags.Biomes.IS_NETHER)
+                .addTag(Tags.Biomes.IS_END)
         ;
 
         tag(DETags.Biomes.NO_STRUCTURES_OVERWORLD_UNDERGROUND)
                 .addTag(DETags.Biomes.NO_STRUCTURES)
+                .addTag(Tags.Biomes.IS_NETHER)
+                .addTag(Tags.Biomes.IS_END)
         ;
 
         tag(DETags.Biomes.NO_STRUCTURES_OVERWORLD_OCEAN_SURFACE)
                 .addTag(DETags.Biomes.NO_STRUCTURES)
                 .addTag(Tags.Biomes.IS_AQUATIC_ICY)
+                .addTag(Tags.Biomes.IS_NETHER)
+                .addTag(Tags.Biomes.IS_END)
         ;
 
         tag(DETags.Biomes.NO_STRUCTURES_OVERWORLD_OCEAN_FLOOR)
                 .addTag(DETags.Biomes.NO_STRUCTURES)
+                .addTag(Tags.Biomes.IS_NETHER)
+                .addTag(Tags.Biomes.IS_END)
         ;
 
         tag(DETags.Biomes.NO_STRUCTURES_NETHER)
                 .addTag(DETags.Biomes.NO_STRUCTURES)
+                .addTag(Tags.Biomes.IS_OVERWORLD)
+                .addTag(Tags.Biomes.IS_END)
                 .add(Biomes.BASALT_DELTAS)
         ;
 

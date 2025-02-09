@@ -5,6 +5,8 @@
     "#c:is_cave",
     "#c:is_mountain/peak",
     "#c:is_windswept",
-    "#c:is_aquatic"
+    "#c:is_aquatic",
+    "#c:is_nether",
+    "#c:is_end"
   ]
 }
