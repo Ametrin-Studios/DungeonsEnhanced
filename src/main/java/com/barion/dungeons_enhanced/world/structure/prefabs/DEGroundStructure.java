@@ -24,70 +24,60 @@ import static com.barion.dungeons_enhanced.registry.DEStructures.*;
 
 public class DEGroundStructure extends DEBaseStructure {
 
-    public static final String ID_HAY_STORAGE = "hay_storage";
     public static final Codec<DEGroundStructure> CODEC_HAY_STORAGE = simpleCodec(DEGroundStructure::HayStorage);
 
     public static DEGroundStructure HayStorage(StructureSettings settings) {
         return new DEGroundStructure(settings, pieceBuilder().add("hay_storage/small").add("hay_storage/big").build(), HAY_STORAGE::getType);
     }
 
-    public static final String ID_JUNGLE_MONUMENT = "jungle_monument";
     public static final Codec<DEGroundStructure> CODEC_JUNGLE_MONUMENT = simpleCodec(DEGroundStructure::JungleMonument);
 
     public static DEGroundStructure JungleMonument(StructureSettings settings) {
         return new DEGroundStructure(settings, pieceBuilder().yOffset(-9).add("jungle_monument").build(), JUNGLE_MONUMENT::getType);
     }
 
-    public static final String ID_MINERS_HOUSE = "miners_house";
     public static final Codec<DEGroundStructure> CODEC_MINERS_HOUSE = simpleCodec(DEGroundStructure::MinersHouse);
 
     public static DEGroundStructure MinersHouse(StructureSettings settings) {
         return new DEGroundStructure(settings, pieceBuilder().add("miners_house").build(), MINERS_HOUSE::getType);
     }
 
-    public static final String ID_MUSHROOM_HOUSE = "mushroom_house";
     public static final Codec<DEGroundStructure> CODEC_MUSHROOM_HOUSE = simpleCodec(DEGroundStructure::MushroomHouse);
 
     public static DEGroundStructure MushroomHouse(StructureSettings settings) {
         return new DEGroundStructure(settings, pieceBuilder().add("mushroom_house/red").add("mushroom_house/brown").build(), MUSHROOM_HOUSE::getType);
     }
 
-    public static final String ID_RUINED_BUILDING = "ruined_building";
     public static final Codec<DEGroundStructure> CODEC_RUINED_BUILDING = simpleCodec(DEGroundStructure::RuinedBuilding);
 
     public static DEGroundStructure RuinedBuilding(StructureSettings settings) {
         return new DEGroundStructure(settings, pieceBuilder().weight(3).add("ruined_building/house").weight(2).add("ruined_building/house_big").weight(3).add("ruined_building/barn").build(), RUINED_BUILDING::getType);
     }
 
-    public static final String ID_STABLES = "stables";
     public static final Codec<DEGroundStructure> CODEC_STABLES = simpleCodec(DEGroundStructure::Stables);
 
     public static DEGroundStructure Stables(StructureSettings settings) {
-        return new DEGroundStructure(settings, pieceBuilder().yOffset(-6).add("stables").build(), STABLES::getType);
+        return new DEGroundStructure(settings, pieceBuilder().yOffset(-5).add("stables").build(), STABLES::getType);
     }
 
-    public static final String ID_TREE_HOUSE = "tree_house";
     public static final Codec<DEGroundStructure> CODEC_TREE_HOUSE = simpleCodec(DEGroundStructure::TreeHouse);
 
     public static DEGroundStructure TreeHouse(StructureSettings settings) {
         return new DEGroundStructure(settings, pieceBuilder().add("tree_house").build(), TREE_HOUSE::getType);
     }
 
-    public static final String ID_TOWER_OF_THE_UNDEAD = "tower_of_the_undead";
     public static final Codec<DEGroundStructure> CODEC_TOWER_OF_THE_UNDEAD = simpleCodec(DEGroundStructure::TowerOfTheUndead);
 
     public static DEGroundStructure TowerOfTheUndead(StructureSettings settings) {
         return new DEGroundStructure(settings, pieceBuilder().weight(3).add("tower_of_the_undead/small").weight(2).add("tower_of_the_undead/big").build(), TOWER_OF_THE_UNDEAD::getType);
     }
 
-    public static final String ID_WATCH_TOWER = "watch_tower";
     public static final Codec<DEGroundStructure> CODEC_WATCH_TOWER = simpleCodec(DEGroundStructure::WatchTower);
 
     public static DEGroundStructure WatchTower(StructureSettings settings) {
         return new DEGroundStructure(settings, pieceBuilder().add("watch_tower").build(), WATCH_TOWER::getType);
     }
 
-    public static final String ID_WITCH_TOWER = "witch_tower";
     public static final Codec<DEGroundStructure> CODEC_WITCH_TOWER = simpleCodec(DEGroundStructure::WitchTower);
 
     public static DEGroundStructure WitchTower(StructureSettings settings) {

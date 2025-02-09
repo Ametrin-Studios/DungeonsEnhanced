@@ -11,7 +11,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -22,7 +21,6 @@ public final class DungeonsEnhanced {
     public static final Logger LOGGER = LogManager.getLogger();
 
     public DungeonsEnhanced(FMLJavaModLoadingContext context) {
-        context.registerConfig(ModConfig.Type.COMMON, DEConfig.COMMON_SPEC);
         final var modBus = context.getModEventBus();
         final var forgeBus = MinecraftForge.EVENT_BUS;
         Reflection.initialize(DEStructures.class, DEProcessors.class, DETemplatePools.class);
