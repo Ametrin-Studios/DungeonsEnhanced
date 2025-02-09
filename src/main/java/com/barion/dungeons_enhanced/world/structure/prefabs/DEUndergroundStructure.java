@@ -25,7 +25,7 @@ public class DEUndergroundStructure extends DEBaseStructure {
     public static final Codec<DEUndergroundStructure> CODEC_DUNGEON_VARIANT = simpleCodec(DEUndergroundStructure::DungeonVariant);
 
     public static DEUndergroundStructure DungeonVariant(StructureSettings settings) {
-        return new DEUndergroundStructure(settings, pieceBuilder().add("dungeon_variant/zombie").add("dungeon_variant/skeleton").add("dungeon_variant/spider").build(), DEStructures.DUNGEON_VARIANT::getType);
+        return new DEUndergroundStructure(settings, pieceBuilder().add("dungeon_variant/zombie").add("dungeon_variant/skeleton").add("dungeon_variant/spider").add("dungeon_variant/special").build(), DEStructures.DUNGEON_VARIANT::getType);
     }
 
     protected DEUndergroundStructure(StructureSettings settings, DEStructureTemplates variants, Supplier<StructureType<?>> type) {

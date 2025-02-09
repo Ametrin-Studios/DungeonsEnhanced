@@ -1,16 +1,11 @@
 package com.barion.dungeons_enhanced;
 
-import com.barion.dungeons_enhanced.data.provider.DEAdvancementProvider;
-import com.barion.dungeons_enhanced.data.provider.DEBiomeTagsProvider;
-import com.barion.dungeons_enhanced.data.provider.DELootTableProvider;
-import com.barion.dungeons_enhanced.data.provider.DEStructureTagsProvider;
+import com.barion.dungeons_enhanced.data.provider.*;
 import com.barion.dungeons_enhanced.registry.*;
 import com.google.common.reflect.Reflection;
 import com.legacy.structure_gel.api.registry.registrar.RegistrarHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -22,10 +17,10 @@ public final class DungeonsEnhanced {
     public static final String MOD_ID = "dungeons_enhanced";
     public static final Logger LOGGER = LogManager.getLogger();
 
-    public DungeonsEnhanced() {
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DEConfig.COMMON_SPEC);
-        final IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
-        final IEventBus forgeBus = MinecraftForge.EVENT_BUS;
+    public DungeonsEnhanced(FMLJavaModLoadingContext context) {
+        context.registerConfig(ModConfig.Type.COMMON, DEConfig.COMMON_SPEC);
+        final var modBus = context.getModEventBus();
+        final var forgeBus = MinecraftForge.EVENT_BUS;
         Reflection.initialize(DEStructures.class, DEProcessors.class, DETemplatePools.class);
 
         modBus.addListener(DungeonsEnhanced::gatherData);
@@ -48,5 +43,6 @@ public final class DungeonsEnhanced {
         generator.addProvider(runServer, new DELootTableProvider(output));
         generator.addProvider(runServer, new DEAdvancementProvider(output, existingFileHelper));
         generator.addProvider(runServer, new DEStructureTagsProvider(output, lookup, existingFileHelper));
+        generator.addProvider(runServer, new StructureNbtUpdater("structures", MOD_ID, existingFileHelper, output));
     }
 }
