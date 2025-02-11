@@ -11,8 +11,8 @@ import net.neoforged.neoforge.event.village.VillagerTradesEvent;
 @EventBusSubscriber(modid = DungeonsEnhanced.MOD_ID, bus = EventBusSubscriber.Bus.GAME)
 public final class DEGameEvents {
     @SubscribeEvent
-    public static void registerCustomTrades(final VillagerTradesEvent event){
-        if(event.getType() != VillagerProfession.CARTOGRAPHER) return;
+    public static void registerCustomTrades(final VillagerTradesEvent event) {
+        if (event.getType() != VillagerProfession.CARTOGRAPHER) return;
 
         var trades = event.getTrades();
         trades.get(2).add(DEVillagerTrades.ELDER_EXPLORER_MAP_TRADE);
