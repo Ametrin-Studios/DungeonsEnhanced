@@ -2,6 +2,7 @@
 - special Dungeon Variant (#46)
 - disabled dimension checks (#47)
 - replace config with data pack (#50)
+- fixed missing pool in black citadel
 
 ## 5.3.0
 - added Black Citadel
