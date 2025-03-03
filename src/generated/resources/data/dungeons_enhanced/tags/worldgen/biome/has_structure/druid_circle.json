@@ -1,10 +1,14 @@
 {
   "remove": [
-    "#dungeons_enhanced:no_structures/overworld/surface"
+    "#dungeons_enhanced:no_structures/overworld/surface_extended"
   ],
   "values": [
     "minecraft:meadow",
     "minecraft:cherry_grove",
-    "#forge:is_plains"
+    "#forge:is_plains",
+    {
+      "id": "biomesoplenty:highland",
+      "required": false
+    }
   ]
 }

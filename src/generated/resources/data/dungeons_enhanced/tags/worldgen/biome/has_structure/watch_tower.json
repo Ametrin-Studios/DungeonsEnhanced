@@ -1,9 +1,20 @@
 {
   "remove": [
+    "#dungeons_enhanced:no_structures",
     "#forge:is_water",
-    "#dungeons_enhanced:no_structures"
+    "#forge:is_cave",
+    "#minecraft:is_nether",
+    "#minecraft:is_end"
   ],
   "values": [
-    "#forge:is_cold/overworld"
+    "#forge:is_cold/overworld",
+    {
+      "id": "biomesoplenty:crag",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:jade_cliffs",
+      "required": false
+    }
   ]
 }
