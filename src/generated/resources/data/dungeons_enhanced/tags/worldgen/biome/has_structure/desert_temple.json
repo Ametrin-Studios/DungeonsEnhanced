@@ -1,6 +1,6 @@
 {
   "remove": [
-    "#dungeons_enhanced:no_structures/overworld/surface"
+    "#dungeons_enhanced:no_structures/overworld/surface_extended"
   ],
   "values": [
     "#minecraft:has_structure/desert_pyramid"

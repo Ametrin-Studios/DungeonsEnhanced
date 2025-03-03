@@ -1,9 +1,16 @@
 {
   "remove": [
-    "#c:is_aquatic",
-    "#dungeons_enhanced:no_structures"
+    "#dungeons_enhanced:no_structures/overworld/surface"
   ],
   "values": [
-    "#c:is_cold/overworld"
+    "#c:is_cold/overworld",
+    {
+      "id": "biomesoplenty:crag",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:jade_cliffs",
+      "required": false
+    }
   ]
 }

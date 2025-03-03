@@ -1,8 +1,16 @@
 {
   "remove": [
-    "#dungeons_enhanced:no_structures/overworld/surface"
+    "#dungeons_enhanced:no_structures/overworld/surface_extended"
   ],
   "values": [
-    "#c:is_savanna"
+    "#c:is_savanna",
+    {
+      "id": "biomesoplenty:pasture",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:prairie",
+      "required": false
+    }
   ]
 }
