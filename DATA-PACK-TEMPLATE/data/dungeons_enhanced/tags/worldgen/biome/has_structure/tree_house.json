@@ -1,8 +1,8 @@
 {
-  "remove": [
-    "#dungeons_enhanced:no_structures/overworld/surface"
-  ],
   "values": [
-    "#c:is_jungle"
+
+  ],
+  "remove": [
+
   ]
 }

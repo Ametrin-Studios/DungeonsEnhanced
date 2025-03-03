@@ -1,10 +1,5 @@
 {
   "values": [
-    "#dungeons_enhanced:no_structures",
-    "#dungeons_enhanced:is_shore",
-    "#c:is_cave",
-    "#c:is_mountain/peak",
-    "#c:is_windswept",
-    "#c:is_aquatic"
+
   ]
 }
