@@ -20,10 +20,14 @@ public final class DungeonsEnhanced {
     public static final String MOD_ID = "dungeons_enhanced";
     public static final Logger LOGGER = LogManager.getLogger();
 
+    public DungeonsEnhanced() {
+        this(FMLJavaModLoadingContext.get());
+    }
+
     public DungeonsEnhanced(FMLJavaModLoadingContext context) {
         final var modBus = context.getModEventBus();
         final var forgeBus = MinecraftForge.EVENT_BUS;
-        Reflection.initialize(DEStructures.class, DEProcessors.class, DETemplatePools.class);
+        Reflection.initialize(DEStructures.class, DEProcessors.class, DETemplatePools.class, DEDynamicSpawners.class);
 
         modBus.addListener(DungeonsEnhanced::gatherData);
         modBus.addListener(DEJigsawTypes::register);
