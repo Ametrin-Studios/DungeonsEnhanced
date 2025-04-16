@@ -1,3 +1,6 @@
+## 6.1.2
+- various biome tag adjustments
+
 ## 6.1.1
 - fix missing pool in black citadel
 - fixed some biome tags

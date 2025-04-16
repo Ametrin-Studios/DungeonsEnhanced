@@ -51,6 +51,7 @@ public final class DETags {
         // Other
         TagKey<Biome> IS_SHORE = create("is_shore");
         TagKey<Biome> NO_STRUCTURES = create("no_structures");
+        TagKey<Biome> NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED = create("no_structures/overworld/surface_extended");
         TagKey<Biome> NO_STRUCTURES_OVERWORLD_SURFACE = create("no_structures/overworld/surface");
         TagKey<Biome> NO_STRUCTURES_OVERWORLD_UNDERGROUND = create("no_structures/overworld/underground");
         TagKey<Biome> NO_STRUCTURES_OVERWORLD_OCEAN_SURFACE = create("no_structures/overworld/ocean_surface");

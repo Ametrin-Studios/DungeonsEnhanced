@@ -22,10 +22,10 @@ make sure you are on the right page
 
 ## Biomes
 - locate the json file of the structure you want to modify in `data/dungeons_enhanced/tags/worldgen/biome/has_structure`
-- you can add or remove any biomes or biome-tags in `values`
-- if you want to remove a biome that is not explicitly in `values` add it to `remove`
+- you can add any biome or biome-tag in `values` to make the structure appear there
+- if you don't want the structure to appear there add the biome or biome-tag to `remove`
 ```json5
-// this will generate in all cold overworld biomes
+// this will add all cold overworld biomes
 // except aquatic biomes and ice spikes
 {
   "values": [
@@ -36,8 +36,9 @@ make sure you are on the right page
     "minecraft:ice_spikes"
   ]
 }
+// '#c:...' is only available in NeoForge
 ```
-- you can add biomes to `no_structures.json` to prevent all Dungeons Enhanced structures from generate in it.
+- you can add biomes to `no_structures.json` to prevent all Dungeons Enhanced structures from generating in them
 
 ## Loot Tables
 - there is no template right now
@@ -52,4 +53,4 @@ make sure you are on the right page
 ### What happened to the config?
 We are aware that the config was a convenient and easy way to customize how structures generate.
 Mojang and the modding community are pushing towards data packs because they represent a uniform way of modifications.
-Unfortunately the config caused too many problems (e.g. with Structurify) so we decided to fully replace it with data packs.
+Unfortunately your config-patch caused too many problems (e.g. with Structurify) so we decided to fully replace it with data packs.

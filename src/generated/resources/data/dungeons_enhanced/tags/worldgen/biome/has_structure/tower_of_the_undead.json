@@ -4,7 +4,10 @@
     "#c:is_jungle",
     "#c:is_badlands",
     "#c:is_mushroom",
-    "#dungeons_enhanced:no_structures/overworld/surface"
+    "#dungeons_enhanced:no_structures/overworld/surface_extended",
+    "biomesoplenty:lush_desert",
+    "biomesoplenty:bayou",
+    "biomesoplenty:redwood_forest"
   ],
   "values": [
     "#c:is_overworld"

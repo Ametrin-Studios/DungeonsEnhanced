@@ -1,11 +1,8 @@
 {
-  "remove": [
-    "#c:is_jungle",
-    "#c:is_badlands",
-    "#c:is_mushroom",
-    "#dungeons_enhanced:no_structures/overworld/surface"
-  ],
   "values": [
-    "#c:is_overworld"
+
+  ],
+  "remove": [
+
   ]
 }

@@ -1,8 +1,16 @@
 {
   "remove": [
-    "#dungeons_enhanced:no_structures/overworld/surface"
+    "#dungeons_enhanced:no_structures/overworld/surface_extended"
   ],
   "values": [
-    "#c:is_dark_forest"
+    "#c:is_dark_forest",
+    {
+      "id": "biomesoplenty:coniferous_forest",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:redwood_forest",
+      "required": false
+    }
   ]
 }

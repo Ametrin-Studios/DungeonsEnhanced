@@ -3,10 +3,33 @@
     "#dungeons_enhanced:no_structures",
     "#dungeons_enhanced:is_shore",
     "#c:is_cave",
-    "#c:is_mountain/peak",
     "#c:is_windswept",
     "#c:is_aquatic",
     "#c:is_nether",
-    "#c:is_end"
+    "#c:is_end",
+    {
+      "id": "biomesoplenty:wasteland",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:wasteland_steppe",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:volcano",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:ominous_woods",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:mystic_grove",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:dryland",
+      "required": false
+    }
   ]
 }

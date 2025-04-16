@@ -23,7 +23,8 @@ public final class DEBiomeTagsProvider extends BiomeTagsProvider {
         tag(DETags.Biomes.HAS_CASTLE)
                 .addTag(Tags.Biomes.IS_COLD_OVERWORLD)
                 .addTag(Tags.Biomes.IS_SNOWY)
-                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
+                .addOptional(BOPBiomes.MEDITERRANEAN_FOREST.location())
         ;
         tag(DETags.Biomes.HAS_DEEP_CRYPT)
                 .addTag(Tags.Biomes.IS_OVERWORLD)
@@ -31,17 +32,18 @@ public final class DEBiomeTagsProvider extends BiomeTagsProvider {
         ;
         tag(DETags.Biomes.HAS_DESERT_TEMPLE)
                 .addTag(BiomeTags.HAS_DESERT_PYRAMID)
-                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
         ;
         tag(DETags.Biomes.HAS_DESERT_TOMB)
                 .addTag(BiomeTags.HAS_DESERT_PYRAMID)
-                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
         ;
         tag(DETags.Biomes.HAS_DRUID_CIRCLE)
                 .add(Biomes.MEADOW)
                 .add(Biomes.CHERRY_GROVE)
                 .addTag(Tags.Biomes.IS_PLAINS)
-                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
+                .addOptional(BOPBiomes.HIGHLAND.location())
         ;
         tag(DETags.Biomes.HAS_DUNGEON_VARIANT)
                 .addTag(Tags.Biomes.IS_OVERWORLD)
@@ -61,37 +63,41 @@ public final class DEBiomeTagsProvider extends BiomeTagsProvider {
         ;
         tag(DETags.Biomes.HAS_HAY_STORAGE)
                 .addTag(Tags.Biomes.IS_SAVANNA)
-                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
+                .addOptional(BOPBiomes.PASTURE.location())
+                .addOptional(BOPBiomes.PRAIRIE.location())
         ;
         tag(DETags.Biomes.HAS_ICE_PIT)
                 .addTag(Tags.Biomes.IS_SNOWY)
-                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
         ;
         tag(DETags.Biomes.HAS_JUNGLE_MONUMENT)
                 .addTag(BiomeTags.HAS_JUNGLE_TEMPLE)
-                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
         ;
         tag(DETags.Biomes.HAS_LARGE_DUNGEON)
                 .addTag(Tags.Biomes.IS_PLAINS)
                 .addTag(Tags.Biomes.IS_FOREST)
                 .addTag(Tags.Biomes.IS_TAIGA)
-                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
         ;
         tag(DETags.Biomes.HAS_MINERS_HOUSE)
                 .addTag(Tags.Biomes.IS_BADLANDS)
-                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
         ;
         tag(DETags.Biomes.HAS_MONSTER_MAZE)
                 .addTag(Tags.Biomes.IS_DARK_FOREST)
-                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
+                .addOptional(BOPBiomes.CONIFEROUS_FOREST.location())
+                .addOptional(BOPBiomes.REDWOOD_FOREST.location())
         ;
         tag(DETags.Biomes.HAS_MUSHROOM_HOUSE)
                 .add(Biomes.MUSHROOM_FIELDS)
-                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
         ;
         tag(DETags.Biomes.HAS_PILLAGER_CAMP)
                 .addTag(BiomeTags.HAS_PILLAGER_OUTPOST)
-                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
         ;
         tag(DETags.Biomes.HAS_PIRATE_SHIP)
                 .addTag(Tags.Biomes.IS_OCEAN)
@@ -101,12 +107,12 @@ public final class DEBiomeTagsProvider extends BiomeTagsProvider {
                 .addTag(Tags.Biomes.IS_PLAINS)
                 .addTag(Tags.Biomes.IS_FOREST)
                 .addTag(Tags.Biomes.IS_TAIGA)
-                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
         ;
         tag(DETags.Biomes.HAS_STABLES)
                 .addTag(Tags.Biomes.IS_PLAINS)
                 .addTag(Tags.Biomes.IS_FOREST)
-                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
         ;
         tag(DETags.Biomes.HAS_SUNKEN_SHRINE)
                 .addTag(Tags.Biomes.IS_OCEAN)
@@ -114,11 +120,11 @@ public final class DEBiomeTagsProvider extends BiomeTagsProvider {
         ;
         tag(DETags.Biomes.HAS_TALL_WITCH_HUT)
                 .addTag(BiomeTags.HAS_SWAMP_HUT)
-                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
         ;
         tag(DETags.Biomes.HAS_TREE_HOUSE)
                 .addTag(Tags.Biomes.IS_JUNGLE)
-                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
         ;
         tag(DETags.Biomes.HAS_TOWER_OF_THE_UNDEAD)
                 .addTag(Tags.Biomes.IS_OVERWORLD)
@@ -126,16 +132,20 @@ public final class DEBiomeTagsProvider extends BiomeTagsProvider {
                 .remove(Tags.Biomes.IS_JUNGLE)
                 .remove(Tags.Biomes.IS_BADLANDS)
                 .remove(Tags.Biomes.IS_MUSHROOM)
-                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
+                .remove(BOPBiomes.LUSH_DESERT)
+                .remove(BOPBiomes.BAYOU)
+                .remove(BOPBiomes.REDWOOD_FOREST)
         ;
         tag(DETags.Biomes.HAS_WATCH_TOWER)
                 .addTag(Tags.Biomes.IS_COLD_OVERWORLD)
-                .remove(Tags.Biomes.IS_AQUATIC)
-                .remove(DETags.Biomes.NO_STRUCTURES)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+                .addOptional(BOPBiomes.CRAG.location())
+                .addOptional(BOPBiomes.JADE_CLIFFS.location())
         ;
         tag(DETags.Biomes.HAS_WITCH_TOWER)
                 .addTag(Tags.Biomes.IS_TAIGA)
-                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
         ;
 
         // Nether
@@ -151,15 +161,25 @@ public final class DEBiomeTagsProvider extends BiomeTagsProvider {
                 .addTag(Tags.Biomes.IS_BEACH)
         ;
 
+        tag(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
+                .addTag(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
+                .addTag(Tags.Biomes.IS_MOUNTAIN) //contains peaks and slopes
+        ;
+
         tag(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
                 .addTag(DETags.Biomes.NO_STRUCTURES)
                 .addTag(DETags.Biomes.IS_SHORE)
                 .addTag(Tags.Biomes.IS_CAVE)
-                .addTag(Tags.Biomes.IS_MOUNTAIN_PEAK)
                 .addTag(Tags.Biomes.IS_WINDSWEPT)
                 .addTag(Tags.Biomes.IS_AQUATIC)
                 .addTag(Tags.Biomes.IS_NETHER)
                 .addTag(Tags.Biomes.IS_END)
+                .addOptional(BOPBiomes.WASTELAND.location())
+                .addOptional(BOPBiomes.WASTELAND_STEPPE.location())
+                .addOptional(BOPBiomes.VOLCANO.location())
+                .addOptional(BOPBiomes.OMINOUS_WOODS.location())
+                .addOptional(BOPBiomes.MYSTIC_GROVE.location())
+                .addOptional(BOPBiomes.DRYLAND.location())
         ;
 
         tag(DETags.Biomes.NO_STRUCTURES_OVERWORLD_UNDERGROUND)
