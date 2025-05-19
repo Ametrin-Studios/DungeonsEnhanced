@@ -6,7 +6,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import org.jetbrains.annotations.ApiStatus;
 
-
+//  I don't want a dependency on bop...
 // TODO: Update regularly https://github.com/Glitchfiend/BiomesOPlenty/blob/1.20.1/common/src/main/java/biomesoplenty/api/biome/BOPBiomes.java
 
 @ApiStatus.Internal

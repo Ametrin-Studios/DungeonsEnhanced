@@ -1,6 +1,7 @@
 {
   "values": [
     "#dungeons_enhanced:no_structures/overworld/surface",
-    "#forge:is_mountain"
+    "#forge:is_mountain",
+    "#dungeons_enhanced:is_shore"
   ]
 }

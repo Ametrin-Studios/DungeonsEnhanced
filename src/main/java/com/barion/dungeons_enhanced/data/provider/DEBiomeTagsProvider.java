@@ -140,11 +140,7 @@ public final class DEBiomeTagsProvider extends BiomeTagsProvider {
         ;
         tag(DETags.Biomes.HAS_WATCH_TOWER)
                 .addTag(Tags.Biomes.IS_COLD_OVERWORLD)
-                .remove(DETags.Biomes.NO_STRUCTURES)
-                .remove(Tags.Biomes.IS_WATER)
-                .remove(Tags.Biomes.IS_CAVE)
-                .remove(BiomeTags.IS_NETHER)
-                .remove(BiomeTags.IS_END)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
                 .addOptional(BOPBiomes.CRAG.location())
                 .addOptional(BOPBiomes.JADE_CLIFFS.location())
         ;
@@ -169,11 +165,11 @@ public final class DEBiomeTagsProvider extends BiomeTagsProvider {
         tag(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
                 .addTag(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
                 .addTag(Tags.Biomes.IS_MOUNTAIN)
+                .addTag(DETags.Biomes.IS_SHORE)
         ;
 
         tag(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
                 .addTag(DETags.Biomes.NO_STRUCTURES)
-                .addTag(DETags.Biomes.IS_SHORE)
                 .addTag(Tags.Biomes.IS_CAVE)
                 .add(Biomes.WINDSWEPT_FOREST)
                 .add(Biomes.WINDSWEPT_HILLS)

@@ -1,4 +1,4 @@
-// 1.20.1	2025-03-03T19:57:22.5336351	Tags for minecraft:worldgen/biome mod id dungeons_enhanced
+// 1.20.1	2025-05-19T08:33:12.8901702	Tags for minecraft:worldgen/biome mod id dungeons_enhanced
 4f8c073dcc9728a04921acb5682023327d8517ff data/dungeons_enhanced/tags/worldgen/biome/has_structure/black_citadel.json
 0dd0473bae85d14dcf264743eaedc18f04d01d37 data/dungeons_enhanced/tags/worldgen/biome/has_structure/castle.json
 3ef7bf662bbaab7961bf6cb8fd8a82e3d687cb10 data/dungeons_enhanced/tags/worldgen/biome/has_structure/deep_crypt.json
@@ -24,13 +24,13 @@ f30c93dad5b336d846c5ee56efe4b69dd9c69b53 data/dungeons_enhanced/tags/worldgen/bi
 56eca7d5afc2e065b65f38d37aeb9fb13bff5bfc data/dungeons_enhanced/tags/worldgen/biome/has_structure/tall_witch_hut.json
 4a1f0aeef899473c0dd43de6c8a594dfed9d93f6 data/dungeons_enhanced/tags/worldgen/biome/has_structure/tower_of_the_undead.json
 4e3dfc1e445be1fb5ebe8e4e83102be650036420 data/dungeons_enhanced/tags/worldgen/biome/has_structure/tree_house.json
-0ca227a51932405d2b8ccafbee17d776abd9d1b3 data/dungeons_enhanced/tags/worldgen/biome/has_structure/watch_tower.json
+e407440815d7518ce48892573384b9aacce1e891 data/dungeons_enhanced/tags/worldgen/biome/has_structure/watch_tower.json
 8f87db6353813cd01aab0c212f8980b4b58514a7 data/dungeons_enhanced/tags/worldgen/biome/has_structure/witch_tower.json
 ed9044b703448090bf0d188dce47c4bcdaf54c16 data/dungeons_enhanced/tags/worldgen/biome/is_shore.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/dungeons_enhanced/tags/worldgen/biome/no_structures.json
 76c738aeec09613ef4dd41ba48f15f4fd532870d data/dungeons_enhanced/tags/worldgen/biome/no_structures/nether.json
 762c05ddeca4528373b274483663cf90cce64734 data/dungeons_enhanced/tags/worldgen/biome/no_structures/overworld/ocean_floor.json
 64bab9ed92dc7e904bf2ae404ed61c2675ac85ac data/dungeons_enhanced/tags/worldgen/biome/no_structures/overworld/ocean_surface.json
-8121087b155a5a05859e079b285f9ae44cd42917 data/dungeons_enhanced/tags/worldgen/biome/no_structures/overworld/surface.json
-54b03f6b571b6956a2af50c19a7f7bcdc1a6d4fd data/dungeons_enhanced/tags/worldgen/biome/no_structures/overworld/surface_extended.json
+8c0cdcd8f403a39a9298b319ca1b7b974e1cad5b data/dungeons_enhanced/tags/worldgen/biome/no_structures/overworld/surface.json
+14bc81e0f8e3d4f4aa88d034576bb8c5571bdd85 data/dungeons_enhanced/tags/worldgen/biome/no_structures/overworld/surface_extended.json
 762c05ddeca4528373b274483663cf90cce64734 data/dungeons_enhanced/tags/worldgen/biome/no_structures/overworld/underground.json

@@ -1,3 +1,7 @@
+## 5.4.1
+- compatibility with older forge versions
+- fixes & tweaks
+
 ## 5.4.0
 - special Dungeon Variant (#46)
 - disabled dimension checks (#47)

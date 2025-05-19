@@ -1,7 +1,6 @@
 {
   "values": [
     "#dungeons_enhanced:no_structures",
-    "#dungeons_enhanced:is_shore",
     "#forge:is_cave",
     "minecraft:windswept_forest",
     "minecraft:windswept_hills",

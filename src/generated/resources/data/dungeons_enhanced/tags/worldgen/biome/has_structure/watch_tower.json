@@ -1,10 +1,6 @@
 {
   "remove": [
-    "#dungeons_enhanced:no_structures",
-    "#forge:is_water",
-    "#forge:is_cave",
-    "#minecraft:is_nether",
-    "#minecraft:is_end"
+    "#dungeons_enhanced:no_structures/overworld/surface"
   ],
   "values": [
     "#forge:is_cold/overworld",
