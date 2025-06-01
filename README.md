@@ -20,5 +20,6 @@ huge shout out to:<br>
 [PExPE3](https://github.com/PExPE3)<br>
 [Rad233](https://github.com/Rad233)<br>
 [BardinTheDwarf](https://github.com/BardinTheDwarf)<br>
-[Zeno1999](https://github.com/Zano1999)<br>
+[Zano1999](https://github.com/Zano1999)<br>
+[Heimdallr-1](https://github.com/Heimdallr-1)<br>
 In case we forgot you just contact us! 
