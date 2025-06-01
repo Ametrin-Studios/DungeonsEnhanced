@@ -82,9 +82,6 @@ public final class DEStructures {
                 .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DECastle.Capability.INSTANCE, DETemplatePools.CASTLE, 1, ConstantHeight.ZERO).onSurface().build())
                         .terrainAdjustment(TerrainAdjustment.BEARD_BOX)
                         .biomes(DETags.Biomes.HAS_CASTLE)
-//                        ()-> FilterHolderSet.biomes()
-//                                .tags(true, Tags.Biomes.IS_COLD_OVERWORLD, Tags.Biomes.IS_SNOWY)
-//                                .tags(false, DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
                 .popStructure()
                 .build();
 
