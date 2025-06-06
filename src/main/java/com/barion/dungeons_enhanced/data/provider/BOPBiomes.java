@@ -9,7 +9,7 @@ import net.minecraft.world.level.biome.Biome;
 //  I don't want a dependency on bop...
 // TODO: Update regularly https://github.com/Glitchfiend/BiomesOPlenty/blob/1.21.4/common/src/main/java/biomesoplenty/api/biome/BOPBiomes.java
 
-public class BOPBiomes
+public final class BOPBiomes
 {
     public static final ResourceKey<Biome> ASPEN_GLADE = registerOverworld("aspen_glade");
     public static final ResourceKey<Biome> AURORAL_GARDEN = registerOverworld("auroral_garden");

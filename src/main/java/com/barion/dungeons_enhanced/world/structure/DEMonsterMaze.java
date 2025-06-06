@@ -29,6 +29,11 @@ public final class DEMonsterMaze {
             return DEJigsawTypes.MONSTER_MAZE.get();
         }
 
+//        @Override
+//        public boolean canPlace(Structure.GenerationContext generationContext, BlockPos placementPos, ExtendedJigsawStructure.PlaceContext placeContext) {
+//            return placementPos.getY() < 80;
+//        }
+
         @Override
         public IPieceFactory getPieceFactory() {
             return Piece::new;

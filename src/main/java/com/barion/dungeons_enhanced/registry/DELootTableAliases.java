@@ -45,6 +45,12 @@ public final class DELootTableAliases {
         event.register(locate("jungle_monument/treasure"), DELootTables.JungleMonument.TREASURE);
 
         event.register(locate("miners_house"), DELootTables.MINERS_HOUSE);
+
+        event.register(locate("monster_maze/brewery"), DELootTables.MonsterMaze.BREWERY);
+        event.register(locate("monster_maze/church"), DELootTables.MonsterMaze.CHURCH);
+        event.register(locate("monster_maze/prison"), DELootTables.MonsterMaze.PRISON);
+        event.register(locate("monster_maze/treasure"), DELootTables.MonsterMaze.TREASURE);
+
         event.register(locate("mushroom_house"), DELootTables.MUSHROOM_HOUSE);
 
         event.register(locate("pillager_camp/general"), DELootTables.PillagerCamp.GENERAL);

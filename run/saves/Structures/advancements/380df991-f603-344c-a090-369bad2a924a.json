@@ -295,6 +295,7 @@
   },
   "minecraft:adventure/kill_all_mobs": {
     "criteria": {
+      "minecraft:cave_spider": "2025-06-06 17:34:36 +0200",
       "minecraft:skeleton": "2024-03-19 12:20:43 +0100",
       "minecraft:stray": "2024-10-25 08:26:12 +0200",
       "minecraft:spider": "2024-03-19 12:11:25 +0100",
@@ -7062,6 +7063,18 @@
   "minecraft:recipes/redstone/copper_trapdoor": {
     "criteria": {
       "has_copper_ingot": "2025-01-27 16:56:26 +0100"
+    },
+    "done": true
+  },
+  "minecraft:recipes/tools/bundle": {
+    "criteria": {
+      "has_string": "2025-06-06 17:32:11 +0200"
+    },
+    "done": true
+  },
+  "minecraft:nether/brew_potion": {
+    "criteria": {
+      "potion": "2025-06-06 18:51:41 +0200"
     },
     "done": true
   },

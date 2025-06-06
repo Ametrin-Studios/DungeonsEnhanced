@@ -31,6 +31,15 @@ public interface DELootTables {
     }
 
     ResourceKey<LootTable> MINERS_HOUSE = chest("miners_house");
+
+    interface MonsterMaze {
+        ResourceKey<LootTable> BREWERY = chest("monster_maze/brewery");
+        ResourceKey<LootTable> CHURCH = chest("monster_maze/church");
+        ResourceKey<LootTable> TREASURE = chest("monster_maze/treasure");
+        ResourceKey<LootTable> PRISON = chest("monster_maze/prison");
+        ResourceKey<LootTable> EQUIPMENT_PRISON_ZOMBIE = create("equipment/monster_maze/prison_zombie");
+    }
+
     ResourceKey<LootTable> MUSHROOM_HOUSE = chest("mushroom_house");
 
     interface PillagerCamp {
@@ -55,6 +64,10 @@ public interface DELootTables {
     }
 
     private static ResourceKey<LootTable> chest(String key) {
-        return ResourceKey.create(Registries.LOOT_TABLE, DungeonsEnhanced.locate("chests/" + key));
+        return create("chests/" + key);
+    }
+
+    private static ResourceKey<LootTable> create(String key) {
+        return ResourceKey.create(Registries.LOOT_TABLE, DungeonsEnhanced.locate(key));
     }
 }

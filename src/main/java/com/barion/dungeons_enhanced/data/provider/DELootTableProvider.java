@@ -39,7 +39,9 @@ public final class DELootTableProvider extends LootTableProvider {
 
     public DELootTableProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, Set.of(), tables, registries);
-        tables = List.of(new SubProviderEntry(DEStructureLootTables::new, LootContextParamSets.CHEST));
+        tables = List.of(
+                new SubProviderEntry(DEStructureLootTables::new, LootContextParamSets.CHEST)
+        );
     }
 
     public static final class DEStructureLootTables implements LootTableSubProvider {
@@ -465,39 +467,6 @@ public final class DELootTableProvider extends LootTableProvider {
                                 .add(item(Items.MUSIC_DISC_WARD, 1, number(0, 1)))
                         ));
 
-                consumer.accept(location("monster_maze/prison"), LootTable.lootTable()
-                        .withPool(pool(number(10, 16))
-                                .add(item(Items.PAPER, 2, one()))
-                                .add(item(Items.CHAIN, 2, one()))
-                                .add(item(Items.ROTTEN_FLESH, 3, one()))
-                                .add(item(Items.POTATO, 2, one()))
-                                .add(item(Items.POISONOUS_POTATO, 2, one()))
-                                .add(item(Items.STRING, 2, one()))
-                                .add(item(Items.BONE, 3, one()))
-                                .add(item(Items.MAP, 1, one()))
-                                .add(item(Items.LEAD, 1, one()))
-                                .add(item(Items.MUSHROOM_STEW, 1, one()))
-                                .add(item(Items.CANDLE, 1, one()))
-                                .add(suspiciousStew(2, one()))
-                                .add(item(Items.BOWL, 2, one()))
-                                .add(potion(1, Potions.WEAKNESS, number(0, 1)))
-                                .add(potion(1, Potions.STRENGTH, number(0, 1))))
-                        .withPool(pool(number(0, 1))
-                                .add(enchantedItem(Items.STONE_PICKAXE, 4, number(5, 10), one(), _registries))
-                                .add(enchantedItem(Items.GOLDEN_PICKAXE, 3, number(4, 9), one(), _registries))
-                                .add(enchantedItem(Items.IRON_PICKAXE, 2, number(3, 8), one(), _registries))
-                                .add(enchantedItem(Items.DIAMOND_PICKAXE, 1, number(2, 7), one(), _registries)))
-                        .withPool(pool(number(0, 2))
-                                .add(potion(1, Potions.HEALING, number(0, 1)))
-                                .add(potion(1, Potions.INVISIBILITY, number(0, 1)))
-                                .add(potion(1, Potions.LEAPING, number(0, 1)))
-                                .add(potion(1, Potions.NIGHT_VISION, number(0, 1)))
-                                .add(potion(1, Potions.REGENERATION, number(0, 1)))
-                                .add(potion(1, Potions.SLOW_FALLING, number(0, 1)))
-                                .add(potion(1, Potions.STRENGTH, number(0, 1)))
-                                .add(potion(1, Potions.WATER_BREATHING, number(0, 1)))
-                                .add(potion(1, Potions.FIRE_RESISTANCE, number(0, 1)))));
-
                 consumer.accept(location("monster_maze/brewery"), LootTable.lootTable()
                         .withPool(pool(number(10, 15))
                                 .add(item(Items.REDSTONE, 2, one()))
@@ -543,6 +512,7 @@ public final class DELootTableProvider extends LootTableProvider {
                                 .add(potion(1, Potions.STRENGTH, number(0, 1)))
                                 .add(potion(1, Potions.WATER_BREATHING, number(0, 1)))
                                 .add(potion(1, Potions.FIRE_RESISTANCE, number(0, 1)))
+                                .add(potion(1, Potions.OOZING, number(0, 1)))
                         ));
             } // Monster Maze
             {

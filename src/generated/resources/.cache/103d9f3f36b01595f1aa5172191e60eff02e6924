@@ -1,4 +1,4 @@
-// 1.21.4	2025-03-03T20:38:56.805335	Registries
+// 1.21.4	2025-06-06T16:36:13.2799273	Registries
 dc8d76a2e8e326ec80abdb00b212eab88bfe1a4b data/dungeons_enhanced/worldgen/processor_list/air_to_cobweb.json
 84bd6d6e9a60e5070d1b78c2249f65c1791a3651 data/dungeons_enhanced/worldgen/processor_list/black_citadel/default.json
 02c75bcf1d5008f42f0c66cae152b41e2f0dff83 data/dungeons_enhanced/worldgen/structure/black_citadel.json
@@ -69,7 +69,7 @@ d4a62cb86d1f1dddee3726779ac3c823ee78f80d data/dungeons_enhanced/worldgen/templat
 7748f5ee0adf37ba2e2ef1168231923086534b4d data/dungeons_enhanced/worldgen/template_pool/deep_crypt/root.json
 92255059541a592aa7c1b7608352e9ddb3f10025 data/dungeons_enhanced/worldgen/template_pool/desert_tomb/cross.json
 97b85990ecf0deb50c1fcd0c06e774aac4369c62 data/dungeons_enhanced/worldgen/template_pool/desert_tomb/down.json
-a18397b7483b253cbb0c4a7e50b30bab569c54c6 data/dungeons_enhanced/worldgen/template_pool/desert_tomb/main.json
+3f085d83593f396901ebf79840d907db39d8ffd1 data/dungeons_enhanced/worldgen/template_pool/desert_tomb/main.json
 0cead8493c4f5462daeebcbeebd429759bbc7a90 data/dungeons_enhanced/worldgen/template_pool/desert_tomb/root.json
 1d2a57342b9eea57639790876eb191387e616b6a data/dungeons_enhanced/worldgen/template_pool/desert_tomb/trap.json
 48ac09a29b0cd0e24cc9f4d8f7cbf946d986cabe data/dungeons_enhanced/worldgen/template_pool/druid_circle/bottom_big.json

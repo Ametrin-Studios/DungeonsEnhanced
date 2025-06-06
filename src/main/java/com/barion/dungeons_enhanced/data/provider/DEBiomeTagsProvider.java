@@ -6,6 +6,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BiomeTagsProvider;
 import net.minecraft.tags.BiomeTags;
+import net.minecraft.tags.TagEntry;
 import net.minecraft.world.level.biome.Biomes;
 import net.neoforged.neoforge.common.Tags;
 
@@ -133,10 +134,12 @@ public final class DEBiomeTagsProvider extends BiomeTagsProvider {
                 .remove(Tags.Biomes.IS_BADLANDS)
                 .remove(Tags.Biomes.IS_MUSHROOM)
                 .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
-                .remove(BOPBiomes.LUSH_DESERT)
-                .remove(BOPBiomes.BAYOU)
-                .remove(BOPBiomes.REDWOOD_FOREST)
+                .getInternalBuilder()
+                .remove(TagEntry.optionalElement(BOPBiomes.LUSH_DESERT.location()))
+                .remove(TagEntry.optionalElement(BOPBiomes.BAYOU.location()))
+                .remove(TagEntry.optionalElement(BOPBiomes.REDWOOD_FOREST.location()))
         ;
+
         tag(DETags.Biomes.HAS_WATCH_TOWER)
                 .addTag(Tags.Biomes.IS_COLD_OVERWORLD)
                 .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
