@@ -221,17 +221,17 @@ public final class DEStructures {
 
         // TODO: update id (1.22)
         MONSTER_MAZE_DARK = StructureRegistrar.jigsawBuilder(locate(DEStructureIDs.MONSTER_MAZE_DARK))
-                .placement(()-> gridPlacement(32, 52).build(DEStructures.MONSTER_MAZE_DARK))
+                .placement(()-> gridPlacement(28, 62).build(DEStructures.MONSTER_MAZE_DARK))
                 .addPiece(()-> DEMonsterMaze.Piece::new)
-                .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DEMonsterMaze.Capability.INSTANCE, DETemplatePools.MONSTER_MAZE_DARK, 12, height(-26)).onSurface().build())
+                .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DEMonsterMaze.Capability.INSTANCE, DETemplatePools.MONSTER_MAZE_DARK, 11, height(-26)).onSurface().build())
                         .biomes(DETags.Biomes.HAS_MONSTER_MAZE_DARK)
                 .popStructure()
                 .build();
 
         MONSTER_MAZE_PALE = StructureRegistrar.jigsawBuilder(locate(DEStructureIDs.MONSTER_MAZE_PALE))
-                .placement(()-> gridPlacement(18, 52).build(DEStructures.MONSTER_MAZE_DARK))
+                .placement(()-> gridPlacement(18, 62).build(DEStructures.MONSTER_MAZE_DARK))
                 .addPiece(()-> DEMonsterMaze.Piece::new)
-                .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DEMonsterMaze.Capability.INSTANCE, DETemplatePools.MONSTER_MAZE_PALE, 12, height(-26)).onSurface().build())
+                .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DEMonsterMaze.Capability.INSTANCE, DETemplatePools.MONSTER_MAZE_PALE, 11, height(-26)).onSurface().build())
                         .biomes(DETags.Biomes.HAS_MONSTER_MAZE_PALE)
                 .popStructure()
                 .build();
