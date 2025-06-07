@@ -24,6 +24,7 @@ public final class DEStructureTagsProvider extends StructureTagsProvider {
     @Override @SuppressWarnings("null")
     protected void addTags(@NotNull HolderLookup.Provider provider) {
         allStructures(SGTags.StructureTags.LAKE_PROOF);
+        tag(DETags.Structures.MONSTER_MAZE).add(DEStructures.MONSTER_MAZE_DARK.getStructure().getKey(), DEStructures.MONSTER_MAZE_PALE.getStructure().getKey());
         tag(DETags.Structures.ON_CASTLE_EXPLORER_MAPS).add(DEStructures.CASTLE.getStructure().getKey());
         tag(DETags.Structures.ON_ELDER_EXPLORER_MAPS).add(DEStructures.ELDERS_TEMPLE.getStructure().getKey());
         tag(DETags.Structures.ON_DESERT_EXPLORER_MAPS).add(DEStructures.DESERT_TEMPLE.getStructure().getKey());
