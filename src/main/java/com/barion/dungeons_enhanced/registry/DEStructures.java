@@ -186,7 +186,7 @@ public final class DEStructures {
         MONSTER_MAZE = StructureRegistrar.jigsawBuilder(locate(DEStructureIDs.MONSTER_MAZE))
                 .placement(()-> gridPlacement(32, 52).build(DEStructures.MONSTER_MAZE))
                 .addPiece(()-> DEMonsterMaze.Piece::new)
-                .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DEMonsterMaze.Capability.INSTANCE, DETemplatePools.MONSTER_MAZE, 12, height(-17)).onSurface().build())
+                .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DEMonsterMaze.Capability.INSTANCE, DETemplatePools.MONSTER_MAZE, 12, height(-26)).onSurface().build())
                         .biomes(DETags.Biomes.HAS_MONSTER_MAZE)
                 .popStructure()
                 .build();

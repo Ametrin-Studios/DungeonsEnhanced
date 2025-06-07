@@ -9,7 +9,7 @@
   "size": 12,
   "spawn_overrides": {},
   "start_height": {
-    "absolute": -17
+    "absolute": -26
   },
   "start_pool": "dungeons_enhanced:monster_maze/root",
   "step": "surface_structures",

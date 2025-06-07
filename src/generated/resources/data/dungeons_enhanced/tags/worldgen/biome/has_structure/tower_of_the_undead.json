@@ -4,7 +4,19 @@
     "#minecraft:is_jungle",
     "#minecraft:is_badlands",
     "#forge:is_mushroom",
-    "#dungeons_enhanced:no_structures/overworld/surface_extended"
+    "#dungeons_enhanced:no_structures/overworld/surface_extended",
+    {
+      "id": "biomesoplenty:lush_desert",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:bayou",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:redwood_forest",
+      "required": false
+    }
   ],
   "values": [
     "#minecraft:is_overworld"
