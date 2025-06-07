@@ -56,7 +56,8 @@ public final class DEStructures {
     public static final StructureRegistrar<DEGroundStructure> JUNGLE_MONUMENT;
     public static final StructureRegistrar<ExtendedJigsawStructure> LARGE_DUNGEON;
     public static final StructureRegistrar<DEModularStructure> MINERS_HOUSE;
-    public static final StructureRegistrar<ExtendedJigsawStructure> MONSTER_MAZE;
+    public static final StructureRegistrar<ExtendedJigsawStructure> MONSTER_MAZE_DARK;
+    public static final StructureRegistrar<ExtendedJigsawStructure> MONSTER_MAZE_PALE;
     public static final StructureRegistrar<DEGroundStructure> MUSHROOM_HOUSE;
     public static final StructureRegistrar<ExtendedJigsawStructure> PILLAGER_CAMP;
     public static final StructureRegistrar<DEPirateShip> PIRATE_SHIP;
@@ -218,11 +219,20 @@ public final class DEStructures {
                 .placement(24, 0.8f).allowNearSpawn()
                 .build();
 
-        MONSTER_MAZE = StructureRegistrar.jigsawBuilder(locate(DEStructureIDs.MONSTER_MAZE))
-                .placement(()-> gridPlacement(32, 52).build(DEStructures.MONSTER_MAZE))
+        // TODO: update id (1.22)
+        MONSTER_MAZE_DARK = StructureRegistrar.jigsawBuilder(locate(DEStructureIDs.MONSTER_MAZE_DARK))
+                .placement(()-> gridPlacement(32, 52).build(DEStructures.MONSTER_MAZE_DARK))
                 .addPiece(()-> DEMonsterMaze.Piece::new)
-                .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DEMonsterMaze.Capability.INSTANCE, DETemplatePools.MONSTER_MAZE, 12, height(-17)).onSurface().build())
-                        .biomes(DETags.Biomes.HAS_MONSTER_MAZE)
+                .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DEMonsterMaze.Capability.INSTANCE, DETemplatePools.MONSTER_MAZE_DARK, 12, height(-26)).onSurface().build())
+                        .biomes(DETags.Biomes.HAS_MONSTER_MAZE_DARK)
+                .popStructure()
+                .build();
+
+        MONSTER_MAZE_PALE = StructureRegistrar.jigsawBuilder(locate(DEStructureIDs.MONSTER_MAZE_PALE))
+                .placement(()-> gridPlacement(18, 52).build(DEStructures.MONSTER_MAZE_DARK))
+                .addPiece(()-> DEMonsterMaze.Piece::new)
+                .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DEMonsterMaze.Capability.INSTANCE, DETemplatePools.MONSTER_MAZE_PALE, 12, height(-26)).onSurface().build())
+                        .biomes(DETags.Biomes.HAS_MONSTER_MAZE_PALE)
                 .popStructure()
                 .build();
 
@@ -382,7 +392,8 @@ public final class DEStructures {
             JUNGLE_MONUMENT,
             LARGE_DUNGEON,
             MINERS_HOUSE,
-            MONSTER_MAZE,
+            MONSTER_MAZE_DARK,
+            MONSTER_MAZE_PALE,
             MUSHROOM_HOUSE,
             PILLAGER_CAMP,
             PIRATE_SHIP,

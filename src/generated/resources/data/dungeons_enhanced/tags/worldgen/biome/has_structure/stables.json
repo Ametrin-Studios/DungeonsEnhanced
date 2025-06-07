@@ -1,5 +1,6 @@
 {
   "remove": [
+    "minecraft:pale_garden",
     "#dungeons_enhanced:no_structures/overworld/surface_extended"
   ],
   "values": [

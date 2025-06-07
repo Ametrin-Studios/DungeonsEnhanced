@@ -27,7 +27,7 @@ public final class DEStructureTagsProvider extends StructureTagsProvider {
         tag(DETags.Structures.ON_CASTLE_EXPLORER_MAPS).add(DEStructures.CASTLE.getStructure().getKey());
         tag(DETags.Structures.ON_ELDER_EXPLORER_MAPS).add(DEStructures.ELDERS_TEMPLE.getStructure().getKey());
         tag(DETags.Structures.ON_DESERT_EXPLORER_MAPS).add(DEStructures.DESERT_TEMPLE.getStructure().getKey());
-        tag(DETags.Structures.ON_MONSTER_MAZE_EXPLORER_MAPS).add(DEStructures.MONSTER_MAZE.getStructure().getKey());
+        tag(DETags.Structures.ON_MONSTER_MAZE_EXPLORER_MAPS).add(DEStructures.MONSTER_MAZE_DARK.getStructure().getKey()).add(DEStructures.MONSTER_MAZE_PALE.getStructure().getKey());
     }
 
     private void allStructures(TagKey<Structure> tagKey) {

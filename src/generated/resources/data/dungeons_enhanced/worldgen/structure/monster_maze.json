@@ -1,6 +1,6 @@
 {
   "type": "structure_gel:extended_jigsaw",
-  "biomes": "#dungeons_enhanced:has_structure/monster_maze",
+  "biomes": "#dungeons_enhanced:has_structure/monster_maze/dark",
   "capability": {
     "type": "dungeons_enhanced:monster_maze"
   },
@@ -9,9 +9,9 @@
   "size": 12,
   "spawn_overrides": {},
   "start_height": {
-    "absolute": -17
+    "absolute": -26
   },
-  "start_pool": "dungeons_enhanced:monster_maze/root",
+  "start_pool": "dungeons_enhanced:monster_maze/dark_root",
   "step": "surface_structures",
   "use_expansion_hack": false
 }

@@ -86,11 +86,16 @@ public final class DEBiomeTagsProvider extends BiomeTagsProvider {
                 .addTag(Tags.Biomes.IS_BADLANDS)
                 .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
         ;
-        tag(DETags.Biomes.HAS_MONSTER_MAZE)
+        tag(DETags.Biomes.HAS_MONSTER_MAZE_DARK)
                 .addTag(Tags.Biomes.IS_DARK_FOREST)
+                .remove(Biomes.PALE_GARDEN)
                 .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
                 .addOptional(BOPBiomes.CONIFEROUS_FOREST.location())
                 .addOptional(BOPBiomes.REDWOOD_FOREST.location())
+        ;
+        tag(DETags.Biomes.HAS_MONSTER_MAZE_PALE)
+                .add(Biomes.PALE_GARDEN)
+                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
         ;
         tag(DETags.Biomes.HAS_MUSHROOM_HOUSE)
                 .add(Biomes.MUSHROOM_FIELDS)
@@ -108,11 +113,13 @@ public final class DEBiomeTagsProvider extends BiomeTagsProvider {
                 .addTag(Tags.Biomes.IS_PLAINS)
                 .addTag(Tags.Biomes.IS_FOREST)
                 .addTag(Tags.Biomes.IS_TAIGA)
+                .remove(Biomes.PALE_GARDEN)
                 .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
         ;
         tag(DETags.Biomes.HAS_STABLES)
                 .addTag(Tags.Biomes.IS_PLAINS)
                 .addTag(Tags.Biomes.IS_FOREST)
+                .remove(Biomes.PALE_GARDEN)
                 .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
         ;
         tag(DETags.Biomes.HAS_SUNKEN_SHRINE)

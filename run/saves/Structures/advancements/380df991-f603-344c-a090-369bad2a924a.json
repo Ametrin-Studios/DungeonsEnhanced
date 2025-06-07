@@ -7078,5 +7078,23 @@
     },
     "done": true
   },
+  "minecraft:recipes/misc/bordure_indented_banner_pattern": {
+    "criteria": {
+      "has_vines": "2025-06-07 09:30:21 +0200"
+    },
+    "done": true
+  },
+  "minecraft:story/obtain_armor": {
+    "criteria": {
+      "iron_helmet": "2025-06-07 10:14:37 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/pale_oak_planks": {
+    "criteria": {
+      "has_log": "2025-06-07 12:39:55 +0200"
+    },
+    "done": true
+  },
   "DataVersion": 4189
 }

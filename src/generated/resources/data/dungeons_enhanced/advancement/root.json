@@ -256,6 +256,22 @@
       },
       "trigger": "minecraft:location"
     },
+    "entered_monster_maze_pale": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": "dungeons_enhanced:monster_maze_pale"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
     "entered_mushroom_house": {
       "conditions": {
         "player": [
@@ -465,6 +481,7 @@
       "entered_large_dungeon",
       "entered_miners_house",
       "entered_monster_maze",
+      "entered_monster_maze_pale",
       "entered_mushroom_house",
       "entered_pillager_camp",
       "entered_pirate_ship",

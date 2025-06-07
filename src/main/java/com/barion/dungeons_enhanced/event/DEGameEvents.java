@@ -18,6 +18,6 @@ public final class DEGameEvents {
         trades.get(2).add(DEVillagerTrades.ELDER_EXPLORER_MAP_TRADE);
         trades.get(3).add(DEVillagerTrades.CASTLE_EXPLORER_MAP_TRADE);
         trades.get(4).add(DEVillagerTrades.MONSTER_MAZE_EXPLORER_MAP_TRADE);
-//        trades.get(5).add(DEVillagerTrades.DESERT_EXPLORER_MAP_TRADE);
+        trades.get(5).add(DEVillagerTrades.DESERT_EXPLORER_MAP_TRADE);
     }
 }

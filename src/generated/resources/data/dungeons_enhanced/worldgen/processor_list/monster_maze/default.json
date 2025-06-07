@@ -1,0 +1,38 @@
+{
+  "processors": [
+    {
+      "chance": 0.3,
+      "change_to": {
+        "Name": "minecraft:mossy_stone_bricks"
+      },
+      "condition": "minecraft:stone_bricks",
+      "processor_type": "structure_gel:replace_block"
+    },
+    {
+      "chance": 0.3,
+      "change_to": "minecraft:mossy_stone_brick_stairs",
+      "condition": "minecraft:stone_brick_stairs",
+      "processor_type": "dungeons_enhanced:keep_state_random_block_swap"
+    },
+    {
+      "chance": 0.3,
+      "change_to": "minecraft:mossy_stone_brick_slab",
+      "condition": "minecraft:stone_brick_slab",
+      "processor_type": "dungeons_enhanced:keep_state_random_block_swap"
+    },
+    {
+      "chance": 0.3,
+      "change_to": "minecraft:mossy_stone_brick_wall",
+      "condition": "minecraft:stone_brick_wall",
+      "processor_type": "dungeons_enhanced:keep_state_random_block_swap"
+    },
+    {
+      "chance": 0.2,
+      "change_to": {
+        "Name": "minecraft:cracked_stone_bricks"
+      },
+      "condition": "minecraft:stone_bricks",
+      "processor_type": "structure_gel:replace_block"
+    }
+  ]
+}
