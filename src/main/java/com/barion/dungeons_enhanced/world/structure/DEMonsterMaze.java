@@ -4,6 +4,7 @@ import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.registry.DEJigsawTypes;
 import com.barion.dungeons_enhanced.registry.DEStructures;
 import com.barion.dungeons_enhanced.registry.DETemplatePools;
+import com.legacy.structure_gel.api.structure.ExtendedJigsawStructure;
 import com.legacy.structure_gel.api.structure.jigsaw.*;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
@@ -12,6 +13,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
@@ -27,6 +29,11 @@ public final class DEMonsterMaze {
         @Override
         public JigsawCapability.JigsawType<?> getType() {
             return DEJigsawTypes.MONSTER_MAZE;
+        }
+
+        @Override
+        public boolean canPlace(Structure.GenerationContext generationContext, BlockPos placementPos, ExtendedJigsawStructure.PlaceContext placeContext) {
+            return placementPos.getY() < 90;
         }
 
         @Override

@@ -149,24 +149,10 @@
         },
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": 1.0,
-              "function": "minecraft:set_count"
-            }
-          ],
           "name": "minecraft:gold_block"
         },
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": 1.0,
-              "function": "minecraft:set_count"
-            }
-          ],
           "name": "minecraft:pumpkin",
           "weight": 2
         },
@@ -175,17 +161,15 @@
           "functions": [
             {
               "add": false,
-              "count": 1.0,
-              "function": "minecraft:set_count"
-            },
-            {
-              "function": "minecraft:enchant_with_levels",
-              "levels": {
+              "count": {
                 "type": "minecraft:uniform",
                 "max": 14.0,
                 "min": 6.0
               },
-              "treasure": false
+              "function": "minecraft:set_count"
+            },
+            {
+              "function": "minecraft:enchant_randomly"
             }
           ],
           "name": "minecraft:book"

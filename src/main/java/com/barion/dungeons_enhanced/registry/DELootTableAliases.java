@@ -6,7 +6,7 @@ import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 
 import static com.barion.dungeons_enhanced.DungeonsEnhanced.locate;
 
-@SuppressWarnings({"unused", "removal"})
+@SuppressWarnings({"unused", "removal", "deprecation"})
 public final class DELootTableAliases {
 
     public static void register(final RegisterLootTableAliasEvent event) {
@@ -19,6 +19,17 @@ public final class DELootTableAliases {
         event.register(new ResourceLocation("village/house/taiga"), BuiltInLootTables.VILLAGE_TAIGA_HOUSE);
 
         // Overworld
+        event.register(DELootTables.Castle.ARMORY, DELootTables.Castle.ARMORY);
+        event.register(DELootTables.Castle.BEDROOM, DELootTables.Castle.BEDROOM);
+        event.register(DELootTables.Castle.CELLAR, DELootTables.Castle.CELLAR);
+        event.register(DELootTables.Castle.COFFIN, DELootTables.Castle.COFFIN);
+        event.register(DELootTables.Castle.KITCHEN, DELootTables.Castle.KITCHEN);
+        event.register(DELootTables.Castle.LIBRARY, DELootTables.Castle.LIBRARY);
+        event.register(DELootTables.Castle.PRISON, DELootTables.Castle.PRISON);
+        event.register(DELootTables.Castle.QUARTERS, DELootTables.Castle.QUARTERS);
+        event.register(DELootTables.Castle.SPRING, DELootTables.Castle.SPRING);
+        event.register(DELootTables.Castle.THRONE, DELootTables.Castle.THRONE);
+
         event.register(locate("desert_temple/coffin"), DELootTables.DesertTemple.COFFIN);
         event.register(locate("desert_temple/floor"), DELootTables.DesertTemple.FLOOR);
         event.register(locate("desert_temple/treasure"), DELootTables.DesertTemple.TREASURE);

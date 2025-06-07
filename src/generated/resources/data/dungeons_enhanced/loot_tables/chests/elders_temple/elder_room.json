@@ -131,6 +131,10 @@
         },
         {
           "type": "minecraft:item",
+          "name": "minecraft:tide_armor_trim_smithing_template"
+        },
+        {
+          "type": "minecraft:item",
           "functions": [
             {
               "add": false,

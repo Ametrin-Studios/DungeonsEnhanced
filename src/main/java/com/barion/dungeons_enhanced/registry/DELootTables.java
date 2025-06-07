@@ -5,6 +5,19 @@ import net.minecraft.resources.ResourceLocation;
 
 public interface DELootTables {
     // Overworld
+    interface Castle {
+        ResourceLocation ARMORY = chest("castle/armory");
+        ResourceLocation BEDROOM = chest("castle/bedroom");
+        ResourceLocation CELLAR = chest("castle/cellar");
+        ResourceLocation COFFIN = chest("castle/coffin");
+        ResourceLocation KITCHEN = chest("castle/kitchen");
+        ResourceLocation LIBRARY = chest("castle/library");
+        ResourceLocation PRISON = chest("castle/prison");
+        ResourceLocation QUARTERS = chest("castle/quarters");
+        ResourceLocation SPRING = chest("castle/spring");
+        ResourceLocation THRONE = chest("castle/throne");
+    }
+
     interface DesertTemple {
         ResourceLocation COFFIN = chest("desert_temple/coffin");
         ResourceLocation FLOOR = chest("desert_temple/floor");

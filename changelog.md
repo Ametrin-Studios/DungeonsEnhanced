@@ -1,3 +1,9 @@
+## 5.4.2
+- loot table updates
+  - Sunken Shrine
+  - Watch Tower
+- fixed dungeon variant loot tables
+
 ## 5.4.1
 - compatibility with older forge versions
 - fixes & tweaks
