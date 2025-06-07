@@ -1,4 +1,5 @@
 ## 5.4.2
+- tweaked monster maze generation (#56)
 - loot table updates
   - Sunken Shrine
   - Watch Tower
