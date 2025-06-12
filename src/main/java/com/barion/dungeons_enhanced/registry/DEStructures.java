@@ -53,7 +53,7 @@ public final class DEStructures {
     public static final StructureRegistrar<DEModularStructure> FLYING_DUTCHMAN;
     public static final StructureRegistrar<DEModularStructure> HAY_STORAGE;
     public static final StructureRegistrar<DEIcePit> ICE_PIT;
-    public static final StructureRegistrar<DEGroundStructure> JUNGLE_MONUMENT;
+    public static final StructureRegistrar<DEModularStructure> JUNGLE_MONUMENT;
     public static final StructureRegistrar<ExtendedJigsawStructure> LARGE_DUNGEON;
     public static final StructureRegistrar<DEModularStructure> MINERS_HOUSE;
     public static final StructureRegistrar<ExtendedJigsawStructure> MONSTER_MAZE_DARK;
@@ -192,12 +192,19 @@ public final class DEStructures {
                 .popStructure()
                 .build();
 
-        JUNGLE_MONUMENT = StructureRegistrar.builder(locate(DEStructureIDs.JUNGLE_MONUMENT), ()-> ()-> DEGroundStructure.CODEC_JUNGLE_MONUMENT)
-                .placement(()-> gridPlacement(46, 74).build(DEStructures.JUNGLE_MONUMENT))
-                .addPiece(()-> DEGroundStructure.Piece::new)
-                .pushStructure(DEGroundStructure::JungleMonument)
-                        .biomes(DETags.Biomes.HAS_JUNGLE_MONUMENT)
-                .popStructure()
+        JUNGLE_MONUMENT = DEModularRegistrarBuilder.create(() -> DEStructures.JUNGLE_MONUMENT, DEStructureIDs.JUNGLE_MONUMENT)
+                .addStructure(new DEStructureTemplate(locate("jungle_monument"), -9),
+                        settings -> settings
+                                .addProcessor(DEProcessors.MOSSY_COBBLESTONE_40)
+                                .addProcessor(DEProcessors.MOSSY_COBBLESTONE_STAIRS_40)
+                                .addProcessor(DEProcessors.MOSSY_COBBLESTONE_SLAB_40)
+                                .addProcessor(DEProcessors.MOSSY_COBBLESTONE_WALL_40),
+                        structure -> structure
+                                .placement(DEPlacement.WORLD_SURFACE_FLAT),
+                        config -> config
+                                .biomes(DETags.Biomes.HAS_JUNGLE_MONUMENT)
+                )
+                .placement(46, 0.74f)
                 .build();
 
         LARGE_DUNGEON = StructureRegistrar.jigsawBuilder(locate(DEStructureIDs.LARGE_DUNGEON))
