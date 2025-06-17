@@ -1,3 +1,6 @@
+## next
+- overhauled jungle monument
+
 ## 6.2.0
 - overhauled monster maze
   - dynamic spawners
