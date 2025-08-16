@@ -26,7 +26,20 @@ public final class DELootTableAliases {
         event.register(ResourceLocation.withDefaultNamespace("village/house/snowy"), BuiltInLootTables.VILLAGE_SNOWY_HOUSE);
         event.register(ResourceLocation.withDefaultNamespace("village/house/taiga"), BuiltInLootTables.VILLAGE_TAIGA_HOUSE);
 
+        // NOTE: might make sense to use the same name for the alias as the actual loot table
         // Overworld
+
+        event.register(DELootTables.Castle.ARMORY.location(), DELootTables.Castle.ARMORY);
+        event.register(DELootTables.Castle.BEDROOM.location(), DELootTables.Castle.BEDROOM);
+        event.register(DELootTables.Castle.CELLAR.location(), DELootTables.Castle.CELLAR);
+        event.register(DELootTables.Castle.COFFIN.location(), DELootTables.Castle.COFFIN);
+        event.register(DELootTables.Castle.KITCHEN.location(), DELootTables.Castle.KITCHEN);
+        event.register(DELootTables.Castle.LIBRARY.location(), DELootTables.Castle.LIBRARY);
+        event.register(DELootTables.Castle.PRISON.location(), DELootTables.Castle.PRISON);
+        event.register(DELootTables.Castle.QUARTERS.location(), DELootTables.Castle.QUARTERS);
+        event.register(DELootTables.Castle.SPRING.location(), DELootTables.Castle.SPRING);
+        event.register(DELootTables.Castle.THRONE.location(), DELootTables.Castle.THRONE);
+
         event.register(locate("desert_temple/coffin"), DELootTables.DesertTemple.COFFIN);
         event.register(locate("desert_temple/floor"), DELootTables.DesertTemple.FLOOR);
         event.register(locate("desert_temple/treasure"), DELootTables.DesertTemple.TREASURE);
@@ -45,6 +58,12 @@ public final class DELootTableAliases {
         event.register(locate("jungle_monument/treasure"), DELootTables.JungleMonument.TREASURE);
 
         event.register(locate("miners_house"), DELootTables.MINERS_HOUSE);
+
+        event.register(locate("monster_maze/brewery"), DELootTables.MonsterMaze.BREWERY);
+        event.register(locate("monster_maze/church"), DELootTables.MonsterMaze.CHURCH);
+        event.register(locate("monster_maze/prison"), DELootTables.MonsterMaze.PRISON);
+        event.register(locate("monster_maze/treasure"), DELootTables.MonsterMaze.TREASURE);
+
         event.register(locate("mushroom_house"), DELootTables.MUSHROOM_HOUSE);
 
         event.register(locate("pillager_camp/general"), DELootTables.PillagerCamp.GENERAL);

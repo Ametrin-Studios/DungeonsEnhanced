@@ -18,7 +18,7 @@ public final class DEJigsawTypes {
     public static final Registrar.Static<JigsawCapabilityType<DEDesertTomb.Capability>> DESERT_TOMB = HANDLER.createStatic(DEStructureIDs.DESERT_TOMB, () -> () -> DEDesertTomb.Capability.CODEC);
     public static final Registrar.Static<JigsawCapabilityType<DEDruidCircle.Capability>> DRUID_CIRCLE = HANDLER.createStatic(DEStructureIDs.DESERT_TEMPLE, () -> () -> DEDruidCircle.Capability.CODEC);
     public static final Registrar.Static<JigsawCapabilityType<DELargeDungeon.Capability>> LARGE_DUNGEON = HANDLER.createStatic(DEStructureIDs.LARGE_DUNGEON, () -> () -> DELargeDungeon.Capability.CODEC);
-    public static final Registrar.Static<JigsawCapabilityType<DEMonsterMaze.Capability>> MONSTER_MAZE = HANDLER.createStatic(DEStructureIDs.MONSTER_MAZE, () -> () -> DEMonsterMaze.Capability.CODEC);
+    public static final Registrar.Static<JigsawCapabilityType<DEMonsterMaze.Capability>> MONSTER_MAZE = HANDLER.createStatic(DEStructureIDs.MONSTER_MAZE_DARK, () -> () -> DEMonsterMaze.Capability.CODEC);
     public static final Registrar.Static<JigsawCapabilityType<DEPillagerCamp.Capability>> PILLAGER_CAMP = HANDLER.createStatic(DEStructureIDs.PILLAGER_CAMP, () -> () -> DEPillagerCamp.Capability.CODEC);
 
     // Nether

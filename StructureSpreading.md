@@ -3,7 +3,7 @@ measured with vanilla word gen
 
 | Structure           | average | max   | samples | version | Spawn |
 |---------------------|---------|-------|---------|---------|-------|
-| Castle              | 2623    | 6487  | 60      | 5.3     | No    |
+| Castle              | 2630    | 6821  | 120     | 6.2.0   | No    |
 | Deep Crypt          | 516     | 1462  | 60      | 5.3     | No    |
 | Desert Temple       | 5115    | 12868 | 60      | 5.3     | No    | 
 | Desert Tomb         | 3136    | 7528  | 30      | 5.3     | Yes   | 

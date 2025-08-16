@@ -1,4 +1,4 @@
-// 1.21.4	2025-03-03T20:38:56.8010161	Tags for minecraft:worldgen/biome mod id dungeons_enhanced
+// 1.21.4	2025-06-07T14:07:07.197412	Tags for minecraft:worldgen/biome mod id dungeons_enhanced
 457974746610c9f79d47580287aeeff6aaae6f87 data/dungeons_enhanced/tags/worldgen/biome/has_structure/black_citadel.json
 aa3ce2b503d1df7baa440d119c55ffe4abef4da9 data/dungeons_enhanced/tags/worldgen/biome/has_structure/castle.json
 7f6045d3df1d218049b1c229b8406e472b40b41c data/dungeons_enhanced/tags/worldgen/biome/has_structure/deep_crypt.json
@@ -14,15 +14,16 @@ ff824793e9f61b106d55f5f17a4a7b3005134d7a data/dungeons_enhanced/tags/worldgen/bi
 170ad87821bf807c07fbfa29b6554b204271b05d data/dungeons_enhanced/tags/worldgen/biome/has_structure/jungle_monument.json
 782188ce791a9ce95307be14294b9364e2ee605e data/dungeons_enhanced/tags/worldgen/biome/has_structure/large_dungeon.json
 c1321b835d0d6af8b2317dc56563eacfd47ec6d4 data/dungeons_enhanced/tags/worldgen/biome/has_structure/miners_house.json
-27182b05bba328c750370d4cf2fd74fa03f5c08a data/dungeons_enhanced/tags/worldgen/biome/has_structure/monster_maze.json
+312c9b7e97a52ef5b8791f57875b89b333bf933b data/dungeons_enhanced/tags/worldgen/biome/has_structure/monster_maze/dark.json
+9b053e51ad0e01063eec4b3301507cfd00c66edc data/dungeons_enhanced/tags/worldgen/biome/has_structure/monster_maze/pale.json
 ab966965f4c260eb80d7f966b277e828ab3ec6eb data/dungeons_enhanced/tags/worldgen/biome/has_structure/mushroom_house.json
 5e193c1c2ed7ca3d9b1ee87fa25a96a1fb2692a6 data/dungeons_enhanced/tags/worldgen/biome/has_structure/pillager_camp.json
 18301ebc8e5bf588c4c90ed8dd9c3e44e845cf74 data/dungeons_enhanced/tags/worldgen/biome/has_structure/pirate_ship.json
-782188ce791a9ce95307be14294b9364e2ee605e data/dungeons_enhanced/tags/worldgen/biome/has_structure/ruined_building.json
-8e96b1132347ac877f926fb92733bd4c2b01e28b data/dungeons_enhanced/tags/worldgen/biome/has_structure/stables.json
+a8070317b194927cf3b0eb3ec1c746798f3b8d9f data/dungeons_enhanced/tags/worldgen/biome/has_structure/ruined_building.json
+82731f472aed988782586212be19edf3084ad5e2 data/dungeons_enhanced/tags/worldgen/biome/has_structure/stables.json
 051349ba4129c0f548c4fe60e860e59e0b72e8c0 data/dungeons_enhanced/tags/worldgen/biome/has_structure/sunken_shrine.json
 56eca7d5afc2e065b65f38d37aeb9fb13bff5bfc data/dungeons_enhanced/tags/worldgen/biome/has_structure/tall_witch_hut.json
-f181f0daff801102b4b7883cc44dc7bed3808221 data/dungeons_enhanced/tags/worldgen/biome/has_structure/tower_of_the_undead.json
+de7d4b94fb475102dfd072d36119018ff223cf6b data/dungeons_enhanced/tags/worldgen/biome/has_structure/tower_of_the_undead.json
 3898307b2aee68bd9709295d67d9b43b04b64436 data/dungeons_enhanced/tags/worldgen/biome/has_structure/tree_house.json
 df094257930c2e1a585a2eded95ab4d0be0acf49 data/dungeons_enhanced/tags/worldgen/biome/has_structure/watch_tower.json
 e9b257b0b2ce336c099668ccfea294acad7c9169 data/dungeons_enhanced/tags/worldgen/biome/has_structure/witch_tower.json

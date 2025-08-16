@@ -2,6 +2,7 @@ package com.barion.dungeons_enhanced.data.provider;
 
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
 import com.barion.dungeons_enhanced.registry.DEStructures;
+import com.legacy.structure_gel.api.registry.registrar.Registrar;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.advancements.*;
@@ -55,7 +56,9 @@ public final class DEAdvancementProvider extends AdvancementProvider {
 
             new AdvancementBuilder("hidden_under_the_roots", Items.JACK_O_LANTERN)
                     .parent(root)
-                    .onEnterStructure(structureLookup, DEStructures.MONSTER_MAZE)
+                    .onEnterStructure(structureLookup, DEStructures.MONSTER_MAZE_DARK)
+                    .onEnterStructure(structureLookup, DEStructures.MONSTER_MAZE_PALE)
+                    .orCriterions()
                     .save(consumer);
 
             new AdvancementBuilder("thats_a_dungeon", Items.SKELETON_SKULL)
@@ -123,7 +126,7 @@ public final class DEAdvancementProvider extends AdvancementProvider {
                             DEStructures.DESERT_TEMPLE,
                             DEStructures.ICE_PIT,
                             DEStructures.JUNGLE_MONUMENT,
-                            DEStructures.MONSTER_MAZE,
+                            DEStructures.MONSTER_MAZE_DARK,
                             DEStructures.ELDERS_TEMPLE
                     )
                     .save(consumer);
@@ -216,21 +219,33 @@ public final class DEAdvancementProvider extends AdvancementProvider {
             return this;
         }
 
+        @SuppressWarnings("unchecked")
         public AdvancementBuilder onEnterStructures(HolderLookup.RegistryLookup<Structure> lookup, StructureRegistrar<?>... structureRegistrars) {
             for (StructureRegistrar<?> structure : structureRegistrars) {
-                onEnterStructure(lookup, structure);
+                for (Registrar.Pointer<?> pointer : structure.getStructures().values()) {
+                    onEnterStructure(lookup, (Registrar.Pointer<Structure>) pointer);
+                }
             }
             return this;
         }
 
         public AdvancementBuilder onEnterStructure(HolderLookup.RegistryLookup<Structure> lookup, @NotNull StructureRegistrar<?> structureRegistrar) {
-            return onEnterStructure(Objects.requireNonNull(structureRegistrar.getStructure()).getHolder(lookup).orElseThrow());
+            return onEnterStructure(lookup, Objects.requireNonNull(structureRegistrar.getStructure()));
+        }
+
+        public AdvancementBuilder onEnterStructure(HolderLookup.RegistryLookup<Structure> lookup, @NotNull Registrar.Pointer<Structure> structure) {
+            return onEnterStructure(structure.getHolder(lookup).orElseThrow());
         }
 
         public AdvancementBuilder onEnterStructure(@NotNull Holder<Structure> structureHolder) {
-            _criterions.add(new Pair<>(
+            return addCriterion(
                     "entered_" + Objects.requireNonNull(structureHolder.getKey()).location().getPath(),
-                    PlayerTrigger.TriggerInstance.located(LocationPredicate.Builder.inStructure(structureHolder))));
+                    PlayerTrigger.TriggerInstance.located(LocationPredicate.Builder.inStructure(structureHolder))
+            );
+        }
+
+        public AdvancementBuilder addCriterion(String name, Criterion<?> criterion) {
+            _criterions.add(Pair.of(name, criterion));
             return this;
         }
 

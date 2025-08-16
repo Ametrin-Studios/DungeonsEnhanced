@@ -1,7 +1,7 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
-    id 'net.neoforged.moddev' version '2.0.78'
+    id 'net.neoforged.moddev' version '2.0.107'
     id 'idea'
 }
 
@@ -86,13 +86,12 @@ dependencies {
     implementation "com.legacy:structure-gel:${minecraft_version}-${gel_version}"
 
     localRuntime "com.ametrinstudios:ametrin:${minecraft_version}-${ametrin_version}"
-    localRuntime "curse.maven:xaeros-world-map-317780:6212671"
+    implementation "curse.maven:xaeros-world-map-317780:6538377"
     localRuntime "curse.maven:chunky-485681:5876828"
 //    localRuntime "curse.maven:emi-580555:5793024"
-
-    localRuntime "curse.maven:biomes-o-plenty-220318:6083659"
-    localRuntime "curse.maven:terrablender-neoforge-940057:6055021"
-    localRuntime "curse.maven:glitchcore-955399:6054289"
+//    localRuntime "curse.maven:biomes-o-plenty-220318:6384687"
+//    localRuntime "curse.maven:terrablender-neoforge-940057:6055021"
+//    localRuntime "curse.maven:glitchcore-955399:6054289"
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {

@@ -1,0 +1,17 @@
+{
+  "placement": {
+    "type": "structure_gel:grid_placement",
+    "allowed_near_spawn": false,
+    "frequency": 0.62,
+    "offset": 14,
+    "salt": 2009066558,
+    "spacing": 18,
+    "structure": "dungeons_enhanced:monster_maze"
+  },
+  "structures": [
+    {
+      "structure": "dungeons_enhanced:monster_maze_pale",
+      "weight": 1
+    }
+  ]
+}

@@ -1,5 +1,19 @@
-## 6.1.2
+## next
+- overhauled jungle monument
+
+## 6.2.0
+- overhauled monster maze
+  - dynamic spawners
+  - generates deeper (#56)
+  - added pale variant
+- updated loot tables
+  - elders temple
+  - ruined building
+  - stables
+  - sunken shrine
+  - watch tower
 - various biome tag adjustments
+- fixed dungeon variant loot tables
 
 ## 6.1.1
 - fix missing pool in black citadel

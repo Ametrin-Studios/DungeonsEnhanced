@@ -16,7 +16,8 @@ public interface DEStructureIDs {
     String JUNGLE_MONUMENT = "jungle_monument";
     String LARGE_DUNGEON = "large_dungeon";
     String MINERS_HOUSE = "miners_house";
-    String MONSTER_MAZE = "monster_maze";
+    String MONSTER_MAZE_DARK = "monster_maze"; // TODO: update (1.22)
+    String MONSTER_MAZE_PALE = "monster_maze_pale";
     String MUSHROOM_HOUSE = "mushroom_house";
     String PILLAGER_CAMP = "pillager_camp";
     String PIRATE_SHIP = "pirate_ship";

@@ -1,6 +1,7 @@
-// 1.21.4	2025-01-27T19:09:29.0325514	Tags for minecraft:worldgen/structure mod id dungeons_enhanced
+// 1.21.4	2025-06-07T15:36:35.8952263	Tags for minecraft:worldgen/structure mod id dungeons_enhanced
+e01dddbd255ef1d41eca9e54ca5d9f8371e70093 data/dungeons_enhanced/tags/worldgen/structure/monster_maze.json
 b9b588b0a897bc8387b05eeab875a35eb0483c64 data/dungeons_enhanced/tags/worldgen/structure/on_castle_explorer_maps.json
 2c47925d98bedb51521fbafc26528b062e53906c data/dungeons_enhanced/tags/worldgen/structure/on_desert_explorer_maps.json
 464c3421ffc5a3f2fa03072d5f7b6fd4cb50cad4 data/dungeons_enhanced/tags/worldgen/structure/on_elder_explorer_maps.json
-32685f0bf0f1dd587e95ec5af6fa8da7f5406a88 data/dungeons_enhanced/tags/worldgen/structure/on_monster_maze_explorer_maps.json
-604c556e976eda52377b91eeda9edbd0c084a3f3 data/structure_gel/tags/worldgen/structure/lake_proof.json
+e01dddbd255ef1d41eca9e54ca5d9f8371e70093 data/dungeons_enhanced/tags/worldgen/structure/on_monster_maze_explorer_maps.json
+1bd3fa0b5375574494e5757df33b5c14c955163f data/structure_gel/tags/worldgen/structure/lake_proof.json

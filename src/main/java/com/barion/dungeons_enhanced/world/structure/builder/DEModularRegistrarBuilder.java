@@ -7,6 +7,7 @@ import com.legacy.structure_gel.api.structure.GridStructurePlacement;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.structure.Structure;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 
 import javax.annotation.Nullable;
 import java.util.function.Consumer;
@@ -79,7 +80,11 @@ public final class DEModularRegistrarBuilder {
     }
 
     public DEModularRegistrarBuilder addStructure(DEStructureTemplate template, Function<DEModularStructure.Builder, DEModularStructure.Builder> builderConsumer, Function<StructureRegistrar.StructureBuilder<DEModularStructure>, StructureRegistrar.StructureBuilder<DEModularStructure>> configuratorConsumer) {
-        var pieceFactory = new DESinglePieceFactory(template, () -> _registrar.get().getPieceType().get());
+        return addStructure(template, s -> s, builderConsumer, configuratorConsumer);
+    }
+
+    public DEModularRegistrarBuilder addStructure(DEStructureTemplate template, Function<StructurePlaceSettings, StructurePlaceSettings> processorSettings, Function<DEModularStructure.Builder, DEModularStructure.Builder> builderConsumer, Function<StructureRegistrar.StructureBuilder<DEModularStructure>, StructureRegistrar.StructureBuilder<DEModularStructure>> configuratorConsumer) {
+        var pieceFactory = new DESinglePieceFactory(template, () -> _registrar.get().getPieceType().get(), processorSettings);
 
         var structureBuilder = new DEModularStructure.Builder(pieceFactory, () -> _registrar.get().getType());
         structureBuilder = builderConsumer.apply(structureBuilder);

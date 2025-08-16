@@ -19,7 +19,8 @@ public final class DETemplatePools {
     public static final ResourceKey<StructureTemplatePool> DESERT_TOMB = HANDLER.key("desert_tomb/root");
     public static final ResourceKey<StructureTemplatePool> DRUID_CIRCLE = HANDLER.key("druid_circle/root");
     public static final ResourceKey<StructureTemplatePool> LARGE_DUNGEON = HANDLER.key("large_dungeon/root");
-    public static final ResourceKey<StructureTemplatePool> MONSTER_MAZE = HANDLER.key("monster_maze/root");
+    public static final ResourceKey<StructureTemplatePool> MONSTER_MAZE_DARK = HANDLER.key("monster_maze/dark_root");
+    public static final ResourceKey<StructureTemplatePool> MONSTER_MAZE_PALE = HANDLER.key("monster_maze/pale_root");
     public static final ResourceKey<StructureTemplatePool> PILLAGER_CAMP = HANDLER.key("pillager_camp/root");
 
     // Nether
