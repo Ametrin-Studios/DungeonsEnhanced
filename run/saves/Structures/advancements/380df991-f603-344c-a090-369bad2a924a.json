@@ -7096,5 +7096,11 @@
     },
     "done": true
   },
+  "minecraft:recipes/food/suspicious_stew_from_poppy": {
+    "criteria": {
+      "has_poppy": "2025-08-13 11:19:13 +0200"
+    },
+    "done": true
+  },
   "DataVersion": 4189
 }
