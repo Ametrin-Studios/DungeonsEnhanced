@@ -24,9 +24,5 @@
     "advancements.dungeons_enhanced.ambitious_explorer": "\u63a2\u9669\u70ed\u6795",
     "advancements.dungeons_enhanced.ambitious_explorer.desc": "\u627e\u5230\u6240\u6709\u5efa\u7b51",
     "advancements.dungeons_enhanced.sunken_deeps.desc": "\u627e\u5230\u5b88\u536b\u8005\u795e\u6bbf",
-    "advancements.dungeons_enhanced.sunken_deeps": "\u6ca1\u5165\u6df1\u6e0a",
-    "filled_map.dungeons_enhanced.castle": "Castle Explorer Map",
-    "filled_map.dungeons_enhanced.desert_temple": "Desert Explorer Map",
-    "filled_map.dungeons_enhanced.monster_maze": "Monster Explorer Map",
-    "filled_map.dungeons_enhanced.elders_temple": "Elder Explorer Map"
+    "advancements.dungeons_enhanced.sunken_deeps": "\u6ca1\u5165\u6df1\u6e0a"
 }
