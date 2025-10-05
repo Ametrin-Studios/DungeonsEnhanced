@@ -1,3 +1,6 @@
+## 5.4.3
+- updated translations
+
 ## 5.4.2
 - tweaked monster maze generation (#56)
 - loot table updates

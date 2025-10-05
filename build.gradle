@@ -79,11 +79,13 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     implementation fg.deobf("com.legacy:structure-gel:${minecraft_version}-${gel_version}")
-    runtimeOnly fg.deobf("curse.maven:xaeros-world-map-317780:6212636")
+    runtimeOnly fg.deobf("curse.maven:xaeros-world-map-317780:6778091")
     runtimeOnly fg.deobf("curse.maven:chunky-485681:5320028")
     runtimeOnly fg.deobf("curse.maven:glitchcore-955399:5787839")
-    runtimeOnly fg.deobf("curse.maven:terrablender-563928:5378180")
-    runtimeOnly fg.deobf("curse.maven:biomes-o-plenty-220318:6028852")
+    runtimeOnly fg.deobf("curse.maven:terrablender-563928:6290448")
+    runtimeOnly fg.deobf("curse.maven:biomes-o-plenty-220318:6364065")
+//    runtimeOnly fg.deobf("curse.maven:deeper-oceans-714177:6668834")
+//    runtimeOnly fg.deobf("curse.maven:lithostitched-936015:6742615")
 }
 
 tasks.named('processResources', ProcessResources).configure {
