@@ -12,7 +12,7 @@ Checkout [customizing.md](https://github.com/Ametrin-Studios/DungeonsEnhanced/bl
 
 ## Translating
 [![Crowdin](https://badges.crowdin.net/dungeons-enhanced/localized.svg)](https://crowdin.com/project/dungeons-enhanced)<br>
-We're looking for translators over at [Crowdin](https://crowdin.com/project/dungeons-enhanced/invite?h=310ec120baf49569c4bbdcb877ccdc2d2176683)<br>
+We're looking for translators over at [Crowdin](https://crowdin.com/project/dungeons-enhanced)<br>
 In case want to add more languages please open an issue or contact us on [discord](https://discord.com/invite/hwA9dd5bVh)
 
 ### Translators
