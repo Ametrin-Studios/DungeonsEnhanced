@@ -1,7 +1,7 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
-    id 'net.neoforged.moddev' version '2.0.107'
+    id 'net.neoforged.moddev' version '2.0.110'
     id 'idea'
 }
 
@@ -86,7 +86,7 @@ dependencies {
     implementation "com.legacy:structure-gel:${minecraft_version}-${gel_version}"
 
     localRuntime "com.ametrinstudios:ametrin:${minecraft_version}-${ametrin_version}"
-    implementation "curse.maven:xaeros-world-map-317780:6538377"
+    implementation "curse.maven:xaeros-world-map-317780:6778127"
     localRuntime "curse.maven:chunky-485681:5876828"
 //    localRuntime "curse.maven:emi-580555:5793024"
 //    localRuntime "curse.maven:biomes-o-plenty-220318:6384687"

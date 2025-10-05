@@ -1,5 +1,6 @@
-## next
-- overhauled jungle monument
+## 6.3.0
+- jungle monument tweaks
+- updated translations (Japanese and Russian)
 
 ## 6.2.0
 - overhauled monster maze

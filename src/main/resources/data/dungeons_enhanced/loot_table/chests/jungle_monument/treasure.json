@@ -35,7 +35,8 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:enchanted_golden_apple"
+          "name": "minecraft:enchanted_golden_apple",
+          "weight": 12
         },
         {
           "type": "minecraft:item",
@@ -48,11 +49,13 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:wild_armor_trim_smithing_template"
+          "name": "minecraft:wild_armor_trim_smithing_template",
+          "weight": 7
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:bordure_indented_banner_pattern"
+          "name": "minecraft:bordure_indented_banner_pattern",
+          "weight": 6
         }
       ]
     },
