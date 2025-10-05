@@ -8,7 +8,7 @@ assignees: BarionLP
 ---
 
 **Describe the bug**
-A clear and concise description of what the bug is and how to reproduce it.
+A clear and concise description of what the bug is and how to reproduce it. Including all related logs.
 
 **Version Info:**
  - Minecraft version: [e.g. 1.20.1]
@@ -20,4 +20,4 @@ A clear and concise description of what the bug is and how to reproduce it.
 If applicable, add screenshots to help explain your problem.
 
 **Additional context**
-Add any other context about the problem here e. g. in some the world seed and settings might help
+Add any other context about the problem here e. g. in some cases the world seed and settings might help
