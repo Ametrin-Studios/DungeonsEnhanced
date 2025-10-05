@@ -8,7 +8,7 @@ assignees: BarionLP
 ---
 
 **Describe the bug**
-A clear and concise description of what the bug is and how to reproduce it.
+A clear and concise description of what the bug is and how to reproduce it. Including all related logs.
 
 **Versions:**
  - Minecraft version: [e.g. 1.20.1]
@@ -18,6 +18,7 @@ A clear and concise description of what the bug is and how to reproduce it.
 
 **What mods do you play with?**
 List all mods that are related to this issue with their name and version.
+This can be a screenshot of you mods folder 
 
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
