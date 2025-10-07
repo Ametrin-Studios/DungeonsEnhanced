@@ -45,13 +45,13 @@ make sure you are on the right page
 - check out https://docs.neoforged.net/docs/resources/server/loottables/glm/ for a general guide
 
 ## Using the data pack
-- delete all .json files that you didn't change
+- delete all .json files you didn't change
 - when creating a world add the data pack
 - test the data pack and check the log for any errors
 - let us know what you changed so we can improve the default values
-- you may need to update your data pack with major updates, check [changelog](https://github.com/Ametrin-Studios/DungeonsEnhanced/blob/master/changelog.md) for any notes
+- you may need to update your data pack with major updates, check the [changelog](https://github.com/Ametrin-Studios/DungeonsEnhanced/blob/master/changelog.md) for notes
 
 ### What happened to the config?
 We are aware that the config was a convenient and easy way to customize how structures generate.
 Mojang and the modding community are pushing towards data packs because they represent a uniform way of modifications.
-Unfortunately your config-patch caused too many problems (e.g. with Structurify) so we decided to fully replace it with data packs.
+Unfortunately our config-patch caused too many problems (e.g. with Structurify) so we decided to fully replace it with data packs.
