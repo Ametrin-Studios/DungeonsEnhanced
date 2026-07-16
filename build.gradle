@@ -16,15 +16,10 @@ base {
     archivesName = "$mod_id-$minecraft_version"
 }
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+java.toolchain.languageVersion = JavaLanguageVersion.of(25)
 
 neoForge {
     version = project.neo_version
-
-    parchment {
-        mappingsVersion = project.parchment_mappings_version
-        minecraftVersion = project.parchment_minecraft_version
-    }
 
     runs {
         client {
@@ -92,9 +87,9 @@ repositories {
 dependencies {
     implementation "com.legacy:structure-gel:${minecraft_version}-${gel_version}"
 
-    localRuntime "com.ametrinstudios:ametrin:${minecraft_version}-${ametrin_version}"
-    localRuntime "curse.maven:xaeros-world-map-317780:8424496"
-    localRuntime "curse.maven:chunky-485681:5876828"
+    localRuntime "com.ametrinstudios:ametrin:26.1.1-${ametrin_version}"
+    localRuntime "curse.maven:xaeros-world-map-317780:8425775"
+    // localRuntime "curse.maven:chunky-485681:5876828"
 //    localRuntime "curse.maven:emi-580555:5793024"
 //    localRuntime "curse.maven:biomes-o-plenty-220318:6384687"
 //    localRuntime "curse.maven:terrablender-neoforge-940057:6055021"
@@ -107,7 +102,6 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
             minecraft_version_range : minecraft_version_range,
             neo_version             : neo_version,
             neo_version_range       : neo_version_range,
-            loader_version_range    : loader_version_range,
 
             gel_version             : gel_version,
             gel_version_range       : gel_version_range,

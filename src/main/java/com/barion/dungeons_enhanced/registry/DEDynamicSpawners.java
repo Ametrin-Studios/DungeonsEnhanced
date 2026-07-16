@@ -9,6 +9,7 @@ import com.legacy.structure_gel.api.registry.StructureGelRegistries;
 import com.legacy.structure_gel.api.registry.registrar.Registrar;
 import com.legacy.structure_gel.api.registry.registrar.RegistrarHandler;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtOps;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentTable;
@@ -20,13 +21,16 @@ import java.util.Optional;
 
 @RegistrarHolder
 public interface DEDynamicSpawners {
+
+
     RegistrarHandler<DynamicSpawnerType> HANDLER = RegistrarHandler.getOrCreate(StructureGelRegistries.Keys.DYNAMIC_SPAWNER_TYPE, DungeonsEnhanced.MOD_ID);
 
     Registrar.Static<DynamicSpawnerType> MONSTER_MAZE_DEFAULT = HANDLER.createStatic("monster_maze/default", () -> (builder, registry) ->
     {
+        var ops = registry.createSerializationContext(NbtOps.INSTANCE);
 //        builder.spawnData(createSpawnDataWithEquipment(EntityType.ZOMBIE, DELootTables.MonsterMaze.EQUIPMENT_ZOMBIE))
 //                .spawnData(createSpawnDataWithEquipment(EntityType.SKELETON, DELootTables.MonsterMaze.EQUIPMENT_SKELETON))
-                builder.spawnData(builder(EntityType.SPIDER).passenger(EntityType.SKELETON, Items.BOW, registry).build())
+                builder.spawnData(builder(EntityType.SPIDER).passenger(EntityType.SKELETON, Items.BOW, ops).build())
 //                .spawnData(EntityType.CAVE_SPIDER)
         ;
     });

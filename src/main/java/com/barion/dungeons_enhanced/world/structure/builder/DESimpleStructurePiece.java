@@ -4,7 +4,7 @@ import com.legacy.structure_gel.api.structure.GelTemplateStructurePiece;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Vec3i;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Rotation;
@@ -23,7 +23,7 @@ public final class DESimpleStructurePiece extends GelTemplateStructurePiece {
     private final Function<StructurePlaceSettings, StructurePlaceSettings> _settingsFunction;
     public final int yOffset; // only works during generation. does not get stored!!
 
-    public DESimpleStructurePiece(StructurePieceType structurePieceType, StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Function<StructurePlaceSettings, StructurePlaceSettings> settingsFunction, int yOffset, Rotation rotation) {
+    public DESimpleStructurePiece(StructurePieceType structurePieceType, StructureTemplateManager structureManager, Identifier templateName, BlockPos pos, Function<StructurePlaceSettings, StructurePlaceSettings> settingsFunction, int yOffset, Rotation rotation) {
         super(structurePieceType, 0, structureManager, templateName, pos.above(yOffset));
         _settingsFunction = settingsFunction;
         this.yOffset = yOffset;

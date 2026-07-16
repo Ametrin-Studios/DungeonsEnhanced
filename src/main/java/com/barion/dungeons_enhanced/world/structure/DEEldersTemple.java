@@ -11,7 +11,7 @@ import com.barion.dungeons_enhanced.world.structure.processor.DEUnderwaterProces
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
@@ -25,10 +25,10 @@ import static com.barion.dungeons_enhanced.DungeonsEnhanced.locate;
 
 public final class DEEldersTemple extends DEUnderwaterStructure {
     public static final MapCodec<DEEldersTemple> CODEC = simpleCodec(DEEldersTemple::new);
-    private static final ResourceLocation NE = locate("elders_temple/ne");
-    private static final ResourceLocation NW = locate("elders_temple/nw");
-    private static final ResourceLocation SE = locate("elders_temple/se");
-    private static final ResourceLocation SW = locate("elders_temple/sw");
+    private static final Identifier NE = locate("elders_temple/ne");
+    private static final Identifier NW = locate("elders_temple/nw");
+    private static final Identifier SE = locate("elders_temple/se");
+    private static final Identifier SW = locate("elders_temple/sw");
 
     public DEEldersTemple(StructureSettings settings) {
         super(settings, DEUtil.pieceBuilder().add("elders_temple/se").build(), DEStructures.ELDERS_TEMPLE::getType);
@@ -58,7 +58,7 @@ public final class DEEldersTemple extends DEUnderwaterStructure {
     }
 
     public static class Piece extends DEBaseStructure.Piece {
-        public Piece(StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation) {
+        public Piece(StructureTemplateManager structureManager, Identifier templateName, BlockPos pos, Rotation rotation) {
             super(DEStructures.ELDERS_TEMPLE.getPieceType(), structureManager, templateName, pos, rotation);
         }
 

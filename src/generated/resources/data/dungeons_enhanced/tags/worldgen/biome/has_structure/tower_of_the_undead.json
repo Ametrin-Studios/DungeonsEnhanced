@@ -5,18 +5,9 @@
     "#c:is_badlands",
     "#c:is_mushroom",
     "#dungeons_enhanced:no_structures/overworld/surface_extended",
-    {
-      "id": "biomesoplenty:lush_desert",
-      "required": false
-    },
-    {
-      "id": "biomesoplenty:bayou",
-      "required": false
-    },
-    {
-      "id": "biomesoplenty:redwood_forest",
-      "required": false
-    }
+    "biomesoplenty:lush_desert",
+    "biomesoplenty:bayou",
+    "biomesoplenty:redwood_forest"
   ],
   "values": [
     "#c:is_overworld"

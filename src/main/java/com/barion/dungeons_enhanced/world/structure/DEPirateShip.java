@@ -5,7 +5,7 @@ import com.barion.dungeons_enhanced.registry.DEStructures;
 import com.barion.dungeons_enhanced.world.structure.prefabs.DEBaseStructure;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.structure.Structure;
@@ -19,8 +19,8 @@ import static com.barion.dungeons_enhanced.DungeonsEnhanced.locate;
 
 public final class DEPirateShip extends Structure {
     public static final MapCodec<DEPirateShip> CODEC = simpleCodec(DEPirateShip::new);
-    private static final ResourceLocation FRONT = locate("pirate_ship/front");
-    private static final ResourceLocation BACK = locate("pirate_ship/back");
+    private static final Identifier FRONT = locate("pirate_ship/front");
+    private static final Identifier BACK = locate("pirate_ship/back");
 
     public DEPirateShip(StructureSettings settings) {
         super(settings);

@@ -1,10 +1,11 @@
 package com.barion.dungeons_enhanced.world;
 
 import com.legacy.structure_gel.api.block_entity.SpawnerAccessHelper;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.Tag;
+import net.minecraft.resources.RegistryOps;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -49,15 +50,15 @@ public final class SpawnDataBuilder {
         return this;
     }
 
-    public SpawnDataBuilder passenger(EntityType<?> passenger, Item handItem, HolderLookup.Provider registry) {
-        return passenger(passenger, handItem.getDefaultInstance(), registry);
+    public SpawnDataBuilder passenger(EntityType<?> passenger, Item handItem, RegistryOps<Tag> ops) {
+        return passenger(passenger, handItem.getDefaultInstance(), ops);
     }
 
-    public SpawnDataBuilder passenger(EntityType<?> passenger, ItemStack handItem, HolderLookup.Provider registry) {
+    public SpawnDataBuilder passenger(EntityType<?> passenger, ItemStack handItem, RegistryOps<Tag> ops) {
         this.passengerTag = new CompoundTag();
         passengerTag.putString("id", BuiltInRegistries.ENTITY_TYPE.getKey(passenger).toString());
         var handItems = new ListTag();
-        handItems.add(handItem.save(registry));
+        handItems.add(ItemStack.CODEC.encodeStart(ops, handItem).getOrThrow());
         handItems.add(new CompoundTag());
         passengerTag.put("HandItems", handItems);
         return this;

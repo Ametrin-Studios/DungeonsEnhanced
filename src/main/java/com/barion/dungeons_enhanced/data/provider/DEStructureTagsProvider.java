@@ -9,6 +9,7 @@ import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.StructureTagsProvider;
+import net.minecraft.data.tags.TagAppender;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.levelgen.structure.Structure;
@@ -21,7 +22,7 @@ public final class DEStructureTagsProvider extends StructureTagsProvider {
         super(output, lookup, DungeonsEnhanced.MOD_ID);
     }
 
-    @Override @SuppressWarnings("null")
+    @Override
     protected void addTags(@NotNull HolderLookup.Provider provider) {
         allStructures(SGTags.StructureTags.LAKE_PROOF);
         tag(DETags.Structures.MONSTER_MAZE).add(DEStructures.MONSTER_MAZE_DARK.getStructure().getKey(), DEStructures.MONSTER_MAZE_PALE.getStructure().getKey());
@@ -42,7 +43,7 @@ public final class DEStructureTagsProvider extends StructureTagsProvider {
         allStructures(tag(tagKey), registrar);
     }
     @SuppressWarnings({ "rawtypes", "unchecked" })
-    private void allStructures(TagAppender<Structure> appender, StructureRegistrar<?> registrar) {
+    private void allStructures(TagAppender<ResourceKey<Structure>, Structure> appender, StructureRegistrar<?> registrar) {
         registrar.getStructures().values().stream().map(Registrar.Pointer::getKey).forEach(key -> appender.add((ResourceKey) key));
     }
 }

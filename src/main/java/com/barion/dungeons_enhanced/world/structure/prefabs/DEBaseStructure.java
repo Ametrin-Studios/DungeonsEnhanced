@@ -7,7 +7,7 @@ import com.legacy.structure_gel.api.structure.GelTemplateStructurePiece;
 import com.legacy.structure_gel.api.structure.processor.RemoveGelStructureProcessor;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Rotation;
@@ -49,13 +49,13 @@ public abstract class DEBaseStructure extends Structure {
     }
 
     protected static void generatePieces(StructurePiecesBuilder piecesBuilder, BlockPos pos, DEStructureTemplates.Template template, Rotation rotation, GenerationContext context, DEPieceAssembler assembler) {
-        assembler.assemble(new DEPieceAssembler.Context(context.structureTemplateManager(), template.Resource, pos, rotation, piecesBuilder));
+        assembler.assemble(new DEPieceAssembler.Context(context.structureTemplateManager(), template.Resource(), pos, rotation, piecesBuilder));
     }
 
     public static class Piece extends GelTemplateStructurePiece {
         private Rotation _rotation;
 
-        public Piece(Registrar.Static<StructurePieceType> pieceType, StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation) {
+        public Piece(Registrar.Static<StructurePieceType> pieceType, StructureTemplateManager structureManager, Identifier templateName, BlockPos pos, Rotation rotation) {
             super(pieceType.get(), 0, structureManager, templateName, pos);
             this._rotation = rotation;
             setupPlaceSettings(structureManager);

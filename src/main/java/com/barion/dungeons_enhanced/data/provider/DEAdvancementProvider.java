@@ -6,22 +6,23 @@ import com.legacy.structure_gel.api.registry.registrar.Registrar;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.advancements.*;
-import net.minecraft.advancements.critereon.LocationPredicate;
-import net.minecraft.advancements.critereon.PlayerTrigger;
+import net.minecraft.advancements.criterion.LocationPredicate;
+import net.minecraft.advancements.criterion.PlayerTrigger;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.advancements.AdvancementProvider;
 import net.minecraft.data.advancements.AdvancementSubProvider;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.entity.BannerPattern;
@@ -141,9 +142,9 @@ public final class DEAdvancementProvider extends AdvancementProvider {
 
     private static class AdvancementBuilder {
         private final String _id;
-        private final ItemStack _displayItem;
+        private final ItemStackTemplate _displayItem;
         private AdvancementHolder _parent = null;
-        private ResourceLocation _background = null;
+        private Identifier _background = null;
         private AdvancementType _type = AdvancementType.TASK;
         private boolean _showToast = true;
         private boolean _announceToChat = true;
@@ -151,13 +152,13 @@ public final class DEAdvancementProvider extends AdvancementProvider {
         private AdvancementRequirements.Strategy _criterionStrategy = AdvancementRequirements.Strategy.AND;
         private final List<Pair<String, Criterion<?>>> _criterions = new ArrayList<>();
 
-        private AdvancementBuilder(String id, ItemStack displayItem) {
+        private AdvancementBuilder(String id, ItemStackTemplate displayItem) {
             _id = id;
             _displayItem = displayItem;
         }
 
         private AdvancementBuilder(String id, ItemLike displayItem) {
-            this(id, displayItem.asItem().getDefaultInstance());
+            this(id, new ItemStackTemplate(displayItem.asItem()));
         }
 
         private AdvancementBuilder parent(AdvancementHolder parent) {
@@ -166,10 +167,10 @@ public final class DEAdvancementProvider extends AdvancementProvider {
         }
 
         public AdvancementBuilder background(String background) {
-            return background(ResourceLocation.withDefaultNamespace(background));
+            return background(Identifier.withDefaultNamespace(background));
         }
 
-        public AdvancementBuilder background(ResourceLocation background) {
+        public AdvancementBuilder background(Identifier background) {
             _background = background;
             return this;
         }
@@ -239,7 +240,7 @@ public final class DEAdvancementProvider extends AdvancementProvider {
 
         public AdvancementBuilder onEnterStructure(@NotNull Holder<Structure> structureHolder) {
             return addCriterion(
-                    "entered_" + Objects.requireNonNull(structureHolder.getKey()).location().getPath(),
+                    "entered_" + Objects.requireNonNull(structureHolder.getKey()).identifier().getPath(),
                     PlayerTrigger.TriggerInstance.located(LocationPredicate.Builder.inStructure(structureHolder))
             );
         }
@@ -278,10 +279,8 @@ public final class DEAdvancementProvider extends AdvancementProvider {
             return this;
         }
 
-        public ItemStack build() {
-            var stack = new ItemStack(_bannerItem);
-            stack.set(DataComponents.BANNER_PATTERNS, _layers.build());
-            return stack;
+        public ItemStackTemplate build() {
+            return new ItemStackTemplate(_bannerItem, DataComponentPatch.builder().set(DataComponents.BANNER_PATTERNS, _layers.build()).build());
         }
     }
 }

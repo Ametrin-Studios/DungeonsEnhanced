@@ -7,7 +7,7 @@ import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEStructureTem
 import com.barion.dungeons_enhanced.world.structure.processor.DEUnderwaterProcessor;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.structure.StructureType;
@@ -30,7 +30,7 @@ public class DEUnderwaterStructure extends DEBaseStructure {
     @Nonnull
     public Optional<GenerationStub> findGenerationPoint(@Nonnull GenerationContext context) {
         final var piece = _templates.getRandom(context.random());
-        final var pos = DEUtil.chunkPosToBlockPosFromHeightMap(context.chunkPos(), context.chunkGenerator(), Heightmap.Types.OCEAN_FLOOR_WG, context.heightAccessor(), context.randomState()).above(piece.yOffset);
+        final var pos = DEUtil.chunkPosToBlockPosFromHeightMap(context.chunkPos(), context.chunkGenerator(), Heightmap.Types.OCEAN_FLOOR_WG, context.heightAccessor(), context.randomState()).above(piece.yOffset());
 
         if (!DETerrainAnalyzer.isUnderwater(pos, context.chunkGenerator(), 16, context.heightAccessor(), context.randomState())) {
             return Optional.empty();
@@ -44,7 +44,7 @@ public class DEUnderwaterStructure extends DEBaseStructure {
     }
 
     public static class Piece extends DEBaseStructure.Piece {
-        public Piece(StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation) {
+        public Piece(StructureTemplateManager structureManager, Identifier templateName, BlockPos pos, Rotation rotation) {
             super(SUNKEN_SHRINE.getPieceType(), structureManager, templateName, pos, rotation);
         }
 

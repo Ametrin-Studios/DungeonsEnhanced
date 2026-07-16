@@ -9,7 +9,7 @@ import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEPieceAssembl
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
@@ -21,7 +21,7 @@ import static com.barion.dungeons_enhanced.DungeonsEnhanced.locate;
 
 public final class DEDesertTemple extends DEGroundStructure {
     public static final MapCodec<DEDesertTemple> CODEC = simpleCodec(DEDesertTemple::new);
-    private static final ResourceLocation BOTTOM = locate("desert_temple/down");
+    private static final Identifier BOTTOM = locate("desert_temple/down");
 
     public DEDesertTemple(StructureSettings structureSettings) {
         super(structureSettings, DEUtil.pieceBuilder().yOffset(-6).add("desert_temple/main").build(), DEStructures.DESERT_TEMPLE::getType);
@@ -32,7 +32,7 @@ public final class DEDesertTemple extends DEGroundStructure {
     public Optional<GenerationStub> findGenerationPoint(@Nonnull GenerationContext context) {
         final var rawPos = getGenPos(context.chunkPos());
         final var piece = _templates.getRandom(context.random());
-        final var size = context.structureTemplateManager().getOrCreate(piece.Resource).getSize();
+        final var size = context.structureTemplateManager().getOrCreate(piece.Resource()).getSize();
 
         if (!DETerrainAnalyzer.areNearbyBiomesValid(context.biomeSource(), rawPos, context.chunkGenerator(), 20, context.validBiome(), context.randomState())) {
             return Optional.empty();
@@ -41,7 +41,7 @@ public final class DEDesertTemple extends DEGroundStructure {
         var result = DETerrainAnalyzer.isFlatEnough(rawPos, size, 1, 6, context.chunkGenerator(), context.heightAccessor(), context.randomState());
 //        if(!result.getSecond()) { return Optional.empty(); }
 
-        final var pos = rawPos.atY(Math.round(result.getFirst())).above(piece.yOffset);
+        final var pos = rawPos.atY(Math.round(result.getFirst())).above(piece.yOffset());
         return at(pos, (builder) -> generatePieces(builder, pos, piece, Rotation.NONE, context, DEDesertTemple::assembleTemple));
     }
 
@@ -54,7 +54,7 @@ public final class DEDesertTemple extends DEGroundStructure {
     }
 
     public static class Piece extends DEBaseStructure.Piece {
-        public Piece(StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation) {
+        public Piece(StructureTemplateManager structureManager, Identifier templateName, BlockPos pos, Rotation rotation) {
             super(DEStructures.DESERT_TEMPLE.getPieceType(), structureManager, templateName, pos, rotation);
         }
 

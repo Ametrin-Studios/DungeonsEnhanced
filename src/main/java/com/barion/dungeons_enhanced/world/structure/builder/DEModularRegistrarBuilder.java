@@ -5,7 +5,7 @@ import com.barion.dungeons_enhanced.world.structure.prefabs.DEModularStructure;
 import com.legacy.structure_gel.api.registry.registrar.StructureRegistrar;
 import com.legacy.structure_gel.api.structure.GridStructurePlacement;
 import com.mojang.serialization.MapCodec;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 
@@ -23,7 +23,7 @@ public final class DEModularRegistrarBuilder {
         return create(registrar, DungeonsEnhanced.locate(id), codec);
     }
 
-    public static DEModularRegistrarBuilder create(Supplier<StructureRegistrar<DEModularStructure>> registrar, ResourceLocation id, MapCodec<DEModularStructure> codec) {
+    public static DEModularRegistrarBuilder create(Supplier<StructureRegistrar<DEModularStructure>> registrar, Identifier id, MapCodec<DEModularStructure> codec) {
         return new DEModularRegistrarBuilder(registrar, id, codec);
     }
 
@@ -32,7 +32,7 @@ public final class DEModularRegistrarBuilder {
     private final GridStructurePlacement.Builder _placement = GridStructurePlacement.builder();
     private MapCodec<DEModularStructure> _codec;
 
-    public DEModularRegistrarBuilder(Supplier<StructureRegistrar<DEModularStructure>> registrar, ResourceLocation resourceLocation, @Nullable MapCodec<DEModularStructure> codec) {
+    public DEModularRegistrarBuilder(Supplier<StructureRegistrar<DEModularStructure>> registrar, Identifier resourceLocation, @Nullable MapCodec<DEModularStructure> codec) {
         _registrar = registrar;
         _codec = codec;
         _builder = StructureRegistrar.builder(resourceLocation, () -> () -> _codec);
@@ -75,7 +75,7 @@ public final class DEModularRegistrarBuilder {
         return addStructure(pieceFactory, structureBuilder, configuratorConsumer);
     }
 
-    public DEModularRegistrarBuilder addStructure(ResourceLocation template, Function<DEModularStructure.Builder, DEModularStructure.Builder> builderConsumer, Function<StructureRegistrar.StructureBuilder<DEModularStructure>, StructureRegistrar.StructureBuilder<DEModularStructure>> configuratorConsumer) {
+    public DEModularRegistrarBuilder addStructure(Identifier template, Function<DEModularStructure.Builder, DEModularStructure.Builder> builderConsumer, Function<StructureRegistrar.StructureBuilder<DEModularStructure>, StructureRegistrar.StructureBuilder<DEModularStructure>> configuratorConsumer) {
         return addStructure(new DEStructureTemplate(template, 0), builderConsumer, configuratorConsumer);
     }
 

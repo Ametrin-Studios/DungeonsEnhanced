@@ -456,7 +456,6 @@
       "translate": "advancements.dungeons_enhanced.root.desc"
     },
     "icon": {
-      "count": 1,
       "id": "minecraft:compass"
     },
     "show_toast": false,

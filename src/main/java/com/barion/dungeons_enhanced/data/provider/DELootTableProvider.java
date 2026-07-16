@@ -8,8 +8,8 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffects;
@@ -80,7 +80,7 @@ public final class DELootTableProvider extends LootTableProvider {
                                 .add(item(Items.ROTTEN_FLESH, 6))
                                 .add(item(Items.EXPERIENCE_BOTTLE, 3))
                                 .add(item(Items.IRON_INGOT, 3))
-                                .add(item(Items.CHAIN, 5))));
+                                .add(item(Items.IRON_CHAIN, 5))));
 
                 consumer.accept(DELootTables.Castle.BEDROOM, LootTable.lootTable()
                         .withPool(pool(number(8, 14))
@@ -126,7 +126,7 @@ public final class DELootTableProvider extends LootTableProvider {
                                 .add(item(Items.COBWEB, 2))
                                 .add(item(Items.SPIDER_EYE, 5))
                                 .add(item(Items.LEAD, 1))
-                                .add(item(Items.CHAIN, 6))
+                                .add(item(Items.IRON_CHAIN, 6))
                                 .add(item(Items.STRING, 7)))
                         .withPool(pool(number(1, 3))
                                 .add(item(Items.DIAMOND, 1))
@@ -187,7 +187,7 @@ public final class DELootTableProvider extends LootTableProvider {
 
                 consumer.accept(DELootTables.Castle.PRISON, LootTable.lootTable()
                         .withPool(pool(number(10, 16))
-                                .add(item(Items.CHAIN, 2))
+                                .add(item(Items.IRON_CHAIN, 2))
                                 .add(item(Items.PAPER, 2))
                                 .add(item(Items.ROTTEN_FLESH, 3))
                                 .add(item(Items.POISONOUS_POTATO, 2))
@@ -259,7 +259,7 @@ public final class DELootTableProvider extends LootTableProvider {
                                 .add(item(Items.WHITE_CANDLE, 2))
                                 .add(item(Items.ROTTEN_FLESH, 3, number(1, 3)))
                                 .add(item(Items.GLOW_BERRIES, 4, number(1, 3)))
-                                .add(item(Items.CHAIN, 5, number(1, 3)))
+                                .add(item(Items.IRON_CHAIN, 5, number(1, 3)))
                                 .add(item(Items.SKULL_BANNER_PATTERN, 1))
                                 .add(item(Items.EMERALD, 3, number(1, 4)))
                                 .add(item(Items.GOLD_INGOT, 4, number(1, 5)))
@@ -644,7 +644,7 @@ public final class DELootTableProvider extends LootTableProvider {
             {
                 consumer.accept(location("watch_tower"), LootTable.lootTable()
                         .withPool(pool(number(4, 10))
-                                .add(item(Items.CHAIN, 5, number(1, 3)))
+                                .add(item(Items.IRON_CHAIN, 5, number(1, 3)))
                                 .add(item(Items.IRON_NUGGET, 6, number(3, 5)))
                                 .add(item(Items.IRON_INGOT, 3, number(1, 2)))
                                 .add(item(Items.STICK, 8, number(2, 5)))
@@ -748,7 +748,7 @@ public final class DELootTableProvider extends LootTableProvider {
         }
 
         private static LootPoolEntryContainer.Builder<?> suspiciousStew(int weight) {
-            return LootItem.lootTableItem(Items.SUSPICIOUS_STEW).setWeight(weight).apply(SetStewEffectFunction.stewEffect().withEffect(MobEffects.NIGHT_VISION, number(7, 10)).withEffect(MobEffects.JUMP, number(7, 10)).withEffect(MobEffects.WEAKNESS, number(6, 8)).withEffect(MobEffects.BLINDNESS, number(5, 7)).withEffect(MobEffects.POISON, number(10, 20)).withEffect(MobEffects.SATURATION, number(7, 10)));
+            return LootItem.lootTableItem(Items.SUSPICIOUS_STEW).setWeight(weight).apply(SetStewEffectFunction.stewEffect().withEffect(MobEffects.NIGHT_VISION, number(7, 10)).withEffect(MobEffects.JUMP_BOOST, number(7, 10)).withEffect(MobEffects.WEAKNESS, number(6, 8)).withEffect(MobEffects.BLINDNESS, number(5, 7)).withEffect(MobEffects.POISON, number(10, 20)).withEffect(MobEffects.SATURATION, number(7, 10)));
         }
 
         private static LootPoolEntryContainer.Builder<?> potion(int weight, Holder<Potion> potion, NumberProvider amount) {
@@ -781,7 +781,7 @@ public final class DELootTableProvider extends LootTableProvider {
 
         @Deprecated(forRemoval = true)
         private static ResourceKey<LootTable> location(String name) {
-            return ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(DungeonsEnhanced.MOD_ID, "chests/" + name));
+            return ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath(DungeonsEnhanced.MOD_ID, "chests/" + name));
         }
     }
 

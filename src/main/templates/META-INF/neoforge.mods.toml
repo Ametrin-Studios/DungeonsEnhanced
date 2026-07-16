@@ -1,5 +1,3 @@
-modLoader="javafml" #mandatory
-loaderVersion="${loader_version_range}" #mandatory
 license="${mod_license}"
 issueTrackerURL="https://github.com/Ametrin-Studios/DungeonsEnhanced/issues"
 

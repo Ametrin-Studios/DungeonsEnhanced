@@ -23,7 +23,6 @@
       "translate": "advancements.dungeons_enhanced.traps_and_curses.desc"
     },
     "icon": {
-      "count": 1,
       "id": "minecraft:tnt"
     },
     "title": {

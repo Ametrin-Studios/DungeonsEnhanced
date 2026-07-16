@@ -11,7 +11,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtAccounter;
 import net.minecraft.nbt.NbtIo;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.packs.PackLocationInfo;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.repository.PackSource;
@@ -59,30 +59,30 @@ public final class StructureNbtUpdater implements DataProvider {
         }
     }
 
-    private void process(ResourceLocation loc, Resource resource, CachedOutput cache) throws IOException {
+    private void process(Identifier identifier, Resource resource, CachedOutput cache) throws IOException {
         var inputNBT = NbtIo.readCompressed(resource.open(), NbtAccounter.unlimitedHeap());
         var converted = updateNBT(inputNBT);
         if (!converted.equals(inputNBT)) {
-            LOGGER.info("Found outdated NBT file: {}", loc);
+            LOGGER.info("Found outdated NBT file: {}", identifier);
             var fixerClass = DataFixers.getDataFixer().getClass();
             if (!fixerClass.equals(DataFixerUpper.class)) {
                 throw new RuntimeException("Structures are not up to date, but unknown data fixer is in use: " + fixerClass.getName());
             }
-            writeNBTTo(loc, converted, cache);
+            writeNBTTo(identifier, converted, cache);
         }
     }
 
-    private void writeNBTTo(ResourceLocation loc, CompoundTag data, CachedOutput cache) throws IOException {
+    private void writeNBTTo(Identifier identifier, CompoundTag data, CachedOutput cache) throws IOException {
         var bytearrayoutputstream = new ByteArrayOutputStream();
         NbtIo.writeCompressed(data, bytearrayoutputstream);
         var bytes = bytearrayoutputstream.toByteArray();
-        var outputPath = output.getOutputFolder().resolve("data/" + loc.getNamespace() + "/" + loc.getPath());
+        var outputPath = output.getOutputFolder().resolve("data/" + identifier.getNamespace() + "/" + identifier.getPath());
         cache.writeIfNeeded(outputPath, bytes, Hashing.sha1().hashBytes(bytes));
     }
 
     private static CompoundTag updateNBT(CompoundTag nbt) {
         final var updatedNBT = DataFixTypes.STRUCTURE.updateToCurrentVersion(
-                DataFixers.getDataFixer(), nbt, nbt.getInt("DataVersion")
+                DataFixers.getDataFixer(), nbt, nbt.getInt("DataVersion").orElseThrow()
         );
         var template = new StructureTemplate();
         template.load(BuiltInRegistries.BLOCK, updatedNBT);

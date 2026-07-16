@@ -9,7 +9,7 @@ import com.barion.dungeons_enhanced.world.structure.prefabs.utils.DEStructureTem
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.structure.StructureType;
@@ -62,16 +62,16 @@ public class DEGroundStructure extends DEBaseStructure {
     @Nonnull
     public Optional<GenerationStub> findGenerationPoint(@Nonnull GenerationContext context) {
         final var piece = _templates.getRandom(context.random());
-        final var rawPos = getGenPos(context.chunkPos()).above(piece.yOffset);
+        final var rawPos = getGenPos(context.chunkPos()).above(piece.yOffset());
         final var rotation = Rotation.getRandom(context.random());
 
-        final var size = context.structureTemplateManager().getOrCreate(piece.Resource).getSize(rotation);
+        final var size = context.structureTemplateManager().getOrCreate(piece.Resource()).getSize(rotation);
 
         final var result = DETerrainAnalyzer.isFlatEnough(rawPos, size, 1, 4, context.chunkGenerator(), context.heightAccessor(), context.randomState());
         if (!result.getSecond()) {
             return Optional.empty();
         }
-        final var pos = rawPos.atY(Math.round(result.getFirst())).above(piece.yOffset);
+        final var pos = rawPos.atY(Math.round(result.getFirst())).above(piece.yOffset());
         if (DEPlacementFilter.NO_WATER.cannotGenerate(pos, context)) {
             return Optional.empty();
         }
@@ -84,7 +84,7 @@ public class DEGroundStructure extends DEBaseStructure {
     }
 
     public static class Piece extends DEBaseStructure.Piece {
-        public Piece(StructureTemplateManager structureManager, ResourceLocation templateName, BlockPos pos, Rotation rotation) {
+        public Piece(StructureTemplateManager structureManager, Identifier templateName, BlockPos pos, Rotation rotation) {
             super(DEStructures.RUINED_BUILDING.getPieceType(), structureManager, templateName, pos, rotation);
         }
 

@@ -19,6 +19,7 @@ import com.legacy.structure_gel.api.structure.processor.RemoveGelStructureProces
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.util.random.Weighted;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.MobSpawnSettings;
@@ -35,7 +36,6 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.LiquidSetting
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Supplier;
 
 import static com.barion.dungeons_enhanced.DungeonsEnhanced.locate;
 
@@ -147,7 +147,7 @@ public final class DEStructures {
                 .pushStructure(DEEldersTemple::new)
                         .biomes(DETags.Biomes.HAS_ELDERS_TEMPLE)
                         .noSpawns(StructureSpawnOverride.BoundingBoxType.STRUCTURE, MobCategory.UNDERGROUND_WATER_CREATURE, MobCategory.AXOLOTLS, MobCategory.WATER_AMBIENT, MobCategory.WATER_CREATURE)
-                        .spawns(MobCategory.MONSTER, StructureSpawnOverride.BoundingBoxType.STRUCTURE, spawns(spawn(EntityType.GUARDIAN, 1,2,4)))
+                        .spawns(MobCategory.MONSTER, StructureSpawnOverride.BoundingBoxType.STRUCTURE, ()-> spawns(spawn(EntityType.GUARDIAN, 1,2,4)))
                 .popStructure()
                 .build();
 
@@ -257,7 +257,7 @@ public final class DEStructures {
                 .addPiece(()-> DEPillagerCamp.Piece::new)
                 .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DEPillagerCamp.Capability.INSTANCE, DETemplatePools.PILLAGER_CAMP, 4, ConstantHeight.ZERO).onSurface().build())
                         .biomes(DETags.Biomes.HAS_PILLAGER_CAMP)
-                        .spawns(MobCategory.MONSTER, StructureSpawnOverride.BoundingBoxType.STRUCTURE, spawns(spawn(EntityType.PILLAGER, 4, 2, 3), spawn(EntityType.VINDICATOR, 2, 1, 2)))
+                        .spawns(MobCategory.MONSTER, StructureSpawnOverride.BoundingBoxType.STRUCTURE, ()-> spawns(spawn(EntityType.PILLAGER, 4, 2, 3), spawn(EntityType.VINDICATOR, 2, 1, 2)))
                         .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
                 .popStructure()
                 .build();
@@ -267,7 +267,7 @@ public final class DEStructures {
                 .addPiece(()-> DEGroundStructure.Piece::new)
                 .pushStructure(DEPirateShip::new)
                         .biomes(DETags.Biomes.HAS_PIRATE_SHIP)
-                        .spawns(MobCategory.MONSTER, StructureSpawnOverride.BoundingBoxType.STRUCTURE, spawns(spawn(EntityType.PILLAGER, 4, 3, 4), spawn(EntityType.VINDICATOR, 3, 1, 2)))
+                        .spawns(MobCategory.MONSTER, StructureSpawnOverride.BoundingBoxType.STRUCTURE, ()-> spawns(spawn(EntityType.PILLAGER, 4, 3, 4), spawn(EntityType.VINDICATOR, 3, 1, 2)))
                         .noSpawns(StructureSpawnOverride.BoundingBoxType.STRUCTURE, MobCategory.UNDERGROUND_WATER_CREATURE, MobCategory.AXOLOTLS, MobCategory.WATER_AMBIENT, MobCategory.WATER_CREATURE)
                 .popStructure()
                 .build();
@@ -377,7 +377,7 @@ public final class DEStructures {
                 .addPiece(()-> DEBlackCitadel.Piece::new)
                 .pushStructure((context, settings) -> extendedJigsawStructure(context, settings, DEBlackCitadel.Capability.INSTANCE, DETemplatePools.BLACK_CITADEL, 6, height(28)).maxDistanceFromCenter(116).build())
                         .biomes(DETags.Biomes.HAS_BLACK_CITADEL)
-                        .spawns(MobCategory.MONSTER, StructureSpawnOverride.BoundingBoxType.PIECE, spawns(spawn(EntityType.WITHER_SKELETON, 4, 2, 5), spawn(EntityType.SKELETON, 1, 1, 3)))
+                        .spawns(MobCategory.MONSTER, StructureSpawnOverride.BoundingBoxType.PIECE, ()-> spawns(spawn(EntityType.WITHER_SKELETON, 4, 2, 5), spawn(EntityType.SKELETON, 1, 1, 3)))
                         .generationStep(GenerationStep.Decoration.UNDERGROUND_STRUCTURES) //needs to generate after the basalt
                         .terrainAdjustment(TerrainAdjustment.BEARD_BOX)
                 .popStructure()
@@ -420,12 +420,13 @@ public final class DEStructures {
         return ConstantHeight.of(new VerticalAnchor.Absolute(y));
     }
 
-    private static Supplier<List<MobSpawnSettings.SpawnerData>> spawns(MobSpawnSettings.SpawnerData... spawns) {
-        return () -> Arrays.stream(spawns).toList();
+    @SafeVarargs
+    private static List<Weighted<MobSpawnSettings.SpawnerData>> spawns(Weighted<MobSpawnSettings.SpawnerData>... spawns) {
+        return Arrays.stream(spawns).toList();
     }
 
-    private static MobSpawnSettings.SpawnerData spawn(EntityType<?> entity, int weight, int min, int max) {
-        return new MobSpawnSettings.SpawnerData(entity, weight, min, max);
+    private static Weighted<MobSpawnSettings.SpawnerData> spawn(EntityType<?> entity, int weight, int min, int max) {
+        return new Weighted<>(new MobSpawnSettings.SpawnerData(entity, min, max), weight);
     }
 
     private static GridStructurePlacement.Builder gridPlacement(int spacing, int probability) {

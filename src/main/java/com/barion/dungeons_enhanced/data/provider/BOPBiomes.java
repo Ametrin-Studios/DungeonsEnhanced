@@ -1,8 +1,8 @@
 package com.barion.dungeons_enhanced.data.provider;
 
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 
 
@@ -83,11 +83,11 @@ public final class BOPBiomes
 
     private static ResourceKey<Biome> registerOverworld(String name)
     {
-        return ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("biomesoplenty", name));
+        return ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath("biomesoplenty", name));
     }
 
     private static ResourceKey<Biome> register(String name)
     {
-        return ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("biomesoplenty", name));
+        return ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath("biomesoplenty", name));
     }
 }

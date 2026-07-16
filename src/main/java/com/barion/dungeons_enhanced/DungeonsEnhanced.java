@@ -7,7 +7,7 @@ import com.barion.dungeons_enhanced.data.provider.DEStructureTagsProvider;
 import com.barion.dungeons_enhanced.registry.*;
 import com.legacy.structure_gel.api.registry.registrar.RegistrarHandler;
 import net.minecraft.core.RegistrySetBuilder;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
@@ -43,7 +43,7 @@ public final class DungeonsEnhanced {
         event.addProvider(new DEStructureTagsProvider(output, lookup));
     }
 
-    public static ResourceLocation locate(String path) {
-        return ResourceLocation.fromNamespaceAndPath(DungeonsEnhanced.MOD_ID, path);
+    public static Identifier locate(String path) {
+        return Identifier.fromNamespaceAndPath(DungeonsEnhanced.MOD_ID, path);
     }
 }

@@ -9,7 +9,7 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
@@ -69,7 +69,7 @@ public final class DEPillagerCamp {
         registry.register("features", JigsawPoolBuilder.collect(SleepingTents.weight(2), Kitchen.weight(2), VanillaDecoration.weight(2), Decoration.weight(3), Pillars.weight(1)));
     }
 
-    private static ResourceLocation mcPiece(String key) {
-        return ResourceLocation.withDefaultNamespace("pillager_outpost/feature_" + key);
+    private static Identifier mcPiece(String key) {
+        return Identifier.withDefaultNamespace("pillager_outpost/feature_" + key);
     }
 }

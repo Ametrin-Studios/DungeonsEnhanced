@@ -1,9 +1,9 @@
 package com.barion.dungeons_enhanced.world.structure.builder;
 
 import com.barion.dungeons_enhanced.DungeonsEnhanced;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
-public record DEStructureTemplate(ResourceLocation resourceLocation, int yOffset) {
+public record DEStructureTemplate(Identifier identifier, int yOffset) {
     public static DEStructureTemplate of(String id) {
         return of(id, 0);
     }
