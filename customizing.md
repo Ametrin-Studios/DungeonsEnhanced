@@ -9,7 +9,7 @@ make sure you are on the right page
 | 1.20.1          | 5.4.0 +      | this page                                                                                 |
 | 1.21.4          | 6.1.0 +      | this page                                                                                 |
 
-
+# Customize structure frequency, biomes and loot tables
 - [download](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FAmetrin-Studios%2FDungeonsEnhanced%2Ftree%2Fmaster%2FDATA-PACK-TEMPLATE) the DATA-PACK-TEMPLATE folder (you may rename it)
 
 ## Structure Frequency
@@ -42,6 +42,7 @@ make sure you are on the right page
 
 ## Loot Tables
 - there is no template right now
+- check out https://docs.neoforged.net/docs/resources/server/loottables/glm/ for a general guide
 
 ## Using the data pack
 - delete all .json files that you didn't change
