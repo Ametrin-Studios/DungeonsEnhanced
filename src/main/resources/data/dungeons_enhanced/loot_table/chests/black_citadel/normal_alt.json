@@ -91,11 +91,14 @@
         {
           "type": "minecraft:item",
           "weight": 12,
-          "name": "minecraft:saddle",
+          "name": "minecraft:leather",
           "functions": [
             {
               "function": "minecraft:set_count",
-              "count": 1,
+              "count": {
+                "min": 1,
+                "max": 5
+              },
               "add": false
             }
           ]

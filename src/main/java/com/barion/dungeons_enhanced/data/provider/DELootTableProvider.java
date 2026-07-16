@@ -292,7 +292,7 @@ public final class DELootTableProvider extends LootTableProvider {
                                 .add(item(Items.STRING, 7, number(2, 4)))
                                 .add(item(Items.GUNPOWDER, 7, number(2, 4)))
                                 .add(item(Items.REDSTONE, 4, number(2, 3)))
-                                .add(item(Items.SADDLE, 1))
+                                .add(item(Items.LEATHER, 4, number(1, 5)))
                                 .add(item(Items.SAND, 15, number(2, 5))))
                         .withPool(pool(number(0, 1))
                                 .add(enchantedItem(Items.BOOK, 1, number(5, 18), _registries))
