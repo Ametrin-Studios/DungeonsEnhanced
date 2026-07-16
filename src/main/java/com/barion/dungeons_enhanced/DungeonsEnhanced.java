@@ -9,10 +9,7 @@ import net.minecraft.resources.Identifier;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
-
-import java.util.Set;
 
 @Mod(DungeonsEnhanced.MOD_ID)
 public final class DungeonsEnhanced {
@@ -24,21 +21,17 @@ public final class DungeonsEnhanced {
     }
 
     public static void gatherData(GatherDataEvent.Server event) {
-        var output = event.getGenerator().getPackOutput();
-
-        var registrarProvider = new DatapackBuiltinEntriesProvider(output, event.getLookupProvider(), RegistrarHandler.injectRegistries(new RegistrySetBuilder().add(Registries.VILLAGER_TRADE, DEVillagerTrades::bootstrap)), Set.of(DungeonsEnhanced.MOD_ID));
-        var lookup = registrarProvider.getRegistryProvider();
-
-        event.addProvider(registrarProvider);
+        event.createDatapackRegistryObjects(RegistrarHandler.injectRegistries(new RegistrySetBuilder()
+                .add(Registries.VILLAGER_TRADE, DEVillagerTrades::bootstrap)
+        ));
 
         event.createProvider(DEBiomeTagsProvider::new);
         event.createProvider(DEVillagerTradesTagsProvider::new);
         event.createProvider(DELootTableProvider::new);
         // event.createProvider(StructureNbtUpdater::new);
-        event.addProvider(new DEAdvancementProvider(output, lookup));
-        event.addProvider(new DEStructureTagsProvider(output, lookup));
+        event.createProvider(DEAdvancementProvider::new);
+        event.createProvider(DEStructureTagsProvider::new);
 
-        // event.createDatapackRegistryObjects(new RegistrySetBuilder());
     }
 
     public static Identifier locate(String path) {
