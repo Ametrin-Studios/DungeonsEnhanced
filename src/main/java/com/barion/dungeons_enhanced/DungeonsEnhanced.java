@@ -21,10 +21,7 @@ public final class DungeonsEnhanced {
     public static final String MOD_ID = "dungeons_enhanced";
 
     public DungeonsEnhanced(IEventBus modEventBus, ModContainer container) {
-//        container.registerConfig(ModConfig.Type.COMMON, DEConfig.COMMON_SPEC);
-
         modEventBus.addListener(DungeonsEnhanced::gatherData);
-
         RegistrarHandler.registerHandlers(MOD_ID, modEventBus, DETemplatePools.HANDLER, DEProcessorLists.HANDLER, DEJigsawTypes.HANDLER, DELootTableAliases.HANDLER, DEDynamicSpawners.HANDLER);
     }
 
@@ -38,7 +35,7 @@ public final class DungeonsEnhanced {
 
         event.createProvider(DEBiomeTagsProvider::new);
         event.createProvider(DELootTableProvider::new);
-//        event.createProvider(StructureNbtUpdater::new);
+        // event.createProvider(StructureNbtUpdater::new);
         event.addProvider(new DEAdvancementProvider(output, lookup));
         event.addProvider(new DEStructureTagsProvider(output, lookup));
     }
