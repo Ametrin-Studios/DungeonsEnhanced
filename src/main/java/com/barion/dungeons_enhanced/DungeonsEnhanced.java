@@ -1,12 +1,10 @@
 package com.barion.dungeons_enhanced;
 
-import com.barion.dungeons_enhanced.data.provider.DEAdvancementProvider;
-import com.barion.dungeons_enhanced.data.provider.DEBiomeTagsProvider;
-import com.barion.dungeons_enhanced.data.provider.DELootTableProvider;
-import com.barion.dungeons_enhanced.data.provider.DEStructureTagsProvider;
+import com.barion.dungeons_enhanced.data.provider.*;
 import com.barion.dungeons_enhanced.registry.*;
 import com.legacy.structure_gel.api.registry.registrar.RegistrarHandler;
 import net.minecraft.core.RegistrySetBuilder;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -28,16 +26,19 @@ public final class DungeonsEnhanced {
     public static void gatherData(GatherDataEvent.Server event) {
         var output = event.getGenerator().getPackOutput();
 
-        var registrarProvider = new DatapackBuiltinEntriesProvider(output, event.getLookupProvider(), RegistrarHandler.injectRegistries(new RegistrySetBuilder()), Set.of(DungeonsEnhanced.MOD_ID));
+        var registrarProvider = new DatapackBuiltinEntriesProvider(output, event.getLookupProvider(), RegistrarHandler.injectRegistries(new RegistrySetBuilder().add(Registries.VILLAGER_TRADE, DEVillagerTrades::bootstrap)), Set.of(DungeonsEnhanced.MOD_ID));
         var lookup = registrarProvider.getRegistryProvider();
 
         event.addProvider(registrarProvider);
 
         event.createProvider(DEBiomeTagsProvider::new);
+        event.createProvider(DEVillagerTradesTagsProvider::new);
         event.createProvider(DELootTableProvider::new);
         // event.createProvider(StructureNbtUpdater::new);
         event.addProvider(new DEAdvancementProvider(output, lookup));
         event.addProvider(new DEStructureTagsProvider(output, lookup));
+
+        // event.createDatapackRegistryObjects(new RegistrySetBuilder());
     }
 
     public static Identifier locate(String path) {
