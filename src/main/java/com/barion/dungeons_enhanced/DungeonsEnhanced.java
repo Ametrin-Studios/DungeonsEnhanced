@@ -17,12 +17,13 @@ public final class DungeonsEnhanced {
 
     public DungeonsEnhanced(IEventBus modEventBus, ModContainer container) {
         modEventBus.addListener(DungeonsEnhanced::gatherData);
-        RegistrarHandler.registerHandlers(MOD_ID, modEventBus, DETemplatePools.HANDLER, DEProcessorLists.HANDLER, DEJigsawTypes.HANDLER, DELootTableAliases.HANDLER, DEDynamicSpawners.HANDLER);
+        RegistrarHandler.registerHandlers(MOD_ID, modEventBus, DETemplatePools.HANDLER, DEJigsawTypes.HANDLER, DELootTableAliases.HANDLER, DEDynamicSpawners.HANDLER);
     }
 
     public static void gatherData(GatherDataEvent.Server event) {
         event.createDatapackRegistryObjects(RegistrarHandler.injectRegistries(new RegistrySetBuilder()
                 .add(Registries.VILLAGER_TRADE, DEVillagerTrades::bootstrap)
+                .add(Registries.PROCESSOR_LIST, DEProcessorLists::bootstrap)
         ));
 
         event.createProvider(DEBiomeTagsProvider::new);

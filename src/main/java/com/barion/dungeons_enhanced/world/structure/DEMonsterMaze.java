@@ -66,7 +66,7 @@ public final class DEMonsterMaze {
         registry.registerBuilder().pools(registry.poolBuilder().names("dark_root").maintainWater(false)).register(DETemplatePools.MONSTER_MAZE_DARK);
         registry.registerBuilder().pools(registry.poolBuilder().names("pale_root").maintainWater(false)).register(DETemplatePools.MONSTER_MAZE_PALE);
 
-        var basicPool = registry.poolBuilder().maintainWater(false).processors(DEProcessorLists.MONSTER_MAZE.getKey());
+        var basicPool = registry.poolBuilder().maintainWater(false).processors(DEProcessorLists.MONSTER_MAZE);
         var crossTunnels = basicPool.clone().names("tunnels/cross1", "tunnels/cross2");
         var edgeTunnels = basicPool.clone().names("tunnels/edge1", "tunnels/edge2");
         var roomTunnels = basicPool.clone().names("tunnels/room1", "tunnels/room2", "tunnels/room3");

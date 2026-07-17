@@ -2,43 +2,58 @@
   "type": "minecraft:equipment",
   "pools": [
     {
-      "rolls": 1,
+      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:bow"
         }
-      ]
+      ],
+      "rolls": 1.0
     },
     {
-      "rolls": 1,
+      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:chainmail_helmet",
-          "weight": 2
+          "name": "minecraft:copper_helmet"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:chainmail_helmet"
         },
         {
           "type": "minecraft:empty",
-          "weight": 3
+          "weight": 2
         }
-      ]
+      ],
+      "rolls": 1.0
     },
     {
-      "rolls": 1,
+      "bonus_rolls": 0.0,
       "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:copper_chestplate"
+        },
         {
           "type": "minecraft:item",
           "name": "minecraft:chainmail_chestplate"
         },
         {
-          "type": "minecraft:empty"
+          "type": "minecraft:empty",
+          "weight": 2
         }
-      ]
+      ],
+      "rolls": 1.0
     },
     {
-      "rolls": 1,
+      "bonus_rolls": 0.0,
       "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:copper_leggings"
+        },
         {
           "type": "minecraft:item",
           "name": "minecraft:chainmail_leggings"
@@ -47,19 +62,26 @@
           "type": "minecraft:empty",
           "weight": 2
         }
-      ]
+      ],
+      "rolls": 1.0
     },
     {
-      "rolls": 1,
+      "bonus_rolls": 0.0,
       "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:copper_boots"
+        },
         {
           "type": "minecraft:item",
           "name": "minecraft:chainmail_boots"
         },
         {
-          "type": "minecraft:empty"
+          "type": "minecraft:empty",
+          "weight": 2
         }
-      ]
+      ],
+      "rolls": 1.0
     }
   ],
   "random_sequence": "dungeons_enhanced:equipment/monster_maze/skeleton"

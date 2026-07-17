@@ -2,12 +2,11 @@
   "type": "minecraft:equipment",
   "pools": [
     {
-      "rolls": 1,
+      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:stone_sword",
-          "weight": 2
+          "name": "minecraft:stone_sword"
         },
         {
           "type": "minecraft:item",
@@ -16,18 +15,28 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:iron_shovel",
-          "weight": 1
+          "name": "minecraft:copper_shovel",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:copper_hoe",
+          "weight": 2
         },
         {
           "type": "minecraft:empty",
-          "weight": 3
+          "weight": 4
         }
-      ]
+      ],
+      "rolls": 1.0
     },
     {
-      "rolls": 1,
+      "bonus_rolls": 0.0,
       "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:copper_helmet"
+        },
         {
           "type": "minecraft:item",
           "name": "minecraft:leather_helmet"
@@ -40,11 +49,16 @@
           "type": "minecraft:empty",
           "weight": 3
         }
-      ]
+      ],
+      "rolls": 1.0
     },
     {
-      "rolls": 1,
+      "bonus_rolls": 0.0,
       "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:copper_chestplate"
+        },
         {
           "type": "minecraft:item",
           "name": "minecraft:leather_chestplate"
@@ -54,13 +68,19 @@
           "name": "minecraft:chainmail_chestplate"
         },
         {
-          "type": "minecraft:empty"
+          "type": "minecraft:empty",
+          "weight": 3
         }
-      ]
+      ],
+      "rolls": 1.0
     },
     {
-      "rolls": 1,
+      "bonus_rolls": 0.0,
       "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:copper_leggings"
+        },
         {
           "type": "minecraft:item",
           "name": "minecraft:leather_leggings"
@@ -71,13 +91,18 @@
         },
         {
           "type": "minecraft:empty",
-          "weight": 2
+          "weight": 3
         }
-      ]
+      ],
+      "rolls": 1.0
     },
     {
-      "rolls": 1,
+      "bonus_rolls": 0.0,
       "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:copper_boots"
+        },
         {
           "type": "minecraft:item",
           "name": "minecraft:leather_boots"
@@ -90,7 +115,8 @@
           "type": "minecraft:empty",
           "weight": 3
         }
-      ]
+      ],
+      "rolls": 1.0
     }
   ],
   "random_sequence": "dungeons_enhanced:equipment/monster_maze/zombie"

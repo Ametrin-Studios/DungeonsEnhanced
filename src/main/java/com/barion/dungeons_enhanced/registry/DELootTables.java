@@ -20,6 +20,8 @@ public interface DELootTables {
         ResourceKey<LootTable> THRONE = chest("castle/throne");
     }
 
+    ResourceKey<LootTable> DEEP_CRYPT = chest("deep_crypt");
+
     interface DesertTemple {
         ResourceKey<LootTable> COFFIN = chest("desert_temple/coffin");
         ResourceKey<LootTable> FLOOR = chest("desert_temple/floor");
@@ -27,7 +29,14 @@ public interface DELootTables {
     }
 
     ResourceKey<LootTable> DESERT_TOMB = chest("desert_tomb");
+
+    interface EldersTemple {
+        ResourceKey<LootTable> MAIN = chest("elders_temple/main");
+        ResourceKey<LootTable> ELDER_ROOM = chest("elders_temple/elder_room");
+    }
+
     ResourceKey<LootTable> FISHING_SHIP = chest("fishing_ship");
+    ResourceKey<LootTable> FLYING_DUTCHMAN = chest("flying_dutchman");
     ResourceKey<LootTable> HAY_STORAGE = chest("hay_storage");
 
     interface IcePit {
@@ -43,6 +52,7 @@ public interface DELootTables {
         ResourceKey<LootTable> TREASURE = chest("jungle_monument/treasure");
     }
 
+    ResourceKey<LootTable> LARGE_DUNGEON = chest("large_dungeon");
     ResourceKey<LootTable> MINERS_HOUSE = chest("miners_house");
 
     interface MonsterMaze {
@@ -62,12 +72,25 @@ public interface DELootTables {
         ResourceKey<LootTable> KITCHEN = chest("pillager_camp/kitchen");
     }
 
+    ResourceKey<LootTable> PIRATE_SHIP = chest("pirate_ship");
+
     interface Ruined {
         ResourceKey<LootTable> HOUSE = chest("ruined/house");
     }
 
     ResourceKey<LootTable> STABLES = chest("stables");
     ResourceKey<LootTable> SUNKEN_SHRINE = chest("sunken_shrine");
+
+    interface UndeadTower {
+        ResourceKey<LootTable> TREASURE = chest("tower_of_the_undead/treasure");
+    }
+
+    interface TreeHouse {
+        ResourceKey<LootTable> ROOF = chest("tree_house/roof");
+    }
+
+    ResourceKey<LootTable> WATCH_TOWER = chest("watch_tower");
+    ResourceKey<LootTable> WITCH_TOWER = chest("witch_tower");
 
     // Nether
     interface BlackCitadel {

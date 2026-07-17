@@ -59,7 +59,7 @@ public final class DEDeepCrypt {
         registry.registerBuilder().pools(registry.poolBuilder().names("root").maintainWater(false)).register(DETemplatePools.DEEP_CRYPT);
 
         var basicPool = registry.poolBuilder().maintainWater(false);
-        var Tunnels = basicPool.clone().processors(DEProcessorLists.AIR_TO_COBWEB.getKey()).names("tunnel", "cross");
+        var Tunnels = basicPool.clone().processors(DEProcessorLists.AIR_TO_COBWEB).names("tunnel", "cross");
         var Treasure = basicPool.clone().names("treasure");
         var Rooms = basicPool.clone().names("big_tunnel", "large_tomb", "prison", "tomb", "tombs", "root");
 
