@@ -97,7 +97,7 @@
       },
       "trigger": "minecraft:location"
     },
-    "entered_monster_maze": {
+    "entered_monster_maze_dark": {
       "conditions": {
         "player": [
           {
@@ -105,7 +105,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structures": "dungeons_enhanced:monster_maze"
+                "structures": "dungeons_enhanced:monster_maze_dark"
               }
             }
           }
@@ -143,7 +143,7 @@
       "entered_jungle_monument"
     ],
     [
-      "entered_monster_maze"
+      "entered_monster_maze_dark"
     ],
     [
       "entered_elders_temple"

@@ -226,7 +226,6 @@ public final class DEStructures {
                 .placement(24, 0.8f).allowNearSpawn()
                 .build();
 
-        // TODO: update id (1.22)
         MONSTER_MAZE_DARK = StructureRegistrar.jigsawBuilder(locate(DEStructureIDs.MONSTER_MAZE_DARK))
                 .placement(()-> gridPlacement(28, 62).build(DEStructures.MONSTER_MAZE_DARK))
                 .addPiece(()-> DEMonsterMaze.Piece::new)

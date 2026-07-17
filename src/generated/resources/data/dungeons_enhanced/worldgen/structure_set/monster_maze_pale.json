@@ -4,9 +4,9 @@
     "allowed_near_spawn": false,
     "frequency": 0.62,
     "offset": 14,
-    "salt": 2009066558,
+    "salt": 1548328403,
     "spacing": 18,
-    "structure": "dungeons_enhanced:monster_maze"
+    "structure": "dungeons_enhanced:monster_maze_dark"
   },
   "structures": [
     {
