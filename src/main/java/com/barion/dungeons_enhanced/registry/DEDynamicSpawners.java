@@ -21,8 +21,6 @@ import java.util.Optional;
 
 @RegistrarHolder
 public interface DEDynamicSpawners {
-
-
     RegistrarHandler<DynamicSpawnerType> HANDLER = RegistrarHandler.getOrCreate(StructureGelRegistries.Keys.DYNAMIC_SPAWNER_TYPE, DungeonsEnhanced.MOD_ID);
 
     Registrar.Static<DynamicSpawnerType> MONSTER_MAZE_DEFAULT = HANDLER.createStatic("monster_maze/default", () -> (builder, registry) ->
@@ -46,7 +44,7 @@ public interface DEDynamicSpawners {
 
     Registrar.Static<DynamicSpawnerType> MONSTER_MAZE_CHURCH = HANDLER.createStatic("monster_maze/church", () -> (builder, registry) ->
     {
-        builder.spawnData(createSpawnDataWithEquipment(EntityType.ZOMBIE, DELootTables.MonsterMaze.EQUIPMENT_PRISON_ZOMBIE), 3)
+        builder.spawnData(createSpawnDataWithEquipment(EntityType.ZOMBIE, DELootTables.MonsterMaze.EQUIPMENT_ZOMBIE), 3)
                 .spawnData(EntityType.SKELETON, 2)
                 .spawnData(EntityType.SPIDER)
                 .spawnData(EntityType.CAVE_SPIDER)

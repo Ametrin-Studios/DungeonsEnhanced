@@ -59,7 +59,7 @@ public final class SpawnDataBuilder {
         passengerTag.putString("id", BuiltInRegistries.ENTITY_TYPE.getKey(passenger).toString());
         var handItems = new ListTag();
         handItems.add(ItemStack.CODEC.encodeStart(ops, handItem).getOrThrow());
-        handItems.add(new CompoundTag());
+        handItems.add(new CompoundTag()); // off-hand
         passengerTag.put("HandItems", handItems);
         return this;
     }
