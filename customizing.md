@@ -10,7 +10,7 @@ make sure you are on the right page
 | 1.21.4          | 6.1.0 +      | this page                                                                                 |
 
 # Customize structure frequency, biomes and loot tables
-- [download](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FAmetrin-Studios%2FDungeonsEnhanced%2Ftree%2Fmaster%2FDATA-PACK-TEMPLATE) the DATA-PACK-TEMPLATE folder (you may rename it)
+- download the DATA-PACK-TEMPLATE folder (you may rename it)
 
 ## Structure Frequency
 - locate the json file of the structure you want to modify in `data/dungeons_enhanced/worldgen/structure_set`
