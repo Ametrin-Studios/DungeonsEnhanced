@@ -1,3 +1,13 @@
+## 6.4.1
+- fix Dungeons Enhanced dependency missing
+- fix invalid NeoForge dependency version
+
+## 6.4.0
+- 26.1.2 port
+
+## 6.3.1
+- fix Dungeons Enhanced dependency missing
+
 ## 6.3.0
 - jungle monument tweaks
 - updated translations (Japanese and Russian)
