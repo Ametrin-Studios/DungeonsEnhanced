@@ -1,6 +1,0 @@
-{
-  "type": "dungeons_enhanced:flying_dutchman",
-  "biomes": "#dungeons_enhanced:has_structure/flying_dutchman",
-  "spawn_overrides": {},
-  "step": "surface_structures"
-}

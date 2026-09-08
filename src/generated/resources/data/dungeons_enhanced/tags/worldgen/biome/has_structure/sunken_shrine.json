@@ -1,8 +1,0 @@
-{
-  "remove": [
-    "#dungeons_enhanced:no_structures/overworld/ocean_floor"
-  ],
-  "values": [
-    "#c:is_ocean"
-  ]
-}
