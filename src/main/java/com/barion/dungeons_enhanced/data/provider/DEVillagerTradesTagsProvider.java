@@ -8,7 +8,7 @@ import net.minecraft.tags.VillagerTradeTags;
 
 import java.util.concurrent.CompletableFuture;
 
-public class DEVillagerTradesTagsProvider extends VillagerTradesTagsProvider {
+public final class DEVillagerTradesTagsProvider extends VillagerTradesTagsProvider {
     public DEVillagerTradesTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
         super(output, lookupProvider);
     }

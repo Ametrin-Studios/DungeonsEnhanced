@@ -22,9 +22,6 @@ description='''
         We hope you have fun!
     '''
 
-[[accessTransformers]]
-file="dungeons_enhanced_base.cfg"
-
 [[dependencies.${mod_id}]] #optional
     modId="neoforge" #mandatory
     type="required" #mandatory
@@ -36,5 +33,12 @@ file="dungeons_enhanced_base.cfg"
     modId="minecraft"
     type="required"
     versionRange="${minecraft_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="structure_gel"
+    type="required"
+    versionRange="${gel_version_range}"
     ordering="NONE"
     side="BOTH"
