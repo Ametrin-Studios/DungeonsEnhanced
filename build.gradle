@@ -69,10 +69,6 @@ configurations {
 repositories {
     mavenLocal()
     maven {
-        name "Modding Legacy Maven"
-        url "https://maven.moddinglegacy.com/artifactory/modding-legacy/"
-    }
-    maven {
         url "https://cursemaven.com"
         content {
             includeGroup "curse.maven"
@@ -85,9 +81,9 @@ repositories {
 }
 
 dependencies {
-    implementation "com.legacy:structure-gel:${minecraft_version}-${gel_version}"
+    implementation files("/mnt/Projects/Coding/Minecraft/Mods/AmetrinStructures/build/libs/ametrin_structures-26.1.2-0.0.1.jar")
+    implementation "com.ametrinstudios:ametrin-${minecraft_version}:${ametrin_version}"
 
-    localRuntime "com.ametrinstudios:ametrin-26.1.2:${ametrin_version}"
     localRuntime "curse.maven:xaeros-world-map-317780:8425775"
 //    localRuntime "curse.maven:biomes-o-plenty-220318:6384687"
 //    localRuntime "curse.maven:terrablender-neoforge-940057:6055021"
@@ -96,19 +92,21 @@ dependencies {
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
     var replaceProperties = [
-            minecraft_version       : minecraft_version,
-            minecraft_version_range : minecraft_version_range,
-            neo_version             : neo_version,
-            neo_version_range       : neo_version_range,
+            minecraft_version               : minecraft_version,
+            minecraft_version_range         : minecraft_version_range,
+            neo_version                     : neo_version,
+            neo_version_range               : neo_version_range,
 
-            gel_version             : gel_version,
-            gel_version_range       : gel_version_range,
+            ametrin_version                 : ametrin_version,
+            ametrin_version_range           : ametrin_version_range,
+            ametrin_structures_version      : ametrin_structures_version,
+            ametrin_structures_version_range: ametrin_structures_version_range,
 
-            mod_id                  : mod_id,
-            mod_name                : mod_name,
-            mod_license             : mod_license,
-            mod_version             : mod_version,
-            mod_authors             : mod_authors,
+            mod_id                          : mod_id,
+            mod_name                        : mod_name,
+            mod_license                     : mod_license,
+            mod_version                     : mod_version,
+            mod_authors                     : mod_authors,
     ]
     inputs.properties replaceProperties
     expand replaceProperties
