@@ -6,25 +6,53 @@
         "Name": "minecraft:mossy_stone_bricks"
       },
       "condition": "minecraft:stone_bricks",
-      "processor_type": "structure_gel:replace_block"
+      "preserve_state": true,
+      "processor_type": "ametrin_structures:replace_block"
     },
     {
       "chance": 0.3,
-      "change_to": "minecraft:mossy_stone_brick_stairs",
+      "change_to": {
+        "Name": "minecraft:mossy_stone_brick_stairs",
+        "Properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
       "condition": "minecraft:stone_brick_stairs",
-      "processor_type": "dungeons_enhanced:keep_state_random_block_swap"
+      "preserve_state": true,
+      "processor_type": "ametrin_structures:replace_block"
     },
     {
       "chance": 0.3,
-      "change_to": "minecraft:mossy_stone_brick_slab",
+      "change_to": {
+        "Name": "minecraft:mossy_stone_brick_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
       "condition": "minecraft:stone_brick_slab",
-      "processor_type": "dungeons_enhanced:keep_state_random_block_swap"
+      "preserve_state": true,
+      "processor_type": "ametrin_structures:replace_block"
     },
     {
       "chance": 0.3,
-      "change_to": "minecraft:mossy_stone_brick_wall",
+      "change_to": {
+        "Name": "minecraft:mossy_stone_brick_wall",
+        "Properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
       "condition": "minecraft:stone_brick_wall",
-      "processor_type": "dungeons_enhanced:keep_state_random_block_swap"
+      "preserve_state": true,
+      "processor_type": "ametrin_structures:replace_block"
     },
     {
       "chance": 0.2,
@@ -32,7 +60,7 @@
         "Name": "minecraft:cracked_stone_bricks"
       },
       "condition": "minecraft:stone_bricks",
-      "processor_type": "structure_gel:replace_block"
+      "processor_type": "ametrin_structures:replace_block"
     }
   ]
 }

@@ -1,5 +1,7 @@
 package com.ametrin.dungeons_enhanced.world.structure;
 
+import com.ametrin.dungeons_enhanced.DungeonsEnhanced;
+import com.ametrin.structures.api.structure.JigsawPools;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
@@ -38,12 +40,14 @@ public final class DECastle {
 //    }
 
     public static void pool(BootstrapContext<StructureTemplatePool> context) {
-//        var registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "castle/", context);
-//        registry.register("root").add(JigsawRegistryHelper.PoolBuilder.of())
-//        registry.registerBuilder().pools(registry.poolBuilder().names("top1", "top2").maintainWater(false)).register(DETemplatePools.CASTLE);
-//
-//        var basicPool = registry.poolBuilder().maintainWater(false);
-//        registry.register("bottom1", basicPool.clone().names("bottom1"));
-//        registry.register("bottom2", basicPool.clone().names("bottom2"));
+        var helper = new JigsawPools(context, DungeonsEnhanced.MOD_ID, "castle/");
+
+        helper.pool("root", b -> b
+                .element("top1")
+                .element("top2")
+        );
+
+        helper.pool("bottom1", b -> b.element("bottom1"));
+        helper.pool("bottom2", b -> b.element("bottom2"));
     }
 }

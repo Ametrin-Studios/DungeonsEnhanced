@@ -6,7 +6,7 @@
         "Name": "minecraft:cobweb"
       },
       "condition": "minecraft:air",
-      "processor_type": "structure_gel:replace_block"
+      "processor_type": "ametrin_structures:replace_block"
     }
   ]
 }

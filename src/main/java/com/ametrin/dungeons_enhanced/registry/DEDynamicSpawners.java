@@ -18,7 +18,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public final class DEDynamicSpawners {
     public static final DeferredRegister<DynamicSpawnerType> REGISTER = DeferredRegister.create(ASRegistries.DYNAMIC_SPAWNER_TYPE, DungeonsEnhanced.MOD_ID);
 
-    public static final DeferredHolder<DynamicSpawnerType, DynamicSpawnerType> MONSTER_MAZE_DEFAULT = REGISTER.register("", ()-> (builder, registry) ->
+    public static final DeferredHolder<DynamicSpawnerType, DynamicSpawnerType> MONSTER_MAZE_DEFAULT = REGISTER.register("monster_maze/default", ()-> (builder, registry) ->
     {
         var ops = registry.createSerializationContext(NbtOps.INSTANCE);
 //        builder.spawnData(createSpawnDataWithEquipment(EntityType.ZOMBIE, DELootTables.MonsterMaze.EQUIPMENT_ZOMBIE))
@@ -28,7 +28,7 @@ public final class DEDynamicSpawners {
         ;
     });
 
-    public static final DeferredHolder<DynamicSpawnerType, DynamicSpawnerType> MONSTER_MAZE_BREWERY = REGISTER.register("", ()-> (builder, registry) ->
+    public static final DeferredHolder<DynamicSpawnerType, DynamicSpawnerType> MONSTER_MAZE_BREWERY = REGISTER.register("monster_maze/brewery", ()-> (builder, registry) ->
     {
         builder.add(EntityType.ZOMBIE, 1)
                 .add(EntityType.SKELETON, 1)
@@ -37,7 +37,7 @@ public final class DEDynamicSpawners {
         ;
     });
 
-    public static final DeferredHolder<DynamicSpawnerType, DynamicSpawnerType> MONSTER_MAZE_CHURCH = REGISTER.register("", ()-> (builder, registry) ->
+    public static final DeferredHolder<DynamicSpawnerType, DynamicSpawnerType> MONSTER_MAZE_CHURCH = REGISTER.register("monster_maze/church", ()-> (builder, registry) ->
     {
         builder.add(createSpawnDataWithEquipment(EntityType.ZOMBIE, DELootTables.MonsterMaze.EQUIPMENT_ZOMBIE), 3)
                 .add(EntityType.SKELETON, 2)
@@ -46,7 +46,7 @@ public final class DEDynamicSpawners {
         ;
     });
 
-    public static final DeferredHolder<DynamicSpawnerType, DynamicSpawnerType> MONSTER_MAZE_PRISON = REGISTER.register("", ()-> (builder, registry) ->
+    public static final DeferredHolder<DynamicSpawnerType, DynamicSpawnerType> MONSTER_MAZE_PRISON = REGISTER.register("monster_maze/prison", ()-> (builder, registry) ->
     {
         builder.add(createSpawnDataWithEquipment(EntityType.ZOMBIE, DELootTables.MonsterMaze.EQUIPMENT_PRISON_ZOMBIE), 3)
                 .add(EntityType.SKELETON, 2)

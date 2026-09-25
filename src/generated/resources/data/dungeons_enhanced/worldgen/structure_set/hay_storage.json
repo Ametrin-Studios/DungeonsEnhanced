@@ -1,12 +1,10 @@
 {
   "placement": {
-    "type": "structure_gel:grid_placement",
-    "allowed_near_spawn": true,
-    "frequency": 0.77,
-    "offset": 18,
-    "salt": 392153438,
-    "spacing": 23,
-    "structure": "dungeons_enhanced:hay_storage"
+    "type": "ametrin_structures:scattered_grid",
+    "probability": 0.77,
+    "random_offset": 18,
+    "salt": -1912908768,
+    "spacing": 23
   },
   "structures": [
     {

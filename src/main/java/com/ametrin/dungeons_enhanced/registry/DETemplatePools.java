@@ -1,6 +1,7 @@
 package com.ametrin.dungeons_enhanced.registry;
 
 import com.ametrin.dungeons_enhanced.DungeonsEnhanced;
+import com.ametrin.dungeons_enhanced.world.structure.DECastle;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
@@ -22,7 +23,7 @@ public final class DETemplatePools {
 
     public static void bootstrap(BootstrapContext<StructureTemplatePool> context) {
         // Overworld
-//        DECastle.pool(context);
+        DECastle.pool(context);
 //        DEDeepCrypt.pool(context);
 //        DEDesertTomb.pool(context);
 //        DEDruidCircle.pool(context);
