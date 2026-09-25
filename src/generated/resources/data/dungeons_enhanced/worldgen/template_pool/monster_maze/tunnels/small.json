@@ -3,7 +3,7 @@
     {
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
-        "location": "dungeons_enhanced:monster_maze/tunnels/small3",
+        "location": "dungeons_enhanced:monster_maze/tunnels/small1",
         "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
@@ -23,7 +23,7 @@
     {
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
-        "location": "dungeons_enhanced:monster_maze/tunnels/small1",
+        "location": "dungeons_enhanced:monster_maze/tunnels/small3",
         "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"

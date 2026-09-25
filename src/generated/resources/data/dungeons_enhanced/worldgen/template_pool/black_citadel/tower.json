@@ -3,7 +3,7 @@
     {
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
-        "location": "dungeons_enhanced:black_citadel/tower/normal",
+        "location": "dungeons_enhanced:black_citadel/tower/broken",
         "processors": "dungeons_enhanced:black_citadel/default",
         "projection": "rigid"
       },
@@ -12,7 +12,7 @@
     {
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
-        "location": "dungeons_enhanced:black_citadel/tower/broken",
+        "location": "dungeons_enhanced:black_citadel/tower/normal",
         "processors": "dungeons_enhanced:black_citadel/default",
         "projection": "rigid"
       },

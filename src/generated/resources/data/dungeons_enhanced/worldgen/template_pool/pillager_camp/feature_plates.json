@@ -3,7 +3,7 @@
     {
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
-        "location": "dungeons_enhanced:pillager_camp/plate/var2",
+        "location": "dungeons_enhanced:pillager_camp/plate/var1",
         "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "terrain_matching"
@@ -13,7 +13,7 @@
     {
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
-        "location": "dungeons_enhanced:pillager_camp/plate/var1",
+        "location": "dungeons_enhanced:pillager_camp/plate/var2",
         "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "terrain_matching"

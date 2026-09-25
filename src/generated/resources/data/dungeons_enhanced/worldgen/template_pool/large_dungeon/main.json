@@ -33,46 +33,6 @@
     {
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
-        "location": "dungeons_enhanced:large_dungeon/room_small2",
-        "override_liquid_settings": "ignore_waterlogging",
-        "processors": "minecraft:empty",
-        "projection": "rigid"
-      },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
-        "location": "dungeons_enhanced:large_dungeon/room_small1",
-        "override_liquid_settings": "ignore_waterlogging",
-        "processors": "minecraft:empty",
-        "projection": "rigid"
-      },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
-        "location": "dungeons_enhanced:large_dungeon/room_big",
-        "override_liquid_settings": "ignore_waterlogging",
-        "processors": "minecraft:empty",
-        "projection": "rigid"
-      },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
-        "location": "dungeons_enhanced:large_dungeon/storage",
-        "override_liquid_settings": "ignore_waterlogging",
-        "processors": "minecraft:empty",
-        "projection": "rigid"
-      },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:large_dungeon/parkour",
         "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
@@ -94,6 +54,46 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:large_dungeon/room2",
+        "override_liquid_settings": "ignore_waterlogging",
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:large_dungeon/room_big",
+        "override_liquid_settings": "ignore_waterlogging",
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:large_dungeon/room_small1",
+        "override_liquid_settings": "ignore_waterlogging",
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:large_dungeon/room_small2",
+        "override_liquid_settings": "ignore_waterlogging",
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:large_dungeon/storage",
         "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"

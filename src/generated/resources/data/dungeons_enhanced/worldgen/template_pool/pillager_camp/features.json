@@ -33,16 +33,6 @@
     {
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
-        "location": "minecraft:pillager_outpost/feature_targets",
-        "override_liquid_settings": "ignore_waterlogging",
-        "processors": "minecraft:empty",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
         "location": "minecraft:pillager_outpost/feature_logs",
         "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
@@ -53,7 +43,7 @@
     {
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
-        "location": "minecraft:pillager_outpost/feature_tent2",
+        "location": "minecraft:pillager_outpost/feature_targets",
         "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
@@ -73,12 +63,12 @@
     {
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
-        "location": "dungeons_enhanced:pillager_camp/decoration/campfire",
+        "location": "minecraft:pillager_outpost/feature_tent2",
         "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
-      "weight": 3
+      "weight": 2
     },
     {
       "element": {
@@ -93,7 +83,17 @@
     {
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
-        "location": "dungeons_enhanced:pillager_camp/decoration/pillar",
+        "location": "dungeons_enhanced:pillager_camp/decoration/campfire",
+        "override_liquid_settings": "ignore_waterlogging",
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:pillager_camp/decoration/bell",
         "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
@@ -103,7 +103,7 @@
     {
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
-        "location": "dungeons_enhanced:pillager_camp/decoration/bell",
+        "location": "dungeons_enhanced:pillager_camp/decoration/pillar",
         "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"

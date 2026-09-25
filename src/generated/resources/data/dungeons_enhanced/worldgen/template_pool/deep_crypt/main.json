@@ -3,6 +3,16 @@
     {
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
+        "location": "dungeons_enhanced:deep_crypt/cross",
+        "override_liquid_settings": "ignore_waterlogging",
+        "processors": "dungeons_enhanced:air_to_cobweb",
+        "projection": "rigid"
+      },
+      "weight": 6
+    },
+    {
+      "element": {
+        "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:deep_crypt/tunnel",
         "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:air_to_cobweb",
@@ -13,12 +23,12 @@
     {
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
-        "location": "dungeons_enhanced:deep_crypt/cross",
+        "location": "dungeons_enhanced:deep_crypt/big_tunnel",
         "override_liquid_settings": "ignore_waterlogging",
-        "processors": "dungeons_enhanced:air_to_cobweb",
+        "processors": "minecraft:empty",
         "projection": "rigid"
       },
-      "weight": 6
+      "weight": 2
     },
     {
       "element": {
@@ -44,16 +54,6 @@
       "element": {
         "element_type": "structure_gel:gel_single_pool_element",
         "location": "dungeons_enhanced:deep_crypt/root",
-        "override_liquid_settings": "ignore_waterlogging",
-        "processors": "minecraft:empty",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
-        "location": "dungeons_enhanced:deep_crypt/big_tunnel",
         "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
