@@ -1,28 +1,9 @@
-//package com.ametrin.dungeons_enhanced.world.structure;
-//
-//import com.ametrin.dungeons_enhanced.DungeonsEnhanced;
-//import com.ametrin.dungeons_enhanced.registry.*;
-//import com.google.common.collect.ImmutableMap;
-//import com.mojang.serialization.MapCodec;
-//import net.minecraft.core.BlockPos;
-//import net.minecraft.data.worldgen.BootstrapContext;
-//import net.minecraft.nbt.CompoundTag;
-//import net.minecraft.util.RandomSource;
-//import net.minecraft.world.level.ServerLevelAccessor;
-//import net.minecraft.world.level.StructureManager;
-//import net.minecraft.world.level.WorldGenLevel;
-//import net.minecraft.world.level.block.Blocks;
-//import net.minecraft.world.level.chunk.ChunkGenerator;
-//import net.minecraft.world.level.levelgen.structure.BoundingBox;
-//import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
-//import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
-//import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
-//import org.jetbrains.annotations.NotNull;
-//
-//import javax.annotation.ParametersAreNonnullByDefault;
-//import java.util.Objects;
-//
-//public final class DEBlackCitadel {
+package com.ametrin.dungeons_enhanced.world.structure;
+
+import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
+
+public final class DEBlackCitadel {
 //    public static class Capability implements JigsawCapability {
 //        public static final Capability INSTANCE = new Capability();
 //        public static final MapCodec<Capability> CODEC = MapCodec.unit(INSTANCE);
@@ -64,8 +45,8 @@
 //        @Override
 //        public void handleDataMarker(String key, BlockPos blockPos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) { }
 //    }
-//
-//    public static void pool(BootstrapContext<StructureTemplatePool> context) {
+
+    public static void pool(BootstrapContext<StructureTemplatePool> context) {
 //        var registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, DEStructureIDs.BLACK_CITADEL + "/", context);
 //        registry.registerBuilder().pools(registry.poolBuilder().names("main").processors(DEProcessorLists.BLACK_CITADEL)).register(DETemplatePools.BLACK_CITADEL);
 //
@@ -83,5 +64,5 @@
 //        registry.register("pillar", pillar);
 //        registry.register("thick_pillar", thickPillar);
 //        registry.register("main_extension", mainExtensions);
-//    }
-//}
+    }
+}
