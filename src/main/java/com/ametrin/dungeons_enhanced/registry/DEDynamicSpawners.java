@@ -1,14 +1,9 @@
 package com.ametrin.dungeons_enhanced.registry;
 
 import com.ametrin.dungeons_enhanced.DungeonsEnhanced;
-import com.ametrin.dungeons_enhanced.world.SpawnDataBuilder;
-import com.legacy.structure_gel.api.block_entity.SpawnerAccessHelper;
-import com.legacy.structure_gel.api.dynamic_spawner.DynamicSpawnerType;
-import com.legacy.structure_gel.api.registry.RegistrarHolder;
-import com.legacy.structure_gel.api.registry.StructureGelRegistries;
-import com.legacy.structure_gel.api.registry.registrar.Registrar;
-import com.legacy.structure_gel.api.registry.registrar.RegistrarHandler;
-import net.minecraft.nbt.CompoundTag;
+import com.ametrin.structures.api.registry.ASRegistries;
+import com.ametrin.structures.api.spawner.DynamicSpawnerType;
+import com.ametrin.structures.api.spawner.SpawnDataBuilder;
 import net.minecraft.nbt.NbtOps;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
@@ -16,47 +11,47 @@ import net.minecraft.world.entity.EquipmentTable;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.SpawnData;
 import net.minecraft.world.level.storage.loot.LootTable;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
-import java.util.Optional;
 
-@RegistrarHolder
-public interface DEDynamicSpawners {
-    RegistrarHandler<DynamicSpawnerType> HANDLER = RegistrarHandler.getOrCreate(StructureGelRegistries.Keys.DYNAMIC_SPAWNER_TYPE, DungeonsEnhanced.MOD_ID);
+public final class DEDynamicSpawners {
+    public static final DeferredRegister<DynamicSpawnerType> REGISTER = DeferredRegister.create(ASRegistries.DYNAMIC_SPAWNER_TYPE, DungeonsEnhanced.MOD_ID);
 
-    Registrar.Static<DynamicSpawnerType> MONSTER_MAZE_DEFAULT = HANDLER.createStatic("monster_maze/default", () -> (builder, registry) ->
+    public static final DeferredHolder<DynamicSpawnerType, DynamicSpawnerType> MONSTER_MAZE_DEFAULT = REGISTER.register("", ()-> (builder, registry) ->
     {
         var ops = registry.createSerializationContext(NbtOps.INSTANCE);
 //        builder.spawnData(createSpawnDataWithEquipment(EntityType.ZOMBIE, DELootTables.MonsterMaze.EQUIPMENT_ZOMBIE))
 //                .spawnData(createSpawnDataWithEquipment(EntityType.SKELETON, DELootTables.MonsterMaze.EQUIPMENT_SKELETON))
-                builder.spawnData(builder(EntityType.SPIDER).passenger(EntityType.SKELETON, Items.BOW, ops).build())
+        builder.add(builder(EntityType.SPIDER).passenger(EntityType.SKELETON, Items.BOW, ops).build(), 1)
 //                .spawnData(EntityType.CAVE_SPIDER)
         ;
     });
 
-    Registrar.Static<DynamicSpawnerType> MONSTER_MAZE_BREWERY = HANDLER.createStatic("monster_maze/brewery", () -> (builder, registry) ->
+    public static final DeferredHolder<DynamicSpawnerType, DynamicSpawnerType> MONSTER_MAZE_BREWERY = REGISTER.register("", ()-> (builder, registry) ->
     {
-        builder.spawnData(EntityType.ZOMBIE)
-                .spawnData(EntityType.SKELETON)
-                .spawnData(EntityType.SPIDER)
-                .spawnData(EntityType.CAVE_SPIDER)
+        builder.add(EntityType.ZOMBIE, 1)
+                .add(EntityType.SKELETON, 1)
+                .add(EntityType.SPIDER, 1)
+                .add(EntityType.CAVE_SPIDER, 1)
         ;
     });
 
-    Registrar.Static<DynamicSpawnerType> MONSTER_MAZE_CHURCH = HANDLER.createStatic("monster_maze/church", () -> (builder, registry) ->
+    public static final DeferredHolder<DynamicSpawnerType, DynamicSpawnerType> MONSTER_MAZE_CHURCH = REGISTER.register("", ()-> (builder, registry) ->
     {
-        builder.spawnData(createSpawnDataWithEquipment(EntityType.ZOMBIE, DELootTables.MonsterMaze.EQUIPMENT_ZOMBIE), 3)
-                .spawnData(EntityType.SKELETON, 2)
-                .spawnData(EntityType.SPIDER)
-                .spawnData(EntityType.CAVE_SPIDER)
+        builder.add(createSpawnDataWithEquipment(EntityType.ZOMBIE, DELootTables.MonsterMaze.EQUIPMENT_ZOMBIE), 3)
+                .add(EntityType.SKELETON, 2)
+                .add(EntityType.SPIDER, 1)
+                .add(EntityType.CAVE_SPIDER, 1)
         ;
     });
 
-    Registrar.Static<DynamicSpawnerType> MONSTER_MAZE_PRISON = HANDLER.createStatic("monster_maze/prison", () -> (builder, registry) ->
+    public static final DeferredHolder<DynamicSpawnerType, DynamicSpawnerType> MONSTER_MAZE_PRISON = REGISTER.register("", ()-> (builder, registry) ->
     {
-        builder.spawnData(createSpawnDataWithEquipment(EntityType.ZOMBIE, DELootTables.MonsterMaze.EQUIPMENT_PRISON_ZOMBIE), 3)
-                .spawnData(EntityType.SKELETON, 2)
-                .spawnData(EntityType.SPIDER)
-                .spawnData(EntityType.CAVE_SPIDER)
+        builder.add(createSpawnDataWithEquipment(EntityType.ZOMBIE, DELootTables.MonsterMaze.EQUIPMENT_PRISON_ZOMBIE), 3)
+                .add(EntityType.SKELETON, 2)
+                .add(EntityType.SPIDER, 1)
+                .add(EntityType.CAVE_SPIDER, 1)
         ;
     });
 
@@ -69,6 +64,6 @@ public interface DEDynamicSpawners {
     }
 
     private static SpawnData createSpawnDataWithEquipment(EntityType<?> entityType, EquipmentTable equipmentTable) {
-        return SpawnerAccessHelper.createSpawnerEntity(entityType, new CompoundTag(), Optional.empty(), Optional.of(equipmentTable));
+        return builder(entityType).equipment(equipmentTable).build();
     }
 }

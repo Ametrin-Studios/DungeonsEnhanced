@@ -50,7 +50,6 @@ public final class DESwapDeadCoralsProcessor extends StructureProcessor {
     private DESwapDeadCoralsProcessor() { }
 
     @Override
-    @Nullable
     @ParametersAreNonnullByDefault
     public StructureTemplate.StructureBlockInfo process(LevelReader level, BlockPos pos, BlockPos pos2, StructureTemplate.StructureBlockInfo existing, StructureTemplate.StructureBlockInfo placed, StructurePlaceSettings settings, @Nullable StructureTemplate template) {
         if (!DEATH_TO_LIVING_CORAL.containsKey(placed.state().getBlock())) return placed;

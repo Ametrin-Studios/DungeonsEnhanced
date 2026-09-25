@@ -2,7 +2,6 @@ package com.ametrin.dungeons_enhanced;
 
 import com.ametrin.dungeons_enhanced.data.provider.*;
 import com.ametrin.dungeons_enhanced.registry.*;
-import com.legacy.structure_gel.api.registry.registrar.RegistrarHandler;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
@@ -17,15 +16,18 @@ public final class DungeonsEnhanced {
 
     public DungeonsEnhanced(IEventBus modEventBus, ModContainer container) {
         modEventBus.addListener(DungeonsEnhanced::gatherData);
-        RegistrarHandler.registerHandlers(MOD_ID, modEventBus, DEJigsawTypes.HANDLER, DELootTableAliases.HANDLER, DEDynamicSpawners.HANDLER);
+        DEStructures.REGISTER.register(modEventBus);
+        DEDynamicSpawners.REGISTER.register(modEventBus);
     }
 
     public static void gatherData(GatherDataEvent.Server event) {
-        event.createDatapackRegistryObjects(RegistrarHandler.injectRegistries(new RegistrySetBuilder()
+        var builder = new RegistrySetBuilder()
                 .add(Registries.VILLAGER_TRADE, DEVillagerTrades::bootstrap)
                 .add(Registries.PROCESSOR_LIST, DEProcessorLists::bootstrap)
-                .add(Registries.TEMPLATE_POOL, DETemplatePools::bootstrap)
-        ));
+                .add(Registries.TEMPLATE_POOL, DETemplatePools::bootstrap);
+        DEStructures.REGISTER.bootstrap(builder);
+
+        event.createDatapackRegistryObjects(builder);
 
         event.createProvider(DEBiomeTagsProvider::new);
         event.createProvider(DEVillagerTradesTagsProvider::new);

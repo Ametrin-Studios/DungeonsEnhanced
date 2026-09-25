@@ -9,7 +9,6 @@ import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.biome.Biomes;
 import net.neoforged.neoforge.common.Tags;
 
-import javax.annotation.Nonnull;
 import java.util.concurrent.CompletableFuture;
 
 public final class DEBiomeTagsProvider extends BiomeTagsProvider {
@@ -18,7 +17,7 @@ public final class DEBiomeTagsProvider extends BiomeTagsProvider {
     }
 
     @Override
-    protected void addTags(@Nonnull HolderLookup.Provider provider) {
+    protected void addTags(HolderLookup.Provider provider) {
         // Overworld
         tag(DETags.Biomes.HAS_CASTLE)
                 .addTag(Tags.Biomes.IS_COLD_OVERWORLD)

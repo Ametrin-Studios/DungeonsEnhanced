@@ -1,7 +1,7 @@
 package com.ametrin.dungeons_enhanced.world.structure.processor;
 
 import com.ametrin.dungeons_enhanced.registry.DEProcessorTypes;
-import com.legacy.structure_gel.api.data.tags.SGTags;
+import com.ametrin.structures.api.ASTags;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.LevelReader;
@@ -16,6 +16,7 @@ import org.jetbrains.annotations.Nullable;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@Deprecated //TODO: see if AS can do that
 public final class DEUnderwaterProcessor extends StructureProcessor {
     public static final DEUnderwaterProcessor INSTANCE = new DEUnderwaterProcessor();
     public static final MapCodec<DEUnderwaterProcessor> CODEC = MapCodec.unit(INSTANCE);
@@ -30,7 +31,7 @@ public final class DEUnderwaterProcessor extends StructureProcessor {
             return null;
         }
 
-        if (placed.state().is(SGTags.BlockTags.GEL)) {
+        if (placed.state().is(ASTags.Blocks.FOAM)) {
             return new StructureTemplate.StructureBlockInfo(placed.pos(), Blocks.WATER.defaultBlockState(), null);
         }
 

@@ -1,14 +1,11 @@
 package com.ametrin.dungeons_enhanced.registry;
 
 import com.ametrin.dungeons_enhanced.DungeonsEnhanced;
-import com.ametrin.dungeons_enhanced.world.structure.*;
-import com.legacy.structure_gel.api.registry.RegistrarHolder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
-@RegistrarHolder
 public final class DETemplatePools {
     // Overworld
     public static final ResourceKey<StructureTemplatePool> CASTLE = resourceKey("castle/root");
@@ -25,16 +22,16 @@ public final class DETemplatePools {
 
     public static void bootstrap(BootstrapContext<StructureTemplatePool> context) {
         // Overworld
-        DECastle.pool(context);
-        DEDeepCrypt.pool(context);
-        DEDesertTomb.pool(context);
-        DEDruidCircle.pool(context);
-        DELargeDungeon.pool(context);
-        DEMonsterMaze.pool(context);
-        DEPillagerCamp.pool(context);
+//        DECastle.pool(context);
+//        DEDeepCrypt.pool(context);
+//        DEDesertTomb.pool(context);
+//        DEDruidCircle.pool(context);
+//        DELargeDungeon.pool(context);
+//        DEMonsterMaze.pool(context);
+//        DEPillagerCamp.pool(context);
 
         // Nether
-        DEBlackCitadel.pool(context);
+//        DEBlackCitadel.pool(context);
     }
 
     static ResourceKey<StructureTemplatePool> resourceKey(String path) {

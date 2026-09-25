@@ -1,6 +1,5 @@
 package com.ametrin.dungeons_enhanced;
 
-import com.ametrin.dungeons_enhanced.world.structure.prefabs.utils.DEStructureTemplates;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelHeightAccessor;
@@ -18,7 +17,4 @@ public final class DEUtil {
         return pos.atY(chunkGenerator.getBaseHeight(pos.getX(), pos.getZ(), heightmapType, heightAccessor, randomState));
     }
 
-    public static DEStructureTemplates.Builder pieceBuilder() {
-        return new DEStructureTemplates.Builder();
-    }
 }
