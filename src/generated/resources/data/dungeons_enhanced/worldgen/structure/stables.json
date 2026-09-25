@@ -1,6 +1,15 @@
 {
-  "type": "dungeons_enhanced:stables",
+  "type": "ametrin_structures:simple",
   "biomes": "#dungeons_enhanced:has_structure/stables",
+  "pieces": {
+    "type": "ametrin_structures:single",
+    "offset": [
+      0,
+      -5,
+      0
+    ],
+    "template": "dungeons_enhanced:stables"
+  },
   "spawn_overrides": {},
   "step": "surface_structures"
 }

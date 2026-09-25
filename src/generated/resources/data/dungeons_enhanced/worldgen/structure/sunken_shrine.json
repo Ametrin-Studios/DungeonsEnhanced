@@ -1,6 +1,53 @@
 {
-  "type": "dungeons_enhanced:sunken_shrine",
+  "type": "ametrin_structures:simple",
   "biomes": "#dungeons_enhanced:has_structure/sunken_shrine",
+  "filters": [
+    {
+      "type": "ametrin_structures:underwater",
+      "min_depth": 5
+    }
+  ],
+  "pieces": {
+    "type": "ametrin_structures:weighted",
+    "templates": [
+      {
+        "data": {
+          "processors": {
+            "processors": [
+              {
+                "fill": "minecraft:water",
+                "processor_type": "ametrin_structures:remove_foam"
+              }
+            ]
+          },
+          "template": "dungeons_enhanced:sunken_shrine/small"
+        },
+        "weight": 2
+      },
+      {
+        "data": {
+          "offset": [
+            0,
+            -1,
+            0
+          ],
+          "processors": {
+            "processors": [
+              {
+                "fill": "minecraft:water",
+                "processor_type": "ametrin_structures:remove_foam"
+              }
+            ]
+          },
+          "template": "dungeons_enhanced:sunken_shrine/big"
+        },
+        "weight": 1
+      }
+    ]
+  },
   "spawn_overrides": {},
+  "start_height": {
+    "heightmap": "OCEAN_FLOOR_WG"
+  },
   "step": "surface_structures"
 }
