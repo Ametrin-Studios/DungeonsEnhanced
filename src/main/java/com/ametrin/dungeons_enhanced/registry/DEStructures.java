@@ -3,19 +3,23 @@ package com.ametrin.dungeons_enhanced.registry;
 import com.ametrin.dungeons_enhanced.DungeonsEnhanced;
 import com.ametrin.dungeons_enhanced.data.DETags;
 import com.ametrin.structures.api.structure.DeferredStructureRegister;
+import com.ametrin.structures.api.structure.simple.HeightAnchor;
 import com.ametrin.structures.api.structure.simple.HeightMode;
 import com.ametrin.structures.api.structure.simple.SimpleStructure;
 import com.ametrin.structures.impl.processor.RemoveFoamProcessor;
+import net.minecraft.core.BlockPos;
 import net.minecraft.util.random.Weighted;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.heightproviders.ConstantHeight;
+import net.minecraft.world.level.levelgen.structure.StructureSpawnOverride;
 import net.minecraft.world.level.levelgen.structure.TerrainAdjustment;
 import net.minecraft.world.level.material.Fluids;
 
-import java.util.Arrays;
 import java.util.List;
 
 public final class DEStructures {
@@ -40,7 +44,7 @@ public final class DEStructures {
 //    public static final StructureRegistrar<ExtendedJigsawStructure> MONSTER_MAZE_PALE;
 //    public static final StructureRegistrar<DEGroundStructure> MUSHROOM_HOUSE;
 //    public static final StructureRegistrar<ExtendedJigsawStructure> PILLAGER_CAMP;
-//    public static final StructureRegistrar<DEPirateShip> PIRATE_SHIP;
+    public static final SimpleStructure.Keys PIRATE_SHIP;
     public static final SimpleStructure.Keys RUINED_BUILDING;
     public static final SimpleStructure.Keys STABLES;
     public static final SimpleStructure.Keys SUNKEN_SHRINE;
@@ -108,8 +112,7 @@ public final class DEStructures {
                         .add(b -> b.template("dungeon_variant/spider").processors(DEProcessorLists.DUNGEON_VARIANT), 1)
                         .add(b -> b.template("dungeon_variant/special").processors(DEProcessorLists.DUNGEON_VARIANT), 1))
                 .placement(19, 0.59f)
-                .oceanFloor()
-                .heightRange(-100, -10)
+                .between(HeightAnchor.aboveBottom(8), HeightAnchor.oceanFloor(-32))
                 .biomes(DETags.Biomes.HAS_DUNGEON_VARIANT)
                 .step(GenerationStep.Decoration.UNDERGROUND_STRUCTURES)
                 .build();
@@ -134,8 +137,7 @@ public final class DEStructures {
         FLYING_DUTCHMAN = REGISTER.simple(DEStructureIDs.FLYING_DUTCHMAN)
                 .single("flying_dutchman")
                 .placement(b -> b.spacing(134).probability(0.63f).minChunksFromCenter(12))
-                .surface()
-                .heightRange(50, 150)
+                .between(HeightAnchor.surface(48), HeightAnchor.belowTop(24))
                 .biomes(DETags.Biomes.HAS_FLYING_DUTCHMAN)
                 .build();
 
@@ -217,15 +219,15 @@ public final class DEStructures {
 //                .popStructure()
 //                .build();
 
-//        PIRATE_SHIP = StructureRegistrar.builder(locate(DEStructureIDs.PIRATE_SHIP), () -> () -> DEPirateShip.CODEC)
-//                .placement(() -> gridPlacement(67, 49).build(DEStructures.PIRATE_SHIP))
-//                .addPiece(() -> DEGroundStructure.Piece::new)
-//                .pushStructure(DEPirateShip::new)
-//                .biomes(DETags.Biomes.HAS_PIRATE_SHIP)
-//                .spawns(MobCategory.MONSTER, StructureSpawnOverride.BoundingBoxType.STRUCTURE, () -> spawns(spawn(EntityType.PILLAGER, 4, 3, 4), spawn(EntityType.VINDICATOR, 3, 1, 2)))
-//                .noSpawns(StructureSpawnOverride.BoundingBoxType.STRUCTURE, MobCategory.UNDERGROUND_WATER_CREATURE, MobCategory.AXOLOTLS, MobCategory.WATER_AMBIENT, MobCategory.WATER_CREATURE)
-//                .popStructure()
-//                .build();
+        PIRATE_SHIP = REGISTER.simple(DEStructureIDs.PIRATE_SHIP)
+                .list(lb -> lb.add("pirate_ship/front").add(b -> b.template("pirate_ship/back").offset(new BlockPos(25, 0, 0))))
+                .placement(67, 0.49F)
+                .surface()
+                .biomes(DETags.Biomes.HAS_PIRATE_SHIP)
+//                .filterMinWaterDepth(6)
+                .spawnOverride(MobCategory.MONSTER, new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.STRUCTURE, spawns(spawn(EntityType.PILLAGER, 4, 3, 4), spawn(EntityType.VINDICATOR, 3, 1, 2))))
+                .noSpawns(StructureSpawnOverride.BoundingBoxType.STRUCTURE, MobCategory.UNDERGROUND_WATER_CREATURE, MobCategory.AXOLOTLS, MobCategory.WATER_AMBIENT, MobCategory.WATER_CREATURE)
+                .build();
 
         RUINED_BUILDING = REGISTER.simple(DEStructureIDs.RUINED_BUILDING)
                 .weighted(b -> b
@@ -239,7 +241,7 @@ public final class DEStructures {
                 .build();
 
         STABLES = REGISTER.simple(DEStructureIDs.STABLES)
-                .single(b -> b.template("stables").yOffset(-5))
+                .single(b -> b.template("stables").yOffset(-4))
                 .placement(53, 0.52f)
                 .surface()
                 .biomes(DETags.Biomes.HAS_STABLES)
@@ -249,14 +251,9 @@ public final class DEStructures {
                 .weighted(b -> b
                         .add(bt -> bt.template("sunken_shrine/small").processors(List.of(RemoveFoamProcessor.filledWith(Fluids.WATER))), 2)
                         .add(bt -> bt.template("sunken_shrine/big").yOffset(-1).processors(List.of(RemoveFoamProcessor.filledWith(Fluids.WATER))), 1))
-//                                .settings(settings -> settings
-//                                        .setLiquidSettings(LiquidSettings.APPLY_WATERLOGGING)
-//                                        .popProcessor(RemoveGelStructureProcessor.INSTANCE)
-//                                        .addProcessor(DEUnderwaterProcessor.INSTANCE)
-//                                )
                 .placement(32, 0.55f)
                 .oceanFloor()
-                .underwater(5)
+                .filterUnderwater(5)
                 .biomes(DETags.Biomes.HAS_SUNKEN_SHRINE)
                 .build();
 
@@ -264,7 +261,7 @@ public final class DEStructures {
                 .single(b -> b.template("tall_witch_hut").yOffset(-3))
                 .placement(21, 0.61f)
                 .surface()
-                .maxWaterDepth(4)
+                .filterMaxWaterDepth(4)
                 .biomes(DETags.Biomes.HAS_TALL_WITCH_HUT)
                 .build();
 
@@ -356,8 +353,8 @@ public final class DEStructures {
     }
 
     @SafeVarargs
-    private static List<Weighted<MobSpawnSettings.SpawnerData>> spawns(Weighted<MobSpawnSettings.SpawnerData>... spawns) {
-        return Arrays.stream(spawns).toList();
+    private static WeightedList<MobSpawnSettings.SpawnerData> spawns(Weighted<MobSpawnSettings.SpawnerData>... spawns) {
+        return WeightedList.of(spawns);
     }
 
     private static Weighted<MobSpawnSettings.SpawnerData> spawn(EntityType<?> entity, int weight, int min, int max) {

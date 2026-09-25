@@ -1,6 +1,22 @@
 {
-  "type": "dungeons_enhanced:pirate_ship",
+  "type": "ametrin_structures:simple",
   "biomes": "#dungeons_enhanced:has_structure/pirate_ship",
+  "pieces": {
+    "type": "ametrin_structures:list",
+    "templates": [
+      {
+        "template": "dungeons_enhanced:pirate_ship/front"
+      },
+      {
+        "offset": [
+          25,
+          0,
+          0
+        ],
+        "template": "dungeons_enhanced:pirate_ship/back"
+      }
+    ]
+  },
   "spawn_overrides": {
     "axolotls": {
       "bounding_box": "full",
