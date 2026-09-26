@@ -5,14 +5,14 @@
     "type": "ametrin_structures:compound",
     "templates": [
       {
-        "template": "dungeons_enhanced:pirate_ship/front"
-      },
-      {
         "offset": [
-          25,
+          -25,
           0,
           0
         ],
+        "template": "dungeons_enhanced:pirate_ship/front"
+      },
+      {
         "template": "dungeons_enhanced:pirate_ship/back"
       }
     ]

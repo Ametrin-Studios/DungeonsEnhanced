@@ -2,14 +2,13 @@ package com.ametrin.dungeons_enhanced.registry;
 
 import com.ametrin.dungeons_enhanced.DungeonsEnhanced;
 import com.ametrin.dungeons_enhanced.data.DETags;
-import com.ametrin.dungeons_enhanced.world.structure.DEIcePit;
+import com.ametrin.dungeons_enhanced.world.structure.DEIcePitPieces;
 import com.ametrin.dungeons_enhanced.world.structure.processor.DESwapDeadCoralsProcessor;
 import com.ametrin.structures.api.structure.DeferredStructureRegister;
 import com.ametrin.structures.api.structure.simple.HeightAnchor;
 import com.ametrin.structures.api.structure.simple.HeightMode;
 import com.ametrin.structures.api.structure.simple.SimpleStructure;
 import com.ametrin.structures.impl.processor.RemoveFoamProcessor;
-import net.minecraft.core.BlockPos;
 import net.minecraft.util.random.Weighted;
 import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.entity.EntityType;
@@ -20,7 +19,6 @@ import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.heightproviders.ConstantHeight;
 import net.minecraft.world.level.levelgen.structure.StructureSpawnOverride;
 import net.minecraft.world.level.levelgen.structure.TerrainAdjustment;
-import net.minecraft.world.level.material.Fluids;
 
 import java.util.List;
 
@@ -30,8 +28,8 @@ public final class DEStructures {
     // Overworld
 //    public static final StructureRegistrar<ExtendedJigsawStructure> CASTLE;
 //    public static final StructureRegistrar<ExtendedJigsawStructure> DEEP_CRYPT;
-//    public static final StructureRegistrar<DEDesertTemple> DESERT_TEMPLE;
-//    public static final StructureRegistrar<ExtendedJigsawStructure> DESERT_TOMB;
+    public static final SimpleStructure.Keys DESERT_TEMPLE;
+    //    public static final StructureRegistrar<ExtendedJigsawStructure> DESERT_TOMB;
 //    public static final StructureRegistrar<ExtendedJigsawStructure> DRUID_CIRCLE;
     public static final SimpleStructure.Keys DUNGEON_VARIANT;
     public static final SimpleStructure.Keys ELDERS_TEMPLE;
@@ -53,8 +51,8 @@ public final class DEStructures {
     public static final SimpleStructure.Keys TALL_WITCH_HUT;
     public static final SimpleStructure.Keys TREE_HOUSE;
     public static final SimpleStructure.Keys TOWER_OF_THE_UNDEAD;
-//    public static final StructureRegistrar<DEGroundStructure> WATCH_TOWER;
-//    public static final StructureRegistrar<DEGroundStructure> WITCH_TOWER;
+    public static final SimpleStructure.Keys WATCH_TOWER;
+    public static final SimpleStructure.Keys WITCH_TOWER;
 
     // Nether
 //    public static final StructureRegistrar<ExtendedJigsawStructure> BLACK_CITADEL;
@@ -82,14 +80,18 @@ public final class DEStructures {
 //                .popStructure()
 //                .build();
 //
-//        DESERT_TEMPLE = StructureRegistrar.builder(locate(DEStructureIDs.DESERT_TEMPLE), ()-> ()-> DEDesertTemple.CODEC)
-//                .placement(()-> gridPlacement(39, 86).build(DEStructures.DESERT_TEMPLE))
-//                .addPiece(()-> DEDesertTemple.Piece::new)
-//                .pushStructure(DEDesertTemple::new)
-//                        .biomes(DETags.Biomes.HAS_DESERT_TEMPLE)
-//                .popStructure()
-//                .build();
-//
+        DESERT_TEMPLE = REGISTER.simple(DEStructureIDs.DESERT_TEMPLE)
+                .compound(b -> b
+                        .add(t -> t.template("desert_temple/main").yOffset(-6))
+                        .add(t -> t.template("desert_temple/down").offset(15, -17, 2))
+                        .add(t -> t.template("desert_temple/down").offset(25, -17, 16))
+                        .add(t -> t.template("desert_temple/down").offset(13, -17, 14))
+                )
+                .horizontalPlacement(b -> b.spacing(39).probability(0.86f).minChunksFromCenter(12))
+                .biomes(DETags.Biomes.HAS_DESERT_TEMPLE)
+                .surface()
+                .build();
+
 //        DESERT_TOMB = StructureRegistrar.jigsawBuilder(locate(DEStructureIDs.DESERT_TOMB))
 //                .placement(()-> gridPlacement(29, 65).allowedNearSpawn(true).build(DEStructures.DESERT_TOMB))
 //                .addPiece(()-> DEDesertTomb.Piece::new)
@@ -113,9 +115,9 @@ public final class DEStructures {
                         .add(b -> b.template("dungeon_variant/skeleton").processors(DEProcessorLists.DUNGEON_VARIANT), 1)
                         .add(b -> b.template("dungeon_variant/spider").processors(DEProcessorLists.DUNGEON_VARIANT), 1)
                         .add(b -> b.template("dungeon_variant/special").processors(DEProcessorLists.DUNGEON_VARIANT), 1))
-                .placement(19, 0.59f)
-                .between(HeightAnchor.aboveBottom(8), HeightAnchor.oceanFloor(-32))
+                .horizontalPlacement(19, 0.59f)
                 .biomes(DETags.Biomes.HAS_DUNGEON_VARIANT)
+                .between(HeightAnchor.aboveBottom(8), HeightAnchor.oceanFloor(-32))
                 .step(GenerationStep.Decoration.UNDERGROUND_STRUCTURES)
                 .build();
 
@@ -126,54 +128,54 @@ public final class DEStructures {
                         .add(tb -> tb.template("elders_temple/se").offset(0, 0, 0))
                         .add(tb -> tb.template("elders_temple/sw").offset(-30, 0, 0))
                 )
-                .processors(List.of(RemoveFoamProcessor.filledWith(Fluids.WATER), DESwapDeadCoralsProcessor.INSTANCE))
-                .placement(b -> b.spacing(24).minChunksFromCenter(12))
-                .oceanFloor(-8)
-                .heightMode(HeightMode.MEAN)
-                .filterUnderwater(1)
+                .processors(List.of(RemoveFoamProcessor.WATER, DESwapDeadCoralsProcessor.INSTANCE))
                 .biomes(DETags.Biomes.HAS_ELDERS_TEMPLE)
+                .horizontalPlacement(b -> b.spacing(24).minChunksFromCenter(12))
+                .verticalPlacementMode(HeightMode.MEAN)
+                .oceanFloor(-8)
+                .filterSubmerged(1)
                 .spawnOverride(MobCategory.MONSTER, new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.STRUCTURE, spawns(spawn(EntityType.GUARDIAN, 1, 2, 4))))
                 .noSpawns(StructureSpawnOverride.BoundingBoxType.STRUCTURE, MobCategory.UNDERGROUND_WATER_CREATURE, MobCategory.AXOLOTLS, MobCategory.WATER_AMBIENT, MobCategory.WATER_CREATURE)
                 .build();
 
         FISHING_SHIP = REGISTER.simple(DEStructureIDs.FISHING_SHIP)
                 .single(b -> b.template("fishing_ship").yOffset(-3))
-                .placement(48, 0.68f)
-                .surface()
+                .horizontalPlacement(48, 0.68f)
                 .biomes(DETags.Biomes.HAS_FISHING_SHIP)
+                .surface()
                 .build();
 
         FLYING_DUTCHMAN = REGISTER.simple(DEStructureIDs.FLYING_DUTCHMAN)
                 .single("flying_dutchman")
-                .placement(b -> b.spacing(134).probability(0.63f).minChunksFromCenter(12))
-                .between(HeightAnchor.surface(48), HeightAnchor.belowTop(24))
+                .horizontalPlacement(b -> b.spacing(134).probability(0.63f).minChunksFromCenter(12))
                 .biomes(DETags.Biomes.HAS_FLYING_DUTCHMAN)
+                .between(HeightAnchor.surface(48), HeightAnchor.belowTop(24))
                 .build();
 
         HAY_STORAGE = REGISTER.simple(DEStructureIDs.HAY_STORAGE)
                 .weighted(b -> b
                         .add("hay_storage/small", 3)
                         .add("hay_storage/big", 2))
-                .placement(23, 0.77f)
-                .surface()
+                .horizontalPlacement(23, 0.77f)
                 .biomes(DETags.Biomes.HAS_HAY_STORAGE)
+                .surface()
                 .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                 .build();
 
         ICE_PIT = REGISTER.simple(DEStructureIDs.ICE_PIT)
-                .pieces(_ -> DEIcePit.INSTANCE)
-                .placement(b -> b.spacing(34).probability(0.77f).minChunksFromCenter(12))
-                .surface()
+                .pieces(_ -> DEIcePitPieces.INSTANCE)
+                .horizontalPlacement(b -> b.spacing(34).probability(0.77f).minChunksFromCenter(12))
                 .biomes(DETags.Biomes.HAS_ICE_PIT)
+                .surface()
                 .build();
 
         JUNGLE_MONUMENT = REGISTER.simple(DEStructureIDs.JUNGLE_MONUMENT)
                 .single(b -> b.template("jungle_monument").processors(DEProcessorLists.JUNGLE_MONUMENT).yOffset(-9))
-                .placement(46, 0.74f)
-                .surface()
-                .heightMode(HeightMode.MEAN)
-//                .flatness(12)
+                .horizontalPlacement(46, 0.74f)
                 .biomes(DETags.Biomes.HAS_JUNGLE_MONUMENT)
+                .verticalPlacementMode(HeightMode.MEAN)
+                .surface()
+//                .flatness(12)
                 .build();
 
 //        LARGE_DUNGEON = StructureRegistrar.jigsawBuilder(locate(DEStructureIDs.LARGE_DUNGEON))
@@ -186,9 +188,9 @@ public final class DEStructures {
 
         MINERS_HOUSE = REGISTER.simple(DEStructureIDs.MINERS_HOUSE)
                 .single(DEStructureIDs.MINERS_HOUSE)
-                .placement(24, 0.8f)
-                .surface()
+                .horizontalPlacement(24, 0.8f)
                 .biomes(DETags.Biomes.HAS_MINERS_HOUSE)
+                .surface()
                 .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                 .build();
 
@@ -212,9 +214,9 @@ public final class DEStructures {
                 .weighted(b -> b
                         .add("mushroom_house/red", 1)
                         .add("mushroom_house/brown", 1))
-                .placement(19, 0.83f)
-                .surface()
+                .horizontalPlacement(19, 0.83f)
                 .biomes(DETags.Biomes.HAS_MUSHROOM_HOUSE)
+                .surface()
                 .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                 .build();
 
@@ -229,12 +231,12 @@ public final class DEStructures {
 //                .build();
 
         PIRATE_SHIP = REGISTER.simple(DEStructureIDs.PIRATE_SHIP)
-                .compound(lb -> lb
-                        .add("pirate_ship/front")
-                        .add(b -> b.template("pirate_ship/back").offset(new BlockPos(25, 0, 0))))
-                .placement(67, 0.49F)
-                .surface()
+                .compound(b -> b
+                        .add(t -> t.template("pirate_ship/front").offset(-25, 0, 0))
+                        .add(t -> t.template("pirate_ship/back")))
+                .horizontalPlacement(67, 0.49F)
                 .biomes(DETags.Biomes.HAS_PIRATE_SHIP)
+                .surface()
 //                .filterMinWaterDepth(6)
                 .spawnOverride(MobCategory.MONSTER, new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.STRUCTURE, spawns(spawn(EntityType.PILLAGER, 4, 3, 4), spawn(EntityType.VINDICATOR, 3, 1, 2))))
                 .noSpawns(StructureSpawnOverride.BoundingBoxType.STRUCTURE, MobCategory.UNDERGROUND_WATER_CREATURE, MobCategory.AXOLOTLS, MobCategory.WATER_AMBIENT, MobCategory.WATER_CREATURE)
@@ -245,43 +247,44 @@ public final class DEStructures {
                         .add("ruined_building/house", 3)
                         .add("ruined_building/barn", 3)
                         .add("ruined_building/house_big", 2))
-                .placement(27, 0.54f)
-                .surface()
+                .horizontalPlacement(27, 0.54f)
                 .biomes(DETags.Biomes.HAS_RUINED_BUILDING)
+                .surface()
                 .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                 .build();
 
         STABLES = REGISTER.simple(DEStructureIDs.STABLES)
                 .single(b -> b.template("stables").yOffset(-4))
-                .placement(53, 0.52f)
-                .surface()
+                .horizontalPlacement(53, 0.52f)
                 .biomes(DETags.Biomes.HAS_STABLES)
+                .surface()
                 .build();
 
         SUNKEN_SHRINE = REGISTER.simple(DEStructureIDs.SUNKEN_SHRINE)
                 .weighted(b -> b
-                        .add(bt -> bt.template("sunken_shrine/small").processors(List.of(RemoveFoamProcessor.filledWith(Fluids.WATER))), 2)
-                        .add(bt -> bt.template("sunken_shrine/big").yOffset(-1).processors(List.of(RemoveFoamProcessor.filledWith(Fluids.WATER))), 1))
-                .placement(32, 0.55f)
-                .oceanFloor()
-                .filterUnderwater(5)
+                        .add(bt -> bt.template("sunken_shrine/small"), 2)
+                        .add(bt -> bt.template("sunken_shrine/big").yOffset(-1), 1))
+                .processors(List.of(RemoveFoamProcessor.WATER))
+                .horizontalPlacement(32, 0.55f)
                 .biomes(DETags.Biomes.HAS_SUNKEN_SHRINE)
+                .oceanFloor()
+                .filterSubmerged(5)
                 .build();
 
         TALL_WITCH_HUT = REGISTER.simple(DEStructureIDs.TALL_WITCH_HUT)
                 .single(b -> b.template("tall_witch_hut").yOffset(-3))
-                .placement(21, 0.61f)
+                .horizontalPlacement(21, 0.61f)
+                .biomes(DETags.Biomes.HAS_TALL_WITCH_HUT)
                 .surface()
                 .filterMaxWaterDepth(4)
-                .biomes(DETags.Biomes.HAS_TALL_WITCH_HUT)
                 .build();
 
 
         TREE_HOUSE = REGISTER.simple(DEStructureIDs.TREE_HOUSE)
                 .single("tree_house")
-                .placement(29, 0.4f)
-                .surface()
+                .horizontalPlacement(29, 0.4f)
                 .biomes(DETags.Biomes.HAS_TREE_HOUSE)
+                .surface()
                 .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                 .build();
 
@@ -289,30 +292,30 @@ public final class DEStructures {
                 .weighted(bw -> bw
                         .add("tower_of_the_undead/small", 3)
                         .add("tower_of_the_undead/big", 2))
-                .placement(49, 0.65f)
+                .horizontalPlacement(49, 0.65f)
+                .biomes(DETags.Biomes.HAS_TOWER_OF_THE_UNDEAD)
                 .surface()
 //                .avoidWater()
-                .biomes(DETags.Biomes.HAS_TOWER_OF_THE_UNDEAD)
                 .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                 .build();
 
-//        WATCH_TOWER = REGISTER.simple(locate(DEStructureIDs.WATCH_TOWER), () -> () -> DEGroundStructure.CODEC_WATCH_TOWER)
-//                .placement(() -> gridPlacement(27, 45).allowedNearSpawn(true).build(DEStructures.WATCH_TOWER))
-//                .addPiece(() -> DEGroundStructure.Piece::new)
-//                .pushStructure(DEGroundStructure::WatchTower)
-//                .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
-//                .biomes(DETags.Biomes.HAS_WATCH_TOWER)
-//                .popStructure()
-//                .build();
+        WATCH_TOWER = REGISTER.simple(DEStructureIDs.WATCH_TOWER)
+                .single("watch_tower")
+                .horizontalPlacement(27, 0.45f)
+                .biomes(DETags.Biomes.HAS_WATCH_TOWER)
+                .surface()
+                .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
+                .build();
 
-//        WITCH_TOWER = StructureRegistrar.builder(locate(DEStructureIDs.WITCH_TOWER), () -> () -> DEGroundStructure.CODEC_WITCH_TOWER)
-//                .placement(() -> gridPlacement(79, 54).allowedNearSpawn(true).build(DEStructures.WITCH_TOWER))
-//                .addPiece(() -> DEGroundStructure.Piece::new)
-//                .pushStructure(DEGroundStructure::WitchTower)
-//                .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
-//                .biomes(DETags.Biomes.HAS_WITCH_TOWER)
-//                .popStructure()
-//                .build();
+        WITCH_TOWER = REGISTER.simple(DEStructureIDs.WITCH_TOWER)
+                .weighted(b -> b
+                        .add("witch_tower/normal", 3)
+                        .add("witch_tower/big", 2))
+                .horizontalPlacement(79, 0.54f)
+                .biomes(DETags.Biomes.HAS_WITCH_TOWER)
+                .surface()
+                .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
+                .build();
 
         // Nether
 //        BLACK_CITADEL = StructureRegistrar.jigsawBuilder(locate(DEStructureIDs.BLACK_CITADEL))
@@ -327,38 +330,6 @@ public final class DEStructures {
 //                .build();
     }
 
-//    public static final StructureRegistrar<?>[] ALL_STRUCTURE_REGISTRARS = {
-//            CASTLE,
-//            DEEP_CRYPT,
-//            DESERT_TEMPLE,
-//            DESERT_TOMB,
-//            DRUID_CIRCLE,
-//            DUNGEON_VARIANT,
-//            ELDERS_TEMPLE,
-//            FISHING_SHIP,
-//            FLYING_DUTCHMAN,
-//            HAY_STORAGE,
-//            ICE_PIT,
-//            JUNGLE_MONUMENT,
-//            LARGE_DUNGEON,
-//            MINERS_HOUSE,
-//            MONSTER_MAZE_DARK,
-//            MONSTER_MAZE_PALE,
-//            MUSHROOM_HOUSE,
-//            PILLAGER_CAMP,
-//            PIRATE_SHIP,
-//            RUINED_BUILDING,
-//            STABLES,
-//            SUNKEN_SHRINE,
-//            TALL_WITCH_HUT,
-//            TOWER_OF_THE_UNDEAD,
-//            TREE_HOUSE,
-//            WATCH_TOWER,
-//            WITCH_TOWER,
-//
-//            BLACK_CITADEL,
-//    };
-
     private static ConstantHeight height(int y) {
         return ConstantHeight.of(new VerticalAnchor.Absolute(y));
     }
@@ -371,15 +342,6 @@ public final class DEStructures {
     private static Weighted<MobSpawnSettings.SpawnerData> spawn(EntityType<?> entity, int weight, int min, int max) {
         return new Weighted<>(new MobSpawnSettings.SpawnerData(entity, min, max), weight);
     }
-//
-//    private static GridStructurePlacement.Builder gridPlacement(int spacing, int probability) {
-//        return gridPlacement(spacing).probability(probability / 100f);
-//    }
-//
-//    private static GridStructurePlacement.Builder gridPlacement(int spacing) {
-//        return GridStructurePlacement.builder().spacing(spacing).offset((int) (spacing * 0.8));
-//    }
-//
 //    private static ExtendedJigsawStructure.Builder extendedJigsawStructure(BootstrapContext<?> context, Structure.StructureSettings settings, JigsawCapability capability, ResourceKey<StructureTemplatePool> poolKey, int maxDepth, HeightProvider heightProvider) {
 //        return ExtendedJigsawStructure.builder(settings, context.lookup(Registries.TEMPLATE_POOL).getOrThrow(poolKey)).maxDepth(maxDepth).startHeight(heightProvider).capability(capability);
 //    }

@@ -1,12 +1,10 @@
 {
   "placement": {
-    "type": "structure_gel:grid_placement",
-    "allowed_near_spawn": true,
-    "frequency": 0.45,
-    "offset": 21,
-    "salt": 562029851,
-    "spacing": 27,
-    "structure": "dungeons_enhanced:watch_tower"
+    "type": "ametrin_structures:scattered_grid",
+    "probability": 0.45,
+    "random_offset": 21,
+    "salt": -136611739,
+    "spacing": 27
   },
   "structures": [
     {

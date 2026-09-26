@@ -3,7 +3,7 @@
   "biomes": "#dungeons_enhanced:has_structure/elders_temple",
   "filters": [
     {
-      "type": "ametrin_structures:underwater",
+      "type": "ametrin_structures:submerged",
       "min_depth": 1
     }
   ],
@@ -43,7 +43,12 @@
   "processors": {
     "processors": [
       {
-        "fill": "minecraft:water",
+        "fill": {
+          "Name": "minecraft:water",
+          "Properties": {
+            "level": "0"
+          }
+        },
         "processor_type": "ametrin_structures:remove_foam"
       },
       {

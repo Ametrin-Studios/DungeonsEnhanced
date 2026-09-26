@@ -64,10 +64,10 @@ public final class DEAdvancementProvider extends AdvancementProvider {
 //                    .onEnterStructure(structureLookup, DEStructures.LARGE_DUNGEON)
 //                    .save(consumer);
 
-//            new AdvancementBuilder("traps_and_curses", Items.TNT)
-//                    .parent(root)
-//                    .onEnterStructure(structureLookup, DEStructures.DESERT_TEMPLE)
-//                    .save(consumer);
+            new AdvancementBuilder("traps_and_curses", Items.TNT)
+                    .parent(root)
+                    .onEnterStructure(structureLookup.getOrThrow(DEStructures.DESERT_TEMPLE.structure()))
+                    .save(consumer);
 
             new AdvancementBuilder("ancient_civilizations", Items.BAMBOO)
                     .parent(root)
@@ -79,20 +79,20 @@ public final class DEAdvancementProvider extends AdvancementProvider {
 //                    .onEnterStructure(structureLookup, DEStructures.CASTLE)
 //                    .save(consumer);
 
-//            new AdvancementBuilder("rarest_structure", Items.RED_MUSHROOM)
-//                    .parent(root)
-//                    .onEnterStructure(structureLookup, DEStructures.MUSHROOM_HOUSE)
-//                    .save(consumer);
+            new AdvancementBuilder("rarest_structure", Items.RED_MUSHROOM)
+                    .parent(root)
+                    .onEnterStructure(structureLookup.getOrThrow(DEStructures.MUSHROOM_HOUSE.structure()))
+                    .save(consumer);
 
             new AdvancementBuilder("chilled_halls", Items.BONE)
                     .parent(root)
                     .onEnterStructure(structureLookup.getOrThrow(DEStructures.ICE_PIT.structure()))
                     .save(consumer);
 
-//            new AdvancementBuilder("ahoy", Items.WITHER_SKELETON_SKULL)
-//                    .parent(root)
-//                    .onEnterStructure(structureLookup, DEStructures.PIRATE_SHIP)
-//                    .save(consumer);
+            new AdvancementBuilder("ahoy", Items.WITHER_SKELETON_SKULL)
+                    .parent(root)
+                    .onEnterStructure(structureLookup.getOrThrow(DEStructures.PIRATE_SHIP.structure()))
+                    .save(consumer);
 
             new AdvancementBuilder("in_the_air", Items.LANTERN)
                     .parent(root)
@@ -115,25 +115,25 @@ public final class DEAdvancementProvider extends AdvancementProvider {
 //                    .onEnterStructure(structureLookup, DEStructures.BLACK_CITADEL)
 //                    .save(consumer);
 
-//            var sevenWorldWonders = new AdvancementBuilder("seven_world_wonders", Items.SPYGLASS)
-//                    .parent(root)
-//                    .type(AdvancementType.GOAL)
-//                    .onEnterStructures(structureLookup,
+            var sevenWorldWonders = new AdvancementBuilder("seven_world_wonders", Items.SPYGLASS)
+                    .parent(root)
+                    .type(AdvancementType.GOAL)
+                    .onEnterStructures(structureLookup, Set.of(
 //                            DEStructures.CASTLE,
 //                            DEStructures.DEEP_CRYPT,
-//                            DEStructures.DESERT_TEMPLE,
-//                            DEStructures.ICE_PIT,
-//                            DEStructures.JUNGLE_MONUMENT,
+                            DEStructures.DESERT_TEMPLE.structure(),
+                            DEStructures.ICE_PIT.structure(),
+                            DEStructures.JUNGLE_MONUMENT.structure(),
 //                            DEStructures.MONSTER_MAZE_DARK,
-//                            DEStructures.ELDERS_TEMPLE
-//                    )
-//                    .save(consumer);
+                            DEStructures.ELDERS_TEMPLE.structure()
+                    ))
+                    .save(consumer);
 
-//            new AdvancementBuilder("ambitious_explorer", Items.FILLED_MAP)
-//                    .parent(sevenWorldWonders)
-//                    .type(AdvancementType.CHALLENGE)
-//                    .onEnterStructures(structureLookup, DEStructures.ALL_STRUCTURE_REGISTRARS)
-//                    .save(consumer);
+            new AdvancementBuilder("ambitious_explorer", Items.FILLED_MAP)
+                    .parent(sevenWorldWonders)
+                    .type(AdvancementType.CHALLENGE)
+                    .onEnterStructures(structureLookup, DEStructures.REGISTER.getAllStructures())
+                    .save(consumer);
         }
     }
 
