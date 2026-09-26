@@ -1,20 +1,45 @@
-//package com.ametrin.dungeons_enhanced.world.structure;
-//
-//import com.ametrin.dungeons_enhanced.DEUtil;
-//import com.ametrin.dungeons_enhanced.registry.DEStructures;
-//import com.ametrin.dungeons_enhanced.world.structure.prefabs.utils.DEPieceAssembler;
-//import com.mojang.serialization.MapCodec;
-//import net.minecraft.resources.Identifier;
-//import net.minecraft.world.level.block.Rotation;
-//import net.minecraft.world.level.levelgen.Heightmap;
-//
-//import javax.annotation.Nonnull;
-//import java.util.Optional;
-//
-//import static com.ametrin.dungeons_enhanced.DungeonsEnhanced.locate;
-//
-//public final class DEIcePit extends DEGroundStructure {
-//    public static final MapCodec<DEIcePit> CODEC = simpleCodec(DEIcePit::new);
+package com.ametrin.dungeons_enhanced.world.structure;
+
+import com.ametrin.dungeons_enhanced.registry.DEPieceSources;
+import com.ametrin.structures.api.structure.simple.PieceSource;
+import com.ametrin.structures.api.structure.simple.PieceSourceType;
+import com.ametrin.structures.api.structure.simple.TemplateEntry;
+import com.ametrin.structures.impl.structure.simple.PieceSources;
+import com.mojang.serialization.MapCodec;
+import net.minecraft.core.BlockPos;
+import net.minecraft.util.random.Weighted;
+import net.minecraft.util.random.WeightedList;
+import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.levelgen.structure.Structure;
+import net.minecraft.world.level.levelgen.structure.StructurePiece;
+
+import java.util.List;
+import java.util.Optional;
+
+import static com.ametrin.dungeons_enhanced.DungeonsEnhanced.locate;
+
+public final class DEIcePit implements PieceSource {
+    public static final DEIcePit INSTANCE = new DEIcePit();
+    public static final MapCodec<DEIcePit> CODEC = MapCodec.unit(INSTANCE);
+
+    private static final PieceSources.WeightedSource ROOMS = new PieceSources.WeightedSource(WeightedList.of(
+            new Weighted<>(new TemplateEntry(locate("ice_pit/var1"), new BlockPos(-17, -31, -17), Optional.empty()), 1),
+            new Weighted<>(new TemplateEntry(locate("ice_pit/var2"), new BlockPos(-17, -31, -17), Optional.empty()), 1),
+            new Weighted<>(new TemplateEntry(locate("ice_pit/var3"), new BlockPos(-17, -36, -17), Optional.empty()), 1)
+    ));
+
+    private static final TemplateEntry ENTRANCE = new TemplateEntry(locate("ice_pit/top"), new BlockPos(0, -25, 0), Optional.empty());
+
+    @Override
+    public void appendPieces(List<StructurePiece> builder, Structure.GenerationContext context, BlockPos origin, Rotation rotation) {
+        builder.add(PieceSources.createPiece(context, origin, ENTRANCE, rotation));
+        ROOMS.appendPieces(builder, context, origin, rotation);
+    }
+
+    @Override
+    public PieceSourceType type() {
+        return DEPieceSources.ICE_PIT.get();
+    }
 //    private static final Identifier ENTRANCE = locate("ice_pit/top");
 //
 //    public DEIcePit(StructureSettings settings) {
@@ -38,4 +63,4 @@
 //        }
 //        context.piecesBuilder().addPiece(new Piece(context.structureManager(), context.piece(), pos.offset(-17, yOffset, -17), context.rotation()));
 //    }
-//}
+}

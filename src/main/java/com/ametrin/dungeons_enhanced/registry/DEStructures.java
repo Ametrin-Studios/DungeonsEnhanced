@@ -2,6 +2,7 @@ package com.ametrin.dungeons_enhanced.registry;
 
 import com.ametrin.dungeons_enhanced.DungeonsEnhanced;
 import com.ametrin.dungeons_enhanced.data.DETags;
+import com.ametrin.dungeons_enhanced.world.structure.DEIcePit;
 import com.ametrin.structures.api.structure.DeferredStructureRegister;
 import com.ametrin.structures.api.structure.simple.HeightAnchor;
 import com.ametrin.structures.api.structure.simple.HeightMode;
@@ -36,14 +37,14 @@ public final class DEStructures {
     public static final SimpleStructure.Keys FISHING_SHIP;
     public static final SimpleStructure.Keys FLYING_DUTCHMAN;
     public static final SimpleStructure.Keys HAY_STORAGE;
-    //    public static final StructureRegistrar<DEIcePit> ICE_PIT;
+    public static final SimpleStructure.Keys ICE_PIT;
     public static final SimpleStructure.Keys JUNGLE_MONUMENT;
     //    public static final StructureRegistrar<ExtendedJigsawStructure> LARGE_DUNGEON;
     public static final SimpleStructure.Keys MINERS_HOUSE;
     //    public static final StructureRegistrar<ExtendedJigsawStructure> MONSTER_MAZE_DARK;
 //    public static final StructureRegistrar<ExtendedJigsawStructure> MONSTER_MAZE_PALE;
-//    public static final StructureRegistrar<DEGroundStructure> MUSHROOM_HOUSE;
-//    public static final StructureRegistrar<ExtendedJigsawStructure> PILLAGER_CAMP;
+    public static final SimpleStructure.Keys MUSHROOM_HOUSE;
+    //    public static final StructureRegistrar<ExtendedJigsawStructure> PILLAGER_CAMP;
     public static final SimpleStructure.Keys PIRATE_SHIP;
     public static final SimpleStructure.Keys RUINED_BUILDING;
     public static final SimpleStructure.Keys STABLES;
@@ -151,13 +152,12 @@ public final class DEStructures {
                 .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                 .build();
 
-//        ICE_PIT = StructureRegistrar.builder(locate(DEStructureIDs.ICE_PIT), () -> () -> DEIcePit.CODEC)
-//                .addPiece(() -> DEGroundStructure.Piece::new)
-//                .placement(() -> gridPlacement(34, 77).build(DEStructures.ICE_PIT))
-//                .pushStructure(DEIcePit::new)
-//                .biomes(DETags.Biomes.HAS_ICE_PIT)
-//                .popStructure()
-//                .build();
+        ICE_PIT = REGISTER.simple(DEStructureIDs.ICE_PIT)
+                .pieces(_ -> DEIcePit.INSTANCE)
+                .placement(b -> b.spacing(34).probability(0.77f).minChunksFromCenter(12))
+                .surface()
+                .biomes(DETags.Biomes.HAS_ICE_PIT)
+                .build();
 
         JUNGLE_MONUMENT = REGISTER.simple(DEStructureIDs.JUNGLE_MONUMENT)
                 .single(b -> b.template("jungle_monument").processors(DEProcessorLists.JUNGLE_MONUMENT).yOffset(-9))
@@ -200,14 +200,15 @@ public final class DEStructures {
 //                .popStructure()
 //                .build();
 
-//        MUSHROOM_HOUSE = StructureRegistrar.builder(locate(DEStructureIDs.MUSHROOM_HOUSE), () -> () -> DEGroundStructure.CODEC_MUSHROOM_HOUSE)
-//                .placement(() -> gridPlacement(19, 83).allowedNearSpawn(true).build(DEStructures.MUSHROOM_HOUSE))
-//                .addPiece(() -> DEGroundStructure.Piece::new)
-//                .pushStructure(DEGroundStructure::MushroomHouse)
-//                .biomes(DETags.Biomes.HAS_MUSHROOM_HOUSE)
-//                .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
-//                .popStructure()
-//                .build();
+        MUSHROOM_HOUSE = REGISTER.simple(DEStructureIDs.MUSHROOM_HOUSE)
+                .weighted(b -> b
+                        .add("mushroom_house/red", 1)
+                        .add("mushroom_house/brown", 1))
+                .placement(19, 0.83f)
+                .surface()
+                .biomes(DETags.Biomes.HAS_MUSHROOM_HOUSE)
+                .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
+                .build();
 
 //        PILLAGER_CAMP = StructureRegistrar.jigsawBuilder(locate(DEStructureIDs.PILLAGER_CAMP))
 //                .placement(() -> gridPlacement(56, 39).build(DEStructures.PILLAGER_CAMP))
@@ -220,7 +221,9 @@ public final class DEStructures {
 //                .build();
 
         PIRATE_SHIP = REGISTER.simple(DEStructureIDs.PIRATE_SHIP)
-                .list(lb -> lb.add("pirate_ship/front").add(b -> b.template("pirate_ship/back").offset(new BlockPos(25, 0, 0))))
+                .list(lb -> lb
+                        .add("pirate_ship/front")
+                        .add(b -> b.template("pirate_ship/back").offset(new BlockPos(25, 0, 0))))
                 .placement(67, 0.49F)
                 .surface()
                 .biomes(DETags.Biomes.HAS_PIRATE_SHIP)
