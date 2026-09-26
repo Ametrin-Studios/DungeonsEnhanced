@@ -9,8 +9,6 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.random.Weighted;
 import net.minecraft.util.random.WeightedList;
-import net.minecraft.world.level.block.Rotation;
-import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
 
 import java.util.List;
@@ -31,9 +29,9 @@ public final class DEIcePit implements PieceSource {
     private static final TemplateEntry ENTRANCE = new TemplateEntry(locate("ice_pit/top"), new BlockPos(0, -25, 0), Optional.empty());
 
     @Override
-    public void appendPieces(List<StructurePiece> builder, Structure.GenerationContext context, BlockPos origin, Rotation rotation) {
-        builder.add(PieceSources.createPiece(context, origin, ENTRANCE, rotation));
-        ROOMS.appendPieces(builder, context, origin, rotation);
+    public void appendPieces(List<StructurePiece> builder, Context context) {
+        builder.add(PieceSources.createPiece(ENTRANCE, context));
+        ROOMS.appendPieces(builder, context);
     }
 
     @Override

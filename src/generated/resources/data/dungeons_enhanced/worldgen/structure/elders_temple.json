@@ -1,6 +1,56 @@
 {
-  "type": "dungeons_enhanced:elders_temple",
+  "type": "ametrin_structures:simple",
   "biomes": "#dungeons_enhanced:has_structure/elders_temple",
+  "filters": [
+    {
+      "type": "ametrin_structures:underwater",
+      "min_depth": 1
+    }
+  ],
+  "height_mode": "mean",
+  "pieces": {
+    "type": "ametrin_structures:compound",
+    "templates": [
+      {
+        "offset": [
+          0,
+          0,
+          -29
+        ],
+        "template": "dungeons_enhanced:elders_temple/ne"
+      },
+      {
+        "offset": [
+          -30,
+          0,
+          -29
+        ],
+        "template": "dungeons_enhanced:elders_temple/nw"
+      },
+      {
+        "template": "dungeons_enhanced:elders_temple/se"
+      },
+      {
+        "offset": [
+          -30,
+          0,
+          0
+        ],
+        "template": "dungeons_enhanced:elders_temple/sw"
+      }
+    ]
+  },
+  "processors": {
+    "processors": [
+      {
+        "fill": "minecraft:water",
+        "processor_type": "ametrin_structures:remove_foam"
+      },
+      {
+        "processor_type": "dungeons_enhanced:swap_dead_corals"
+      }
+    ]
+  },
   "spawn_overrides": {
     "axolotls": {
       "bounding_box": "full",
@@ -29,6 +79,10 @@
       "bounding_box": "full",
       "spawns": []
     }
+  },
+  "start_height": {
+    "heightmap": "OCEAN_FLOOR_WG",
+    "offset": -8
   },
   "step": "surface_structures"
 }

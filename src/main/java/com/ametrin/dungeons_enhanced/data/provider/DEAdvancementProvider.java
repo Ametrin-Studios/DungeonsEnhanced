@@ -99,10 +99,10 @@ public final class DEAdvancementProvider extends AdvancementProvider {
                     .onEnterStructure(structureLookup.getOrThrow(DEStructures.FLYING_DUTCHMAN.structure()))
                     .save(consumer);
 
-//            new AdvancementBuilder("sunken_deeps", Items.NAUTILUS_SHELL)
-//                    .parent(root)
-//                    .onEnterStructure(structureLookup, DEStructures.ELDERS_TEMPLE)
-//                    .save(consumer);
+            new AdvancementBuilder("sunken_depths", Items.NAUTILUS_SHELL)
+                    .parent(root)
+                    .onEnterStructure(structureLookup.getOrThrow(DEStructures.ELDERS_TEMPLE.structure()))
+                    .save(consumer);
 
 //            new AdvancementBuilder("spooky_scary_citadel",
 //                    new BannerBuilder(Items.RED_BANNER)

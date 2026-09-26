@@ -2,7 +2,7 @@
   "type": "ametrin_structures:simple",
   "biomes": "#dungeons_enhanced:has_structure/pirate_ship",
   "pieces": {
-    "type": "ametrin_structures:list",
+    "type": "ametrin_structures:compound",
     "templates": [
       {
         "template": "dungeons_enhanced:pirate_ship/front"

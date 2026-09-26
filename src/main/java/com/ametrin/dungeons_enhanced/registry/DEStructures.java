@@ -3,6 +3,7 @@ package com.ametrin.dungeons_enhanced.registry;
 import com.ametrin.dungeons_enhanced.DungeonsEnhanced;
 import com.ametrin.dungeons_enhanced.data.DETags;
 import com.ametrin.dungeons_enhanced.world.structure.DEIcePit;
+import com.ametrin.dungeons_enhanced.world.structure.processor.DESwapDeadCoralsProcessor;
 import com.ametrin.structures.api.structure.DeferredStructureRegister;
 import com.ametrin.structures.api.structure.simple.HeightAnchor;
 import com.ametrin.structures.api.structure.simple.HeightMode;
@@ -33,7 +34,7 @@ public final class DEStructures {
 //    public static final StructureRegistrar<ExtendedJigsawStructure> DESERT_TOMB;
 //    public static final StructureRegistrar<ExtendedJigsawStructure> DRUID_CIRCLE;
     public static final SimpleStructure.Keys DUNGEON_VARIANT;
-    //    public static final StructureRegistrar<DEEldersTemple> ELDERS_TEMPLE;
+    public static final SimpleStructure.Keys ELDERS_TEMPLE;
     public static final SimpleStructure.Keys FISHING_SHIP;
     public static final SimpleStructure.Keys FLYING_DUTCHMAN;
     public static final SimpleStructure.Keys HAY_STORAGE;
@@ -118,15 +119,22 @@ public final class DEStructures {
                 .step(GenerationStep.Decoration.UNDERGROUND_STRUCTURES)
                 .build();
 
-//        ELDERS_TEMPLE = StructureRegistrar.builder(locate(DEStructureIDs.ELDERS_TEMPLE), ()-> ()-> DEEldersTemple.CODEC)
-//                .placement(()-> gridPlacement(24).build(DEStructures.ELDERS_TEMPLE))
-//                .addPiece(()-> DEEldersTemple.Piece::new)
-//                .pushStructure(DEEldersTemple::new)
-//                        .biomes(DETags.Biomes.HAS_ELDERS_TEMPLE)
-//                        .noSpawns(StructureSpawnOverride.BoundingBoxType.STRUCTURE, MobCategory.UNDERGROUND_WATER_CREATURE, MobCategory.AXOLOTLS, MobCategory.WATER_AMBIENT, MobCategory.WATER_CREATURE)
-//                        .spawns(MobCategory.MONSTER, StructureSpawnOverride.BoundingBoxType.STRUCTURE, ()-> spawns(spawn(EntityType.GUARDIAN, 1,2,4)))
-//                .popStructure()
-//                .build();
+        ELDERS_TEMPLE = REGISTER.simple(DEStructureIDs.ELDERS_TEMPLE)
+                .compound(b -> b
+                        .add(tb -> tb.template("elders_temple/ne").offset(0, 0, -29))
+                        .add(tb -> tb.template("elders_temple/nw").offset(-30, 0, -29))
+                        .add(tb -> tb.template("elders_temple/se").offset(0, 0, 0))
+                        .add(tb -> tb.template("elders_temple/sw").offset(-30, 0, 0))
+                )
+                .processors(List.of(RemoveFoamProcessor.filledWith(Fluids.WATER), DESwapDeadCoralsProcessor.INSTANCE))
+                .placement(b -> b.spacing(24).minChunksFromCenter(12))
+                .oceanFloor(-8)
+                .heightMode(HeightMode.MEAN)
+                .filterUnderwater(1)
+                .biomes(DETags.Biomes.HAS_ELDERS_TEMPLE)
+                .spawnOverride(MobCategory.MONSTER, new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.STRUCTURE, spawns(spawn(EntityType.GUARDIAN, 1, 2, 4))))
+                .noSpawns(StructureSpawnOverride.BoundingBoxType.STRUCTURE, MobCategory.UNDERGROUND_WATER_CREATURE, MobCategory.AXOLOTLS, MobCategory.WATER_AMBIENT, MobCategory.WATER_CREATURE)
+                .build();
 
         FISHING_SHIP = REGISTER.simple(DEStructureIDs.FISHING_SHIP)
                 .single(b -> b.template("fishing_ship").yOffset(-3))
@@ -221,7 +229,7 @@ public final class DEStructures {
 //                .build();
 
         PIRATE_SHIP = REGISTER.simple(DEStructureIDs.PIRATE_SHIP)
-                .list(lb -> lb
+                .compound(lb -> lb
                         .add("pirate_ship/front")
                         .add(b -> b.template("pirate_ship/back").offset(new BlockPos(25, 0, 0))))
                 .placement(67, 0.49F)
