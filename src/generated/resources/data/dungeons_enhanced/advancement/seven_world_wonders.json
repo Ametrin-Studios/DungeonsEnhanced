@@ -80,16 +80,16 @@
   },
   "requirements": [
     [
-      "entered_elders_temple"
+      "entered_jungle_monument"
     ],
     [
-      "entered_jungle_monument"
+      "entered_ice_pit"
     ],
     [
       "entered_desert_temple"
     ],
     [
-      "entered_ice_pit"
+      "entered_elders_temple"
     ]
   ]
 }

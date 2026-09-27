@@ -320,61 +320,61 @@
   },
   "requirements": [
     [
-      "entered_ice_pit"
-    ],
-    [
-      "entered_witch_tower"
-    ],
-    [
-      "entered_tower_of_the_undead"
-    ],
-    [
-      "entered_flying_dutchman"
-    ],
-    [
-      "entered_tall_witch_hut"
-    ],
-    [
       "entered_sunken_shrine"
-    ],
-    [
-      "entered_tree_house"
     ],
     [
       "entered_watch_tower"
     ],
     [
-      "entered_miners_house"
+      "entered_stables"
     ],
     [
       "entered_mushroom_house"
     ],
     [
-      "entered_ruined_building"
-    ],
-    [
-      "entered_elders_temple"
-    ],
-    [
-      "entered_fishing_ship"
-    ],
-    [
-      "entered_hay_storage"
-    ],
-    [
       "entered_pirate_ship"
-    ],
-    [
-      "entered_dungeon_variant"
     ],
     [
       "entered_desert_temple"
     ],
     [
+      "entered_tall_witch_hut"
+    ],
+    [
+      "entered_tower_of_the_undead"
+    ],
+    [
       "entered_jungle_monument"
     ],
     [
-      "entered_stables"
+      "entered_dungeon_variant"
+    ],
+    [
+      "entered_fishing_ship"
+    ],
+    [
+      "entered_tree_house"
+    ],
+    [
+      "entered_elders_temple"
+    ],
+    [
+      "entered_miners_house"
+    ],
+    [
+      "entered_hay_storage"
+    ],
+    [
+      "entered_witch_tower"
+    ],
+    [
+      "entered_ruined_building"
+    ],
+    [
+      "entered_flying_dutchman"
+    ],
+    [
+      "entered_ice_pit"
     ]
   ]
 }
