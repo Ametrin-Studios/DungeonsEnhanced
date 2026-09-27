@@ -30,9 +30,9 @@ import net.minecraft.world.level.levelgen.structure.Structure;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
+import java.util.stream.Stream;
 
 public final class DEAdvancementProvider extends AdvancementProvider {
     public DEAdvancementProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
@@ -118,7 +118,7 @@ public final class DEAdvancementProvider extends AdvancementProvider {
             var sevenWorldWonders = new AdvancementBuilder("seven_world_wonders", Items.SPYGLASS)
                     .parent(root)
                     .type(AdvancementType.GOAL)
-                    .onEnterStructures(structureLookup, Set.of(
+                    .onEnterStructures(structureLookup, Stream.of(
 //                            DEStructures.CASTLE,
 //                            DEStructures.DEEP_CRYPT,
                             DEStructures.DESERT_TEMPLE.structure(),
@@ -218,10 +218,8 @@ public final class DEAdvancementProvider extends AdvancementProvider {
         }
 
         @SuppressWarnings("unchecked")
-        public AdvancementBuilder onEnterStructures(HolderLookup.RegistryLookup<Structure> lookup, Set<ResourceKey<Structure>> structures) {
-            for (var structure : structures) {
-                onEnterStructure(lookup.getOrThrow(structure));
-            }
+        public AdvancementBuilder onEnterStructures(HolderLookup.RegistryLookup<Structure> lookup, Stream<ResourceKey<Structure>> structures) {
+            structures.map(lookup::getOrThrow).forEach(this::onEnterStructure);
             return this;
         }
 

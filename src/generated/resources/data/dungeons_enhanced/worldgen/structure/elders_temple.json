@@ -7,6 +7,7 @@
       "min_depth": 1
     }
   ],
+  "foundation": {},
   "height_mode": "mean",
   "pieces": {
     "type": "ametrin_structures:compound",

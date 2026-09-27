@@ -134,6 +134,7 @@ public final class DEStructures {
                 .verticalPlacementMode(HeightMode.MEAN)
                 .oceanFloor(-8)
                 .filterSubmerged(1)
+                .foundation()
                 .spawnOverride(MobCategory.MONSTER, new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.STRUCTURE, spawns(spawn(EntityType.GUARDIAN, 1, 2, 4))))
                 .noSpawns(StructureSpawnOverride.BoundingBoxType.STRUCTURE, MobCategory.UNDERGROUND_WATER_CREATURE, MobCategory.AXOLOTLS, MobCategory.WATER_AMBIENT, MobCategory.WATER_CREATURE)
                 .build();
