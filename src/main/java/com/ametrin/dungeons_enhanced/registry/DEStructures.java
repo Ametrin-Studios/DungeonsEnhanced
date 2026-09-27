@@ -132,7 +132,7 @@ public final class DEStructures {
                 .biomes(DETags.Biomes.HAS_ELDERS_TEMPLE)
                 .horizontalPlacement(b -> b.spacing(24).minChunksFromCenter(12))
                 .verticalPlacementMode(HeightMode.MEAN)
-                .oceanFloor(-8)
+                .oceanFloor(-6)
                 .filterSubmerged(1)
                 .foundation()
                 .spawnOverride(MobCategory.MONSTER, new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.STRUCTURE, spawns(spawn(EntityType.GUARDIAN, 1, 2, 4))))
