@@ -33,7 +33,7 @@ public final class DEStructures {
     public static final DeferredStructureHolder DEEP_CRYPT;
     public static final DeferredStructureHolder DESERT_TEMPLE;
     public static final DeferredStructureHolder DESERT_TOMB;
-    //    public static final StructureRegistrar<ExtendedJigsawStructure> DRUID_CIRCLE;
+    //    public static final DeferredStructureHolder DRUID_CIRCLE;
     public static final DeferredStructureHolder DUNGEON_VARIANT;
     public static final DeferredStructureHolder ELDERS_TEMPLE;
     public static final DeferredStructureHolder FISHING_SHIP;
@@ -41,10 +41,9 @@ public final class DEStructures {
     public static final DeferredStructureHolder HAY_STORAGE;
     public static final DeferredStructureHolder ICE_PIT;
     public static final DeferredStructureHolder JUNGLE_MONUMENT;
-    //    public static final StructureRegistrar<ExtendedJigsawStructure> LARGE_DUNGEON;
+    public static final DeferredStructureHolder LARGE_DUNGEON;
     public static final DeferredStructureHolder MINERS_HOUSE;
-    //    public static final StructureRegistrar<ExtendedJigsawStructure> MONSTER_MAZE_DARK;
-//    public static final StructureRegistrar<ExtendedJigsawStructure> MONSTER_MAZE_PALE;
+    public static final DeferredStructureHolder MONSTER_MAZE;
     public static final DeferredStructureHolder MUSHROOM_HOUSE;
     public static final DeferredStructureHolder PILLAGER_CAMP;
     public static final DeferredStructureHolder PIRATE_SHIP;
@@ -58,7 +57,7 @@ public final class DEStructures {
     public static final DeferredStructureHolder WITCH_TOWER;
 
     // Nether
-//    public static final StructureRegistrar<ExtendedJigsawStructure> BLACK_CITADEL;
+    public static final DeferredStructureHolder BLACK_CITADEL;
 
     private DEStructures() {}
 
@@ -201,13 +200,16 @@ public final class DEStructures {
                         .single(b -> b.template("jungle_monument").processors(DEProcessorLists.JUNGLE_MONUMENT).yOffset(-9))
                 ).build();
 
-//        LARGE_DUNGEON = StructureRegistrar.jigsawBuilder(locate(DEStructureIDs.LARGE_DUNGEON))
-//                .placement(() -> gridPlacement(59, 56).allowedNearSpawn(true).build(DEStructures.LARGE_DUNGEON))
-//                .addPiece(() -> DELargeDungeon.Piece::new)
-//                .pushStructure((context, settings) -> extendedJigsawStructure(context, settings, DELargeDungeon.Capability.INSTANCE, DETemplatePools.LARGE_DUNGEON, 5, height(-16)).onSurface().build())
-//                .biomes(DETags.Biomes.HAS_LARGE_DUNGEON)
-//                .popStructure()
-//                ).build();
+        LARGE_DUNGEON = REGISTER.set(DEStructureIDs.LARGE_DUNGEON)
+                .scatteredGridPlacement(p -> p.spacing(59).probability(0.56f))
+                .jigsaw(DETemplatePools.LARGE_DUNGEON, j -> j
+                                .size(5)
+                                .startHeight(-16)
+                                .onSurface()
+                        , s -> s
+                                .biomes(DETags.Biomes.HAS_LARGE_DUNGEON)
+                )
+                .build();
 
         MINERS_HOUSE = REGISTER.set(DEStructureIDs.MINERS_HOUSE)
                 .scatteredGridPlacement(24, 0.8f)
@@ -218,21 +220,21 @@ public final class DEStructures {
                         .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                 ).build();
 
-//        MONSTER_MAZE_DARK = StructureRegistrar.jigsawBuilder(locate(DEStructureIDs.MONSTER_MAZE_DARK))
-//                .placement(() -> gridPlacement(28, 62).build(DEStructures.MONSTER_MAZE_DARK))
-//                .addPiece(() -> DEMonsterMaze.Piece::new)
-//                .pushStructure((context, settings) -> extendedJigsawStructure(context, settings, DEMonsterMaze.Capability.INSTANCE, DETemplatePools.MONSTER_MAZE_DARK, 11, height(-26)).onSurface().build())
-//                .biomes(DETags.Biomes.HAS_MONSTER_MAZE_DARK)
-//                .popStructure()
-//                ).build();
-
-//        MONSTER_MAZE_PALE = StructureRegistrar.jigsawBuilder(locate(DEStructureIDs.MONSTER_MAZE_PALE))
-//                .placement(() -> gridPlacement(18, 62).build(DEStructures.MONSTER_MAZE_DARK))
-//                .addPiece(() -> DEMonsterMaze.Piece::new)
-//                .pushStructure((context, settings) -> extendedJigsawStructure(context, settings, DEMonsterMaze.Capability.INSTANCE, DETemplatePools.MONSTER_MAZE_PALE, 11, height(-26)).onSurface().build())
-//                .biomes(DETags.Biomes.HAS_MONSTER_MAZE_PALE)
-//                .popStructure()
-//                ).build();
+        MONSTER_MAZE = REGISTER.set("monster_maze")
+                .scatteredGridPlacement(p -> p.spacing(28).probability(0.62f).minChunksFromCenter(12))
+                .jigsaw("dark", DETemplatePools.MONSTER_MAZE_DARK, j -> j
+                                .size(11)
+                                .onSurface()
+                                .startHeight(-26)
+                        , s -> s
+                                .biomes(DETags.Biomes.HAS_MONSTER_MAZE_DARK)
+                ).jigsaw("pale", DETemplatePools.MONSTER_MAZE_PALE, j -> j
+                                .size(11)
+                                .onSurface()
+                                .startHeight(-26)
+                        , s -> s
+                                .biomes(DETags.Biomes.HAS_MONSTER_MAZE_PALE)
+                ).build();
 
         MUSHROOM_HOUSE = REGISTER.set(DEStructureIDs.MUSHROOM_HOUSE)
                 .scatteredGridPlacement(19, 0.83f)
@@ -353,16 +355,18 @@ public final class DEStructures {
                 ).build();
 
         // Nether
-//        BLACK_CITADEL = StructureRegistrar.jigsawBuilder(locate(DEStructureIDs.BLACK_CITADEL))
-//                .placement(() -> gridPlacement(67, 75).build(DEStructures.BLACK_CITADEL))
-//                .addPiece(() -> DEBlackCitadel.Piece::new)
-//                .pushStructure((context, settings) -> extendedJigsawStructure(context, settings, DEBlackCitadel.Capability.INSTANCE, DETemplatePools.BLACK_CITADEL, 6, height(28)).maxDistanceFromCenter(116).build())
-//                .biomes(DETags.Biomes.HAS_BLACK_CITADEL)
-//                .spawns(MobCategory.MONSTER, StructureSpawnOverride.BoundingBoxType.PIECE, () -> spawns(spawn(EntityType.WITHER_SKELETON, 4, 2, 5), spawn(EntityType.SKELETON, 1, 1, 3)))
-//                .generationStep(GenerationStep.Decoration.UNDERGROUND_STRUCTURES) //needs to generate after the basalt
-//                .terrainAdjustment(TerrainAdjustment.BEARD_BOX)
-//                .popStructure()
-//                ).build();
+        BLACK_CITADEL = REGISTER.set(DEStructureIDs.BLACK_CITADEL)
+                .scatteredGridPlacement(p -> p.spacing(67).probability(0.75f))
+                .jigsaw(DETemplatePools.BLACK_CITADEL, j -> j
+                                .size(6)
+                                .startHeight(28)
+                                .maxDistanceFromCenter(116)
+                        , s -> s
+                                .biomes(DETags.Biomes.HAS_BLACK_CITADEL)
+                                .spawnOverride(MobCategory.MONSTER, new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.PIECE, spawns(spawn(EntityType.WITHER_SKELETON, 4, 2, 5), spawn(EntityType.SKELETON, 1, 1, 3))))
+                                .step(GenerationStep.Decoration.UNDERGROUND_STRUCTURES) // needs to generate after the basalt
+                                .terrainAdaptation(TerrainAdjustment.BEARD_BOX)
+                ).build();
     }
 
     private static ConstantHeight height(int y) {

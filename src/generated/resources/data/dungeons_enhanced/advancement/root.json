@@ -9,6 +9,7 @@
             "predicate": {
               "location": {
                 "structures": [
+                  "dungeons_enhanced:black_citadel",
                   "dungeons_enhanced:castle",
                   "dungeons_enhanced:deep_crypt",
                   "dungeons_enhanced:desert_temple",
@@ -20,7 +21,10 @@
                   "dungeons_enhanced:hay_storage",
                   "dungeons_enhanced:ice_pit",
                   "dungeons_enhanced:jungle_monument",
+                  "dungeons_enhanced:large_dungeon",
                   "dungeons_enhanced:miners_house",
+                  "dungeons_enhanced:monster_maze_dark",
+                  "dungeons_enhanced:monster_maze_pale",
                   "dungeons_enhanced:mushroom_house",
                   "dungeons_enhanced:pillager_camp",
                   "dungeons_enhanced:pirate_ship",

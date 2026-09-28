@@ -2,9 +2,8 @@
   "elements": [
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:foam_single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/big1",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },
@@ -12,9 +11,8 @@
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:foam_single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/big2",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },
@@ -22,9 +20,8 @@
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:foam_single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/big3",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },
@@ -32,9 +29,8 @@
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:foam_single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/big4",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },
@@ -42,9 +38,8 @@
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:foam_single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/big5",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },

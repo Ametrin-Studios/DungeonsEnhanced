@@ -1,76 +1,82 @@
 package com.ametrin.dungeons_enhanced.world.structure;
 
+import com.ametrin.dungeons_enhanced.DungeonsEnhanced;
+import com.ametrin.dungeons_enhanced.registry.DEProcessorLists;
+import com.ametrin.structures.structure.jigsaw.JigsawPools;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
-public final class DEMonsterMaze {
-//    public static class Capability implements JigsawCapability {
-//        public static final Capability INSTANCE = new Capability();
-//        public static final MapCodec<Capability> CODEC = MapCodec.unit(INSTANCE);
-//
-//        @Override
-//        public JigsawCapabilityType<?> getType() {
-//            return DEJigsawTypes.MONSTER_MAZE.get();
-//        }
-//
-//        @Override
-//        public boolean canPlace(Structure.GenerationContext generationContext, BlockPos placementPos, ExtendedJigsawStructure.PlaceContext placeContext) {
-//            return placementPos.getY() < 90;
-//        }
-//
-//        @Override
-//        public IPieceFactory getPieceFactory() {
-//            return Piece::new;
-//        }
-//    }
-//
-//    public static class Piece extends ExtendedJigsawStructurePiece {
-//        public Piece(IPieceFactory.Context context) {
-//            super(context);
-//        }
-//
-//        public Piece(StructurePieceSerializationContext serializationContext, CompoundTag nbt) {
-//            super(serializationContext, nbt);
-//        }
-//
-//        @Override
-//        public @NotNull StructurePieceType getType() {
-//            return Objects.requireNonNull(DEStructures.MONSTER_MAZE_DARK.getPieceType().get());
-//        }
-//
-//        @Override
-//        public void handleDataMarker(String key, BlockPos pos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) { }
-//    }
+import java.util.List;
+import java.util.function.Consumer;
 
+public final class DEMonsterMaze {
     public static void pool(BootstrapContext<StructureTemplatePool> context) {
-//        var registry = new JigsawRegistryHelper(DungeonsEnhanced.MOD_ID, "monster_maze/", context);
-//        registry.registerBuilder().pools(registry.poolBuilder().names("dark_root").maintainWater(false)).register(DETemplatePools.MONSTER_MAZE_DARK);
-//        registry.registerBuilder().pools(registry.poolBuilder().names("pale_root").maintainWater(false)).register(DETemplatePools.MONSTER_MAZE_PALE);
-//
-//        var basicPool = registry.poolBuilder().maintainWater(false).processors(DEProcessorLists.MONSTER_MAZE);
-//        var crossTunnels = basicPool.clone().names("tunnels/cross1", "tunnels/cross2");
-//        var edgeTunnels = basicPool.clone().names("tunnels/edge1", "tunnels/edge2");
-//        var roomTunnels = basicPool.clone().names("tunnels/room1", "tunnels/room2", "tunnels/room3");
-//        var shortTunnels = basicPool.clone().names("tunnels/small1", "tunnels/small2", "tunnels/small3");
-//        var longTunnels = basicPool.clone().names("tunnels/big1", "tunnels/big2", "tunnels/big3", "tunnels/big4", "tunnels/big5");
-//        var startStairs = basicPool.clone().names("stairs/big1", "stairs/big2");
-//        var stairs = basicPool.clone().names("stairs/big1", "stairs/big2", "stairs/big3");
-//        var rooms = basicPool.clone().names("big_room", "church", "prison", "room1", "storage", "brewery");
-//        var boss = basicPool.clone().names("boss");
-//
-//        registry.register("tunnels/cross", crossTunnels);
-//        registry.register("tunnels/edge", edgeTunnels);
-//        registry.register("tunnels/room", roomTunnels);
-//        registry.register("tunnels/small", shortTunnels);
-//        registry.register("tunnels/big", longTunnels);
-//        registry.register("start_stairs", startStairs);
-//        registry.register("stairs", stairs);
-//        registry.register("rooms", rooms);
-//        registry.register("boss", boss);
-//
-//        registry.register("dark_tree", basicPool.clone().names("dark_tree"));
-//        registry.register("pale_tree", basicPool.clone().names("pale_tree"));
-//        registry.register("tunnels", JigsawPoolBuilder.collect(edgeTunnels, roomTunnels, shortTunnels, longTunnels));
-//        registry.register("main", JigsawPoolBuilder.collect(edgeTunnels.weight(4), roomTunnels.weight(3), shortTunnels.weight(2), longTunnels.weight(3), crossTunnels.weight(5), rooms.weight(2)));
+        var builder = new JigsawPools(context, DungeonsEnhanced.MOD_ID, "monster_maze/");
+        Consumer<JigsawPools.Element> elementSettings = e -> e.processors(DEProcessorLists.MONSTER_MAZE);
+
+
+        builder.pool("dark_root", p -> p.element("dark_root"));
+        builder.pool("pale_root", p -> p.element("pale_root"));
+        builder.pool("dark_tree", p -> p.element("dark_tree", elementSettings));
+        builder.pool("pale_tree", p -> p.element("pale_tree", elementSettings));
+
+        var crossTunnels = List.of("tunnels/cross1", "tunnels/cross2");
+        var edgeTunnels = List.of("tunnels/edge1", "tunnels/edge2");
+        var roomTunnels = List.of("tunnels/room1", "tunnels/room2", "tunnels/room3");
+        var smallTunnels = List.of("tunnels/small1", "tunnels/small2", "tunnels/small3");
+        var bigTunnels = List.of("tunnels/big1", "tunnels/big2", "tunnels/big3", "tunnels/big4", "tunnels/big5");
+        var startStairs = List.of("stairs/big1", "stairs/big2");
+        var stairs = List.of("stairs/big1", "stairs/big2", "stairs/big3");
+        var rooms = List.of("big_room", "church", "prison", "room1", "storage", "brewery");
+
+        builder.pool("tunnels/cross", p -> p
+                .elements(crossTunnels, elementSettings)
+        );
+
+        builder.pool("tunnels/edge", p -> p
+                .elements(edgeTunnels, elementSettings)
+        );
+
+        builder.pool("tunnels/room", p -> p
+                .elements(roomTunnels, elementSettings)
+        );
+
+        builder.pool("tunnels/small", p -> p
+                .elements(smallTunnels, elementSettings)
+        );
+
+        builder.pool("tunnels/big", p -> p
+                .elements(bigTunnels, elementSettings)
+        );
+
+        builder.pool("start_stairs", p -> p
+                .elements(startStairs, elementSettings)
+        );
+
+        builder.pool("stairs", p -> p
+                .elements(stairs, elementSettings)
+        );
+
+        builder.pool("rooms", p -> p
+                .elements(rooms, elementSettings)
+        );
+
+        builder.pool("tunnels", p -> p
+                .elements(edgeTunnels, elementSettings)
+                .elements(roomTunnels, elementSettings)
+                .elements(smallTunnels, elementSettings)
+                .elements(bigTunnels, elementSettings)
+        );
+
+        builder.pool("main", p -> p
+                .elements(edgeTunnels, e -> elementSettings.accept(e.weight(4)))
+                .elements(roomTunnels, e -> elementSettings.accept(e.weight(3)))
+                .elements(smallTunnels, e -> elementSettings.accept(e.weight(2)))
+                .elements(bigTunnels, e -> elementSettings.accept(e.weight(3)))
+                .elements(crossTunnels, e -> elementSettings.accept(e.weight(5)))
+                .elements(rooms, e -> elementSettings.accept(e.weight(2)))
+        );
+
+        builder.pool("boss", p -> p.element("boss", elementSettings));
     }
 }
