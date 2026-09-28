@@ -4,9 +4,9 @@ import com.ametrin.dungeons_enhanced.DungeonsEnhanced;
 import com.ametrin.structures.registry.ASRegistries;
 import com.ametrin.structures.spawner.SpawnDataBuilder;
 import com.ametrin.structures.spawner.SpawnerProfile;
-import net.minecraft.nbt.NbtOps;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.EquipmentTable;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.SpawnData;
@@ -20,10 +20,10 @@ public final class DESpawnerProfiles {
 
     public static final DeferredHolder<SpawnerProfile, SpawnerProfile> MONSTER_MAZE_DEFAULT = REGISTER.register("monster_maze/default", () -> (builder, registry) ->
     {
-        var ops = registry.createSerializationContext(NbtOps.INSTANCE);
+//        var ops = registry.createSerializationContext(NbtOps.INSTANCE);
 //        builder.spawnData(createSpawnDataWithEquipment(EntityType.ZOMBIE, DELootTables.MonsterMaze.EQUIPMENT_ZOMBIE))
 //                .spawnData(createSpawnDataWithEquipment(EntityType.SKELETON, DELootTables.MonsterMaze.EQUIPMENT_SKELETON))
-        builder.add(builder(EntityType.SPIDER).passenger(EntityType.SKELETON, Items.BOW, ops).build(), 1)
+        builder.add(builder(EntityType.SPIDER).passenger(new SpawnDataBuilder(EntityType.SKELETON).equip(EquipmentSlot.MAINHAND, Items.BOW)).build(), 1)
 //                .spawnData(EntityType.CAVE_SPIDER)
         ;
     });
@@ -54,6 +54,10 @@ public final class DESpawnerProfiles {
                 .add(EntityType.CAVE_SPIDER, 1)
         ;
     });
+
+    public static final DeferredHolder<SpawnerProfile, SpawnerProfile> FLYING_DUTCHMAN = REGISTER.register("flying_dutchman", () -> (builder, registry) ->
+            builder.add(builder(EntityType.SKELETON).equipment(DELootTables.EQUIPMENT_FLYING_DUTCHMAN_SKELETONS).build(), 1)
+    );
 
     private static SpawnDataBuilder builder(EntityType<?> entityType) {
         return new SpawnDataBuilder(entityType);

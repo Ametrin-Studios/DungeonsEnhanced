@@ -4,6 +4,7 @@ import com.ametrin.dungeons_enhanced.DungeonsEnhanced;
 import com.ametrin.dungeons_enhanced.data.DETags;
 import com.ametrin.dungeons_enhanced.registry.DEStructures;
 import com.ametrinstudios.ametrin.data.provider.ExtendedAdvancementSubProvider;
+import com.ametrinstudios.ametrin.util.BannerBuilder;
 import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.advancements.AdvancementType;
 import net.minecraft.core.HolderLookup;
@@ -11,7 +12,9 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.advancements.AdvancementProvider;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.entity.BannerPatterns;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -40,17 +43,19 @@ public final class DEAdvancementProvider extends AdvancementProvider {
                     .onEnterAnyStructure("entered_dungeon_enhanced_structure", DEStructures.REGISTER.getAllStructures())
                     .save(consumer);
 
-//            new AdvancementBuilder("hidden_under_the_roots", Items.JACK_O_LANTERN)
-//                    .parent(root)
-//                    .orCriteria()
-//                    .onEnterStructure(structureLookup, DEStructures.MONSTER_MAZE_DARK)
-//                    .onEnterStructure(structureLookup, DEStructures.MONSTER_MAZE_PALE)
-//                    .save(consumer);
+            builder(provider, "hidden_under_roots")
+                    .parent(root)
+                    .displayItem(Items.JACK_O_LANTERN)
+                    .orCriteria()
+                    .onEnterStructure(DEStructures.MONSTER_MAZE.structure("dark"))
+                    .onEnterStructure(DEStructures.MONSTER_MAZE.structure("pale"))
+                    .save(consumer);
 
-//            new AdvancementBuilder("thats_a_dungeon", Items.SKELETON_SKULL)
-//                    .parent(root)
-//                    .onEnterStructure(structureLookup, DEStructures.LARGE_DUNGEON)
-//                    .save(consumer);
+            builder(provider, "thats_a_dungeon")
+                    .parent(root)
+                    .displayItem(Items.MOSSY_COBBLESTONE)
+                    .onEnterStructure(DEStructures.LARGE_DUNGEON.structure())
+                    .save(consumer);
 
             builder(provider, "traps_and_curses")
                     .parent(root)
@@ -100,16 +105,16 @@ public final class DEAdvancementProvider extends AdvancementProvider {
                     .onEnterStructure(DEStructures.ELDERS_TEMPLE.structure())
                     .save(consumer);
 
-//            builder(provider, "spooky_scary_citadel")
-//                    .parent(root)
-//                    .displayItem(new BannerBuilder(Items.RED_BANNER)
-//                            .addPattern(bannerLookup, BannerPatterns.BRICKS, DyeColor.BLACK)
-//                            .addPattern(bannerLookup, BannerPatterns.GRADIENT_UP, DyeColor.RED)
-//                            .addPattern(bannerLookup, BannerPatterns.SKULL, DyeColor.BLACK)
-//                            .addPattern(bannerLookup, BannerPatterns.BORDER, DyeColor.BLACK)
-//                            .build())
-//                    .onEnterStructure(structureLookup, DEStructures.BLACK_CITADEL)
-//                    .save(consumer);
+            builder(provider, "spooky_scary_citadel")
+                    .parent(root)
+                    .displayItem(new BannerBuilder(Items.RED_BANNER, bannerLookup)
+                            .addPattern(BannerPatterns.BRICKS, DyeColor.BLACK)
+                            .addPattern(BannerPatterns.GRADIENT_UP, DyeColor.RED)
+                            .addPattern(BannerPatterns.SKULL, DyeColor.BLACK)
+                            .addPattern(BannerPatterns.BORDER, DyeColor.BLACK)
+                            .build())
+                    .onEnterStructure(DEStructures.BLACK_CITADEL.structure())
+                    .save(consumer);
 
             var sevenWorldWonders = builder(provider, "seven_world_wonders")
                     .parent(root)
@@ -121,7 +126,7 @@ public final class DEAdvancementProvider extends AdvancementProvider {
                     .onEnterStructure(DEStructures.JUNGLE_MONUMENT.structure())
                     .onEnterStructure(DETags.Structures.MONSTER_MAZE)
                     .onEnterStructure(DEStructures.ELDERS_TEMPLE.structure())
-//                    .onEnterStructure(DEStructures..structure())
+                    .onEnterStructure(DEStructures.BLACK_CITADEL.structure())
                     .save(consumer);
 
             builder(provider, "ambitious_explorer")

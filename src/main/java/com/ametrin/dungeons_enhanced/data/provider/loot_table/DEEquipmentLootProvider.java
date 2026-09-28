@@ -134,5 +134,19 @@ public record DEEquipmentLootProvider(HolderLookup.Provider registries) implemen
                         .add(item(Items.LEATHER_BOOTS).apply(SetComponentsFunction.setComponent(DataComponents.DYED_COLOR, new DyedItemColor(953344))))
                 )
         );
+
+        output.accept(DELootTables.EQUIPMENT_FLYING_DUTCHMAN_SKELETONS, LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(item(Items.BOW).setWeight(2))
+                        .add(item(Items.STONE_SWORD))
+                        .add(item(Items.STONE_SPEAR))
+                )
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(item(Items.LEATHER_HELMET).apply(SetComponentsFunction.setComponent(DataComponents.DYED_COLOR, new DyedItemColor(65322))))
+                )
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(item(Items.LEATHER_CHESTPLATE).apply(SetComponentsFunction.setComponent(DataComponents.DYED_COLOR, new DyedItemColor(65322))))
+                )
+        );
     }
 }

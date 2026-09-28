@@ -1,6 +1,22 @@
 {
   "parent": "dungeons_enhanced:root",
   "criteria": {
+    "entered_black_citadel": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": "dungeons_enhanced:black_citadel"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
     "entered_castle": {
       "conditions": {
         "player": [
@@ -128,6 +144,9 @@
     ],
     [
       "entered_elders_temple"
+    ],
+    [
+      "entered_black_citadel"
     ]
   ]
 }
