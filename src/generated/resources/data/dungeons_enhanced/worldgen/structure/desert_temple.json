@@ -3,7 +3,7 @@
   "biomes": "#dungeons_enhanced:has_structure/desert_temple",
   "pieces": {
     "type": "ametrin_structures:compound",
-    "templates": [
+    "sources": [
       {
         "offset": [
           0,

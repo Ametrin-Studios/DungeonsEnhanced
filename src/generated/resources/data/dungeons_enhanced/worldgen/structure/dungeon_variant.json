@@ -3,7 +3,7 @@
   "biomes": "#dungeons_enhanced:has_structure/dungeon_variant",
   "pieces": {
     "type": "ametrin_structures:weighted",
-    "templates": [
+    "sources": [
       {
         "data": {
           "processors": "dungeons_enhanced:dungeon_variant",
@@ -38,7 +38,7 @@
   "start_height": {
     "max": {
       "heightmap": "OCEAN_FLOOR_WG",
-      "offset": -32
+      "offset": -24
     },
     "min": {
       "above_bottom": 8

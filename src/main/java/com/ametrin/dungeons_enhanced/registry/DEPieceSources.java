@@ -2,8 +2,8 @@ package com.ametrin.dungeons_enhanced.registry;
 
 import com.ametrin.dungeons_enhanced.DungeonsEnhanced;
 import com.ametrin.dungeons_enhanced.world.structure.DEIcePitPieces;
-import com.ametrin.structures.api.registry.ASRegistries;
-import com.ametrin.structures.api.structure.simple.PieceSourceType;
+import com.ametrin.structures.registry.ASRegistries;
+import com.ametrin.structures.structure.simple.PieceSourceType;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 

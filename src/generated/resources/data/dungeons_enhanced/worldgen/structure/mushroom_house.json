@@ -3,7 +3,7 @@
   "biomes": "#dungeons_enhanced:has_structure/mushroom_house",
   "pieces": {
     "type": "ametrin_structures:weighted",
-    "templates": [
+    "sources": [
       {
         "data": {
           "template": "dungeons_enhanced:mushroom_house/red"

@@ -2,7 +2,6 @@
   "type": "ametrin_structures:simple",
   "biomes": "#dungeons_enhanced:has_structure/stables",
   "pieces": {
-    "type": "ametrin_structures:single",
     "offset": [
       0,
       -4,

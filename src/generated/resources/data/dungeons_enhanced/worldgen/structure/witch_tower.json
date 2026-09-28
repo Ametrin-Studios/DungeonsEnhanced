@@ -3,7 +3,7 @@
   "biomes": "#dungeons_enhanced:has_structure/witch_tower",
   "pieces": {
     "type": "ametrin_structures:weighted",
-    "templates": [
+    "sources": [
       {
         "data": {
           "template": "dungeons_enhanced:witch_tower/normal"

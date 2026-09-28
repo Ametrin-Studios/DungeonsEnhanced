@@ -9,7 +9,7 @@
   ],
   "pieces": {
     "type": "ametrin_structures:weighted",
-    "templates": [
+    "sources": [
       {
         "data": {
           "template": "dungeons_enhanced:sunken_shrine/small"

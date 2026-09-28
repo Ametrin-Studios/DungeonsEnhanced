@@ -2,7 +2,6 @@
   "type": "ametrin_structures:simple",
   "biomes": "#dungeons_enhanced:has_structure/flying_dutchman",
   "pieces": {
-    "type": "ametrin_structures:single",
     "template": "dungeons_enhanced:flying_dutchman"
   },
   "spawn_overrides": {},

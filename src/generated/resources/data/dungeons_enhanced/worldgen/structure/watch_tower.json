@@ -2,7 +2,6 @@
   "type": "ametrin_structures:simple",
   "biomes": "#dungeons_enhanced:has_structure/watch_tower",
   "pieces": {
-    "type": "ametrin_structures:single",
     "template": "dungeons_enhanced:watch_tower"
   },
   "spawn_overrides": {},

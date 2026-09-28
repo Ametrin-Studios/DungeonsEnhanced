@@ -3,7 +3,7 @@
   "biomes": "#dungeons_enhanced:has_structure/hay_storage",
   "pieces": {
     "type": "ametrin_structures:weighted",
-    "templates": [
+    "sources": [
       {
         "data": {
           "template": "dungeons_enhanced:hay_storage/small"

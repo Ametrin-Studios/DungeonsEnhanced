@@ -1,12 +1,11 @@
 {
   "placement": {
-    "type": "structure_gel:grid_placement",
-    "allowed_near_spawn": false,
-    "frequency": 0.78,
-    "offset": 55,
-    "salt": 1328554442,
-    "spacing": 69,
-    "structure": "dungeons_enhanced:castle"
+    "type": "ametrin_structures:scattered_grid",
+    "min_chunks_from_center": 12,
+    "probability": 0.78,
+    "random_offset": 55,
+    "salt": 517159684,
+    "spacing": 69
   },
   "structures": [
     {

@@ -84,7 +84,8 @@ dependencies {
     implementation files("/mnt/Projects/Coding/Minecraft/Mods/AmetrinStructures/build/libs/ametrin_structures-26.1.2-0.0.1.jar")
     implementation "com.ametrinstudios:ametrin-${minecraft_version}:${ametrin_version}"
 
-    localRuntime "curse.maven:xaeros-world-map-317780:8425775"
+    localRuntime "curse.maven:xaeros-world-map-317780:8850008"
+    localRuntime "curse.maven:xaeros-minimap-263420:8849900"
 //    localRuntime "curse.maven:biomes-o-plenty-220318:6384687"
 //    localRuntime "curse.maven:terrablender-neoforge-940057:6055021"
 //    localRuntime "curse.maven:glitchcore-955399:6054289"

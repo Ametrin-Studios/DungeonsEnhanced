@@ -17,7 +17,7 @@ public final class DungeonsEnhanced {
     public DungeonsEnhanced(IEventBus modEventBus, ModContainer container) {
         modEventBus.addListener(DungeonsEnhanced::gatherData);
         DEStructures.REGISTER.register(modEventBus);
-        DEDynamicSpawners.REGISTER.register(modEventBus);
+        DESpawnerProfiles.REGISTER.register(modEventBus);
         DEPieceSources.REGISTER.register(modEventBus);
     }
 

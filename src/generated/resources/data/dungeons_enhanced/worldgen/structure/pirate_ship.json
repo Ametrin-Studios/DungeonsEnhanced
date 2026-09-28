@@ -3,7 +3,7 @@
   "biomes": "#dungeons_enhanced:has_structure/pirate_ship",
   "pieces": {
     "type": "ametrin_structures:compound",
-    "templates": [
+    "sources": [
       {
         "offset": [
           -25,

@@ -3,7 +3,6 @@
   "biomes": "#dungeons_enhanced:has_structure/jungle_monument",
   "height_mode": "mean",
   "pieces": {
-    "type": "ametrin_structures:single",
     "offset": [
       0,
       -9,

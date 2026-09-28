@@ -1,6 +1,6 @@
 package com.ametrin.dungeons_enhanced.registry;
 
-import com.ametrin.structures.impl.processor.ReplaceBlockProcessor;
+import com.ametrin.structures.processor.ReplaceBlockProcessor;
 import net.minecraft.world.level.block.Blocks;
 
 public final class DEProcessors {

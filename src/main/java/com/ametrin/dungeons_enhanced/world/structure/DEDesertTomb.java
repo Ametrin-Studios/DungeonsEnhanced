@@ -1,7 +1,7 @@
 package com.ametrin.dungeons_enhanced.world.structure;
 
 import com.ametrin.dungeons_enhanced.DungeonsEnhanced;
-import com.ametrin.structures.api.structure.JigsawPools;
+import com.ametrin.structures.structure.jigsaw.JigsawPools;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 

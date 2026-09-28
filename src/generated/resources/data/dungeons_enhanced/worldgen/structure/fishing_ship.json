@@ -2,7 +2,6 @@
   "type": "ametrin_structures:simple",
   "biomes": "#dungeons_enhanced:has_structure/fishing_ship",
   "pieces": {
-    "type": "ametrin_structures:single",
     "offset": [
       0,
       -3,

@@ -3,7 +3,7 @@
   "biomes": "#dungeons_enhanced:has_structure/tower_of_the_undead",
   "pieces": {
     "type": "ametrin_structures:weighted",
-    "templates": [
+    "sources": [
       {
         "data": {
           "template": "dungeons_enhanced:tower_of_the_undead/small"

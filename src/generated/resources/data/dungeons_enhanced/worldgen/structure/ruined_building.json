@@ -3,7 +3,7 @@
   "biomes": "#dungeons_enhanced:has_structure/ruined_building",
   "pieces": {
     "type": "ametrin_structures:weighted",
-    "templates": [
+    "sources": [
       {
         "data": {
           "template": "dungeons_enhanced:ruined_building/house"

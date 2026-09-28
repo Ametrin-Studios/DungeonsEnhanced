@@ -11,7 +11,7 @@
   "height_mode": "mean",
   "pieces": {
     "type": "ametrin_structures:compound",
-    "templates": [
+    "sources": [
       {
         "offset": [
           0,
@@ -88,7 +88,7 @@
   },
   "start_height": {
     "heightmap": "OCEAN_FLOOR_WG",
-    "offset": -8
+    "offset": -6
   },
   "step": "surface_structures"
 }
