@@ -45,17 +45,16 @@ public final class DEBlackCitadel {
                 .element("bridge/short")
         );
 
-        //
-//        var shortBridge = basicPool.clone().names("bridge/short");
-//        var pillar = basicPool.clone().names(ImmutableMap.<String, Integer>builder().put("bridge_pillar/normal", 3).put("bridge_pillar/bones", 3).put("bridge_pillar/end", 2).put("bridge_pillar/end_cage", 2).put("bridge_tower/broken", 3).build());
-//        var thickPillar = basicPool.clone().names("bridge_tower/normal");
-//        var mainExtensions = basicPool.clone().names("main_bridge_extension");
-//
-//        registry.register("tower", tower);
-//        registry.register("bridge", bridge);
-//        registry.register("short_bridge", shortBridge);
-//        registry.register("pillar", pillar);
-//        registry.register("thick_pillar", thickPillar);
-//        registry.register("main_extension", mainExtensions);
+        builder.pool("pillar", p -> p
+                .element("bridge_pillar/normal", e -> e.weight(3))
+                .element("bridge_pillar/bones", e -> e.weight(3))
+                .element("bridge_pillar/end", e -> e.weight(2))
+                .element("bridge_pillar/end_cage", e -> e.weight(2))
+                .element("bridge_tower/broken", e -> e.weight(3))
+        );
+
+        builder.pool("thick_pillar", p -> p
+                .element("bridge_tower/normal")
+        );
     }
 }
