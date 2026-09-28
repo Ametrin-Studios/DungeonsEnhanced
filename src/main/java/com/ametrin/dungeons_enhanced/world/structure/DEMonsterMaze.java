@@ -7,18 +7,18 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
 import java.util.List;
-import java.util.function.Consumer;
 
 public final class DEMonsterMaze {
     public static void pool(BootstrapContext<StructureTemplatePool> context) {
         var builder = new JigsawPools(context, DungeonsEnhanced.MOD_ID, "monster_maze/");
-        Consumer<JigsawPools.Element> elementSettings = e -> e.processors(DEProcessorLists.MONSTER_MAZE);
-
 
         builder.pool("dark_root", p -> p.element("dark_root"));
         builder.pool("pale_root", p -> p.element("pale_root"));
-        builder.pool("dark_tree", p -> p.element("dark_tree", elementSettings));
-        builder.pool("pale_tree", p -> p.element("pale_tree", elementSettings));
+
+        builder.defaultElementSettings(e -> e.processors(DEProcessorLists.MONSTER_MAZE));
+
+        builder.pool("dark_tree", p -> p.element("dark_tree"));
+        builder.pool("pale_tree", p -> p.element("pale_tree"));
 
         var crossTunnels = List.of("tunnels/cross1", "tunnels/cross2");
         var edgeTunnels = List.of("tunnels/edge1", "tunnels/edge2");
@@ -30,53 +30,53 @@ public final class DEMonsterMaze {
         var rooms = List.of("big_room", "church", "prison", "room1", "storage", "brewery");
 
         builder.pool("tunnels/cross", p -> p
-                .elements(crossTunnels, elementSettings)
+                .elements(crossTunnels)
         );
 
         builder.pool("tunnels/edge", p -> p
-                .elements(edgeTunnels, elementSettings)
+                .elements(edgeTunnels)
         );
 
         builder.pool("tunnels/room", p -> p
-                .elements(roomTunnels, elementSettings)
+                .elements(roomTunnels)
         );
 
         builder.pool("tunnels/small", p -> p
-                .elements(smallTunnels, elementSettings)
+                .elements(smallTunnels)
         );
 
         builder.pool("tunnels/big", p -> p
-                .elements(bigTunnels, elementSettings)
+                .elements(bigTunnels)
         );
 
         builder.pool("start_stairs", p -> p
-                .elements(startStairs, elementSettings)
+                .elements(startStairs)
         );
 
         builder.pool("stairs", p -> p
-                .elements(stairs, elementSettings)
+                .elements(stairs)
         );
 
         builder.pool("rooms", p -> p
-                .elements(rooms, elementSettings)
+                .elements(rooms)
         );
 
         builder.pool("tunnels", p -> p
-                .elements(edgeTunnels, elementSettings)
-                .elements(roomTunnels, elementSettings)
-                .elements(smallTunnels, elementSettings)
-                .elements(bigTunnels, elementSettings)
+                .elements(edgeTunnels)
+                .elements(roomTunnels)
+                .elements(smallTunnels)
+                .elements(bigTunnels)
         );
 
         builder.pool("main", p -> p
-                .elements(edgeTunnels, e -> elementSettings.accept(e.weight(4)))
-                .elements(roomTunnels, e -> elementSettings.accept(e.weight(3)))
-                .elements(smallTunnels, e -> elementSettings.accept(e.weight(2)))
-                .elements(bigTunnels, e -> elementSettings.accept(e.weight(3)))
-                .elements(crossTunnels, e -> elementSettings.accept(e.weight(5)))
-                .elements(rooms, e -> elementSettings.accept(e.weight(2)))
+                .elements(edgeTunnels, e -> e.weight(4))
+                .elements(roomTunnels, e -> e.weight(3))
+                .elements(smallTunnels, e -> e.weight(2))
+                .elements(bigTunnels, e -> e.weight(3))
+                .elements(crossTunnels, e -> e.weight(5))
+                .elements(rooms, e -> e.weight(2))
         );
 
-        builder.pool("boss", p -> p.element("boss", elementSettings));
+        builder.pool("boss", p -> p.element("boss"));
     }
 }

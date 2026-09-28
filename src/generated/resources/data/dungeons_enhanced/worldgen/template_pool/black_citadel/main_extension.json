@@ -2,7 +2,7 @@
   "elements": [
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:foam_single_pool_element",
         "location": "dungeons_enhanced:black_citadel/main_bridge_extension",
         "processors": "dungeons_enhanced:black_citadel/default",
         "projection": "rigid"
