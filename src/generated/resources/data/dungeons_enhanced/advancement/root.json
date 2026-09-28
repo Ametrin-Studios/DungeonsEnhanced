@@ -16,6 +16,22 @@
       },
       "trigger": "minecraft:location"
     },
+    "entered_deep_crypt": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": "dungeons_enhanced:deep_crypt"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
     "entered_desert_temple": {
       "conditions": {
         "player": [
@@ -338,6 +354,7 @@
   "requirements": [
     [
       "entered_castle",
+      "entered_deep_crypt",
       "entered_desert_temple",
       "entered_dungeon_variant",
       "entered_elders_temple",

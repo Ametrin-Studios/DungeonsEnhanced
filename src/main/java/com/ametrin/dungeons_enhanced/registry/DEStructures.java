@@ -7,8 +7,10 @@ import com.ametrin.dungeons_enhanced.world.structure.processor.DESwapDeadCoralsP
 import com.ametrin.structures.foam.RemoveFoamProcessor;
 import com.ametrin.structures.structure.DeferredStructureHolder;
 import com.ametrin.structures.structure.DeferredStructureRegister;
+import com.ametrin.structures.structure.jigsaw.ExtendedJigsawStructure;
 import com.ametrin.structures.structure.simple.HeightAnchor;
 import com.ametrin.structures.structure.simple.HeightMode;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.util.random.Weighted;
 import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.entity.EntityType;
@@ -17,6 +19,7 @@ import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.heightproviders.ConstantHeight;
+import net.minecraft.world.level.levelgen.heightproviders.UniformHeight;
 import net.minecraft.world.level.levelgen.structure.StructureSpawnOverride;
 import net.minecraft.world.level.levelgen.structure.TerrainAdjustment;
 
@@ -27,7 +30,7 @@ public final class DEStructures {
 
     // Overworld
     public static final DeferredStructureHolder CASTLE;
-    //    public static final DeferredStructureHolder<ExtendedJigsawStructure> DEEP_CRYPT;
+    public static final DeferredStructureHolder DEEP_CRYPT;
     public static final DeferredStructureHolder DESERT_TEMPLE;
     //    public static final StructureRegistrar<ExtendedJigsawStructure> DESERT_TOMB;
 //    public static final StructureRegistrar<ExtendedJigsawStructure> DRUID_CIRCLE;
@@ -80,13 +83,18 @@ public final class DEStructures {
                         .terrainAdaptation(TerrainAdjustment.BEARD_BOX)
                 ).build();
 
-//        DEEP_CRYPT = REGISTER.jigsaw(DEStructureIDs.DEEP_CRYPT)
-//                .horizontalPlacement(b-> b.spacing(39).probability(0.67f))
-//                .pushStructure((context, settings) -> extendedJigsawStructure(context, settings, DEDeepCrypt.Capability.INSTANCE, DETemplatePools.DEEP_CRYPT, 4, UniformHeight.of(VerticalAnchor.aboveBottom(16), VerticalAnchor.aboveBottom(48))).build())
-//                        .generationStep(GenerationStep.Decoration.UNDERGROUND_STRUCTURES)
-//                        .biomes(DETags.Biomes.HAS_DEEP_CRYPT)
-//                .popStructure()
-//                .build();
+        DEEP_CRYPT = REGISTER.set(DEStructureIDs.DEEP_CRYPT)
+                .scatteredGridPlacement(b -> b.spacing(39).probability(0.67f))
+                .structure((settings, context) ->
+                                ExtendedJigsawStructure.builder(settings, context.lookup(Registries.TEMPLATE_POOL).getOrThrow(DETemplatePools.DEEP_CRYPT))
+                                        .startHeight(UniformHeight.of(VerticalAnchor.aboveBottom(16), VerticalAnchor.aboveBottom(52)))
+                                        .size(4)
+                                        .build(),
+                        s -> s
+                                .biomes(DETags.Biomes.HAS_DEEP_CRYPT)
+                                .step(GenerationStep.Decoration.UNDERGROUND_STRUCTURES)
+                )
+                .build();
 
         DESERT_TEMPLE = REGISTER.set(DEStructureIDs.DESERT_TEMPLE)
                 .scatteredGridPlacement(b -> b.spacing(39).probability(0.86f).minChunksFromCenter(12))
@@ -188,11 +196,11 @@ public final class DEStructures {
         JUNGLE_MONUMENT = REGISTER.set(DEStructureIDs.JUNGLE_MONUMENT)
                 .scatteredGridPlacement(46, 0.74f)
                 .simple(s -> s
-                        .biomes(DETags.Biomes.HAS_JUNGLE_MONUMENT)
-                        .surface()
-                        .verticalPlacementMode(HeightMode.MEAN)
+                                .biomes(DETags.Biomes.HAS_JUNGLE_MONUMENT)
+                                .surface()
+                                .verticalPlacementMode(HeightMode.MEAN)
 //                        .filterFlatness(12)
-                        .single(b -> b.template("jungle_monument").processors(DEProcessorLists.JUNGLE_MONUMENT).yOffset(-9))
+                                .single(b -> b.template("jungle_monument").processors(DEProcessorLists.JUNGLE_MONUMENT).yOffset(-9))
                 ).build();
 
 //        LARGE_DUNGEON = StructureRegistrar.jigsawBuilder(locate(DEStructureIDs.LARGE_DUNGEON))

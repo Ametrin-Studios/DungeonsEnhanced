@@ -1,12 +1,10 @@
 {
   "placement": {
-    "type": "structure_gel:grid_placement",
-    "allowed_near_spawn": false,
-    "frequency": 0.67,
-    "offset": 31,
-    "salt": 1710877031,
-    "spacing": 39,
-    "structure": "dungeons_enhanced:deep_crypt"
+    "type": "ametrin_structures:scattered_grid",
+    "probability": 0.67,
+    "random_offset": 31,
+    "salt": 78263207,
+    "spacing": 39
   },
   "structures": [
     {
