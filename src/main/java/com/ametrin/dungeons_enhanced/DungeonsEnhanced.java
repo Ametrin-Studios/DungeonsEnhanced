@@ -2,6 +2,7 @@ package com.ametrin.dungeons_enhanced;
 
 import com.ametrin.dungeons_enhanced.data.provider.*;
 import com.ametrin.dungeons_enhanced.registry.*;
+import com.ametrin.structures.registry.ASRegistries;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
@@ -25,7 +26,8 @@ public final class DungeonsEnhanced {
         var builder = new RegistrySetBuilder()
                 .add(Registries.VILLAGER_TRADE, DEVillagerTrades::bootstrap)
                 .add(Registries.PROCESSOR_LIST, DEProcessorLists::bootstrap)
-                .add(Registries.TEMPLATE_POOL, DETemplatePools::bootstrap);
+                .add(Registries.TEMPLATE_POOL, DETemplatePools::bootstrap)
+                .add(ASRegistries.FIXTURE_PRESET, DEFixturePresets::bootstrap);
         DEStructures.REGISTER.bootstrap(builder);
 
         event.createDatapackRegistryObjects(builder);
