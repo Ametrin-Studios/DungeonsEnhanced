@@ -9,7 +9,7 @@ import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
 public final class DETemplatePools {
     // Overworld
-    public static final ResourceKey<StructureTemplatePool> CASTLE = resourceKey("castle/root");
+//    public static final ResourceKey<StructureTemplatePool> CASTLE = resourceKey("castle/root");
     public static final ResourceKey<StructureTemplatePool> DEEP_CRYPT = resourceKey("deep_crypt/root");
     public static final ResourceKey<StructureTemplatePool> DESERT_TOMB = resourceKey("desert_tomb/root");
     public static final ResourceKey<StructureTemplatePool> DRUID_CIRCLE = resourceKey("druid_circle/root");
@@ -23,7 +23,7 @@ public final class DETemplatePools {
 
     public static void bootstrap(BootstrapContext<StructureTemplatePool> context) {
         // Overworld
-        DECastle.pool(context);
+//        DECastle.pool(context);
         DEDeepCrypt.pool(context);
         DEDesertTomb.pool(context);
         DEDruidCircle.pool(context);

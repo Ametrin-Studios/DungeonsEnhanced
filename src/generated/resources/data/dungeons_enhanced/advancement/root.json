@@ -48,7 +48,7 @@
       "translate": "advancements.dungeons_enhanced.root.description"
     },
     "icon": {
-      "id": "minecraft:filled_map"
+      "id": "minecraft:map"
     },
     "show_toast": false,
     "title": {

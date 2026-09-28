@@ -23,7 +23,7 @@
       "translate": "advancements.dungeons_enhanced.ahoy.description"
     },
     "icon": {
-      "id": "minecraft:wither_skeleton_skull"
+      "id": "minecraft:skeleton_skull"
     },
     "title": {
       "translate": "advancements.dungeons_enhanced.ahoy.title"

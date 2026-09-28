@@ -23,7 +23,7 @@
       "translate": "advancements.dungeons_enhanced.sunken_depths.description"
     },
     "icon": {
-      "id": "minecraft:nautilus_shell"
+      "id": "minecraft:conduit"
     },
     "title": {
       "translate": "advancements.dungeons_enhanced.sunken_depths.title"

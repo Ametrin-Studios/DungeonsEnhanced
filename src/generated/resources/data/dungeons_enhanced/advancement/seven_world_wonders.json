@@ -17,22 +17,6 @@
       },
       "trigger": "minecraft:location"
     },
-    "entered_deep_crypt": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "structures": "dungeons_enhanced:deep_crypt"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
     "entered_desert_temple": {
       "conditions": {
         "player": [
@@ -96,6 +80,22 @@
         ]
       },
       "trigger": "minecraft:location"
+    },
+    "entered_monster_maze": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": "#dungeons_enhanced:monster_maze"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
     }
   },
   "display": {
@@ -115,9 +115,6 @@
       "entered_castle"
     ],
     [
-      "entered_deep_crypt"
-    ],
-    [
       "entered_desert_temple"
     ],
     [
@@ -125,6 +122,9 @@
     ],
     [
       "entered_jungle_monument"
+    ],
+    [
+      "entered_monster_maze"
     ],
     [
       "entered_elders_temple"
