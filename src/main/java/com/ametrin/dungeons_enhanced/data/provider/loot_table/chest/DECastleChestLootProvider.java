@@ -195,12 +195,12 @@ public record DECastleChestLootProvider(HolderLookup.Provider registries) implem
                                 .add(item(Items.IRON_NUGGET, 15, number(2, 5))))
                         .withPool(LootPool.lootPool().setRolls(number(0, 2))
 //                                        .add(tag(DETags.Items.CASTLE_TREASURE, 2))
-                                        .add(enchantedItem(Items.DIAMOND_SWORD, 4, number(4, 12), registries))
-                                        .add(enchantedItem(Items.DIAMOND_AXE, 4, number(4, 12), registries))
-                                        .add(enchantedItem(Items.DIAMOND_HELMET, 4, number(4, 10), registries))
-                                        .add(enchantedItem(Items.DIAMOND_CHESTPLATE, 3, number(3, 10), registries))
-                                        .add(enchantedItem(Items.DIAMOND_LEGGINGS, 3, number(3, 10), registries))
-                                        .add(enchantedItem(Items.DIAMOND_BOOTS, 4, number(3, 10), registries))
+                                        .add(enchantedItem(Items.DIAMOND_SWORD, 4, one(), registries))
+                                        .add(enchantedItem(Items.DIAMOND_AXE, 4, one(), registries))
+                                        .add(enchantedItem(Items.DIAMOND_HELMET, 4, one(), registries))
+                                        .add(enchantedItem(Items.DIAMOND_CHESTPLATE, 3, one(), registries))
+                                        .add(enchantedItem(Items.DIAMOND_LEGGINGS, 3, one(), registries))
+                                        .add(enchantedItem(Items.DIAMOND_BOOTS, 4, one(), registries))
                         )
         );
     }
