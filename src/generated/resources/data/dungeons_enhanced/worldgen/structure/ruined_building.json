@@ -18,6 +18,11 @@
       },
       {
         "data": {
+          "offset": [
+            0,
+            -1,
+            0
+          ],
           "template": "dungeons_enhanced:ruined_building/house_big"
         },
         "weight": 2

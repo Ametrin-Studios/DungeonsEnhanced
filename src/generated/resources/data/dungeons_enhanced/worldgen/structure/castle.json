@@ -25,9 +25,9 @@
             },
             {
               "offset": [
-                -8,
+                0,
                 -5,
-                -8
+                0
               ],
               "template": "dungeons_enhanced:castle/bottom1"
             }
@@ -49,9 +49,9 @@
             },
             {
               "offset": [
-                -8,
+                0,
                 -5,
-                -8
+                0
               ],
               "template": "dungeons_enhanced:castle/bottom2"
             }

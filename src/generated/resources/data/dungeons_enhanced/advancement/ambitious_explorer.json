@@ -193,6 +193,22 @@
       },
       "trigger": "minecraft:location"
     },
+    "entered_pillager_camp": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": "dungeons_enhanced:pillager_camp"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
     "entered_pirate_ship": {
       "conditions": {
         "player": [
@@ -386,6 +402,9 @@
     ],
     [
       "entered_mushroom_house"
+    ],
+    [
+      "entered_pillager_camp"
     ],
     [
       "entered_pirate_ship"

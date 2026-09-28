@@ -71,11 +71,7 @@
           "functions": [
             {
               "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 12.0,
-                "min": 4.0
-              },
+              "count": 1.0,
               "function": "minecraft:set_count"
             },
             {
@@ -91,11 +87,7 @@
           "functions": [
             {
               "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 12.0,
-                "min": 4.0
-              },
+              "count": 1.0,
               "function": "minecraft:set_count"
             },
             {
@@ -111,11 +103,7 @@
           "functions": [
             {
               "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 10.0,
-                "min": 4.0
-              },
+              "count": 1.0,
               "function": "minecraft:set_count"
             },
             {
@@ -131,11 +119,7 @@
           "functions": [
             {
               "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 10.0,
-                "min": 3.0
-              },
+              "count": 1.0,
               "function": "minecraft:set_count"
             },
             {
@@ -151,11 +135,7 @@
           "functions": [
             {
               "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 10.0,
-                "min": 3.0
-              },
+              "count": 1.0,
               "function": "minecraft:set_count"
             },
             {
@@ -171,11 +151,7 @@
           "functions": [
             {
               "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 10.0,
-                "min": 3.0
-              },
+              "count": 1.0,
               "function": "minecraft:set_count"
             },
             {

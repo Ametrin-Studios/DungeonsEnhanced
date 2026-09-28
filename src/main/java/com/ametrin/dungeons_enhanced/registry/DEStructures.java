@@ -7,10 +7,9 @@ import com.ametrin.dungeons_enhanced.world.structure.processor.DESwapDeadCoralsP
 import com.ametrin.structures.foam.RemoveFoamProcessor;
 import com.ametrin.structures.structure.DeferredStructureHolder;
 import com.ametrin.structures.structure.DeferredStructureRegister;
-import com.ametrin.structures.structure.jigsaw.ExtendedJigsawStructure;
 import com.ametrin.structures.structure.simple.HeightAnchor;
 import com.ametrin.structures.structure.simple.HeightMode;
-import net.minecraft.core.registries.Registries;
+import net.minecraft.tags.StructureTags;
 import net.minecraft.util.random.Weighted;
 import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.entity.EntityType;
@@ -46,7 +45,7 @@ public final class DEStructures {
     //    public static final StructureRegistrar<ExtendedJigsawStructure> MONSTER_MAZE_DARK;
 //    public static final StructureRegistrar<ExtendedJigsawStructure> MONSTER_MAZE_PALE;
     public static final DeferredStructureHolder MUSHROOM_HOUSE;
-    //    public static final StructureRegistrar<ExtendedJigsawStructure> PILLAGER_CAMP;
+    public static final DeferredStructureHolder PILLAGER_CAMP;
     public static final DeferredStructureHolder PIRATE_SHIP;
     public static final DeferredStructureHolder RUINED_BUILDING;
     public static final DeferredStructureHolder STABLES;
@@ -75,21 +74,20 @@ public final class DEStructures {
                         .weighted(b -> b
                                 .compound(c1 -> c1
                                         .single(t -> t.template("castle/top1").yOffset(-1))
-                                        .single(t -> t.template("castle/bottom1").offset(-8, -5, -8)), 1)
+                                        .single(t -> t.template("castle/bottom1").offset(0, -5, 0)), 1)
                                 .compound(c1 -> c1
                                         .single(t -> t.template("castle/top2").yOffset(-1))
-                                        .single(t -> t.template("castle/bottom2").offset(-8, -5, -8)), 1)
+                                        .single(t -> t.template("castle/bottom2").offset(0, -5, 0)), 1)
                         )
                         .terrainAdaptation(TerrainAdjustment.BEARD_BOX)
                 ).build();
 
         DEEP_CRYPT = REGISTER.set(DEStructureIDs.DEEP_CRYPT)
                 .scatteredGridPlacement(b -> b.spacing(39).probability(0.67f))
-                .structure((settings, context) ->
-                                ExtendedJigsawStructure.builder(settings, context.lookup(Registries.TEMPLATE_POOL).getOrThrow(DETemplatePools.DEEP_CRYPT))
-                                        .startHeight(UniformHeight.of(VerticalAnchor.aboveBottom(16), VerticalAnchor.aboveBottom(52)))
-                                        .size(4)
-                                        .build(),
+                .jigsaw(DETemplatePools.DEEP_CRYPT, j -> j
+                                .startHeight(UniformHeight.of(VerticalAnchor.aboveBottom(16), VerticalAnchor.aboveBottom(52)))
+                                .size(4)
+                                .build(),
                         s -> s
                                 .biomes(DETags.Biomes.HAS_DEEP_CRYPT)
                                 .step(GenerationStep.Decoration.UNDERGROUND_STRUCTURES)
@@ -196,11 +194,10 @@ public final class DEStructures {
         JUNGLE_MONUMENT = REGISTER.set(DEStructureIDs.JUNGLE_MONUMENT)
                 .scatteredGridPlacement(46, 0.74f)
                 .simple(s -> s
-                                .biomes(DETags.Biomes.HAS_JUNGLE_MONUMENT)
-                                .surface()
-                                .verticalPlacementMode(HeightMode.MEAN)
-//                        .filterFlatness(12)
-                                .single(b -> b.template("jungle_monument").processors(DEProcessorLists.JUNGLE_MONUMENT).yOffset(-9))
+                        .biomes(DETags.Biomes.HAS_JUNGLE_MONUMENT)
+                        .surface()
+                        .verticalPlacementMode(HeightMode.MEAN)
+                        .single(b -> b.template("jungle_monument").processors(DEProcessorLists.JUNGLE_MONUMENT).yOffset(-9))
                 ).build();
 
 //        LARGE_DUNGEON = StructureRegistrar.jigsawBuilder(locate(DEStructureIDs.LARGE_DUNGEON))
@@ -247,15 +244,17 @@ public final class DEStructures {
                         .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                 ).build();
 
-//        PILLAGER_CAMP = StructureRegistrar.jigsawBuilder(locate(DEStructureIDs.PILLAGER_CAMP))
-//                .placement(() -> gridPlacement(56, 39).build(DEStructures.PILLAGER_CAMP))
-//                .addPiece(() -> DEPillagerCamp.Piece::new)
-//                .pushStructure((context, settings) -> extendedJigsawStructure(context, settings, DEPillagerCamp.Capability.INSTANCE, DETemplatePools.PILLAGER_CAMP, 4, ConstantHeight.ZERO).onSurface().build())
-//                .biomes(DETags.Biomes.HAS_PILLAGER_CAMP)
-//                .spawns(MobCategory.MONSTER, StructureSpawnOverride.BoundingBoxType.STRUCTURE, () -> spawns(spawn(EntityType.PILLAGER, 4, 2, 3), spawn(EntityType.VINDICATOR, 2, 1, 2)))
-//                .terrainAdjustment(TerrainAdjustment.BEARD_THIN)
-//                .popStructure()
-//                ).build();
+        PILLAGER_CAMP = REGISTER.set(DEStructureIDs.PILLAGER_CAMP)
+                .scatteredGridPlacement(p -> p.spacing(56).probability(0.39f).minChunksFromCenter(8).exclusionZone(StructureTags.VILLAGE, 5))
+                .jigsaw(DETemplatePools.PILLAGER_CAMP, j -> j
+                                .onSurface()
+                                .size(4)
+                                .build(),
+                        builder -> builder
+                                .biomes(DETags.Biomes.HAS_PILLAGER_CAMP)
+                                .terrainAdaptation(TerrainAdjustment.BEARD_BOX)
+                                .spawnOverride(MobCategory.MONSTER, new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.STRUCTURE, spawns(spawn(EntityType.PILLAGER, 4, 2, 3), spawn(EntityType.VINDICATOR, 2, 1, 2))))
+                ).build();
 
         PIRATE_SHIP = REGISTER.set(DEStructureIDs.PIRATE_SHIP)
                 .scatteredGridPlacement(67, 0.49F)
@@ -278,7 +277,7 @@ public final class DEStructures {
                         .weighted(b -> b
                                 .single("ruined_building/house", 3)
                                 .single("ruined_building/barn", 3)
-                                .single("ruined_building/house_big", 2))
+                                .single(t -> t.template("ruined_building/house_big").yOffset(-1), 2))
                         .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                 ).build();
 
