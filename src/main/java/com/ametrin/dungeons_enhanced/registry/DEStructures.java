@@ -198,6 +198,7 @@ public final class DEStructures {
                         .surface()
                         .verticalPlacementMode(HeightMode.MEAN)
                         .single(b -> b.template("jungle_monument").processors(DEProcessorLists.JUNGLE_MONUMENT).yOffset(-9))
+                        .filterWithinBiome(12)
                 ).build();
 
         LARGE_DUNGEON = REGISTER.set(DEStructureIDs.LARGE_DUNGEON)

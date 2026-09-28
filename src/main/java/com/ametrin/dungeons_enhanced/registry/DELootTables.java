@@ -37,6 +37,7 @@ public interface DELootTables {
 
     ResourceKey<LootTable> FISHING_SHIP = chest("fishing_ship");
     ResourceKey<LootTable> FLYING_DUTCHMAN = chest("flying_dutchman");
+    ResourceKey<LootTable> EQUIPMENT_HENDRICK_VAN_DER_DECKEN = create("equipment/hendrik_van_der_decken");
     ResourceKey<LootTable> HAY_STORAGE = chest("hay_storage");
 
     interface IcePit {

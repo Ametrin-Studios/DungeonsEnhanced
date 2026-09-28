@@ -12,7 +12,8 @@ import net.minecraft.world.level.storage.loot.LootTable;
 
 import java.util.function.BiConsumer;
 
-import static com.ametrin.dungeons_enhanced.data.provider.loot_table.DELootTableProviderHelper.*;
+import static com.ametrinstudios.ametrin.data.LootTableProviderHelper.*;
+
 
 public record DEMonsterMazeChestLootProvider(HolderLookup.Provider registries) implements LootTableSubProvider {
 
@@ -20,21 +21,21 @@ public record DEMonsterMazeChestLootProvider(HolderLookup.Provider registries) i
     public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output) {
         output.accept(DELootTables.MonsterMaze.BREWERY, LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(number(10, 15))
-                        .add(item(Items.REDSTONE, 2))
-                        .add(item(Items.SUGAR, 2))
-                        .add(item(Items.GLOWSTONE_DUST, 2))
-                        .add(item(Items.SPIDER_EYE, 2))
-                        .add(item(Items.POISONOUS_POTATO, 1))
-                        .add(item(Items.RABBIT_FOOT, 1))
-                        .add(item(Items.EXPERIENCE_BOTTLE, 1))
-                        .add(item(Items.BROWN_MUSHROOM, 2))
-                        .add(item(Items.AMETHYST_SHARD, 2))
-                        .add(item(Items.GLISTERING_MELON_SLICE, 1))
-                        .add(item(Items.PHANTOM_MEMBRANE, 1))
-                        .add(item(Items.GOLDEN_CARROT, 2))
-                        .add(item(Items.FERMENTED_SPIDER_EYE, 2))
-                        .add(item(Items.GUNPOWDER, 2))
-                        .add(item(Items.TURTLE_SCUTE, 2))
+                        .add(item(Items.REDSTONE).setWeight(2))
+                        .add(item(Items.SUGAR).setWeight(2))
+                        .add(item(Items.GLOWSTONE_DUST).setWeight(2))
+                        .add(item(Items.SPIDER_EYE).setWeight(2))
+                        .add(item(Items.POISONOUS_POTATO))
+                        .add(item(Items.RABBIT_FOOT))
+                        .add(item(Items.EXPERIENCE_BOTTLE))
+                        .add(item(Items.BROWN_MUSHROOM).setWeight(2))
+                        .add(item(Items.AMETHYST_SHARD).setWeight(2))
+                        .add(item(Items.GLISTERING_MELON_SLICE))
+                        .add(item(Items.PHANTOM_MEMBRANE))
+                        .add(item(Items.GOLDEN_CARROT).setWeight(2))
+                        .add(item(Items.FERMENTED_SPIDER_EYE).setWeight(2))
+                        .add(item(Items.GUNPOWDER).setWeight(2))
+                        .add(item(Items.TURTLE_SCUTE).setWeight(2))
                 )
                 .withPool(LootPool.lootPool().setRolls(number(0, 3))
                         .add(tag(ItemTags.CANDLES, 1, number(0, 1)))
@@ -64,8 +65,8 @@ public record DEMonsterMazeChestLootProvider(HolderLookup.Provider registries) i
                         .add(item(Items.SUGAR, 4, number(1, 3)))
                         .add(item(Items.SUGAR_CANE, 2, number(1, 2)))
                         .add(item(Items.GOLD_NUGGET, 4, number(4, 10)))
-                        .add(item(Items.GOLD_BLOCK, 1))
-                        .add(item(Items.PUMPKIN, 2))
+                        .add(item(Items.GOLD_BLOCK))
+                        .add(item(Items.PUMPKIN).setWeight(2))
                         .add(enchantedItem(Items.BOOK, 1, number(6, 14), registries))
                         .add(item(Items.GOLD_INGOT, 4, number(2, 3)))
                 )
