@@ -6,13 +6,15 @@
     "sources": [
       {
         "data": {
-          "template": "dungeons_enhanced:mushroom_house/red"
+          "template": "dungeons_enhanced:mushroom_house/red",
+          "terrain_box": "footprint"
         },
         "weight": 1
       },
       {
         "data": {
-          "template": "dungeons_enhanced:mushroom_house/brown"
+          "template": "dungeons_enhanced:mushroom_house/brown",
+          "terrain_box": "footprint"
         },
         "weight": 1
       }

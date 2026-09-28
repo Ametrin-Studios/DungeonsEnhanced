@@ -49,6 +49,22 @@
       },
       "trigger": "minecraft:location"
     },
+    "entered_desert_tomb": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": "dungeons_enhanced:desert_tomb"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
     "entered_dungeon_variant": {
       "conditions": {
         "player": [
@@ -356,14 +372,14 @@
   },
   "display": {
     "description": {
-      "translate": "advancements.dungeons_enhanced.ambitious_explorer.desc"
+      "translate": "advancements.dungeons_enhanced.ambitious_explorer.description"
     },
     "frame": "challenge",
     "icon": {
       "id": "minecraft:filled_map"
     },
     "title": {
-      "translate": "advancements.dungeons_enhanced.ambitious_explorer"
+      "translate": "advancements.dungeons_enhanced.ambitious_explorer.title"
     }
   },
   "requirements": [
@@ -375,6 +391,9 @@
     ],
     [
       "entered_desert_temple"
+    ],
+    [
+      "entered_desert_tomb"
     ],
     [
       "entered_dungeon_variant"

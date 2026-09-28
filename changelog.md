@@ -1,3 +1,11 @@
+## 7.0.0
+- no longer requires Structure Gel API
+- requires Ametrin API
+- requires Ametrin Structures
+- 
+- **all existing data packs no longer work**
+- fix castle throne loot table
+
 ## 6.4.1
 - fix Dungeons Enhanced dependency missing
 - fix invalid NeoForge dependency version

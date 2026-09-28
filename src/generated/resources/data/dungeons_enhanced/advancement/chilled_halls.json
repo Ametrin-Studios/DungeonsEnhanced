@@ -20,13 +20,13 @@
   },
   "display": {
     "description": {
-      "translate": "advancements.dungeons_enhanced.chilled_halls.desc"
+      "translate": "advancements.dungeons_enhanced.chilled_halls.description"
     },
     "icon": {
       "id": "minecraft:bone"
     },
     "title": {
-      "translate": "advancements.dungeons_enhanced.chilled_halls"
+      "translate": "advancements.dungeons_enhanced.chilled_halls.title"
     }
   },
   "requirements": [

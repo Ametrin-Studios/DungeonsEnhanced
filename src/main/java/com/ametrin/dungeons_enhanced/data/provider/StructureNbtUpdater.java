@@ -22,9 +22,7 @@ import net.minecraft.util.datafix.DataFixers;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.resource.ResourcePackLoader;
-import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.Nonnull;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.List;
@@ -46,7 +44,7 @@ public final class StructureNbtUpdater implements DataProvider {
     }
 
     @Override
-    public @NotNull CompletableFuture<?> run(@Nonnull CachedOutput cache) {
+    public CompletableFuture<?> run(CachedOutput cache) {
         try {
             for (var entry : resources.listResources(basePath, $ -> true).entrySet()) {
                 if (entry.getKey().getNamespace().equals(modid)) {
@@ -89,7 +87,6 @@ public final class StructureNbtUpdater implements DataProvider {
         return template.save(new CompoundTag());
     }
 
-    @Nonnull
     @Override
     public String getName() {
         return "Update structure files in " + basePath;

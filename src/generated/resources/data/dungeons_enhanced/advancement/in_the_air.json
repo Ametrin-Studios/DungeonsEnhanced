@@ -20,13 +20,13 @@
   },
   "display": {
     "description": {
-      "translate": "advancements.dungeons_enhanced.in_the_air.desc"
+      "translate": "advancements.dungeons_enhanced.in_the_air.description"
     },
     "icon": {
       "id": "minecraft:lantern"
     },
     "title": {
-      "translate": "advancements.dungeons_enhanced.in_the_air"
+      "translate": "advancements.dungeons_enhanced.in_the_air.title"
     }
   },
   "requirements": [

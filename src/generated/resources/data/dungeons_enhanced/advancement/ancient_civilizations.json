@@ -20,13 +20,13 @@
   },
   "display": {
     "description": {
-      "translate": "advancements.dungeons_enhanced.ancient_civilizations.desc"
+      "translate": "advancements.dungeons_enhanced.ancient_civilizations.description"
     },
     "icon": {
       "id": "minecraft:bamboo"
     },
     "title": {
-      "translate": "advancements.dungeons_enhanced.ancient_civilizations"
+      "translate": "advancements.dungeons_enhanced.ancient_civilizations.title"
     }
   },
   "requirements": [

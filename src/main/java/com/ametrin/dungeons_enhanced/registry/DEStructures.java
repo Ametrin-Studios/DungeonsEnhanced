@@ -9,6 +9,7 @@ import com.ametrin.structures.structure.DeferredStructureHolder;
 import com.ametrin.structures.structure.DeferredStructureRegister;
 import com.ametrin.structures.structure.simple.HeightAnchor;
 import com.ametrin.structures.structure.simple.HeightMode;
+import com.ametrin.structures.structure.simple.TerrainBox;
 import net.minecraft.tags.StructureTags;
 import net.minecraft.util.random.Weighted;
 import net.minecraft.util.random.WeightedList;
@@ -31,8 +32,8 @@ public final class DEStructures {
     public static final DeferredStructureHolder CASTLE;
     public static final DeferredStructureHolder DEEP_CRYPT;
     public static final DeferredStructureHolder DESERT_TEMPLE;
-    //    public static final StructureRegistrar<ExtendedJigsawStructure> DESERT_TOMB;
-//    public static final StructureRegistrar<ExtendedJigsawStructure> DRUID_CIRCLE;
+    public static final DeferredStructureHolder DESERT_TOMB;
+    //    public static final StructureRegistrar<ExtendedJigsawStructure> DRUID_CIRCLE;
     public static final DeferredStructureHolder DUNGEON_VARIANT;
     public static final DeferredStructureHolder ELDERS_TEMPLE;
     public static final DeferredStructureHolder FISHING_SHIP;
@@ -59,8 +60,7 @@ public final class DEStructures {
     // Nether
 //    public static final StructureRegistrar<ExtendedJigsawStructure> BLACK_CITADEL;
 
-    private DEStructures() {
-    }
+    private DEStructures() {}
 
     static {
         // Overworld
@@ -107,13 +107,14 @@ public final class DEStructures {
                         )
                 ).build();
 
-//        DESERT_TOMB = StructureRegistrar.jigsawBuilder(locate(DEStructureIDs.DESERT_TOMB))
-//                .placement(()-> gridPlacement(29, 65).allowedNearSpawn(true).build(DEStructures.DESERT_TOMB))
-//                .addPiece(()-> DEDesertTomb.Piece::new)
-//                .pushStructure((context, settings)-> extendedJigsawStructure(context, settings, DEDesertTomb.Capability.INSTANCE, DETemplatePools.DESERT_TOMB, 5, ConstantHeight.ZERO).onSurface().build())
-//                        .biomes(DETags.Biomes.HAS_DESERT_TOMB)
-//                .popStructure()
-//                .build();
+        DESERT_TOMB = REGISTER.set(DEStructureIDs.DESERT_TOMB)
+                .scatteredGridPlacement(p -> p.spacing(29).probability(0.65f))
+                .jigsaw(DETemplatePools.DESERT_TOMB, j -> j
+                                .onSurface()
+                                .size(5),
+                        s -> s
+                                .biomes(DETags.Biomes.HAS_DESERT_TOMB)
+                ).build();
 //
 //        DRUID_CIRCLE = StructureRegistrar.jigsawBuilder(locate(DEStructureIDs.DRUID_CIRCLE))
 //                .placement(()-> gridPlacement(41, 68).allowedNearSpawn(true).build(DEStructures.DRUID_CIRCLE))
@@ -239,8 +240,8 @@ public final class DEStructures {
                         .biomes(DETags.Biomes.HAS_MUSHROOM_HOUSE)
                         .surface()
                         .weighted(b -> b
-                                .single("mushroom_house/red", 1)
-                                .single("mushroom_house/brown", 1))
+                                .single(t -> t.template("mushroom_house/red").terrainBox(TerrainBox.footprint()), 1)
+                                .single(t -> t.template("mushroom_house/brown").terrainBox(TerrainBox.footprint()), 1))
                         .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                 ).build();
 

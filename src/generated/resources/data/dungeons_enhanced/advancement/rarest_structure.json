@@ -20,13 +20,13 @@
   },
   "display": {
     "description": {
-      "translate": "advancements.dungeons_enhanced.rarest_structure.desc"
+      "translate": "advancements.dungeons_enhanced.rarest_structure.description"
     },
     "icon": {
       "id": "minecraft:red_mushroom"
     },
     "title": {
-      "translate": "advancements.dungeons_enhanced.rarest_structure"
+      "translate": "advancements.dungeons_enhanced.rarest_structure.title"
     }
   },
   "requirements": [

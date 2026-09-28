@@ -20,13 +20,13 @@
   },
   "display": {
     "description": {
-      "translate": "advancements.dungeons_enhanced.sunken_depths.desc"
+      "translate": "advancements.dungeons_enhanced.sunken_depths.description"
     },
     "icon": {
       "id": "minecraft:nautilus_shell"
     },
     "title": {
-      "translate": "advancements.dungeons_enhanced.sunken_depths"
+      "translate": "advancements.dungeons_enhanced.sunken_depths.title"
     }
   },
   "requirements": [

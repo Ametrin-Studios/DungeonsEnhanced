@@ -2,30 +2,24 @@ package com.ametrin.dungeons_enhanced.data.provider;
 
 import com.ametrin.dungeons_enhanced.DungeonsEnhanced;
 import com.ametrin.dungeons_enhanced.registry.DEStructures;
+import com.ametrinstudios.ametrin.data.provider.ExtendedAdvancementSubProvider;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.advancements.*;
 import net.minecraft.advancements.criterion.LocationPredicate;
 import net.minecraft.advancements.criterion.PlayerTrigger;
 import net.minecraft.core.Holder;
-import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.component.DataComponentPatch;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.advancements.AdvancementProvider;
-import net.minecraft.data.advancements.AdvancementSubProvider;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.entity.BannerPattern;
-import net.minecraft.world.level.block.entity.BannerPatternLayers;
 import net.minecraft.world.level.levelgen.structure.Structure;
+import org.jspecify.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,22 +33,27 @@ public final class DEAdvancementProvider extends AdvancementProvider {
         super(output, lookupProvider, List.of(new DEExplorerAdvancementSubProvider()));
     }
 
-    public static final class DEExplorerAdvancementSubProvider implements AdvancementSubProvider {
+    public static final class DEExplorerAdvancementSubProvider extends ExtendedAdvancementSubProvider {
+        public DEExplorerAdvancementSubProvider() {
+            super(DungeonsEnhanced.MOD_ID);
+        }
+
         @Override
         public void generate(HolderLookup.Provider provider, Consumer<AdvancementHolder> consumer) {
             var structureLookup = provider.lookupOrThrow(Registries.STRUCTURE);
             var bannerLookup = provider.lookupOrThrow(Registries.BANNER_PATTERN);
 
-            var root = new AdvancementBuilder("root", Items.COMPASS)
-                    .background("textures/block/mossy_cobblestone.png")
+            var root = builder(provider, "root")
+                    .background(Identifier.withDefaultNamespace("block/mossy_cobblestone"))
                     .hideToast().hideInChat()
-                    .orCriterions()
-                    .onEnterStructures(structureLookup, DEStructures.REGISTER.getAllStructures())
+                    .displayItem(Items.FILLED_MAP)
+                    .orCriteria()
+                    .onEnterStructures("entered_dungeon_enhanced_structure", DEStructures.REGISTER.getAllStructures())
                     .save(consumer);
 
 //            new AdvancementBuilder("hidden_under_the_roots", Items.JACK_O_LANTERN)
 //                    .parent(root)
-//                    .orCriterions()
+//                    .orCriteria()
 //                    .onEnterStructure(structureLookup, DEStructures.MONSTER_MAZE_DARK)
 //                    .onEnterStructure(structureLookup, DEStructures.MONSTER_MAZE_PALE)
 //                    .save(consumer);
@@ -64,42 +63,46 @@ public final class DEAdvancementProvider extends AdvancementProvider {
 //                    .onEnterStructure(structureLookup, DEStructures.LARGE_DUNGEON)
 //                    .save(consumer);
 
-            new AdvancementBuilder("traps_and_curses", Items.TNT)
+            builder(provider, "traps_and_curses")
                     .parent(root)
-                    .onEnterStructure(structureLookup.getOrThrow(DEStructures.DESERT_TEMPLE.structure()))
+                    .displayItem(Items.TNT)
+                    .onEnterStructure(DEStructures.DESERT_TEMPLE.structure())
                     .save(consumer);
 
-            new AdvancementBuilder("ancient_civilizations", Items.BAMBOO)
+            builder(provider, "ancient_civilizations")
                     .parent(root)
-                    .onEnterStructure(structureLookup.getOrThrow(DEStructures.JUNGLE_MONUMENT.structure()))
+                    .displayItem(Items.BAMBOO)
+                    .onEnterStructure(DEStructures.JUNGLE_MONUMENT.structure())
                     .save(consumer);
 
-//            new AdvancementBuilder("wars_and_kingdoms", Items.STONE_BRICKS)
-//                    .parent(root)
-//                    .onEnterStructure(structureLookup, DEStructures.CASTLE)
-//                    .save(consumer);
-
-            new AdvancementBuilder("rarest_structure", Items.RED_MUSHROOM)
+            builder(provider, "wars_and_kingdoms")
                     .parent(root)
-                    .onEnterStructure(structureLookup.getOrThrow(DEStructures.MUSHROOM_HOUSE.structure()))
+                    .displayItem(Items.STONE_BRICKS)
+                    .onEnterStructure(DEStructures.CASTLE.structure())
                     .save(consumer);
 
-            new AdvancementBuilder("chilled_halls", Items.BONE)
+            builder(provider, "rarest_structure")
+                    .parent(root)
+                    .displayItem(Items.RED_MUSHROOM)
+                    .onEnterStructure(DEStructures.MUSHROOM_HOUSE.structure())
+                    .save(consumer);
+
+            new AdvancementBuilderLegacy("chilled_halls", Items.BONE)
                     .parent(root)
                     .onEnterStructure(structureLookup.getOrThrow(DEStructures.ICE_PIT.structure()))
                     .save(consumer);
 
-            new AdvancementBuilder("ahoy", Items.WITHER_SKELETON_SKULL)
+            new AdvancementBuilderLegacy("ahoy", Items.SKELETON_SKULL)
                     .parent(root)
                     .onEnterStructure(structureLookup.getOrThrow(DEStructures.PIRATE_SHIP.structure()))
                     .save(consumer);
 
-            new AdvancementBuilder("in_the_air", Items.LANTERN)
+            new AdvancementBuilderLegacy("in_the_air", Items.LANTERN)
                     .parent(root)
                     .onEnterStructure(structureLookup.getOrThrow(DEStructures.FLYING_DUTCHMAN.structure()))
                     .save(consumer);
 
-            new AdvancementBuilder("sunken_depths", Items.NAUTILUS_SHELL)
+            new AdvancementBuilderLegacy("sunken_depths", Items.NAUTILUS_SHELL)
                     .parent(root)
                     .onEnterStructure(structureLookup.getOrThrow(DEStructures.ELDERS_TEMPLE.structure()))
                     .save(consumer);
@@ -115,12 +118,12 @@ public final class DEAdvancementProvider extends AdvancementProvider {
 //                    .onEnterStructure(structureLookup, DEStructures.BLACK_CITADEL)
 //                    .save(consumer);
 
-            var sevenWorldWonders = new AdvancementBuilder("seven_world_wonders", Items.SPYGLASS)
+            var sevenWorldWonders = new AdvancementBuilderLegacy("seven_world_wonders", Items.SPYGLASS)
                     .parent(root)
                     .type(AdvancementType.GOAL)
                     .onEnterStructures(structureLookup, Stream.of(
-//                            DEStructures.CASTLE,
-//                            DEStructures.DEEP_CRYPT,
+                            DEStructures.CASTLE.structure(),
+                            DEStructures.DEEP_CRYPT.structure(),
                             DEStructures.DESERT_TEMPLE.structure(),
                             DEStructures.ICE_PIT.structure(),
                             DEStructures.JUNGLE_MONUMENT.structure(),
@@ -129,7 +132,7 @@ public final class DEAdvancementProvider extends AdvancementProvider {
                     ))
                     .save(consumer);
 
-            new AdvancementBuilder("ambitious_explorer", Items.FILLED_MAP)
+            new AdvancementBuilderLegacy("ambitious_explorer", Items.FILLED_MAP)
                     .parent(sevenWorldWonders)
                     .type(AdvancementType.CHALLENGE)
                     .onEnterStructures(structureLookup, DEStructures.REGISTER.getAllStructures())
@@ -137,109 +140,110 @@ public final class DEAdvancementProvider extends AdvancementProvider {
         }
     }
 
-    private static class AdvancementBuilder {
+    private static class AdvancementBuilderLegacy {
         private final String _id;
         private final ItemStackTemplate _displayItem;
+        @Nullable
         private AdvancementHolder _parent = null;
+        @Nullable
         private Identifier _background = null;
         private AdvancementType _type = AdvancementType.TASK;
         private boolean _showToast = true;
         private boolean _announceToChat = true;
         private boolean _hidden = false;
         private AdvancementRequirements.Strategy _criterionStrategy = AdvancementRequirements.Strategy.AND;
-        private final List<Pair<String, Criterion<?>>> _criterions = new ArrayList<>();
+        private final List<Pair<String, Criterion<?>>> _criteria = new ArrayList<>();
 
-        private AdvancementBuilder(String id, ItemStackTemplate displayItem) {
+        private AdvancementBuilderLegacy(String id, ItemStackTemplate displayItem) {
             _id = id;
             _displayItem = displayItem;
         }
 
-        private AdvancementBuilder(String id, ItemLike displayItem) {
+        private AdvancementBuilderLegacy(String id, ItemLike displayItem) {
             this(id, new ItemStackTemplate(displayItem.asItem()));
         }
 
-        private AdvancementBuilder parent(AdvancementHolder parent) {
+        private AdvancementBuilderLegacy parent(AdvancementHolder parent) {
             _parent = parent;
             return this;
         }
 
-        public AdvancementBuilder background(String background) {
+        public AdvancementBuilderLegacy background(String background) {
             return background(Identifier.withDefaultNamespace(background));
         }
 
-        public AdvancementBuilder background(Identifier background) {
+        public AdvancementBuilderLegacy background(Identifier background) {
             _background = background;
             return this;
         }
 
-        public AdvancementBuilder type(AdvancementType type) {
+        public AdvancementBuilderLegacy type(AdvancementType type) {
             _type = type;
             return this;
         }
 
-        public AdvancementBuilder hideCompletely() {
+        public AdvancementBuilderLegacy hideCompletely() {
             return hideToast().hideInChat().hide();
         }
 
-        public AdvancementBuilder hideToast() {
+        public AdvancementBuilderLegacy hideToast() {
             return showToast(false);
         }
 
-        public AdvancementBuilder showToast(boolean show) {
+        public AdvancementBuilderLegacy showToast(boolean show) {
             _showToast = show;
             return this;
         }
 
-        public AdvancementBuilder hideInChat() {
+        public AdvancementBuilderLegacy hideInChat() {
             return announceToChat(false);
         }
 
-        public AdvancementBuilder announceToChat(boolean announce) {
+        public AdvancementBuilderLegacy announceToChat(boolean announce) {
             _announceToChat = announce;
             return this;
         }
 
-        public AdvancementBuilder hide() {
+        public AdvancementBuilderLegacy hide() {
             return hidden(true);
         }
 
-        public AdvancementBuilder hidden(boolean hidden) {
+        public AdvancementBuilderLegacy hidden(boolean hidden) {
             _hidden = hidden;
             return this;
         }
 
-        public AdvancementBuilder orCriterions() {
+        public AdvancementBuilderLegacy orCriteria() {
             return criterionStrategy(AdvancementRequirements.Strategy.OR);
         }
 
-        public AdvancementBuilder criterionStrategy(AdvancementRequirements.Strategy strategy) {
+        public AdvancementBuilderLegacy criterionStrategy(AdvancementRequirements.Strategy strategy) {
             _criterionStrategy = strategy;
             return this;
         }
 
-        @SuppressWarnings("unchecked")
-        public AdvancementBuilder onEnterStructures(HolderLookup.RegistryLookup<Structure> lookup, Stream<ResourceKey<Structure>> structures) {
+        public AdvancementBuilderLegacy onEnterStructures(HolderLookup.RegistryLookup<Structure> lookup, Stream<ResourceKey<Structure>> structures) {
             structures.map(lookup::getOrThrow).forEach(this::onEnterStructure);
             return this;
         }
 
-        public AdvancementBuilder onEnterStructure(Holder<Structure> structureHolder) {
+        public AdvancementBuilderLegacy onEnterStructure(Holder<Structure> structure) {
             return addCriterion(
-                    "entered_" + Objects.requireNonNull(structureHolder.getKey()).identifier().getPath(),
-                    PlayerTrigger.TriggerInstance.located(LocationPredicate.Builder.inStructure(structureHolder))
+                    "entered_" + Objects.requireNonNull(structure.getKey()).identifier().getPath(),
+                    PlayerTrigger.TriggerInstance.located(LocationPredicate.Builder.inStructure(structure))
             );
         }
 
-        public AdvancementBuilder addCriterion(String name, Criterion<?> criterion) {
-            _criterions.add(Pair.of(name, criterion));
+        public AdvancementBuilderLegacy addCriterion(String name, Criterion<?> criterion) {
+            _criteria.add(Pair.of(name, criterion));
             return this;
         }
 
         public AdvancementHolder save(Consumer<AdvancementHolder> consumer) {
             var builder = new Advancement.Builder()
-                    .display(_displayItem, component(_id), component(_id + ".desc"), _background, _type, _showToast, _announceToChat, _hidden)
+                    .display(_displayItem, component(_id + ".title"), component(_id + ".description"), _background, _type, _showToast, _announceToChat, _hidden)
                     .requirements(_criterionStrategy);
-            for (var pair : _criterions) {
+            for (var pair : _criteria) {
                 builder.addCriterion(pair.getFirst(), pair.getSecond());
             }
             if (_parent != null) builder.parent(_parent);
@@ -248,24 +252,6 @@ public final class DEAdvancementProvider extends AdvancementProvider {
 
         private static Component component(String key) {
             return Component.translatable("advancements.dungeons_enhanced." + key);
-        }
-    }
-
-    private static class BannerBuilder {
-        private final Item _bannerItem;
-        private final BannerPatternLayers.Builder _layers = new BannerPatternLayers.Builder();
-
-        public BannerBuilder(Item item) {
-            _bannerItem = item;
-        }
-
-        public BannerBuilder addPattern(HolderGetter<BannerPattern> lookup, ResourceKey<BannerPattern> pattern, DyeColor color) {
-            _layers.add(lookup.get(pattern).orElseThrow(), color);
-            return this;
-        }
-
-        public ItemStackTemplate build() {
-            return new ItemStackTemplate(_bannerItem, DataComponentPatch.builder().set(DataComponents.BANNER_PATTERNS, _layers.build()).build());
         }
     }
 }

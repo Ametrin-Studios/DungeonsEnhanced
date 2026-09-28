@@ -1,6 +1,6 @@
 {
   "criteria": {
-    "entered_castle": {
+    "entered_dungeon_enhanced_structure": {
       "conditions": {
         "player": [
           {
@@ -8,343 +8,31 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structures": "dungeons_enhanced:castle"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
-    "entered_deep_crypt": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "structures": "dungeons_enhanced:deep_crypt"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
-    "entered_desert_temple": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "structures": "dungeons_enhanced:desert_temple"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
-    "entered_dungeon_variant": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "structures": "dungeons_enhanced:dungeon_variant"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
-    "entered_elders_temple": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "structures": "dungeons_enhanced:elders_temple"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
-    "entered_fishing_ship": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "structures": "dungeons_enhanced:fishing_ship"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
-    "entered_flying_dutchman": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "structures": "dungeons_enhanced:flying_dutchman"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
-    "entered_hay_storage": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "structures": "dungeons_enhanced:hay_storage"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
-    "entered_ice_pit": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "structures": "dungeons_enhanced:ice_pit"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
-    "entered_jungle_monument": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "structures": "dungeons_enhanced:jungle_monument"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
-    "entered_miners_house": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "structures": "dungeons_enhanced:miners_house"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
-    "entered_mushroom_house": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "structures": "dungeons_enhanced:mushroom_house"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
-    "entered_pillager_camp": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "structures": "dungeons_enhanced:pillager_camp"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
-    "entered_pirate_ship": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "structures": "dungeons_enhanced:pirate_ship"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
-    "entered_ruined_building": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "structures": "dungeons_enhanced:ruined_building"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
-    "entered_stables": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "structures": "dungeons_enhanced:stables"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
-    "entered_sunken_shrine": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "structures": "dungeons_enhanced:sunken_shrine"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
-    "entered_tall_witch_hut": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "structures": "dungeons_enhanced:tall_witch_hut"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
-    "entered_tower_of_the_undead": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "structures": "dungeons_enhanced:tower_of_the_undead"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
-    "entered_tree_house": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "structures": "dungeons_enhanced:tree_house"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
-    "entered_watch_tower": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "structures": "dungeons_enhanced:watch_tower"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
-    "entered_witch_tower": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "structures": "dungeons_enhanced:witch_tower"
+                "structures": [
+                  "dungeons_enhanced:castle",
+                  "dungeons_enhanced:deep_crypt",
+                  "dungeons_enhanced:desert_temple",
+                  "dungeons_enhanced:desert_tomb",
+                  "dungeons_enhanced:dungeon_variant",
+                  "dungeons_enhanced:elders_temple",
+                  "dungeons_enhanced:fishing_ship",
+                  "dungeons_enhanced:flying_dutchman",
+                  "dungeons_enhanced:hay_storage",
+                  "dungeons_enhanced:ice_pit",
+                  "dungeons_enhanced:jungle_monument",
+                  "dungeons_enhanced:miners_house",
+                  "dungeons_enhanced:mushroom_house",
+                  "dungeons_enhanced:pillager_camp",
+                  "dungeons_enhanced:pirate_ship",
+                  "dungeons_enhanced:ruined_building",
+                  "dungeons_enhanced:stables",
+                  "dungeons_enhanced:sunken_shrine",
+                  "dungeons_enhanced:tall_witch_hut",
+                  "dungeons_enhanced:tower_of_the_undead",
+                  "dungeons_enhanced:tree_house",
+                  "dungeons_enhanced:watch_tower",
+                  "dungeons_enhanced:witch_tower"
+                ]
               }
             }
           }
@@ -355,42 +43,21 @@
   },
   "display": {
     "announce_to_chat": false,
-    "background": "minecraft:textures/block/mossy_cobblestone.png",
+    "background": "minecraft:block/mossy_cobblestone",
     "description": {
-      "translate": "advancements.dungeons_enhanced.root.desc"
+      "translate": "advancements.dungeons_enhanced.root.description"
     },
     "icon": {
-      "id": "minecraft:compass"
+      "id": "minecraft:filled_map"
     },
     "show_toast": false,
     "title": {
-      "translate": "advancements.dungeons_enhanced.root"
+      "translate": "advancements.dungeons_enhanced.root.title"
     }
   },
   "requirements": [
     [
-      "entered_castle",
-      "entered_deep_crypt",
-      "entered_desert_temple",
-      "entered_dungeon_variant",
-      "entered_elders_temple",
-      "entered_fishing_ship",
-      "entered_flying_dutchman",
-      "entered_hay_storage",
-      "entered_ice_pit",
-      "entered_jungle_monument",
-      "entered_miners_house",
-      "entered_mushroom_house",
-      "entered_pillager_camp",
-      "entered_pirate_ship",
-      "entered_ruined_building",
-      "entered_stables",
-      "entered_sunken_shrine",
-      "entered_tall_witch_hut",
-      "entered_tower_of_the_undead",
-      "entered_tree_house",
-      "entered_watch_tower",
-      "entered_witch_tower"
+      "entered_dungeon_enhanced_structure"
     ]
   ]
 }
