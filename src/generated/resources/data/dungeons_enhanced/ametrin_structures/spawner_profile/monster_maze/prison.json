@@ -1,0 +1,40 @@
+{
+  "spawn_potentials": [
+    {
+      "data": {
+        "entity": {
+          "id": "minecraft:zombie"
+        },
+        "equipment": {
+          "loot_table": "dungeons_enhanced:equipment/monster_maze/prison_zombie",
+          "slot_drop_chances": 0.085
+        }
+      },
+      "weight": 3
+    },
+    {
+      "data": {
+        "entity": {
+          "id": "minecraft:skeleton"
+        }
+      },
+      "weight": 2
+    },
+    {
+      "data": {
+        "entity": {
+          "id": "minecraft:spider"
+        }
+      },
+      "weight": 1
+    },
+    {
+      "data": {
+        "entity": {
+          "id": "minecraft:cave_spider"
+        }
+      },
+      "weight": 1
+    }
+  ]
+}

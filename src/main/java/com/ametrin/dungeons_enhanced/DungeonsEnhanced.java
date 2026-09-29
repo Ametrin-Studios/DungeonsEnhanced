@@ -18,7 +18,6 @@ public final class DungeonsEnhanced {
     public DungeonsEnhanced(IEventBus modEventBus, ModContainer container) {
         modEventBus.addListener(DungeonsEnhanced::gatherData);
         DEStructures.REGISTER.register(modEventBus);
-        DESpawnerProfiles.REGISTER.register(modEventBus);
         DEPieceSources.REGISTER.register(modEventBus);
     }
 
@@ -27,7 +26,8 @@ public final class DungeonsEnhanced {
                 .add(Registries.VILLAGER_TRADE, DEVillagerTrades::bootstrap)
                 .add(Registries.PROCESSOR_LIST, DEProcessorLists::bootstrap)
                 .add(Registries.TEMPLATE_POOL, DETemplatePools::bootstrap)
-                .add(ASRegistries.FIXTURE_PRESET, DEFixturePresets::bootstrap);
+                .add(ASRegistries.FIXTURE_PRESET, DEFixturePresets::bootstrap)
+                .add(ASRegistries.SPAWNER_PROFILE, DESpawnerProfiles::bootstrap);
         DEStructures.REGISTER.bootstrap(builder);
 
         event.createDatapackRegistryObjects(builder);
