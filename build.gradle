@@ -84,7 +84,7 @@ repositories {
 }
 
 dependencies {
-    implementation files("/mnt/Projects/Coding/Minecraft/Mods/AmetrinStructures/build/libs/ametrin_structures-26.1.2-0.0.1.jar")
+    implementation files("/mnt/Projects/Coding/Minecraft/Mods/AmetrinStructures/build/libs/ametrin_structures-26.1.2-0.1.0.jar")
     implementation "com.ametrinstudios:ametrin-${minecraft_version}:${ametrin_version}"
     interfaceInjectionData "com.ametrinstudios:ametrin-${minecraft_version}:${ametrin_version}"
 

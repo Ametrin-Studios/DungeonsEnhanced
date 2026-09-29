@@ -2,7 +2,7 @@
   "elements": [
     {
       "element": {
-        "element_type": "ametrin_structures:foam_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:pillager_camp/tent/sleep1",
         "processors": "minecraft:empty",
         "projection": "rigid"
@@ -11,7 +11,7 @@
     },
     {
       "element": {
-        "element_type": "ametrin_structures:foam_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:pillager_camp/tent/sleep2",
         "processors": "minecraft:empty",
         "projection": "rigid"
@@ -20,7 +20,7 @@
     },
     {
       "element": {
-        "element_type": "ametrin_structures:foam_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:pillager_camp/tent/kitchen",
         "processors": "minecraft:empty",
         "projection": "rigid"
@@ -29,7 +29,7 @@
     },
     {
       "element": {
-        "element_type": "ametrin_structures:foam_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "minecraft:pillager_outpost/feature_logs",
         "processors": "minecraft:empty",
         "projection": "rigid"
@@ -38,7 +38,7 @@
     },
     {
       "element": {
-        "element_type": "ametrin_structures:foam_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "minecraft:pillager_outpost/feature_targets",
         "processors": "minecraft:empty",
         "projection": "rigid"
@@ -47,7 +47,7 @@
     },
     {
       "element": {
-        "element_type": "ametrin_structures:foam_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "minecraft:pillager_outpost/feature_tent1",
         "processors": "minecraft:empty",
         "projection": "rigid"
@@ -56,7 +56,7 @@
     },
     {
       "element": {
-        "element_type": "ametrin_structures:foam_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "minecraft:pillager_outpost/feature_tent2",
         "processors": "minecraft:empty",
         "projection": "rigid"
@@ -65,7 +65,7 @@
     },
     {
       "element": {
-        "element_type": "ametrin_structures:foam_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:pillager_camp/decoration/campfire",
         "processors": "minecraft:empty",
         "projection": "rigid"
@@ -74,7 +74,7 @@
     },
     {
       "element": {
-        "element_type": "ametrin_structures:foam_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:pillager_camp/decoration/cage1",
         "processors": "minecraft:empty",
         "projection": "rigid"
@@ -83,7 +83,7 @@
     },
     {
       "element": {
-        "element_type": "ametrin_structures:foam_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:pillager_camp/decoration/bell",
         "processors": "minecraft:empty",
         "projection": "rigid"
@@ -92,7 +92,7 @@
     },
     {
       "element": {
-        "element_type": "ametrin_structures:foam_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:pillager_camp/decoration/pillar",
         "processors": "minecraft:empty",
         "projection": "rigid"

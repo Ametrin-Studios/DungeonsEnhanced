@@ -2,7 +2,7 @@
   "elements": [
     {
       "element": {
-        "element_type": "ametrin_structures:foam_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:black_citadel/bridge_tower/normal",
         "processors": "dungeons_enhanced:black_citadel/default",
         "projection": "rigid"

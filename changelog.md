@@ -3,7 +3,7 @@
 - requires Ametrin API
 - requires Ametrin Structures
 - **all existing data packs no longer work**
-  - data packs can now modify variants, template processors vertical structure placement and placement filters 
+  - data packs can now modify variants, template processors, vertical structure placement, placement filters and spawners in structures
 - black citadel replaced deep crypt for seven world wonders
 - fix castle throne loot table
 

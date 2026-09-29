@@ -2,7 +2,7 @@
   "elements": [
     {
       "element": {
-        "element_type": "ametrin_structures:foam_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:desert_tomb/trap",
         "processors": "minecraft:empty",
         "projection": "rigid"

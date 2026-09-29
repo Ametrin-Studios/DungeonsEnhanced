@@ -2,12 +2,9 @@
   "fixtures": [
     {
       "type": "ametrin_structures:entity",
-      "entries": {
-        "entity": "minecraft:skeleton",
-        "equipment": "dungeons_enhanced:equipment/hendrik_van_der_decken",
-        "equipment_drop_chance": "0.085",
-        "nbt": "{CustomName:\"Hendrik van der Decken\",Health:40.0f,LeftHanded:1b,attributes:[{base:40.0d,id:\"minecraft:max_health\"}]}"
-      }
+      "entity": "minecraft:skeleton",
+      "equipment": "dungeons_enhanced:equipment/hendrik_van_der_decken",
+      "nbt": "{CustomName:\"Hendrik van der Decken\",Health:40.0f,LeftHanded:1b,attributes:[{base:40.0d,id:\"minecraft:max_health\"}]}"
     }
   ]
 }
