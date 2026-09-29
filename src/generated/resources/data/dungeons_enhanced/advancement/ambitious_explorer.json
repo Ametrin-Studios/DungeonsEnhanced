@@ -81,6 +81,22 @@
       },
       "trigger": "minecraft:location"
     },
+    "entered_druid_circle": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": "dungeons_enhanced:druid_circle"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
     "entered_dungeon_variant": {
       "conditions": {
         "player": [
@@ -461,6 +477,9 @@
     ],
     [
       "entered_desert_tomb"
+    ],
+    [
+      "entered_druid_circle"
     ],
     [
       "entered_dungeon_variant"
