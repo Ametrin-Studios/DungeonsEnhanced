@@ -7,12 +7,17 @@
       {
         "offset": [
           -25,
-          0,
+          -3,
           0
         ],
         "template": "dungeons_enhanced:pirate_ship/front"
       },
       {
+        "offset": [
+          0,
+          -3,
+          0
+        ],
         "template": "dungeons_enhanced:pirate_ship/back"
       }
     ]

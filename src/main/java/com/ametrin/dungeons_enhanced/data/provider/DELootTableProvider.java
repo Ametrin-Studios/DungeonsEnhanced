@@ -275,7 +275,7 @@ public final class DELootTableProvider extends LootTableProvider {
                         ));
             } // Pillager Camp
             {
-                output.accept(location("ruined_building"), LootTable.lootTable()
+                output.accept(DELootTables.Ruined.DEFAULT, LootTable.lootTable()
                         .withPool(LootPool.lootPool().setRolls(number(2, 4))
                                 .add(item(Items.IRON_NUGGET, 6, number(2, 5)))
                                 .add(item(Items.IRON_INGOT, 2))

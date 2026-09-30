@@ -35,7 +35,6 @@ public final class DungeonsEnhanced {
         event.createProvider(DEBiomeTagsProvider::new);
         event.createProvider(DEVillagerTradesTagsProvider::new);
         event.createProvider(DELootTableProvider::new);
-        // event.createProvider(StructureNbtUpdater::new);
         event.createProvider(DEAdvancementProvider::new);
         event.createProvider(DEStructureTagsProvider::new);
     }

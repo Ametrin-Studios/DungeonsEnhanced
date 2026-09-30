@@ -166,7 +166,7 @@ public final class DEStructures {
                 .build();
 
         FISHING_SHIP = REGISTER.set(DEStructureIDs.FISHING_SHIP)
-                .scatteredGridPlacement(48, 0.68f)
+                .scatteredGridPlacement(49, 0.62f)
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_FISHING_SHIP)
                         .surface()
@@ -279,14 +279,14 @@ public final class DEStructures {
                 .build();
 
         PIRATE_SHIP = REGISTER.set(DEStructureIDs.PIRATE_SHIP)
-                .scatteredGridPlacement(67, 0.49F)
+                .scatteredGridPlacement(68, 0.42F)
                 .simple(s -> s
                                 .biomes(DETags.Biomes.HAS_PIRATE_SHIP)
                                 .surface()
 //                        .filterMinWaterDepth(6)
                                 .compound(b -> b
-                                        .single(t -> t.template("pirate_ship/front").offset(-25, 0, 0))
-                                        .single(t -> t.template("pirate_ship/back")))
+                                        .single(t -> t.template("pirate_ship/front").offset(-25, -3, 0))
+                                        .single(t -> t.template("pirate_ship/back").offset(0, -3, 0)))
                                 .spawnOverride(MobCategory.MONSTER, new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.STRUCTURE, spawns(spawn(EntityType.PILLAGER, 4, 3, 4), spawn(EntityType.VINDICATOR, 3, 1, 2))))
                                 .noSpawns(StructureSpawnOverride.BoundingBoxType.STRUCTURE, MobCategory.UNDERGROUND_WATER_CREATURE, MobCategory.AXOLOTLS, MobCategory.WATER_AMBIENT, MobCategory.WATER_CREATURE)
                 )
@@ -298,8 +298,8 @@ public final class DEStructures {
                         .biomes(DETags.Biomes.HAS_RUINED_BUILDING)
                         .surface()
                         .weighted(b -> b
-                                .single("ruined_building/house", 3)
-                                .single("ruined_building/barn", 3)
+                                .single(t -> t.template("ruined_building/house").yOffset(-1), 3)
+                                .single(t -> t.template("ruined_building/barn").yOffset(-1), 3)
                                 .single(t -> t.template("ruined_building/house_big").yOffset(-1), 2))
                         .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                 )

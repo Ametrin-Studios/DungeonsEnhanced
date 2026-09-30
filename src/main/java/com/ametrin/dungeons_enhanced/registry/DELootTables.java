@@ -78,6 +78,7 @@ public interface DELootTables {
 
     interface Ruined {
         ResourceKey<LootTable> HOUSE = chest("ruined/house");
+        ResourceKey<LootTable> DEFAULT = chest("ruined/default");
     }
 
     ResourceKey<LootTable> STABLES = chest("stables");
