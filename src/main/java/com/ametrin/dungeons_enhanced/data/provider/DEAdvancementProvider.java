@@ -95,7 +95,7 @@ public final class DEAdvancementProvider extends AdvancementProvider {
 
             builder(provider, "in_the_air")
                     .parent(root)
-                    .displayItem(Items.COPPER_LANTERN.unaffected())
+                    .displayItem(Items.COPPER_LANTERN.oxidized())
                     .onEnterStructure(DEStructures.FLYING_DUTCHMAN.structure())
                     .save(consumer);
 
