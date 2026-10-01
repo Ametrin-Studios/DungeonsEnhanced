@@ -7,6 +7,7 @@ import com.ametrin.structures.registry.ASTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.StructureTagsProvider;
+import net.minecraft.tags.StructureTags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -25,5 +26,10 @@ public final class DEStructureTagsProvider extends StructureTagsProvider {
         tag(DETags.Structures.ON_ELDER_EXPLORER_MAPS).add(DEStructures.ELDERS_TEMPLE.structure());
         tag(DETags.Structures.ON_DESERT_EXPLORER_MAPS).add(DEStructures.DESERT_TEMPLE.structure());
         tag(DETags.Structures.ON_MONSTER_MAZE_EXPLORER_MAPS).addTag(DETags.Structures.MONSTER_MAZE);
+
+        tag(StructureTags.CATS_SPAWN_AS_BLACK)
+                .add(DEStructures.TALL_WITCH_HUT.structure())
+                .add(DEStructures.WITCH_TOWER.structure())
+        ;
     }
 }

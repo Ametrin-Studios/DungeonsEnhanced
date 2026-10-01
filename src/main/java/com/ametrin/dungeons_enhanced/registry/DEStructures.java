@@ -5,6 +5,7 @@ import com.ametrin.dungeons_enhanced.data.DETags;
 import com.ametrin.dungeons_enhanced.world.structure.DEIcePitPieces;
 import com.ametrin.dungeons_enhanced.world.structure.processor.DESwapDeadCoralsProcessor;
 import com.ametrin.structures.foam.RemoveFoamProcessor;
+import com.ametrin.structures.processor.RetainExistingProcessor;
 import com.ametrin.structures.structure.DeferredStructureHolder;
 import com.ametrin.structures.structure.DeferredStructureRegister;
 import com.ametrin.structures.structure.simple.HeightAnchor;
@@ -328,12 +329,13 @@ public final class DEStructures {
                 .build();
 
         TALL_WITCH_HUT = REGISTER.set(DEStructureIDs.TALL_WITCH_HUT)
-                .scatteredGridPlacement(21, 0.61f)
+                .scatteredGridPlacement(23, 0.51f)
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_TALL_WITCH_HUT)
                         .surface()
-                        .single(b -> b.template("tall_witch_hut").yOffset(-3))
-                        .filterMaxWaterDepth(4)
+                        .single(b -> b.template("tall_witch_hut").yOffset(-1))
+                        .processors(List.of(RetainExistingProcessor.REPLACEABLE_ONLY))
+                        .foundation()
                 )
                 .build();
 
