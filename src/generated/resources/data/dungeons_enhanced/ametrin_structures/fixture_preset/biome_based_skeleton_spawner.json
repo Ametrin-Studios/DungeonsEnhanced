@@ -1,0 +1,30 @@
+{
+  "fixtures": [
+    {
+      "type": "ametrin_structures:spawner",
+      "conditions": [
+        {
+          "type": "ametrin_structures:biome",
+          "biomes": "#c:is_swamp"
+        }
+      ],
+      "entity": "minecraft:bogged",
+      "weight": 100
+    },
+    {
+      "type": "ametrin_structures:spawner",
+      "conditions": [
+        {
+          "type": "ametrin_structures:biome",
+          "biomes": "#c:is_cold/overworld"
+        }
+      ],
+      "entity": "minecraft:stray",
+      "weight": 100
+    },
+    {
+      "type": "ametrin_structures:spawner",
+      "entity": "minecraft:skeleton"
+    }
+  ]
+}

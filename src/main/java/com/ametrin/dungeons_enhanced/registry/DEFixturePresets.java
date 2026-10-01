@@ -1,19 +1,23 @@
 package com.ametrin.dungeons_enhanced.registry;
 
 import com.ametrin.dungeons_enhanced.DungeonsEnhanced;
+import com.ametrin.structures.fixture.FixtureConditions;
 import com.ametrin.structures.fixture.FixturePreset;
 import com.ametrin.structures.fixture.Fixtures;
 import com.ametrin.structures.registry.ASRegistries;
 import com.ametrin.structures.spawner.SpawnDataBuilder;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LayeredCauldronBlock;
+import net.neoforged.neoforge.common.Tags;
 
 public final class DEFixturePresets {
     public static void bootstrap(BootstrapContext<FixturePreset> context) {
+        var biomes = context.lookup(Registries.BIOME);
         context.register(key("hendrik_van_der_decken"), FixturePreset.builder()
                 .entity(1, new SpawnDataBuilder(EntityType.SKELETON)
                         .equipment(DELootTables.EQUIPMENT_HENDRICK_VAN_DER_DECKEN)
@@ -23,10 +27,21 @@ public final class DEFixturePresets {
                         .build())
                 .build());
 
-        context.register(key("cauldron"), FixturePreset.builder()
+        context.register(key("water_cauldron"), FixturePreset.builder()
                 .add(1, new Fixtures.PlaceBlockState(Blocks.WATER_CAULDRON.defaultBlockState().setValue(LayeredCauldronBlock.LEVEL, 1)))
                 .add(1, new Fixtures.PlaceBlockState(Blocks.WATER_CAULDRON.defaultBlockState().setValue(LayeredCauldronBlock.LEVEL, 2)))
                 .add(1, new Fixtures.PlaceBlockState(Blocks.WATER_CAULDRON.defaultBlockState().setValue(LayeredCauldronBlock.LEVEL, 3)))
+                .build());
+
+        context.register(key("biome_based_zombie_spawner"), FixturePreset.builder()
+                .add(100, Fixtures.Spawner.of(EntityType.HUSK), new FixtureConditions.InBiome(biomes.getOrThrow(Tags.Biomes.IS_SANDY)))
+                .add(1, Fixtures.Spawner.of(EntityType.ZOMBIE))
+                .build());
+
+        context.register(key("biome_based_skeleton_spawner"), FixturePreset.builder()
+                .add(100, Fixtures.Spawner.of(EntityType.BOGGED), new FixtureConditions.InBiome(biomes.getOrThrow(Tags.Biomes.IS_SWAMP)))
+                .add(100, Fixtures.Spawner.of(EntityType.STRAY), new FixtureConditions.InBiome(biomes.getOrThrow(Tags.Biomes.IS_COLD_OVERWORLD)))
+                .add(1, Fixtures.Spawner.of(EntityType.SKELETON))
                 .build());
     }
 

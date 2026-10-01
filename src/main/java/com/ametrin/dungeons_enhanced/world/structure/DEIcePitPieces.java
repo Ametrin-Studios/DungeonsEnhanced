@@ -10,6 +10,7 @@ import net.minecraft.world.level.levelgen.structure.StructurePiece;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 import static com.ametrin.dungeons_enhanced.DungeonsEnhanced.locate;
 
@@ -34,5 +35,10 @@ public final class DEIcePitPieces implements PieceSource {
     @Override
     public PieceSourceType type() {
         return DEPieceSources.ICE_PIT.get();
+    }
+
+    @Override
+    public Stream<TemplateEntry> templates() {
+        return Stream.concat(ROOMS.templates(), Stream.of(ENTRANCE));
     }
 }

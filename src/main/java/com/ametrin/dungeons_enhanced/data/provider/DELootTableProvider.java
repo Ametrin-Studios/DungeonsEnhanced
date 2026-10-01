@@ -439,6 +439,23 @@ public final class DELootTableProvider extends LootTableProvider {
                                 .add(item(Items.GOLDEN_APPLE, 1))
                                 .add(enchantedItem(Items.BOOK, 1, number(6, 13), registries))));
             } // Witch Tower
+
+            output.accept(DELootTables.DungeonVariant.BREWING_STAND, LootTable.lootTable()
+                    .withPool(LootPool.lootPool().setRolls(number(1, 3))
+                            .add(potion(1, Potions.OOZING, one()))
+                            .add(potion(1, Potions.WEAVING, one()))
+                            .add(potion(1, Potions.WIND_CHARGED, one()))
+                            .add(potion(1, Potions.HEALING, one()))
+                            .add(potion(1, Potions.INFESTED, one()))
+                            .add(potion(1, Potions.STRENGTH, one()))
+                            .add(splashPotion(1, Potions.POISON, one()))
+                            .add(splashPotion(1, Potions.WEAKNESS, one()))
+                            .add(potion(5, Potions.WATER, one()))
+                    )
+                    .withPool(LootPool.lootPool().setRolls(number(0, 1))
+                            .add(item(Items.BLAZE_POWDER, 1, number(1, 3)))
+                    )
+            );
         }
 
         private static void MinersHouseLoot(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output) {
