@@ -12,6 +12,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.LayeredCauldronBlock;
 import net.neoforged.neoforge.common.Tags;
 
@@ -28,9 +29,21 @@ public final class DEFixturePresets {
                 .build());
 
         context.register(key("water_cauldron"), FixturePreset.builder()
+                .add(1, new Fixtures.PlaceBlockState(Blocks.CAULDRON.defaultBlockState()))
                 .add(1, new Fixtures.PlaceBlockState(Blocks.WATER_CAULDRON.defaultBlockState().setValue(LayeredCauldronBlock.LEVEL, 1)))
                 .add(1, new Fixtures.PlaceBlockState(Blocks.WATER_CAULDRON.defaultBlockState().setValue(LayeredCauldronBlock.LEVEL, 2)))
                 .add(1, new Fixtures.PlaceBlockState(Blocks.WATER_CAULDRON.defaultBlockState().setValue(LayeredCauldronBlock.LEVEL, 3)))
+                .build());
+
+        context.register(key("composter"), FixturePreset.builder()
+                .add(1, new Fixtures.PlaceBlockState(Blocks.COMPOSTER.defaultBlockState().setValue(ComposterBlock.LEVEL, 0)))
+                .add(1, new Fixtures.PlaceBlockState(Blocks.COMPOSTER.defaultBlockState().setValue(ComposterBlock.LEVEL, 1)))
+                .add(1, new Fixtures.PlaceBlockState(Blocks.COMPOSTER.defaultBlockState().setValue(ComposterBlock.LEVEL, 2)))
+                .add(1, new Fixtures.PlaceBlockState(Blocks.COMPOSTER.defaultBlockState().setValue(ComposterBlock.LEVEL, 3)))
+                .add(1, new Fixtures.PlaceBlockState(Blocks.COMPOSTER.defaultBlockState().setValue(ComposterBlock.LEVEL, 4)))
+                .add(1, new Fixtures.PlaceBlockState(Blocks.COMPOSTER.defaultBlockState().setValue(ComposterBlock.LEVEL, 5)))
+                .add(1, new Fixtures.PlaceBlockState(Blocks.COMPOSTER.defaultBlockState().setValue(ComposterBlock.LEVEL, 6)))
+                .add(1, new Fixtures.PlaceBlockState(Blocks.COMPOSTER.defaultBlockState().setValue(ComposterBlock.LEVEL, 7)))
                 .build());
 
         context.register(key("biome_based_zombie_spawner"), FixturePreset.builder()

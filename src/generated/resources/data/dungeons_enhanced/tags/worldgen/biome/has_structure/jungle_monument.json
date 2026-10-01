@@ -3,6 +3,7 @@
     "#dungeons_enhanced:no_structures/overworld/surface_extended"
   ],
   "values": [
-    "#minecraft:has_structure/jungle_temple"
+    "#minecraft:has_structure/jungle_temple",
+    "minecraft:sparse_jungle"
   ]
 }

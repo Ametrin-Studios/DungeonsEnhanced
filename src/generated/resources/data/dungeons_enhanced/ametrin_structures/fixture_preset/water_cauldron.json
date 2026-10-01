@@ -3,6 +3,12 @@
     {
       "type": "ametrin_structures:block_state",
       "state": {
+        "Name": "minecraft:cauldron"
+      }
+    },
+    {
+      "type": "ametrin_structures:block_state",
+      "state": {
         "Name": "minecraft:water_cauldron",
         "Properties": {
           "level": "1"

@@ -72,6 +72,7 @@ public final class DEBiomeTagsProvider extends BiomeTagsProvider {
         ;
         tag(DETags.Biomes.HAS_JUNGLE_MONUMENT)
                 .addTag(BiomeTags.HAS_JUNGLE_TEMPLE)
+                .add(Biomes.SPARSE_JUNGLE)
                 .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
         ;
         tag(DETags.Biomes.HAS_LARGE_DUNGEON)
@@ -90,6 +91,8 @@ public final class DEBiomeTagsProvider extends BiomeTagsProvider {
                 .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
                 .addOptional(BOPBiomes.CONIFEROUS_FOREST)
                 .addOptional(BOPBiomes.REDWOOD_FOREST)
+                .addOptional(BOPBiomes.PUMPKIN_PATCH)
+                .addOptional(BOPBiomes.SEASONAL_FOREST)
         ;
         tag(DETags.Biomes.HAS_MONSTER_MAZE_PALE)
                 .add(Biomes.PALE_GARDEN)
