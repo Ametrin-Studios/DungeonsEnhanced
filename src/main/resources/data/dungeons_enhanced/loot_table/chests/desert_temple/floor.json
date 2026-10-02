@@ -83,8 +83,25 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:gunpowder"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:short_dry_grass",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:tipped_arrow",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_potion",
+              "id": "minecraft:weakness"
+            }
+          ]
         }
-      ]
+      ],
+      "functions": []
     }
   ],
   "random_sequence": "dungeons_enhanced:chests/desert_temple/floor"

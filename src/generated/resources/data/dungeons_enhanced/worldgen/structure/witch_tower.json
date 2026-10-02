@@ -12,7 +12,8 @@
       },
       {
         "data": {
-          "template": "dungeons_enhanced:witch_tower/big"
+          "template": "dungeons_enhanced:witch_tower/big",
+          "terrain_box": "footprint"
         },
         "weight": 2
       }

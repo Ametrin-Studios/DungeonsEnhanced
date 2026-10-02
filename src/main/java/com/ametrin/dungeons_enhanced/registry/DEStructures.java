@@ -379,7 +379,7 @@ public final class DEStructures {
                         .surface()
                         .weighted(b -> b
                                 .single("witch_tower/normal", 3)
-                                .single("witch_tower/big", 2))
+                                .single(t->t.template("witch_tower/big").terrainBox(TerrainBox.footprint()), 2))
                         .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                 )
                 .build();

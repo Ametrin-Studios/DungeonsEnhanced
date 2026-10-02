@@ -1,0 +1,20 @@
+{
+  "spawn_potentials": [
+    {
+      "data": {
+        "entity": {
+          "id": "minecraft:parched"
+        }
+      },
+      "weight": 2
+    },
+    {
+      "data": {
+        "entity": {
+          "id": "minecraft:husk"
+        }
+      },
+      "weight": 3
+    }
+  ]
+}

@@ -40,6 +40,15 @@ public final class DESpawnerProfiles {
         context.register(key("flying_dutchman"), SpawnerProfile.builder()
                 .add(builder(EntityType.SKELETON).equipment(DELootTables.EQUIPMENT_FLYING_DUTCHMAN_SKELETONS).build(), 1)
                 .build());
+
+        context.register(key("undead_desert"), SpawnerProfile.builder()
+                .add(EntityType.PARCHED, 2)
+                .add(EntityType.HUSK, 3)
+                .build());
+
+        context.register(key("undead_frozen"), SpawnerProfile.builder()
+                .add(EntityType.STRAY, 2)
+                .build());
     }
 
     private static SpawnDataBuilder builder(EntityType<?> entityType) {
