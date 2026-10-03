@@ -1,15 +1,19 @@
 {
   "placement": {
     "type": "ametrin_structures:scattered_grid",
-    "probability": 0.59,
-    "random_offset": 15,
+    "probability": 0.53,
+    "random_offset": 19,
     "salt": 1381005308,
-    "spacing": 19
+    "spacing": 24
   },
   "structures": [
     {
-      "structure": "dungeons_enhanced:dungeon_variant",
+      "structure": "dungeons_enhanced:dungeon_variant/deepslate",
       "weight": 1
+    },
+    {
+      "structure": "dungeons_enhanced:dungeon_variant/stone",
+      "weight": 3
     }
   ]
 }

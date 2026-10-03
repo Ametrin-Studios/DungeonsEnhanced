@@ -18,5 +18,7 @@ public final class DEProcessors {
     public static final ReplaceBlockProcessor MOSSY_STONE_BRICK_SLAB_30 = new ReplaceBlockProcessor(ReplaceBlockProcessor.Condition.of(Blocks.STONE_BRICK_SLAB), 0.3f, Blocks.MOSSY_STONE_BRICK_SLAB.defaultBlockState(), true);
     public static final ReplaceBlockProcessor MOSSY_STONE_BRICK_WALL_30 = new ReplaceBlockProcessor(ReplaceBlockProcessor.Condition.of(Blocks.STONE_BRICK_WALL), 0.3f, Blocks.MOSSY_STONE_BRICK_WALL.defaultBlockState(), true);
     public static final ReplaceBlockProcessor CRACK_STONE_BRICKS_20 = new ReplaceBlockProcessor(ReplaceBlockProcessor.Condition.of(Blocks.STONE_BRICKS), 0.2f, Blocks.CRACKED_STONE_BRICKS.defaultBlockState());
+    public static final ReplaceBlockProcessor CRACK_DEEPSLATE_BRICKS_20 = new ReplaceBlockProcessor(ReplaceBlockProcessor.Condition.of(Blocks.DEEPSLATE_BRICKS), 0.2f, Blocks.CRACKED_DEEPSLATE_BRICKS.defaultBlockState());
+    public static final ReplaceBlockProcessor CRACK_DEEPSLATE_TILES_20 = new ReplaceBlockProcessor(ReplaceBlockProcessor.Condition.of(Blocks.DEEPSLATE_TILES), 0.2f, Blocks.CRACKED_DEEPSLATE_TILES.defaultBlockState());
 
 }

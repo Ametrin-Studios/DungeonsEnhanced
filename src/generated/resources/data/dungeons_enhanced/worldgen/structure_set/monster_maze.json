@@ -9,11 +9,11 @@
   },
   "structures": [
     {
-      "structure": "dungeons_enhanced:monster_maze_dark",
+      "structure": "dungeons_enhanced:monster_maze/dark",
       "weight": 1
     },
     {
-      "structure": "dungeons_enhanced:monster_maze_pale",
+      "structure": "dungeons_enhanced:monster_maze/pale",
       "weight": 1
     }
   ]

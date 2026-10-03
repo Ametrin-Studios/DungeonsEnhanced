@@ -32,6 +32,7 @@ public interface DELootTables {
 
     interface DungeonVariant {
         ResourceKey<LootTable> BREWING_STAND = create("brewing/dungeon_variant");
+        ResourceKey<LootTable> COPPER_SHRINE = chest("dungeon_variant/copper_shrine");
     }
 
     interface EldersTemple {

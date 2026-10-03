@@ -133,16 +133,28 @@ public final class DEStructures {
                 .build();
 
         DUNGEON_VARIANT = REGISTER.set(DEStructureIDs.DUNGEON_VARIANT)
-                .scatteredGridPlacement(19, 0.59f)
-                .simple(s -> s
+                .scatteredGridPlacement(24, 0.53f)
+                .simple("stone", s -> s
                         .step(GenerationStep.Decoration.UNDERGROUND_STRUCTURES)
                         .biomes(DETags.Biomes.HAS_DUNGEON_VARIANT)
-                        .between(HeightAnchor.aboveBottom(8), HeightAnchor.oceanFloor(-24))
+                        .between(HeightAnchor.absolute(0), HeightAnchor.oceanFloor(-24))
                         .weighted(builder -> builder
-                                .single(b -> b.template("dungeon_variant/zombie").processors(DEProcessorLists.DUNGEON_VARIANT), 1)
-                                .single(b -> b.template("dungeon_variant/skeleton").processors(DEProcessorLists.DUNGEON_VARIANT), 1)
-                                .single(b -> b.template("dungeon_variant/spider").processors(DEProcessorLists.DUNGEON_VARIANT), 1)
-                                .single(b -> b.template("dungeon_variant/special").processors(DEProcessorLists.DUNGEON_VARIANT), 1))
+                                .single(b -> b.template("dungeon_variant/zombie"), 1)
+                                .single(b -> b.template("dungeon_variant/skeleton"), 1)
+                                .single(b -> b.template("dungeon_variant/spider"), 1)
+                                .single(b -> b.template("dungeon_variant/special"), 1)
+                        )
+                        .processors(DEProcessorLists.DUNGEON_VARIANT_STONE)
+                        .weight(3)
+                )
+                .simple("deepslate", s -> s
+                        .step(GenerationStep.Decoration.UNDERGROUND_STRUCTURES)
+                        .biomes(DETags.Biomes.HAS_DUNGEON_VARIANT)
+                        .between(HeightAnchor.aboveBottom(8), HeightAnchor.absolute(-6))
+                        .weighted(builder -> builder
+                                .single(b -> b.template("dungeon_variant/copper_shrine"), 1)
+                        )
+                        .processors(DEProcessorLists.DUNGEON_VARIANT_DEEPSLATE)
                 )
                 .build();
 
@@ -379,7 +391,7 @@ public final class DEStructures {
                         .surface()
                         .weighted(b -> b
                                 .single("witch_tower/normal", 3)
-                                .single(t->t.template("witch_tower/big").terrainBox(TerrainBox.footprint()), 2))
+                                .single(t -> t.template("witch_tower/big").terrainBox(TerrainBox.footprint()), 2))
                         .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                 )
                 .build();

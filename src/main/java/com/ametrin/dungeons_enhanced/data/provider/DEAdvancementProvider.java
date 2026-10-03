@@ -46,9 +46,7 @@ public final class DEAdvancementProvider extends AdvancementProvider {
             builder(provider, "hidden_under_roots")
                     .parent(root)
                     .displayItem(Items.JACK_O_LANTERN)
-                    .orCriteria()
-                    .onEnterStructure(DEStructures.MONSTER_MAZE.structure("dark"))
-                    .onEnterStructure(DEStructures.MONSTER_MAZE.structure("pale"))
+                    .onEnterStructure(DETags.Structures.MONSTER_MAZE)
                     .save(consumer);
 
             builder(provider, "thats_a_dungeon")

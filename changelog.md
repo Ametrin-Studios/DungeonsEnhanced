@@ -4,6 +4,7 @@
 - requires Ametrin Structures
 - **all existing data packs no longer work**
   - data packs can now modify variants, template processors, vertical structure placement, placement filters and spawners in structures
+- new Dungeon Variant variant
 - black citadel replaced deep crypt for seven world wonders
 - fix castle throne loot table
 

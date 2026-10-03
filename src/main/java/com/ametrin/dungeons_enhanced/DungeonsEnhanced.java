@@ -27,7 +27,8 @@ public final class DungeonsEnhanced {
                 .add(Registries.PROCESSOR_LIST, DEProcessorLists::bootstrap)
                 .add(Registries.TEMPLATE_POOL, DETemplatePools::bootstrap)
                 .add(ASRegistries.FIXTURE_PRESET, DEFixturePresets::bootstrap)
-                .add(ASRegistries.SPAWNER_PROFILE, DESpawnerProfiles::bootstrap);
+                .add(ASRegistries.SPAWNER_PROFILE, DESpawnerProfiles::bootstrap)
+                .add(Registries.TRIAL_SPAWNER_CONFIG, DETrialSpawnerConfigs::bootstrap);
         DEStructures.REGISTER.bootstrap(builder);
 
         event.createDatapackRegistryObjects(builder);

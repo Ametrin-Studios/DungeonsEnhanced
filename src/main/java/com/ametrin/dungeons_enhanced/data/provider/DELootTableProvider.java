@@ -16,6 +16,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.functions.SetOminousBottleAmplifierFunction;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 
 import java.util.List;
@@ -316,11 +317,11 @@ public final class DELootTableProvider extends LootTableProvider {
                 output.accept(DELootTables.UndeadTower.TREASURE, LootTable.lootTable()
                         .withPool(LootPool.lootPool().setRolls(number(10, 18))
                                 .add(item(Items.GOLD_NUGGET, 5, number(1, 2)))
-                                .add(item(Items.GOLD_INGOT, 3))
-                                .add(item(Items.EXPERIENCE_BOTTLE, 3))
+                                .add(item(Items.GOLD_INGOT).setWeight(3))
+                                .add(item(Items.EXPERIENCE_BOTTLE).setWeight(3))
                                 .add(item(Items.IRON_NUGGET, 4, number(1, 2)))
-                                .add(item(Items.IRON_INGOT, 2))
-                                .add(item(Items.GOLDEN_CARROT, 2))
+                                .add(item(Items.IRON_INGOT).setWeight(2))
+                                .add(item(Items.GOLDEN_CARROT).setWeight(2))
                                 .add(item(Items.WHEAT_SEEDS, 8, number(1, 3)))
                                 .add(item(Items.WHEAT, 6, number(1, 3)))
                                 .add(item(Items.STRING, 6, number(1, 3)))
@@ -454,6 +455,25 @@ public final class DELootTableProvider extends LootTableProvider {
                     )
                     .withPool(LootPool.lootPool().setRolls(number(0, 1))
                             .add(item(Items.BLAZE_POWDER, 1, number(1, 3)))
+                    )
+            );
+
+            output.accept(DELootTables.DungeonVariant.COPPER_SHRINE, LootTable.lootTable()
+                    .withPool(LootPool.lootPool().setRolls(number(4, 8))
+                            .add(item(Items.COPPER_INGOT, 2, number(3, 5)))
+                            .add(item(Items.COPPER_BLOCK))
+                            .add(item(Items.WEATHERED_COPPER))
+                            .add(item(Items.HONEYCOMB).setWeight(2))
+                            .add(item(Items.COPPER_CHAIN.waxedWeathered()))
+                            .add(item(Items.REDSTONE, 2, number(1, 3)))
+                            .add(item(Items.RED_CANDLE))
+                            .add(item(Items.CANDLE))
+                            .add(item(Items.ORANGE_CANDLE))
+                            .add(item(Items.PUMPKIN_SEEDS))
+                            .add(suspiciousStew(2, number(1, 2)))
+                    )
+                    .withPool(LootPool.lootPool().setRolls(number(0, 1))
+                            .add(item(Items.OMINOUS_BOTTLE).apply(SetOminousBottleAmplifierFunction.setAmplifier(number(1, 3))))
                     )
             );
         }

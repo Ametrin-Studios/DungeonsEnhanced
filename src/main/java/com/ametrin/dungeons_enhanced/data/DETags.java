@@ -69,7 +69,8 @@ public final class DETags {
     }
 
     public interface Structures {
-        TagKey<Structure> MONSTER_MAZE = create("monster_maze");
+        TagKey<Structure> DUNGEON_VARIANT = create(DEStructureIDs.DUNGEON_VARIANT);
+        TagKey<Structure> MONSTER_MAZE = create(DEStructureIDs.MONSTER_MAZE);
         TagKey<Structure> ON_CASTLE_EXPLORER_MAPS = create("on_castle_explorer_maps");
         TagKey<Structure> ON_ELDER_EXPLORER_MAPS = create("on_elder_explorer_maps");
         TagKey<Structure> ON_DESERT_EXPLORER_MAPS = create("on_desert_explorer_maps");
