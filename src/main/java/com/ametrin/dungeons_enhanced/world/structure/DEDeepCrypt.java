@@ -5,14 +5,12 @@ import com.ametrin.dungeons_enhanced.registry.DEProcessorLists;
 import com.ametrin.structures.structure.jigsaw.JigsawPools;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
-import net.minecraft.world.level.levelgen.structure.templatesystem.LiquidSettings;
 
 import java.util.List;
 
 public final class DEDeepCrypt {
     public static void pool(BootstrapContext<StructureTemplatePool> context) {
         var pools = new JigsawPools(context, DungeonsEnhanced.MOD_ID, "deep_crypt/");
-        pools.defaultElementSettings(e -> e.liquidSettings(LiquidSettings.IGNORE_WATERLOGGING));
 
         pools.pool("root", b -> b
                 .element("root")

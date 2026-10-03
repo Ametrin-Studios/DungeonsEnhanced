@@ -4,7 +4,6 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:deep_crypt/tunnel",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:air_to_cobweb",
         "projection": "rigid"
       },
@@ -14,7 +13,6 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:deep_crypt/cross",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:air_to_cobweb",
         "projection": "rigid"
       },
@@ -24,7 +22,6 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:deep_crypt/big_tunnel",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -34,7 +31,6 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:deep_crypt/large_tomb",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -44,7 +40,6 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:deep_crypt/prison",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -54,7 +49,6 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:deep_crypt/tomb",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -64,7 +58,6 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:deep_crypt/tombs",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -74,7 +67,6 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:deep_crypt/root",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -84,7 +76,6 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:deep_crypt/treasure",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
