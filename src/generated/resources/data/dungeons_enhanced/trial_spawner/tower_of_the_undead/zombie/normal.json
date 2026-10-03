@@ -14,27 +14,14 @@
     {
       "data": {
         "entity": {
-          "id": "minecraft:breeze"
-        }
-      },
-      "weight": 1
-    },
-    {
-      "data": {
-        "entity": {
-          "id": "minecraft:bogged"
-        }
-      },
-      "weight": 2
-    },
-    {
-      "data": {
-        "entity": {
-          "id": "minecraft:cave_spider"
+          "id": "minecraft:zombie"
+        },
+        "equipment": {
+          "loot_table": "dungeons_enhanced:equipment/castle/zombie",
+          "slot_drop_chances": 0.085
         }
       },
       "weight": 1
     }
-  ],
-  "spawn_range": 6
+  ]
 }

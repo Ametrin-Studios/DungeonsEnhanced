@@ -95,7 +95,7 @@ public interface DELootTables {
     ResourceKey<LootTable> STABLES = chest("stables");
     ResourceKey<LootTable> SUNKEN_SHRINE = chest("sunken_shrine");
 
-    interface UndeadTower {
+    interface TowerOfTheUndead {
         ResourceKey<LootTable> TREASURE = chest("tower_of_the_undead/treasure");
     }
 

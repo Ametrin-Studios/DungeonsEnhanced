@@ -27,6 +27,27 @@
         },
         {
           "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 2.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:copper_nugget",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:copper_ingot",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
           "name": "minecraft:experience_bottle",
           "weight": 3
         },
@@ -146,6 +167,14 @@
         },
         {
           "type": "minecraft:item",
+          "name": "minecraft:copper_sword"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:copper_axe"
+        },
+        {
+          "type": "minecraft:item",
           "name": "minecraft:crossbow"
         },
         {
@@ -230,6 +259,22 @@
         },
         {
           "type": "minecraft:item",
+          "name": "minecraft:copper_helmet"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:copper_chestplate"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:copper_leggings"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:copper_boots"
+        },
+        {
+          "type": "minecraft:item",
           "name": "minecraft:iron_helmet"
         },
         {
@@ -239,6 +284,10 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:iron_leggings"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_boots"
         },
         {
           "type": "minecraft:item",
@@ -258,10 +307,6 @@
             }
           ],
           "name": "minecraft:book"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:iron_boots"
         }
       ],
       "rolls": {

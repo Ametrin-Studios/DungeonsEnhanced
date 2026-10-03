@@ -4,9 +4,11 @@
 - requires Ametrin Structures
 - **all existing data packs no longer work**
   - data packs can now modify variants, template processors, vertical structure placement, placement filters and spawners in structures
-- new Dungeon Variant variant
-- black citadel replaced deep crypt for seven world wonders
-- fix castle throne loot table
+- new Deepslate Dungeon Variant
+- Stone Dungeon Variants no longer generate below 0 (in Deepslate)
+- Tower of the Undead now uses Trial Spawners
+- Black Citadel replaced Deep Crypt for Seven World Wonders advancement
+- fix Castle Throne loot table
 
 ## 6.4.1
 - fix Dungeons Enhanced dependency missing

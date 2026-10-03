@@ -314,10 +314,12 @@ public final class DELootTableProvider extends LootTableProvider {
                         ));
             } // Tree House
             {
-                output.accept(DELootTables.UndeadTower.TREASURE, LootTable.lootTable()
+                output.accept(DELootTables.TowerOfTheUndead.TREASURE, LootTable.lootTable()
                         .withPool(LootPool.lootPool().setRolls(number(10, 18))
                                 .add(item(Items.GOLD_NUGGET, 5, number(1, 2)))
                                 .add(item(Items.GOLD_INGOT).setWeight(3))
+                                .add(item(Items.COPPER_NUGGET, 5, number(1, 2)))
+                                .add(item(Items.COPPER_INGOT).setWeight(3))
                                 .add(item(Items.EXPERIENCE_BOTTLE).setWeight(3))
                                 .add(item(Items.IRON_NUGGET, 4, number(1, 2)))
                                 .add(item(Items.IRON_INGOT).setWeight(2))
@@ -329,6 +331,8 @@ public final class DELootTableProvider extends LootTableProvider {
                                 .add(item(Items.ROTTEN_FLESH, 10, number(1, 3)))
                                 .add(item(Items.IRON_AXE))
                                 .add(item(Items.IRON_SWORD))
+                                .add(item(Items.COPPER_SWORD))
+                                .add(item(Items.COPPER_AXE))
                                 .add(item(Items.CROSSBOW))
                                 .add(item(Items.MAP))
                                 .add(item(Items.COBWEB).setWeight(4))
@@ -344,11 +348,15 @@ public final class DELootTableProvider extends LootTableProvider {
                                 .add(item(Items.CHAINMAIL_CHESTPLATE).setWeight(2))
                                 .add(item(Items.CHAINMAIL_LEGGINGS).setWeight(2))
                                 .add(item(Items.CHAINMAIL_BOOTS).setWeight(2))
+                                .add(item(Items.COPPER_HELMET))
+                                .add(item(Items.COPPER_CHESTPLATE))
+                                .add(item(Items.COPPER_LEGGINGS))
+                                .add(item(Items.COPPER_BOOTS))
                                 .add(item(Items.IRON_HELMET))
                                 .add(item(Items.IRON_CHESTPLATE))
                                 .add(item(Items.IRON_LEGGINGS))
-                                .add(enchantedItem(Items.BOOK, 1, number(4, 10), registries))
                                 .add(item(Items.IRON_BOOTS))
+                                .add(enchantedItem(Items.BOOK, 1, number(4, 10), registries))
                         )
                 );
             } // Tower of the Undead
