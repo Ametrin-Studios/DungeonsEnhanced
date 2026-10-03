@@ -148,5 +148,32 @@ public record DEEquipmentLootProvider(HolderLookup.Provider registries) implemen
                         .add(item(Items.LEATHER_CHESTPLATE).apply(SetComponentsFunction.setComponent(DataComponents.DYED_COLOR, new DyedItemColor(65322))))
                 )
         );
+
+        output.accept(DELootTables.IcePit.EQUIPMENT_ARMOR_STAND, LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(item(Items.LEATHER_HELMET).setWeight(2))
+                        .add(item(Items.CHAINMAIL_HELMET).setWeight(2))
+                        .add(item(Items.COPPER_HELMET))
+                        .add(empty(2))
+                )
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(item(Items.LEATHER_CHESTPLATE).setWeight(2))
+                        .add(item(Items.CHAINMAIL_CHESTPLATE).setWeight(2))
+                        .add(item(Items.COPPER_CHESTPLATE))
+                        .add(empty(2))
+                )
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(item(Items.LEATHER_LEGGINGS).setWeight(2))
+                        .add(item(Items.CHAINMAIL_LEGGINGS).setWeight(2))
+                        .add(item(Items.COPPER_LEGGINGS))
+                        .add(empty(2))
+                )
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(item(Items.LEATHER_BOOTS).setWeight(2))
+                        .add(item(Items.CHAINMAIL_BOOTS).setWeight(2))
+                        .add(item(Items.COPPER_BOOTS))
+                        .add(empty(2))
+                )
+        );
     }
 }

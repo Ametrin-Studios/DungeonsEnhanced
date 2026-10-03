@@ -41,8 +41,8 @@ public interface DELootTables {
 
     ResourceKey<LootTable> FISHING_SHIP = chest("fishing_ship");
     ResourceKey<LootTable> FLYING_DUTCHMAN = chest("flying_dutchman");
-    ResourceKey<LootTable> EQUIPMENT_HENDRICK_VAN_DER_DECKEN = create("equipment/hendrik_van_der_decken");
-    ResourceKey<LootTable> EQUIPMENT_FLYING_DUTCHMAN_SKELETONS = create("equipment/flying_dutchman_skeletons");
+    ResourceKey<LootTable> EQUIPMENT_HENDRICK_VAN_DER_DECKEN = create("equipment/flying_dutchman/hendrik_van_der_decken");
+    ResourceKey<LootTable> EQUIPMENT_FLYING_DUTCHMAN_SKELETONS = create("equipment/flying_dutchman/skeletons");
     ResourceKey<LootTable> HAY_STORAGE = chest("hay_storage");
 
     interface IcePit {
@@ -51,6 +51,7 @@ public interface DELootTables {
         ResourceKey<LootTable> FOOD = chest("ice_pit/food");
         ResourceKey<LootTable> GARDEN = chest("ice_pit/garden");
         ResourceKey<LootTable> HALL = chest("ice_pit/hall");
+        ResourceKey<LootTable> EQUIPMENT_ARMOR_STAND = chest("equipment/ice_pit/armor_stand");
     }
 
     interface JungleMonument {

@@ -3,7 +3,7 @@
     {
       "type": "ametrin_structures:entity",
       "entity": "minecraft:skeleton",
-      "equipment": "dungeons_enhanced:equipment/hendrik_van_der_decken",
+      "equipment": "dungeons_enhanced:equipment/flying_dutchman/hendrik_van_der_decken",
       "nbt": "{CustomName:\"Hendrik van der Decken\",Health:40.0f,LeftHanded:1b,attributes:[{base:40.0d,id:\"minecraft:max_health\"}]}"
     }
   ]
