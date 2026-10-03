@@ -2,7 +2,7 @@
   "placement": {
     "type": "ametrin_structures:scattered_grid",
     "probability": 0.51,
-    "random_offset": 18,
+    "random_offset": 16,
     "salt": 763978881,
     "spacing": 23
   },

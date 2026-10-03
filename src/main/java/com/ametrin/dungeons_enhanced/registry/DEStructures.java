@@ -84,7 +84,7 @@ public final class DEStructures {
                 .build();
 
         DEEP_CRYPT = REGISTER.set(DEStructureIDs.DEEP_CRYPT)
-                .scatteredGridPlacement(b -> b.spacing(39).probability(0.67f))
+                .scatteredGridPlacement(b -> b.spacing(41).probability(0.64f))
                 .jigsaw(DETemplatePools.DEEP_CRYPT, j -> j
                                 .startHeight(UniformHeight.of(VerticalAnchor.aboveBottom(16), VerticalAnchor.aboveBottom(52)))
                                 .size(4)
@@ -385,7 +385,7 @@ public final class DEStructures {
                 .build();
 
         WITCH_TOWER = REGISTER.set(DEStructureIDs.WITCH_TOWER)
-                .scatteredGridPlacement(79, 0.54f)
+                .scatteredGridPlacement(54, 0.59f)
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_WITCH_TOWER)
                         .surface()

@@ -3,7 +3,7 @@
     "type": "ametrin_structures:scattered_grid",
     "min_chunks_from_center": 12,
     "probability": 0.78,
-    "random_offset": 55,
+    "random_offset": 48,
     "salt": 517159684,
     "spacing": 69
   },

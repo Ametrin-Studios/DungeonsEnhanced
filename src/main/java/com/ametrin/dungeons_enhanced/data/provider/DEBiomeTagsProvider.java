@@ -173,7 +173,7 @@ public final class DEBiomeTagsProvider extends BiomeTagsProvider {
 
         tag(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
                 .addTag(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
-                .addTag(Tags.Biomes.IS_MOUNTAIN) //contains peaks and slopes
+                .addTag(Tags.Biomes.IS_MOUNTAIN) // contains peaks and slopes
         ;
 
         tag(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE)
