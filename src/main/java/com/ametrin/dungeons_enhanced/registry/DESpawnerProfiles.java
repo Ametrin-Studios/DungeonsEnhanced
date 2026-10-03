@@ -16,6 +16,15 @@ import net.minecraft.world.level.storage.loot.LootTable;
 
 public final class DESpawnerProfiles {
     public static void bootstrap(BootstrapContext<SpawnerProfile> context) {
+        context.register(key("castle/guards"), SpawnerProfile.builder()
+                .add(createSpawnDataWithEquipment(EntityType.ZOMBIE, DELootTables.Castle.EQUIPMENT_ZOMBIE_GUARD), 1)
+                .build());
+
+        context.register(key("castle/default"), SpawnerProfile.builder()
+                .add(createSpawnDataWithEquipment(EntityType.ZOMBIE, DELootTables.Castle.EQUIPMENT_ZOMBIE), 3)
+                .add(createSpawnDataWithEquipment(EntityType.SKELETON, DELootTables.Castle.EQUIPMENT_SKELETON), 2)
+                .build());
+
         context.register(key("monster_maze/default"), SpawnerProfile.builder()
                 .add(createSpawnDataWithEquipment(EntityType.ZOMBIE, DELootTables.MonsterMaze.EQUIPMENT_ZOMBIE), 1)
                 .add(createSpawnDataWithEquipment(EntityType.SKELETON, DELootTables.MonsterMaze.EQUIPMENT_SKELETON), 1)

@@ -16,8 +16,13 @@ public interface DELootTables {
         ResourceKey<LootTable> LIBRARY = chest("castle/library");
         ResourceKey<LootTable> PRISON = chest("castle/prison");
         ResourceKey<LootTable> QUARTERS = chest("castle/quarters");
-        ResourceKey<LootTable> SPRING = chest("castle/spring");
+        ResourceKey<LootTable> WELL = chest("castle/well");
         ResourceKey<LootTable> THRONE = chest("castle/throne");
+        ResourceKey<LootTable> EQUIPMENT_ZOMBIE = create("equipment/castle/zombie");
+        ResourceKey<LootTable> EQUIPMENT_SKELETON = create("equipment/castle/skeleton");
+        ResourceKey<LootTable> EQUIPMENT_ZOMBIE_GUARD = create("equipment/castle/zombie_guard");
+        ResourceKey<LootTable> EQUIPMENT_ARMOR_STAND = create("equipment/castle/armor_stand");
+        ResourceKey<LootTable> BREWING_STAND = create("brewing/castle");
     }
 
     ResourceKey<LootTable> DEEP_CRYPT = chest("deep_crypt");

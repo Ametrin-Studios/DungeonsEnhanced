@@ -1,0 +1,31 @@
+{
+  "fixtures": [
+    {
+      "type": "ametrin_structures:block_state",
+      "state": {
+        "Name": "minecraft:anvil",
+        "Properties": {
+          "facing": "north"
+        }
+      }
+    },
+    {
+      "type": "ametrin_structures:block_state",
+      "state": {
+        "Name": "minecraft:chipped_anvil",
+        "Properties": {
+          "facing": "north"
+        }
+      }
+    },
+    {
+      "type": "ametrin_structures:block_state",
+      "state": {
+        "Name": "minecraft:damaged_anvil",
+        "Properties": {
+          "facing": "north"
+        }
+      }
+    }
+  ]
+}

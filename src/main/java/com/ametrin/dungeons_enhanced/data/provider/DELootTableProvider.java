@@ -442,7 +442,7 @@ public final class DELootTableProvider extends LootTableProvider {
             } // Witch Tower
 
             output.accept(DELootTables.DungeonVariant.BREWING_STAND, LootTable.lootTable()
-                    .withPool(LootPool.lootPool().setRolls(number(1, 3))
+                    .withPool(LootPool.lootPool().setRolls(number(0, 3))
                             .add(potion(1, Potions.OOZING, one()))
                             .add(potion(1, Potions.WEAVING, one()))
                             .add(potion(1, Potions.WIND_CHARGED, one()))

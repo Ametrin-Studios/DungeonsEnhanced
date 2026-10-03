@@ -65,19 +65,15 @@ public final class DEStructures {
     static {
         // Overworld
         CASTLE = REGISTER.set(DEStructureIDs.CASTLE)
-                .scatteredGridPlacement(p -> p.spacing(69).probability(0.78f).minChunksFromCenter(12))
+                .scatteredGridPlacement(p -> p.spacing(72).probability(0.74f).minChunksFromCenter(14))
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_CASTLE)
                         .surface()
                         .verticalPlacementMode(HeightMode.MEAN)
                         .filterFlatness(8)
                         .weighted(b -> b
-                                .compound(c1 -> c1
-                                        .single(t -> t.template("castle/top1").yOffset(-1))
-                                        .single(t -> t.template("castle/bottom1").offset(0, -5, 0)), 1)
-                                .compound(c1 -> c1
-                                        .single(t -> t.template("castle/top2").yOffset(-1))
-                                        .single(t -> t.template("castle/bottom2").offset(0, -5, 0)), 1)
+                                .single(t -> t.template("castle/blue").offset(0, -5, 0), 1)
+                                .single(t -> t.template("castle/red").offset(0, -5, 0), 1)
                         )
                         .terrainAdaptation(TerrainAdjustment.BEARD_BOX)
                 )

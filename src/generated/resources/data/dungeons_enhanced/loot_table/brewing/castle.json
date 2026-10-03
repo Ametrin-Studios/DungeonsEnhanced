@@ -9,17 +9,7 @@
           "functions": [
             {
               "function": "minecraft:set_potion",
-              "id": "minecraft:oozing"
-            }
-          ],
-          "name": "minecraft:potion"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_potion",
-              "id": "minecraft:weaving"
+              "id": "minecraft:regeneration"
             }
           ],
           "name": "minecraft:potion"
@@ -49,16 +39,6 @@
           "functions": [
             {
               "function": "minecraft:set_potion",
-              "id": "minecraft:infested"
-            }
-          ],
-          "name": "minecraft:potion"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_potion",
               "id": "minecraft:strength"
             }
           ],
@@ -69,20 +49,60 @@
           "functions": [
             {
               "function": "minecraft:set_potion",
-              "id": "minecraft:poison"
+              "id": "minecraft:fire_resistance"
             }
           ],
-          "name": "minecraft:splash_potion"
+          "name": "minecraft:potion"
         },
         {
           "type": "minecraft:item",
           "functions": [
             {
               "function": "minecraft:set_potion",
-              "id": "minecraft:weakness"
+              "id": "minecraft:harming"
             }
           ],
-          "name": "minecraft:splash_potion"
+          "name": "minecraft:potion"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_potion",
+              "id": "minecraft:invisibility"
+            }
+          ],
+          "name": "minecraft:potion"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_potion",
+              "id": "minecraft:leaping"
+            }
+          ],
+          "name": "minecraft:potion"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_potion",
+              "id": "minecraft:night_vision"
+            }
+          ],
+          "name": "minecraft:potion"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_potion",
+              "id": "minecraft:slow_falling"
+            }
+          ],
+          "name": "minecraft:potion"
         },
         {
           "type": "minecraft:item",
@@ -93,13 +113,13 @@
             }
           ],
           "name": "minecraft:potion",
-          "weight": 5
+          "weight": 6
         }
       ],
       "rolls": {
         "type": "minecraft:uniform",
         "max": 3.0,
-        "min": 0.0
+        "min": 1.0
       }
     },
     {
@@ -128,5 +148,5 @@
       }
     }
   ],
-  "random_sequence": "dungeons_enhanced:brewing/dungeon_variant"
+  "random_sequence": "dungeons_enhanced:brewing/castle"
 }

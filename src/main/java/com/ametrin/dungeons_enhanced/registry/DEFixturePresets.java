@@ -46,6 +46,12 @@ public final class DEFixturePresets {
                 .add(1, new Fixtures.PlaceBlockState(Blocks.COMPOSTER.defaultBlockState().setValue(ComposterBlock.LEVEL, 7)))
                 .build());
 
+        context.register(key("anvil"), FixturePreset.builder()
+                .add(1, new Fixtures.PlaceBlockState(Blocks.ANVIL.defaultBlockState()))
+                .add(1, new Fixtures.PlaceBlockState(Blocks.CHIPPED_ANVIL.defaultBlockState()))
+                .add(1, new Fixtures.PlaceBlockState(Blocks.DAMAGED_ANVIL.defaultBlockState()))
+                .build());
+
         context.register(key("biome_based_zombie_spawner"), FixturePreset.builder()
                 .add(100, Fixtures.Spawner.of(EntityType.HUSK), new FixtureConditions.InBiome(biomes.getOrThrow(Tags.Biomes.IS_SANDY)))
                 .add(1, Fixtures.Spawner.of(EntityType.ZOMBIE))

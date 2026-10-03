@@ -13,49 +13,23 @@
     "sources": [
       {
         "data": {
-          "type": "ametrin_structures:compound",
-          "sources": [
-            {
-              "offset": [
-                0,
-                -1,
-                0
-              ],
-              "template": "dungeons_enhanced:castle/top1"
-            },
-            {
-              "offset": [
-                0,
-                -5,
-                0
-              ],
-              "template": "dungeons_enhanced:castle/bottom1"
-            }
-          ]
+          "offset": [
+            0,
+            -5,
+            0
+          ],
+          "template": "dungeons_enhanced:castle/blue"
         },
         "weight": 1
       },
       {
         "data": {
-          "type": "ametrin_structures:compound",
-          "sources": [
-            {
-              "offset": [
-                0,
-                -1,
-                0
-              ],
-              "template": "dungeons_enhanced:castle/top2"
-            },
-            {
-              "offset": [
-                0,
-                -5,
-                0
-              ],
-              "template": "dungeons_enhanced:castle/bottom2"
-            }
-          ]
+          "offset": [
+            0,
+            -5,
+            0
+          ],
+          "template": "dungeons_enhanced:castle/red"
         },
         "weight": 1
       }

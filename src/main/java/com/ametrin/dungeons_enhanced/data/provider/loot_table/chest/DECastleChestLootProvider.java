@@ -5,6 +5,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 
@@ -171,9 +172,8 @@ public record DECastleChestLootProvider(HolderLookup.Provider registries) implem
                         .add(item(Items.NAME_TAG).setWeight(1))
                         .add(item(Items.BOOK).setWeight(3))));
 
-        output.accept(DELootTables.Castle.SPRING, LootTable.lootTable()
+        output.accept(DELootTables.Castle.WELL, LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(number(11, 22))
-//                                .add(tag(DETags.Items.CASTLE_TREASURE, 1))
                         .add(item(Items.DIAMOND).setWeight(1))
                         .add(item(Items.IRON_INGOT).setWeight(8))
                         .add(item(Items.IRON_NUGGET).setWeight(6))
@@ -187,22 +187,40 @@ public record DECastleChestLootProvider(HolderLookup.Provider registries) implem
                         .add(item(Items.ENDER_PEARL).setWeight(2))));
 
         output.accept(DELootTables.Castle.THRONE, LootTable.lootTable()
-                        .withPool(LootPool.lootPool().setRolls(number(9, 13))
-                                .add(item(Items.GOLD_NUGGET, 10, number(1, 4)))
-                                .add(item(Items.GOLD_INGOT).setWeight(15))
-                                .add(item(Items.GOLD_BLOCK).setWeight(5))
-                                .add(item(Items.DIAMOND).setWeight(2))
-                                .add(item(Items.IRON_INGOT).setWeight(20))
-                                .add(item(Items.IRON_NUGGET, 15, number(2, 5))))
-                        .withPool(LootPool.lootPool().setRolls(number(0, 2))
-//                                        .add(tag(DETags.Items.CASTLE_TREASURE, 2))
-                                        .add(enchantedItem(Items.DIAMOND_SWORD, 4, one(), registries))
-                                        .add(enchantedItem(Items.DIAMOND_AXE, 4, one(), registries))
-                                        .add(enchantedItem(Items.DIAMOND_HELMET, 4, one(), registries))
-                                        .add(enchantedItem(Items.DIAMOND_CHESTPLATE, 3, one(), registries))
-                                        .add(enchantedItem(Items.DIAMOND_LEGGINGS, 3, one(), registries))
-                                        .add(enchantedItem(Items.DIAMOND_BOOTS, 4, one(), registries))
-                        )
+                .withPool(LootPool.lootPool().setRolls(number(9, 13))
+                        .add(item(Items.GOLD_NUGGET, 10, number(1, 4)))
+                        .add(item(Items.GOLD_INGOT).setWeight(15))
+                        .add(item(Items.GOLD_BLOCK).setWeight(5))
+                        .add(item(Items.DIAMOND).setWeight(2))
+                        .add(item(Items.IRON_INGOT).setWeight(20))
+                        .add(item(Items.IRON_NUGGET, 15, number(2, 5))))
+                .withPool(LootPool.lootPool().setRolls(number(0, 2))
+                        .add(enchantedItem(Items.DIAMOND_SWORD, 4, one(), registries))
+                        .add(enchantedItem(Items.DIAMOND_AXE, 4, one(), registries))
+                        .add(enchantedItem(Items.DIAMOND_HELMET, 4, one(), registries))
+                        .add(enchantedItem(Items.DIAMOND_CHESTPLATE, 3, one(), registries))
+                        .add(enchantedItem(Items.DIAMOND_LEGGINGS, 3, one(), registries))
+                        .add(enchantedItem(Items.DIAMOND_BOOTS, 4, one(), registries))
+                )
+        );
+
+        output.accept(DELootTables.Castle.BREWING_STAND, LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(number(1, 3))
+                        .add(potion(1, Potions.REGENERATION, one()))
+                        .add(potion(1, Potions.WIND_CHARGED, one()))
+                        .add(potion(1, Potions.HEALING, one()))
+                        .add(potion(1, Potions.STRENGTH, one()))
+                        .add(potion(1, Potions.FIRE_RESISTANCE, one()))
+                        .add(potion(1, Potions.HARMING, one()))
+                        .add(potion(1, Potions.INVISIBILITY, one()))
+                        .add(potion(1, Potions.LEAPING, one()))
+                        .add(potion(1, Potions.NIGHT_VISION, one()))
+                        .add(potion(1, Potions.SLOW_FALLING, one()))
+                        .add(potion(6, Potions.WATER, one()))
+                )
+                .withPool(LootPool.lootPool().setRolls(number(0, 1))
+                        .add(item(Items.BLAZE_POWDER, 1, number(1, 3)))
+                )
         );
     }
 }
