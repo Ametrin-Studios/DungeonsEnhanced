@@ -2,8 +2,8 @@
   "placement": {
     "type": "ametrin_structures:scattered_grid",
     "exclusion_zone": {
-      "chunk_count": 5,
-      "structures": "minecraft:village"
+      "chunk_count": 12,
+      "structures": "dungeons_enhanced:exclusion_zone/pillager_camp"
     },
     "min_chunks_from_center": 8,
     "probability": 0.39,

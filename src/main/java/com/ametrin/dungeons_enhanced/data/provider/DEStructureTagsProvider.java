@@ -34,6 +34,13 @@ public final class DEStructureTagsProvider extends StructureTagsProvider {
                 .add(DEStructures.WITCH_TOWER.structure())
         ;
 
-        tag(DETags.Structures.BLACK_CITADEL_EXCLUSION_ZONE).add(BuiltinStructures.FORTRESS);
+        tag(DETags.Structures.PILLAGER_CAMP_EXCLUSION_ZONE)
+                .add(DEStructures.CASTLE.structure())
+                .addTag(StructureTags.VILLAGE)
+        ;
+
+        tag(DETags.Structures.BLACK_CITADEL_EXCLUSION_ZONE)
+                .add(BuiltinStructures.FORTRESS)
+        ;
     }
 }

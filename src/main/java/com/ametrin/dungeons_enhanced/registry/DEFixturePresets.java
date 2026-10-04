@@ -100,6 +100,11 @@ public final class DEFixturePresets {
                 .add(1, new Fixtures.LootContainer(DELootTables.BlackCitadel.TREASURE, Blocks.CHEST.defaultBlockState().setValue(ChestBlock.TYPE, ChestType.RIGHT)))
                 .add(1, new Fixtures.LootContainer(DELootTables.BlackCitadel.TREASURE_ALT, Blocks.CHEST.defaultBlockState().setValue(ChestBlock.TYPE, ChestType.RIGHT)))
                 .build());
+
+        context.register(key("undead_horse"), FixturePreset.builder()
+                .entity(1, EntityType.ZOMBIE_HORSE)
+                .entity(1, EntityType.SKELETON_HORSE)
+                .build());
     }
 
     private static ResourceKey<FixturePreset> key(String path) {

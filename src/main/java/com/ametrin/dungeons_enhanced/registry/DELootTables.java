@@ -105,6 +105,7 @@ public interface DELootTables {
 
     ResourceKey<LootTable> WATCH_TOWER = chest("watch_tower");
     ResourceKey<LootTable> WITCH_TOWER = chest("witch_tower");
+    ResourceKey<LootTable> FUEL_COAL = create("fuel/coal");
 
     // Nether
     interface BlackCitadel {

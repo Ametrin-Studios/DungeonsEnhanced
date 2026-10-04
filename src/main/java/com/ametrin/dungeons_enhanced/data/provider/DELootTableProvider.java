@@ -25,6 +25,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
 
 import static com.ametrinstudios.ametrin.data.LootTableProviderHelper.*;
+import static net.minecraft.world.level.storage.loot.providers.number.UniformGenerator.between;
 
 public final class DELootTableProvider extends LootTableProvider {
     private static List<SubProviderEntry> tables;
@@ -482,6 +483,13 @@ public final class DELootTableProvider extends LootTableProvider {
                     )
                     .withPool(LootPool.lootPool().setRolls(number(0, 1))
                             .add(item(Items.OMINOUS_BOTTLE).apply(SetOminousBottleAmplifierFunction.setAmplifier(number(1, 3))))
+                    )
+            );
+
+            output.accept(DELootTables.FUEL_COAL, LootTable.lootTable()
+                    .withPool(LootPool.lootPool().setRolls(one())
+                            .add(item(Items.COAL, 1, between(0, 5)))
+                            .add(item(Items.CHARCOAL, 1, between(0, 5)))
                     )
             );
         }

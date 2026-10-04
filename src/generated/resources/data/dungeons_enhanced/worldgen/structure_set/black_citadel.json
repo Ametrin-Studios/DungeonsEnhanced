@@ -2,7 +2,7 @@
   "placement": {
     "type": "ametrin_structures:scattered_grid",
     "exclusion_zone": {
-      "chunk_count": 8,
+      "chunk_count": 12,
       "structures": "dungeons_enhanced:exclusion_zone/black_citadel"
     },
     "probability": 0.72,

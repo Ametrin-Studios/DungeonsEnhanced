@@ -11,7 +11,6 @@ import com.ametrin.structures.structure.DeferredStructureRegister;
 import com.ametrin.structures.structure.simple.HeightAnchor;
 import com.ametrin.structures.structure.simple.HeightMode;
 import com.ametrin.structures.structure.simple.TerrainBox;
-import net.minecraft.tags.StructureTags;
 import net.minecraft.util.random.Weighted;
 import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.entity.EntityType;
@@ -275,7 +274,7 @@ public final class DEStructures {
                 .build();
 
         PILLAGER_CAMP = REGISTER.set(DEStructureIDs.PILLAGER_CAMP)
-                .scatteredGridPlacement(p -> p.spacing(56).probability(0.39f).minChunksFromCenter(8).exclusionZone(StructureTags.VILLAGE, 5))
+                .scatteredGridPlacement(p -> p.spacing(56).probability(0.39f).minChunksFromCenter(8).exclusionZone(DETags.Structures.PILLAGER_CAMP_EXCLUSION_ZONE, 12))
                 .jigsaw(DETemplatePools.PILLAGER_CAMP, j -> j
                                 .onSurface()
                                 .size(4)
@@ -319,7 +318,10 @@ public final class DEStructures {
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_STABLES)
                         .surface()
-                        .single(b -> b.template("stables").yOffset(-4))
+                        .verticalPlacementMode(HeightMode.MEAN)
+                        .single(b -> b.template("stables").yOffset(-5))
+                        .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
+                        .filterFlatness(8)
                 )
                 .build();
 
@@ -394,7 +396,7 @@ public final class DEStructures {
 
         // Nether
         BLACK_CITADEL = REGISTER.set(DEStructureIDs.BLACK_CITADEL)
-                .scatteredGridPlacement(p -> p.spacing(69).probability(0.72f).exclusionZone(DETags.Structures.BLACK_CITADEL_EXCLUSION_ZONE, 8))
+                .scatteredGridPlacement(p -> p.spacing(69).probability(0.72f).exclusionZone(DETags.Structures.BLACK_CITADEL_EXCLUSION_ZONE, 12))
                 .jigsaw(DETemplatePools.BLACK_CITADEL, j -> j
                                 .size(6)
                                 .startHeight(28)

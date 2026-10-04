@@ -1,14 +1,22 @@
 {
   "type": "ametrin_structures:simple",
   "biomes": "#dungeons_enhanced:has_structure/stables",
+  "filters": [
+    {
+      "type": "ametrin_structures:flatness",
+      "max_variance": 8
+    }
+  ],
+  "height_mode": "mean",
   "pieces": {
     "offset": [
       0,
-      -4,
+      -5,
       0
     ],
     "template": "dungeons_enhanced:stables"
   },
   "spawn_overrides": {},
-  "step": "surface_structures"
+  "step": "surface_structures",
+  "terrain_adaptation": "beard_thin"
 }
