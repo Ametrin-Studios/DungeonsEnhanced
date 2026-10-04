@@ -110,6 +110,7 @@ public final class DELootTableProvider extends LootTableProvider {
                         .withPool(LootPool.lootPool().setRolls(number(8, 16))
                                 .add(item(Items.COD).setWeight(3))
                                 .add(item(Items.SALMON).setWeight(3))
+                                .add(item(Items.PUFFERFISH))
                                 .add(item(Items.BRAIN_CORAL, 1, number(0, 1)))
                                 .add(item(Items.BUBBLE_CORAL, 1, number(0, 1)))
                                 .add(item(Items.FIRE_CORAL, 1, number(0, 1)))
@@ -126,8 +127,9 @@ public final class DELootTableProvider extends LootTableProvider {
                                 .add(item(Items.INK_SAC, 1, number(0, 1)))
                                 .add(item(Items.NAME_TAG, 1, number(0, 1)))
                                 .add(item(Items.COPPER_INGOT, 4, number(0, 3)))
-                                .add(potion(1, Potions.WATER_BREATHING, number(0, 1)))
+                                .add(potion(1, Potions.WATER_BREATHING, one()))
                                 .add(item(Items.PRISMARINE_CRYSTALS, 2, number(0, 3)))
+                                .add(item(Items.SEA_PICKLE, 2, number(0, 2)))
                         ));
 
                 output.accept(DELootTables.EldersTemple.ELDER_ROOM, LootTable.lootTable()
@@ -145,8 +147,9 @@ public final class DELootTableProvider extends LootTableProvider {
                                 .add(item(Items.DIAMOND, 1, number(0, 2)))
                                 .add(item(Items.TURTLE_EGG, 1, number(0, 1)))
                                 .add(item(Items.COPPER_INGOT, 4, number(0, 3)))
-                                .add(potion(1, Potions.WATER_BREATHING, number(0, 1)))
+                                .add(potion(1, Potions.LONG_WATER_BREATHING, one()))
                                 .add(item(Items.PRISMARINE_CRYSTALS, 3, number(0, 3)))
+                                .add(item(Items.COPPER_NAUTILUS_ARMOR, 1, number(0, 1)))
                         ));
             } // Elders Temple
 
@@ -366,6 +369,7 @@ public final class DELootTableProvider extends LootTableProvider {
                         .withPool(LootPool.lootPool().setRolls(number(8, 16))
                                 .add(item(Items.COD).setWeight(3))
                                 .add(item(Items.SALMON).setWeight(3))
+                                .add(item(Items.PUFFERFISH))
                                 .add(item(Items.BRAIN_CORAL, 1, number(0, 1)))
                                 .add(item(Items.BUBBLE_CORAL, 1, number(0, 1)))
                                 .add(item(Items.FIRE_CORAL, 1, number(0, 1)))
@@ -384,8 +388,9 @@ public final class DELootTableProvider extends LootTableProvider {
                                 .add(item(Items.TIDE_ARMOR_TRIM_SMITHING_TEMPLATE, 1, number(0, 1)))
                                 .add(item(Items.COPPER_INGOT, 4, number(0, 3)))
                                 .add(potion(1, Potions.WATER_BREATHING, number(0, 1)))
-                                .add(item(Items.PRISMARINE_CRYSTALS, 2, number(0, 3))
-                                )));
+                                .add(item(Items.PRISMARINE_CRYSTALS, 2, number(0, 3)))
+                                .add(item(Items.SEA_PICKLE, 2, number(0, 3)))
+                        ));
             } // Sunken Shrine
             {
                 output.accept(DELootTables.WATCH_TOWER, LootTable.lootTable()

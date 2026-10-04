@@ -87,8 +87,7 @@
     }
   },
   "start_height": {
-    "heightmap": "OCEAN_FLOOR_WG",
-    "offset": -6
+    "heightmap": "OCEAN_FLOOR_WG"
   },
   "step": "surface_structures"
 }

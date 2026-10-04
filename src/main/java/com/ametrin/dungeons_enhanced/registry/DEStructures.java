@@ -154,10 +154,10 @@ public final class DEStructures {
                 .build();
 
         ELDERS_TEMPLE = REGISTER.set(DEStructureIDs.ELDERS_TEMPLE)
-                .scatteredGridPlacement(b -> b.spacing(24).minChunksFromCenter(12))
+                .scatteredGridPlacement(b -> b.spacing(28).minChunksFromCenter(12))
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_ELDERS_TEMPLE)
-                        .oceanFloor(-6)
+                        .oceanFloor()
                         .verticalPlacementMode(HeightMode.MEAN)
                         .filterSubmerged(1)
                         .compound(b -> b
