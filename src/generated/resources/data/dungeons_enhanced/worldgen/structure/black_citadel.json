@@ -12,12 +12,6 @@
           "maxCount": 5,
           "minCount": 2,
           "weight": 4
-        },
-        {
-          "type": "minecraft:skeleton",
-          "maxCount": 3,
-          "minCount": 1,
-          "weight": 1
         }
       ]
     }

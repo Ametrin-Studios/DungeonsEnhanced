@@ -394,14 +394,14 @@ public final class DEStructures {
 
         // Nether
         BLACK_CITADEL = REGISTER.set(DEStructureIDs.BLACK_CITADEL)
-                .scatteredGridPlacement(p -> p.spacing(67).probability(0.75f))
+                .scatteredGridPlacement(p -> p.spacing(69).probability(0.72f).exclusionZone(DETags.Structures.BLACK_CITADEL_EXCLUSION_ZONE, 8))
                 .jigsaw(DETemplatePools.BLACK_CITADEL, j -> j
                                 .size(6)
                                 .startHeight(28)
                                 .maxDistanceFromCenter(116)
                         , s -> s
                                 .biomes(DETags.Biomes.HAS_BLACK_CITADEL)
-                                .spawnOverride(MobCategory.MONSTER, new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.PIECE, spawns(spawn(EntityType.WITHER_SKELETON, 4, 2, 5), spawn(EntityType.SKELETON, 1, 1, 3))))
+                                .spawnOverride(MobCategory.MONSTER, new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.PIECE, spawns(spawn(EntityType.WITHER_SKELETON, 4, 2, 5))))
                                 .step(GenerationStep.Decoration.UNDERGROUND_STRUCTURES) // needs to generate after the basalt
                                 .terrainAdaptation(TerrainAdjustment.BEARD_BOX)
                 )

@@ -46,15 +46,15 @@ public final class DEBlackCitadel {
         );
 
         builder.pool("pillar", p -> p
-                .element("bridge_pillar/normal", e -> e.weight(3))
-                .element("bridge_pillar/bones", e -> e.weight(3))
-                .element("bridge_pillar/end", e -> e.weight(2))
-                .element("bridge_pillar/end_cage", e -> e.weight(2))
-                .element("bridge_tower/broken", e -> e.weight(3))
+                .element("bridge_pillar/normal", e -> e.weight(3).foundation())
+                .element("bridge_pillar/bones", e -> e.weight(3).foundation())
+                .element("bridge_pillar/end", e -> e.weight(2).foundation())
+                .element("bridge_pillar/end_cage", e -> e.weight(2).foundation())
+                .element("bridge_tower/broken", e -> e.weight(3).foundation())
         );
 
         builder.pool("thick_pillar", p -> p
-                .element("bridge_tower/normal")
+                .element("bridge_tower/normal", e -> e.foundation())
         );
     }
 }

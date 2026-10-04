@@ -12,8 +12,10 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ChestBlock;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.LayeredCauldronBlock;
+import net.minecraft.world.level.block.state.properties.ChestType;
 import net.neoforged.neoforge.common.Tags;
 
 public final class DEFixturePresets {
@@ -61,6 +63,42 @@ public final class DEFixturePresets {
                 .add(100, Fixtures.Spawner.of(EntityType.BOGGED), new FixtureConditions.InBiome(biomes.getOrThrow(Tags.Biomes.IS_SWAMP)))
                 .add(100, Fixtures.Spawner.of(EntityType.STRAY), new FixtureConditions.InBiome(biomes.getOrThrow(Tags.Biomes.IS_COLD_OVERWORLD)))
                 .add(1, Fixtures.Spawner.of(EntityType.SKELETON))
+                .build());
+
+
+        context.register(key("black_citadel/normal_chest"), FixturePreset.builder()
+                .add(1, Fixtures.LootContainer.chest(DELootTables.BlackCitadel.NORMAL))
+                .add(1, Fixtures.LootContainer.chest(DELootTables.BlackCitadel.NORMAL_ALT))
+                .build());
+
+        context.register(key("black_citadel/normal_chest_left"), FixturePreset.builder()
+                .add(1, new Fixtures.LootContainer(DELootTables.BlackCitadel.NORMAL, Blocks.CHEST.defaultBlockState().setValue(ChestBlock.TYPE, ChestType.LEFT)))
+                .add(1, new Fixtures.LootContainer(DELootTables.BlackCitadel.NORMAL_ALT, Blocks.CHEST.defaultBlockState().setValue(ChestBlock.TYPE, ChestType.LEFT)))
+                .build());
+
+        context.register(key("black_citadel/normal_chest_right"), FixturePreset.builder()
+                .add(1, new Fixtures.LootContainer(DELootTables.BlackCitadel.NORMAL, Blocks.CHEST.defaultBlockState().setValue(ChestBlock.TYPE, ChestType.RIGHT)))
+                .add(1, new Fixtures.LootContainer(DELootTables.BlackCitadel.NORMAL_ALT, Blocks.CHEST.defaultBlockState().setValue(ChestBlock.TYPE, ChestType.RIGHT)))
+                .build());
+
+        context.register(key("black_citadel/normal_barrel"), FixturePreset.builder()
+                .add(1, new Fixtures.LootContainer(DELootTables.BlackCitadel.NORMAL, Blocks.BARREL.defaultBlockState()))
+                .add(1, new Fixtures.LootContainer(DELootTables.BlackCitadel.NORMAL_ALT, Blocks.BARREL.defaultBlockState()))
+                .build());
+
+        context.register(key("black_citadel/treasure_chest"), FixturePreset.builder()
+                .add(1, Fixtures.LootContainer.chest(DELootTables.BlackCitadel.TREASURE))
+                .add(1, Fixtures.LootContainer.chest(DELootTables.BlackCitadel.TREASURE_ALT))
+                .build());
+
+        context.register(key("black_citadel/treasure_chest_left"), FixturePreset.builder()
+                .add(1, new Fixtures.LootContainer(DELootTables.BlackCitadel.TREASURE, Blocks.CHEST.defaultBlockState().setValue(ChestBlock.TYPE, ChestType.LEFT)))
+                .add(1, new Fixtures.LootContainer(DELootTables.BlackCitadel.TREASURE_ALT, Blocks.CHEST.defaultBlockState().setValue(ChestBlock.TYPE, ChestType.LEFT)))
+                .build());
+
+        context.register(key("black_citadel/treasure_chest_right"), FixturePreset.builder()
+                .add(1, new Fixtures.LootContainer(DELootTables.BlackCitadel.TREASURE, Blocks.CHEST.defaultBlockState().setValue(ChestBlock.TYPE, ChestType.RIGHT)))
+                .add(1, new Fixtures.LootContainer(DELootTables.BlackCitadel.TREASURE_ALT, Blocks.CHEST.defaultBlockState().setValue(ChestBlock.TYPE, ChestType.RIGHT)))
                 .build());
     }
 

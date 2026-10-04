@@ -76,6 +76,8 @@ public final class DETags {
         TagKey<Structure> ON_DESERT_EXPLORER_MAPS = create("on_desert_explorer_maps");
         TagKey<Structure> ON_MONSTER_MAZE_EXPLORER_MAPS = create("on_monster_maze_explorer_maps");
 
+        TagKey<Structure> BLACK_CITADEL_EXCLUSION_ZONE = create("exclusion_zone/" + DEStructureIDs.BLACK_CITADEL);
+
         private static TagKey<Structure> create(String name) {
             return TagKey.create(Registries.STRUCTURE, locate(name));
         }
