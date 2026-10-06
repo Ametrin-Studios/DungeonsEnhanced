@@ -2,15 +2,17 @@
   "type": "minecraft:chest",
   "pools": [
     {
+      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "functions": [
             {
+              "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 4,
-                "min": 2
+                "max": 4.0,
+                "min": 2.0
               },
               "function": "minecraft:set_count"
             }
@@ -22,10 +24,11 @@
           "type": "minecraft:item",
           "functions": [
             {
+              "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 2,
-                "min": 1
+                "max": 2.0,
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
@@ -37,10 +40,11 @@
           "type": "minecraft:item",
           "functions": [
             {
+              "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 2,
-                "min": 1
+                "max": 2.0,
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
@@ -52,10 +56,11 @@
           "type": "minecraft:item",
           "functions": [
             {
+              "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 2,
-                "min": 1
+                "max": 2.0,
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
@@ -67,10 +72,11 @@
           "type": "minecraft:item",
           "functions": [
             {
+              "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 2,
-                "min": 1
+                "max": 2.0,
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
@@ -88,16 +94,6 @@
         },
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 2,
-                "min": 1
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
           "name": "minecraft:map",
           "weight": 2
         },
@@ -105,10 +101,11 @@
           "type": "minecraft:item",
           "functions": [
             {
+              "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 2,
-                "min": 1
+                "max": 2.0,
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
@@ -120,10 +117,11 @@
           "type": "minecraft:item",
           "functions": [
             {
+              "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 5,
-                "min": 2
+                "max": 5.0,
+                "min": 2.0
               },
               "function": "minecraft:set_count"
             }
@@ -135,10 +133,11 @@
           "type": "minecraft:item",
           "functions": [
             {
+              "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 5,
-                "min": 2
+                "max": 5.0,
+                "min": 2.0
               },
               "function": "minecraft:set_count"
             }
@@ -149,20 +148,22 @@
       ],
       "rolls": {
         "type": "minecraft:uniform",
-        "max": 9,
-        "min": 4
+        "max": 9.0,
+        "min": 4.0
       }
     },
     {
+      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "functions": [
             {
+              "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 4,
-                "min": 2
+                "max": 4.0,
+                "min": 2.0
               },
               "function": "minecraft:set_count"
             }
@@ -182,16 +183,6 @@
         },
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 2,
-                "min": 1
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
           "name": "minecraft:gold_block",
           "weight": 2
         },
@@ -199,11 +190,17 @@
           "type": "minecraft:item",
           "functions": [
             {
+              "conditions": [
+                {
+                  "chance": 0.7,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
               "function": "minecraft:enchant_with_levels",
               "levels": {
                 "type": "minecraft:uniform",
-                "max": 22,
-                "min": 10
+                "max": 22.0,
+                "min": 10.0
               },
               "options": "#minecraft:on_random_loot"
             }
@@ -215,19 +212,19 @@
           "type": "minecraft:item",
           "functions": [
             {
+              "conditions": [
+                {
+                  "chance": 0.7,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
               "function": "minecraft:enchant_with_levels",
               "levels": {
                 "type": "minecraft:uniform",
-                "max": 16,
-                "min": 12
+                "max": 16.0,
+                "min": 12.0
               },
-              "options": "#minecraft:on_random_loot",
-              "conditions": [
-                {
-                  "condition": "minecraft:random_chance",
-                  "chance": 0.7
-                }
-              ]
+              "options": "#minecraft:on_random_loot"
             }
           ],
           "name": "minecraft:bow"
@@ -236,19 +233,19 @@
           "type": "minecraft:item",
           "functions": [
             {
+              "conditions": [
+                {
+                  "chance": 0.7,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
               "function": "minecraft:enchant_with_levels",
               "levels": {
                 "type": "minecraft:uniform",
-                "max": 16,
-                "min": 12
+                "max": 16.0,
+                "min": 12.0
               },
-              "options": "#minecraft:on_random_loot",
-              "conditions": [
-                {
-                  "condition": "minecraft:random_chance",
-                  "chance": 0.7
-                }
-              ]
+              "options": "#minecraft:on_random_loot"
             }
           ],
           "name": "minecraft:crossbow"
@@ -257,19 +254,19 @@
           "type": "minecraft:item",
           "functions": [
             {
+              "conditions": [
+                {
+                  "chance": 0.7,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
               "function": "minecraft:enchant_with_levels",
               "levels": {
                 "type": "minecraft:uniform",
-                "max": 16,
-                "min": 12
+                "max": 16.0,
+                "min": 12.0
               },
-              "options": "#minecraft:on_random_loot",
-              "conditions": [
-                {
-                  "condition": "minecraft:random_chance",
-                  "chance": 0.7
-                }
-              ]
+              "options": "#minecraft:on_random_loot"
             }
           ],
           "name": "minecraft:diamond_helmet"
@@ -278,19 +275,19 @@
           "type": "minecraft:item",
           "functions": [
             {
+              "conditions": [
+                {
+                  "chance": 0.7,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
               "function": "minecraft:enchant_with_levels",
               "levels": {
                 "type": "minecraft:uniform",
-                "max": 16,
-                "min": 12
+                "max": 16.0,
+                "min": 12.0
               },
-              "options": "#minecraft:on_random_loot",
-              "conditions": [
-                {
-                  "condition": "minecraft:random_chance",
-                  "chance": 0.7
-                }
-              ]
+              "options": "#minecraft:on_random_loot"
             }
           ],
           "name": "minecraft:diamond_chestplate"
@@ -299,19 +296,19 @@
           "type": "minecraft:item",
           "functions": [
             {
+              "conditions": [
+                {
+                  "chance": 0.7,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
               "function": "minecraft:enchant_with_levels",
               "levels": {
                 "type": "minecraft:uniform",
-                "max": 16,
-                "min": 12
+                "max": 16.0,
+                "min": 12.0
               },
-              "options": "#minecraft:on_random_loot",
-              "conditions": [
-                {
-                  "condition": "minecraft:random_chance",
-                  "chance": 0.7
-                }
-              ]
+              "options": "#minecraft:on_random_loot"
             }
           ],
           "name": "minecraft:diamond_leggings"
@@ -320,19 +317,19 @@
           "type": "minecraft:item",
           "functions": [
             {
+              "conditions": [
+                {
+                  "chance": 0.7,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
               "function": "minecraft:enchant_with_levels",
               "levels": {
                 "type": "minecraft:uniform",
-                "max": 16,
-                "min": 12
+                "max": 16.0,
+                "min": 12.0
               },
-              "options": "#minecraft:on_random_loot",
-              "conditions": [
-                {
-                  "condition": "minecraft:random_chance",
-                  "chance": 0.7
-                }
-              ]
+              "options": "#minecraft:on_random_loot"
             }
           ],
           "name": "minecraft:diamond_boots"
@@ -348,70 +345,59 @@
       ],
       "rolls": {
         "type": "minecraft:uniform",
-        "max": 6,
-        "min": 4
+        "max": 6.0,
+        "min": 4.0
       }
     },
     {
+      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [],
           "name": "minecraft:music_disc_11"
         },
         {
           "type": "minecraft:item",
-          "functions": [],
           "name": "minecraft:music_disc_blocks"
         },
         {
           "type": "minecraft:item",
-          "functions": [],
           "name": "minecraft:music_disc_cat"
         },
         {
           "type": "minecraft:item",
-          "functions": [],
           "name": "minecraft:music_disc_chirp"
         },
         {
           "type": "minecraft:item",
-          "functions": [],
           "name": "minecraft:music_disc_far"
         },
         {
           "type": "minecraft:item",
-          "functions": [],
           "name": "minecraft:music_disc_mall"
         },
         {
           "type": "minecraft:item",
-          "functions": [],
           "name": "minecraft:music_disc_mellohi"
         },
         {
           "type": "minecraft:item",
-          "functions": [],
           "name": "minecraft:music_disc_stal"
         },
         {
           "type": "minecraft:item",
-          "functions": [],
           "name": "minecraft:music_disc_strad"
         },
         {
           "type": "minecraft:item",
-          "functions": [],
           "name": "minecraft:music_disc_precipice"
         },
         {
           "type": "minecraft:item",
-          "functions": [],
           "name": "minecraft:music_disc_wait"
         },
         {
           "type": "minecraft:item",
-          "functions": [],
           "name": "minecraft:music_disc_ward"
         },
         {
@@ -421,8 +407,8 @@
       ],
       "rolls": {
         "type": "minecraft:uniform",
-        "max": 1,
-        "min": 0
+        "max": 1.0,
+        "min": 0.0
       }
     }
   ],

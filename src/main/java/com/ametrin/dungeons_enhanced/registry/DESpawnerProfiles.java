@@ -39,6 +39,13 @@ public final class DESpawnerProfiles {
                 .add(EntityType.CAVE_SPIDER, 1)
                 .build());
 
+        context.register(key("monster_maze/church"), SpawnerProfile.builder()
+                .add(createSpawnDataWithEquipment(EntityType.ZOMBIE, DELootTables.MonsterMaze.EQUIPMENT_ZOMBIE), 3)
+                .add(EntityType.SKELETON, 2)
+                .add(EntityType.SPIDER, 1)
+                .add(EntityType.CAVE_SPIDER, 1)
+                .build());
+
         context.register(key("monster_maze/prison"), SpawnerProfile.builder()
                 .add(createSpawnDataWithEquipment(EntityType.ZOMBIE, DELootTables.MonsterMaze.EQUIPMENT_PRISON_ZOMBIE), 3)
                 .add(EntityType.SKELETON, 2)

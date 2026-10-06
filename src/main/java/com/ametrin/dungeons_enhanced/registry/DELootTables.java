@@ -76,6 +76,7 @@ public interface DELootTables {
         ResourceKey<LootTable> EQUIPMENT_SKELETON = create("equipment/monster_maze/skeleton");
         ResourceKey<LootTable> EQUIPMENT_ZOMBIE = create("equipment/monster_maze/zombie");
         ResourceKey<LootTable> EQUIPMENT_PRISON_ZOMBIE = create("equipment/monster_maze/prison_zombie");
+        ResourceKey<LootTable> EQUIPMENT_ZOMBIE_KING_GUARD = create("equipment/monster_maze/zombie_king_guard");
     }
 
     ResourceKey<LootTable> MUSHROOM_HOUSE = chest("mushroom_house");

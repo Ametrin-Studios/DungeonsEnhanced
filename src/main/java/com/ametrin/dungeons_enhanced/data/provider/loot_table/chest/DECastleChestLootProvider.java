@@ -12,13 +12,14 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import java.util.function.BiConsumer;
 
 import static com.ametrinstudios.ametrin.data.LootTableProviderHelper.*;
+import static net.minecraft.world.level.storage.loot.providers.number.UniformGenerator.between;
 
 
 public record DECastleChestLootProvider(HolderLookup.Provider registries) implements LootTableSubProvider {
     @Override
     public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output) {
         output.accept(DELootTables.Castle.ARMORY, LootTable.lootTable()
-                .withPool(LootPool.lootPool().setRolls(number(2, 3))
+                .withPool(LootPool.lootPool().setRolls(between(2, 3))
                         .add(item(Items.DIAMOND).setWeight(2))
                         .add(item(Items.IRON_AXE).setWeight(2))
                         .add(item(Items.IRON_SWORD).setWeight(3))
@@ -33,19 +34,19 @@ public record DECastleChestLootProvider(HolderLookup.Provider registries) implem
                         .add(item(Items.CHAINMAIL_CHESTPLATE).setWeight(3))
                         .add(item(Items.CHAINMAIL_LEGGINGS).setWeight(3))
                         .add(item(Items.CHAINMAIL_BOOTS).setWeight(3))
-                ).withPool(LootPool.lootPool().setRolls(number(5, 11))
-                        .add(item(Items.IRON_NUGGET, 7, number(1, 3)))
-                        .add(item(Items.ARROW, 6, number(1, 3)))
-                        .add(item(Items.STICK, 9, number(1, 2)))
-                        .add(item(Items.STRING, 8, number(1, 2)))
-                        .add(item(Items.COBBLESTONE, 7, number(1, 2)))
+                ).withPool(LootPool.lootPool().setRolls(between(5, 11))
+                        .add(item(Items.IRON_NUGGET, between(1, 3)).setWeight(7))
+                        .add(item(Items.ARROW, between(1, 3)).setWeight(6))
+                        .add(item(Items.STICK, between(1, 2)).setWeight(9))
+                        .add(item(Items.STRING, between(1, 2)).setWeight(8))
+                        .add(item(Items.COBBLESTONE, between(1, 2)).setWeight(7))
                         .add(item(Items.ROTTEN_FLESH).setWeight(6))
                         .add(item(Items.EXPERIENCE_BOTTLE).setWeight(3))
                         .add(item(Items.IRON_INGOT).setWeight(3))
                         .add(item(Items.IRON_CHAIN).setWeight(5))));
 
         output.accept(DELootTables.Castle.BEDROOM, LootTable.lootTable()
-                .withPool(LootPool.lootPool().setRolls(number(8, 14))
+                .withPool(LootPool.lootPool().setRolls(between(8, 14))
                         .add(item(Items.BOOK).setWeight(2))
                         .add(item(Items.WRITABLE_BOOK).setWeight(2))
                         .add(item(Items.WHITE_WOOL).setWeight(3))
@@ -55,7 +56,7 @@ public record DECastleChestLootProvider(HolderLookup.Provider registries) implem
                         .add(item(Items.EXPERIENCE_BOTTLE).setWeight(2))
                         .add(item(Items.AMETHYST_SHARD).setWeight(1))
                         .add(item(Items.MAP).setWeight(2)))
-                .withPool(LootPool.lootPool().setRolls(number(0, 1))
+                .withPool(LootPool.lootPool().setRolls(between(0, 1))
                         .add(item(Items.MUSIC_DISC_STRAD).setWeight(1))
                         .add(item(Items.MUSIC_DISC_STAL).setWeight(1))
                         .add(item(Items.MUSIC_DISC_MELLOHI).setWeight(1))
@@ -70,7 +71,7 @@ public record DECastleChestLootProvider(HolderLookup.Provider registries) implem
                         .add(item(Items.MUSIC_DISC_WAIT).setWeight(1))));
 
         output.accept(DELootTables.Castle.CELLAR, LootTable.lootTable()
-                .withPool(LootPool.lootPool().setRolls(number(8, 17))
+                .withPool(LootPool.lootPool().setRolls(between(8, 17))
                         .add(item(Items.BONE).setWeight(14))
                         .add(item(Items.ROTTEN_FLESH).setWeight(9))
                         .add(item(Items.REDSTONE).setWeight(3))
@@ -90,7 +91,7 @@ public record DECastleChestLootProvider(HolderLookup.Provider registries) implem
                         .add(item(Items.LEAD).setWeight(1))
                         .add(item(Items.IRON_CHAIN).setWeight(6))
                         .add(item(Items.STRING).setWeight(7)))
-                .withPool(LootPool.lootPool().setRolls(number(1, 3))
+                .withPool(LootPool.lootPool().setRolls(between(1, 3))
                         .add(item(Items.DIAMOND).setWeight(1))
                         .add(item(Items.GOLD_INGOT).setWeight(3))
                         .add(item(Items.IRON_INGOT).setWeight(4))
@@ -98,7 +99,7 @@ public record DECastleChestLootProvider(HolderLookup.Provider registries) implem
                         .add(item(Items.EXPERIENCE_BOTTLE).setWeight(3))));
 
         output.accept(DELootTables.Castle.COFFIN, LootTable.lootTable()
-                .withPool(LootPool.lootPool().setRolls(number(8, 17))
+                .withPool(LootPool.lootPool().setRolls(between(8, 17))
                         .add(item(Items.BONE).setWeight(12))
                         .add(item(Items.ROTTEN_FLESH).setWeight(9))
                         .add(item(Items.RED_MUSHROOM).setWeight(5))
@@ -108,7 +109,7 @@ public record DECastleChestLootProvider(HolderLookup.Provider registries) implem
                         .add(item(Items.GOLDEN_SWORD).setWeight(2))
                         .add(item(Items.SPIDER_EYE).setWeight(10))
                         .add(item(Items.EMERALD).setWeight(2))
-                        .add(item(Items.GOLD_NUGGET, 6, number(1, 3)))
+                        .add(item(Items.GOLD_NUGGET, between(1, 3)).setWeight(6))
                         .add(item(Items.GOLD_INGOT).setWeight(3))
                         .add(item(Items.DIAMOND).setWeight(1)))
                 .withPool(LootPool.lootPool().setRolls(one())
@@ -116,7 +117,7 @@ public record DECastleChestLootProvider(HolderLookup.Provider registries) implem
                         .add(item(Items.ENCHANTED_GOLDEN_APPLE).setWeight(3))));
 
         output.accept(DELootTables.Castle.KITCHEN, LootTable.lootTable()
-                .withPool(LootPool.lootPool().setRolls(number(10, 19))
+                .withPool(LootPool.lootPool().setRolls(between(10, 19))
                         .add(item(Items.GOLDEN_CARROT).setWeight(3))
                         .add(item(Items.GOLDEN_APPLE).setWeight(1))
                         .add(item(Items.BREAD).setWeight(6))
@@ -126,16 +127,16 @@ public record DECastleChestLootProvider(HolderLookup.Provider registries) implem
                         .add(item(Items.COOKED_RABBIT).setWeight(5))
                         .add(item(Items.COOKED_BEEF).setWeight(5))
                         .add(item(Items.COOKED_MUTTON).setWeight(5))
-                        .add(item(Items.COOKED_PORKCHOP, 5, number(1, 3)))
+                        .add(item(Items.COOKED_PORKCHOP, between(1, 3)).setWeight(5))
                         .add(item(Items.CARROT).setWeight(3))
                         .add(item(Items.MUSHROOM_STEW).setWeight(7))
                         .add(item(Items.CARROT).setWeight(7))
                         .add(item(Items.APPLE).setWeight(7))
-                        .add(suspiciousStew(10, one()))
+                        .add(suspiciousStew(one()).setWeight(10))
                         .add(item(Items.ROTTEN_FLESH).setWeight(20))));
 
         output.accept(DELootTables.Castle.LIBRARY, LootTable.lootTable()
-                .withPool(LootPool.lootPool().setRolls(number(7, 15))
+                .withPool(LootPool.lootPool().setRolls(between(7, 15))
                         .add(item(Items.BOOK).setWeight(5))
                         .add(item(Items.PAPER).setWeight(8))
                         .add(item(Items.BOOKSHELF).setWeight(2))
@@ -144,11 +145,11 @@ public record DECastleChestLootProvider(HolderLookup.Provider registries) implem
                         .add(item(Items.COBWEB).setWeight(2))
                         .add(item(Items.EXPERIENCE_BOTTLE).setWeight(2))
                         .add(item(Items.SAND).setWeight(5)))
-                .withPool(LootPool.lootPool().setRolls(number(1, 3))
-                        .add(enchantedItem(Items.BOOK, 1, number(20, 25), registries))));
+                .withPool(LootPool.lootPool().setRolls(between(1, 3))
+                        .add(enchantedItem(Items.BOOK, between(20, 25), registries))));
 
         output.accept(DELootTables.Castle.PRISON, LootTable.lootTable()
-                .withPool(LootPool.lootPool().setRolls(number(10, 16))
+                .withPool(LootPool.lootPool().setRolls(between(10, 16))
                         .add(item(Items.IRON_CHAIN).setWeight(2))
                         .add(item(Items.PAPER).setWeight(2))
                         .add(item(Items.ROTTEN_FLESH).setWeight(3))
@@ -156,14 +157,14 @@ public record DECastleChestLootProvider(HolderLookup.Provider registries) implem
                         .add(item(Items.STRING).setWeight(2))
                         .add(item(Items.BONE).setWeight(3))
                         .add(item(Items.BOWL).setWeight(2))
-                        .add(suspiciousStew(2, one()))
+                        .add(suspiciousStew(one()).setWeight(2))
                         .add(item(Items.CHAINMAIL_HELMET).setWeight(1))
                         .add(item(Items.CHAINMAIL_CHESTPLATE).setWeight(1))
                         .add(item(Items.CHAINMAIL_LEGGINGS).setWeight(1))
                         .add(item(Items.CHAINMAIL_BOOTS).setWeight(1))));
 
         output.accept(DELootTables.Castle.QUARTERS, LootTable.lootTable()
-                .withPool(LootPool.lootPool().setRolls(number(7, 15))
+                .withPool(LootPool.lootPool().setRolls(between(7, 15))
                         .add(item(Items.WHITE_WOOL).setWeight(4))
                         .add(item(Items.WHITE_CARPET).setWeight(5))
                         .add(item(Items.PAPER).setWeight(4))
@@ -173,7 +174,7 @@ public record DECastleChestLootProvider(HolderLookup.Provider registries) implem
                         .add(item(Items.BOOK).setWeight(3))));
 
         output.accept(DELootTables.Castle.WELL, LootTable.lootTable()
-                .withPool(LootPool.lootPool().setRolls(number(11, 22))
+                .withPool(LootPool.lootPool().setRolls(between(11, 22))
                         .add(item(Items.DIAMOND).setWeight(1))
                         .add(item(Items.IRON_INGOT).setWeight(8))
                         .add(item(Items.IRON_NUGGET).setWeight(6))
@@ -187,39 +188,40 @@ public record DECastleChestLootProvider(HolderLookup.Provider registries) implem
                         .add(item(Items.ENDER_PEARL).setWeight(2))));
 
         output.accept(DELootTables.Castle.THRONE, LootTable.lootTable()
-                .withPool(LootPool.lootPool().setRolls(number(9, 13))
-                        .add(item(Items.GOLD_NUGGET, 10, number(1, 4)))
+                .withPool(LootPool.lootPool().setRolls(between(9, 13))
+                        .add(item(Items.GOLD_NUGGET, between(1, 4)).setWeight(10))
                         .add(item(Items.GOLD_INGOT).setWeight(15))
                         .add(item(Items.GOLD_BLOCK).setWeight(5))
                         .add(item(Items.DIAMOND).setWeight(2))
                         .add(item(Items.IRON_INGOT).setWeight(20))
-                        .add(item(Items.IRON_NUGGET, 15, number(2, 5))))
-                .withPool(LootPool.lootPool().setRolls(number(0, 2))
-                        .add(enchantedItem(Items.DIAMOND_SWORD, 4, one(), registries))
-                        .add(enchantedItem(Items.DIAMOND_AXE, 4, one(), registries))
-                        .add(enchantedItem(Items.DIAMOND_HELMET, 4, one(), registries))
-                        .add(enchantedItem(Items.DIAMOND_CHESTPLATE, 3, one(), registries))
-                        .add(enchantedItem(Items.DIAMOND_LEGGINGS, 3, one(), registries))
-                        .add(enchantedItem(Items.DIAMOND_BOOTS, 4, one(), registries))
+                        .add(item(Items.IRON_NUGGET, between(2, 5)).setWeight(15))
+                )
+                .withPool(LootPool.lootPool().setRolls(between(0, 2))
+                        .add(enchantedItem(Items.DIAMOND_SWORD, one(), registries).setWeight(4))
+                        .add(enchantedItem(Items.DIAMOND_AXE, one(), registries).setWeight(4))
+                        .add(enchantedItem(Items.DIAMOND_HELMET, one(), registries).setWeight(4))
+                        .add(enchantedItem(Items.DIAMOND_CHESTPLATE, one(), registries).setWeight(3))
+                        .add(enchantedItem(Items.DIAMOND_LEGGINGS, one(), registries).setWeight(3))
+                        .add(enchantedItem(Items.DIAMOND_BOOTS, one(), registries).setWeight(4))
                 )
         );
 
         output.accept(DELootTables.Castle.BREWING_STAND, LootTable.lootTable()
-                .withPool(LootPool.lootPool().setRolls(number(1, 3))
-                        .add(potion(1, Potions.REGENERATION, one()))
-                        .add(potion(1, Potions.WIND_CHARGED, one()))
-                        .add(potion(1, Potions.HEALING, one()))
-                        .add(potion(1, Potions.STRENGTH, one()))
-                        .add(potion(1, Potions.FIRE_RESISTANCE, one()))
-                        .add(potion(1, Potions.HARMING, one()))
-                        .add(potion(1, Potions.INVISIBILITY, one()))
-                        .add(potion(1, Potions.LEAPING, one()))
-                        .add(potion(1, Potions.NIGHT_VISION, one()))
-                        .add(potion(1, Potions.SLOW_FALLING, one()))
-                        .add(potion(6, Potions.WATER, one()))
+                .withPool(LootPool.lootPool().setRolls(between(1, 3))
+                        .add(potion(Potions.REGENERATION, one()))
+                        .add(potion(Potions.WIND_CHARGED, one()))
+                        .add(potion(Potions.HEALING, one()))
+                        .add(potion(Potions.STRENGTH, one()))
+                        .add(potion(Potions.FIRE_RESISTANCE, one()))
+                        .add(potion(Potions.HARMING, one()))
+                        .add(potion(Potions.INVISIBILITY, one()))
+                        .add(potion(Potions.LEAPING, one()))
+                        .add(potion(Potions.NIGHT_VISION, one()))
+                        .add(potion(Potions.SLOW_FALLING, one()))
+                        .add(potion(Potions.WATER, one()).setWeight(6))
                 )
-                .withPool(LootPool.lootPool().setRolls(number(0, 1))
-                        .add(item(Items.BLAZE_POWDER, 1, number(1, 3)))
+                .withPool(LootPool.lootPool().setRolls(between(0, 1))
+                        .add(item(Items.BLAZE_POWDER, between(1, 3)))
                 )
         );
     }
