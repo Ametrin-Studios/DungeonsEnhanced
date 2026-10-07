@@ -1,12 +1,10 @@
 package com.ametrin.dungeons_enhanced.data.provider;
 
-import com.ametrin.dungeons_enhanced.DungeonsEnhanced;
 import com.ametrin.dungeons_enhanced.data.provider.loot_table.DEEquipmentLootProvider;
 import com.ametrin.dungeons_enhanced.data.provider.loot_table.chest.DECastleChestLootProvider;
 import com.ametrin.dungeons_enhanced.data.provider.loot_table.chest.DEMonsterMazeChestLootProvider;
 import com.ametrin.dungeons_enhanced.registry.DELootTables;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
@@ -28,16 +26,15 @@ import static com.ametrinstudios.ametrin.data.LootTableProviderHelper.*;
 import static net.minecraft.world.level.storage.loot.providers.number.UniformGenerator.between;
 
 public final class DELootTableProvider extends LootTableProvider {
-    private static List<SubProviderEntry> tables;
 
     public DELootTableProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
-        super(output, Set.of(), tables, registries);
-        tables = List.of(
+        var tables = List.of(
                 new SubProviderEntry(DEStructureLootTables::new, LootContextParamSets.CHEST),
                 new SubProviderEntry(DECastleChestLootProvider::new, LootContextParamSets.CHEST),
                 new SubProviderEntry(DEMonsterMazeChestLootProvider::new, LootContextParamSets.CHEST),
                 new SubProviderEntry(DEEquipmentLootProvider::new, LootContextParamSets.EQUIPMENT)
         );
+        super(output, Set.of(), tables, registries);
     }
 
     public record DEStructureLootTables(HolderLookup.Provider registries) implements LootTableSubProvider {
@@ -49,23 +46,23 @@ public final class DELootTableProvider extends LootTableProvider {
                         .withPool(LootPool.lootPool().setRolls(between(8, 13))
                                 .add(item(Items.DIAMOND).setWeight(2))
                                 .add(item(Items.BONE, between(1, 3)).setWeight(8))
-                                .add(item(Items.BONE_MEAL, 3, between(1, 2)))
-                                .add(item(Items.COBWEB, 4, between(1, 2)))
-                                .add(item(Items.STRING, 6, between(1, 2)))
-                                .add(item(Items.SPIDER_EYE, 3, between(1, 2)))
-                                .add(item(Items.BOOK, 4, between(1, 3)))
+                                .add(item(Items.BONE_MEAL, between(1, 2)).setWeight(3))
+                                .add(item(Items.COBWEB, between(1, 2)).setWeight(4))
+                                .add(item(Items.STRING, between(1, 2)).setWeight(6))
+                                .add(item(Items.SPIDER_EYE, between(1, 2)).setWeight(3))
+                                .add(item(Items.BOOK, between(1, 3)).setWeight(4))
                                 .add(item(Items.WRITABLE_BOOK).setWeight(2))
-                                .add(item(Items.CANDLE, 2, between(1, 2)))
+                                .add(item(Items.CANDLE, between(1, 2)).setWeight(2))
                                 .add(item(Items.WHITE_CANDLE).setWeight(2))
-                                .add(item(Items.ROTTEN_FLESH, 3, between(1, 3)))
-                                .add(item(Items.GLOW_BERRIES, 4, between(1, 3)))
-                                .add(item(Items.IRON_CHAIN, 5, between(1, 3)))
+                                .add(item(Items.ROTTEN_FLESH, between(1, 3)).setWeight(3))
+                                .add(item(Items.GLOW_BERRIES, between(1, 3)).setWeight(4))
+                                .add(item(Items.IRON_CHAIN, between(1, 3)).setWeight(5))
                                 .add(item(Items.SKULL_BANNER_PATTERN))
-                                .add(item(Items.EMERALD, 3, between(1, 4)))
-                                .add(item(Items.GOLD_INGOT, 4, between(1, 5)))
-                                .add(item(Items.IRON_INGOT, 2, between(1, 2)))
-                                .add(item(Items.MAP, 2, between(1, 2)))
-                                .add(item(Items.PAPER, 4, between(1, 3)))
+                                .add(item(Items.EMERALD, between(1, 4)).setWeight(3))
+                                .add(item(Items.GOLD_INGOT, between(1, 5)).setWeight(4))
+                                .add(item(Items.IRON_INGOT, between(1, 2)).setWeight(2))
+                                .add(item(Items.MAP, between(1, 2)).setWeight(2))
+                                .add(item(Items.PAPER, between(1, 3)).setWeight(4))
                                 .add(enchantedItem(Items.BOOK, between(1, 2), registries).setWeight(2))
                                 .add(item(Items.GOLDEN_APPLE, between(1, 2)))
                                 .add(item(Items.WITHER_ROSE))
@@ -77,32 +74,35 @@ public final class DELootTableProvider extends LootTableProvider {
                                 .add(item(Items.IRON_CHESTPLATE))
                                 .add(item(Items.IRON_LEGGINGS))
                                 .add(item(Items.IRON_BOOTS))
-                                .add(item(Items.STONE_SWORD, 3, between(1, 2)))
-                                .add(item(Items.DEEPSLATE, 5, between(1, 2)))
-                                .add(item(Items.COBBLED_DEEPSLATE, 5, between(1, 2)))
-                                .add(item(Items.CLOCK, 2, between(1, 2)))));
+                                .add(item(Items.STONE_SWORD, between(1, 2)).setWeight(3))
+                                .add(item(Items.DEEPSLATE, between(1, 2)).setWeight(5))
+                                .add(item(Items.COBBLED_DEEPSLATE, between(1, 2)).setWeight(5))
+                                .add(item(Items.CLOCK, between(1, 2)).setWeight(2))
+                        )
+                );
             } // Deep Crypt
             {
                 output.accept(DELootTables.DESERT_TOMB, LootTable.lootTable()
                         .withPool(LootPool.lootPool().setRolls(between(4, 6))
-                                .add(item(Items.GOLD_NUGGET, 5, between(4, 7)))
-                                .add(item(Items.GOLD_INGOT, 2, between(1, 3)))
+                                .add(item(Items.GOLD_NUGGET, between(4, 7)).setWeight(5))
+                                .add(item(Items.GOLD_INGOT, between(1, 3)).setWeight(2))
                                 .add(item(Items.GOLDEN_APPLE))
-                                .add(item(Items.ROTTEN_FLESH, 10, between(2, 5)))
-                                .add(item(Items.STRING, 7, between(2, 4)))
-                                .add(item(Items.GUNPOWDER, 7, between(2, 4)))
-                                .add(item(Items.REDSTONE, 4, between(2, 3)))
-                                .add(item(Items.LEATHER, 4, between(1, 5)))
-                                .add(item(Items.SAND, 15, between(2, 5))))
+                                .add(item(Items.ROTTEN_FLESH, between(2, 5)).setWeight(10))
+                                .add(item(Items.STRING, between(2, 4)).setWeight(7))
+                                .add(item(Items.GUNPOWDER, between(2, 4)).setWeight(7))
+                                .add(item(Items.REDSTONE, between(2, 3)).setWeight(4))
+                                .add(item(Items.LEATHER, between(1, 5)).setWeight(4))
+                                .add(item(Items.SAND, between(2, 5)).setWeight(15))
+                        )
                         .withPool(LootPool.lootPool().setRolls(between(0, 1))
-                                .add(enchantedItem(Items.BOOK, between(5, 18), registries))
-                                .add(enchantedItem(Items.GOLDEN_SWORD, between(0, 7), registries))
-                                .add(enchantedItem(Items.GOLDEN_PICKAXE, between(0, 7), registries))
-                                .add(enchantedItem(Items.GOLDEN_AXE, between(0, 7), registries))
-                                .add(enchantedItem(Items.GOLDEN_HELMET, between(0, 7), registries))
-                                .add(enchantedItem(Items.GOLDEN_CHESTPLATE, between(0, 7), registries))
-                                .add(enchantedItem(Items.GOLDEN_LEGGINGS, between(0, 7), registries))
-                                .add(enchantedItem(Items.GOLDEN_BOOTS, between(0, 7), registries))
+                                .add(enchantedItem(Items.BOOK, one(), registries, between(5, 18)))
+                                .add(enchantedItem(Items.GOLDEN_SWORD, one(), registries, between(0, 7)))
+                                .add(enchantedItem(Items.GOLDEN_PICKAXE, one(), registries, between(0, 7)))
+                                .add(enchantedItem(Items.GOLDEN_AXE, one(), registries, between(0, 7)))
+                                .add(enchantedItem(Items.GOLDEN_HELMET, one(), registries, between(0, 7)))
+                                .add(enchantedItem(Items.GOLDEN_CHESTPLATE, one(), registries, between(0, 7)))
+                                .add(enchantedItem(Items.GOLDEN_LEGGINGS, one(), registries, between(0, 7)))
+                                .add(enchantedItem(Items.GOLDEN_BOOTS, one(), registries, between(0, 7)))
                         ));
             } // Desert Tomb
             {
@@ -181,9 +181,9 @@ public final class DELootTableProvider extends LootTableProvider {
                 output.accept(DELootTables.LARGE_DUNGEON, LootTable.lootTable()
                         .withPool(LootPool.lootPool().setRolls(between(8, 14))
                                 .add(item(Items.IRON_INGOT).setWeight(3))
-                                .add(item(Items.IRON_NUGGET, 6, between(1, 3)))
+                                .add(item(Items.IRON_NUGGET, between(1, 3)).setWeight(6))
                                 .add(item(Items.GOLD_INGOT).setWeight(3))
-                                .add(item(Items.GOLD_NUGGET, 6, between(1, 3)))
+                                .add(item(Items.GOLD_NUGGET, between(1, 3)).setWeight(6))
                                 .add(item(Items.ROTTEN_FLESH).setWeight(13))
                                 .add(item(Items.BONE).setWeight(10))
                                 .add(item(Items.BROWN_MUSHROOM).setWeight(4))
@@ -197,10 +197,10 @@ public final class DELootTableProvider extends LootTableProvider {
                         .withPool(LootPool.lootPool().setRolls(between(0, 2))
                                 .add(item(Items.DIAMOND).setWeight(2))
                                 .add(item(Items.GOLDEN_APPLE).setWeight(2))
-                                .add(enchantedItem(Items.IRON_HELMET, between(4, 12), registries).setWeight(2))
-                                .add(enchantedItem(Items.IRON_CHESTPLATE, between(4, 12), registries).setWeight(2))
-                                .add(enchantedItem(Items.IRON_LEGGINGS, between(4, 12), registries).setWeight(2))
-                                .add(enchantedItem(Items.IRON_BOOTS, between(4, 12), registries).setWeight(2))
+                                .add(enchantedItem(Items.IRON_HELMET, one(), registries, between(4, 12)).setWeight(2))
+                                .add(enchantedItem(Items.IRON_CHESTPLATE, one(), registries, between(4, 12)).setWeight(2))
+                                .add(enchantedItem(Items.IRON_LEGGINGS, one(), registries, between(4, 12)).setWeight(2))
+                                .add(enchantedItem(Items.IRON_BOOTS, one(), registries, between(4, 12)).setWeight(2))
                                 .add(item(Items.DIAMOND_AXE))
                                 .add(item(Items.DIAMOND_SWORD))
                                 .add(item(Items.DIAMOND_PICKAXE))
@@ -518,15 +518,5 @@ public final class DELootTableProvider extends LootTableProvider {
                     )
             );
         }
-
-        @Deprecated(forRemoval = true)
-        private static ResourceKey<LootTable> location(String name) {
-            return ResourceKey.create(Registries.LOOT_TABLE, DungeonsEnhanced.locate("chests/" + name));
-        }
-    }
-
-    @Override
-    public List<SubProviderEntry> getTables() {
-        return tables;
     }
 }
