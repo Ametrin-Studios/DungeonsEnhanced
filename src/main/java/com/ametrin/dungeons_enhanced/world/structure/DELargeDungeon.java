@@ -1,6 +1,7 @@
 package com.ametrin.dungeons_enhanced.world.structure;
 
 import com.ametrin.dungeons_enhanced.DungeonsEnhanced;
+import com.ametrin.dungeons_enhanced.registry.DEProcessorLists;
 import com.ametrin.structures.structure.jigsaw.JigsawPools;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
@@ -10,6 +11,7 @@ import java.util.List;
 public final class DELargeDungeon {
     public static void pool(BootstrapContext<StructureTemplatePool> context) {
         var pools = new JigsawPools(context, DungeonsEnhanced.MOD_ID, "large_dungeon/");
+        pools.defaultElementSettings(e -> e.processors(DEProcessorLists.JUNGLE_MONUMENT));
 
         pools.pool("root", p -> p.element("root"));
         pools.pool("cross", p -> p.element("cross"));

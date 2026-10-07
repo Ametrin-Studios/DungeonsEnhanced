@@ -4,7 +4,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:large_dungeon/tunnel",
-        "processors": "minecraft:empty",
+        "processors": "dungeons_enhanced:jungle_monument",
         "projection": "rigid"
       },
       "weight": 4
@@ -13,7 +13,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:large_dungeon/stairs",
-        "processors": "minecraft:empty",
+        "processors": "dungeons_enhanced:jungle_monument",
         "projection": "rigid"
       },
       "weight": 2
@@ -22,7 +22,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:large_dungeon/cross",
-        "processors": "minecraft:empty",
+        "processors": "dungeons_enhanced:jungle_monument",
         "projection": "rigid"
       },
       "weight": 2
@@ -31,7 +31,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:large_dungeon/room_small1",
-        "processors": "minecraft:empty",
+        "processors": "dungeons_enhanced:jungle_monument",
         "projection": "rigid"
       },
       "weight": 1
@@ -40,7 +40,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:large_dungeon/room_small2",
-        "processors": "minecraft:empty",
+        "processors": "dungeons_enhanced:jungle_monument",
         "projection": "rigid"
       },
       "weight": 1
@@ -49,7 +49,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:large_dungeon/room1",
-        "processors": "minecraft:empty",
+        "processors": "dungeons_enhanced:jungle_monument",
         "projection": "rigid"
       },
       "weight": 1
@@ -58,7 +58,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:large_dungeon/room2",
-        "processors": "minecraft:empty",
+        "processors": "dungeons_enhanced:jungle_monument",
         "projection": "rigid"
       },
       "weight": 1
@@ -67,7 +67,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:large_dungeon/room_big",
-        "processors": "minecraft:empty",
+        "processors": "dungeons_enhanced:jungle_monument",
         "projection": "rigid"
       },
       "weight": 1
@@ -76,7 +76,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:large_dungeon/parkour",
-        "processors": "minecraft:empty",
+        "processors": "dungeons_enhanced:jungle_monument",
         "projection": "rigid"
       },
       "weight": 1
@@ -85,7 +85,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:large_dungeon/storage",
-        "processors": "minecraft:empty",
+        "processors": "dungeons_enhanced:jungle_monument",
         "projection": "rigid"
       },
       "weight": 1
