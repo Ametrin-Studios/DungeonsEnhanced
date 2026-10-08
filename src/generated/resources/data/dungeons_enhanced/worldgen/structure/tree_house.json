@@ -2,7 +2,8 @@
   "type": "ametrin_structures:simple",
   "biomes": "#dungeons_enhanced:has_structure/tree_house",
   "pieces": {
-    "template": "dungeons_enhanced:tree_house"
+    "template": "dungeons_enhanced:tree_house",
+    "terrain_box": "footprint"
   },
   "spawn_overrides": {},
   "step": "surface_structures",

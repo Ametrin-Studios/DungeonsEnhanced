@@ -357,7 +357,7 @@ public final class DEStructures {
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_TREE_HOUSE)
                         .surface()
-                        .single("tree_house")
+                        .single(t -> t.template("tree_house").terrainBox(TerrainBox.footprint()))
                         .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                 )
                 .build();
