@@ -19,6 +19,7 @@ public final class DungeonsEnhanced {
         modEventBus.addListener(DungeonsEnhanced::gatherData);
         DEStructures.REGISTER.register(modEventBus);
         DEPieceSources.REGISTER.register(modEventBus);
+        DEProcessorTypes.REGISTER.register(modEventBus);
     }
 
     public static void gatherData(GatherDataEvent.Server event) {

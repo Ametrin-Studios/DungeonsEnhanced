@@ -61,6 +61,6 @@ public final class DESwapDeadCoralsProcessor extends StructureProcessor {
     @Override
     @NotNull
     protected StructureProcessorType<?> getType() {
-        return DEProcessorTypes.SWAP_DEAD_CORALS_PROCESSOR;
+        return DEProcessorTypes.SWAP_DEAD_CORALS_PROCESSOR.get();
     }
 }

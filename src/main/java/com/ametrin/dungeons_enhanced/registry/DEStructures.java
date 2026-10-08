@@ -18,7 +18,6 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
-import net.minecraft.world.level.levelgen.heightproviders.ConstantHeight;
 import net.minecraft.world.level.levelgen.heightproviders.UniformHeight;
 import net.minecraft.world.level.levelgen.structure.StructureSpawnOverride;
 import net.minecraft.world.level.levelgen.structure.TerrainAdjustment;
@@ -114,7 +113,7 @@ public final class DEStructures {
                                 .biomes(DETags.Biomes.HAS_DESERT_TOMB)
                 )
                 .build();
-//
+
         DRUID_CIRCLE = REGISTER.set(DEStructureIDs.DRUID_CIRCLE)
                 .scatteredGridPlacement(41, 0.68f)
                 .simple(s -> s
@@ -279,7 +278,6 @@ public final class DEStructures {
                 .jigsaw(DETemplatePools.PILLAGER_CAMP, j -> j
                                 .onSurface()
                                 .size(4)
-                                .useExpansionHack(true)
                                 .build(),
                         builder -> builder
                                 .biomes(DETags.Biomes.HAS_PILLAGER_CAMP)
@@ -291,14 +289,13 @@ public final class DEStructures {
         PIRATE_SHIP = REGISTER.set(DEStructureIDs.PIRATE_SHIP)
                 .scatteredGridPlacement(71, 0.42F)
                 .simple(s -> s
-                                .biomes(DETags.Biomes.HAS_PIRATE_SHIP)
-                                .surface()
-//                        .filterMinWaterDepth(6)
-                                .compound(b -> b
-                                        .single(t -> t.template("pirate_ship/front").offset(0, -3, 0))
-                                        .single(t -> t.template("pirate_ship/back").offset(0, -3, -26)))
-                                .spawnOverride(MobCategory.MONSTER, new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.STRUCTURE, spawns(spawn(EntityType.PILLAGER, 4, 3, 4), spawn(EntityType.VINDICATOR, 3, 1, 2))))
-                                .noSpawns(StructureSpawnOverride.BoundingBoxType.STRUCTURE, MobCategory.UNDERGROUND_WATER_CREATURE, MobCategory.AXOLOTLS, MobCategory.WATER_AMBIENT, MobCategory.WATER_CREATURE)
+                        .biomes(DETags.Biomes.HAS_PIRATE_SHIP)
+                        .surface()
+                        .compound(b -> b
+                                .single(t -> t.template("pirate_ship/front").offset(0, -3, 0))
+                                .single(t -> t.template("pirate_ship/back").offset(0, -3, -26)))
+                        .spawnOverride(MobCategory.MONSTER, new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.STRUCTURE, spawns(spawn(EntityType.PILLAGER, 4, 3, 4), spawn(EntityType.VINDICATOR, 3, 1, 2))))
+                        .noSpawns(StructureSpawnOverride.BoundingBoxType.STRUCTURE, MobCategory.UNDERGROUND_WATER_CREATURE, MobCategory.AXOLOTLS, MobCategory.WATER_AMBIENT, MobCategory.WATER_CREATURE)
                 )
                 .build();
 
@@ -412,10 +409,6 @@ public final class DEStructures {
                 .build();
     }
 
-    private static ConstantHeight height(int y) {
-        return ConstantHeight.of(new VerticalAnchor.Absolute(y));
-    }
-
     @SafeVarargs
     private static WeightedList<MobSpawnSettings.SpawnerData> spawns(Weighted<MobSpawnSettings.SpawnerData>... spawns) {
         return WeightedList.of(spawns);
@@ -424,7 +417,4 @@ public final class DEStructures {
     private static Weighted<MobSpawnSettings.SpawnerData> spawn(EntityType<?> entity, int weight, int min, int max) {
         return new Weighted<>(new MobSpawnSettings.SpawnerData(entity, min, max), weight);
     }
-//    private static ExtendedJigsawStructure.Builder extendedJigsawStructure(BootstrapContext<?> context, Structure.StructureSettings settings, JigsawCapability capability, ResourceKey<StructureTemplatePool> poolKey, int maxDepth, HeightProvider heightProvider) {
-//        return ExtendedJigsawStructure.builder(settings, context.lookup(Registries.TEMPLATE_POOL).getOrThrow(poolKey)).maxDepth(maxDepth).startHeight(heightProvider).capability(capability);
-//    }
 }

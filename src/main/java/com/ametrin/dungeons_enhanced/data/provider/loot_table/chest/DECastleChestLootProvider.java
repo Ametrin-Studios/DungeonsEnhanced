@@ -146,7 +146,7 @@ public record DECastleChestLootProvider(HolderLookup.Provider registries) implem
                         .add(item(Items.EXPERIENCE_BOTTLE).setWeight(2))
                         .add(item(Items.SAND).setWeight(5)))
                 .withPool(LootPool.lootPool().setRolls(between(1, 3))
-                        .add(enchantedItem(Items.BOOK, between(20, 25), registries))));
+                        .add(enchantedItem(Items.BOOK, one(), registries, between(20, 25)))));
 
         output.accept(DELootTables.Castle.PRISON, LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(between(10, 16))

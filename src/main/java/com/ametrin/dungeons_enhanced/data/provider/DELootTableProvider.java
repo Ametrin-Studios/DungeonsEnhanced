@@ -162,17 +162,17 @@ public final class DELootTableProvider extends LootTableProvider {
                                 .add(item(Items.TURTLE_SCUTE))
                                 .add(item(Items.EXPERIENCE_BOTTLE))
                                 .add(item(Items.DIAMOND).setWeight(2))
-                                .add(item(Items.ROTTEN_FLESH, 8, between(2, 5)))
-                                .add(item(Items.BONE, 8, between(1, 4)))
-                                .add(item(Items.FIRE_CHARGE, 4, between(1, 3)))
-                                .add(item(Items.EMERALD, 4, between(1, 3)))
-                                .add(item(Items.COOKED_COD, 5, between(1, 3)))
-                                .add(item(Items.COOKED_SALMON, 5, between(1, 3)))
-                                .add(item(Items.ARROW, 4, between(2, 4)))
-                                .add(item(Items.STRING, 5, between(1, 4)))
-                                .add(enchantedItem(Items.BOOK, between(6, 14), registries))
-                                .add(item(Items.KELP, 8, between(2, 5)))
-                                .add(item(Items.GOLD_INGOT, 3, between(1, 2)))
+                                .add(item(Items.ROTTEN_FLESH, between(2, 5)).setWeight(8))
+                                .add(item(Items.BONE, between(1, 4)).setWeight(8))
+                                .add(item(Items.FIRE_CHARGE, between(1, 3)).setWeight(4))
+                                .add(item(Items.EMERALD, between(1, 3)).setWeight(4))
+                                .add(item(Items.COOKED_COD, between(1, 3)).setWeight(5))
+                                .add(item(Items.COOKED_SALMON, between(1, 3)).setWeight(5))
+                                .add(item(Items.ARROW, between(2, 4)).setWeight(4))
+                                .add(item(Items.STRING, between(1, 4)).setWeight(5))
+                                .add(enchantedItem(Items.BOOK, one(), registries, between(6, 14)))
+                                .add(item(Items.KELP, between(2, 5)).setWeight(8))
+                                .add(item(Items.GOLD_INGOT, between(1, 2)).setWeight(3))
                                 .add(suspiciousStew(one()).setWeight(3))
                                 .add(item(Items.SPYGLASS))
                         ));
@@ -360,7 +360,7 @@ public final class DELootTableProvider extends LootTableProvider {
                                 .add(item(Items.IRON_CHESTPLATE))
                                 .add(item(Items.IRON_LEGGINGS))
                                 .add(item(Items.IRON_BOOTS))
-                                .add(enchantedItem(Items.BOOK, between(4, 10), registries))
+                                .add(enchantedItem(Items.BOOK, one(), registries, between(4, 10)))
                         )
                 );
             } // Tower of the Undead
@@ -452,7 +452,7 @@ public final class DELootTableProvider extends LootTableProvider {
                                 .add(item(Items.RABBIT_FOOT))
                                 .add(item(Items.NAME_TAG))
                                 .add(item(Items.GOLDEN_APPLE))
-                                .add(enchantedItem(Items.BOOK, between(6, 13), registries))));
+                                .add(enchantedItem(Items.BOOK, one(), registries, between(6, 13)))));
             } // Witch Tower
 
             output.accept(DELootTables.DungeonVariant.BREWING_STAND, LootTable.lootTable()

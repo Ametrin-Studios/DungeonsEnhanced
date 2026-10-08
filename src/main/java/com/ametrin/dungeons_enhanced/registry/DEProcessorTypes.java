@@ -2,20 +2,16 @@ package com.ametrin.dungeons_enhanced.registry;
 
 import com.ametrin.dungeons_enhanced.DungeonsEnhanced;
 import com.ametrin.dungeons_enhanced.world.structure.processor.DESwapDeadCoralsProcessor;
-//import com.ametrin.dungeons_enhanced.world.structure.processor.DEUnderwaterProcessor;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
+import java.util.function.Supplier;
+
+//import com.ametrin.dungeons_enhanced.world.structure.processor.DEUnderwaterProcessor;
 
 public final class DEProcessorTypes {
-    public static final StructureProcessorType<DESwapDeadCoralsProcessor> SWAP_DEAD_CORALS_PROCESSOR = () -> DESwapDeadCoralsProcessor.CODEC;
+    public static final DeferredRegister<StructureProcessorType<?>> REGISTER = DeferredRegister.create(Registries.STRUCTURE_PROCESSOR, DungeonsEnhanced.MOD_ID);
 
-    public static void register() {
-        register("swap_dead_corals", SWAP_DEAD_CORALS_PROCESSOR);
-    }
-
-    private static <P extends StructureProcessor> void register(String key, StructureProcessorType<P> processorType) {
-        Registry.register(BuiltInRegistries.STRUCTURE_PROCESSOR, DungeonsEnhanced.locate(key), processorType);
-    }
+    public static final Supplier<StructureProcessorType<DESwapDeadCoralsProcessor>> SWAP_DEAD_CORALS_PROCESSOR = REGISTER.register("swap_dead_corals", () -> () -> DESwapDeadCoralsProcessor.CODEC);
 }

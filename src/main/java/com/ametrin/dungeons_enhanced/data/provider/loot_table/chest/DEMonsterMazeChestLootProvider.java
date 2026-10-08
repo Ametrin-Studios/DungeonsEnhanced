@@ -70,7 +70,7 @@ public record DEMonsterMazeChestLootProvider(HolderLookup.Provider registries) i
                         .add(item(Items.GOLD_NUGGET, between(4, 10)).setWeight(4))
                         .add(item(Items.GOLD_BLOCK))
                         .add(item(Items.PUMPKIN).setWeight(2))
-                        .add(enchantedItem(Items.BOOK, between(6, 14), registries))
+                        .add(enchantedItem(Items.BOOK, one(), registries, between(6, 14)))
                         .add(item(Items.GOLD_INGOT, between(2, 3)).setWeight(4))
                 )
         );
