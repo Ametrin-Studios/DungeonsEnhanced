@@ -76,6 +76,7 @@ public final class DETags {
         TagKey<Structure> ON_DESERT_EXPLORER_MAPS = create("on_desert_explorer_maps");
         TagKey<Structure> ON_MONSTER_MAZE_EXPLORER_MAPS = create("on_monster_maze_explorer_maps");
 
+        TagKey<Structure> FISHING_SHIP_EXCLUSION_ZONE = create("exclusion_zone/" + DEStructureIDs.FISHING_SHIP);
         TagKey<Structure> PILLAGER_CAMP_EXCLUSION_ZONE = create("exclusion_zone/" + DEStructureIDs.PILLAGER_CAMP);
         TagKey<Structure> BLACK_CITADEL_EXCLUSION_ZONE = create("exclusion_zone/" + DEStructureIDs.BLACK_CITADEL);
 

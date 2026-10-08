@@ -34,6 +34,12 @@ public final class DEStructureTagsProvider extends StructureTagsProvider {
                 .add(DEStructures.WITCH_TOWER.structure())
         ;
 
+        tag(DETags.Structures.FISHING_SHIP_EXCLUSION_ZONE)
+                .add(DEStructures.PIRATE_SHIP.structure())
+                .add(DEStructures.ELDERS_TEMPLE.structure())
+                .add(BuiltinStructures.OCEAN_MONUMENT)
+        ;
+
         tag(DETags.Structures.PILLAGER_CAMP_EXCLUSION_ZONE)
                 .add(DEStructures.CASTLE.structure())
                 .addTag(StructureTags.VILLAGE)

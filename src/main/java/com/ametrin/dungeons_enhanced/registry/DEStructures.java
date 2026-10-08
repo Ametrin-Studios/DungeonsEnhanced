@@ -175,7 +175,7 @@ public final class DEStructures {
                 .build();
 
         FISHING_SHIP = REGISTER.set(DEStructureIDs.FISHING_SHIP)
-                .scatteredGridPlacement(49, 0.62f)
+                .scatteredGridPlacement(b -> b.spacing(49).probability(0.62f).exclusionZone(DETags.Structures.FISHING_SHIP_EXCLUSION_ZONE, 12))
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_FISHING_SHIP)
                         .surface()
@@ -288,14 +288,14 @@ public final class DEStructures {
                 .build();
 
         PIRATE_SHIP = REGISTER.set(DEStructureIDs.PIRATE_SHIP)
-                .scatteredGridPlacement(68, 0.42F)
+                .scatteredGridPlacement(71, 0.42F)
                 .simple(s -> s
                                 .biomes(DETags.Biomes.HAS_PIRATE_SHIP)
                                 .surface()
 //                        .filterMinWaterDepth(6)
                                 .compound(b -> b
-                                        .single(t -> t.template("pirate_ship/front").offset(-25, -3, 0))
-                                        .single(t -> t.template("pirate_ship/back").offset(0, -3, 0)))
+                                        .single(t -> t.template("pirate_ship/front").offset(0, -3, 0))
+                                        .single(t -> t.template("pirate_ship/back").offset(0, -3, -26)))
                                 .spawnOverride(MobCategory.MONSTER, new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.STRUCTURE, spawns(spawn(EntityType.PILLAGER, 4, 3, 4), spawn(EntityType.VINDICATOR, 3, 1, 2))))
                                 .noSpawns(StructureSpawnOverride.BoundingBoxType.STRUCTURE, MobCategory.UNDERGROUND_WATER_CREATURE, MobCategory.AXOLOTLS, MobCategory.WATER_AMBIENT, MobCategory.WATER_CREATURE)
                 )

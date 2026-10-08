@@ -1,6 +1,10 @@
 {
   "placement": {
     "type": "ametrin_structures:scattered_grid",
+    "exclusion_zone": {
+      "chunk_count": 12,
+      "structures": "dungeons_enhanced:exclusion_zone/fishing_ship"
+    },
     "probability": 0.62,
     "random_offset": 34,
     "salt": -1770833619,
