@@ -101,6 +101,7 @@ public final class DEStructures {
                                 .single(t -> t.template("desert_temple/down").offset(25, -17, 16))
                                 .single(t -> t.template("desert_temple/down").offset(13, -17, 14))
                         )
+                        .foundation()
                 )
                 .build();
 

@@ -1,6 +1,7 @@
 {
   "type": "ametrin_structures:simple",
   "biomes": "#dungeons_enhanced:has_structure/desert_temple",
+  "foundation": {},
   "pieces": {
     "type": "ametrin_structures:compound",
     "sources": [
