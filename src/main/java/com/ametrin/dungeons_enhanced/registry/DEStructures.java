@@ -279,6 +279,7 @@ public final class DEStructures {
                 .jigsaw(DETemplatePools.PILLAGER_CAMP, j -> j
                                 .onSurface()
                                 .size(4)
+                                .useExpansionHack(true)
                                 .build(),
                         builder -> builder
                                 .biomes(DETags.Biomes.HAS_PILLAGER_CAMP)
