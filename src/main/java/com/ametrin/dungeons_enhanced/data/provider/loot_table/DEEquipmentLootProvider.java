@@ -22,6 +22,7 @@ import java.util.function.BiConsumer;
 import static com.ametrinstudios.ametrin.data.LootTableProviderHelper.*;
 import static net.minecraft.world.level.storage.loot.functions.SetComponentsFunction.setComponent;
 import static net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition.randomChance;
+import static net.minecraft.world.level.storage.loot.providers.number.ConstantValue.exactly;
 
 public record DEEquipmentLootProvider(HolderLookup.Provider registries) implements LootTableSubProvider {
     @Override
@@ -248,6 +249,24 @@ public record DEEquipmentLootProvider(HolderLookup.Provider registries) implemen
                         .add(item(Items.COPPER_BOOTS).setWeight(1))
                         .add(item(Items.CHAINMAIL_BOOTS).setWeight(1))
                         .add(empty(2))
+                )
+        );
+
+        output.accept(DELootTables.MonsterMaze.EQUIPMENT_ZOMBIE_KING, LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(item(Items.DIAMOND_SWORD).apply(new SetEnchantmentsFunction.Builder().withEnchantment(enchantments.getOrThrow(Enchantments.UNBREAKING), exactly(2))))
+                )
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(item(Items.DIAMOND_HELMET).apply(new SetEnchantmentsFunction.Builder().withEnchantment(enchantments.getOrThrow(Enchantments.UNBREAKING), exactly(2))))
+                )
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(item(Items.DIAMOND_CHESTPLATE).apply(new SetEnchantmentsFunction.Builder().withEnchantment(enchantments.getOrThrow(Enchantments.UNBREAKING), exactly(2)).withEnchantment(enchantments.getOrThrow(Enchantments.PROTECTION), exactly(3))))
+                )
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(item(Items.DIAMOND_LEGGINGS).apply(new SetEnchantmentsFunction.Builder().withEnchantment(enchantments.getOrThrow(Enchantments.UNBREAKING), exactly(2)).withEnchantment(enchantments.getOrThrow(Enchantments.PROTECTION), exactly(3))))
+                )
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(item(Items.DIAMOND_BOOTS).apply(new SetEnchantmentsFunction.Builder().withEnchantment(enchantments.getOrThrow(Enchantments.UNBREAKING), exactly(2))))
                 )
         );
 

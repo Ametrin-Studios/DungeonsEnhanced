@@ -78,9 +78,9 @@ repositories {
         name "Ametrin Studios Maven"
         url "https://github.com/Ametrin-Studios/maven/raw/main/"
     }
-//    maven {
-//        url uri(rootProject.file("../maven"))
-//    }
+    maven {
+        url uri(rootProject.file("../maven"))
+    }
 }
 
 dependencies {

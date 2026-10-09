@@ -17,8 +17,8 @@
     "advancements.dungeons_enhanced.chilled_halls.description": "Find an Ice Pit",
     "advancements.dungeons_enhanced.ahoy.title": "Ahoy, Captain!",
     "advancements.dungeons_enhanced.ahoy.description": "Find a Pirate Ship",
-    "advancements.dungeons_enhanced.in_the_air.title": "Flying in the Air",
-    "advancements.dungeons_enhanced.in_the_air.description": "Find a Flying Dutchman",
+    "advancements.dungeons_enhanced.flying_dutchman.title": "Until Judgment Day",
+    "advancements.dungeons_enhanced.flying_dutchman.description": "Find the Flying Dutchman",
     "advancements.dungeons_enhanced.seven_world_wonders.title": "Seven Wonders of the World",
     "advancements.dungeons_enhanced.seven_world_wonders.description": "Find the Seven Greatest Structures",
     "advancements.dungeons_enhanced.ambitious_explorer.title": "Ambitious Explorer",
@@ -28,6 +28,9 @@
 
     "advancements.dungeons_enhanced.spooky_scary_citadel.title": "Spooky Scary Citadel",
     "advancements.dungeons_enhanced.spooky_scary_citadel.description": "Find a Black Citadel",
+
+    "entity.dungeons_enhanced.flying_dutchman.captain": "Hendrick van der Decken",
+    "entity.dungeons_enhanced.monster_maze.zombie_king": "Zombie King",
 
     "filled_map.dungeons_enhanced.castle": "Castle Explorer Map",
     "filled_map.dungeons_enhanced.desert_temple": "Desert Explorer Map",

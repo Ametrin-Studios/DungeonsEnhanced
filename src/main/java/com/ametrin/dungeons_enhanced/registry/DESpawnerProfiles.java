@@ -2,6 +2,7 @@ package com.ametrin.dungeons_enhanced.registry;
 
 import com.ametrin.dungeons_enhanced.DungeonsEnhanced;
 import com.ametrin.structures.registry.ASRegistries;
+import com.ametrin.structures.spawner.EntityDataBuilder;
 import com.ametrin.structures.spawner.SpawnDataBuilder;
 import com.ametrin.structures.spawner.SpawnerProfile;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -10,14 +11,13 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.EquipmentTable;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.SpawnData;
 import net.minecraft.world.level.storage.loot.LootTable;
 
 
 public final class DESpawnerProfiles {
     public static void bootstrap(BootstrapContext<SpawnerProfile> context) {
         context.register(key("castle/guards"), SpawnerProfile.builder()
-                .add(createSpawnDataWithEquipment(EntityType.ZOMBIE, DELootTables.Castle.EQUIPMENT_ZOMBIE_GUARD), 1)
+                .add(createSpawnDataWithEquipment(EntityType.ZOMBIE, DELootTables.Castle.EQUIPMENT_ZOMBIE_GUARD).noLightLimit(), 1)
                 .build());
 
         context.register(key("castle/default"), SpawnerProfile.builder()
@@ -28,7 +28,7 @@ public final class DESpawnerProfiles {
         context.register(key("monster_maze/default"), SpawnerProfile.builder()
                 .add(createSpawnDataWithEquipment(EntityType.ZOMBIE, DELootTables.MonsterMaze.EQUIPMENT_ZOMBIE), 1)
                 .add(createSpawnDataWithEquipment(EntityType.SKELETON, DELootTables.MonsterMaze.EQUIPMENT_SKELETON), 1)
-                .add(builder(EntityType.SPIDER).passenger(new SpawnDataBuilder(EntityType.SKELETON).equip(EquipmentSlot.MAINHAND, Items.BOW)), 1)
+                .add(SpawnDataBuilder.of(EntityDataBuilder.of(EntityType.SPIDER).passenger(EntityDataBuilder.of(EntityType.SKELETON).equip(EquipmentSlot.MAINHAND, Items.BOW))), 1)
                 .add(EntityType.CAVE_SPIDER, 1)
                 .build());
 
@@ -54,7 +54,7 @@ public final class DESpawnerProfiles {
                 .build());
 
         context.register(key("flying_dutchman"), SpawnerProfile.builder()
-                .add(builder(EntityType.SKELETON).equipment(DELootTables.EQUIPMENT_FLYING_DUTCHMAN_SKELETONS).build(), 1)
+                .add(SpawnDataBuilder.of(EntityType.SKELETON).equipment(DELootTables.EQUIPMENT_FLYING_DUTCHMAN_SKELETONS).noLightLimit().build(), 1)
                 .build());
 
         context.register(key("undead_desert"), SpawnerProfile.builder()
@@ -67,16 +67,12 @@ public final class DESpawnerProfiles {
                 .build());
     }
 
-    private static SpawnDataBuilder builder(EntityType<?> entityType) {
-        return new SpawnDataBuilder(entityType);
-    }
-
-    private static SpawnData createSpawnDataWithEquipment(EntityType<?> entityType, ResourceKey<LootTable> equipmentTable) {
+    private static SpawnDataBuilder createSpawnDataWithEquipment(EntityType<?> entityType, ResourceKey<LootTable> equipmentTable) {
         return createSpawnDataWithEquipment(entityType, new EquipmentTable(equipmentTable, 0.085f));
     }
 
-    private static SpawnData createSpawnDataWithEquipment(EntityType<?> entityType, EquipmentTable equipmentTable) {
-        return builder(entityType).equipment(equipmentTable).build();
+    private static SpawnDataBuilder createSpawnDataWithEquipment(EntityType<?> entityType, EquipmentTable equipmentTable) {
+        return SpawnDataBuilder.of(entityType).equipment(equipmentTable);
     }
 
     private static ResourceKey<SpawnerProfile> key(String path) {

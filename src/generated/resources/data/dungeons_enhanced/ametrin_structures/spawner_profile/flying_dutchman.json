@@ -2,6 +2,7 @@
   "spawn_potentials": [
     {
       "data": {
+        "custom_spawn_rules": {},
         "entity": {
           "id": "minecraft:skeleton"
         },

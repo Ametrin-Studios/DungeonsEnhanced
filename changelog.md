@@ -1,3 +1,7 @@
+## 7.0.1-beta
+- Castle guard and Flying Dutchman spawner now spawn in any light level  
+- tons of tweaks and adjustments
+
 ## 7.0.0-beta
 - **upgrading existing worlds is discouraged**
 - no longer requires Structure Gel API
@@ -18,7 +22,7 @@
 - some structures are a bit rarer
 - Witch Tower got more common
 - improved BOP integration
-- more general tweaks and adjustments
+- tons of tweaks and adjustments
 
 ## 6.4.1
 - fix Dungeons Enhanced dependency missing

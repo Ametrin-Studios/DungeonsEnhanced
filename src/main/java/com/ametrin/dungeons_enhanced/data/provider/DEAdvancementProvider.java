@@ -32,7 +32,6 @@ public final class DEAdvancementProvider extends AdvancementProvider {
 
         @Override
         public void generate(HolderLookup.Provider provider, Consumer<AdvancementHolder> consumer) {
-            var structureLookup = provider.lookupOrThrow(Registries.STRUCTURE);
             var bannerLookup = provider.lookupOrThrow(Registries.BANNER_PATTERN);
 
             var root = builder(provider, "root")
@@ -91,7 +90,7 @@ public final class DEAdvancementProvider extends AdvancementProvider {
                     .onEnterStructure(DEStructures.PIRATE_SHIP.structure())
                     .save(consumer);
 
-            builder(provider, "in_the_air")
+            builder(provider, "flying_dutchman")
                     .parent(root)
                     .displayItem(Items.COPPER_LANTERN.oxidized())
                     .onEnterStructure(DEStructures.FLYING_DUTCHMAN.structure())

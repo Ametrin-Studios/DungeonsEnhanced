@@ -5,7 +5,7 @@ import com.ametrin.structures.fixture.FixtureConditions;
 import com.ametrin.structures.fixture.FixturePreset;
 import com.ametrin.structures.fixture.Fixtures;
 import com.ametrin.structures.registry.ASRegistries;
-import com.ametrin.structures.spawner.SpawnDataBuilder;
+import com.ametrin.structures.spawner.EntityDataBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.network.chat.Component;
@@ -19,16 +19,26 @@ import net.minecraft.world.level.block.state.properties.ChestType;
 import net.neoforged.neoforge.common.Tags;
 
 public final class DEFixturePresets {
+    public static final String HENDRIK_VAN_DER_DECKEN_TRANSLATION_KEY = "entity.dungeons_enhanced.flying_dutchman.captain";
+    public static final String ZOMBIE_KING_TRANSLATION_KEY = "entity.dungeons_enhanced.monster_maze.zombie_king";
+
     public static void bootstrap(BootstrapContext<FixturePreset> context) {
         var biomes = context.lookup(Registries.BIOME);
         context.register(key("hendrik_van_der_decken"), FixturePreset.builder()
-                .entity(1, new SpawnDataBuilder(EntityType.SKELETON)
-                        .equipment(DELootTables.EQUIPMENT_HENDRICK_VAN_DER_DECKEN)
-                        .leftHanded()
-                        .maxHealth(40)
-                        .name(Component.literal("Hendrik van der Decken"))
-                        .build())
-                .build());
+                .add(1, Fixtures.SpawnEntity.of(EntityDataBuilder.of(EntityType.SKELETON)
+                                .leftHanded()
+                                .maxHealth(40)
+                                .name(Component.translatable(HENDRIK_VAN_DER_DECKEN_TRANSLATION_KEY))
+                                .nameVisible())
+                        .withEquipment(DELootTables.EQUIPMENT_HENDRICK_VAN_DER_DECKEN)
+                ).build());
+
+        context.register(key("monster_maze/zombie_king"), FixturePreset.builder()
+                .add(1, Fixtures.SpawnEntity.of(EntityDataBuilder.of(EntityType.ZOMBIE)
+                                .maxHealth(40)
+                                .name(Component.translatable(ZOMBIE_KING_TRANSLATION_KEY)))
+                        .withEquipment(DELootTables.MonsterMaze.EQUIPMENT_ZOMBIE_KING)
+                ).build());
 
         context.register(key("water_cauldron"), FixturePreset.builder()
                 .add(1, new Fixtures.PlaceBlockState(Blocks.CAULDRON.defaultBlockState()))

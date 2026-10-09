@@ -15,9 +15,9 @@ public final class DETrialSpawnerConfigs {
     public static void bootstrap(BootstrapContext<TrialSpawnerConfig> context) {
         context.register(key("dungeon_variant/copper_shrine"), TrialSpawnerConfig.builder()
                 .spawnPotentialsDefinition(WeightedList.of(
-                        new SpawnDataBuilder(EntityType.BREEZE).build(1),
-                        new SpawnDataBuilder(EntityType.BOGGED).build(2),
-                        new SpawnDataBuilder(EntityType.CAVE_SPIDER).build(1)
+                        SpawnDataBuilder.of(EntityType.BREEZE).build(1),
+                        SpawnDataBuilder.of(EntityType.BOGGED).build(2),
+                        SpawnDataBuilder.of(EntityType.CAVE_SPIDER).build(1)
                 ))
                 .spawnRange(6)
                 .simultaneousMobs(3)
@@ -32,7 +32,7 @@ public final class DETrialSpawnerConfigs {
 
         context.register(key("tower_of_the_undead/zombie/normal"), TrialSpawnerConfig.builder()
                 .spawnPotentialsDefinition(WeightedList.of(
-                        new SpawnDataBuilder(EntityType.ZOMBIE).equipment(DELootTables.Castle.EQUIPMENT_ZOMBIE).build()
+                        SpawnDataBuilder.of(EntityType.ZOMBIE).equipment(DELootTables.Castle.EQUIPMENT_ZOMBIE).build()
                 ))
                 .spawnRange(4)
                 .simultaneousMobs(3)
@@ -47,8 +47,8 @@ public final class DETrialSpawnerConfigs {
 
         context.register(key("tower_of_the_undead/mixed/normal"), TrialSpawnerConfig.builder()
                 .spawnPotentialsDefinition(WeightedList.of(
-                        new SpawnDataBuilder(EntityType.ZOMBIE).equipment(DELootTables.Castle.EQUIPMENT_ZOMBIE).build(1),
-                        new SpawnDataBuilder(EntityType.SKELETON).equipment(DELootTables.Castle.EQUIPMENT_SKELETON).build(1)
+                        SpawnDataBuilder.of(EntityType.ZOMBIE).equipment(DELootTables.Castle.EQUIPMENT_ZOMBIE).build(1),
+                        SpawnDataBuilder.of(EntityType.SKELETON).equipment(DELootTables.Castle.EQUIPMENT_SKELETON).build(1)
                 ))
                 .spawnRange(4)
                 .simultaneousMobs(3)
@@ -63,7 +63,7 @@ public final class DETrialSpawnerConfigs {
 
         context.register(key("tower_of_the_undead/zombie/ominous"), TrialSpawnerConfig.builder()
                 .spawnPotentialsDefinition(WeightedList.of(
-                        new SpawnDataBuilder(EntityType.ZOMBIE).equipment(DELootTables.Castle.EQUIPMENT_ZOMBIE_GUARD).build()
+                        SpawnDataBuilder.of(EntityType.ZOMBIE).equipment(DELootTables.Castle.EQUIPMENT_ZOMBIE_GUARD).build()
                 ))
                 .spawnRange(4)
                 .simultaneousMobs(3)
