@@ -183,10 +183,10 @@ public final class DEStructures {
                 .build();
 
         FLYING_DUTCHMAN = REGISTER.set(DEStructureIDs.FLYING_DUTCHMAN)
-                .scatteredGridPlacement(b -> b.spacing(134).probability(0.63f).minChunksFromCenter(12))
+                .scatteredGridPlacement(b -> b.spacing(137).probability(0.61f).minChunksFromCenter(12))
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_FLYING_DUTCHMAN)
-                        .between(HeightAnchor.surface(48), HeightAnchor.belowTop(24))
+                        .between(HeightAnchor.surface(64), HeightAnchor.belowTop(24))
                         .single("flying_dutchman")
                 )
                 .build();

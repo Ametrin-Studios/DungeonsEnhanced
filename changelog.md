@@ -1,14 +1,24 @@
-## 7.0.0
+## 7.0.0-beta
+- **upgrading existing worlds is discouraged**
 - no longer requires Structure Gel API
 - requires Ametrin API
 - requires Ametrin Structures
 - **all existing data packs no longer work**
-  - data packs can now modify variants, template processors, vertical structure placement, placement filters and spawners in structures
+  - data packs can now modify 
+    - structure variants
+    - template processors
+    - vertical structure placement
+    - placement filters 
+    - spawners
+    - and more
 - new Deepslate Dungeon Variant
-- Stone Dungeon Variants no longer generate below 0 (in Deepslate)
+- Stone Dungeon Variants no longer generate below 0 (aka not in Deepslate)
 - Tower of the Undead now uses Trial Spawners
 - Black Citadel replaced Deep Crypt for Seven World Wonders advancement
-- fix Castle Throne loot table
+- some structures are a bit rarer
+- Witch Tower got more common
+- improved BOP integration
+- more general tweaks and adjustments
 
 ## 6.4.1
 - fix Dungeons Enhanced dependency missing

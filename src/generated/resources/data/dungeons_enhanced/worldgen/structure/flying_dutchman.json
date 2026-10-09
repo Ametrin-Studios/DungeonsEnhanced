@@ -11,7 +11,7 @@
     },
     "min": {
       "heightmap": "WORLD_SURFACE_WG",
-      "offset": 48
+      "offset": 64
     }
   },
   "step": "surface_structures"

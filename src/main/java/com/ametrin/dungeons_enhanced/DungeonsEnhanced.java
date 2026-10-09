@@ -39,6 +39,7 @@ public final class DungeonsEnhanced {
         event.createProvider(DELootTableProvider::new);
         event.createProvider(DEAdvancementProvider::new);
         event.createProvider(DEStructureTagsProvider::new);
+//        event.addProvider(new StructureTemplateUpdater(event.getInputs()));
     }
 
     public static Identifier locate(String path) {
