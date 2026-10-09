@@ -84,9 +84,9 @@ repositories {
 }
 
 dependencies {
-    implementation files("/mnt/Projects/Coding/Minecraft/Mods/AmetrinStructures/build/libs/ametrin_structures-26.1.2-0.1.0.jar")
     implementation "com.ametrinstudios:ametrin-${minecraft_version}:${ametrin_version}"
     interfaceInjectionData "com.ametrinstudios:ametrin-${minecraft_version}:${ametrin_version}"
+    implementation "com.ametrin:ametrin_structures-${minecraft_version}:${ametrin_structures_version}"
 
     localRuntime "curse.maven:xaeros-world-map-317780:8850008"
     localRuntime "curse.maven:xaeros-minimap-263420:8849900"
