@@ -1,7 +1,7 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
-    id 'net.neoforged.moddev' version '2.0.147'
+    id 'net.neoforged.moddev' version '2.0.148'
     id 'idea'
 }
 
@@ -78,9 +78,9 @@ repositories {
         name "Ametrin Studios Maven"
         url "https://github.com/Ametrin-Studios/maven/raw/main/"
     }
-    maven {
-        url uri(rootProject.file("../maven"))
-    }
+//    maven {
+//        url uri(rootProject.file("../maven"))
+//    }
 }
 
 dependencies {
