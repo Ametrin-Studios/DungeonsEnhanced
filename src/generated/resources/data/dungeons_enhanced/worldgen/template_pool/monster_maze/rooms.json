@@ -2,9 +2,8 @@
   "elements": [
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/big_room",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },
@@ -12,19 +11,8 @@
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
-        "location": "dungeons_enhanced:monster_maze/brewery",
-        "override_liquid_settings": "ignore_waterlogging",
-        "processors": "dungeons_enhanced:monster_maze/default",
-        "projection": "rigid"
-      },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/church",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },
@@ -32,9 +20,8 @@
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/prison",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },
@@ -42,9 +29,8 @@
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/room1",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },
@@ -52,9 +38,17 @@
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/storage",
-        "override_liquid_settings": "ignore_waterlogging",
+        "processors": "dungeons_enhanced:monster_maze/default",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "ametrin_structures:single_pool_element",
+        "location": "dungeons_enhanced:monster_maze/brewery",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },

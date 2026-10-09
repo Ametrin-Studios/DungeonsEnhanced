@@ -45,8 +45,7 @@
               "levels": {
                 "min": 6,
                 "max": 18
-              },
-              "treasure": true
+              }
             }
           ]
         },
@@ -103,6 +102,10 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:tnt"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:howl_pottery_sherd"
         }
       ]
     }

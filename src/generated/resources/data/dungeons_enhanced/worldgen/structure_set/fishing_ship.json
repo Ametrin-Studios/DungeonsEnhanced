@@ -1,12 +1,14 @@
 {
   "placement": {
-    "type": "structure_gel:grid_placement",
-    "allowed_near_spawn": true,
-    "frequency": 0.68,
-    "offset": 38,
-    "salt": 1909491313,
-    "spacing": 48,
-    "structure": "dungeons_enhanced:fishing_ship"
+    "type": "ametrin_structures:scattered_grid",
+    "exclusion_zone": {
+      "chunk_count": 12,
+      "structures": "dungeons_enhanced:exclusion_zone/fishing_ship"
+    },
+    "probability": 0.62,
+    "random_offset": 34,
+    "salt": -1770833619,
+    "spacing": 49
   },
   "structures": [
     {

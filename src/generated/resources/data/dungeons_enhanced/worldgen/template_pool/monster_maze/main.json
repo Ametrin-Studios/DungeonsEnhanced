@@ -2,9 +2,8 @@
   "elements": [
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/edge1",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },
@@ -12,9 +11,8 @@
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/edge2",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },
@@ -22,9 +20,8 @@
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/room1",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },
@@ -32,9 +29,8 @@
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/room2",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },
@@ -42,9 +38,8 @@
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/room3",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },
@@ -52,9 +47,8 @@
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/small1",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },
@@ -62,9 +56,8 @@
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/small2",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },
@@ -72,9 +65,8 @@
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/small3",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },
@@ -82,9 +74,8 @@
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/big1",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },
@@ -92,9 +83,8 @@
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/big2",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },
@@ -102,9 +92,8 @@
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/big3",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },
@@ -112,9 +101,8 @@
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/big4",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },
@@ -122,9 +110,8 @@
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/big5",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },
@@ -132,9 +119,8 @@
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/cross1",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },
@@ -142,9 +128,8 @@
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/cross2",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },
@@ -152,9 +137,8 @@
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/big_room",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },
@@ -162,19 +146,8 @@
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
-        "location": "dungeons_enhanced:monster_maze/brewery",
-        "override_liquid_settings": "ignore_waterlogging",
-        "processors": "dungeons_enhanced:monster_maze/default",
-        "projection": "rigid"
-      },
-      "weight": 2
-    },
-    {
-      "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/church",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },
@@ -182,9 +155,8 @@
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/prison",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },
@@ -192,9 +164,8 @@
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/room1",
-        "override_liquid_settings": "ignore_waterlogging",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },
@@ -202,9 +173,17 @@
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/storage",
-        "override_liquid_settings": "ignore_waterlogging",
+        "processors": "dungeons_enhanced:monster_maze/default",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "ametrin_structures:single_pool_element",
+        "location": "dungeons_enhanced:monster_maze/brewery",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },

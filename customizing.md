@@ -1,13 +1,15 @@
 make sure you are on the right page
 
-| mc version      | mod version  | page                                                                                      |
-|-----------------|--------------|-------------------------------------------------------------------------------------------|
-| 1.16.5 - 1.19.2 | all          | check the config file                                                                     |
-| 1.19.4 - 1.20.1 | before 5.4.0 | [go here](https://github.com/Ametrin-Studios/DungeonsEnhanced/blob/1.20.1/customizing.md) |
-| 1.20.4          | all          | [go here](https://github.com/Ametrin-Studios/DungeonsEnhanced/blob/1.20.1/customizing.md) |
-| 1.21.4          | 6.0          | [go here](https://github.com/Ametrin-Studios/DungeonsEnhanced/blob/1.20.1/customizing.md) |
-| 1.20.1          | 5.4.0 +      | this page                                                                                 |
-| 1.21.4 +        | 6.1.0 +      | this page                                                                                 |
+| mc version      | mod version   | page                                                                                      |
+|-----------------|---------------|-------------------------------------------------------------------------------------------|
+| 1.16.5 - 1.19.2 | all           | check the config file                                                                     |
+| 1.19.4 - 1.20.1 | before 5.4.0  | [go here](https://github.com/Ametrin-Studios/DungeonsEnhanced/blob/1.20.1/customizing.md) |
+| 1.20.4          | all           | [go here](https://github.com/Ametrin-Studios/DungeonsEnhanced/blob/1.20.1/customizing.md) |
+| 1.21.4          | 6.0           | [go here](https://github.com/Ametrin-Studios/DungeonsEnhanced/blob/1.20.1/customizing.md) |
+| 1.20.1          | 5.4.0 +       | this page                                                                                 |
+| 1.21.4 - 26.1.2 | 6.1.0 - 7.0.0 | this page                                                                                 |
+| 26.1.2 +        | 7.0.0 +       | this page                                                                                 |
+
 
 # Customize structure frequency, biomes and loot tables
 - download the DATA-PACK-TEMPLATE folder (you may rename it)
@@ -36,22 +38,23 @@ make sure you are on the right page
     "minecraft:ice_spikes"
   ]
 }
-// '#c:...' is only available in NeoForge
+// '#c:...' is only available with NeoForge or Fabric
 ```
 - you can add biomes to `no_structures.json` to prevent all Dungeons Enhanced structures from generating in them
 
 ## Loot Tables
 - there is no template right now
 - check out https://docs.neoforged.net/docs/resources/server/loottables/glm/ for a general guide
+- some loot tables are used in more Structures than their original structure
 
 ## Using the data pack
 - delete all .json files you did not change
 - create a new world with the data pack
-- test the data pack and check the logs for errors
-- let us know what you changed so we can improve the default values
+- test the data pack and check the log for errors
+- let us know what you changed so we can improve our default values
 - you probably need to update your data pack with major updates, check the [changelog](https://github.com/Ametrin-Studios/DungeonsEnhanced/blob/main/changelog.md) for notes
 
 ### What happened to the config?
-We are aware that the config was a convenient and easy way to customise how structures generate.  
+We are aware that the config was a convenient and easy way to customize how structures generate.  
 Mojang and the modding community are pushing towards data packs because they represent a uniform way of modifications.  
 Unfortunately our config-patch caused too many problems (e.g. with Structurify) so we decided to fully replace it with data packs.

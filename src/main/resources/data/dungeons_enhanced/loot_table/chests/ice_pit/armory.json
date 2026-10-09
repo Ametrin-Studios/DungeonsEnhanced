@@ -83,7 +83,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:chain",
+          "name": "minecraft:iron_chain",
           "weight": 6
         },
         {
@@ -97,6 +97,25 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:blade_pottery_sherd"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:tipped_arrow",
+          "weight": 4,
+          "conditions": [],
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 3,
+                "max": 7
+              }
+            },
+            {
+              "function": "minecraft:set_potion",
+              "id": "minecraft:slowness"
+            }
+          ]
         }
       ]
     },

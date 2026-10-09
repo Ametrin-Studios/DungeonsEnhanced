@@ -2,100 +2,90 @@
   "elements": [
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:large_dungeon/tunnel",
-        "override_liquid_settings": "ignore_waterlogging",
-        "processors": "minecraft:empty",
+        "processors": "dungeons_enhanced:jungle_monument",
         "projection": "rigid"
       },
       "weight": 4
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:large_dungeon/stairs",
-        "override_liquid_settings": "ignore_waterlogging",
-        "processors": "minecraft:empty",
+        "processors": "dungeons_enhanced:jungle_monument",
         "projection": "rigid"
       },
       "weight": 2
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:large_dungeon/cross",
-        "override_liquid_settings": "ignore_waterlogging",
-        "processors": "minecraft:empty",
+        "processors": "dungeons_enhanced:jungle_monument",
         "projection": "rigid"
       },
       "weight": 2
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
-        "location": "dungeons_enhanced:large_dungeon/parkour",
-        "override_liquid_settings": "ignore_waterlogging",
-        "processors": "minecraft:empty",
-        "projection": "rigid"
-      },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
-        "location": "dungeons_enhanced:large_dungeon/room1",
-        "override_liquid_settings": "ignore_waterlogging",
-        "processors": "minecraft:empty",
-        "projection": "rigid"
-      },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
-        "location": "dungeons_enhanced:large_dungeon/room2",
-        "override_liquid_settings": "ignore_waterlogging",
-        "processors": "minecraft:empty",
-        "projection": "rigid"
-      },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
-        "location": "dungeons_enhanced:large_dungeon/room_big",
-        "override_liquid_settings": "ignore_waterlogging",
-        "processors": "minecraft:empty",
-        "projection": "rigid"
-      },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:large_dungeon/room_small1",
-        "override_liquid_settings": "ignore_waterlogging",
-        "processors": "minecraft:empty",
+        "processors": "dungeons_enhanced:jungle_monument",
         "projection": "rigid"
       },
       "weight": 1
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:large_dungeon/room_small2",
-        "override_liquid_settings": "ignore_waterlogging",
-        "processors": "minecraft:empty",
+        "processors": "dungeons_enhanced:jungle_monument",
         "projection": "rigid"
       },
       "weight": 1
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
+        "element_type": "ametrin_structures:single_pool_element",
+        "location": "dungeons_enhanced:large_dungeon/room1",
+        "processors": "dungeons_enhanced:jungle_monument",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "ametrin_structures:single_pool_element",
+        "location": "dungeons_enhanced:large_dungeon/room2",
+        "processors": "dungeons_enhanced:jungle_monument",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "ametrin_structures:single_pool_element",
+        "location": "dungeons_enhanced:large_dungeon/room_big",
+        "processors": "dungeons_enhanced:jungle_monument",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "ametrin_structures:single_pool_element",
+        "location": "dungeons_enhanced:large_dungeon/parkour",
+        "processors": "dungeons_enhanced:jungle_monument",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:large_dungeon/storage",
-        "override_liquid_settings": "ignore_waterlogging",
-        "processors": "minecraft:empty",
+        "processors": "dungeons_enhanced:jungle_monument",
         "projection": "rigid"
       },
       "weight": 1

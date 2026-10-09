@@ -1,6 +1,23 @@
 {
-  "type": "dungeons_enhanced:hay_storage",
+  "type": "ametrin_structures:simple",
   "biomes": "#dungeons_enhanced:has_structure/hay_storage",
+  "pieces": {
+    "type": "ametrin_structures:weighted",
+    "sources": [
+      {
+        "data": {
+          "template": "dungeons_enhanced:hay_storage/small"
+        },
+        "weight": 3
+      },
+      {
+        "data": {
+          "template": "dungeons_enhanced:hay_storage/big"
+        },
+        "weight": 2
+      }
+    ]
+  },
   "spawn_overrides": {},
   "step": "surface_structures",
   "terrain_adaptation": "beard_thin"

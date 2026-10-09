@@ -1,0 +1,20 @@
+{
+  "processors": [
+    {
+      "chance": 0.2,
+      "change_to": {
+        "Name": "minecraft:cracked_deepslate_bricks"
+      },
+      "condition": "minecraft:deepslate_bricks",
+      "processor_type": "ametrin_structures:replace_block"
+    },
+    {
+      "chance": 0.2,
+      "change_to": {
+        "Name": "minecraft:cracked_deepslate_tiles"
+      },
+      "condition": "minecraft:deepslate_tiles",
+      "processor_type": "ametrin_structures:replace_block"
+    }
+  ]
+}

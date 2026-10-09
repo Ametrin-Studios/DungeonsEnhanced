@@ -1,6 +1,23 @@
 {
-  "type": "dungeons_enhanced:tall_witch_hut",
+  "type": "ametrin_structures:simple",
   "biomes": "#dungeons_enhanced:has_structure/tall_witch_hut",
+  "foundation": {},
+  "pieces": {
+    "offset": [
+      0,
+      -1,
+      0
+    ],
+    "template": "dungeons_enhanced:tall_witch_hut"
+  },
+  "processors": {
+    "processors": [
+      {
+        "processor_type": "ametrin_structures:retain_existing",
+        "replaceable_only": true
+      }
+    ]
+  },
   "spawn_overrides": {},
   "step": "surface_structures"
 }

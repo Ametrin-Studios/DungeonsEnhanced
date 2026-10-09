@@ -1,6 +1,22 @@
 {
-  "type": "dungeons_enhanced:jungle_monument",
+  "type": "ametrin_structures:simple",
   "biomes": "#dungeons_enhanced:has_structure/jungle_monument",
+  "filters": [
+    {
+      "type": "ametrin_structures:within_biome",
+      "margin": 12
+    }
+  ],
+  "height_mode": "mean",
+  "pieces": {
+    "offset": [
+      0,
+      -9,
+      0
+    ],
+    "processors": "dungeons_enhanced:jungle_monument",
+    "template": "dungeons_enhanced:jungle_monument"
+  },
   "spawn_overrides": {},
   "step": "surface_structures"
 }

@@ -1,0 +1,127 @@
+package com.ametrin.dungeons_enhanced.registry;
+
+import com.ametrin.dungeons_enhanced.DungeonsEnhanced;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.storage.loot.LootTable;
+
+public interface DELootTables {
+    // Overworld
+    interface Castle {
+        ResourceKey<LootTable> ARMORY = chest("castle/armory");
+        ResourceKey<LootTable> BEDROOM = chest("castle/bedroom");
+        ResourceKey<LootTable> CELLAR = chest("castle/cellar");
+        ResourceKey<LootTable> COFFIN = chest("castle/coffin");
+        ResourceKey<LootTable> KITCHEN = chest("castle/kitchen");
+        ResourceKey<LootTable> LIBRARY = chest("castle/library");
+        ResourceKey<LootTable> PRISON = chest("castle/prison");
+        ResourceKey<LootTable> QUARTERS = chest("castle/quarters");
+        ResourceKey<LootTable> WELL = chest("castle/well");
+        ResourceKey<LootTable> THRONE = chest("castle/throne");
+        ResourceKey<LootTable> EQUIPMENT_ZOMBIE = create("equipment/castle/zombie");
+        ResourceKey<LootTable> EQUIPMENT_SKELETON = create("equipment/castle/skeleton");
+        ResourceKey<LootTable> EQUIPMENT_ZOMBIE_GUARD = create("equipment/castle/zombie_guard");
+        ResourceKey<LootTable> EQUIPMENT_ARMOR_STAND = create("equipment/castle/armor_stand");
+        ResourceKey<LootTable> BREWING_STAND = create("brewing/castle");
+    }
+
+    ResourceKey<LootTable> DEEP_CRYPT = chest("deep_crypt");
+
+    interface DesertTemple {
+        ResourceKey<LootTable> COFFIN = chest("desert_temple/coffin");
+        ResourceKey<LootTable> FLOOR = chest("desert_temple/floor");
+        ResourceKey<LootTable> TREASURE = chest("desert_temple/treasure");
+    }
+
+    ResourceKey<LootTable> DESERT_TOMB = chest("desert_tomb");
+
+    interface DungeonVariant {
+        ResourceKey<LootTable> BREWING_STAND = create("brewing/dungeon_variant");
+        ResourceKey<LootTable> COPPER_SHRINE = chest("dungeon_variant/copper_shrine");
+    }
+
+    interface EldersTemple {
+        ResourceKey<LootTable> MAIN = chest("elders_temple/main");
+        ResourceKey<LootTable> ELDER_ROOM = chest("elders_temple/elder_room");
+    }
+
+    ResourceKey<LootTable> FISHING_SHIP = chest("fishing_ship");
+    ResourceKey<LootTable> FLYING_DUTCHMAN = chest("flying_dutchman");
+    ResourceKey<LootTable> EQUIPMENT_HENDRICK_VAN_DER_DECKEN = create("equipment/flying_dutchman/hendrik_van_der_decken");
+    ResourceKey<LootTable> EQUIPMENT_FLYING_DUTCHMAN_SKELETONS = create("equipment/flying_dutchman/skeletons");
+    ResourceKey<LootTable> HAY_STORAGE = chest("hay_storage");
+
+    interface IcePit {
+        ResourceKey<LootTable> ARMORY = chest("ice_pit/armory");
+        ResourceKey<LootTable> BED = chest("ice_pit/bed");
+        ResourceKey<LootTable> FOOD = chest("ice_pit/food");
+        ResourceKey<LootTable> GARDEN = chest("ice_pit/garden");
+        ResourceKey<LootTable> HALL = chest("ice_pit/hall");
+        ResourceKey<LootTable> EQUIPMENT_ARMOR_STAND = chest("equipment/ice_pit/armor_stand");
+    }
+
+    interface JungleMonument {
+        ResourceKey<LootTable> FLOOR = chest("jungle_monument/floor");
+        ResourceKey<LootTable> TREASURE = chest("jungle_monument/treasure");
+    }
+
+    ResourceKey<LootTable> LARGE_DUNGEON = chest("large_dungeon");
+    ResourceKey<LootTable> MINERS_HOUSE = chest("miners_house");
+
+    interface MonsterMaze {
+        ResourceKey<LootTable> BREWERY = chest("monster_maze/brewery");
+        ResourceKey<LootTable> CHURCH = chest("monster_maze/church");
+        ResourceKey<LootTable> TREASURE = chest("monster_maze/treasure");
+        ResourceKey<LootTable> PRISON = chest("monster_maze/prison");
+        ResourceKey<LootTable> EQUIPMENT_SKELETON = create("equipment/monster_maze/skeleton");
+        ResourceKey<LootTable> EQUIPMENT_ZOMBIE = create("equipment/monster_maze/zombie");
+        ResourceKey<LootTable> EQUIPMENT_PRISON_ZOMBIE = create("equipment/monster_maze/prison_zombie");
+        ResourceKey<LootTable> EQUIPMENT_ZOMBIE_KING_GUARD = create("equipment/monster_maze/zombie_king_guard");
+    }
+
+    ResourceKey<LootTable> MUSHROOM_HOUSE = chest("mushroom_house");
+
+    interface PillagerCamp {
+        ResourceKey<LootTable> GENERAL = chest("pillager_camp/general");
+        ResourceKey<LootTable> KITCHEN = chest("pillager_camp/kitchen");
+    }
+
+    ResourceKey<LootTable> PIRATE_SHIP = chest("pirate_ship");
+
+    interface Ruined {
+        ResourceKey<LootTable> HOUSE = chest("ruined/house");
+        ResourceKey<LootTable> DEFAULT = chest("ruined/default");
+    }
+
+    ResourceKey<LootTable> STABLES = chest("stables");
+    ResourceKey<LootTable> SUNKEN_SHRINE = chest("sunken_shrine");
+
+    interface TowerOfTheUndead {
+        ResourceKey<LootTable> TREASURE = chest("tower_of_the_undead/treasure");
+    }
+
+    interface TreeHouse {
+        ResourceKey<LootTable> ROOF = chest("tree_house/roof");
+    }
+
+    ResourceKey<LootTable> WATCH_TOWER = chest("watch_tower");
+    ResourceKey<LootTable> WITCH_TOWER = chest("witch_tower");
+    ResourceKey<LootTable> FUEL_COAL = create("fuel/coal");
+
+    // Nether
+    interface BlackCitadel {
+        ResourceKey<LootTable> NORMAL = chest("black_citadel/normal");
+        ResourceKey<LootTable> NORMAL_ALT = chest("black_citadel/normal_alt");
+        ResourceKey<LootTable> KITCHEN = chest("black_citadel/kitchen");
+        ResourceKey<LootTable> TREASURE = chest("black_citadel/treasure");
+        ResourceKey<LootTable> TREASURE_ALT = chest("black_citadel/treasure_alt");
+    }
+
+    private static ResourceKey<LootTable> chest(String key) {
+        return create("chests/" + key);
+    }
+
+    private static ResourceKey<LootTable> create(String key) {
+        return ResourceKey.create(Registries.LOOT_TABLE, DungeonsEnhanced.locate(key));
+    }
+}

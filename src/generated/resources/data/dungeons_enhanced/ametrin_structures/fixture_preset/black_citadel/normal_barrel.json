@@ -1,0 +1,26 @@
+{
+  "fixtures": [
+    {
+      "type": "ametrin_structures:loot_container",
+      "block": {
+        "Name": "minecraft:barrel",
+        "Properties": {
+          "facing": "north",
+          "open": "false"
+        }
+      },
+      "loot_table": "dungeons_enhanced:chests/black_citadel/normal"
+    },
+    {
+      "type": "ametrin_structures:loot_container",
+      "block": {
+        "Name": "minecraft:barrel",
+        "Properties": {
+          "facing": "north",
+          "open": "false"
+        }
+      },
+      "loot_table": "dungeons_enhanced:chests/black_citadel/normal_alt"
+    }
+  ]
+}

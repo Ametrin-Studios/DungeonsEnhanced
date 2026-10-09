@@ -1,18 +1,41 @@
 {
-  "type": "structure_gel:extended_jigsaw",
+  "type": "ametrin_structures:simple",
   "biomes": "#dungeons_enhanced:has_structure/castle",
-  "capability": {
-    "type": "dungeons_enhanced:castle"
+  "filters": [
+    {
+      "type": "ametrin_structures:flatness",
+      "max_variance": 8
+    }
+  ],
+  "height_mode": "mean",
+  "pieces": {
+    "type": "ametrin_structures:weighted",
+    "sources": [
+      {
+        "data": {
+          "offset": [
+            0,
+            -5,
+            0
+          ],
+          "template": "dungeons_enhanced:castle/blue"
+        },
+        "weight": 1
+      },
+      {
+        "data": {
+          "offset": [
+            0,
+            -5,
+            0
+          ],
+          "template": "dungeons_enhanced:castle/red"
+        },
+        "weight": 1
+      }
+    ]
   },
-  "max_distance_from_center": 80,
-  "project_start_to_heightmap": "WORLD_SURFACE_WG",
-  "size": 1,
   "spawn_overrides": {},
-  "start_height": {
-    "absolute": 0
-  },
-  "start_pool": "dungeons_enhanced:castle/root",
   "step": "surface_structures",
-  "terrain_adaptation": "beard_box",
-  "use_expansion_hack": false
+  "terrain_adaptation": "beard_box"
 }

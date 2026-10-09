@@ -70,15 +70,6 @@
           "type": "minecraft:item",
           "functions": [
             {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 12.0,
-                "min": 4.0
-              },
-              "function": "minecraft:set_count"
-            },
-            {
               "function": "minecraft:enchant_randomly",
               "options": "#minecraft:on_random_loot"
             }
@@ -89,15 +80,6 @@
         {
           "type": "minecraft:item",
           "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 12.0,
-                "min": 4.0
-              },
-              "function": "minecraft:set_count"
-            },
             {
               "function": "minecraft:enchant_randomly",
               "options": "#minecraft:on_random_loot"
@@ -110,15 +92,6 @@
           "type": "minecraft:item",
           "functions": [
             {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 10.0,
-                "min": 4.0
-              },
-              "function": "minecraft:set_count"
-            },
-            {
               "function": "minecraft:enchant_randomly",
               "options": "#minecraft:on_random_loot"
             }
@@ -129,15 +102,6 @@
         {
           "type": "minecraft:item",
           "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 10.0,
-                "min": 3.0
-              },
-              "function": "minecraft:set_count"
-            },
             {
               "function": "minecraft:enchant_randomly",
               "options": "#minecraft:on_random_loot"
@@ -150,15 +114,6 @@
           "type": "minecraft:item",
           "functions": [
             {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 10.0,
-                "min": 3.0
-              },
-              "function": "minecraft:set_count"
-            },
-            {
               "function": "minecraft:enchant_randomly",
               "options": "#minecraft:on_random_loot"
             }
@@ -169,15 +124,6 @@
         {
           "type": "minecraft:item",
           "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 10.0,
-                "min": 3.0
-              },
-              "function": "minecraft:set_count"
-            },
             {
               "function": "minecraft:enchant_randomly",
               "options": "#minecraft:on_random_loot"

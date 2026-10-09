@@ -1,12 +1,14 @@
 {
   "placement": {
-    "type": "structure_gel:grid_placement",
-    "allowed_near_spawn": false,
-    "frequency": 0.75,
-    "offset": 53,
-    "salt": 1491180902,
-    "spacing": 67,
-    "structure": "dungeons_enhanced:black_citadel"
+    "type": "ametrin_structures:scattered_grid",
+    "exclusion_zone": {
+      "chunk_count": 12,
+      "structures": "dungeons_enhanced:exclusion_zone/black_citadel"
+    },
+    "probability": 0.72,
+    "random_offset": 48,
+    "salt": -1799929244,
+    "spacing": 69
   },
   "structures": [
     {

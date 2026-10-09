@@ -1,6 +1,22 @@
 {
   "parent": "dungeons_enhanced:root",
   "criteria": {
+    "entered_black_citadel": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": "dungeons_enhanced:black_citadel"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
     "entered_castle": {
       "conditions": {
         "player": [
@@ -10,22 +26,6 @@
             "predicate": {
               "location": {
                 "structures": "dungeons_enhanced:castle"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
-    "entered_deep_crypt": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "structures": "dungeons_enhanced:deep_crypt"
               }
             }
           }
@@ -97,7 +97,7 @@
       },
       "trigger": "minecraft:location"
     },
-    "entered_monster_maze_dark": {
+    "entered_monster_maze": {
       "conditions": {
         "player": [
           {
@@ -105,7 +105,7 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structures": "dungeons_enhanced:monster_maze_dark"
+                "structures": "#dungeons_enhanced:monster_maze"
               }
             }
           }
@@ -116,22 +116,19 @@
   },
   "display": {
     "description": {
-      "translate": "advancements.dungeons_enhanced.seven_world_wonders.desc"
+      "translate": "advancements.dungeons_enhanced.seven_world_wonders.description"
     },
     "frame": "goal",
     "icon": {
       "id": "minecraft:spyglass"
     },
     "title": {
-      "translate": "advancements.dungeons_enhanced.seven_world_wonders"
+      "translate": "advancements.dungeons_enhanced.seven_world_wonders.title"
     }
   },
   "requirements": [
     [
       "entered_castle"
-    ],
-    [
-      "entered_deep_crypt"
     ],
     [
       "entered_desert_temple"
@@ -143,10 +140,13 @@
       "entered_jungle_monument"
     ],
     [
-      "entered_monster_maze_dark"
+      "entered_monster_maze"
     ],
     [
       "entered_elders_temple"
+    ],
+    [
+      "entered_black_citadel"
     ]
   ]
 }
