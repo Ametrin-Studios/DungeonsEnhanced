@@ -1,0 +1,12 @@
+{
+  "fixtures": [
+    {
+      "type": "ametrin_structures:loot_container",
+      "loot_table": "dungeons_enhanced:chests/black_citadel/treasure"
+    },
+    {
+      "type": "ametrin_structures:loot_container",
+      "loot_table": "dungeons_enhanced:chests/black_citadel/treasure_alt"
+    }
+  ]
+}

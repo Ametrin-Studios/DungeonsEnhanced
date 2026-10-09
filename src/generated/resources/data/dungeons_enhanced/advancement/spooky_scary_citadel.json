@@ -20,7 +20,7 @@
   },
   "display": {
     "description": {
-      "translate": "advancements.dungeons_enhanced.spooky_scary_citadel.desc"
+      "translate": "advancements.dungeons_enhanced.spooky_scary_citadel.description"
     },
     "icon": {
       "components": {
@@ -43,11 +43,10 @@
           }
         ]
       },
-      "count": 1,
       "id": "minecraft:red_banner"
     },
     "title": {
-      "translate": "advancements.dungeons_enhanced.spooky_scary_citadel"
+      "translate": "advancements.dungeons_enhanced.spooky_scary_citadel.title"
     }
   },
   "requirements": [

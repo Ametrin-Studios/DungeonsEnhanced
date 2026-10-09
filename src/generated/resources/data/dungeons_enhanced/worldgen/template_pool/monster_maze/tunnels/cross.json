@@ -2,9 +2,8 @@
   "elements": [
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
-        "location": "dungeons_enhanced:monster_maze/tunnels/cross2",
-        "override_liquid_settings": "ignore_waterlogging",
+        "element_type": "ametrin_structures:single_pool_element",
+        "location": "dungeons_enhanced:monster_maze/tunnels/cross1",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },
@@ -12,9 +11,8 @@
     },
     {
       "element": {
-        "element_type": "structure_gel:gel_single_pool_element",
-        "location": "dungeons_enhanced:monster_maze/tunnels/cross1",
-        "override_liquid_settings": "ignore_waterlogging",
+        "element_type": "ametrin_structures:single_pool_element",
+        "location": "dungeons_enhanced:monster_maze/tunnels/cross2",
         "processors": "dungeons_enhanced:monster_maze/default",
         "projection": "rigid"
       },

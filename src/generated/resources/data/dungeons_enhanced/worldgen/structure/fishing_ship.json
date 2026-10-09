@@ -1,6 +1,14 @@
 {
-  "type": "dungeons_enhanced:fishing_ship",
+  "type": "ametrin_structures:simple",
   "biomes": "#dungeons_enhanced:has_structure/fishing_ship",
+  "pieces": {
+    "offset": [
+      0,
+      -3,
+      0
+    ],
+    "template": "dungeons_enhanced:fishing_ship"
+  },
   "spawn_overrides": {},
   "step": "surface_structures"
 }

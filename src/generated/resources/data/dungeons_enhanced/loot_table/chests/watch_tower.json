@@ -17,7 +17,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:chain",
+          "name": "minecraft:iron_chain",
           "weight": 5
         },
         {
@@ -306,7 +306,7 @@
       ],
       "rolls": {
         "type": "minecraft:uniform",
-        "max": 3.0,
+        "max": 2.0,
         "min": 1.0
       }
     },
@@ -315,7 +315,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:spyglass"
+          "name": "minecraft:spyglass",
+          "weight": 9
+        },
+        {
+          "type": "minecraft:empty"
         }
       ],
       "rolls": 1.0

@@ -1,0 +1,26 @@
+{
+  "type": "ametrin_structures:simple",
+  "biomes": "#dungeons_enhanced:has_structure/dungeon_variant",
+  "pieces": {
+    "type": "ametrin_structures:weighted",
+    "sources": [
+      {
+        "data": {
+          "template": "dungeons_enhanced:dungeon_variant/copper_shrine"
+        },
+        "weight": 1
+      }
+    ]
+  },
+  "processors": "dungeons_enhanced:dungeon_variant/deepslate",
+  "spawn_overrides": {},
+  "start_height": {
+    "max": {
+      "absolute": -6
+    },
+    "min": {
+      "above_bottom": 8
+    }
+  },
+  "step": "underground_structures"
+}

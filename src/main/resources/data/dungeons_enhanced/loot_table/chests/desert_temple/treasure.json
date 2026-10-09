@@ -45,8 +45,7 @@
               "levels": {
                 "min": 6,
                 "max": 18
-              },
-              "treasure": true
+              }
             }
           ]
         },
@@ -83,7 +82,17 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:saddle"
+          "name": "minecraft:leather",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 5
+              }
+            }
+          ]
         },
         {
           "type": "minecraft:item",
@@ -93,6 +102,10 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:tnt"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:howl_pottery_sherd"
         }
       ]
     }

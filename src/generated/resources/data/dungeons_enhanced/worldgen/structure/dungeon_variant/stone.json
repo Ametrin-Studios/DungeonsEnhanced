@@ -1,0 +1,45 @@
+{
+  "type": "ametrin_structures:simple",
+  "biomes": "#dungeons_enhanced:has_structure/dungeon_variant",
+  "pieces": {
+    "type": "ametrin_structures:weighted",
+    "sources": [
+      {
+        "data": {
+          "template": "dungeons_enhanced:dungeon_variant/zombie"
+        },
+        "weight": 1
+      },
+      {
+        "data": {
+          "template": "dungeons_enhanced:dungeon_variant/skeleton"
+        },
+        "weight": 1
+      },
+      {
+        "data": {
+          "template": "dungeons_enhanced:dungeon_variant/spider"
+        },
+        "weight": 1
+      },
+      {
+        "data": {
+          "template": "dungeons_enhanced:dungeon_variant/special"
+        },
+        "weight": 1
+      }
+    ]
+  },
+  "processors": "dungeons_enhanced:dungeon_variant/stone",
+  "spawn_overrides": {},
+  "start_height": {
+    "max": {
+      "heightmap": "OCEAN_FLOOR_WG",
+      "offset": -24
+    },
+    "min": {
+      "absolute": 0
+    }
+  },
+  "step": "underground_structures"
+}

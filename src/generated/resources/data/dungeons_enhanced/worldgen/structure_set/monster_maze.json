@@ -1,16 +1,19 @@
 {
   "placement": {
-    "type": "structure_gel:grid_placement",
-    "allowed_near_spawn": false,
-    "frequency": 0.62,
-    "offset": 22,
-    "salt": 2009066558,
-    "spacing": 28,
-    "structure": "dungeons_enhanced:monster_maze"
+    "type": "ametrin_structures:scattered_grid",
+    "min_chunks_from_center": 12,
+    "probability": 0.62,
+    "random_offset": 19,
+    "salt": -1874665736,
+    "spacing": 28
   },
   "structures": [
     {
-      "structure": "dungeons_enhanced:monster_maze",
+      "structure": "dungeons_enhanced:monster_maze/dark",
+      "weight": 1
+    },
+    {
+      "structure": "dungeons_enhanced:monster_maze/pale",
       "weight": 1
     }
   ]

@@ -20,14 +20,13 @@
   },
   "display": {
     "description": {
-      "translate": "advancements.dungeons_enhanced.thats_a_dungeon.desc"
+      "translate": "advancements.dungeons_enhanced.thats_a_dungeon.description"
     },
     "icon": {
-      "count": 1,
-      "id": "minecraft:skeleton_skull"
+      "id": "minecraft:mossy_cobblestone"
     },
     "title": {
-      "translate": "advancements.dungeons_enhanced.thats_a_dungeon"
+      "translate": "advancements.dungeons_enhanced.thats_a_dungeon.title"
     }
   },
   "requirements": [

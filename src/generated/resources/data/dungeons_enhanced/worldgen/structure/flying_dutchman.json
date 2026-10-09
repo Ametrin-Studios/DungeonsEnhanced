@@ -1,6 +1,18 @@
 {
-  "type": "dungeons_enhanced:flying_dutchman",
+  "type": "ametrin_structures:simple",
   "biomes": "#dungeons_enhanced:has_structure/flying_dutchman",
+  "pieces": {
+    "template": "dungeons_enhanced:flying_dutchman"
+  },
   "spawn_overrides": {},
+  "start_height": {
+    "max": {
+      "below_top": 24
+    },
+    "min": {
+      "heightmap": "WORLD_SURFACE_WG",
+      "offset": 64
+    }
+  },
   "step": "surface_structures"
 }

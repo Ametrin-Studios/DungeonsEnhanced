@@ -1,0 +1,19 @@
+{
+  "fixtures": [
+    {
+      "type": "ametrin_structures:spawner",
+      "conditions": [
+        {
+          "type": "ametrin_structures:biome",
+          "biomes": "#c:is_sandy"
+        }
+      ],
+      "entity": "minecraft:husk",
+      "weight": 100
+    },
+    {
+      "type": "ametrin_structures:spawner",
+      "entity": "minecraft:zombie"
+    }
+  ]
+}

@@ -198,17 +198,8 @@
           "type": "minecraft:item",
           "functions": [
             {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            },
-            {
               "function": "minecraft:set_potion",
-              "id": "minecraft:water_breathing"
+              "id": "minecraft:long_water_breathing"
             }
           ],
           "name": "minecraft:potion"
@@ -228,6 +219,21 @@
           ],
           "name": "minecraft:prismarine_crystals",
           "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 1.0,
+                "min": 0.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:copper_nautilus_armor"
         }
       ],
       "rolls": {

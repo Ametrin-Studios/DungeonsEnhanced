@@ -20,14 +20,13 @@
   },
   "display": {
     "description": {
-      "translate": "advancements.dungeons_enhanced.traps_and_curses.desc"
+      "translate": "advancements.dungeons_enhanced.traps_and_curses.description"
     },
     "icon": {
-      "count": 1,
       "id": "minecraft:tnt"
     },
     "title": {
-      "translate": "advancements.dungeons_enhanced.traps_and_curses"
+      "translate": "advancements.dungeons_enhanced.traps_and_curses.title"
     }
   },
   "requirements": [

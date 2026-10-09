@@ -1,0 +1,12 @@
+{
+  "spawn_potentials": [
+    {
+      "data": {
+        "entity": {
+          "id": "minecraft:stray"
+        }
+      },
+      "weight": 2
+    }
+  ]
+}

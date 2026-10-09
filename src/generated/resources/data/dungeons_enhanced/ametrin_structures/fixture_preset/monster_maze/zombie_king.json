@@ -1,0 +1,10 @@
+{
+  "fixtures": [
+    {
+      "type": "ametrin_structures:entity",
+      "entity": "minecraft:zombie",
+      "equipment": "dungeons_enhanced:equipment/monster_maze/zombie_king",
+      "nbt": "{CustomName:{translate:\"entity.dungeons_enhanced.monster_maze.zombie_king\"},Health:40.0f,attributes:[{base:40.0d,id:\"minecraft:max_health\"}]}"
+    }
+  ]
+}

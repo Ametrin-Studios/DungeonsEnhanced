@@ -1,12 +1,10 @@
 {
   "placement": {
-    "type": "structure_gel:grid_placement",
-    "allowed_near_spawn": false,
-    "frequency": 0.74,
-    "offset": 36,
-    "salt": 2570869,
-    "spacing": 46,
-    "structure": "dungeons_enhanced:jungle_monument"
+    "type": "ametrin_structures:scattered_grid",
+    "probability": 0.74,
+    "random_offset": 32,
+    "salt": -1756633355,
+    "spacing": 46
   },
   "structures": [
     {

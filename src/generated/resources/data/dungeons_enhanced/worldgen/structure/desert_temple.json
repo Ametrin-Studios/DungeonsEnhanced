@@ -1,6 +1,44 @@
 {
-  "type": "dungeons_enhanced:desert_temple",
+  "type": "ametrin_structures:simple",
   "biomes": "#dungeons_enhanced:has_structure/desert_temple",
+  "foundation": {},
+  "pieces": {
+    "type": "ametrin_structures:compound",
+    "sources": [
+      {
+        "offset": [
+          0,
+          -6,
+          0
+        ],
+        "template": "dungeons_enhanced:desert_temple/main"
+      },
+      {
+        "offset": [
+          15,
+          -17,
+          2
+        ],
+        "template": "dungeons_enhanced:desert_temple/down"
+      },
+      {
+        "offset": [
+          25,
+          -17,
+          16
+        ],
+        "template": "dungeons_enhanced:desert_temple/down"
+      },
+      {
+        "offset": [
+          13,
+          -17,
+          14
+        ],
+        "template": "dungeons_enhanced:desert_temple/down"
+      }
+    ]
+  },
   "spawn_overrides": {},
   "step": "surface_structures"
 }

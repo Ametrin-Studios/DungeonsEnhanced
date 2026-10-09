@@ -106,7 +106,19 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:saddle"
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 5.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:leather",
+          "weight": 4
         },
         {
           "type": "minecraft:item",
@@ -138,16 +150,12 @@
           "type": "minecraft:item",
           "functions": [
             {
-              "add": false,
-              "count": {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
                 "type": "minecraft:uniform",
                 "max": 18.0,
                 "min": 5.0
               },
-              "function": "minecraft:set_count"
-            },
-            {
-              "function": "minecraft:enchant_randomly",
               "options": "#minecraft:on_random_loot"
             }
           ],
@@ -157,16 +165,12 @@
           "type": "minecraft:item",
           "functions": [
             {
-              "add": false,
-              "count": {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
                 "type": "minecraft:uniform",
                 "max": 7.0,
                 "min": 0.0
               },
-              "function": "minecraft:set_count"
-            },
-            {
-              "function": "minecraft:enchant_randomly",
               "options": "#minecraft:on_random_loot"
             }
           ],
@@ -176,16 +180,12 @@
           "type": "minecraft:item",
           "functions": [
             {
-              "add": false,
-              "count": {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
                 "type": "minecraft:uniform",
                 "max": 7.0,
                 "min": 0.0
               },
-              "function": "minecraft:set_count"
-            },
-            {
-              "function": "minecraft:enchant_randomly",
               "options": "#minecraft:on_random_loot"
             }
           ],
@@ -195,16 +195,12 @@
           "type": "minecraft:item",
           "functions": [
             {
-              "add": false,
-              "count": {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
                 "type": "minecraft:uniform",
                 "max": 7.0,
                 "min": 0.0
               },
-              "function": "minecraft:set_count"
-            },
-            {
-              "function": "minecraft:enchant_randomly",
               "options": "#minecraft:on_random_loot"
             }
           ],
@@ -214,16 +210,12 @@
           "type": "minecraft:item",
           "functions": [
             {
-              "add": false,
-              "count": {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
                 "type": "minecraft:uniform",
                 "max": 7.0,
                 "min": 0.0
               },
-              "function": "minecraft:set_count"
-            },
-            {
-              "function": "minecraft:enchant_randomly",
               "options": "#minecraft:on_random_loot"
             }
           ],
@@ -233,16 +225,12 @@
           "type": "minecraft:item",
           "functions": [
             {
-              "add": false,
-              "count": {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
                 "type": "minecraft:uniform",
                 "max": 7.0,
                 "min": 0.0
               },
-              "function": "minecraft:set_count"
-            },
-            {
-              "function": "minecraft:enchant_randomly",
               "options": "#minecraft:on_random_loot"
             }
           ],
@@ -252,16 +240,12 @@
           "type": "minecraft:item",
           "functions": [
             {
-              "add": false,
-              "count": {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
                 "type": "minecraft:uniform",
                 "max": 7.0,
                 "min": 0.0
               },
-              "function": "minecraft:set_count"
-            },
-            {
-              "function": "minecraft:enchant_randomly",
               "options": "#minecraft:on_random_loot"
             }
           ],
@@ -271,16 +255,12 @@
           "type": "minecraft:item",
           "functions": [
             {
-              "add": false,
-              "count": {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
                 "type": "minecraft:uniform",
                 "max": 7.0,
                 "min": 0.0
               },
-              "function": "minecraft:set_count"
-            },
-            {
-              "function": "minecraft:enchant_randomly",
               "options": "#minecraft:on_random_loot"
             }
           ],

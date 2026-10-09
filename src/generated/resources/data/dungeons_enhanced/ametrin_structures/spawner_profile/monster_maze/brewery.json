@@ -1,0 +1,36 @@
+{
+  "spawn_potentials": [
+    {
+      "data": {
+        "entity": {
+          "id": "minecraft:zombie"
+        }
+      },
+      "weight": 1
+    },
+    {
+      "data": {
+        "entity": {
+          "id": "minecraft:skeleton"
+        }
+      },
+      "weight": 1
+    },
+    {
+      "data": {
+        "entity": {
+          "id": "minecraft:spider"
+        }
+      },
+      "weight": 1
+    },
+    {
+      "data": {
+        "entity": {
+          "id": "minecraft:cave_spider"
+        }
+      },
+      "weight": 1
+    }
+  ]
+}

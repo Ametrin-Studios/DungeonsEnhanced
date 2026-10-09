@@ -1,0 +1,76 @@
+{
+  "fixtures": [
+    {
+      "type": "ametrin_structures:block_state",
+      "state": {
+        "Name": "minecraft:composter",
+        "Properties": {
+          "level": "0"
+        }
+      }
+    },
+    {
+      "type": "ametrin_structures:block_state",
+      "state": {
+        "Name": "minecraft:composter",
+        "Properties": {
+          "level": "1"
+        }
+      }
+    },
+    {
+      "type": "ametrin_structures:block_state",
+      "state": {
+        "Name": "minecraft:composter",
+        "Properties": {
+          "level": "2"
+        }
+      }
+    },
+    {
+      "type": "ametrin_structures:block_state",
+      "state": {
+        "Name": "minecraft:composter",
+        "Properties": {
+          "level": "3"
+        }
+      }
+    },
+    {
+      "type": "ametrin_structures:block_state",
+      "state": {
+        "Name": "minecraft:composter",
+        "Properties": {
+          "level": "4"
+        }
+      }
+    },
+    {
+      "type": "ametrin_structures:block_state",
+      "state": {
+        "Name": "minecraft:composter",
+        "Properties": {
+          "level": "5"
+        }
+      }
+    },
+    {
+      "type": "ametrin_structures:block_state",
+      "state": {
+        "Name": "minecraft:composter",
+        "Properties": {
+          "level": "6"
+        }
+      }
+    },
+    {
+      "type": "ametrin_structures:block_state",
+      "state": {
+        "Name": "minecraft:composter",
+        "Properties": {
+          "level": "7"
+        }
+      }
+    }
+  ]
+}

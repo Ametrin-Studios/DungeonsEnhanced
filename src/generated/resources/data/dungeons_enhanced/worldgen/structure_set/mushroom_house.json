@@ -1,12 +1,10 @@
 {
   "placement": {
-    "type": "structure_gel:grid_placement",
-    "allowed_near_spawn": true,
-    "frequency": 0.83,
-    "offset": 15,
-    "salt": 1204297655,
-    "spacing": 19,
-    "structure": "dungeons_enhanced:mushroom_house"
+    "type": "ametrin_structures:scattered_grid",
+    "probability": 0.83,
+    "random_offset": 13,
+    "salt": -625697915,
+    "spacing": 19
   },
   "structures": [
     {

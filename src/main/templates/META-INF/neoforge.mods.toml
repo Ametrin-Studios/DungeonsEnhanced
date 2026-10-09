@@ -1,5 +1,3 @@
-modLoader="javafml" #mandatory
-loaderVersion="${loader_version_range}" #mandatory
 license="${mod_license}"
 issueTrackerURL="https://github.com/Ametrin-Studios/DungeonsEnhanced/issues"
 
@@ -7,30 +5,29 @@ issueTrackerURL="https://github.com/Ametrin-Studios/DungeonsEnhanced/issues"
 modId="${mod_id}" #mandatory
 version="${mod_version}" #mandatory
 displayName="${mod_name}" #mandatory
-updateJSONURL="https://raw.githubusercontent.com/Ametrin-Studios/DungeonsEnhanced/refs/heads/master/update.json"
+updateJSONURL="https://raw.githubusercontent.com/Ametrin-Studios/DungeonsEnhanced/refs/heads/main/update.json"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/dungeonsenhanced"
-logoFile="logo.png"
-credits="Thanks Modding Legacy for their genius Structure Gel API"
+logoFile="banner.png"
+# credits=""
 authors="${mod_authors}"
 displayTest="MATCH_VERSION"
 description='''
-        Minecraft is great game, but exploring always felt a bit boring to us.
-        There aren't many structures or dungeons you can explore and the ones you find, are getting repetitive.
-        We decided to spice things up a bit, by adding new dungeons and structures for you to explore.
-        By now 27 new dungeons and structures are included in our mod.
-        They all fit a medieval/fantasy theme and could fit along other fantasy or RPG-like Mods.
-        Some of our structures also look like they could be an upgraded version of a vanilla structure or a variant to them.
-        Get ready to find huge mazes under trees, castles, towers and forgotten temples.
-        We hope you have fun!
+        - Explore a world worth exploring. -
+
+        Minecraft is a great game, but we felt exploration was missing something.
+        There are only a handful of dungeons and they are getting repetitive.
+        So we decided to spice things up a bit, by adding new dungeons and structures for you to explore.
+        This mod adds 27 new dungeons and structures, all designed with a medieval fantasy theme.
+        Some look like upgraded or alternative versions of vanilla structures, while others are completely new.
+        They fit naturally into any world and work well alongside other fantasy and RPG mods.
+        Get ready to find huge mazes hidden beneath trees, castles, towers and forgotten temples.
+        Grab your sword, pack some food and start exploring. We hope you have fun!
     '''
 
-[[accessTransformers]]
-file="dungeons_enhanced_base.cfg"
-
-[[dependencies.${mod_id}]] #optional
-    modId="neoforge" #mandatory
-    type="required" #mandatory
-    versionRange="${neo_version_range}" #mandatory
+[[dependencies.${mod_id}]]
+    modId="neoforge"
+    type="required"
+    versionRange="${neo_version_range}"
     ordering="NONE"
     side="BOTH"
 
@@ -39,4 +36,18 @@ file="dungeons_enhanced_base.cfg"
     type="required"
     versionRange="${minecraft_version_range}"
     ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="ametrin"
+    type="required"
+    versionRange="${ametrin_version_range}"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="ametrin_structures"
+    type="required"
+    versionRange="${ametrin_structures_version_range}"
+    ordering="AFTER"
     side="BOTH"

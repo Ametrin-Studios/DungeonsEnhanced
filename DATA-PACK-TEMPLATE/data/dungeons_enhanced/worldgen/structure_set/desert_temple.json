@@ -1,12 +1,11 @@
 {
   "placement": {
-    "type": "structure_gel:grid_placement",
-    "allowed_near_spawn": false,
-    "frequency": 0.86,
-    "offset": 31,
-    "salt": 2136557383,
-    "spacing": 39,
-    "structure": "dungeons_enhanced:desert_temple"
+    "type": "ametrin_structures:scattered_grid",
+    "min_chunks_from_center": 12,
+    "probability": 0.86,
+    "random_offset": 27,
+    "salt": 1292807243,
+    "spacing": 39
   },
   "structures": [
     {

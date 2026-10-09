@@ -20,14 +20,13 @@
   },
   "display": {
     "description": {
-      "translate": "advancements.dungeons_enhanced.ahoy.desc"
+      "translate": "advancements.dungeons_enhanced.ahoy.description"
     },
     "icon": {
-      "count": 1,
-      "id": "minecraft:wither_skeleton_skull"
+      "id": "minecraft:skeleton_skull"
     },
     "title": {
-      "translate": "advancements.dungeons_enhanced.ahoy"
+      "translate": "advancements.dungeons_enhanced.ahoy.title"
     }
   },
   "requirements": [

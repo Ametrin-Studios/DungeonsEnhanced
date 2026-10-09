@@ -20,14 +20,13 @@
   },
   "display": {
     "description": {
-      "translate": "advancements.dungeons_enhanced.wars_and_kingdoms.desc"
+      "translate": "advancements.dungeons_enhanced.wars_and_kingdoms.description"
     },
     "icon": {
-      "count": 1,
       "id": "minecraft:stone_bricks"
     },
     "title": {
-      "translate": "advancements.dungeons_enhanced.wars_and_kingdoms"
+      "translate": "advancements.dungeons_enhanced.wars_and_kingdoms.title"
     }
   },
   "requirements": [

@@ -167,8 +167,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:string",
-          "weight": 2
+          "name": "minecraft:string"
         },
         {
           "type": "minecraft:item",
@@ -200,16 +199,12 @@
           "type": "minecraft:item",
           "functions": [
             {
-              "add": false,
-              "count": {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
                 "type": "minecraft:uniform",
                 "max": 13.0,
                 "min": 6.0
               },
-              "function": "minecraft:set_count"
-            },
-            {
-              "function": "minecraft:enchant_randomly",
               "options": "#minecraft:on_random_loot"
             }
           ],
