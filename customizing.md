@@ -11,25 +11,27 @@ Make sure you are on the right page:
 | all             | 7.0.0 +       | this page                                                                                                                   |
 
 # Customizing Dungeons Enhanced
-Dungeons Enhanced can be customized with a data pack.
-Check out [datapack.wiki](https://datapack.wiki/), [misode.github.io](https://misode.github.io/) and the [Minecraft Wiki](https://minecraft.wiki/) if you need help.
+Dungeons Enhanced can be customized with a data pack.  
+Check out [datapack.wiki](https://datapack.wiki/), [misode.github.io](https://misode.github.io/) and the [Minecraft Wiki](https://minecraft.wiki/w/Tutorial:Creating_a_data_pack) if you need help.  
+You can ask question on the [Ametrin Studios discord](https://discord.gg/Ye6WxRV2Tt) or the official [NeoForge discord](https://discord.com/invite/UvedJ9m)
 
 1. Download the [DATA-PACK-TEMPLATE](DATA-PACK-TEMPLATE) folder.
 2. Edit the files you want (see below).
 3. Delete every file you did not change.
 
-All files below are in `data/dungeons_enhanced`.
+All file references below are in `data/dungeons_enhanced`.  
+All default files (loot tables, structures, processors, advancements, …) are in [src/generated/resources/data/dungeons_enhanced](src/generated/resources/data/dungeons_enhanced). Copy any additional file you need into your data pack at the same path to overwrite it.
 
 ## How often structures spawn
 Files: `worldgen/structure_set/<structure>.json`
 
-| field                    | meaning                                                                 |
-|--------------------------|-------------------------------------------------------------------------|
-| `spacing`                | average distance (in chunks) between spawn attempts. Bigger = rarer     |
+| field                    | meaning                                                                                  |
+|--------------------------|------------------------------------------------------------------------------------------|
+| `spacing`                | average distance (in chunks) between spawn attempts. Bigger = rarer                      |
 | `random_offset`          | random offset of each attempt (in chunks). Must be lower than `spacing`. 0 = strict grid |
-| `probability`            | chance an attempt succeeds (0 to 1). Smaller = rarer                    |
-| `min_chunks_from_center` | no spawns closer than this (in chunks) to the world center (0, 0)                  |
-| `weight`                 | how often each structure is picked if a set has several                 |
+| `probability`            | chance an attempt succeeds (0 to 1). Smaller = rarer                                     |
+| `min_chunks_from_center` | no spawns closer than this (in chunks) to the world center (0, 0)                        |
+| `weight`                 | how often each structure is picked if a set has several                                  |
 
 Leave `salt` and `type` alone.
 
@@ -60,11 +62,8 @@ To block **all** Dungeons Enhanced structures in a biome, add it to `tags/worldg
 Not every structure uses spawner profiles yet.
 
 ## Loot tables
-There is no template for loot tables. Use [Global Loot Modifiers](https://docs.neoforged.net/docs/resources/server/loottables/glm/) or overwrite them directly.
+There is no template for loot tables. Prefer [Global Loot Modifiers](https://docs.neoforged.net/docs/resources/server/loottables/glm/) over overwriting them directly.  
 Note that some loot tables are shared by multiple structures.
-
-## Everything else
-All default files (loot tables, structures, processors, advancements, …) are in [src/generated/resources/data/dungeons_enhanced](src/generated/resources/data/dungeons_enhanced). Copy any file into your data pack at the same path to overwrite it.
 
 ## Testing
 - Create a new world with your data pack and check the log for errors.
