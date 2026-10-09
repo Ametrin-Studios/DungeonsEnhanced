@@ -1,12 +1,10 @@
 {
   "placement": {
-    "type": "structure_gel:grid_placement",
-    "allowed_near_spawn": true,
-    "frequency": 0.56,
-    "offset": 47,
-    "salt": 660874936,
-    "spacing": 59,
-    "structure": "dungeons_enhanced:large_dungeon"
+    "type": "ametrin_structures:scattered_grid",
+    "probability": 0.56,
+    "random_offset": 41,
+    "salt": 351346250,
+    "spacing": 59
   },
   "structures": [
     {

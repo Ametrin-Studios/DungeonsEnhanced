@@ -1,12 +1,10 @@
 {
   "placement": {
-    "type": "structure_gel:grid_placement",
-    "allowed_near_spawn": true,
-    "frequency": 0.4,
-    "offset": 23,
-    "salt": 544688509,
-    "spacing": 29,
-    "structure": "dungeons_enhanced:tree_house"
+    "type": "ametrin_structures:scattered_grid",
+    "probability": 0.4,
+    "random_offset": 20,
+    "salt": -1965465405,
+    "spacing": 29
   },
   "structures": [
     {

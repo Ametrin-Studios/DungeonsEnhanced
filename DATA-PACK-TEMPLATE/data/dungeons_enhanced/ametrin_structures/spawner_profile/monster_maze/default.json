@@ -1,0 +1,54 @@
+{
+  "spawn_potentials": [
+    {
+      "data": {
+        "entity": {
+          "id": "minecraft:zombie"
+        },
+        "equipment": {
+          "loot_table": "dungeons_enhanced:equipment/monster_maze/zombie",
+          "slot_drop_chances": 0.085
+        }
+      },
+      "weight": 1
+    },
+    {
+      "data": {
+        "entity": {
+          "id": "minecraft:skeleton"
+        },
+        "equipment": {
+          "loot_table": "dungeons_enhanced:equipment/monster_maze/skeleton",
+          "slot_drop_chances": 0.085
+        }
+      },
+      "weight": 1
+    },
+    {
+      "data": {
+        "entity": {
+          "Passengers": [
+            {
+              "equipment": {
+                "mainhand": {
+                  "id": "minecraft:bow"
+                }
+              },
+              "id": "minecraft:skeleton"
+            }
+          ],
+          "id": "minecraft:spider"
+        }
+      },
+      "weight": 1
+    },
+    {
+      "data": {
+        "entity": {
+          "id": "minecraft:cave_spider"
+        }
+      },
+      "weight": 1
+    }
+  ]
+}

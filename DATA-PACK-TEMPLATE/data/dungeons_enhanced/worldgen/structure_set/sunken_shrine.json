@@ -1,12 +1,10 @@
 {
   "placement": {
-    "type": "structure_gel:grid_placement",
-    "allowed_near_spawn": true,
-    "frequency": 0.55,
-    "offset": 25,
-    "salt": 832142692,
-    "spacing": 32,
-    "structure": "dungeons_enhanced:sunken_shrine"
+    "type": "ametrin_structures:scattered_grid",
+    "probability": 0.55,
+    "random_offset": 22,
+    "salt": -70294938,
+    "spacing": 32
   },
   "structures": [
     {
