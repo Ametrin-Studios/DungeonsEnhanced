@@ -6,8 +6,8 @@ import com.ametrin.dungeons_enhanced.world.structure.DEIcePitPieces;
 import com.ametrin.dungeons_enhanced.world.structure.processor.DESwapDeadCoralsProcessor;
 import com.ametrin.structures.foam.RemoveFoamProcessor;
 import com.ametrin.structures.processor.RetainExistingProcessor;
-import com.ametrin.structures.structure.DeferredStructureHolder;
-import com.ametrin.structures.structure.DeferredStructureRegister;
+import com.ametrin.structures.structure.StructureBootstrap;
+import com.ametrin.structures.structure.StructureSetKeys;
 import com.ametrin.structures.structure.simple.HeightAnchor;
 import com.ametrin.structures.structure.simple.HeightMode;
 import com.ametrin.structures.structure.simple.TerrainBox;
@@ -25,45 +25,45 @@ import net.minecraft.world.level.levelgen.structure.TerrainAdjustment;
 import java.util.List;
 
 public final class DEStructures {
-    public static final DeferredStructureRegister REGISTER = new DeferredStructureRegister(DungeonsEnhanced.MOD_ID);
+    public static final StructureBootstrap BOOTSTRAP = new StructureBootstrap(DungeonsEnhanced.MOD_ID);
 
     // Overworld
-    public static final DeferredStructureHolder CASTLE;
-    public static final DeferredStructureHolder DEEP_CRYPT;
-    public static final DeferredStructureHolder DESERT_TEMPLE;
-    public static final DeferredStructureHolder DESERT_TOMB;
-    public static final DeferredStructureHolder DRUID_CIRCLE;
-    public static final DeferredStructureHolder DUNGEON_VARIANT;
-    public static final DeferredStructureHolder ELDERS_TEMPLE;
-    public static final DeferredStructureHolder FISHING_SHIP;
-    public static final DeferredStructureHolder FLYING_DUTCHMAN;
-    public static final DeferredStructureHolder HAY_STORAGE;
-    public static final DeferredStructureHolder ICE_PIT;
-    public static final DeferredStructureHolder JUNGLE_MONUMENT;
-    public static final DeferredStructureHolder LARGE_DUNGEON;
-    public static final DeferredStructureHolder MINERS_HOUSE;
-    public static final DeferredStructureHolder MONSTER_MAZE;
-    public static final DeferredStructureHolder MUSHROOM_HOUSE;
-    public static final DeferredStructureHolder PILLAGER_CAMP;
-    public static final DeferredStructureHolder PIRATE_SHIP;
-    public static final DeferredStructureHolder RUINED_BUILDING;
-    public static final DeferredStructureHolder STABLES;
-    public static final DeferredStructureHolder SUNKEN_SHRINE;
-    public static final DeferredStructureHolder TALL_WITCH_HUT;
-    public static final DeferredStructureHolder TREE_HOUSE;
-    public static final DeferredStructureHolder TOWER_OF_THE_UNDEAD;
-    public static final DeferredStructureHolder WATCH_TOWER;
-    public static final DeferredStructureHolder WITCH_TOWER;
+    public static final StructureSetKeys CASTLE;
+    public static final StructureSetKeys DEEP_CRYPT;
+    public static final StructureSetKeys DESERT_TEMPLE;
+    public static final StructureSetKeys DESERT_TOMB;
+    public static final StructureSetKeys DRUID_CIRCLE;
+    public static final StructureSetKeys DUNGEON_VARIANT;
+    public static final StructureSetKeys ELDERS_TEMPLE;
+    public static final StructureSetKeys FISHING_SHIP;
+    public static final StructureSetKeys FLYING_DUTCHMAN;
+    public static final StructureSetKeys HAY_STORAGE;
+    public static final StructureSetKeys ICE_PIT;
+    public static final StructureSetKeys JUNGLE_MONUMENT;
+    public static final StructureSetKeys LARGE_DUNGEON;
+    public static final StructureSetKeys MINERS_HOUSE;
+    public static final StructureSetKeys MONSTER_MAZE;
+    public static final StructureSetKeys MUSHROOM_HOUSE;
+    public static final StructureSetKeys PILLAGER_CAMP;
+    public static final StructureSetKeys PIRATE_SHIP;
+    public static final StructureSetKeys RUINED_BUILDING;
+    public static final StructureSetKeys STABLES;
+    public static final StructureSetKeys SUNKEN_SHRINE;
+    public static final StructureSetKeys TALL_WITCH_HUT;
+    public static final StructureSetKeys TREE_HOUSE;
+    public static final StructureSetKeys TOWER_OF_THE_UNDEAD;
+    public static final StructureSetKeys WATCH_TOWER;
+    public static final StructureSetKeys WITCH_TOWER;
 
     // Nether
-    public static final DeferredStructureHolder BLACK_CITADEL;
+    public static final StructureSetKeys BLACK_CITADEL;
 
     private DEStructures() {}
 
     static {
         // Overworld
-        CASTLE = REGISTER.set(DEStructureIDs.CASTLE)
-                .scatteredGridPlacement(p -> p.spacing(72).probability(0.74f).minChunksFromCenter(14))
+        CASTLE = BOOTSTRAP.registerSet(DEStructureIDs.CASTLE, set -> set
+                .evenSpreadPlacement(p -> p.minDistance(39).probability(0.74f).minChunksFromCenter(14))
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_CASTLE)
                         .surface()
@@ -75,10 +75,10 @@ public final class DEStructures {
                         )
                         .terrainAdaptation(TerrainAdjustment.BEARD_BOX)
                 )
-                .build();
+        );
 
-        DEEP_CRYPT = REGISTER.set(DEStructureIDs.DEEP_CRYPT)
-                .scatteredGridPlacement(b -> b.spacing(41).probability(0.64f))
+        DEEP_CRYPT = BOOTSTRAP.registerSet(DEStructureIDs.DEEP_CRYPT, set -> set
+                .scatteredGridPlacement(p -> p.spacing(41).probability(0.64f))
                 .jigsaw(DETemplatePools.DEEP_CRYPT, j -> j
                                 .startHeight(UniformHeight.of(VerticalAnchor.aboveBottom(16), VerticalAnchor.aboveBottom(52)))
                                 .size(4)
@@ -87,10 +87,10 @@ public final class DEStructures {
                                 .biomes(DETags.Biomes.HAS_DEEP_CRYPT)
                                 .step(GenerationStep.Decoration.UNDERGROUND_STRUCTURES)
                 )
-                .build();
+        );
 
-        DESERT_TEMPLE = REGISTER.set(DEStructureIDs.DESERT_TEMPLE)
-                .scatteredGridPlacement(b -> b.spacing(39).probability(0.86f).minChunksFromCenter(12))
+        DESERT_TEMPLE = BOOTSTRAP.registerSet(DEStructureIDs.DESERT_TEMPLE, set -> set
+                .scatteredGridPlacement(p -> p.spacing(47).probability(0.86f).minChunksFromCenter(12))
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_DESERT_TEMPLE)
                         .surface()
@@ -102,9 +102,9 @@ public final class DEStructures {
                         )
                         .foundation()
                 )
-                .build();
+        );
 
-        DESERT_TOMB = REGISTER.set(DEStructureIDs.DESERT_TOMB)
+        DESERT_TOMB = BOOTSTRAP.registerSet(DEStructureIDs.DESERT_TOMB, set -> set
                 .scatteredGridPlacement(p -> p.spacing(29).probability(0.65f))
                 .jigsaw(DETemplatePools.DESERT_TOMB, j -> j
                                 .onSurface()
@@ -112,9 +112,9 @@ public final class DEStructures {
                         s -> s
                                 .biomes(DETags.Biomes.HAS_DESERT_TOMB)
                 )
-                .build();
+        );
 
-        DRUID_CIRCLE = REGISTER.set(DEStructureIDs.DRUID_CIRCLE)
+        DRUID_CIRCLE = BOOTSTRAP.registerSet(DEStructureIDs.DRUID_CIRCLE, set -> set
                 .scatteredGridPlacement(41, 0.68f)
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_DRUID_CIRCLE)
@@ -125,9 +125,9 @@ public final class DEStructures {
                         )
                         .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                 )
-                .build();
+        );
 
-        DUNGEON_VARIANT = REGISTER.set(DEStructureIDs.DUNGEON_VARIANT)
+        DUNGEON_VARIANT = BOOTSTRAP.registerSet(DEStructureIDs.DUNGEON_VARIANT, set -> set
                 .scatteredGridPlacement(24, 0.53f)
                 .simple("stone", s -> s
                         .step(GenerationStep.Decoration.UNDERGROUND_STRUCTURES)
@@ -151,10 +151,10 @@ public final class DEStructures {
                         )
                         .processors(DEProcessorLists.DUNGEON_VARIANT_DEEPSLATE)
                 )
-                .build();
+        );
 
-        ELDERS_TEMPLE = REGISTER.set(DEStructureIDs.ELDERS_TEMPLE)
-                .scatteredGridPlacement(b -> b.spacing(28).minChunksFromCenter(12))
+        ELDERS_TEMPLE = BOOTSTRAP.registerSet(DEStructureIDs.ELDERS_TEMPLE, set -> set
+                .scatteredGridPlacement(p -> p.spacing(28).minChunksFromCenter(12))
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_ELDERS_TEMPLE)
                         .oceanFloor()
@@ -171,28 +171,28 @@ public final class DEStructures {
                         .spawnOverride(MobCategory.MONSTER, new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.STRUCTURE, spawns(spawn(EntityType.GUARDIAN, 1, 2, 4))))
                         .noSpawns(StructureSpawnOverride.BoundingBoxType.STRUCTURE, MobCategory.UNDERGROUND_WATER_CREATURE, MobCategory.AXOLOTLS, MobCategory.WATER_AMBIENT, MobCategory.WATER_CREATURE)
                 )
-                .build();
+        );
 
-        FISHING_SHIP = REGISTER.set(DEStructureIDs.FISHING_SHIP)
-                .scatteredGridPlacement(b -> b.spacing(49).probability(0.62f).exclusionZone(DETags.Structures.FISHING_SHIP_EXCLUSION_ZONE, 12))
+        FISHING_SHIP = BOOTSTRAP.registerSet(DEStructureIDs.FISHING_SHIP, set -> set
+                .scatteredGridPlacement(p -> p.spacing(49).probability(0.62f).exclusionZone(DETags.Structures.FISHING_SHIP_EXCLUSION_ZONE, 10))
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_FISHING_SHIP)
                         .surface()
                         .single(b -> b.template("fishing_ship").yOffset(-3))
                 )
-                .build();
+        );
 
-        FLYING_DUTCHMAN = REGISTER.set(DEStructureIDs.FLYING_DUTCHMAN)
-                .scatteredGridPlacement(b -> b.spacing(137).probability(0.61f).minChunksFromCenter(12))
+        FLYING_DUTCHMAN = BOOTSTRAP.registerSet(DEStructureIDs.FLYING_DUTCHMAN, set -> set
+                .scatteredGridPlacement(p -> p.spacing(137).probability(0.61f).minChunksFromCenter(12))
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_FLYING_DUTCHMAN)
                         .between(HeightAnchor.surface(64), HeightAnchor.belowTop(24))
                         .single("flying_dutchman")
                 )
-                .build();
+        );
 
-        HAY_STORAGE = REGISTER.set(DEStructureIDs.HAY_STORAGE)
-                .scatteredGridPlacement(23, 0.77f)
+        HAY_STORAGE = BOOTSTRAP.registerSet(DEStructureIDs.HAY_STORAGE, set -> set
+                .scatteredGridPlacement(27, 0.77f)
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_HAY_STORAGE)
                         .surface()
@@ -201,18 +201,19 @@ public final class DEStructures {
                                 .single("hay_storage/big", 2))
                         .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                 )
-                .build();
+        );
 
-        ICE_PIT = REGISTER.set(DEStructureIDs.ICE_PIT)
-                .scatteredGridPlacement(b -> b.spacing(34).probability(0.77f).minChunksFromCenter(12))
+        ICE_PIT = BOOTSTRAP.registerSet(DEStructureIDs.ICE_PIT, set -> set
+                .evenSpreadPlacement(b -> b.minDistance(36).probability(0.77f).minChunksFromCenter(14))
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_ICE_PIT)
                         .surface()
                         .pieces(_ -> DEIcePitPieces.INSTANCE)
+                        .filterHeightRange(0, 110)
                 )
-                .build();
+        );
 
-        JUNGLE_MONUMENT = REGISTER.set(DEStructureIDs.JUNGLE_MONUMENT)
+        JUNGLE_MONUMENT = BOOTSTRAP.registerSet(DEStructureIDs.JUNGLE_MONUMENT, set -> set
                 .scatteredGridPlacement(46, 0.74f)
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_JUNGLE_MONUMENT)
@@ -221,9 +222,9 @@ public final class DEStructures {
                         .single(b -> b.template("jungle_monument").processors(DEProcessorLists.JUNGLE_MONUMENT).yOffset(-9))
                         .filterWithinBiome(12)
                 )
-                .build();
+        );
 
-        LARGE_DUNGEON = REGISTER.set(DEStructureIDs.LARGE_DUNGEON)
+        LARGE_DUNGEON = BOOTSTRAP.registerSet(DEStructureIDs.LARGE_DUNGEON, set -> set
                 .scatteredGridPlacement(p -> p.spacing(59).probability(0.56f))
                 .jigsaw(DETemplatePools.LARGE_DUNGEON, j -> j
                                 .size(5)
@@ -232,9 +233,9 @@ public final class DEStructures {
                         , s -> s
                                 .biomes(DETags.Biomes.HAS_LARGE_DUNGEON)
                 )
-                .build();
+        );
 
-        MINERS_HOUSE = REGISTER.set(DEStructureIDs.MINERS_HOUSE)
+        MINERS_HOUSE = BOOTSTRAP.registerSet(DEStructureIDs.MINERS_HOUSE, set -> set
                 .scatteredGridPlacement(24, 0.8f)
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_MINERS_HOUSE)
@@ -242,9 +243,9 @@ public final class DEStructures {
                         .single(DEStructureIDs.MINERS_HOUSE)
                         .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                 )
-                .build();
+        );
 
-        MONSTER_MAZE = REGISTER.set("monster_maze")
+        MONSTER_MAZE = BOOTSTRAP.registerSet("monster_maze", set -> set
                 .scatteredGridPlacement(p -> p.spacing(28).probability(0.62f).minChunksFromCenter(12))
                 .jigsaw("dark", DETemplatePools.MONSTER_MAZE_DARK, j -> j
                                 .size(11)
@@ -259,9 +260,9 @@ public final class DEStructures {
                         , s -> s
                                 .biomes(DETags.Biomes.HAS_MONSTER_MAZE_PALE)
                 )
-                .build();
+        );
 
-        MUSHROOM_HOUSE = REGISTER.set(DEStructureIDs.MUSHROOM_HOUSE)
+        MUSHROOM_HOUSE = BOOTSTRAP.registerSet(DEStructureIDs.MUSHROOM_HOUSE, set -> set
                 .scatteredGridPlacement(19, 0.83f)
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_MUSHROOM_HOUSE)
@@ -271,10 +272,10 @@ public final class DEStructures {
                                 .single(t -> t.template("mushroom_house/brown").terrainBox(TerrainBox.footprint()), 1))
                         .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                 )
-                .build();
+        );
 
-        PILLAGER_CAMP = REGISTER.set(DEStructureIDs.PILLAGER_CAMP)
-                .scatteredGridPlacement(p -> p.spacing(56).probability(0.39f).minChunksFromCenter(8).exclusionZone(DETags.Structures.PILLAGER_CAMP_EXCLUSION_ZONE, 12))
+        PILLAGER_CAMP = BOOTSTRAP.registerSet(DEStructureIDs.PILLAGER_CAMP, set -> set
+                .scatteredGridPlacement(p -> p.spacing(56).probability(0.39f).minChunksFromCenter(8).exclusionZone(DETags.Structures.PILLAGER_CAMP_EXCLUSION_ZONE, 10))
                 .jigsaw(DETemplatePools.PILLAGER_CAMP, j -> j
                                 .onSurface()
                                 .size(4)
@@ -284,9 +285,9 @@ public final class DEStructures {
                                 .terrainAdaptation(TerrainAdjustment.BEARD_BOX)
                                 .spawnOverride(MobCategory.MONSTER, new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.STRUCTURE, spawns(spawn(EntityType.PILLAGER, 4, 2, 3), spawn(EntityType.VINDICATOR, 2, 1, 2))))
                 )
-                .build();
+        );
 
-        PIRATE_SHIP = REGISTER.set(DEStructureIDs.PIRATE_SHIP)
+        PIRATE_SHIP = BOOTSTRAP.registerSet(DEStructureIDs.PIRATE_SHIP, set -> set
                 .scatteredGridPlacement(71, 0.42F)
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_PIRATE_SHIP)
@@ -297,9 +298,9 @@ public final class DEStructures {
                         .spawnOverride(MobCategory.MONSTER, new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.STRUCTURE, spawns(spawn(EntityType.PILLAGER, 4, 3, 4), spawn(EntityType.VINDICATOR, 3, 1, 2))))
                         .noSpawns(StructureSpawnOverride.BoundingBoxType.STRUCTURE, MobCategory.UNDERGROUND_WATER_CREATURE, MobCategory.AXOLOTLS, MobCategory.WATER_AMBIENT, MobCategory.WATER_CREATURE)
                 )
-                .build();
+        );
 
-        RUINED_BUILDING = REGISTER.set(DEStructureIDs.RUINED_BUILDING)
+        RUINED_BUILDING = BOOTSTRAP.registerSet(DEStructureIDs.RUINED_BUILDING, set -> set
                 .scatteredGridPlacement(27, 0.54f)
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_RUINED_BUILDING)
@@ -310,10 +311,10 @@ public final class DEStructures {
                                 .single(t -> t.template("ruined_building/house_big").yOffset(-1), 2))
                         .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                 )
-                .build();
+        );
 
-        STABLES = REGISTER.set(DEStructureIDs.STABLES)
-                .scatteredGridPlacement(53, 0.52f)
+        STABLES = BOOTSTRAP.registerSet(DEStructureIDs.STABLES, set -> set
+                .evenSpreadPlacement(b -> b.minDistance(50).probability(0.66f))
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_STABLES)
                         .surface()
@@ -322,10 +323,10 @@ public final class DEStructures {
                         .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                         .filterFlatness(8)
                 )
-                .build();
+        );
 
-        SUNKEN_SHRINE = REGISTER.set(DEStructureIDs.SUNKEN_SHRINE)
-                .scatteredGridPlacement(32, 0.55f)
+        SUNKEN_SHRINE = BOOTSTRAP.registerSet(DEStructureIDs.SUNKEN_SHRINE, set -> set
+                .evenSpreadPlacement(29, 0.55f)
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_SUNKEN_SHRINE)
                         .oceanFloor()
@@ -335,10 +336,10 @@ public final class DEStructures {
                         .processors(List.of(RemoveFoamProcessor.WATER))
                         .filterSubmerged(5)
                 )
-                .build();
+        );
 
-        TALL_WITCH_HUT = REGISTER.set(DEStructureIDs.TALL_WITCH_HUT)
-                .scatteredGridPlacement(23, 0.51f)
+        TALL_WITCH_HUT = BOOTSTRAP.registerSet(DEStructureIDs.TALL_WITCH_HUT, set -> set
+                .scatteredGridPlacement(25, 0.51f)
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_TALL_WITCH_HUT)
                         .surface()
@@ -346,21 +347,21 @@ public final class DEStructures {
                         .processors(List.of(RetainExistingProcessor.REPLACEABLE_ONLY))
                         .foundation()
                 )
-                .build();
+        );
 
 
-        TREE_HOUSE = REGISTER.set(DEStructureIDs.TREE_HOUSE)
-                .scatteredGridPlacement(29, 0.4f)
+        TREE_HOUSE = BOOTSTRAP.registerSet(DEStructureIDs.TREE_HOUSE, set -> set
+                .scatteredGridPlacement(31, 0.4f)
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_TREE_HOUSE)
                         .surface()
                         .single(t -> t.template("tree_house").terrainBox(TerrainBox.footprint()))
                         .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                 )
-                .build();
+        );
 
-        TOWER_OF_THE_UNDEAD = REGISTER.set(DEStructureIDs.TOWER_OF_THE_UNDEAD)
-                .scatteredGridPlacement(49, 0.65f)
+        TOWER_OF_THE_UNDEAD = BOOTSTRAP.registerSet(DEStructureIDs.TOWER_OF_THE_UNDEAD, set -> set
+                .evenSpreadPlacement(b -> b.minDistance(55).probability(0.65f))
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_TOWER_OF_THE_UNDEAD)
                         .surface()
@@ -369,19 +370,19 @@ public final class DEStructures {
                                 .single("tower_of_the_undead/big", 2))
                         .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                 )
-                .build();
+        );
 
-        WATCH_TOWER = REGISTER.set(DEStructureIDs.WATCH_TOWER)
-                .scatteredGridPlacement(27, 0.45f)
+        WATCH_TOWER = BOOTSTRAP.registerSet(DEStructureIDs.WATCH_TOWER, set -> set
+                .evenSpreadPlacement(40, 0.65f)
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_WATCH_TOWER)
                         .surface()
                         .single("watch_tower")
                         .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                 )
-                .build();
+        );
 
-        WITCH_TOWER = REGISTER.set(DEStructureIDs.WITCH_TOWER)
+        WITCH_TOWER = BOOTSTRAP.registerSet(DEStructureIDs.WITCH_TOWER, set -> set
                 .scatteredGridPlacement(54, 0.59f)
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_WITCH_TOWER)
@@ -391,11 +392,11 @@ public final class DEStructures {
                                 .single(t -> t.template("witch_tower/big").terrainBox(TerrainBox.footprint()), 2))
                         .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                 )
-                .build();
+        );
 
         // Nether
-        BLACK_CITADEL = REGISTER.set(DEStructureIDs.BLACK_CITADEL)
-                .scatteredGridPlacement(p -> p.spacing(69).probability(0.72f).exclusionZone(DETags.Structures.BLACK_CITADEL_EXCLUSION_ZONE, 12))
+        BLACK_CITADEL = BOOTSTRAP.registerSet(DEStructureIDs.BLACK_CITADEL, set -> set
+                .evenSpreadPlacement(p -> p.minDistance(65).probability(0.72f).exclusionZone(DETags.Structures.BLACK_CITADEL_EXCLUSION_ZONE, 8))
                 .jigsaw(DETemplatePools.BLACK_CITADEL, j -> j
                                 .size(6)
                                 .startHeight(28)
@@ -406,7 +407,7 @@ public final class DEStructures {
                                 .step(GenerationStep.Decoration.UNDERGROUND_STRUCTURES) // needs to generate after the basalt
                                 .terrainAdaptation(TerrainAdjustment.BEARD_BOX)
                 )
-                .build();
+        );
     }
 
     @SafeVarargs

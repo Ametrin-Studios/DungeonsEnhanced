@@ -8,6 +8,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 
 import java.util.function.BiConsumer;
 
@@ -196,7 +197,7 @@ public record DECastleChestLootProvider(HolderLookup.Provider registries) implem
                         .add(item(Items.IRON_INGOT).setWeight(20))
                         .add(item(Items.IRON_NUGGET, between(2, 5)).setWeight(15))
                 )
-                .withPool(LootPool.lootPool().setRolls(between(0, 2))
+                .withPool(LootPool.lootPool().setRolls(between(1, 2)).when(LootItemRandomChanceCondition.randomChance(0.7f))
                         .add(enchantedItem(Items.DIAMOND_SWORD, one(), registries).setWeight(4))
                         .add(enchantedItem(Items.DIAMOND_AXE, one(), registries).setWeight(4))
                         .add(enchantedItem(Items.DIAMOND_HELMET, one(), registries).setWeight(4))

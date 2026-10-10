@@ -39,7 +39,7 @@ public final class DEAdvancementProvider extends AdvancementProvider {
                     .hideToast().hideInChat()
                     .displayItem(Items.MAP)
                     .orCriteria()
-                    .onEnterAnyStructure("entered_dungeon_enhanced_structure", DEStructures.REGISTER.getAllStructures())
+                    .onEnterAnyStructure("entered_dungeon_enhanced_structure", DEStructures.BOOTSTRAP.getStructures())
                     .save(consumer);
 
             builder(provider, "hidden_under_roots")
@@ -130,7 +130,7 @@ public final class DEAdvancementProvider extends AdvancementProvider {
                     .parent(sevenWorldWonders)
                     .displayItem(Items.FILLED_MAP)
                     .type(AdvancementType.CHALLENGE)
-                    .onEnterAllStructures(DEStructures.REGISTER.getAllStructures())
+                    .onEnterAllStructures(DEStructures.BOOTSTRAP.getStructures())
                     .save(consumer);
         }
     }

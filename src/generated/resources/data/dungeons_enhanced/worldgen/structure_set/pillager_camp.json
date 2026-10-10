@@ -2,7 +2,7 @@
   "placement": {
     "type": "ametrin_structures:scattered_grid",
     "exclusion_zone": {
-      "chunk_count": 12,
+      "chunk_count": 10,
       "structures": "dungeons_enhanced:exclusion_zone/pillager_camp"
     },
     "min_chunks_from_center": 8,

@@ -65,6 +65,12 @@
     },
     {
       "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "chance": 0.7,
+          "condition": "minecraft:random_chance"
+        }
+      ],
       "entries": [
         {
           "type": "minecraft:item",
@@ -136,7 +142,7 @@
       "rolls": {
         "type": "minecraft:uniform",
         "max": 2.0,
-        "min": 0.0
+        "min": 1.0
       }
     }
   ],

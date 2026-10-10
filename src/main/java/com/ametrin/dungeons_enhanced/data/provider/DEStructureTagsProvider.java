@@ -20,7 +20,7 @@ public final class DEStructureTagsProvider extends StructureTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         tag(ASTags.Structures.LAKE_PROOF)
-                .addAll(DEStructures.REGISTER.getAllStructures())
+                .addAll(DEStructures.BOOTSTRAP.getStructures())
         ;
         tag(DETags.Structures.DUNGEON_VARIANT).addAll(DEStructures.DUNGEON_VARIANT.structures().values());
         tag(DETags.Structures.MONSTER_MAZE).addAll(DEStructures.MONSTER_MAZE.structures().values());

@@ -1,14 +1,13 @@
 {
   "placement": {
-    "type": "ametrin_structures:scattered_grid",
+    "type": "ametrin_structures:even_spread",
     "exclusion_zone": {
-      "chunk_count": 12,
+      "chunk_count": 8,
       "structures": "dungeons_enhanced:exclusion_zone/black_citadel"
     },
+    "min_distance": 65,
     "probability": 0.72,
-    "random_offset": 48,
-    "salt": -1799929244,
-    "spacing": 69
+    "salt": -1799929244
   },
   "structures": [
     {

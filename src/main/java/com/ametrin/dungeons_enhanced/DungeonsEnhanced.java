@@ -17,7 +17,6 @@ public final class DungeonsEnhanced {
 
     public DungeonsEnhanced(IEventBus modEventBus, ModContainer container) {
         modEventBus.addListener(DungeonsEnhanced::gatherData);
-        DEStructures.REGISTER.register(modEventBus);
         DEPieceSources.REGISTER.register(modEventBus);
         DEProcessorTypes.REGISTER.register(modEventBus);
     }
@@ -30,7 +29,7 @@ public final class DungeonsEnhanced {
                 .add(ASRegistries.FIXTURE_PRESET, DEFixturePresets::bootstrap)
                 .add(ASRegistries.SPAWNER_PROFILE, DESpawnerProfiles::bootstrap)
                 .add(Registries.TRIAL_SPAWNER_CONFIG, DETrialSpawnerConfigs::bootstrap);
-        DEStructures.REGISTER.bootstrap(builder);
+        DEStructures.BOOTSTRAP.addTo(builder);
 
         event.createDatapackRegistryObjects(builder);
 

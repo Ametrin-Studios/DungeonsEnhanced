@@ -18,7 +18,7 @@
                 "min": 14,
                 "max": 18
               },
-              "treasure": true,
+              "options": "#minecraft:on_random_loot",
               "conditions": [
                 {
                   "condition": "minecraft:random_chance",
@@ -228,7 +228,7 @@
         {
           "function": "minecraft:enchant_with_levels",
           "levels": 30,
-          "treasure": true,
+          "options": "#minecraft:on_random_loot",
           "conditions": [
             {
               "condition": "minecraft:random_chance",

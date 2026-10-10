@@ -1,6 +1,13 @@
 {
   "type": "ametrin_structures:simple",
   "biomes": "#dungeons_enhanced:has_structure/ice_pit",
+  "filters": [
+    {
+      "type": "ametrin_structures:height_range",
+      "max": 110,
+      "min": 0
+    }
+  ],
   "pieces": {
     "type": "dungeons_enhanced:ice_pit"
   },
