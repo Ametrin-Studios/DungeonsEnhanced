@@ -23,17 +23,40 @@ All file references below are in `data/dungeons_enhanced`.
 All default files (loot tables, structures, processors, advancements, …) are in [src/generated/resources/data/dungeons_enhanced](src/generated/resources/data/dungeons_enhanced). Copy any additional file you need into your data pack at the same path to overwrite it.
 
 ## How often structures spawn
+
 Files: `worldgen/structure_set/<structure>.json`
 
-| field                    | meaning                                                                                  |
-|--------------------------|------------------------------------------------------------------------------------------|
-| `spacing`                | average distance (in chunks) between spawn attempts. Bigger = rarer                      |
-| `random_offset`          | random offset of each attempt (in chunks). Must be lower than `spacing`. 0 = strict grid |
-| `probability`            | chance an attempt succeeds (0 to 1). Smaller = rarer                                     |
-| `min_chunks_from_center` | no spawns closer than this (in chunks) to the world center (0, 0)                        |
-| `weight`                 | how often each structure is picked if a set has several                                  |
+The `placement` decides where a structure set tries to spawn. Its `type` tells you which of the two placements below the set uses.
 
-Leave `salt` and `type` alone.
+### Even spread (`"type": "ametrin_structures:even_spread"`)
+
+Spawn attempts are spread evenly, with no visible pattern.
+
+| field | meaning |
+|---|---|
+| `min_distance` | minimum distance (in chunks) between spawn attempts. On average they're about 1.3 times this apart. Bigger = rarer |
+| `probability` | chance an attempt succeeds (0 to 1). Smaller = rarer |
+| `min_chunks_from_center` | no spawns closer than this (in chunks) to the world center (0, 0) |
+
+### Scattered grid (`"type": "ametrin_structures:scattered_grid"`)
+
+The world is split into a grid, with one spawn attempt per cell.
+
+| field | meaning |
+|---|---|
+| `spacing` | size of a grid cell (in chunks), so also the average distance between spawn attempts. Bigger = rarer |
+| `random_offset` | how far (in chunks) an attempt can move away from its cell corner. Must be lower than `spacing`. 0 = strict grid |
+| `probability` | chance an attempt succeeds (0 to 1). Smaller = rarer |
+| `min_chunks_from_center` | no spawns closer than this (in chunks) to the world center (0, 0) |
+
+### Both
+
+| field | meaning |
+|---|---|
+| `exclusion_zone` | optional. Keeps the structure away from other structures: `structures` is a structure tag like `"#minecraft:village"`, `chunk_count` is the distance in chunks (1 to 16) |
+| `weight` | in the `structures` list: how often each structure is picked if a set has several |
+
+Leave `salt` and `type` alone. Changing `type` would also mean swapping the fields.
 
 ## Where structures spawn
 Files: `tags/worldgen/biome/has_structure/<structure>.json`
