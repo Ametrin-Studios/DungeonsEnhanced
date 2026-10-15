@@ -1,6 +1,8 @@
 ## 7.0.1-beta
 - Castle guard and Flying Dutchman spawner now spawn in any light level  
+- translation updates
 - tons of tweaks and adjustments
+- requires Ametrin Structures 0.2.0-beta or above
 
 ## 7.0.0-beta
 - **upgrading existing worlds is discouraged**
