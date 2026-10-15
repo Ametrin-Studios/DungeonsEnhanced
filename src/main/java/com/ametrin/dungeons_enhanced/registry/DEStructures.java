@@ -27,6 +27,8 @@ import java.util.List;
 public final class DEStructures {
     public static final StructureBootstrap BOOTSTRAP = new StructureBootstrap(DungeonsEnhanced.MOD_ID);
 
+    // update ambitious explorer advancement separately
+
     // Overworld
     public static final StructureSetKeys CASTLE;
     public static final StructureSetKeys DEEP_CRYPT;

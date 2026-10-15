@@ -97,7 +97,7 @@
       },
       "trigger": "minecraft:location"
     },
-    "entered_dungeon_variant_deepslate": {
+    "entered_dungeon_variant": {
       "conditions": {
         "player": [
           {
@@ -105,23 +105,10 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structures": "dungeons_enhanced:dungeon_variant/deepslate"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
-    "entered_dungeon_variant_stone": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "structures": "dungeons_enhanced:dungeon_variant/stone"
+                "structures": [
+                  "dungeons_enhanced:dungeon_variant/stone",
+                  "dungeons_enhanced:dungeon_variant/deepslate"
+                ]
               }
             }
           }
@@ -257,7 +244,7 @@
       },
       "trigger": "minecraft:location"
     },
-    "entered_monster_maze_dark": {
+    "entered_monster_maze": {
       "conditions": {
         "player": [
           {
@@ -265,23 +252,10 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structures": "dungeons_enhanced:monster_maze/dark"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
-    "entered_monster_maze_pale": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "structures": "dungeons_enhanced:monster_maze/pale"
+                "structures": [
+                  "dungeons_enhanced:monster_maze/dark",
+                  "dungeons_enhanced:monster_maze/pale"
+                ]
               }
             }
           }
@@ -480,9 +454,6 @@
   },
   "requirements": [
     [
-      "entered_black_citadel"
-    ],
-    [
       "entered_castle"
     ],
     [
@@ -498,10 +469,7 @@
       "entered_druid_circle"
     ],
     [
-      "entered_dungeon_variant_deepslate"
-    ],
-    [
-      "entered_dungeon_variant_stone"
+      "entered_dungeon_variant"
     ],
     [
       "entered_elders_temple"
@@ -528,10 +496,7 @@
       "entered_miners_house"
     ],
     [
-      "entered_monster_maze_dark"
-    ],
-    [
-      "entered_monster_maze_pale"
+      "entered_monster_maze"
     ],
     [
       "entered_mushroom_house"
@@ -555,16 +520,19 @@
       "entered_tall_witch_hut"
     ],
     [
-      "entered_tower_of_the_undead"
+      "entered_tree_house"
     ],
     [
-      "entered_tree_house"
+      "entered_tower_of_the_undead"
     ],
     [
       "entered_watch_tower"
     ],
     [
       "entered_witch_tower"
+    ],
+    [
+      "entered_black_citadel"
     ]
   ]
 }

@@ -22,8 +22,8 @@ public final class DEStructureTagsProvider extends StructureTagsProvider {
         tag(ASTags.Structures.LAKE_PROOF)
                 .addAll(DEStructures.BOOTSTRAP.getStructures())
         ;
-        tag(DETags.Structures.DUNGEON_VARIANT).addAll(DEStructures.DUNGEON_VARIANT.structures().values());
-        tag(DETags.Structures.MONSTER_MAZE).addAll(DEStructures.MONSTER_MAZE.structures().values());
+        tag(DETags.Structures.DUNGEON_VARIANT).addAll(DEStructures.DUNGEON_VARIANT.structures());
+        tag(DETags.Structures.MONSTER_MAZE).addAll(DEStructures.MONSTER_MAZE.structures());
         tag(DETags.Structures.ON_CASTLE_EXPLORER_MAPS).add(DEStructures.CASTLE.structure());
         tag(DETags.Structures.ON_ELDER_EXPLORER_MAPS).add(DEStructures.ELDERS_TEMPLE.structure());
         tag(DETags.Structures.ON_DESERT_EXPLORER_MAPS).add(DEStructures.DESERT_TEMPLE.structure());
