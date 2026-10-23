@@ -4,7 +4,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/dark_tree",
-        "processors": "dungeons_enhanced:monster_maze/default",
+        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 1

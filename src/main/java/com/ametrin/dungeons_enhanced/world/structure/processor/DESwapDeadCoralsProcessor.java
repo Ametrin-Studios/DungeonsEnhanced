@@ -11,10 +11,8 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlac
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessor;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Map;
 
 public final class DESwapDeadCoralsProcessor extends StructureProcessor {
@@ -50,7 +48,6 @@ public final class DESwapDeadCoralsProcessor extends StructureProcessor {
     private DESwapDeadCoralsProcessor() { }
 
     @Override
-    @ParametersAreNonnullByDefault
     public StructureTemplate.StructureBlockInfo process(LevelReader level, BlockPos pos, BlockPos pos2, StructureTemplate.StructureBlockInfo existing, StructureTemplate.StructureBlockInfo placed, StructurePlaceSettings settings, @Nullable StructureTemplate template) {
         if (!DEATH_TO_LIVING_CORAL.containsKey(placed.state().getBlock())) return placed;
 
@@ -59,7 +56,6 @@ public final class DESwapDeadCoralsProcessor extends StructureProcessor {
     }
 
     @Override
-    @NotNull
     protected StructureProcessorType<?> getType() {
         return DEProcessorTypes.SWAP_DEAD_CORALS_PROCESSOR.get();
     }

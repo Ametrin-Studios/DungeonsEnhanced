@@ -255,12 +255,14 @@ public final class DEStructures {
                                 .startHeight(-26)
                         , s -> s
                                 .biomes(DETags.Biomes.HAS_MONSTER_MAZE_DARK)
+                                .processors(DEProcessorLists.MONSTER_MAZE)
                 ).jigsaw("pale", DETemplatePools.MONSTER_MAZE_PALE, j -> j
                                 .size(11)
                                 .onSurface()
-                                .startHeight(-26)
+                                .startHeight(-32)
                         , s -> s
                                 .biomes(DETags.Biomes.HAS_MONSTER_MAZE_PALE)
+                                .processors(DEProcessorLists.MONSTER_MAZE_PALE)
                 )
         );
 

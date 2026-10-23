@@ -4,7 +4,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/edge1",
-        "processors": "dungeons_enhanced:monster_maze/default",
+        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 4
@@ -13,7 +13,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/edge2",
-        "processors": "dungeons_enhanced:monster_maze/default",
+        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 4
@@ -22,7 +22,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/room1",
-        "processors": "dungeons_enhanced:monster_maze/default",
+        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 3
@@ -31,7 +31,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/room2",
-        "processors": "dungeons_enhanced:monster_maze/default",
+        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 3
@@ -40,7 +40,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/room3",
-        "processors": "dungeons_enhanced:monster_maze/default",
+        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 3
@@ -49,7 +49,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/small1",
-        "processors": "dungeons_enhanced:monster_maze/default",
+        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 2
@@ -58,7 +58,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/small2",
-        "processors": "dungeons_enhanced:monster_maze/default",
+        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 2
@@ -67,7 +67,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/small3",
-        "processors": "dungeons_enhanced:monster_maze/default",
+        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 2
@@ -76,7 +76,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/big1",
-        "processors": "dungeons_enhanced:monster_maze/default",
+        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 3
@@ -85,7 +85,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/big2",
-        "processors": "dungeons_enhanced:monster_maze/default",
+        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 3
@@ -94,7 +94,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/big3",
-        "processors": "dungeons_enhanced:monster_maze/default",
+        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 3
@@ -103,7 +103,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/big4",
-        "processors": "dungeons_enhanced:monster_maze/default",
+        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 3
@@ -112,7 +112,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/big5",
-        "processors": "dungeons_enhanced:monster_maze/default",
+        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 3
@@ -121,7 +121,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/cross1",
-        "processors": "dungeons_enhanced:monster_maze/default",
+        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 5
@@ -130,7 +130,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/tunnels/cross2",
-        "processors": "dungeons_enhanced:monster_maze/default",
+        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 5
@@ -139,7 +139,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/big_room",
-        "processors": "dungeons_enhanced:monster_maze/default",
+        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 2
@@ -148,7 +148,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/church",
-        "processors": "dungeons_enhanced:monster_maze/default",
+        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 2
@@ -157,7 +157,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/prison",
-        "processors": "dungeons_enhanced:monster_maze/default",
+        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 2
@@ -166,7 +166,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/room1",
-        "processors": "dungeons_enhanced:monster_maze/default",
+        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 2
@@ -175,7 +175,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/storage",
-        "processors": "dungeons_enhanced:monster_maze/default",
+        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 2
@@ -184,7 +184,7 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/brewery",
-        "processors": "dungeons_enhanced:monster_maze/default",
+        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 2

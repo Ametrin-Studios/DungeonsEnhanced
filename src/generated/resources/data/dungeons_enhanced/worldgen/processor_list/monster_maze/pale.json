@@ -1,0 +1,10 @@
+{
+  "processors": [
+    {
+      "processor_type": "dungeons_enhanced:pale_monster_maze"
+    },
+    {
+      "processor_type": "ametrin_structures:remove_unsupported"
+    }
+  ]
+}

@@ -9,7 +9,6 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.EquipmentTable;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootTable;
 
@@ -26,31 +25,31 @@ public final class DESpawnerProfiles {
                 .build());
 
         context.register(key("monster_maze/default"), SpawnerProfile.builder()
-                .add(createSpawnDataWithEquipment(EntityType.ZOMBIE, DELootTables.MonsterMaze.EQUIPMENT_ZOMBIE), 1)
-                .add(createSpawnDataWithEquipment(EntityType.SKELETON, DELootTables.MonsterMaze.EQUIPMENT_SKELETON), 1)
-                .add(SpawnDataBuilder.of(EntityDataBuilder.of(EntityType.SPIDER).passenger(EntityDataBuilder.of(EntityType.SKELETON).equip(EquipmentSlot.MAINHAND, Items.BOW))), 1)
-                .add(EntityType.CAVE_SPIDER, 1)
+                .add(createSpawnDataWithEquipment(EntityType.ZOMBIE, DELootTables.MonsterMaze.EQUIPMENT_ZOMBIE).noLightLimit(), 1)
+                .add(createSpawnDataWithEquipment(EntityType.SKELETON, DELootTables.MonsterMaze.EQUIPMENT_SKELETON).noLightLimit(), 1)
+                .add(SpawnDataBuilder.of(EntityDataBuilder.of(EntityType.SPIDER).passenger(EntityDataBuilder.of(EntityType.SKELETON).equip(EquipmentSlot.MAINHAND, Items.BOW))).noLightLimit(), 1)
+                .add(SpawnDataBuilder.of(EntityType.CAVE_SPIDER).noLightLimit(), 1)
                 .build());
 
         context.register(key("monster_maze/brewery"), SpawnerProfile.builder()
-                .add(EntityType.ZOMBIE, 1)
-                .add(EntityType.SKELETON, 1)
-                .add(EntityType.SPIDER, 1)
-                .add(EntityType.CAVE_SPIDER, 1)
+                .add(SpawnDataBuilder.of(EntityType.ZOMBIE).noLightLimit(), 1)
+                .add(SpawnDataBuilder.of(EntityType.SKELETON).noLightLimit(), 1)
+                .add(SpawnDataBuilder.of(EntityType.SPIDER).noLightLimit(), 1)
+                .add(SpawnDataBuilder.of(EntityType.CAVE_SPIDER).noLightLimit(), 1)
                 .build());
 
         context.register(key("monster_maze/church"), SpawnerProfile.builder()
-                .add(createSpawnDataWithEquipment(EntityType.ZOMBIE, DELootTables.MonsterMaze.EQUIPMENT_ZOMBIE), 3)
-                .add(EntityType.SKELETON, 2)
-                .add(EntityType.SPIDER, 1)
-                .add(EntityType.CAVE_SPIDER, 1)
+                .add(createSpawnDataWithEquipment(EntityType.ZOMBIE, DELootTables.MonsterMaze.EQUIPMENT_ZOMBIE).noLightLimit(), 3)
+                .add(SpawnDataBuilder.of(EntityType.SKELETON).noLightLimit(), 2)
+                .add(SpawnDataBuilder.of(EntityType.SPIDER).noLightLimit(), 1)
+                .add(SpawnDataBuilder.of(EntityType.CAVE_SPIDER).noLightLimit(), 1)
                 .build());
 
         context.register(key("monster_maze/prison"), SpawnerProfile.builder()
-                .add(createSpawnDataWithEquipment(EntityType.ZOMBIE, DELootTables.MonsterMaze.EQUIPMENT_PRISON_ZOMBIE), 3)
-                .add(EntityType.SKELETON, 2)
-                .add(EntityType.SPIDER, 1)
-                .add(EntityType.CAVE_SPIDER, 1)
+                .add(createSpawnDataWithEquipment(EntityType.ZOMBIE, DELootTables.MonsterMaze.EQUIPMENT_PRISON_ZOMBIE).noLightLimit(), 3)
+                .add(SpawnDataBuilder.of(EntityType.SKELETON).noLightLimit(), 2)
+                .add(SpawnDataBuilder.of(EntityType.SPIDER).noLightLimit(), 1)
+                .add(SpawnDataBuilder.of(EntityType.CAVE_SPIDER).noLightLimit(), 1)
                 .build());
 
         context.register(key("flying_dutchman"), SpawnerProfile.builder()
@@ -68,10 +67,6 @@ public final class DESpawnerProfiles {
     }
 
     private static SpawnDataBuilder createSpawnDataWithEquipment(EntityType<?> entityType, ResourceKey<LootTable> equipmentTable) {
-        return createSpawnDataWithEquipment(entityType, new EquipmentTable(equipmentTable, 0.085f));
-    }
-
-    private static SpawnDataBuilder createSpawnDataWithEquipment(EntityType<?> entityType, EquipmentTable equipmentTable) {
         return SpawnDataBuilder.of(entityType).equipment(equipmentTable);
     }
 

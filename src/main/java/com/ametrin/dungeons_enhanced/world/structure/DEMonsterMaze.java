@@ -1,7 +1,6 @@
 package com.ametrin.dungeons_enhanced.world.structure;
 
 import com.ametrin.dungeons_enhanced.DungeonsEnhanced;
-import com.ametrin.dungeons_enhanced.registry.DEProcessorLists;
 import com.ametrin.structures.structure.jigsaw.JigsawPools;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
@@ -14,8 +13,6 @@ public final class DEMonsterMaze {
 
         builder.pool("dark_root", p -> p.element("dark_root"));
         builder.pool("pale_root", p -> p.element("pale_root"));
-
-        builder.defaultElementSettings(e -> e.processors(DEProcessorLists.MONSTER_MAZE));
 
         builder.pool("dark_tree", p -> p.element("dark_tree"));
         builder.pool("pale_tree", p -> p.element("pale_tree"));
