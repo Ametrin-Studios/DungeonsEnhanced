@@ -6,6 +6,7 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.DyedItemColor;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -16,6 +17,7 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.functions.SetComponentsFunction;
 import net.minecraft.world.level.storage.loot.functions.SetEnchantmentsFunction;
+import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 
 import java.util.function.BiConsumer;
 
@@ -166,6 +168,34 @@ public record DEEquipmentLootProvider(HolderLookup.Provider registries) implemen
                         .add(item(Items.CHAINMAIL_BOOTS).setWeight(2))
                         .add(item(Items.IRON_BOOTS))
                         .add(empty(1))
+                )
+        );
+
+        var black = new DyedItemColor(DyeColor.BLACK.getTextureDiffuseColor() & 0xFFFFFF);
+        var red = new DyedItemColor(DyeColor.RED.getTextureDiffuseColor() & 0xFFFFFF);
+        output.accept(DELootTables.DeepCrypt.EQUIPMENT_SKELETON, LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(item(Items.BOW).setWeight(3))
+                        .add(item(Items.STONE_SWORD))
+                        .add(item(Items.STONE_SPEAR))
+                        .add(item(Items.COPPER_SWORD))
+                        .add(item(Items.IRON_SWORD))
+                )
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(item(Items.LEATHER_HELMET).apply(SetComponentsFunction.setComponent(DataComponents.DYED_COLOR, black)).setWeight(2))
+                        .add(item(Items.LEATHER_HELMET).apply(SetComponentsFunction.setComponent(DataComponents.DYED_COLOR, red)))
+                        .when(LootItemRandomChanceCondition.randomChance(0.75f))
+                )
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(item(Items.LEATHER_CHESTPLATE).apply(SetComponentsFunction.setComponent(DataComponents.DYED_COLOR, black)))
+                )
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(item(Items.LEATHER_LEGGINGS).apply(SetComponentsFunction.setComponent(DataComponents.DYED_COLOR, black)).setWeight(2))
+                        .add(item(Items.LEATHER_LEGGINGS).apply(SetComponentsFunction.setComponent(DataComponents.DYED_COLOR, red)))
+                )
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(item(Items.LEATHER_BOOTS).apply(SetComponentsFunction.setComponent(DataComponents.DYED_COLOR, black)))
+                        .when(LootItemRandomChanceCondition.randomChance(0.75f))
                 )
         );
 

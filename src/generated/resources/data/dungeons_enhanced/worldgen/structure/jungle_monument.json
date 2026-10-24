@@ -7,7 +7,6 @@
       "margin": 12
     }
   ],
-  "height_mode": "mean",
   "pieces": {
     "offset": [
       0,
@@ -18,5 +17,9 @@
     "template": "dungeons_enhanced:jungle_monument"
   },
   "spawn_overrides": {},
+  "start_height": {
+    "heightmap": "WORLD_SURFACE_WG",
+    "mode": "corners_mean"
+  },
   "step": "surface_structures"
 }

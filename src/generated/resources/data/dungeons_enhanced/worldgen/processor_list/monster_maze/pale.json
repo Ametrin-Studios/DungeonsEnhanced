@@ -5,6 +5,14 @@
     },
     {
       "processor_type": "ametrin_structures:remove_unsupported"
+    },
+    {
+      "chance": 0.2,
+      "change_to": {
+        "Name": "minecraft:cracked_stone_bricks"
+      },
+      "condition": "minecraft:stone_bricks",
+      "processor_type": "ametrin_structures:replace_block"
     }
   ]
 }

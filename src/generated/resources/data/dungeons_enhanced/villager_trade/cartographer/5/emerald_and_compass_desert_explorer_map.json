@@ -4,18 +4,22 @@
   },
   "given_item_modifiers": [
     {
-      "decoration": "minecraft:target_x",
-      "destination": "dungeons_enhanced:on_desert_explorer_maps",
-      "function": "minecraft:exploration_map",
-      "search_radius": 100,
-      "skip_existing_chunks": false
-    },
-    {
-      "function": "minecraft:set_name",
-      "name": {
-        "translate": "filled_map.dungeons_enhanced.desert_temple"
-      },
-      "target": "item_name"
+      "function": "minecraft:sequence",
+      "functions": [
+        {
+          "decoration": "minecraft:target_x",
+          "destination": "dungeons_enhanced:on_desert_temple_explorer_maps",
+          "function": "minecraft:exploration_map",
+          "skip_existing_chunks": false
+        },
+        {
+          "function": "minecraft:set_name",
+          "name": {
+            "translate": "filled_map.dungeons_enhanced.desert_temple"
+          },
+          "target": "item_name"
+        }
+      ]
     },
     {
       "function": "minecraft:filtered",

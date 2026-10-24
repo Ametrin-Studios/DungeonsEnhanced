@@ -8,7 +8,6 @@
     }
   ],
   "foundation": {},
-  "height_mode": "mean",
   "pieces": {
     "type": "ametrin_structures:compound",
     "sources": [
@@ -87,7 +86,8 @@
     }
   },
   "start_height": {
-    "heightmap": "OCEAN_FLOOR_WG"
+    "heightmap": "OCEAN_FLOOR_WG",
+    "mode": "corners_mean"
   },
   "step": "surface_structures"
 }

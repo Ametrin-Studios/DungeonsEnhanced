@@ -72,9 +72,12 @@ public final class DETags {
         TagKey<Structure> DUNGEON_VARIANT = create(DEStructureIDs.DUNGEON_VARIANT);
         TagKey<Structure> MONSTER_MAZE = create(DEStructureIDs.MONSTER_MAZE);
         TagKey<Structure> ON_CASTLE_EXPLORER_MAPS = create("on_castle_explorer_maps");
-        TagKey<Structure> ON_ELDER_EXPLORER_MAPS = create("on_elder_explorer_maps");
-        TagKey<Structure> ON_DESERT_EXPLORER_MAPS = create("on_desert_explorer_maps");
+        TagKey<Structure> ON_DEEP_CRYPT_EXPLORER_MAPS = create("on_deep_crypt_explorer_maps");
+        TagKey<Structure> ON_DESERT_TEMPLE_EXPLORER_MAPS = create("on_desert_temple_explorer_maps");
+        TagKey<Structure> ON_ELDERS_TEMPLE_EXPLORER_MAPS = create("on_elders_temple_explorer_maps");
+        TagKey<Structure> ON_JUNGLE_MONUMENT_EXPLORER_MAPS = create("on_jungle_monument_explorer_maps");
         TagKey<Structure> ON_MONSTER_MAZE_EXPLORER_MAPS = create("on_monster_maze_explorer_maps");
+        TagKey<Structure> ON_MUSHROOM_HOUSE_EXPLORER_MAPS = create("on_mushroom_house_explorer_maps");
 
         TagKey<Structure> FISHING_SHIP_EXCLUSION_ZONE = create("exclusion_zone/" + DEStructureIDs.FISHING_SHIP);
         TagKey<Structure> PILLAGER_CAMP_EXCLUSION_ZONE = create("exclusion_zone/" + DEStructureIDs.PILLAGER_CAMP);

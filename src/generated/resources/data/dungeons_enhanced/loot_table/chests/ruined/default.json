@@ -305,6 +305,137 @@
         "max": 10.0,
         "min": 6.0
       }
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "chance": 0.75,
+          "condition": "minecraft:random_chance"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:sequence",
+              "functions": [
+                {
+                  "decoration": "minecraft:target_x",
+                  "destination": "dungeons_enhanced:on_castle_explorer_maps",
+                  "function": "minecraft:exploration_map",
+                  "skip_existing_chunks": false
+                },
+                {
+                  "function": "minecraft:set_name",
+                  "name": {
+                    "translate": "filled_map.dungeons_enhanced.castle"
+                  },
+                  "target": "item_name"
+                }
+              ]
+            }
+          ],
+          "name": "minecraft:map"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:sequence",
+              "functions": [
+                {
+                  "decoration": "minecraft:target_x",
+                  "destination": "dungeons_enhanced:on_deep_crypt_explorer_maps",
+                  "function": "minecraft:exploration_map"
+                },
+                {
+                  "function": "minecraft:set_name",
+                  "name": {
+                    "translate": "filled_map.dungeons_enhanced.deep_crypt"
+                  },
+                  "target": "item_name"
+                }
+              ]
+            }
+          ],
+          "name": "minecraft:map"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:sequence",
+              "functions": [
+                {
+                  "decoration": "minecraft:jungle_temple",
+                  "destination": "dungeons_enhanced:on_jungle_monument_explorer_maps",
+                  "function": "minecraft:exploration_map",
+                  "skip_existing_chunks": false
+                },
+                {
+                  "function": "minecraft:set_name",
+                  "name": {
+                    "translate": "filled_map.dungeons_enhanced.jungle_monument"
+                  },
+                  "target": "item_name"
+                }
+              ]
+            }
+          ],
+          "name": "minecraft:map"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:sequence",
+              "functions": [
+                {
+                  "decoration": "minecraft:target_x",
+                  "destination": "dungeons_enhanced:on_monster_maze_explorer_maps",
+                  "function": "minecraft:exploration_map",
+                  "skip_existing_chunks": false
+                },
+                {
+                  "function": "minecraft:set_name",
+                  "name": {
+                    "translate": "filled_map.dungeons_enhanced.monster_maze"
+                  },
+                  "target": "item_name"
+                }
+              ]
+            }
+          ],
+          "name": "minecraft:map"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:sequence",
+              "functions": [
+                {
+                  "decoration": "minecraft:target_x",
+                  "destination": "dungeons_enhanced:on_mushroom_house_explorer_maps",
+                  "function": "minecraft:exploration_map",
+                  "skip_existing_chunks": false
+                },
+                {
+                  "function": "minecraft:set_name",
+                  "name": {
+                    "translate": "filled_map.dungeons_enhanced.mushroom_house"
+                  },
+                  "target": "item_name"
+                }
+              ]
+            }
+          ],
+          "name": "minecraft:map"
+        }
+      ],
+      "rolls": 1.0
     }
   ],
   "random_sequence": "dungeons_enhanced:chests/ruined/default"

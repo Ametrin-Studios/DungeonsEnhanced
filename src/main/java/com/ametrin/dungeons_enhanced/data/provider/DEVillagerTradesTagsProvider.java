@@ -16,7 +16,7 @@ public final class DEVillagerTradesTagsProvider extends VillagerTradesTagsProvid
     @Override
     protected void addTags(HolderLookup.Provider registries) {
         tag(VillagerTradeTags.CARTOGRAPHER_LEVEL_2)
-                .add(DEVillagerTrades.ELDER_EXPLORER_MAP_TRADE)
+                .add(DEVillagerTrades.ELDERS_EXPLORER_MAP_TRADE)
         ;
 
         tag(VillagerTradeTags.CARTOGRAPHER_LEVEL_3)

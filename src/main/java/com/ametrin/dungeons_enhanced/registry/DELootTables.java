@@ -25,7 +25,10 @@ public interface DELootTables {
         ResourceKey<LootTable> BREWING_STAND = create("brewing/castle");
     }
 
-    ResourceKey<LootTable> DEEP_CRYPT = chest("deep_crypt");
+    interface DeepCrypt {
+        ResourceKey<LootTable> HALL = chest("deep_crypt/hall");
+        ResourceKey<LootTable> EQUIPMENT_SKELETON = create("equipment/deep_crypt/skeleton");
+    }
 
     interface DesertTemple {
         ResourceKey<LootTable> COFFIN = chest("desert_temple/coffin");

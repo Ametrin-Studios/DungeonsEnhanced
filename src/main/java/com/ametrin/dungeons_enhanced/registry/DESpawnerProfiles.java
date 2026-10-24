@@ -24,6 +24,10 @@ public final class DESpawnerProfiles {
                 .add(createSpawnDataWithEquipment(EntityType.SKELETON, DELootTables.Castle.EQUIPMENT_SKELETON), 2)
                 .build());
 
+        context.register(key("deep_crypt"), SpawnerProfile.builder()
+                .add(createSpawnDataWithEquipment(EntityType.SKELETON, DELootTables.DeepCrypt.EQUIPMENT_SKELETON), 1)
+                .build());
+
         context.register(key("monster_maze/default"), SpawnerProfile.builder()
                 .add(createSpawnDataWithEquipment(EntityType.ZOMBIE, DELootTables.MonsterMaze.EQUIPMENT_ZOMBIE).noLightLimit(), 1)
                 .add(createSpawnDataWithEquipment(EntityType.SKELETON, DELootTables.MonsterMaze.EQUIPMENT_SKELETON).noLightLimit(), 1)

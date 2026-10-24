@@ -7,7 +7,6 @@
       "max_variance": 8
     }
   ],
-  "height_mode": "mean",
   "pieces": {
     "type": "ametrin_structures:weighted",
     "sources": [
@@ -36,6 +35,10 @@
     ]
   },
   "spawn_overrides": {},
+  "start_height": {
+    "heightmap": "WORLD_SURFACE_WG",
+    "mode": "corners_mean"
+  },
   "step": "surface_structures",
   "terrain_adaptation": "beard_box"
 }

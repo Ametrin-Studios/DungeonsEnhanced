@@ -68,8 +68,7 @@ public final class DEStructures {
                 .evenSpreadPlacement(p -> p.minDistance(39).probability(0.74f).minChunksFromCenter(14))
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_CASTLE)
-                        .surface()
-                        .verticalPlacementMode(HeightMode.MEAN)
+                        .surface(0, HeightMode.CORNERS_MEAN)
                         .filterFlatness(8)
                         .weighted(b -> b
                                 .single(t -> t.template("castle/blue").offset(0, -5, 0), 1)
@@ -159,8 +158,7 @@ public final class DEStructures {
                 .scatteredGridPlacement(p -> p.spacing(28).minChunksFromCenter(12))
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_ELDERS_TEMPLE)
-                        .oceanFloor()
-                        .verticalPlacementMode(HeightMode.MEAN)
+                        .oceanFloor(0, HeightMode.CORNERS_MEAN)
                         .filterSubmerged(1)
                         .compound(b -> b
                                 .single(tb -> tb.template("elders_temple/ne").offset(0, 0, -29))
@@ -219,8 +217,7 @@ public final class DEStructures {
                 .scatteredGridPlacement(46, 0.74f)
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_JUNGLE_MONUMENT)
-                        .surface()
-                        .verticalPlacementMode(HeightMode.MEAN)
+                        .surface(0, HeightMode.CORNERS_MEAN)
                         .single(b -> b.template("jungle_monument").processors(DEProcessorLists.JUNGLE_MONUMENT).yOffset(-9))
                         .filterWithinBiome(12)
                 )
@@ -230,8 +227,7 @@ public final class DEStructures {
                 .scatteredGridPlacement(p -> p.spacing(59).probability(0.56f))
                 .jigsaw(DETemplatePools.LARGE_DUNGEON, j -> j
                                 .size(5)
-                                .startHeight(-16)
-                                .onSurface()
+                                .onSurface(-16)
                         , s -> s
                                 .biomes(DETags.Biomes.HAS_LARGE_DUNGEON)
                 )
@@ -251,15 +247,13 @@ public final class DEStructures {
                 .scatteredGridPlacement(p -> p.spacing(28).probability(0.62f).minChunksFromCenter(12))
                 .jigsaw("dark", DETemplatePools.MONSTER_MAZE_DARK, j -> j
                                 .size(11)
-                                .onSurface()
-                                .startHeight(-26)
+                                .onSurface(-26)
                         , s -> s
                                 .biomes(DETags.Biomes.HAS_MONSTER_MAZE_DARK)
                                 .processors(DEProcessorLists.MONSTER_MAZE)
                 ).jigsaw("pale", DETemplatePools.MONSTER_MAZE_PALE, j -> j
                                 .size(11)
-                                .onSurface()
-                                .startHeight(-32)
+                                .onSurface(-32)
                         , s -> s
                                 .biomes(DETags.Biomes.HAS_MONSTER_MAZE_PALE)
                                 .processors(DEProcessorLists.MONSTER_MAZE_PALE)
@@ -292,7 +286,7 @@ public final class DEStructures {
         );
 
         PIRATE_SHIP = BOOTSTRAP.registerSet(DEStructureIDs.PIRATE_SHIP, set -> set
-                .scatteredGridPlacement(71, 0.42F)
+                .evenSpreadPlacement(53, 0.42F)
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_PIRATE_SHIP)
                         .surface()
@@ -321,8 +315,7 @@ public final class DEStructures {
                 .evenSpreadPlacement(b -> b.minDistance(50).probability(0.66f))
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_STABLES)
-                        .surface()
-                        .verticalPlacementMode(HeightMode.MEAN)
+                        .surface(0, HeightMode.CORNERS_MEAN)
                         .single(b -> b.template("stables").yOffset(-5))
                         .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                         .filterFlatness(8)

@@ -1,10 +1,9 @@
 {
   "placement": {
-    "type": "ametrin_structures:scattered_grid",
+    "type": "ametrin_structures:even_spread",
+    "min_distance": 53,
     "probability": 0.42,
-    "random_offset": 49,
-    "salt": -742759522,
-    "spacing": 71
+    "salt": -742759522
   },
   "structures": [
     {
