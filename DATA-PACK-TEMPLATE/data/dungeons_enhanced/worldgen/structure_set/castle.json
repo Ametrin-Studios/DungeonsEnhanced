@@ -1,15 +1,18 @@
 {
   "placement": {
-    "type": "ametrin_structures:scattered_grid",
+    "type": "ametrin_structures:even_spread",
     "min_chunks_from_center": 14,
+    "min_distance": 39,
     "probability": 0.74,
-    "random_offset": 50,
-    "salt": 517159684,
-    "spacing": 72
+    "salt": 517159684
   },
   "structures": [
     {
-      "structure": "dungeons_enhanced:castle",
+      "structure": "dungeons_enhanced:castle/blue",
+      "weight": 1
+    },
+    {
+      "structure": "dungeons_enhanced:castle/red",
       "weight": 1
     }
   ]

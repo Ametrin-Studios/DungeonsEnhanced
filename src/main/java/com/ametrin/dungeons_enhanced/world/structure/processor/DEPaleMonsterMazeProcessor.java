@@ -5,6 +5,7 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.HangingMossBlock;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.VineBlock;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
@@ -25,6 +26,14 @@ public final class DEPaleMonsterMazeProcessor extends StructureProcessor {
 
         if (processedBlockInfo.state().is(Blocks.MOSS_CARPET)) {
             return new StructureTemplate.StructureBlockInfo(processedBlockInfo.pos(), Blocks.PALE_MOSS_CARPET.defaultBlockState(), null);
+        }
+
+        if (processedBlockInfo.state().is(Blocks.CAVE_VINES)) {
+            return new StructureTemplate.StructureBlockInfo(processedBlockInfo.pos(), Blocks.PALE_HANGING_MOSS.defaultBlockState(), null);
+        }
+
+        if (processedBlockInfo.state().is(Blocks.CAVE_VINES_PLANT)) {
+            return new StructureTemplate.StructureBlockInfo(processedBlockInfo.pos(), Blocks.PALE_HANGING_MOSS.defaultBlockState().setValue(HangingMossBlock.TIP, false), null);
         }
 
         var processed = processedBlockInfo.state();

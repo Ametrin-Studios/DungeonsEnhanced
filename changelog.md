@@ -1,5 +1,5 @@
 ## 7.0.2-beta
-- overhaul Pale Monster Maze
+- more unique Pale Monster Maze
 - Explorer Maps in Ruined Houses
 - tons of tweaks and adjustments
 - requires Ametrin Structures 0.3.0-beta or above

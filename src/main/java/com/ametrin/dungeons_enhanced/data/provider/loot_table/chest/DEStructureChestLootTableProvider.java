@@ -287,7 +287,7 @@ public record DEStructureChestLootTableProvider(HolderLookup.Provider registries
                             .add(item(Items.PUMPKIN_SEEDS, between(1, 4)).setWeight(5))
                             .add(item(Items.GOLDEN_CARROT))
                     )
-                    .withPool(LootPool.lootPool().setRolls(one()).when(LootItemRandomChanceCondition.randomChance(0.75f))
+                    .withPool(LootPool.lootPool().setRolls(one()).when(LootItemRandomChanceCondition.randomChance(0.7f))
                             .add(item(Items.MAP).apply(() -> DEExplorerMaps.CASTLE))
                             .add(item(Items.MAP).apply(() -> DEExplorerMaps.DEEP_CRYPT))
                             .add(item(Items.MAP).apply(() -> DEExplorerMaps.JUNGLE_MONUMENT))
