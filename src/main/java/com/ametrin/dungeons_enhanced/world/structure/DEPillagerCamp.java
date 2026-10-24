@@ -18,7 +18,7 @@ public final class DEPillagerCamp {
         builder.pool("features", p -> p
                 .elements(List.of("tent/sleep1", "tent/sleep2"), e -> e.weight(2))
                 .elements(List.of("tent/kitchen"), e -> e.weight(2))
-                .elementsI(List.of(mcPiece("logs"), mcPiece("targets"), mcPiece("tent1"), mcPiece("tent2")), e -> e.weight(2))
+                .elementIdentifiers(List.of(mcPiece("logs"), mcPiece("targets"), mcPiece("tent1"), mcPiece("tent2")), e -> e.weight(2))
                 .elements(List.of("decoration/campfire", "decoration/cage1"), e -> e.weight(3))
                 .elements(List.of("decoration/bell", "decoration/pillar"), e -> e.weight(1))
         );

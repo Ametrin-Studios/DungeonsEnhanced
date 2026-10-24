@@ -39,7 +39,7 @@ public final class DEAdvancementProvider extends AdvancementProvider {
                     .hideToast().hideInChat()
                     .displayItem(Items.MAP)
                     .orCriteria()
-                    .onEnterAnyStructure("entered_dungeon_enhanced_structure", DEStructures.BOOTSTRAP.getStructures())
+                    .onEnterAnyStructure("entered_dungeon_enhanced_structure", DEStructures.BOOTSTRAP.structures())
                     .save(consumer);
 
             builder(provider, "hidden_under_roots")

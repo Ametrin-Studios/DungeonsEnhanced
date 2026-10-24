@@ -85,12 +85,10 @@ public final class DEStructures {
         DEEP_CRYPT = BOOTSTRAP.registerSet(DEStructureIDs.DEEP_CRYPT, set -> set
                 .scatteredGridPlacement(p -> p.spacing(41).probability(0.64f))
                 .jigsaw(DETemplatePools.DEEP_CRYPT, j -> j
-                                .startHeight(UniformHeight.of(VerticalAnchor.aboveBottom(16), VerticalAnchor.aboveBottom(52)))
-                                .size(4)
-                                .build(),
-                        s -> s
-                                .biomes(DETags.Biomes.HAS_DEEP_CRYPT)
-                                .step(GenerationStep.Decoration.UNDERGROUND_STRUCTURES)
+                        .verticalPlacement(UniformHeight.of(VerticalAnchor.aboveBottom(16), VerticalAnchor.aboveBottom(52)))
+                        .size(4)
+                        .biomes(DETags.Biomes.HAS_DEEP_CRYPT)
+                        .step(GenerationStep.Decoration.UNDERGROUND_STRUCTURES)
                 )
         );
 
@@ -113,11 +111,10 @@ public final class DEStructures {
         DESERT_TOMB = BOOTSTRAP.registerSet(DEStructureIDs.DESERT_TOMB, set -> set
                 .scatteredGridPlacement(p -> p.spacing(31).probability(0.71f))
                 .jigsaw(DETemplatePools.DESERT_TOMB, j -> j
-                                .surface()
-                                .size(5),
-                        s -> s
-//                                .processors(List.of(DEBadlandsFromDesertProcessor.INSTANCE))
-                                .biomes(DETags.Biomes.HAS_DESERT_TOMB)
+                        .surface()
+                        .size(5)
+//                        .processors(List.of(DEBadlandsFromDesertProcessor.INSTANCE))
+                        .biomes(DETags.Biomes.HAS_DESERT_TOMB)
                 )
         );
 
@@ -222,7 +219,6 @@ public final class DEStructures {
                 .jigsaw(DETemplatePools.LARGE_DUNGEON, j -> j
                                 .size(5)
                                 .surface(-16)
-                        , s -> s
                                 .biomes(DETags.Biomes.HAS_LARGE_DUNGEON)
                 )
         );
@@ -232,13 +228,11 @@ public final class DEStructures {
                 .jigsaw("dark", 1, DETemplatePools.MONSTER_MAZE_DARK, j -> j
                                 .size(11)
                                 .surface(-26)
-                        , s -> s
                                 .biomes(DETags.Biomes.HAS_MONSTER_MAZE_DARK)
                                 .processors(DEProcessorLists.MONSTER_MAZE)
                 ).jigsaw("pale", 1, DETemplatePools.MONSTER_MAZE_PALE, j -> j
                                 .size(11)
                                 .surface(-32)
-                        , s -> s
                                 .biomes(DETags.Biomes.HAS_MONSTER_MAZE_PALE)
                                 .processors(DEProcessorLists.MONSTER_MAZE_PALE)
                 )
@@ -261,8 +255,6 @@ public final class DEStructures {
                 .jigsaw(DETemplatePools.PILLAGER_CAMP, j -> j
                                 .surface()
                                 .size(4)
-                                .build(),
-                        builder -> builder
                                 .biomes(DETags.Biomes.HAS_PILLAGER_CAMP)
                                 .terrainAdaptation(TerrainAdjustment.BEARD_BOX)
                                 .spawnOverride(MobCategory.MONSTER, new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.STRUCTURE, spawns(spawn(EntityType.PILLAGER, 4, 2, 3), spawn(EntityType.VINDICATOR, 2, 1, 2))))
@@ -400,9 +392,8 @@ public final class DEStructures {
                 .evenSpreadPlacement(p -> p.minDistance(65).probability(0.72f).exclusionZone(DETags.Structures.BLACK_CITADEL_EXCLUSION_ZONE, 8))
                 .jigsaw(DETemplatePools.BLACK_CITADEL, j -> j
                                 .size(6)
-                                .startHeight(28)
+                                .verticalPlacement(28)
                                 .maxDistanceFromCenter(116)
-                        , s -> s
                                 .biomes(DETags.Biomes.HAS_BLACK_CITADEL)
                                 .spawnOverride(MobCategory.MONSTER, new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.PIECE, spawns(spawn(EntityType.WITHER_SKELETON, 4, 2, 5))))
                                 .step(GenerationStep.Decoration.UNDERGROUND_STRUCTURES) // needs to generate after the basalt
