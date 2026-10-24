@@ -1,0 +1,15 @@
+{
+  "type": "ametrin_structures:simple",
+  "biomes": "#dungeons_enhanced:has_structure/ruined_building",
+  "pieces": {
+    "offset": [
+      0,
+      -1,
+      0
+    ],
+    "template": "dungeons_enhanced:ruined_building/barn"
+  },
+  "spawn_overrides": {},
+  "step": "surface_structures",
+  "terrain_adaptation": "beard_thin"
+}

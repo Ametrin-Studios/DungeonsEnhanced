@@ -500,7 +500,7 @@ public record DEStructureChestLootTableProvider(HolderLookup.Provider registries
     }
 
     private static void MinersHouseLoot(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output) {
-        output.accept(DELootTables.MINERS_HOUSE, LootTable.lootTable()
+        output.accept(DELootTables.Ruined.MINERS_HOUSE, LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(between(3, 4))
                         .add(item(Items.ORANGE_TERRACOTTA, between(2, 6)))
                         .add(item(Items.SPIDER_EYE, between(1, 2)))
@@ -513,8 +513,13 @@ public record DEStructureChestLootTableProvider(HolderLookup.Provider registries
                         .add(item(Items.DIAMOND))
                         .add(item(Items.COAL, between(3, 6)).setWeight(3))
                         .add(item(Items.IRON_ORE, between(1, 3)).setWeight(2))
+                        .add(item(Items.COPPER_ORE, between(1, 3)).setWeight(2))
+                        .add(item(Items.COPPER_NUGGET, between(2, 6)))
                         .add(item(Items.GOLD_ORE, between(2, 4)).setWeight(2))
                         .add(item(Items.GOLD_NUGGET, between(4, 12)))
+                ).withPool(LootPool.lootPool().setRolls(one())
+                        .add(item(Items.MAP).apply(() -> DEExplorerMaps.DESERT_TEMPLE).setWeight(1))
+                        .add(empty(1))
                 )
         );
     }

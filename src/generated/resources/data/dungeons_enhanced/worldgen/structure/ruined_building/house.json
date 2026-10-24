@@ -22,17 +22,6 @@
             -1,
             0
           ],
-          "template": "dungeons_enhanced:ruined_building/barn"
-        },
-        "weight": 3
-      },
-      {
-        "data": {
-          "offset": [
-            0,
-            -1,
-            0
-          ],
           "template": "dungeons_enhanced:ruined_building/house_big"
         },
         "weight": 2

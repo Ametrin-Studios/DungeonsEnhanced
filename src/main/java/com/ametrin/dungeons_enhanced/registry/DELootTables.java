@@ -52,7 +52,6 @@ public interface DELootTables {
     ResourceKey<LootTable> FLYING_DUTCHMAN = chest("flying_dutchman");
     ResourceKey<LootTable> EQUIPMENT_HENDRICK_VAN_DER_DECKEN = create("equipment/flying_dutchman/hendrik_van_der_decken");
     ResourceKey<LootTable> EQUIPMENT_FLYING_DUTCHMAN_SKELETONS = create("equipment/flying_dutchman/skeletons");
-    ResourceKey<LootTable> HAY_STORAGE = chest("hay_storage");
 
     interface IcePit {
         ResourceKey<LootTable> ARMORY = chest("ice_pit/armory");
@@ -69,7 +68,6 @@ public interface DELootTables {
     }
 
     ResourceKey<LootTable> LARGE_DUNGEON = chest("large_dungeon");
-    ResourceKey<LootTable> MINERS_HOUSE = chest("miners_house");
 
     interface MonsterMaze {
         ResourceKey<LootTable> BREWERY = chest("monster_maze/brewery");
@@ -93,8 +91,9 @@ public interface DELootTables {
     ResourceKey<LootTable> PIRATE_SHIP = chest("pirate_ship");
 
     interface Ruined {
-        ResourceKey<LootTable> HOUSE = chest("ruined/house");
         ResourceKey<LootTable> DEFAULT = chest("ruined/default");
+        ResourceKey<LootTable> HAY_STORAGE = chest("ruined/hay_storage");
+        ResourceKey<LootTable> MINERS_HOUSE = chest("ruined/miners_house");
     }
 
     ResourceKey<LootTable> STABLES = chest("stables");

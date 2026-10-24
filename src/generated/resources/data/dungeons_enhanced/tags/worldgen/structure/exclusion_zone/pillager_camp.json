@@ -1,6 +1,7 @@
 {
   "values": [
-    "dungeons_enhanced:castle",
+    "dungeons_enhanced:castle/blue",
+    "dungeons_enhanced:castle/red",
     "#minecraft:village"
   ]
 }

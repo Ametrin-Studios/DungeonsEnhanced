@@ -9,7 +9,10 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structures": "dungeons_enhanced:castle"
+                "structures": [
+                  "dungeons_enhanced:castle/blue",
+                  "dungeons_enhanced:castle/red"
+                ]
               }
             }
           }

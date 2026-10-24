@@ -39,11 +39,9 @@ public final class DEStructures {
     public static final StructureSetKeys ELDERS_TEMPLE;
     public static final StructureSetKeys FISHING_SHIP;
     public static final StructureSetKeys FLYING_DUTCHMAN;
-    public static final StructureSetKeys HAY_STORAGE;
     public static final StructureSetKeys ICE_PIT;
     public static final StructureSetKeys JUNGLE_MONUMENT;
     public static final StructureSetKeys LARGE_DUNGEON;
-    public static final StructureSetKeys MINERS_HOUSE;
     public static final StructureSetKeys MONSTER_MAZE;
     public static final StructureSetKeys MUSHROOM_HOUSE;
     public static final StructureSetKeys PILLAGER_CAMP;
@@ -66,14 +64,20 @@ public final class DEStructures {
         // Overworld
         CASTLE = BOOTSTRAP.registerSet(DEStructureIDs.CASTLE, set -> set
                 .evenSpreadPlacement(p -> p.minDistance(39).probability(0.74f).minChunksFromCenter(14))
-                .simple(s -> s
+                .simple("blue", 1, s -> s
                         .biomes(DETags.Biomes.HAS_CASTLE)
                         .surface(0, HeightMode.CORNERS_MEAN)
+                        .onlyWhenPickedFirst()
                         .filterFlatness(8)
-                        .weighted(b -> b
-                                .single(t -> t.template("castle/blue").offset(0, -5, 0), 1)
-                                .single(t -> t.template("castle/red").offset(0, -5, 0), 1)
-                        )
+                        .single(t -> t.template("castle/blue").offset(0, -5, 0))
+                        .terrainAdaptation(TerrainAdjustment.BEARD_BOX)
+                )
+                .simple("red", 1, s -> s
+                        .biomes(DETags.Biomes.HAS_CASTLE)
+                        .surface(0, HeightMode.CORNERS_MEAN)
+                        .onlyWhenPickedFirst()
+                        .filterFlatness(8)
+                        .single(t -> t.template("castle/red").offset(0, -5, 0))
                         .terrainAdaptation(TerrainAdjustment.BEARD_BOX)
                 )
         );
@@ -108,7 +112,7 @@ public final class DEStructures {
         DESERT_TOMB = BOOTSTRAP.registerSet(DEStructureIDs.DESERT_TOMB, set -> set
                 .scatteredGridPlacement(p -> p.spacing(29).probability(0.65f))
                 .jigsaw(DETemplatePools.DESERT_TOMB, j -> j
-                                .onSurface()
+                                .surface()
                                 .size(5),
                         s -> s
                                 .biomes(DETags.Biomes.HAS_DESERT_TOMB)
@@ -121,8 +125,8 @@ public final class DEStructures {
                         .biomes(DETags.Biomes.HAS_DRUID_CIRCLE)
                         .surface()
                         .weighted(p -> p
-                                .single(t -> t.template(DEStructureIDs.DRUID_CIRCLE + "/small").yOffset(-1), 3)
-                                .single(t -> t.template(DEStructureIDs.DRUID_CIRCLE + "/big").yOffset(-4), 2)
+                                .single(3, t -> t.template(DEStructureIDs.DRUID_CIRCLE + "/small").yOffset(-1))
+                                .single(2, t -> t.template(DEStructureIDs.DRUID_CIRCLE + "/big").yOffset(-4))
                         )
                         .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                 )
@@ -130,25 +134,24 @@ public final class DEStructures {
 
         DUNGEON_VARIANT = BOOTSTRAP.registerSet(DEStructureIDs.DUNGEON_VARIANT, set -> set
                 .scatteredGridPlacement(24, 0.53f)
-                .simple("stone", s -> s
+                .simple("stone", 3, s -> s
                         .step(GenerationStep.Decoration.UNDERGROUND_STRUCTURES)
                         .biomes(DETags.Biomes.HAS_DUNGEON_VARIANT)
                         .between(HeightAnchor.absolute(0), HeightAnchor.oceanFloor(-24))
                         .weighted(builder -> builder
-                                .single(b -> b.template("dungeon_variant/zombie"), 1)
-                                .single(b -> b.template("dungeon_variant/skeleton"), 1)
-                                .single(b -> b.template("dungeon_variant/spider"), 1)
-                                .single(b -> b.template("dungeon_variant/special"), 1)
+                                .single(1, b -> b.template("dungeon_variant/zombie"))
+                                .single(1, b -> b.template("dungeon_variant/skeleton"))
+                                .single(1, b -> b.template("dungeon_variant/spider"))
+                                .single(1, b -> b.template("dungeon_variant/special"))
                         )
                         .processors(DEProcessorLists.DUNGEON_VARIANT_STONE)
-                        .weight(3)
                 )
-                .simple("deepslate", s -> s
+                .simple("deepslate", 1, s -> s
                         .step(GenerationStep.Decoration.UNDERGROUND_STRUCTURES)
                         .biomes(DETags.Biomes.HAS_DUNGEON_VARIANT)
                         .between(HeightAnchor.aboveBottom(8), HeightAnchor.absolute(-6))
                         .weighted(builder -> builder
-                                .single(b -> b.template("dungeon_variant/copper_shrine"), 1)
+                                .single(1, b -> b.template("dungeon_variant/copper_shrine"))
                         )
                         .processors(DEProcessorLists.DUNGEON_VARIANT_DEEPSLATE)
                 )
@@ -191,18 +194,6 @@ public final class DEStructures {
                 )
         );
 
-        HAY_STORAGE = BOOTSTRAP.registerSet(DEStructureIDs.HAY_STORAGE, set -> set
-                .scatteredGridPlacement(27, 0.77f)
-                .simple(s -> s
-                        .biomes(DETags.Biomes.HAS_HAY_STORAGE)
-                        .surface()
-                        .weighted(b -> b
-                                .single("hay_storage/small", 3)
-                                .single("hay_storage/big", 2))
-                        .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
-                )
-        );
-
         ICE_PIT = BOOTSTRAP.registerSet(DEStructureIDs.ICE_PIT, set -> set
                 .evenSpreadPlacement(b -> b.minDistance(36).probability(0.77f).minChunksFromCenter(14))
                 .simple(s -> s
@@ -227,33 +218,23 @@ public final class DEStructures {
                 .scatteredGridPlacement(p -> p.spacing(59).probability(0.56f))
                 .jigsaw(DETemplatePools.LARGE_DUNGEON, j -> j
                                 .size(5)
-                                .onSurface(-16)
+                                .surface(-16)
                         , s -> s
                                 .biomes(DETags.Biomes.HAS_LARGE_DUNGEON)
                 )
         );
 
-        MINERS_HOUSE = BOOTSTRAP.registerSet(DEStructureIDs.MINERS_HOUSE, set -> set
-                .scatteredGridPlacement(24, 0.8f)
-                .simple(s -> s
-                        .biomes(DETags.Biomes.HAS_MINERS_HOUSE)
-                        .surface()
-                        .single(DEStructureIDs.MINERS_HOUSE)
-                        .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
-                )
-        );
-
         MONSTER_MAZE = BOOTSTRAP.registerSet("monster_maze", set -> set
                 .scatteredGridPlacement(p -> p.spacing(28).probability(0.62f).minChunksFromCenter(12))
-                .jigsaw("dark", DETemplatePools.MONSTER_MAZE_DARK, j -> j
+                .jigsaw("dark", 1, DETemplatePools.MONSTER_MAZE_DARK, j -> j
                                 .size(11)
-                                .onSurface(-26)
+                                .surface(-26)
                         , s -> s
                                 .biomes(DETags.Biomes.HAS_MONSTER_MAZE_DARK)
                                 .processors(DEProcessorLists.MONSTER_MAZE)
-                ).jigsaw("pale", DETemplatePools.MONSTER_MAZE_PALE, j -> j
+                ).jigsaw("pale", 1, DETemplatePools.MONSTER_MAZE_PALE, j -> j
                                 .size(11)
-                                .onSurface(-32)
+                                .surface(-32)
                         , s -> s
                                 .biomes(DETags.Biomes.HAS_MONSTER_MAZE_PALE)
                                 .processors(DEProcessorLists.MONSTER_MAZE_PALE)
@@ -266,8 +247,8 @@ public final class DEStructures {
                         .biomes(DETags.Biomes.HAS_MUSHROOM_HOUSE)
                         .surface()
                         .weighted(b -> b
-                                .single(t -> t.template("mushroom_house/red").terrainBox(TerrainBox.footprint()), 1)
-                                .single(t -> t.template("mushroom_house/brown").terrainBox(TerrainBox.footprint()), 1))
+                                .single(1, t -> t.template("mushroom_house/red").terrainBox(TerrainBox.footprint()))
+                                .single(1, t -> t.template("mushroom_house/brown").terrainBox(TerrainBox.footprint())))
                         .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                 )
         );
@@ -275,7 +256,7 @@ public final class DEStructures {
         PILLAGER_CAMP = BOOTSTRAP.registerSet(DEStructureIDs.PILLAGER_CAMP, set -> set
                 .scatteredGridPlacement(p -> p.spacing(56).probability(0.39f).minChunksFromCenter(8).exclusionZone(DETags.Structures.PILLAGER_CAMP_EXCLUSION_ZONE, 10))
                 .jigsaw(DETemplatePools.PILLAGER_CAMP, j -> j
-                                .onSurface()
+                                .surface()
                                 .size(4)
                                 .build(),
                         builder -> builder
@@ -292,21 +273,41 @@ public final class DEStructures {
                         .surface()
                         .compound(b -> b
                                 .single(t -> t.template("pirate_ship/front").offset(0, -3, 0))
-                                .single(t -> t.template("pirate_ship/back").offset(0, -3, -26)))
+                                .single(t -> t.template("pirate_ship/back").offset(0, -3, -26))
+                        )
                         .spawnOverride(MobCategory.MONSTER, new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.STRUCTURE, spawns(spawn(EntityType.PILLAGER, 4, 3, 4), spawn(EntityType.VINDICATOR, 3, 1, 2))))
                         .noSpawns(StructureSpawnOverride.BoundingBoxType.STRUCTURE, MobCategory.UNDERGROUND_WATER_CREATURE, MobCategory.AXOLOTLS, MobCategory.WATER_AMBIENT, MobCategory.WATER_CREATURE)
                 )
         );
 
         RUINED_BUILDING = BOOTSTRAP.registerSet(DEStructureIDs.RUINED_BUILDING, set -> set
-                .scatteredGridPlacement(27, 0.54f)
-                .simple(s -> s
+                .evenSpreadPlacement(21, 0.73f)
+                .simple("house", 3, s -> s
                         .biomes(DETags.Biomes.HAS_RUINED_BUILDING)
                         .surface()
                         .weighted(b -> b
-                                .single(t -> t.template("ruined_building/house").yOffset(-1), 3)
-                                .single(t -> t.template("ruined_building/barn").yOffset(-1), 3)
-                                .single(t -> t.template("ruined_building/house_big").yOffset(-1), 2))
+                                .single(3, t -> t.template("ruined_building/house").yOffset(-1))
+                                .single(2, t -> t.template("ruined_building/house_big").yOffset(-1)))
+                        .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
+                )
+                .simple("barn", 2, s -> s
+                        .biomes(DETags.Biomes.HAS_RUINED_BUILDING)
+                        .surface()
+                        .single(t -> t.template("ruined_building/barn").yOffset(-1))
+                        .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
+                )
+                .simple(DEStructureIDs.HAY_STORAGE, 1, s -> s
+                        .biomes(DETags.Biomes.HAS_HAY_STORAGE)
+                        .surface()
+                        .weighted(b -> b
+                                .single(3, "hay_storage/small")
+                                .single(2, "hay_storage/big"))
+                        .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
+                )
+                .simple(DEStructureIDs.MINERS_HOUSE, 1, s -> s
+                        .biomes(DETags.Biomes.HAS_MINERS_HOUSE)
+                        .surface()
+                        .single("ruined_building/miners_house")
                         .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                 )
         );
@@ -328,8 +329,8 @@ public final class DEStructures {
                         .biomes(DETags.Biomes.HAS_SUNKEN_SHRINE)
                         .oceanFloor()
                         .weighted(b -> b
-                                .single(bt -> bt.template("sunken_shrine/small"), 2)
-                                .single(bt -> bt.template("sunken_shrine/big").yOffset(-1), 1))
+                                .single(2, bt -> bt.template("sunken_shrine/small"))
+                                .single(1, bt -> bt.template("sunken_shrine/big").yOffset(-1)))
                         .processors(List.of(RemoveFoamProcessor.WATER))
                         .filterSubmerged(5)
                 )
@@ -363,8 +364,8 @@ public final class DEStructures {
                         .biomes(DETags.Biomes.HAS_TOWER_OF_THE_UNDEAD)
                         .surface()
                         .weighted(bw -> bw
-                                .single("tower_of_the_undead/small", 3)
-                                .single("tower_of_the_undead/big", 2))
+                                .single(3, "tower_of_the_undead/small")
+                                .single(2, "tower_of_the_undead/big"))
                         .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                 )
         );
@@ -385,8 +386,8 @@ public final class DEStructures {
                         .biomes(DETags.Biomes.HAS_WITCH_TOWER)
                         .surface()
                         .weighted(b -> b
-                                .single("witch_tower/normal", 3)
-                                .single(t -> t.template("witch_tower/big").terrainBox(TerrainBox.footprint()), 2))
+                                .single(3, "witch_tower/normal")
+                                .single(2, t -> t.template("witch_tower/big").terrainBox(TerrainBox.footprint())))
                         .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                 )
         );

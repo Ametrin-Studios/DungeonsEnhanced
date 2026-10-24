@@ -25,7 +25,10 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structures": "dungeons_enhanced:castle"
+                "structures": [
+                  "dungeons_enhanced:castle/blue",
+                  "dungeons_enhanced:castle/red"
+                ]
               }
             }
           }
@@ -164,22 +167,6 @@
       },
       "trigger": "minecraft:location"
     },
-    "entered_hay_storage": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "structures": "dungeons_enhanced:hay_storage"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
     "entered_ice_pit": {
       "conditions": {
         "player": [
@@ -221,22 +208,6 @@
             "predicate": {
               "location": {
                 "structures": "dungeons_enhanced:large_dungeon"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
-    "entered_miners_house": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "structures": "dungeons_enhanced:miners_house"
               }
             }
           }
@@ -319,7 +290,12 @@
             "entity": "this",
             "predicate": {
               "location": {
-                "structures": "dungeons_enhanced:ruined_building"
+                "structures": [
+                  "dungeons_enhanced:ruined_building/house",
+                  "dungeons_enhanced:ruined_building/barn",
+                  "dungeons_enhanced:ruined_building/hay_storage",
+                  "dungeons_enhanced:ruined_building/miners_house"
+                ]
               }
             }
           }
@@ -481,9 +457,6 @@
       "entered_flying_dutchman"
     ],
     [
-      "entered_hay_storage"
-    ],
-    [
       "entered_ice_pit"
     ],
     [
@@ -491,9 +464,6 @@
     ],
     [
       "entered_large_dungeon"
-    ],
-    [
-      "entered_miners_house"
     ],
     [
       "entered_monster_maze"

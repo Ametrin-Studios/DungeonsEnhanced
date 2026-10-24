@@ -24,6 +24,7 @@ public final class DEStructureTagsProvider extends StructureTagsProvider {
         ;
         tag(DETags.Structures.DUNGEON_VARIANT).addAll(DEStructures.DUNGEON_VARIANT.structures());
         tag(DETags.Structures.MONSTER_MAZE).addAll(DEStructures.MONSTER_MAZE.structures());
+        tag(DETags.Structures.RUINED_BUILDING).addAll(DEStructures.RUINED_BUILDING.structures());
 
         tag(DETags.Structures.ON_CASTLE_EXPLORER_MAPS).addAll(DEStructures.CASTLE.structures());
         tag(DETags.Structures.ON_DEEP_CRYPT_EXPLORER_MAPS).addAll(DEStructures.DEEP_CRYPT.structures());
@@ -45,7 +46,7 @@ public final class DEStructureTagsProvider extends StructureTagsProvider {
         ;
 
         tag(DETags.Structures.PILLAGER_CAMP_EXCLUSION_ZONE)
-                .add(DEStructures.CASTLE.structure())
+                .addAll(DEStructures.CASTLE.structures())
                 .addTag(StructureTags.VILLAGE)
         ;
 

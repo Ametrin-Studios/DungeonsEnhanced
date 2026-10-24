@@ -1,0 +1,26 @@
+{
+  "type": "ametrin_structures:simple",
+  "biomes": "#dungeons_enhanced:has_structure/castle",
+  "filters": [
+    {
+      "type": "ametrin_structures:flatness",
+      "max_variance": 8
+    }
+  ],
+  "only_when_picked_first": true,
+  "pieces": {
+    "offset": [
+      0,
+      -5,
+      0
+    ],
+    "template": "dungeons_enhanced:castle/blue"
+  },
+  "spawn_overrides": {},
+  "start_height": {
+    "heightmap": "WORLD_SURFACE_WG",
+    "mode": "corners_mean"
+  },
+  "step": "surface_structures",
+  "terrain_adaptation": "beard_box"
+}

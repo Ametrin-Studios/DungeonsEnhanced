@@ -1,14 +1,25 @@
 {
   "placement": {
-    "type": "ametrin_structures:scattered_grid",
-    "probability": 0.54,
-    "random_offset": 18,
-    "salt": -1954503344,
-    "spacing": 27
+    "type": "ametrin_structures:even_spread",
+    "min_distance": 21,
+    "probability": 0.73,
+    "salt": -1954503344
   },
   "structures": [
     {
-      "structure": "dungeons_enhanced:ruined_building",
+      "structure": "dungeons_enhanced:ruined_building/barn",
+      "weight": 2
+    },
+    {
+      "structure": "dungeons_enhanced:ruined_building/hay_storage",
+      "weight": 1
+    },
+    {
+      "structure": "dungeons_enhanced:ruined_building/house",
+      "weight": 3
+    },
+    {
+      "structure": "dungeons_enhanced:ruined_building/miners_house",
       "weight": 1
     }
   ]
