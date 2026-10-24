@@ -28,7 +28,5 @@
     "advancements.dungeons_enhanced.spooky_scary_citadel.description": "Finde eine Schwarze Zitadelle",
     "entity.dungeons_enhanced.monster_maze.zombie_king": "Zombie König",
     "filled_map.dungeons_enhanced.castle": "Schloss-Entdeckerkarte",
-    "filled_map.dungeons_enhanced.desert_temple": "Wüsten-Entdeckerkarte",
-    "filled_map.dungeons_enhanced.monster_maze": "Monster-Entdeckerkarte",
-    "filled_map.dungeons_enhanced.elders_temple": "Wächter-Entdeckerkarte"
+    "filled_map.dungeons_enhanced.monster_maze": "Monster-Entdeckerkarte"
 }
