@@ -306,7 +306,8 @@ public record DEStructureChestLootTableProvider(HolderLookup.Provider registries
                             .add(tag(ItemTags.BUNDLES))
                             .add(item(Items.COCOA_BEANS, between(1, 2)).setWeight(6))
                             .add(item(Items.MELON_SEEDS, between(1, 3)).setWeight(6))
-                    ));
+                    )
+            );
         } // Tree House
         {
             output.accept(DELootTables.TowerOfTheUndead.TREASURE, LootTable.lootTable()
