@@ -1,6 +1,5 @@
 {
   "values": [
-    "dungeons_enhanced:castle/blue",
-    "dungeons_enhanced:castle/red"
+    "#dungeons_enhanced:castle"
   ]
 }

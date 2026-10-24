@@ -69,6 +69,7 @@ public final class DETags {
     }
 
     public interface Structures {
+        TagKey<Structure> CASTLE = create(DEStructureIDs.CASTLE);
         TagKey<Structure> DUNGEON_VARIANT = create(DEStructureIDs.DUNGEON_VARIANT);
         TagKey<Structure> MONSTER_MAZE = create(DEStructureIDs.MONSTER_MAZE);
         TagKey<Structure> RUINED_BUILDING = create(DEStructureIDs.RUINED_BUILDING);

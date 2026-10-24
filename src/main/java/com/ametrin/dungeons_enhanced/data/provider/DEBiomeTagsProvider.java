@@ -31,10 +31,12 @@ public final class DEBiomeTagsProvider extends BiomeTagsProvider {
         ;
         tag(DETags.Biomes.HAS_DESERT_TEMPLE)
                 .addTag(BiomeTags.HAS_DESERT_PYRAMID)
+//                .addTag(Tags.Biomes.IS_BADLANDS)
                 .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
         ;
         tag(DETags.Biomes.HAS_DESERT_TOMB)
                 .addTag(BiomeTags.HAS_DESERT_PYRAMID)
+//                .addTag(Tags.Biomes.IS_BADLANDS)
                 .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
         ;
         tag(DETags.Biomes.HAS_DRUID_CIRCLE)

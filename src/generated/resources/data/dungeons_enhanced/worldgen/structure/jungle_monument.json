@@ -13,9 +13,9 @@
       -9,
       0
     ],
-    "processors": "dungeons_enhanced:jungle_monument",
     "template": "dungeons_enhanced:jungle_monument"
   },
+  "processors": "dungeons_enhanced:jungle_monument",
   "spawn_overrides": {},
   "start_height": {
     "heightmap": "WORLD_SURFACE_WG",

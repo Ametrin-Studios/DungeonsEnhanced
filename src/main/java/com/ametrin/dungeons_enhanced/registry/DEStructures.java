@@ -95,10 +95,11 @@ public final class DEStructures {
         );
 
         DESERT_TEMPLE = BOOTSTRAP.registerSet(DEStructureIDs.DESERT_TEMPLE, set -> set
-                .scatteredGridPlacement(p -> p.spacing(47).probability(0.86f).minChunksFromCenter(12))
+                .evenSpreadPlacement(p -> p.minDistance(30).probability(0.86f).minChunksFromCenter(12))
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_DESERT_TEMPLE)
                         .surface()
+//                        .processors(List.of(DEBadlandsFromDesertProcessor.INSTANCE))
                         .compound(b -> b
                                 .single(t -> t.template("desert_temple/main").yOffset(-6))
                                 .single(t -> t.template("desert_temple/down").offset(15, -17, 2))
@@ -110,11 +111,12 @@ public final class DEStructures {
         );
 
         DESERT_TOMB = BOOTSTRAP.registerSet(DEStructureIDs.DESERT_TOMB, set -> set
-                .scatteredGridPlacement(p -> p.spacing(29).probability(0.65f))
+                .scatteredGridPlacement(p -> p.spacing(31).probability(0.71f))
                 .jigsaw(DETemplatePools.DESERT_TOMB, j -> j
                                 .surface()
                                 .size(5),
                         s -> s
+//                                .processors(List.of(DEBadlandsFromDesertProcessor.INSTANCE))
                                 .biomes(DETags.Biomes.HAS_DESERT_TOMB)
                 )
         );
@@ -209,7 +211,8 @@ public final class DEStructures {
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_JUNGLE_MONUMENT)
                         .surface(0, HeightMode.CORNERS_MEAN)
-                        .single(b -> b.template("jungle_monument").processors(DEProcessorLists.JUNGLE_MONUMENT).yOffset(-9))
+                        .single(b -> b.template("jungle_monument").yOffset(-9))
+                        .processors(DEProcessorLists.JUNGLE_MONUMENT)
                         .filterWithinBiome(12)
                 )
         );
