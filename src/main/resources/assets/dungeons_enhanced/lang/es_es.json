@@ -28,5 +28,7 @@
     "advancements.dungeons_enhanced.spooky_scary_citadel.title": "Ciudadela espeluznante",
     "advancements.dungeons_enhanced.spooky_scary_citadel.description": "Encuentra una ciudadela negra",
     "filled_map.dungeons_enhanced.castle": "Mapa de explorador - castillo",
+    "filled_map.dungeons_enhanced.desert_temple": "Mapa de explorador - templo del desierto",
+    "filled_map.dungeons_enhanced.elders_temple": "Mapa de explorador - templo de los Antiguos",
     "filled_map.dungeons_enhanced.monster_maze": "Mapa de explorador - laberinto de monstruos"
 }
