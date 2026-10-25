@@ -76,7 +76,7 @@ public record DEMonsterMazeChestLootProvider(HolderLookup.Provider registries) i
         );
 
         output.accept(DELootTables.MonsterMaze.PRISON, LootTable.lootTable()
-                .withPool(LootPool.lootPool().setRolls(between(10, 6))
+                .withPool(LootPool.lootPool().setRolls(between(6, 10))
                         .add(item(Items.PAPER).setWeight(2))
                         .add(item(Items.IRON_CHAIN).setWeight(2))
                         .add(item(Items.ROTTEN_FLESH).setWeight(3))

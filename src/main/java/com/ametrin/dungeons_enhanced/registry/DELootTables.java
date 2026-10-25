@@ -59,7 +59,7 @@ public interface DELootTables {
         ResourceKey<LootTable> FOOD = chest("ice_pit/food");
         ResourceKey<LootTable> GARDEN = chest("ice_pit/garden");
         ResourceKey<LootTable> HALL = chest("ice_pit/hall");
-        ResourceKey<LootTable> EQUIPMENT_ARMOR_STAND = chest("equipment/ice_pit/armor_stand");
+        ResourceKey<LootTable> EQUIPMENT_ARMOR_STAND = create("equipment/ice_pit/armor_stand");
     }
 
     interface JungleMonument {

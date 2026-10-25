@@ -1,9 +1,11 @@
 package com.ametrin.dungeons_enhanced.data.provider;
 
-import com.ametrin.dungeons_enhanced.data.provider.loot_table.DEEquipmentLootProvider;
 import com.ametrin.dungeons_enhanced.data.provider.loot_table.chest.DECastleChestLootProvider;
 import com.ametrin.dungeons_enhanced.data.provider.loot_table.chest.DEMonsterMazeChestLootProvider;
-import com.ametrin.dungeons_enhanced.data.provider.loot_table.chest.DEStructureChestLootTableProvider;
+import com.ametrin.dungeons_enhanced.data.provider.loot_table.chest.DEStructureChestLootProvider;
+import com.ametrin.dungeons_enhanced.data.provider.loot_table.equipment.DECastleEquipmentLootProvider;
+import com.ametrin.dungeons_enhanced.data.provider.loot_table.equipment.DEMonsterMazeEquipmentLootProvider;
+import com.ametrin.dungeons_enhanced.data.provider.loot_table.equipment.DEStructureEquipmentLootProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
@@ -17,10 +19,12 @@ public final class DELootTableProvider extends LootTableProvider {
 
     public DELootTableProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         var tables = List.of(
-                new SubProviderEntry(DEStructureChestLootTableProvider::new, LootContextParamSets.CHEST),
+                new SubProviderEntry(DEStructureChestLootProvider::new, LootContextParamSets.CHEST),
                 new SubProviderEntry(DECastleChestLootProvider::new, LootContextParamSets.CHEST),
                 new SubProviderEntry(DEMonsterMazeChestLootProvider::new, LootContextParamSets.CHEST),
-                new SubProviderEntry(DEEquipmentLootProvider::new, LootContextParamSets.EQUIPMENT)
+                new SubProviderEntry(DEStructureEquipmentLootProvider::new, LootContextParamSets.EQUIPMENT),
+                new SubProviderEntry(DECastleEquipmentLootProvider::new, LootContextParamSets.EQUIPMENT),
+                new SubProviderEntry(DEMonsterMazeEquipmentLootProvider::new, LootContextParamSets.EQUIPMENT)
         );
         super(output, Set.of(), tables, registries);
     }
