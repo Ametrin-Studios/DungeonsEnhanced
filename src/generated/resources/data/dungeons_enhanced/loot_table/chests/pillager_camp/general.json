@@ -51,15 +51,10 @@
         },
         {
           "type": "minecraft:item",
-          "functions": [
+          "conditions": [
             {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
+              "chance": 0.5,
+              "condition": "minecraft:random_chance"
             }
           ],
           "name": "minecraft:diamond"

@@ -333,14 +333,6 @@
             }
           ],
           "name": "minecraft:diamond_boots"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:vex_armor_trim_smithing_template"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:shaper_armor_trim_smithing_template"
         }
       ],
       "rolls": {
@@ -399,10 +391,6 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:music_disc_ward"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:host_armor_trim_smithing_template"
         }
       ],
       "rolls": {
@@ -410,6 +398,29 @@
         "max": 1.0,
         "min": 0.0
       }
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 30
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:vex_armor_trim_smithing_template",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:shaper_armor_trim_smithing_template"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:host_armor_trim_smithing_template"
+        }
+      ],
+      "rolls": 1.0
     }
   ],
   "random_sequence": "dungeons_enhanced:chests/monster_maze/treasure"

@@ -10,11 +10,11 @@ import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.functions.EnchantWithLevelsFunction;
-import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 
 import java.util.function.BiConsumer;
 
 import static com.ametrinstudios.ametrin.data.LootTableProviderHelper.*;
+import static net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition.randomChance;
 import static net.minecraft.world.level.storage.loot.providers.number.UniformGenerator.between;
 
 
@@ -137,13 +137,13 @@ public record DEMonsterMazeChestLootProvider(HolderLookup.Provider registries) i
                         .add(item(Items.EXPERIENCE_BOTTLE).setWeight(3))
                         .add(item(Items.DIAMOND).setWeight(2))
                         .add(item(Items.GOLD_BLOCK).setWeight(2))
-                        .add(item(Items.BOOK).setWeight(2).apply(EnchantWithLevelsFunction.enchantWithLevels(registries, between(10, 22)).when(LootItemRandomChanceCondition.randomChance(0.7f))))
-                        .add(item(Items.BOW).apply(EnchantWithLevelsFunction.enchantWithLevels(registries, between(12, 16)).when(LootItemRandomChanceCondition.randomChance(0.7f))))
-                        .add(item(Items.CROSSBOW).apply(EnchantWithLevelsFunction.enchantWithLevels(registries, between(12, 16)).when(LootItemRandomChanceCondition.randomChance(0.7f))))
-                        .add(item(Items.DIAMOND_HELMET).apply(EnchantWithLevelsFunction.enchantWithLevels(registries, between(12, 16)).when(LootItemRandomChanceCondition.randomChance(0.7f))))
-                        .add(item(Items.DIAMOND_CHESTPLATE).apply(EnchantWithLevelsFunction.enchantWithLevels(registries, between(12, 16)).when(LootItemRandomChanceCondition.randomChance(0.7f))))
-                        .add(item(Items.DIAMOND_LEGGINGS).apply(EnchantWithLevelsFunction.enchantWithLevels(registries, between(12, 16)).when(LootItemRandomChanceCondition.randomChance(0.7f))))
-                        .add(item(Items.DIAMOND_BOOTS).apply(EnchantWithLevelsFunction.enchantWithLevels(registries, between(12, 16)).when(LootItemRandomChanceCondition.randomChance(0.7f))))
+                        .add(item(Items.BOOK).setWeight(2).apply(EnchantWithLevelsFunction.enchantWithLevels(registries, between(10, 22)).when(randomChance(0.7f))))
+                        .add(item(Items.BOW).apply(EnchantWithLevelsFunction.enchantWithLevels(registries, between(12, 16)).when(randomChance(0.7f))))
+                        .add(item(Items.CROSSBOW).apply(EnchantWithLevelsFunction.enchantWithLevels(registries, between(12, 16)).when(randomChance(0.7f))))
+                        .add(item(Items.DIAMOND_HELMET).apply(EnchantWithLevelsFunction.enchantWithLevels(registries, between(12, 16)).when(randomChance(0.7f))))
+                        .add(item(Items.DIAMOND_CHESTPLATE).apply(EnchantWithLevelsFunction.enchantWithLevels(registries, between(12, 16)).when(randomChance(0.7f))))
+                        .add(item(Items.DIAMOND_LEGGINGS).apply(EnchantWithLevelsFunction.enchantWithLevels(registries, between(12, 16)).when(randomChance(0.7f))))
+                        .add(item(Items.DIAMOND_BOOTS).apply(EnchantWithLevelsFunction.enchantWithLevels(registries, between(12, 16)).when(randomChance(0.7f))))
                 )
                 .withPool(LootPool.lootPool().setRolls(between(0, 1))
                         .add(item(Items.MUSIC_DISC_11))

@@ -6,19 +6,8 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
           "name": "minecraft:nautilus_shell",
-          "weight": 2
+          "weight": 4
         },
         {
           "type": "minecraft:item",
@@ -28,12 +17,22 @@
               "count": {
                 "type": "minecraft:uniform",
                 "max": 3.0,
-                "min": 0.0
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
           ],
           "name": "minecraft:emerald",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:turtle_scute",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:name_tag",
           "weight": 2
         },
         {
@@ -43,13 +42,14 @@
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
+                "max": 3.0,
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:turtle_scute"
+          "name": "minecraft:prismarine_shard",
+          "weight": 9
         },
         {
           "type": "minecraft:item",
@@ -58,13 +58,14 @@
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
+                "max": 2.0,
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:name_tag"
+          "name": "minecraft:golden_apple",
+          "weight": 5
         },
         {
           "type": "minecraft:item",
@@ -74,12 +75,28 @@
               "count": {
                 "type": "minecraft:uniform",
                 "max": 3.0,
-                "min": 0.0
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:prismarine_shard",
+          "name": "minecraft:gold_nugget",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 2.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:gold_ingot",
           "weight": 3
         },
         {
@@ -90,12 +107,17 @@
               "count": {
                 "type": "minecraft:uniform",
                 "max": 2.0,
-                "min": 0.0
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:golden_apple",
+          "name": "minecraft:diamond",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:turtle_egg",
           "weight": 2
         },
         {
@@ -106,74 +128,13 @@
               "count": {
                 "type": "minecraft:uniform",
                 "max": 3.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:gold_nugget",
-          "weight": 2
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 2.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:gold_ingot"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 2.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:diamond"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:turtle_egg"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 0.0
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
           ],
           "name": "minecraft:copper_ingot",
-          "weight": 4
+          "weight": 12
         },
         {
           "type": "minecraft:item",
@@ -183,7 +144,8 @@
               "id": "minecraft:long_water_breathing"
             }
           ],
-          "name": "minecraft:potion"
+          "name": "minecraft:potion",
+          "weight": 4
         },
         {
           "type": "minecraft:item",
@@ -193,28 +155,24 @@
               "count": {
                 "type": "minecraft:uniform",
                 "max": 3.0,
-                "min": 0.0
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
           ],
           "name": "minecraft:prismarine_crystals",
-          "weight": 3
+          "weight": 9
         }
       ],
       "rolls": {
         "type": "minecraft:uniform",
-        "max": 16.0,
-        "min": 8.0
+        "max": 11.0,
+        "min": 6.0
       }
     },
     {
       "bonus_rolls": 0.0,
       "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:tide_armor_trim_smithing_template"
-        },
         {
           "type": "minecraft:item",
           "name": "minecraft:heart_of_the_sea"
@@ -233,6 +191,20 @@
         "max": 2.0,
         "min": 1.0
       }
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 7
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:tide_armor_trim_smithing_template"
+        }
+      ],
+      "rolls": 1.0
     }
   ],
   "random_sequence": "dungeons_enhanced:chests/elders_temple/elder_room"

@@ -60,6 +60,20 @@
           ],
           "name": "minecraft:gold_nugget",
           "weight": 3
+        }
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 4.0,
+        "min": 3.0
+      }
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 7
         },
         {
           "type": "minecraft:item",
@@ -70,11 +84,7 @@
           "name": "minecraft:heartbreak_pottery_sherd"
         }
       ],
-      "rolls": {
-        "type": "minecraft:uniform",
-        "max": 5.0,
-        "min": 3.0
-      }
+      "rolls": 1.0
     },
     {
       "bonus_rolls": {

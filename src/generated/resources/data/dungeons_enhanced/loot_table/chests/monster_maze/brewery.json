@@ -92,8 +92,8 @@
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
+                "max": 2.0,
+                "min": 1.0
               },
               "function": "minecraft:set_count"
             }
@@ -103,7 +103,7 @@
       ],
       "rolls": {
         "type": "minecraft:uniform",
-        "max": 3.0,
+        "max": 1.0,
         "min": 0.0
       }
     },
@@ -113,15 +113,6 @@
         {
           "type": "minecraft:item",
           "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            },
             {
               "function": "minecraft:set_potion",
               "id": "minecraft:healing"
@@ -133,15 +124,6 @@
           "type": "minecraft:item",
           "functions": [
             {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            },
-            {
               "function": "minecraft:set_potion",
               "id": "minecraft:invisibility"
             }
@@ -151,15 +133,6 @@
         {
           "type": "minecraft:item",
           "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            },
             {
               "function": "minecraft:set_potion",
               "id": "minecraft:leaping"
@@ -171,15 +144,6 @@
           "type": "minecraft:item",
           "functions": [
             {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            },
-            {
               "function": "minecraft:set_potion",
               "id": "minecraft:night_vision"
             }
@@ -189,15 +153,6 @@
         {
           "type": "minecraft:item",
           "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            },
             {
               "function": "minecraft:set_potion",
               "id": "minecraft:regeneration"
@@ -209,15 +164,6 @@
           "type": "minecraft:item",
           "functions": [
             {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            },
-            {
               "function": "minecraft:set_potion",
               "id": "minecraft:slow_falling"
             }
@@ -227,15 +173,6 @@
         {
           "type": "minecraft:item",
           "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            },
             {
               "function": "minecraft:set_potion",
               "id": "minecraft:strength"
@@ -247,15 +184,6 @@
           "type": "minecraft:item",
           "functions": [
             {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            },
-            {
               "function": "minecraft:set_potion",
               "id": "minecraft:water_breathing"
             }
@@ -265,15 +193,6 @@
         {
           "type": "minecraft:item",
           "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            },
             {
               "function": "minecraft:set_potion",
               "id": "minecraft:fire_resistance"
@@ -285,15 +204,6 @@
           "type": "minecraft:item",
           "functions": [
             {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            },
-            {
               "function": "minecraft:set_potion",
               "id": "minecraft:oozing"
             }
@@ -303,7 +213,7 @@
       ],
       "rolls": {
         "type": "minecraft:uniform",
-        "max": 2.0,
+        "max": 1.0,
         "min": 0.0
       }
     }

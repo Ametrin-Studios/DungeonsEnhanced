@@ -26,6 +26,20 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:diamond"
+        }
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 2.0,
+        "min": 1.0
+      }
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 17
         },
         {
           "type": "minecraft:item",
@@ -40,11 +54,7 @@
           "name": "minecraft:arms_up_pottery_sherd"
         }
       ],
-      "rolls": {
-        "type": "minecraft:uniform",
-        "max": 3.0,
-        "min": 1.0
-      }
+      "rolls": 1.0
     },
     {
       "bonus_rolls": 0.0,

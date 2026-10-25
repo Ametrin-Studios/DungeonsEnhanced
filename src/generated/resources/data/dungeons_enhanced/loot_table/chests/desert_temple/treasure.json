@@ -65,10 +65,6 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:enchanted_golden_apple"
-        },
-        {
-          "type": "minecraft:item",
           "name": "minecraft:iron_horse_armor"
         },
         {
@@ -103,10 +99,6 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:tnt"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:howl_pottery_sherd"
         }
       ],
       "rolls": {
@@ -114,6 +106,34 @@
         "max": 18.0,
         "min": 16.0
       }
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 9
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:howl_pottery_sherd"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 16
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:enchanted_golden_apple"
+        }
+      ],
+      "rolls": 1.0
     }
   ],
   "random_sequence": "dungeons_enhanced:chests/desert_temple/treasure"

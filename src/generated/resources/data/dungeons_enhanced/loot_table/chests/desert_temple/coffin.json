@@ -63,6 +63,16 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:enchanted_golden_apple"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 3
         },
         {
           "type": "minecraft:item",

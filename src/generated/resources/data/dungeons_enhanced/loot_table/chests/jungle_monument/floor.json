@@ -149,6 +149,20 @@
             }
           ],
           "name": "minecraft:cocoa_beans"
+        }
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 5.0,
+        "min": 3.0
+      }
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 14
         },
         {
           "type": "minecraft:item",
@@ -163,11 +177,7 @@
           "name": "minecraft:explorer_pottery_sherd"
         }
       ],
-      "rolls": {
-        "type": "minecraft:uniform",
-        "max": 5.0,
-        "min": 3.0
-      }
+      "rolls": 1.0
     },
     {
       "bonus_rolls": 1.0,

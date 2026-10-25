@@ -241,7 +241,8 @@
           "name": "minecraft:map"
         },
         {
-          "type": "minecraft:empty"
+          "type": "minecraft:empty",
+          "weight": 2
         }
       ],
       "rolls": 1.0

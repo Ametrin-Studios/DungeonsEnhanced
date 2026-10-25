@@ -121,16 +121,13 @@
         },
         {
           "type": "minecraft:item",
-          "functions": [
+          "conditions": [
             {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            },
+              "chance": 0.5,
+              "condition": "minecraft:random_chance"
+            }
+          ],
+          "functions": [
             {
               "function": "minecraft:set_potion",
               "id": "minecraft:weakness"
@@ -140,16 +137,13 @@
         },
         {
           "type": "minecraft:item",
-          "functions": [
+          "conditions": [
             {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            },
+              "chance": 0.5,
+              "condition": "minecraft:random_chance"
+            }
+          ],
+          "functions": [
             {
               "function": "minecraft:set_potion",
               "id": "minecraft:strength"
@@ -347,12 +341,8 @@
           "name": "minecraft:potion"
         },
         {
-          "type": "minecraft:item",
-          "name": "minecraft:wayfinder_armor_trim_smithing_template"
-        },
-        {
           "type": "minecraft:empty",
-          "weight": 4
+          "weight": 5
         }
       ],
       "rolls": {
@@ -360,6 +350,20 @@
         "max": 2.0,
         "min": 0.0
       }
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 31
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:wayfinder_armor_trim_smithing_template"
+        }
+      ],
+      "rolls": 1.0
     }
   ],
   "random_sequence": "dungeons_enhanced:chests/monster_maze/prison"

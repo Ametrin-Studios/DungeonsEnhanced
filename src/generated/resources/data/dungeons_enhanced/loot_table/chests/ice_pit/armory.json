@@ -103,10 +103,6 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:blade_pottery_sherd"
-        },
-        {
-          "type": "minecraft:item",
           "functions": [
             {
               "add": false,
@@ -131,6 +127,20 @@
         "max": 8.0,
         "min": 5.0
       }
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 11
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:blade_pottery_sherd"
+        }
+      ],
+      "rolls": 1.0
     },
     {
       "bonus_rolls": 0.0,
