@@ -682,7 +682,6 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
                         .add(item(Items.GOLDEN_HORSE_ARMOR).setWeight(2))
                         .add(item(Items.DIAMOND_HORSE_ARMOR))
                         .add(item(Items.LEATHER, between(1, 5)).setWeight(3))
-                        .add(item(Items.FIELD_MASONED_BANNER_PATTERN))
                         .add(tag(ItemTags.BUNDLES, 3, one()))
                 )
                 .withPool(LootPool.lootPool().setRolls(between(7, 10)).setBonusRolls(between(0, 3))

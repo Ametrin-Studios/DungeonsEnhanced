@@ -207,11 +207,25 @@
       "entries": [
         {
           "type": "minecraft:empty",
-          "weight": 13
+          "weight": 11
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:coast_armor_trim_smithing_template"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 11
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:angler_pottery_sherd"
         }
       ],
       "rolls": 1.0

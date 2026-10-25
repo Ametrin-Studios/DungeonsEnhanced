@@ -181,10 +181,6 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:skull_banner_pattern"
-        },
-        {
-          "type": "minecraft:item",
           "functions": [
             {
               "add": false,
@@ -408,6 +404,20 @@
         "max": 13.0,
         "min": 8.0
       }
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 39
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:skull_banner_pattern"
+        }
+      ],
+      "rolls": 1.0
     }
   ],
   "random_sequence": "dungeons_enhanced:chests/deep_crypt/hall"

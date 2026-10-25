@@ -229,11 +229,25 @@
       "entries": [
         {
           "type": "minecraft:empty",
-          "weight": 15
+          "weight": 9
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:tide_armor_trim_smithing_template"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 7
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:snort_pottery_sherd"
         }
       ],
       "rolls": 1.0

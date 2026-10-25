@@ -6,10 +6,6 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:skull_banner_pattern"
-        },
-        {
-          "type": "minecraft:item",
           "name": "minecraft:nautilus_shell",
           "weight": 2
         },
@@ -275,6 +271,20 @@
         "max": 9.0,
         "min": 7.0
       }
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:empty",
+          "weight": 11
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:skull_banner_pattern"
+        }
+      ],
+      "rolls": 1.0
     }
   ],
   "random_sequence": "dungeons_enhanced:chests/flying_dutchman"

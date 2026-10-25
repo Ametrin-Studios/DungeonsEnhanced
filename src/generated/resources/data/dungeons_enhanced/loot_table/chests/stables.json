@@ -40,10 +40,6 @@
           "weight": 3
         },
         {
-          "type": "minecraft:item",
-          "name": "minecraft:field_masoned_banner_pattern"
-        },
-        {
           "type": "minecraft:tag",
           "expand": true,
           "functions": [
