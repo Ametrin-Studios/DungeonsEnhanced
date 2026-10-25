@@ -1,0 +1,164 @@
+package com.ametrin.dungeons_enhanced.data.provider.loot_table.chest;
+
+import com.ametrin.dungeons_enhanced.registry.DELootTables;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.loot.LootTableSubProvider;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.functions.EnchantRandomlyFunction;
+import net.minecraft.world.level.storage.loot.functions.SetItemDamageFunction;
+import net.minecraft.world.level.storage.loot.functions.SetStewEffectFunction;
+import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
+
+import java.util.function.BiConsumer;
+
+import static com.ametrinstudios.ametrin.data.LootTableProviderHelper.*;
+import static net.minecraft.world.level.storage.loot.providers.number.UniformGenerator.between;
+
+public record DEBlackCitadelChestLootProvider(HolderLookup.Provider registries) implements LootTableSubProvider {
+    @Override
+    public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output) {
+        output.accept(DELootTables.BlackCitadel.KITCHEN, LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(between(10, 17))
+                        .add(item(Items.LEATHER).setWeight(5))
+                        .add(item(Items.WARPED_FUNGUS).setWeight(4))
+                        .add(item(Items.WARPED_FUNGUS_ON_A_STICK).setWeight(3))
+                        .add(item(Items.ENCHANTED_GOLDEN_APPLE))
+                        .add(item(Items.NETHER_WART).setWeight(10))
+                        .add(item(Items.STRING).setWeight(6))
+                        .add(item(Items.GOLDEN_APPLE).setWeight(3))
+                        .add(item(Items.CRIMSON_FUNGUS).setWeight(10))
+                        .add(item(Items.COOKED_PORKCHOP).setWeight(20))
+                        .add(item(Items.MUSHROOM_STEW).setWeight(19))
+                        .add(item(Items.SUSPICIOUS_STEW).apply(SetStewEffectFunction.stewEffect()
+                                .withEffect(MobEffects.SATURATION, between(7, 10))
+                                .withEffect(MobEffects.REGENERATION, between(10, 13))
+                                .withEffect(MobEffects.FIRE_RESISTANCE, between(7, 10))
+                                .withEffect(MobEffects.HEALTH_BOOST, between(7, 10))
+                                .withEffect(MobEffects.INVISIBILITY, between(7, 10))
+                                .withEffect(MobEffects.GLOWING, between(7, 10))
+                        ))
+                        .add(item(Items.PORKCHOP).setWeight(15))
+                        .add(item(Items.GOLDEN_CARROT).setWeight(6))
+                )
+        );
+
+        output.accept(DELootTables.BlackCitadel.NORMAL, LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(between(11, 16))
+                        .add(item(Items.MUSHROOM_STEW).setWeight(6))
+                        .add(item(Items.STRING).setWeight(7))
+                        .add(enchantedItem(Items.BOOK, one(), registries))
+                        .add(item(Items.IRON_INGOT).setWeight(5))
+                        .add(item(Items.SKULL_BANNER_PATTERN))
+                        .add(item(Items.MAGMA_CREAM).setWeight(5))
+                        .add(item(Items.FIRE_CHARGE).setWeight(5))
+                        .add(item(Items.GOLDEN_HELMET).setWeight(2))
+                        .add(item(Items.GOLDEN_CHESTPLATE).setWeight(2))
+                        .add(item(Items.GOLDEN_LEGGINGS).setWeight(2))
+                        .add(item(Items.GOLDEN_BOOTS).setWeight(2))
+                        .add(item(Items.GOLDEN_SWORD).setWeight(2))
+                        .add(item(Items.GOLD_INGOT).setWeight(9))
+                        .add(item(Items.CRIMSON_FUNGUS).setWeight(10))
+                        .add(item(Items.DIAMOND).setWeight(2))
+                        .add(item(Items.GLOWSTONE_DUST).setWeight(18))
+                        .add(item(Items.BONE).setWeight(30))
+                        .add(item(Items.NETHER_WART).setWeight(18))
+                        .add(item(Items.SPECTRAL_ARROW, between(1, 5)).setWeight(9))
+                        .add(item(Items.QUARTZ, between(1, 3)).setWeight(17))
+                )
+        );
+
+        output.accept(DELootTables.BlackCitadel.NORMAL_ALT, LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(between(0, 1))
+                        .add(enchantedItem(Items.DIAMOND_SHOVEL, one(), registries).apply(SetItemDamageFunction.setDamage(between(0.15f, 0.8f))).setWeight(15))
+                        .add(enchantedItem(Items.DIAMOND_PICKAXE, one(), registries).apply(SetItemDamageFunction.setDamage(between(0.15f, 0.95f))).setWeight(12))
+                        .add(item(Items.NETHERITE_SCRAP).setWeight(8))
+                        .add(item(Items.ANCIENT_DEBRIS).setWeight(12))
+                        .add(item(Items.ANCIENT_DEBRIS, number(2)).setWeight(5))
+                        .add(item(Items.LEATHER, between(1, 5)).setWeight(12))
+                        .add(item(Items.GOLD_BLOCK, between(2, 4)).setWeight(16))
+                        .add(item(Items.GOLDEN_CARROT, between(8, 17)).setWeight(10))
+                        .add(item(Items.GOLDEN_APPLE).setWeight(10))
+                )
+                .withPool(LootPool.lootPool().setRolls(between(3, 4))
+                        .add(enchantedItem(Items.GOLDEN_AXE, one(), registries))
+                        .add(item(Items.CRYING_OBSIDIAN, between(1, 5)))
+                        .add(item(Items.GLOWSTONE, between(3, 6)))
+                        .add(item(Items.GILDED_BLACKSTONE, between(2, 5)))
+                        .add(item(Items.SOUL_SAND, between(2, 7)))
+                        .add(item(Items.CRIMSON_NYLIUM, between(2, 7)))
+                        .add(item(Items.GOLD_NUGGET, between(2, 8)))
+                        .add(item(Items.LEATHER, between(1, 3)))
+                        .add(item(Items.ARROW, between(5, 17)))
+                        .add(item(Items.STRING, between(3, 8)))
+                        .add(item(Items.PORKCHOP, between(2, 5)))
+                        .add(item(Items.COOKED_PORKCHOP, between(2, 5)))
+                        .add(item(Items.CRIMSON_FUNGUS, between(2, 7)))
+                        .add(item(Items.CRIMSON_ROOTS, between(2, 7)))
+                )
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(empty(11))
+                        .add(item(Items.RIB_ARMOR_TRIM_SMITHING_TEMPLATE))
+                )
+        );
+
+        output.accept(DELootTables.BlackCitadel.TREASURE, LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(between(13, 19))
+                        .add(item(Items.STRING).setWeight(5))
+                        .add(item(Items.WITHER_ROSE).setWeight(3))
+                        .add(item(Items.OBSIDIAN, between(1, 4)).setWeight(13))
+                        .add(item(Items.DIAMOND_SWORD).apply(EnchantRandomlyFunction.randomApplicableEnchantment(registries).when(LootItemRandomChanceCondition.randomChance(0.5f))).setWeight(2))
+                        .add(item(Items.DIAMOND_PICKAXE).apply(EnchantRandomlyFunction.randomApplicableEnchantment(registries).when(LootItemRandomChanceCondition.randomChance(0.5f))).setWeight(2))
+                        .add(item(Items.DIAMOND_HELMET).apply(EnchantRandomlyFunction.randomApplicableEnchantment(registries).when(LootItemRandomChanceCondition.randomChance(0.5f))))
+                        .add(item(Items.DIAMOND_CHESTPLATE).apply(EnchantRandomlyFunction.randomApplicableEnchantment(registries).when(LootItemRandomChanceCondition.randomChance(0.5f))))
+                        .add(item(Items.DIAMOND_LEGGINGS).apply(EnchantRandomlyFunction.randomApplicableEnchantment(registries).when(LootItemRandomChanceCondition.randomChance(0.5f))))
+                        .add(item(Items.DIAMOND_BOOTS).apply(EnchantRandomlyFunction.randomApplicableEnchantment(registries).when(LootItemRandomChanceCondition.randomChance(0.5f))))
+                        .add(item(Items.GOLDEN_APPLE).setWeight(6))
+                        .add(item(Items.NETHER_WART).setWeight(15))
+                        .add(item(Items.NETHERITE_SCRAP).setWeight(2))
+                        .add(item(Items.GLOWSTONE_DUST).setWeight(16))
+                        .add(enchantedItem(Items.BOOK, one(), registries).setWeight(3))
+                        .add(item(Items.BONE).setWeight(26))
+                        .add(item(Items.IRON_INGOT).setWeight(7))
+                        .add(item(Items.DIAMOND).setWeight(3))
+                        .add(item(Items.GOLD_INGOT, between(1, 3)).setWeight(20))
+                        .add(item(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE).setWeight(2))
+                        .add(item(Items.RIB_ARMOR_TRIM_SMITHING_TEMPLATE).setWeight(2))
+                )
+        );
+
+        output.accept(DELootTables.BlackCitadel.TREASURE_ALT, LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(between(2, 4))
+                        .add(item(Items.NETHERITE_INGOT).setWeight(15))
+                        .add(item(Items.ANCIENT_DEBRIS).setWeight(10))
+                        .add(item(Items.NETHERITE_SCRAP).setWeight(8))
+                        .add(item(Items.ANCIENT_DEBRIS, number(2)).setWeight(4))
+                        .add(item(Items.DIAMOND_SWORD).apply(SetItemDamageFunction.setDamage(between(0.8f, 1))).apply(EnchantRandomlyFunction.randomApplicableEnchantment(registries).when(LootItemRandomChanceCondition.randomChance(0.5f))).setWeight(9))
+                        .add(item(Items.DIAMOND_HELMET).apply(SetItemDamageFunction.setDamage(between(0.8f, 1))).apply(EnchantRandomlyFunction.randomApplicableEnchantment(registries).when(LootItemRandomChanceCondition.randomChance(0.5f))).setWeight(8))
+                        .add(item(Items.DIAMOND_CHESTPLATE).apply(SetItemDamageFunction.setDamage(between(0.8f, 1))).apply(EnchantRandomlyFunction.randomApplicableEnchantment(registries).when(LootItemRandomChanceCondition.randomChance(0.5f))).setWeight(8))
+                        .add(item(Items.DIAMOND_LEGGINGS).apply(SetItemDamageFunction.setDamage(between(0.8f, 1))).apply(EnchantRandomlyFunction.randomApplicableEnchantment(registries).when(LootItemRandomChanceCondition.randomChance(0.5f))).setWeight(8))
+                        .add(item(Items.DIAMOND_BOOTS).apply(SetItemDamageFunction.setDamage(between(0.8f, 1))).apply(EnchantRandomlyFunction.randomApplicableEnchantment(registries).when(LootItemRandomChanceCondition.randomChance(0.5f))).setWeight(8))
+                        .add(item(Items.DIAMOND, between(2, 6)).setWeight(5))
+                        .add(item(Items.ENCHANTED_GOLDEN_APPLE).setWeight(2))
+                )
+                .withPool(LootPool.lootPool().setRolls(between(3, 4))
+                        .add(item(Items.SPECTRAL_ARROW, between(12, 25)))
+                        .add(item(Items.GOLD_BLOCK, between(2, 5)))
+                        .add(item(Items.IRON_BLOCK, between(2, 5)))
+                        .add(item(Items.GOLD_INGOT, between(3, 9)))
+                        .add(item(Items.IRON_INGOT, between(3, 9)))
+                        .add(item(Items.CRYING_OBSIDIAN, between(3, 5)))
+                        .add(item(Items.QUARTZ, between(8, 23)))
+                        .add(item(Items.GILDED_BLACKSTONE, between(5, 15)))
+                        .add(item(Items.MAGMA_CREAM, between(3, 8)))
+                )
+                .withPool(LootPool.lootPool().setRolls(one()).setBonusRolls(one())
+                        .add(item(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE).setWeight(2))
+                        .add(item(Items.SKULL_BANNER_PATTERN))
+                )
+        );
+    }
+}

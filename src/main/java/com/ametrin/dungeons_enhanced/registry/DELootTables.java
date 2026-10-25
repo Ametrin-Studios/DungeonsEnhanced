@@ -93,6 +93,7 @@ public interface DELootTables {
     interface Ruined {
         ResourceKey<LootTable> DEFAULT = chest("ruined/default");
         ResourceKey<LootTable> HAY_STORAGE = chest("ruined/hay_storage");
+        ResourceKey<LootTable> HOUSE = chest("ruined/house");
         ResourceKey<LootTable> MINERS_HOUSE = chest("ruined/miners_house");
     }
 
@@ -104,6 +105,7 @@ public interface DELootTables {
     }
 
     interface TreeHouse {
+        ResourceKey<LootTable> KITCHEN = chest("tree_house/kitchen");
         ResourceKey<LootTable> ROOF = chest("tree_house/roof");
     }
 

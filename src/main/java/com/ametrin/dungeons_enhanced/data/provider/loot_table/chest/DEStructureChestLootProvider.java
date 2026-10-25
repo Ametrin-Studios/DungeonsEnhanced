@@ -6,12 +6,17 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.EntryGroup;
+import net.minecraft.world.level.storage.loot.functions.EnchantWithLevelsFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemDamageFunction;
 import net.minecraft.world.level.storage.loot.functions.SetOminousBottleAmplifierFunction;
+import net.minecraft.world.level.storage.loot.functions.SetPotionFunction;
+import net.minecraft.world.level.storage.loot.functions.SetStewEffectFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 
 import java.util.function.BiConsumer;
@@ -23,14 +28,19 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
     @Override
     public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output) {
         deepCrypt(output);
+        desertTemple(output);
         desertTomb(output);
         dungeonVariant(output);
         eldersTemple(output);
+        fishingShip(output);
         flyingDutchman(output);
+        jungleMonument(output);
         largeDungeon(output);
+        mushroomHouse(output);
         pillagerCamp(output);
         pirateShip(output);
         ruined(output);
+        stables(output);
         sunkenShrine(output);
         towerOfTheUndead(output);
         treeHouse(output);
@@ -76,6 +86,72 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
                         .add(item(Items.DEEPSLATE, between(1, 2)).setWeight(5))
                         .add(item(Items.COBBLED_DEEPSLATE, between(1, 2)).setWeight(5))
                         .add(item(Items.CLOCK, between(1, 2)).setWeight(2))
+                )
+        );
+    }
+
+    private void desertTemple(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output) {
+        output.accept(DELootTables.DesertTemple.COFFIN, LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(between(10, 14))
+                        .add(item(Items.COBWEB).setWeight(3))
+                        .add(item(Items.GOLD_NUGGET).setWeight(3))
+                        .add(item(Items.SAND).setWeight(3))
+                        .add(item(Items.STICK).setWeight(2))
+                        .add(item(Items.ROTTEN_FLESH).setWeight(2))
+                        .add(item(Items.EMERALD))
+                        .add(item(Items.DIAMOND))
+                        .add(item(Items.PURPLE_CARPET))
+                        .add(item(Items.BONE).setWeight(3))
+                )
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(item(Items.SKELETON_SKULL))
+                        .add(item(Items.ENCHANTED_GOLDEN_APPLE))
+                        .add(item(Items.DUNE_ARMOR_TRIM_SMITHING_TEMPLATE))
+                )
+        );
+
+        output.accept(DELootTables.DesertTemple.FLOOR, LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(between(10, 15)).setBonusRolls(between(1, 3))
+                        .add(item(Items.SAND).setWeight(10))
+                        .add(item(Items.ROTTEN_FLESH).setWeight(6))
+                        .add(item(Items.BONE).setWeight(7))
+                        .add(item(Items.EMERALD))
+                        .add(item(Items.GUNPOWDER).setWeight(5))
+                        .add(item(Items.BOOK).setWeight(2))
+                        .add(item(Items.CHARCOAL).setWeight(3))
+                        .add(item(Items.SPIDER_EYE).setWeight(2))
+                        .add(item(Items.SANDSTONE))
+                        .add(item(Items.STICK).setWeight(6))
+                        .add(item(Items.ARCHER_POTTERY_SHERD))
+                        .add(item(Items.MINER_POTTERY_SHERD))
+                        .add(item(Items.PRIZE_POTTERY_SHERD))
+                        .add(item(Items.SKULL_POTTERY_SHERD))
+                        .add(item(Items.CACTUS).setWeight(4))
+                        .add(item(Items.GUNPOWDER))
+                        .add(item(Items.SHORT_DRY_GRASS).setWeight(2))
+                        .add(item(Items.TIPPED_ARROW).apply(SetPotionFunction.setPotion(Potions.WEAKNESS)).setWeight(2))
+                )
+        );
+
+        output.accept(DELootTables.DesertTemple.TREASURE, LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(between(16, 18)).setBonusRolls(between(0, 4))
+                        .add(item(Items.EMERALD).setWeight(3))
+                        .add(item(Items.DIAMOND).setWeight(2))
+                        .add(item(Items.SAND).setWeight(6))
+                        .add(item(Items.BONE).setWeight(5))
+                        .add(item(Items.ROTTEN_FLESH).setWeight(7))
+                        .add(enchantedItem(Items.BOOK, one(), registries, between(6, 18)))
+                        .add(item(Items.GOLD_INGOT).setWeight(4))
+                        .add(item(Items.STICK).setWeight(5))
+                        .add(item(Items.GOLDEN_APPLE).setWeight(2))
+                        .add(item(Items.ENCHANTED_GOLDEN_APPLE))
+                        .add(item(Items.IRON_HORSE_ARMOR))
+                        .add(item(Items.GOLDEN_HORSE_ARMOR))
+                        .add(item(Items.DIAMOND_HORSE_ARMOR))
+                        .add(item(Items.LEATHER, between(1, 5)).setWeight(3))
+                        .add(item(Items.GUNPOWDER).setWeight(3))
+                        .add(item(Items.TNT))
+                        .add(item(Items.HOWL_POTTERY_SHERD))
                 )
         );
     }
@@ -194,6 +270,39 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
         );
     }
 
+    private void fishingShip(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output) {
+        output.accept(DELootTables.FISHING_SHIP, LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(between(12, 16))
+                        .add(item(Items.COD).setWeight(3))
+                        .add(item(Items.SALMON).setWeight(3))
+                        .add(item(Items.COD_BUCKET))
+                        .add(item(Items.SALMON_BUCKET))
+                        .add(item(Items.STRING).setWeight(4))
+                        .add(item(Items.FISHING_ROD))
+                        .add(item(Items.NAUTILUS_SHELL).when(LootItemRandomChanceCondition.randomChance(0.5f)))
+                        .add(item(Items.BOWL))
+                        .add(item(Items.LEATHER, between(0, 3)).setWeight(2))
+                        .add(item(Items.EMERALD, between(0, 2)))
+                        .add(item(Items.WHEAT, between(0, 2)))
+                        .add(item(Items.BREAD, between(0, 4)).setWeight(2))
+                        .add(item(Items.PAPER, between(0, 3)))
+                        .add(EntryGroup.list(
+                                item(Items.HORN_CORAL),
+                                item(Items.BUBBLE_CORAL),
+                                item(Items.TUBE_CORAL),
+                                item(Items.FIRE_CORAL),
+                                item(Items.BRAIN_CORAL),
+                                item(Items.HORN_CORAL_FAN),
+                                item(Items.BUBBLE_CORAL_FAN),
+                                item(Items.TUBE_CORAL_FAN),
+                                item(Items.BRAIN_CORAL_FAN),
+                                item(Items.FIRE_CORAL_FAN)
+                        ).when(LootItemRandomChanceCondition.randomChance(0.25f)))
+                        .add(item(Items.COAST_ARMOR_TRIM_SMITHING_TEMPLATE))
+                )
+        );
+    }
+
     private void flyingDutchman(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output) {
         output.accept(DELootTables.FLYING_DUTCHMAN, LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(between(7, 9))
@@ -217,6 +326,68 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
                         .add(suspiciousStew(one()).setWeight(3))
                         .add(item(Items.SPYGLASS))
                 ));
+    }
+
+    private void jungleMonument(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output) {
+        output.accept(DELootTables.JungleMonument.FLOOR, LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(between(3, 5)).setBonusRolls(one())
+                        .add(item(Items.STRING, between(3, 4)).setWeight(3))
+                        .add(item(Items.BONE, between(2, 4)).setWeight(2))
+                        .add(item(Items.ROTTEN_FLESH, between(3, 5)).setWeight(4))
+                        .add(item(Items.MELON_SEEDS, between(2, 3)).setWeight(2))
+                        .add(item(Items.GLISTERING_MELON_SLICE, between(1, 2)))
+                        .add(item(Items.MELON_SLICE, between(2, 3)).setWeight(2))
+                        .add(item(Items.MELON))
+                        .add(item(Items.ARROW, between(3, 4)).setWeight(2))
+                        .add(item(Items.BAMBOO, between(2, 4)).setWeight(2))
+                        .add(item(Items.COCOA_BEANS, between(1, 2)))
+                        .add(item(Items.ARCHER_POTTERY_SHERD))
+                        .add(item(Items.SHELTER_POTTERY_SHERD))
+                        .add(item(Items.EXPLORER_POTTERY_SHERD))
+                )
+                .withPool(LootPool.lootPool().setRolls(between(2, 4)).setBonusRolls(one())
+                        .add(item(Items.IRON_INGOT, between(1, 2)))
+                        .add(item(Items.IRON_NUGGET, between(4, 6)).setWeight(2))
+                        .add(item(Items.GOLD_INGOT, between(2, 3)).setWeight(2))
+                        .add(item(Items.GOLD_NUGGET, between(6, 9)).setWeight(3))
+                        .add(item(Items.LEATHER, between(1, 5)).setWeight(2))
+                        .add(item(Items.EMERALD, between(2, 8)).setWeight(4))
+                        .add(item(Items.GOLDEN_HOE))
+                        .add(item(Items.STONE_HOE))
+                )
+        );
+
+        output.accept(DELootTables.JungleMonument.TREASURE, LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(between(3, 4))
+                        .add(item(Items.BOOK).apply(EnchantWithLevelsFunction.enchantWithLevels(registries, between(14, 18)).when(LootItemRandomChanceCondition.randomChance(0.5f))).setWeight(5))
+                        .add(item(Items.GOLDEN_APPLE).setWeight(5))
+                        .add(item(Items.ENCHANTED_GOLDEN_APPLE).setWeight(12))
+                        .add(item(Items.FLOWER_BANNER_PATTERN).setWeight(3))
+                        .add(item(Items.GOLDEN_HORSE_ARMOR))
+                        .add(item(Items.WILD_ARMOR_TRIM_SMITHING_TEMPLATE).setWeight(7))
+                        .add(item(Items.BORDURE_INDENTED_BANNER_PATTERN).setWeight(6))
+                )
+                .withPool(LootPool.lootPool().setRolls(between(4, 7))
+                        .add(item(Items.GOLD_NUGGET, between(2, 6)).setWeight(7))
+                        .add(item(Items.VINE, between(3, 4)).setWeight(5))
+                        .add(item(Items.GOLD_INGOT, between(1, 3)).setWeight(5))
+                        .add(item(Items.IRON_INGOT, between(1, 2)).setWeight(3))
+                        .add(item(Items.EMERALD, between(2, 4)))
+                        .add(item(Items.REDSTONE, between(2, 5)).setWeight(4))
+                        .add(item(Items.GLISTERING_MELON_SLICE, between(2, 3)).setWeight(3))
+                        .add(item(Items.GOLDEN_CARROT, between(2, 3)).setWeight(2))
+                        .add(item(Items.STRING, between(1, 4)).setWeight(5))
+                )
+                .withPool(LootPool.lootPool().setRolls(between(1, 2)).setBonusRolls(one())
+                        .apply(EnchantWithLevelsFunction.enchantWithLevels(registries, number(30)).when(LootItemRandomChanceCondition.randomChance(0.45f)))
+                        .add(item(Items.IRON_SWORD))
+                        .add(item(Items.GOLDEN_HELMET))
+                        .add(item(Items.IRON_CHESTPLATE))
+                        .add(item(Items.GOLDEN_LEGGINGS))
+                        .add(item(Items.IRON_BOOTS))
+                        .add(item(Items.GOLDEN_AXE))
+                )
+        );
     }
 
     private void largeDungeon(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output) {
@@ -251,6 +422,31 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
                         .add(item(Items.DIAMOND_LEGGINGS))
                         .add(item(Items.DIAMOND_BOOTS))
                 ));
+    }
+
+    private void mushroomHouse(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output) {
+        output.accept(DELootTables.MUSHROOM_HOUSE, LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(between(6, 14)).setBonusRolls(between(0, 3))
+                        .add(item(Items.BROWN_MUSHROOM).setWeight(6))
+                        .add(item(Items.RED_MUSHROOM).setWeight(6))
+                        .add(item(Items.MUSHROOM_STEW).setWeight(3))
+                        .add(item(Items.SUSPICIOUS_STEW).apply(SetStewEffectFunction.stewEffect()
+                                .withEffect(MobEffects.JUMP_BOOST, between(7, 10))
+                                .withEffect(MobEffects.NIGHT_VISION, between(7, 10))
+                                .withEffect(MobEffects.SATURATION, between(7, 10))
+                                .withEffect(MobEffects.REGENERATION, between(5, 7))
+                        ).setWeight(2))
+                        .add(item(Items.LEATHER).setWeight(5))
+                        .add(item(Items.SHEARS).setWeight(2))
+                        .add(item(Items.BOWL).setWeight(6))
+                        .add(item(Items.DIAMOND))
+                        .add(item(Items.MILK_BUCKET))
+                        .add(item(Items.MYCELIUM).setWeight(3))
+                        .add(item(Items.MUSHROOM_STEM))
+                        .add(item(Items.RED_MUSHROOM_BLOCK))
+                        .add(item(Items.BROWN_MUSHROOM_BLOCK))
+                )
+        );
     }
 
     private void pillagerCamp(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output) {
@@ -379,6 +575,66 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
                         .add(empty(1))
                 )
         );
+
+        output.accept(DELootTables.Ruined.HAY_STORAGE, LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(between(5, 7)).setBonusRolls(one())
+                        .add(item(Items.MELON_SEEDS, between(2, 5)).setWeight(3))
+                        .add(item(Items.MELON_SLICE, between(1, 4)).setWeight(3))
+                        .add(item(Items.WHEAT_SEEDS, between(2, 5)).setWeight(4))
+                        .add(item(Items.PAPER, between(3, 7)).setWeight(2))
+                        .add(item(Items.SUGAR_CANE, between(2, 4)).setWeight(3))
+                        .add(item(Items.ACACIA_SAPLING, between(4, 6)).setWeight(3))
+                        .add(item(Items.WHEAT, between(3, 6)).setWeight(2))
+                        .add(item(Items.IRON_NUGGET, between(4, 9)))
+                )
+        );
+
+        output.accept(DELootTables.Ruined.HOUSE, LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(between(3, 5)).setBonusRolls(between(1, 2))
+                        .add(item(Items.IRON_NUGGET, between(3, 6)).setWeight(6))
+                        .add(item(Items.STRING, between(2, 3)).setWeight(7))
+                        .add(item(Items.IRON_INGOT).setWeight(3))
+                        .add(item(Items.GOLD_NUGGET, between(1, 2)).setWeight(3))
+                        .add(item(Items.HEART_POTTERY_SHERD))
+                        .add(item(Items.HEARTBREAK_POTTERY_SHERD))
+                )
+                .withPool(LootPool.lootPool().setRolls(between(3, 5)).setBonusRolls(between(2, 3))
+                        .add(item(Items.WHEAT, between(3, 4)).setWeight(4))
+                        .add(item(Items.WHEAT_SEEDS, between(1, 5)).setWeight(5))
+                        .add(item(Items.MELON_SEEDS, between(1, 3)).setWeight(5))
+                        .add(item(Items.POTATO, between(1, 3)).setWeight(3))
+                        .add(item(Items.CARROT, between(2, 4)).setWeight(5))
+                        .add(item(Items.PUMPKIN_SEEDS, between(1, 4)).setWeight(5))
+                        .add(item(Items.ROTTEN_FLESH, between(4, 6)).setWeight(10))
+                        .add(item(Items.GOLDEN_CARROT, between(1, 2)))
+                )
+        );
+    }
+
+    private void stables(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output) {
+        output.accept(DELootTables.STABLES, LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(one()).setBonusRolls(one())
+                        .add(item(Items.LEATHER_HORSE_ARMOR).setWeight(4))
+                        .add(item(Items.IRON_HORSE_ARMOR).setWeight(3))
+                        .add(item(Items.GOLDEN_HORSE_ARMOR).setWeight(2))
+                        .add(item(Items.DIAMOND_HORSE_ARMOR))
+                        .add(item(Items.LEATHER, between(1, 5)).setWeight(3))
+                        .add(item(Items.FIELD_MASONED_BANNER_PATTERN))
+                        .add(tag(ItemTags.BUNDLES, 3, one()))
+                )
+                .withPool(LootPool.lootPool().setRolls(between(7, 10)).setBonusRolls(between(0, 3))
+                        .add(item(Items.ROTTEN_FLESH).setWeight(5))
+                        .add(item(Items.BONE).setWeight(7))
+                        .add(item(Items.STRING).setWeight(6))
+                        .add(item(Items.SPIDER_EYE).setWeight(6))
+                        .add(item(Items.LEATHER).setWeight(5))
+                        .add(item(Items.WHEAT).setWeight(2))
+                        .add(item(Items.WHEAT_SEEDS).setWeight(6))
+                        .add(item(Items.LEAD).setWeight(3))
+                        .add(item(Items.IRON_INGOT))
+                        .add(tag(ItemTags.CANDLES).when(LootItemRandomChanceCondition.randomChance(0.3f)))
+                )
+        );
     }
 
     private void sunkenShrine(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output) {
@@ -474,6 +730,22 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
                         .add(tag(ItemTags.BUNDLES))
                         .add(item(Items.COCOA_BEANS, between(1, 2)).setWeight(6))
                         .add(item(Items.MELON_SEEDS, between(1, 3)).setWeight(6))
+                )
+        );
+
+        output.accept(DELootTables.TreeHouse.KITCHEN, LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(between(10, 17)).setBonusRolls(between(2, 5))
+                        .add(item(Items.MELON_SLICE).setWeight(3))
+                        .add(item(Items.MELON))
+                        .add(item(Items.PUMPKIN))
+                        .add(item(Items.PUMPKIN_PIE))
+                        .add(item(Items.WHEAT).setWeight(2))
+                        .add(item(Items.BREAD))
+                        .add(item(Items.POTATO))
+                        .add(item(Items.MELON_SEEDS))
+                        .add(item(Items.PUMPKIN_SEEDS))
+                        .add(item(Items.COCOA_BEANS))
+                        .add(item(Items.COOKIE))
                 )
         );
     }

@@ -1,6 +1,8 @@
 package com.ametrin.dungeons_enhanced.data.provider;
 
+import com.ametrin.dungeons_enhanced.data.provider.loot_table.chest.DEBlackCitadelChestLootProvider;
 import com.ametrin.dungeons_enhanced.data.provider.loot_table.chest.DECastleChestLootProvider;
+import com.ametrin.dungeons_enhanced.data.provider.loot_table.chest.DEIcePitChestLootProvider;
 import com.ametrin.dungeons_enhanced.data.provider.loot_table.chest.DEMonsterMazeChestLootProvider;
 import com.ametrin.dungeons_enhanced.data.provider.loot_table.chest.DEStructureChestLootProvider;
 import com.ametrin.dungeons_enhanced.data.provider.loot_table.equipment.DECastleEquipmentLootProvider;
@@ -22,6 +24,8 @@ public final class DELootTableProvider extends LootTableProvider {
                 new SubProviderEntry(DEStructureChestLootProvider::new, LootContextParamSets.CHEST),
                 new SubProviderEntry(DECastleChestLootProvider::new, LootContextParamSets.CHEST),
                 new SubProviderEntry(DEMonsterMazeChestLootProvider::new, LootContextParamSets.CHEST),
+                new SubProviderEntry(DEIcePitChestLootProvider::new, LootContextParamSets.CHEST),
+                new SubProviderEntry(DEBlackCitadelChestLootProvider::new, LootContextParamSets.CHEST),
                 new SubProviderEntry(DEStructureEquipmentLootProvider::new, LootContextParamSets.EQUIPMENT),
                 new SubProviderEntry(DECastleEquipmentLootProvider::new, LootContextParamSets.EQUIPMENT),
                 new SubProviderEntry(DEMonsterMazeEquipmentLootProvider::new, LootContextParamSets.EQUIPMENT)
