@@ -3,25 +3,28 @@ package com.ametrin.dungeons_enhanced.data.provider.loot_table.chest;
 import com.ametrin.dungeons_enhanced.registry.DEExplorerMaps;
 import com.ametrin.dungeons_enhanced.registry.DELootTables;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.InstrumentTags;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.EntryGroup;
-import net.minecraft.world.level.storage.loot.functions.EnchantWithLevelsFunction;
-import net.minecraft.world.level.storage.loot.functions.SetItemDamageFunction;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.SetInstrumentFunction;
 import net.minecraft.world.level.storage.loot.functions.SetOminousBottleAmplifierFunction;
 import net.minecraft.world.level.storage.loot.functions.SetPotionFunction;
-import net.minecraft.world.level.storage.loot.functions.SetStewEffectFunction;
-import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 
 import java.util.function.BiConsumer;
 
 import static com.ametrinstudios.ametrin.data.LootTableProviderHelper.*;
+import static net.minecraft.world.level.storage.loot.functions.EnchantWithLevelsFunction.enchantWithLevels;
+import static net.minecraft.world.level.storage.loot.functions.SetItemDamageFunction.setDamage;
+import static net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition.randomChance;
+import static net.minecraft.world.level.storage.loot.providers.number.ConstantValue.exactly;
 import static net.minecraft.world.level.storage.loot.providers.number.UniformGenerator.between;
 
 public record DEStructureChestLootProvider(HolderLookup.Provider registries) implements LootTableSubProvider {
@@ -127,8 +130,7 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
                         .add(item(Items.PRIZE_POTTERY_SHERD))
                         .add(item(Items.SKULL_POTTERY_SHERD))
                         .add(item(Items.CACTUS).setWeight(4))
-                        .add(item(Items.GUNPOWDER))
-                        .add(item(Items.SHORT_DRY_GRASS).setWeight(2))
+                        .add(item(Items.DRY_SHORT_GRASS).setWeight(2))
                         .add(item(Items.TIPPED_ARROW).apply(SetPotionFunction.setPotion(Potions.WEAKNESS)).setWeight(2))
                 )
         );
@@ -279,7 +281,7 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
                         .add(item(Items.SALMON_BUCKET))
                         .add(item(Items.STRING).setWeight(4))
                         .add(item(Items.FISHING_ROD))
-                        .add(item(Items.NAUTILUS_SHELL).when(LootItemRandomChanceCondition.randomChance(0.5f)))
+                        .add(item(Items.NAUTILUS_SHELL).when(randomChance(0.5f)))
                         .add(item(Items.BOWL))
                         .add(item(Items.LEATHER, between(0, 3)).setWeight(2))
                         .add(item(Items.EMERALD, between(0, 2)))
@@ -297,7 +299,7 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
                                 item(Items.TUBE_CORAL_FAN),
                                 item(Items.BRAIN_CORAL_FAN),
                                 item(Items.FIRE_CORAL_FAN)
-                        ).when(LootItemRandomChanceCondition.randomChance(0.25f)))
+                        ).when(randomChance(0.25f)))
                         .add(item(Items.COAST_ARMOR_TRIM_SMITHING_TEMPLATE))
                 )
         );
@@ -359,7 +361,7 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
 
         output.accept(DELootTables.JungleMonument.TREASURE, LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(between(3, 4))
-                        .add(item(Items.BOOK).apply(EnchantWithLevelsFunction.enchantWithLevels(registries, between(14, 18)).when(LootItemRandomChanceCondition.randomChance(0.5f))).setWeight(5))
+                        .add(item(Items.BOOK).apply(enchantWithLevels(registries, between(14, 18)).when(randomChance(0.5f))).setWeight(5))
                         .add(item(Items.GOLDEN_APPLE).setWeight(5))
                         .add(item(Items.ENCHANTED_GOLDEN_APPLE).setWeight(12))
                         .add(item(Items.FLOWER_BANNER_PATTERN).setWeight(3))
@@ -379,7 +381,7 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
                         .add(item(Items.STRING, between(1, 4)).setWeight(5))
                 )
                 .withPool(LootPool.lootPool().setRolls(between(1, 2)).setBonusRolls(one())
-                        .apply(EnchantWithLevelsFunction.enchantWithLevels(registries, number(30)).when(LootItemRandomChanceCondition.randomChance(0.45f)))
+                        .apply(enchantWithLevels(registries, exactly(30)).when(randomChance(0.45f)))
                         .add(item(Items.IRON_SWORD))
                         .add(item(Items.GOLDEN_HELMET))
                         .add(item(Items.IRON_CHESTPLATE))
@@ -430,12 +432,7 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
                         .add(item(Items.BROWN_MUSHROOM).setWeight(6))
                         .add(item(Items.RED_MUSHROOM).setWeight(6))
                         .add(item(Items.MUSHROOM_STEW).setWeight(3))
-                        .add(item(Items.SUSPICIOUS_STEW).apply(SetStewEffectFunction.stewEffect()
-                                .withEffect(MobEffects.JUMP_BOOST, between(7, 10))
-                                .withEffect(MobEffects.NIGHT_VISION, between(7, 10))
-                                .withEffect(MobEffects.SATURATION, between(7, 10))
-                                .withEffect(MobEffects.REGENERATION, between(5, 7))
-                        ).setWeight(2))
+                        .add(suspiciousStew(one()).setWeight(2))
                         .add(item(Items.LEATHER).setWeight(5))
                         .add(item(Items.SHEARS).setWeight(2))
                         .add(item(Items.BOWL).setWeight(6))
@@ -450,6 +447,33 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
     }
 
     private void pillagerCamp(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output) {
+        var instruments = this.registries.lookupOrThrow(Registries.INSTRUMENT);
+
+        output.accept(DELootTables.PillagerCamp.GENERAL, LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(between(6, 16))
+                        .add(item(Items.MAP))
+                        .add(item(Items.EMERALD))
+                        .add(item(Items.PAPER).setWeight(7))
+                        .add(item(Items.GOLDEN_CARROT).setWeight(2))
+                        .add(item(Items.GOLDEN_APPLE).setWeight(2))
+                        .add(item(Items.COMPASS))
+                        .add(item(Items.CLOCK))
+                        .add(item(Items.IRON_AXE).setWeight(2))
+                        .add(item(Items.CROSSBOW))
+                        .add(item(Items.ARROW).setWeight(5))
+                        .add(item(Items.DIAMOND, between(0, 1)))
+                        .add(item(Items.IRON_INGOT).setWeight(2))
+                )
+                .withPool(LootPool.lootPool().setRolls(between(0, 1))
+                        .add(LootItem.lootTableItem(Items.GOAT_HORN))
+                        .apply(SetInstrumentFunction.setInstrumentOptions(instruments.getOrThrow(InstrumentTags.REGULAR_GOAT_HORNS)))
+                )
+                .withPool(LootPool.lootPool().setRolls(exactly(1))
+                        .add(empty(3))
+                        .add(item(Items.SENTRY_ARMOR_TRIM_SMITHING_TEMPLATE).setWeight(1))
+                )
+        );
+
         output.accept(DELootTables.PillagerCamp.KITCHEN, LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(between(12, 19))
                         .add(item(Items.COOKED_MUTTON))
@@ -471,23 +495,8 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
                         .add(item(Items.CARROT))
                         .add(item(Items.WHEAT, between(1, 3)))
                         .add(item(Items.WHEAT_SEEDS, between(1, 3)))
-                ));
-
-        output.accept(DELootTables.PillagerCamp.GENERAL, LootTable.lootTable()
-                .withPool(LootPool.lootPool().setRolls(between(6, 16))
-                        .add(item(Items.MAP))
-                        .add(item(Items.EMERALD))
-                        .add(item(Items.PAPER).setWeight(7))
-                        .add(item(Items.GOLDEN_CARROT).setWeight(2))
-                        .add(item(Items.GOLDEN_APPLE).setWeight(2))
-                        .add(item(Items.COMPASS))
-                        .add(item(Items.CLOCK))
-                        .add(item(Items.IRON_AXE).setWeight(2))
-                        .add(item(Items.CROSSBOW))
-                        .add(item(Items.ARROW).setWeight(5))
-                        .add(item(Items.DIAMOND, between(0, 1)))
-                        .add(item(Items.IRON_INGOT).setWeight(2))
-                ));
+                )
+        );
     }
 
     private void pirateShip(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output) {
@@ -544,7 +553,7 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
                         .add(item(Items.PUMPKIN_SEEDS, between(1, 4)).setWeight(5))
                         .add(item(Items.GOLDEN_CARROT))
                 )
-                .withPool(LootPool.lootPool().setRolls(one()).when(LootItemRandomChanceCondition.randomChance(0.7f))
+                .withPool(LootPool.lootPool().setRolls(one()).when(randomChance(0.7f))
                         .add(item(Items.MAP).apply(() -> DEExplorerMaps.CASTLE))
                         .add(item(Items.MAP).apply(() -> DEExplorerMaps.DEEP_CRYPT))
                         .add(item(Items.MAP).apply(() -> DEExplorerMaps.JUNGLE_MONUMENT))
@@ -632,7 +641,7 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
                         .add(item(Items.WHEAT_SEEDS).setWeight(6))
                         .add(item(Items.LEAD).setWeight(3))
                         .add(item(Items.IRON_INGOT))
-                        .add(tag(ItemTags.CANDLES).when(LootItemRandomChanceCondition.randomChance(0.3f)))
+                        .add(tag(ItemTags.CANDLES).when(randomChance(0.3f)))
                 )
         );
     }
@@ -667,7 +676,7 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
                         .add(item(Items.COPPER_NAUTILUS_ARMOR))
                         .add(item(Items.GOLDEN_NAUTILUS_ARMOR))
                         .add(item(Items.TIDE_ARMOR_TRIM_SMITHING_TEMPLATE))
-                        .when(LootItemRandomChanceCondition.randomChance(0.7f))
+                        .when(randomChance(0.7f))
                 )
         );
     }
@@ -772,27 +781,27 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
                 )
                 .withPool(LootPool.lootPool().setRolls(between(1, 2))
                         .add(item(Items.DIAMOND).setWeight(2))
-                        .add(item(Items.SHIELD).apply(SetItemDamageFunction.setDamage(between(0.8f, 1))).setWeight(2))
-                        .add(item(Items.BOW).apply(SetItemDamageFunction.setDamage(between(0.8f, 1))).setWeight(2))
-                        .add(item(Items.CROSSBOW).apply(SetItemDamageFunction.setDamage(between(0.8f, 1))).setWeight(2))
-                        .add(item(Items.IRON_SWORD).apply(SetItemDamageFunction.setDamage(between(0.8f, 1))))
-                        .add(item(Items.IRON_AXE).apply(SetItemDamageFunction.setDamage(between(0.8f, 1))))
-                        .add(item(Items.IRON_SPEAR).apply(SetItemDamageFunction.setDamage(between(0.8f, 1))))
-                        .add(item(Items.IRON_HELMET).apply(SetItemDamageFunction.setDamage(between(0.8f, 1))))
-                        .add(item(Items.IRON_CHESTPLATE).apply(SetItemDamageFunction.setDamage(between(0.8f, 1))))
-                        .add(item(Items.IRON_LEGGINGS).apply(SetItemDamageFunction.setDamage(between(0.8f, 1))))
-                        .add(item(Items.IRON_BOOTS).apply(SetItemDamageFunction.setDamage(between(0.8f, 1))))
-                        .add(item(Items.COPPER_SWORD).apply(SetItemDamageFunction.setDamage(between(0.8f, 1))))
-                        .add(item(Items.COPPER_AXE).apply(SetItemDamageFunction.setDamage(between(0.8f, 1))))
-                        .add(item(Items.COPPER_SPEAR).apply(SetItemDamageFunction.setDamage(between(0.8f, 1))))
-                        .add(item(Items.COPPER_HELMET).apply(SetItemDamageFunction.setDamage(between(0.8f, 1))))
-                        .add(item(Items.COPPER_CHESTPLATE).apply(SetItemDamageFunction.setDamage(between(0.8f, 1))))
-                        .add(item(Items.COPPER_LEGGINGS).apply(SetItemDamageFunction.setDamage(between(0.8f, 1))))
-                        .add(item(Items.COPPER_BOOTS).apply(SetItemDamageFunction.setDamage(between(0.8f, 1))))
-                        .add(item(Items.CHAINMAIL_HELMET).apply(SetItemDamageFunction.setDamage(between(0.8f, 1))))
-                        .add(item(Items.CHAINMAIL_CHESTPLATE).apply(SetItemDamageFunction.setDamage(between(0.8f, 1))))
-                        .add(item(Items.CHAINMAIL_LEGGINGS).apply(SetItemDamageFunction.setDamage(between(0.8f, 1))))
-                        .add(item(Items.CHAINMAIL_BOOTS).apply(SetItemDamageFunction.setDamage(between(0.8f, 1))))
+                        .add(item(Items.SHIELD).apply(setDamage(between(0.8f, 1))).setWeight(2))
+                        .add(item(Items.BOW).apply(setDamage(between(0.8f, 1))).setWeight(2))
+                        .add(item(Items.CROSSBOW).apply(setDamage(between(0.8f, 1))).setWeight(2))
+                        .add(item(Items.IRON_SWORD).apply(setDamage(between(0.8f, 1))))
+                        .add(item(Items.IRON_AXE).apply(setDamage(between(0.8f, 1))))
+                        .add(item(Items.IRON_SPEAR).apply(setDamage(between(0.8f, 1))))
+                        .add(item(Items.IRON_HELMET).apply(setDamage(between(0.8f, 1))))
+                        .add(item(Items.IRON_CHESTPLATE).apply(setDamage(between(0.8f, 1))))
+                        .add(item(Items.IRON_LEGGINGS).apply(setDamage(between(0.8f, 1))))
+                        .add(item(Items.IRON_BOOTS).apply(setDamage(between(0.8f, 1))))
+                        .add(item(Items.COPPER_SWORD).apply(setDamage(between(0.8f, 1))))
+                        .add(item(Items.COPPER_AXE).apply(setDamage(between(0.8f, 1))))
+                        .add(item(Items.COPPER_SPEAR).apply(setDamage(between(0.8f, 1))))
+                        .add(item(Items.COPPER_HELMET).apply(setDamage(between(0.8f, 1))))
+                        .add(item(Items.COPPER_CHESTPLATE).apply(setDamage(between(0.8f, 1))))
+                        .add(item(Items.COPPER_LEGGINGS).apply(setDamage(between(0.8f, 1))))
+                        .add(item(Items.COPPER_BOOTS).apply(setDamage(between(0.8f, 1))))
+                        .add(item(Items.CHAINMAIL_HELMET).apply(setDamage(between(0.8f, 1))))
+                        .add(item(Items.CHAINMAIL_CHESTPLATE).apply(setDamage(between(0.8f, 1))))
+                        .add(item(Items.CHAINMAIL_LEGGINGS).apply(setDamage(between(0.8f, 1))))
+                        .add(item(Items.CHAINMAIL_BOOTS).apply(setDamage(between(0.8f, 1))))
                         .add(item(Items.WAYFINDER_ARMOR_TRIM_SMITHING_TEMPLATE).setWeight(2))
                 ).withPool(LootPool.lootPool().setRolls(one())
                         .add(item(Items.SPYGLASS).setWeight(9))
