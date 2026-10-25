@@ -170,7 +170,10 @@ public record DECastleChestLootProvider(HolderLookup.Provider registries) implem
                         .add(item(Items.STRING).setWeight(5))
                         .add(item(Items.EMERALD).setWeight(3))
                         .add(item(Items.NAME_TAG))
-                        .add(item(Items.BOOK).setWeight(3))));
+                        .add(item(Items.BOOK).setWeight(3)))
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(empty(18))
+                        .add(item(Items.FIELD_MASONED_BANNER_PATTERN))));
 
         output.accept(DELootTables.Castle.WELL, LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(between(11, 22))

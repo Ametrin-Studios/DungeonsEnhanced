@@ -68,7 +68,6 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
                         .add(item(Items.ROTTEN_FLESH, between(1, 3)).setWeight(3))
                         .add(item(Items.GLOW_BERRIES, between(1, 3)).setWeight(4))
                         .add(item(Items.IRON_CHAIN, between(1, 3)).setWeight(5))
-                        .add(item(Items.SKULL_BANNER_PATTERN))
                         .add(item(Items.EMERALD, between(1, 4)).setWeight(3))
                         .add(item(Items.GOLD_INGOT, between(1, 5)).setWeight(4))
                         .add(item(Items.IRON_INGOT, between(1, 2)).setWeight(2))
@@ -89,6 +88,10 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
                         .add(item(Items.DEEPSLATE, between(1, 2)).setWeight(5))
                         .add(item(Items.COBBLED_DEEPSLATE, between(1, 2)).setWeight(5))
                         .add(item(Items.CLOCK, between(1, 2)).setWeight(2))
+                )
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(empty(39))
+                        .add(item(Items.SKULL_BANNER_PATTERN))
                 )
         );
     }
@@ -227,6 +230,10 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
                 .withPool(LootPool.lootPool().setRolls(between(0, 1))
                         .add(item(Items.OMINOUS_BOTTLE).apply(SetOminousBottleAmplifierFunction.setAmplifier(between(1, 3))))
                 )
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(empty(11))
+                        .add(item(Items.GUSTER_BANNER_PATTERN))
+                )
         );
     }
 
@@ -314,8 +321,12 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
                         .add(empty(3))
                 )
                 .withPool(LootPool.lootPool().setRolls(one())
-                        .add(empty(13))
+                        .add(empty(11))
                         .add(item(Items.COAST_ARMOR_TRIM_SMITHING_TEMPLATE))
+                )
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(empty(11))
+                        .add(item(Items.ANGLER_POTTERY_SHERD))
                 )
         );
     }
@@ -323,7 +334,6 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
     private void flyingDutchman(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output) {
         output.accept(DELootTables.FLYING_DUTCHMAN, LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(between(7, 9))
-                        .add(item(Items.SKULL_BANNER_PATTERN))
                         .add(item(Items.NAUTILUS_SHELL).setWeight(2))
                         .add(item(Items.TURTLE_EGG))
                         .add(item(Items.TURTLE_SCUTE))
@@ -342,6 +352,10 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
                         .add(item(Items.GOLD_INGOT, between(1, 2)).setWeight(3))
                         .add(suspiciousStew(one()).setWeight(3))
                         .add(item(Items.SPYGLASS))
+                )
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(empty(11))
+                        .add(item(Items.SKULL_BANNER_PATTERN))
                 ));
     }
 
@@ -382,10 +396,13 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
                         .add(item(Items.BOOK).apply(enchantWithLevels(registries, between(14, 18)).when(randomChance(0.5f))).setWeight(5))
                         .add(item(Items.GOLDEN_APPLE).setWeight(5))
                         .add(item(Items.ENCHANTED_GOLDEN_APPLE).setWeight(3))
-                        .add(item(Items.FLOWER_BANNER_PATTERN).setWeight(3))
                         .add(item(Items.GOLDEN_HORSE_ARMOR))
-                        .add(empty(16))
-                        .add(item(Items.BORDURE_INDENTED_BANNER_PATTERN).setWeight(6))
+                        .add(empty(25))
+                )
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(empty(8))
+                        .add(item(Items.FLOWER_BANNER_PATTERN))
+                        .add(item(Items.BORDURE_INDENTED_BANNER_PATTERN))
                 )
                 .withPool(LootPool.lootPool().setRolls(one())
                         .add(empty(7))
@@ -445,6 +462,10 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
                         .add(item(Items.DIAMOND_CHESTPLATE))
                         .add(item(Items.DIAMOND_LEGGINGS))
                         .add(item(Items.DIAMOND_BOOTS))
+                )
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(empty(7))
+                        .add(item(Items.CREEPER_BANNER_PATTERN))
                 ));
     }
 
@@ -464,6 +485,10 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
                         .add(item(Items.MUSHROOM_STEM))
                         .add(item(Items.RED_MUSHROOM_BLOCK))
                         .add(item(Items.BROWN_MUSHROOM_BLOCK))
+                )
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(empty(7))
+                        .add(item(Items.FRIEND_POTTERY_SHERD))
                 )
         );
     }
@@ -618,6 +643,10 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
                         .add(item(Items.WHEAT, between(3, 6)).setWeight(2))
                         .add(item(Items.IRON_NUGGET, between(4, 9)))
                 )
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(empty(7))
+                        .add(item(Items.SHEAF_POTTERY_SHERD))
+                )
         );
 
         output.accept(DELootTables.Ruined.HOUSE, LootTable.lootTable()
@@ -703,8 +732,12 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
                         .when(randomChance(0.45f))
                 )
                 .withPool(LootPool.lootPool().setRolls(one())
-                        .add(empty(15))
+                        .add(empty(9))
                         .add(item(Items.TIDE_ARMOR_TRIM_SMITHING_TEMPLATE))
+                )
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(empty(7))
+                        .add(item(Items.SNORT_POTTERY_SHERD))
                 )
         );
     }
@@ -753,6 +786,14 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
                         .add(item(Items.IRON_LEGGINGS))
                         .add(item(Items.IRON_BOOTS))
                         .add(enchantedItem(Items.BOOK, one(), registries, between(4, 10)))
+                )
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(empty(7))
+                        .add(item(Items.DANGER_POTTERY_SHERD))
+                )
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(empty(7))
+                        .add(item(Items.SKULL_BANNER_PATTERN))
                 )
         );
     }
@@ -834,6 +875,10 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
                 ).withPool(LootPool.lootPool().setRolls(one())
                         .add(item(Items.SPYGLASS).setWeight(9))
                         .add(empty(1))
+                )
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(empty(5))
+                        .add(item(Items.GLOBE_BANNER_PATTERN))
                 )
         );
     }

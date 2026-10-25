@@ -55,6 +55,10 @@ public record DEMonsterMazeChestLootProvider(HolderLookup.Provider registries) i
                         .add(potion(Potions.FIRE_RESISTANCE, one()))
                         .add(potion(Potions.OOZING, one()))
                 )
+                .withPool(LootPool.lootPool().setRolls(one())
+                        .add(empty(14))
+                        .add(item(Items.BREWER_POTTERY_SHERD))
+                )
         );
 
         output.accept(DELootTables.MonsterMaze.CHURCH, LootTable.lootTable()
