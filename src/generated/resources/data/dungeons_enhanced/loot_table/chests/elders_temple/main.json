@@ -106,8 +106,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:nautilus_shell",
-          "weight": 2
+          "name": "minecraft:nautilus_shell"
         },
         {
           "type": "minecraft:item",
@@ -231,21 +230,6 @@
             }
           ],
           "name": "minecraft:ink_sac"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:name_tag"
         },
         {
           "type": "minecraft:item",

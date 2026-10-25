@@ -38,6 +38,7 @@ public final class DungeonsEnhanced {
         event.createProvider(DELootTableProvider::new);
         event.createProvider(DEAdvancementProvider::new);
         event.createProvider(DEStructureTagsProvider::new);
+        event.createProvider(DEDataMapProvider::new);
 //        event.addProvider(new StructureTemplateUpdater(event.getInputs()));
     }
 

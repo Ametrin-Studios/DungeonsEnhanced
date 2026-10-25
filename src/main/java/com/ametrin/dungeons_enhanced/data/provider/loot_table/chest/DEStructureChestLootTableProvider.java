@@ -97,7 +97,7 @@ public record DEStructureChestLootTableProvider(HolderLookup.Provider registries
                             .add(item(Items.FIRE_CORAL, between(0, 1)))
                             .add(item(Items.HORN_CORAL, between(0, 1)))
                             .add(item(Items.TUBE_CORAL, between(0, 1)))
-                            .add(item(Items.NAUTILUS_SHELL, between(0, 1)).setWeight(2))
+                            .add(item(Items.NAUTILUS_SHELL, between(0, 1)))
                             .add(item(Items.EMERALD, between(0, 3)).setWeight(3))
                             .add(item(Items.TURTLE_SCUTE, between(0, 1)))
                             .add(item(Items.PRISMARINE_SHARD, between(0, 3)).setWeight(3))
@@ -106,32 +106,36 @@ public record DEStructureChestLootTableProvider(HolderLookup.Provider registries
                             .add(item(Items.DIAMOND, between(0, 1)))
                             .add(item(Items.TURTLE_EGG, between(0, 1)))
                             .add(item(Items.INK_SAC, between(0, 1)))
-                            .add(item(Items.NAME_TAG, between(0, 1)))
                             .add(item(Items.COPPER_INGOT, between(0, 3)).setWeight(4))
                             .add(potion(Potions.WATER_BREATHING, one()))
                             .add(item(Items.PRISMARINE_CRYSTALS, between(0, 3)).setWeight(2))
                             .add(item(Items.SEA_PICKLE, between(0, 2)).setWeight(2))
-                    ));
+                    )
+            );
 
             output.accept(DELootTables.EldersTemple.ELDER_ROOM, LootTable.lootTable()
                     .withPool(LootPool.lootPool().setRolls(between(8, 16))
                             .add(item(Items.NAUTILUS_SHELL, between(0, 1)).setWeight(2))
                             .add(item(Items.EMERALD, between(0, 3)).setWeight(2))
                             .add(item(Items.TURTLE_SCUTE, between(0, 1)))
+                            .add(item(Items.NAME_TAG, between(0, 1)))
                             .add(item(Items.PRISMARINE_SHARD, between(0, 3)).setWeight(3))
                             .add(item(Items.GOLDEN_APPLE, between(0, 2)).setWeight(2))
                             .add(item(Items.GOLD_NUGGET, between(0, 3)).setWeight(2))
                             .add(item(Items.GOLD_INGOT, between(0, 2)))
-                            .add(item(Items.HEART_OF_THE_SEA, between(0, 1)))
-                            .add(item(Items.TIDE_ARMOR_TRIM_SMITHING_TEMPLATE))
-                            .add(item(Items.TRIDENT, between(0, 1)))
                             .add(item(Items.DIAMOND, between(0, 2)))
                             .add(item(Items.TURTLE_EGG, between(0, 1)))
                             .add(item(Items.COPPER_INGOT, between(0, 3)).setWeight(4))
                             .add(potion(Potions.LONG_WATER_BREATHING, one()))
                             .add(item(Items.PRISMARINE_CRYSTALS, between(0, 3)).setWeight(3))
-                            .add(item(Items.COPPER_NAUTILUS_ARMOR, between(0, 1)))
-                    ));
+                    ).withPool(LootPool.lootPool().setRolls(between(1, 2))
+                            .add(item(Items.TIDE_ARMOR_TRIM_SMITHING_TEMPLATE))
+                            .add(item(Items.HEART_OF_THE_SEA))
+                            .add(item(Items.COPPER_NAUTILUS_ARMOR))
+                            .add(item(Items.TRIDENT))
+                    )
+
+            );
         } // Elders Temple
 
         {
@@ -377,12 +381,18 @@ public record DEStructureChestLootTableProvider(HolderLookup.Provider registries
                             .add(item(Items.TURTLE_EGG, between(0, 1)))
                             .add(item(Items.INK_SAC, between(0, 1)))
                             .add(item(Items.NAME_TAG, between(0, 1)))
-                            .add(item(Items.TIDE_ARMOR_TRIM_SMITHING_TEMPLATE, between(0, 1)))
                             .add(item(Items.COPPER_INGOT, between(0, 3)).setWeight(4))
                             .add(potion(Potions.WATER_BREATHING, between(0, 1)))
                             .add(item(Items.PRISMARINE_CRYSTALS, between(0, 3)).setWeight(2))
                             .add(item(Items.SEA_PICKLE, between(0, 3)).setWeight(2))
-                    ));
+                    )
+                    .withPool(LootPool.lootPool().setRolls(one())
+                            .add(item(Items.COPPER_NAUTILUS_ARMOR))
+                            .add(item(Items.GOLDEN_NAUTILUS_ARMOR))
+                            .add(item(Items.TIDE_ARMOR_TRIM_SMITHING_TEMPLATE))
+                            .when(LootItemRandomChanceCondition.randomChance(0.7f))
+                    )
+            );
         } // Sunken Shrine
         {
             output.accept(DELootTables.WATCH_TOWER, LootTable.lootTable()

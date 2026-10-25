@@ -75,7 +75,10 @@ Add biomes or biome tags to `values` to allow the structure there or to `remove`
 }
 ```
 
-To block **all** Dungeons Enhanced structures in a biome, add it to `tags/worldgen/biome/no_structures.json`.
+To block **all** Dungeons Enhanced structures in a biome, add it to `tags/worldgen/biome/no_structures.json`.  
+
+To block a structure from a dimension add all the dimensions biomes to the `no_structures` tag.  
+If the dimension uses biomes that should contain structures but only in a different dimension you can exclude structure sets from a dimension using [Ametrin Structures excluded dimensions feature](https://github.com/Ametrin-Studios/AmetrinStructures/blob/main/docs/extending.md#excluding-dimensions)
 
 ## Spawners
 - normal spawners: `ametrin_structures/spawner_profile`
