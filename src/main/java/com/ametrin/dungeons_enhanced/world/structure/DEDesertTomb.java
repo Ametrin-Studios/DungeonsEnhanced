@@ -15,11 +15,11 @@ public final class DEDesertTomb {
         pools.pool("trap", p -> p.element("trap"));
         pools.pool("cross", p -> p.element("t-cross"));
         pools.pool("main", p -> p
-                .element("tunnel", e -> e.weight(5))
+                .element("tunnel", e -> e.weight(3))
                 .element("t-cross", e -> e.weight(4))
                 .element("room", e -> e.weight(4))
                 .element("tomb", e -> e.weight(3))
-                .element("exit", e -> e.weight(2))
+                .element("exit", e -> e.weight(1))
         );
     }
 }

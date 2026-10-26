@@ -112,7 +112,7 @@ public final class DEStructures {
                 .scatteredGridPlacement(p -> p.spacing(31).probability(0.71f))
                 .jigsaw(DETemplatePools.DESERT_TOMB, j -> j
                         .surface()
-                        .size(6)
+                        .size(5)
 //                        .processors(List.of(DEBadlandsFromDesertProcessor.INSTANCE))
                         .biomes(DETags.Biomes.HAS_DESERT_TOMB)
                 )

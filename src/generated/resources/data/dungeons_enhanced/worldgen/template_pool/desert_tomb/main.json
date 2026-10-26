@@ -7,7 +7,7 @@
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
-      "weight": 5
+      "weight": 3
     },
     {
       "element": {
@@ -43,7 +43,7 @@
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
-      "weight": 2
+      "weight": 1
     }
   ],
   "fallback": "minecraft:empty"
