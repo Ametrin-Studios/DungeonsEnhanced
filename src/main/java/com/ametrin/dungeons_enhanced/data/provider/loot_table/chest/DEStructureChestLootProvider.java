@@ -125,6 +125,7 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
                         .add(item(Items.ROTTEN_FLESH, between(1, 3)).setWeight(6))
                         .add(item(Items.BONE, between(1, 3)).setWeight(7))
                         .add(item(Items.EMERALD, between(1, 2)))
+                        .add(item(Items.DIAMOND, one()))
                         .add(item(Items.GUNPOWDER, between(1, 2)).setWeight(5))
                         .add(item(Items.BOOK, between(1, 2)).setWeight(2))
                         .add(item(Items.CHARCOAL, between(1, 2)).setWeight(3))
