@@ -51,3 +51,11 @@ description='''
     versionRange="${ametrin_structures_version_range}"
     ordering="AFTER"
     side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="block_variants"
+    reason="increased block variety"
+    type="optional"
+    versionRange="${bv_version_range}"
+    ordering="NONE"
+    side="BOTH"

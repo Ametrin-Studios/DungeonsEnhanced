@@ -1,0 +1,39 @@
+{
+  "fixtures": [
+    {
+      "type": "ametrin_structures:block_state",
+      "conditions": [
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "block_variants"
+        }
+      ],
+      "state": {
+        "Name": "block_variants:dark_prismarine_wall",
+        "Properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "weight": 1000
+    },
+    {
+      "type": "ametrin_structures:block_state",
+      "state": {
+        "Name": "minecraft:prismarine_wall",
+        "Properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      }
+    }
+  ]
+}

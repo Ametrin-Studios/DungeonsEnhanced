@@ -1,11 +1,11 @@
-Minecraft is great game, but exploring always felt a bit boring.
-There aren't many structures or dungeons you can explore and the ones you find, are getting repetitive.
-We decided to spice things up a bit, by adding new dungeons and structures for you to explore.
-By now 27 new dungeons and structures are included in our mod.
-They all fit a medieval/fantasy theme and could fit along other fantasy or RPG-like Mods.
-Some of our structures also look like they could be an upgraded version of a vanilla structure or a variant to them.
-Get ready to find huge mazes under trees, castles, towers and forgotten temples.
-We hope you have fun!
+Minecraft is a great game, but we felt exploration was missing something.  
+There are only a handful of dungeons and they are getting repetitive.  
+So we decided to spice things up a bit, by adding new dungeons and structures for you to explore.  
+This mod adds 27 new dungeons and structures, all designed with a medieval fantasy theme.  
+Some look like upgraded or alternative versions of vanilla structures, while others are completely new.  
+They fit naturally into any world and work well alongside other fantasy and RPG mods.  
+Get ready to find huge mazes hidden beneath trees, castles, towers and forgotten temples.  
+Grab your sword, pack some food and start exploring. We hope you have fun!  
 
 ## Customizing Structures
 Checkout [customizing.md](https://github.com/Ametrin-Studios/DungeonsEnhanced/blob/master/customizing.md)<br>

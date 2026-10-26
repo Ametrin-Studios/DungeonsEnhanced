@@ -1,3 +1,7 @@
+## 7.0.3-beta
+- use blocks from Block Variants when installed
+- requires Ametrin Structures 0.3.2-beta or above
+
 ## 7.0.2-beta
 - more unique Pale Monster Maze
 - Explorer Maps in Ruined Houses

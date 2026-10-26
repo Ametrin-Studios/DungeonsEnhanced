@@ -34,11 +34,78 @@
             }
           ],
           "name": "minecraft:gold_ingot",
-          "weight": 2
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:gold_block"
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:golden_apple"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:golden_carrot",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 2.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:glistering_melon_slice"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 5.0,
+                "min": 2.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:lapis_lazuli",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 2.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:emerald",
+          "weight": 2
         },
         {
           "type": "minecraft:item",
@@ -54,7 +121,7 @@
             }
           ],
           "name": "minecraft:rotten_flesh",
-          "weight": 10
+          "weight": 5
         },
         {
           "type": "minecraft:item",
@@ -70,7 +137,7 @@
             }
           ],
           "name": "minecraft:string",
-          "weight": 7
+          "weight": 4
         },
         {
           "type": "minecraft:item",
@@ -86,7 +153,7 @@
             }
           ],
           "name": "minecraft:gunpowder",
-          "weight": 7
+          "weight": 4
         },
         {
           "type": "minecraft:item",
@@ -134,17 +201,23 @@
             }
           ],
           "name": "minecraft:sand",
-          "weight": 15
+          "weight": 5
         }
       ],
       "rolls": {
         "type": "minecraft:uniform",
-        "max": 6.0,
-        "min": 4.0
+        "max": 5.0,
+        "min": 3.0
       }
     },
     {
       "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "chance": 0.7,
+          "condition": "minecraft:random_chance"
+        }
+      ],
       "entries": [
         {
           "type": "minecraft:item",
@@ -153,8 +226,8 @@
               "function": "minecraft:enchant_with_levels",
               "levels": {
                 "type": "minecraft:uniform",
-                "max": 18.0,
-                "min": 5.0
+                "max": 25.0,
+                "min": 10.0
               },
               "options": "#minecraft:on_random_loot"
             }
@@ -168,8 +241,8 @@
               "function": "minecraft:enchant_with_levels",
               "levels": {
                 "type": "minecraft:uniform",
-                "max": 7.0,
-                "min": 0.0
+                "max": 30.0,
+                "min": 15.0
               },
               "options": "#minecraft:on_random_loot"
             }
@@ -183,8 +256,8 @@
               "function": "minecraft:enchant_with_levels",
               "levels": {
                 "type": "minecraft:uniform",
-                "max": 7.0,
-                "min": 0.0
+                "max": 30.0,
+                "min": 15.0
               },
               "options": "#minecraft:on_random_loot"
             }
@@ -198,8 +271,8 @@
               "function": "minecraft:enchant_with_levels",
               "levels": {
                 "type": "minecraft:uniform",
-                "max": 7.0,
-                "min": 0.0
+                "max": 30.0,
+                "min": 15.0
               },
               "options": "#minecraft:on_random_loot"
             }
@@ -213,8 +286,8 @@
               "function": "minecraft:enchant_with_levels",
               "levels": {
                 "type": "minecraft:uniform",
-                "max": 7.0,
-                "min": 0.0
+                "max": 30.0,
+                "min": 15.0
               },
               "options": "#minecraft:on_random_loot"
             }
@@ -228,8 +301,8 @@
               "function": "minecraft:enchant_with_levels",
               "levels": {
                 "type": "minecraft:uniform",
-                "max": 7.0,
-                "min": 0.0
+                "max": 30.0,
+                "min": 15.0
               },
               "options": "#minecraft:on_random_loot"
             }
@@ -243,8 +316,8 @@
               "function": "minecraft:enchant_with_levels",
               "levels": {
                 "type": "minecraft:uniform",
-                "max": 7.0,
-                "min": 0.0
+                "max": 30.0,
+                "min": 15.0
               },
               "options": "#minecraft:on_random_loot"
             }
@@ -258,8 +331,8 @@
               "function": "minecraft:enchant_with_levels",
               "levels": {
                 "type": "minecraft:uniform",
-                "max": 7.0,
-                "min": 0.0
+                "max": 30.0,
+                "min": 15.0
               },
               "options": "#minecraft:on_random_loot"
             }
@@ -267,12 +340,8 @@
           "name": "minecraft:golden_boots"
         }
       ],
-      "rolls": {
-        "type": "minecraft:uniform",
-        "max": 1.0,
-        "min": 0.0
-      }
+      "rolls": 1.0
     }
   ],
-  "random_sequence": "dungeons_enhanced:chests/desert_tomb"
+  "random_sequence": "dungeons_enhanced:chests/desert_tomb/corridor"
 }

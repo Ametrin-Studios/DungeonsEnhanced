@@ -112,7 +112,7 @@ public final class DEStructures {
                 .scatteredGridPlacement(p -> p.spacing(31).probability(0.71f))
                 .jigsaw(DETemplatePools.DESERT_TOMB, j -> j
                         .surface()
-                        .size(5)
+                        .size(6)
 //                        .processors(List.of(DEBadlandsFromDesertProcessor.INSTANCE))
                         .biomes(DETags.Biomes.HAS_DESERT_TOMB)
                 )
@@ -308,7 +308,7 @@ public final class DEStructures {
         );
 
         STABLES = BOOTSTRAP.registerSet(DEStructureIDs.STABLES, set -> set
-                .evenSpreadPlacement(b -> b.minDistance(50).probability(0.66f))
+                .evenSpreadPlacement(b -> b.minDistance(50).probability(0.66f).minChunksFromCenter(6))
                 .simple(s -> s
                         .biomes(DETags.Biomes.HAS_STABLES)
                         .surface(0, HeightMode.CORNERS_MEAN)

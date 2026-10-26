@@ -37,20 +37,20 @@
       "processor_type": "ametrin_structures:replace_block"
     },
     {
+      "chance": 0.1,
+      "change_to": {
+        "Name": "minecraft:cracked_stone_bricks"
+      },
+      "condition": "minecraft:stone_bricks",
+      "processor_type": "ametrin_structures:replace_block"
+    },
+    {
       "chance": 0.3,
       "change_to": {
         "Name": "minecraft:mossy_stone_bricks"
       },
       "condition": "minecraft:stone_bricks",
       "preserve_state": true,
-      "processor_type": "ametrin_structures:replace_block"
-    },
-    {
-      "chance": 0.2,
-      "change_to": {
-        "Name": "minecraft:cracked_stone_bricks"
-      },
-      "condition": "minecraft:stone_bricks",
       "processor_type": "ametrin_structures:replace_block"
     }
   ]

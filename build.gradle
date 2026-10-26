@@ -78,15 +78,17 @@ repositories {
         name "Ametrin Studios Maven"
         url "https://github.com/Ametrin-Studios/maven/raw/main/"
     }
-//    maven {
-//        url uri(rootProject.file("../maven"))
-//    }
+    maven {
+        url uri(rootProject.file("../maven"))
+    }
 }
 
 dependencies {
     implementation "com.ametrinstudios:ametrin-${minecraft_version}:${ametrin_version}"
     interfaceInjectionData "com.ametrinstudios:ametrin-${minecraft_version}:${ametrin_version}"
     implementation "com.ametrin:ametrin_structures-${minecraft_version}:${ametrin_structures_version}"
+    compileOnly "com.ametrin:block_variants-${minecraft_version}:${bv_version}"
+    localRuntime "com.ametrin:block_variants-${minecraft_version}:${bv_version}"
 
     localRuntime "curse.maven:xaeros-world-map-317780:9265809"
     localRuntime "curse.maven:xaeros-minimap-263420:9265856"
@@ -106,6 +108,8 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
             ametrin_version_range           : ametrin_version_range,
             ametrin_structures_version      : ametrin_structures_version,
             ametrin_structures_version_range: ametrin_structures_version_range,
+            bv_version                      : bv_version,
+            bv_version_range                : bv_version_range,
 
             mod_id                          : mod_id,
             mod_name                        : mod_name,

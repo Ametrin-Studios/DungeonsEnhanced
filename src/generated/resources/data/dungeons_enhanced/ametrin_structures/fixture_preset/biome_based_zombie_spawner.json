@@ -9,7 +9,7 @@
         }
       ],
       "entity": "minecraft:husk",
-      "weight": 100
+      "weight": 1000
     },
     {
       "type": "ametrin_structures:spawner",

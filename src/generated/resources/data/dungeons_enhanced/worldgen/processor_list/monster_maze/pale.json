@@ -13,6 +13,62 @@
       },
       "condition": "minecraft:stone_bricks",
       "processor_type": "ametrin_structures:replace_block"
+    },
+    {
+      "conditions": [
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "block_variants"
+        }
+      ],
+      "processor_type": "ametrin_structures:conditional",
+      "processors": [
+        {
+          "chance": 0.2,
+          "change_to": {
+            "Name": "block_variants:cracked_stone_brick_stairs",
+            "Properties": {
+              "facing": "north",
+              "half": "bottom",
+              "shape": "straight",
+              "waterlogged": "false"
+            }
+          },
+          "condition": "minecraft:stone_brick_stairs",
+          "preserve_state": true,
+          "processor_type": "ametrin_structures:replace_block"
+        },
+        {
+          "chance": 0.2,
+          "change_to": {
+            "Name": "block_variants:cracked_stone_brick_slab",
+            "Properties": {
+              "type": "bottom",
+              "waterlogged": "false"
+            }
+          },
+          "condition": "minecraft:stone_brick_slab",
+          "preserve_state": true,
+          "processor_type": "ametrin_structures:replace_block"
+        },
+        {
+          "chance": 0.2,
+          "change_to": {
+            "Name": "block_variants:cracked_stone_brick_wall",
+            "Properties": {
+              "east": "none",
+              "north": "none",
+              "south": "none",
+              "up": "true",
+              "waterlogged": "false",
+              "west": "none"
+            }
+          },
+          "condition": "minecraft:stone_brick_wall",
+          "preserve_state": true,
+          "processor_type": "ametrin_structures:replace_block"
+        }
+      ]
     }
   ]
 }

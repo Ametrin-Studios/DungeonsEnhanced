@@ -9,7 +9,7 @@
         }
       ],
       "entity": "minecraft:bogged",
-      "weight": 100
+      "weight": 1000
     },
     {
       "type": "ametrin_structures:spawner",
@@ -20,7 +20,7 @@
         }
       ],
       "entity": "minecraft:stray",
-      "weight": 100
+      "weight": 1000
     },
     {
       "type": "ametrin_structures:spawner",
