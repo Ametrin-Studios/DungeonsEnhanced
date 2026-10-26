@@ -36,7 +36,10 @@ public interface DELootTables {
         ResourceKey<LootTable> TREASURE = chest("desert_temple/treasure");
     }
 
-    ResourceKey<LootTable> DESERT_TOMB = chest("desert_tomb");
+    interface DesertTomb {
+        ResourceKey<LootTable> CORRIDOR = chest("desert_tomb/corridor");
+        ResourceKey<LootTable> SARCOPHAGUS = chest("desert_tomb/sarcophagus");
+    }
 
     interface DungeonVariant {
         ResourceKey<LootTable> BREWING_STAND = create("brewing/dungeon_variant");
