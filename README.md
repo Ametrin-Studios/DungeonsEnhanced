@@ -8,18 +8,18 @@ Get ready to find huge mazes hidden beneath trees, castles, towers and forgotten
 Grab your sword, pack some food and start exploring. We hope you have fun!  
 
 ## Customizing Structures
-Checkout [customizing.md](https://github.com/Ametrin-Studios/DungeonsEnhanced/blob/master/customizing.md)<br>
+Checkout [customizing.md](customizing.md)  
 
 ## Translating
-[![Crowdin](https://badges.crowdin.net/dungeons-enhanced/localized.svg)](https://crowdin.com/project/dungeons-enhanced)<br>
-We're looking for translators over at [Crowdin](https://crowdin.com/project/dungeons-enhanced)<br>
+[![Crowdin](https://badges.crowdin.net/dungeons-enhanced/localized.svg)](https://crowdin.com/project/dungeons-enhanced)  
+We're looking for translators over at [Crowdin](https://crowdin.com/project/dungeons-enhanced)  
 In case want to add more languages please open an issue or contact us on [discord](https://discord.com/invite/hwA9dd5bVh)
 
 ### Translators
-huge shout out to:<br>
-[PExPE3](https://github.com/PExPE3)<br>
-[Rad233](https://github.com/Rad233)<br>
-[BardinTheDwarf](https://github.com/BardinTheDwarf)<br>
-[Zano1999](https://github.com/Zano1999)<br>
-[Heimdallr-1](https://github.com/Heimdallr-1)<br>
+huge shout out to:  
+[PExPE3](https://github.com/PExPE3)  
+[Rad233](https://github.com/Rad233)  
+[BardinTheDwarf](https://github.com/BardinTheDwarf)  
+[Zano1999](https://github.com/Zano1999)  
+[Heimdallr-1](https://github.com/Heimdallr-1)  
 In case we forgot you just contact us! 
