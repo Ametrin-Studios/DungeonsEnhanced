@@ -146,7 +146,7 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
         );
 
         output.accept(DELootTables.DesertTemple.TREASURE, LootTable.lootTable()
-                .withPool(LootPool.lootPool().setRolls(between(16, 18)).setBonusRolls(between(0, 4))
+                .withPool(LootPool.lootPool().setRolls(between(15, 17)).setBonusRolls(between(0, 4))
                         .add(item(Items.EMERALD).setWeight(3))
                         .add(item(Items.DIAMOND).setWeight(2))
                         .add(item(Items.SAND).setWeight(6))
@@ -156,9 +156,6 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
                         .add(item(Items.GOLD_INGOT).setWeight(4))
                         .add(item(Items.STICK).setWeight(5))
                         .add(item(Items.GOLDEN_APPLE).setWeight(2))
-                        .add(item(Items.IRON_HORSE_ARMOR))
-                        .add(item(Items.GOLDEN_HORSE_ARMOR))
-                        .add(item(Items.DIAMOND_HORSE_ARMOR))
                         .add(item(Items.LEATHER, between(1, 5)).setWeight(3))
                         .add(item(Items.GUNPOWDER).setWeight(3))
                         .add(item(Items.TNT))
