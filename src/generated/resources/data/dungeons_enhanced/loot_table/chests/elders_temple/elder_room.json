@@ -113,7 +113,7 @@
             }
           ],
           "name": "minecraft:diamond",
-          "weight": 3
+          "weight": 2
         },
         {
           "type": "minecraft:item",
@@ -183,14 +183,14 @@
         },
         {
           "type": "minecraft:item",
+          "name": "minecraft:diamond_nautilus_armor"
+        },
+        {
+          "type": "minecraft:item",
           "name": "minecraft:trident"
         }
       ],
-      "rolls": {
-        "type": "minecraft:uniform",
-        "max": 2.0,
-        "min": 1.0
-      }
+      "rolls": 1.0
     },
     {
       "bonus_rolls": 0.0,

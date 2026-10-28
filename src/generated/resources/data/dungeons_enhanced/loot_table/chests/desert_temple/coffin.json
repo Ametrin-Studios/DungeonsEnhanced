@@ -58,7 +58,8 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:skeleton_skull"
+          "name": "minecraft:skeleton_skull",
+          "weight": 2
         },
         {
           "type": "minecraft:item",

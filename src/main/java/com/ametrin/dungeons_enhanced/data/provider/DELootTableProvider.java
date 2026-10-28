@@ -1,10 +1,7 @@
 package com.ametrin.dungeons_enhanced.data.provider;
 
-import com.ametrin.dungeons_enhanced.data.provider.loot_table.chest.DEBlackCitadelChestLootProvider;
-import com.ametrin.dungeons_enhanced.data.provider.loot_table.chest.DECastleChestLootProvider;
-import com.ametrin.dungeons_enhanced.data.provider.loot_table.chest.DEIcePitChestLootProvider;
-import com.ametrin.dungeons_enhanced.data.provider.loot_table.chest.DEMonsterMazeChestLootProvider;
-import com.ametrin.dungeons_enhanced.data.provider.loot_table.chest.DEStructureChestLootProvider;
+import com.ametrin.dungeons_enhanced.data.provider.loot_table.DEArcheologyLootProvider;
+import com.ametrin.dungeons_enhanced.data.provider.loot_table.chest.*;
 import com.ametrin.dungeons_enhanced.data.provider.loot_table.equipment.DECastleEquipmentLootProvider;
 import com.ametrin.dungeons_enhanced.data.provider.loot_table.equipment.DEMonsterMazeEquipmentLootProvider;
 import com.ametrin.dungeons_enhanced.data.provider.loot_table.equipment.DEStructureEquipmentLootProvider;
@@ -28,7 +25,8 @@ public final class DELootTableProvider extends LootTableProvider {
                 new SubProviderEntry(DEBlackCitadelChestLootProvider::new, LootContextParamSets.CHEST),
                 new SubProviderEntry(DEStructureEquipmentLootProvider::new, LootContextParamSets.EQUIPMENT),
                 new SubProviderEntry(DECastleEquipmentLootProvider::new, LootContextParamSets.EQUIPMENT),
-                new SubProviderEntry(DEMonsterMazeEquipmentLootProvider::new, LootContextParamSets.EQUIPMENT)
+                new SubProviderEntry(DEMonsterMazeEquipmentLootProvider::new, LootContextParamSets.EQUIPMENT),
+                new SubProviderEntry(DEArcheologyLootProvider::new, LootContextParamSets.ARCHAEOLOGY)
         );
         super(output, Set.of(), tables, registries);
     }
