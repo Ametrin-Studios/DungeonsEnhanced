@@ -71,7 +71,7 @@ public interface DELootTables {
         ResourceKey<LootTable> ARCHEOLOGY = create("archeology/jungle_monument/treasure");
     }
 
-    ResourceKey<LootTable> LARGE_DUNGEON = chest("large_dungeon");
+    ResourceKey<LootTable> CATACOMBS = chest("large_dungeon");
 
     interface MonsterMaze {
         ResourceKey<LootTable> BREWERY = chest("monster_maze/brewery");

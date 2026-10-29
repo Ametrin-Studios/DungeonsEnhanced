@@ -38,7 +38,7 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
         fishingShip(output);
         flyingDutchman(output);
         jungleMonument(output);
-        largeDungeon(output);
+        catacombs(output);
         mushroomHouse(output);
         pillagerCamp(output);
         pirateShip(output);
@@ -477,8 +477,8 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
         );
     }
 
-    private void largeDungeon(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output) {
-        output.accept(DELootTables.LARGE_DUNGEON, LootTable.lootTable()
+    private void catacombs(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output) {
+        output.accept(DELootTables.CATACOMBS, LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(between(8, 14))
                         .add(item(Items.IRON_INGOT).setWeight(3))
                         .add(item(Items.IRON_NUGGET, between(1, 3)).setWeight(6))
@@ -497,10 +497,10 @@ public record DEStructureChestLootProvider(HolderLookup.Provider registries) imp
                 .withPool(LootPool.lootPool().setRolls(between(0, 2))
                         .add(item(Items.DIAMOND).setWeight(2))
                         .add(item(Items.GOLDEN_APPLE).setWeight(2))
-                        .add(enchantedItem(Items.IRON_HELMET, one(), registries, between(4, 12)).setWeight(2))
-                        .add(enchantedItem(Items.IRON_CHESTPLATE, one(), registries, between(4, 12)).setWeight(2))
-                        .add(enchantedItem(Items.IRON_LEGGINGS, one(), registries, between(4, 12)).setWeight(2))
-                        .add(enchantedItem(Items.IRON_BOOTS, one(), registries, between(4, 12)).setWeight(2))
+                        .add(item(Items.IRON_HELMET, one()).setWeight(2).apply(enchantWithLevels(registries, between(4, 12))))
+                        .add(item(Items.IRON_CHESTPLATE, one()).setWeight(2).apply(enchantWithLevels(registries, between(4, 12))))
+                        .add(item(Items.IRON_LEGGINGS, one()).setWeight(2).apply(enchantWithLevels(registries, between(4, 12))))
+                        .add(item(Items.IRON_BOOTS, one()).setWeight(2).apply(enchantWithLevels(registries, between(4, 12))))
                         .add(item(Items.DIAMOND_AXE))
                         .add(item(Items.DIAMOND_SWORD))
                         .add(item(Items.DIAMOND_PICKAXE))

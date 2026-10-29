@@ -20,11 +20,19 @@ import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 
 public final class DEFixturePresets {
+    public static final String VIKTOR_TRANSLATION_KEY = "entity.dungeons_enhanced.catacombs.viktor";
     public static final String HENDRIK_VAN_DER_DECKEN_TRANSLATION_KEY = "entity.dungeons_enhanced.flying_dutchman.captain";
     public static final String ZOMBIE_KING_TRANSLATION_KEY = "entity.dungeons_enhanced.monster_maze.zombie_king";
 
     public static void bootstrap(BootstrapContext<FixturePreset> context) {
         var biomes = context.lookup(Registries.BIOME);
+        context.register(key("catacombs/viktor"), FixturePreset.builder()
+                .add(1, EntityFixture.of(EntityDataBuilder.of(EntityType.ZOMBIE_VILLAGER)
+                        .maxHealth(40)
+                        .deathLootTable(Blocks.LIGHTNING_ROD.getLootTable().orElseThrow())
+                        .name(Component.translatable(VIKTOR_TRANSLATION_KEY)))
+                ).build());
+
         context.register(key("hendrik_van_der_decken"), FixturePreset.builder()
                 .add(1, EntityFixture.of(EntityDataBuilder.of(EntityType.SKELETON)
                                 .leftHanded()

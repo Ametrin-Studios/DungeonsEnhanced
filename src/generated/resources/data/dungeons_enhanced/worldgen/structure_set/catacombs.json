@@ -3,12 +3,12 @@
     "type": "ametrin_structures:scattered_grid",
     "probability": 0.56,
     "random_offset": 41,
-    "salt": 351346250,
+    "salt": -421100837,
     "spacing": 59
   },
   "structures": [
     {
-      "structure": "dungeons_enhanced:large_dungeon",
+      "structure": "dungeons_enhanced:catacombs",
       "weight": 1
     }
   ]

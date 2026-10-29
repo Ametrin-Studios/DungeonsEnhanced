@@ -50,8 +50,8 @@ public final class DEAdvancementProvider extends AdvancementProvider {
 
             builder(provider, "thats_a_dungeon")
                     .parent(root)
-                    .displayItem(Items.MOSSY_COBBLESTONE)
-                    .onEnterStructure(DEStructures.LARGE_DUNGEON.structure())
+                    .displayItem(Items.LIGHTNING_ROD)
+                    .onEnterStructure(DEStructures.CATACOMBS.structure())
                     .save(consumer);
 
             builder(provider, "traps_and_curses")
@@ -141,7 +141,7 @@ public final class DEAdvancementProvider extends AdvancementProvider {
                     .onEnterStructure(DEStructures.FLYING_DUTCHMAN.structure())
                     .onEnterStructure(DEStructures.ICE_PIT.structure())
                     .onEnterStructure(DEStructures.JUNGLE_MONUMENT.structure())
-                    .onEnterStructure(DEStructures.LARGE_DUNGEON.structure())
+                    .onEnterStructure(DEStructures.CATACOMBS.structure())
                     .onEnterAnyStructure("entered_monster_maze", DEStructures.MONSTER_MAZE.structures().stream())
                     .onEnterStructure(DEStructures.MUSHROOM_HOUSE.structure())
                     .onEnterStructure(DEStructures.PILLAGER_CAMP.structure())

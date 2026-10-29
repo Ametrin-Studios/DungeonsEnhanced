@@ -36,6 +36,22 @@
       },
       "trigger": "minecraft:location"
     },
+    "entered_catacombs": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": "dungeons_enhanced:catacombs"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
     "entered_deep_crypt": {
       "conditions": {
         "player": [
@@ -192,22 +208,6 @@
             "predicate": {
               "location": {
                 "structures": "dungeons_enhanced:jungle_monument"
-              }
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:location"
-    },
-    "entered_large_dungeon": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "location": {
-                "structures": "dungeons_enhanced:large_dungeon"
               }
             }
           }
@@ -463,7 +463,7 @@
       "entered_jungle_monument"
     ],
     [
-      "entered_large_dungeon"
+      "entered_catacombs"
     ],
     [
       "entered_monster_maze"

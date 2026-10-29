@@ -30,7 +30,7 @@ public final class DETags {
         TagKey<Biome> HAS_HAY_STORAGE = structure(DEStructureIDs.HAY_STORAGE);
         TagKey<Biome> HAS_ICE_PIT = structure(DEStructureIDs.ICE_PIT);
         TagKey<Biome> HAS_JUNGLE_MONUMENT = structure(DEStructureIDs.JUNGLE_MONUMENT);
-        TagKey<Biome> HAS_LARGE_DUNGEON = structure(DEStructureIDs.LARGE_DUNGEON);
+        TagKey<Biome> HAS_CATACOMBS = structure(DEStructureIDs.CATACOMBS);
         TagKey<Biome> HAS_MINERS_HOUSE = structure(DEStructureIDs.MINERS_HOUSE);
         TagKey<Biome> HAS_MONSTER_MAZE_DARK = structure("monster_maze/dark");
         TagKey<Biome> HAS_MONSTER_MAZE_PALE = structure("monster_maze/pale");

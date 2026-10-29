@@ -31,6 +31,7 @@ public final class DEStructures {
 
     // Overworld
     public static final StructureSetKeys CASTLE;
+    public static final StructureSetKeys CATACOMBS;
     public static final StructureSetKeys DEEP_CRYPT;
     public static final StructureSetKeys DESERT_TEMPLE;
     public static final StructureSetKeys DESERT_TOMB;
@@ -41,7 +42,6 @@ public final class DEStructures {
     public static final StructureSetKeys FLYING_DUTCHMAN;
     public static final StructureSetKeys ICE_PIT;
     public static final StructureSetKeys JUNGLE_MONUMENT;
-    public static final StructureSetKeys LARGE_DUNGEON;
     public static final StructureSetKeys MONSTER_MAZE;
     public static final StructureSetKeys MUSHROOM_HOUSE;
     public static final StructureSetKeys PILLAGER_CAMP;
@@ -79,6 +79,16 @@ public final class DEStructures {
                         .filterFlatness(8)
                         .single(t -> t.template("castle/red").offset(0, -5, 0))
                         .terrainAdaptation(TerrainAdjustment.BEARD_BOX)
+                )
+        );
+
+        CATACOMBS = BOOTSTRAP.registerSet(DEStructureIDs.CATACOMBS, set -> set
+                .scatteredGridPlacement(p -> p.spacing(59).probability(0.56f))
+                .jigsaw(DETemplatePools.CATACOMBS, j -> j
+                        .size(5)
+                        .surface(-16)
+                        .biomes(DETags.Biomes.HAS_CATACOMBS)
+                        .processors(DEProcessorLists.JUNGLE_MONUMENT)
                 )
         );
 
@@ -211,15 +221,6 @@ public final class DEStructures {
                         .single(b -> b.template("jungle_monument").yOffset(-9))
                         .processors(DEProcessorLists.JUNGLE_MONUMENT)
                         .filterWithinBiome(12)
-                )
-        );
-
-        LARGE_DUNGEON = BOOTSTRAP.registerSet(DEStructureIDs.LARGE_DUNGEON, set -> set
-                .scatteredGridPlacement(p -> p.spacing(59).probability(0.56f))
-                .jigsaw(DETemplatePools.LARGE_DUNGEON, j -> j
-                                .size(5)
-                                .surface(-16)
-                                .biomes(DETags.Biomes.HAS_LARGE_DUNGEON)
                 )
         );
 

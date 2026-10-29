@@ -1,0 +1,10 @@
+{
+  "fixtures": [
+    {
+      "type": "ametrin_structures:entity",
+      "death_loot_table": "minecraft:blocks/lightning_rod",
+      "entity": "minecraft:zombie_villager",
+      "nbt": "{CustomName:{translate:\"entity.dungeons_enhanced.catacombs.viktor\"},Health:40.0f,attributes:[{base:40.0d,id:\"minecraft:max_health\"}]}"
+    }
+  ]
+}

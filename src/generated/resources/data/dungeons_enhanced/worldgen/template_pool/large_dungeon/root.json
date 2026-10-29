@@ -4,7 +4,16 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:large_dungeon/root",
-        "processors": "dungeons_enhanced:jungle_monument",
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "ametrin_structures:single_pool_element",
+        "location": "dungeons_enhanced:large_dungeon/root2",
+        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 1

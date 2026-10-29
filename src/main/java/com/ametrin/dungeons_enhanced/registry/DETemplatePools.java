@@ -11,7 +11,7 @@ public final class DETemplatePools {
     // Overworld
     public static final ResourceKey<StructureTemplatePool> DEEP_CRYPT = resourceKey("deep_crypt/root");
     public static final ResourceKey<StructureTemplatePool> DESERT_TOMB = resourceKey("desert_tomb/root");
-    public static final ResourceKey<StructureTemplatePool> LARGE_DUNGEON = resourceKey("large_dungeon/root");
+    public static final ResourceKey<StructureTemplatePool> CATACOMBS = resourceKey("large_dungeon/root");
     public static final ResourceKey<StructureTemplatePool> MONSTER_MAZE_DARK = resourceKey("monster_maze/dark_root");
     public static final ResourceKey<StructureTemplatePool> MONSTER_MAZE_PALE = resourceKey("monster_maze/pale_root");
     public static final ResourceKey<StructureTemplatePool> PILLAGER_CAMP = resourceKey("pillager_camp/root");
@@ -22,8 +22,8 @@ public final class DETemplatePools {
     public static void bootstrap(BootstrapContext<StructureTemplatePool> context) {
         // Overworld
         DEDeepCrypt.pool(context);
+        DECatacombs.pool(context);
         DEDesertTomb.pool(context);
-        DELargeDungeon.pool(context);
         DEMonsterMaze.pool(context);
         DEPillagerCamp.pool(context);
 

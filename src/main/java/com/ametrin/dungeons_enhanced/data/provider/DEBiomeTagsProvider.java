@@ -77,7 +77,7 @@ public final class DEBiomeTagsProvider extends BiomeTagsProvider {
                 .add(Biomes.SPARSE_JUNGLE)
                 .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
         ;
-        tag(DETags.Biomes.HAS_LARGE_DUNGEON)
+        tag(DETags.Biomes.HAS_CATACOMBS)
                 .addTag(Tags.Biomes.IS_PLAINS)
                 .addTag(Tags.Biomes.IS_FOREST)
                 .addTag(Tags.Biomes.IS_TAIGA)

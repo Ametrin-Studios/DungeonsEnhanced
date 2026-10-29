@@ -14,7 +14,7 @@ public interface DEStructureIDs {
     String HAY_STORAGE = "hay_storage";
     String ICE_PIT = "ice_pit";
     String JUNGLE_MONUMENT = "jungle_monument";
-    String LARGE_DUNGEON = "large_dungeon";
+    String CATACOMBS = "catacombs";
     String MINERS_HOUSE = "miners_house";
     String MONSTER_MAZE = "monster_maze";
     String MUSHROOM_HOUSE = "mushroom_house";
