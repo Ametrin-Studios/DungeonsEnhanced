@@ -3,7 +3,7 @@
     {
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
-        "location": "dungeons_enhanced:large_dungeon/tunnel",
+        "location": "dungeons_enhanced:catacombs/tunnel",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -12,7 +12,7 @@
     {
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
-        "location": "dungeons_enhanced:large_dungeon/stairs",
+        "location": "dungeons_enhanced:catacombs/stairs",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -21,7 +21,7 @@
     {
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
-        "location": "dungeons_enhanced:large_dungeon/cross",
+        "location": "dungeons_enhanced:catacombs/cross",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -30,7 +30,7 @@
     {
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
-        "location": "dungeons_enhanced:large_dungeon/room_small1",
+        "location": "dungeons_enhanced:catacombs/room_small1",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -39,7 +39,7 @@
     {
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
-        "location": "dungeons_enhanced:large_dungeon/room_small2",
+        "location": "dungeons_enhanced:catacombs/room_small2",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -48,7 +48,7 @@
     {
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
-        "location": "dungeons_enhanced:large_dungeon/room1",
+        "location": "dungeons_enhanced:catacombs/room1",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -57,7 +57,7 @@
     {
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
-        "location": "dungeons_enhanced:large_dungeon/room2",
+        "location": "dungeons_enhanced:catacombs/room2",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -66,7 +66,7 @@
     {
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
-        "location": "dungeons_enhanced:large_dungeon/room_big",
+        "location": "dungeons_enhanced:catacombs/room_big",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -75,7 +75,7 @@
     {
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
-        "location": "dungeons_enhanced:large_dungeon/parkour",
+        "location": "dungeons_enhanced:catacombs/parkour",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -84,7 +84,7 @@
     {
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
-        "location": "dungeons_enhanced:large_dungeon/storage",
+        "location": "dungeons_enhanced:catacombs/storage",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -93,7 +93,7 @@
     {
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
-        "location": "dungeons_enhanced:large_dungeon/laboratory",
+        "location": "dungeons_enhanced:catacombs/laboratory",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -102,7 +102,7 @@
     {
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
-        "location": "dungeons_enhanced:large_dungeon/corner_hole",
+        "location": "dungeons_enhanced:catacombs/corner_hole",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -111,7 +111,7 @@
     {
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
-        "location": "dungeons_enhanced:large_dungeon/pot_corridor",
+        "location": "dungeons_enhanced:catacombs/pot_corridor",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },

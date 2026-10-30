@@ -9,7 +9,7 @@
   "start_height": {
     "absolute": -16
   },
-  "start_pool": "dungeons_enhanced:large_dungeon/root",
+  "start_pool": "dungeons_enhanced:catacombs/root",
   "step": "surface_structures",
   "use_expansion_hack": false
 }

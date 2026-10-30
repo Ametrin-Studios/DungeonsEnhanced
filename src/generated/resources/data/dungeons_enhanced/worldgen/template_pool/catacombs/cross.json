@@ -3,7 +3,7 @@
     {
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
-        "location": "dungeons_enhanced:large_dungeon/cross",
+        "location": "dungeons_enhanced:catacombs/cross",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },

@@ -25,6 +25,8 @@ public interface DELootTables {
         ResourceKey<LootTable> BREWING_STAND = create("brewing/castle");
     }
 
+    ResourceKey<LootTable> CATACOMBS = chest("catacombs");
+
     interface DeepCrypt {
         ResourceKey<LootTable> HALL = chest("deep_crypt/hall");
         ResourceKey<LootTable> EQUIPMENT_SKELETON = create("equipment/deep_crypt/skeleton");
@@ -70,8 +72,6 @@ public interface DELootTables {
         ResourceKey<LootTable> TREASURE = chest("jungle_monument/treasure");
         ResourceKey<LootTable> ARCHEOLOGY = create("archeology/jungle_monument/treasure");
     }
-
-    ResourceKey<LootTable> CATACOMBS = chest("large_dungeon");
 
     interface MonsterMaze {
         ResourceKey<LootTable> BREWERY = chest("monster_maze/brewery");

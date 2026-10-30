@@ -20,20 +20,20 @@ import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 
 public final class DEFixturePresets {
-    public static final String VIKTOR_TRANSLATION_KEY = "entity.dungeons_enhanced.catacombs.viktor";
+    public static final String VIKTOR_TRANSLATION_KEY = "entity.dungeons_enhanced.catacombs.victor";
     public static final String HENDRIK_VAN_DER_DECKEN_TRANSLATION_KEY = "entity.dungeons_enhanced.flying_dutchman.captain";
     public static final String ZOMBIE_KING_TRANSLATION_KEY = "entity.dungeons_enhanced.monster_maze.zombie_king";
 
     public static void bootstrap(BootstrapContext<FixturePreset> context) {
         var biomes = context.lookup(Registries.BIOME);
-        context.register(key("catacombs/viktor"), FixturePreset.builder()
+        context.register(key(DEStructureIDs.CATACOMBS + "/victor"), FixturePreset.builder()
                 .add(1, EntityFixture.of(EntityDataBuilder.of(EntityType.ZOMBIE_VILLAGER)
                         .maxHealth(40)
                         .deathLootTable(Blocks.LIGHTNING_ROD.getLootTable().orElseThrow())
                         .name(Component.translatable(VIKTOR_TRANSLATION_KEY)))
                 ).build());
 
-        context.register(key("hendrik_van_der_decken"), FixturePreset.builder()
+        context.register(key(DEStructureIDs.FLYING_DUTCHMAN + "/hendrik_van_der_decken"), FixturePreset.builder()
                 .add(1, EntityFixture.of(EntityDataBuilder.of(EntityType.SKELETON)
                                 .leftHanded()
                                 .maxHealth(40)
@@ -42,7 +42,7 @@ public final class DEFixturePresets {
                         .withEquipment(DELootTables.EQUIPMENT_HENDRICK_VAN_DER_DECKEN)
                 ).build());
 
-        context.register(key("monster_maze/zombie_king"), FixturePreset.builder()
+        context.register(key(DEStructureIDs.MONSTER_MAZE + "/zombie_king"), FixturePreset.builder()
                 .add(1, EntityFixture.of(EntityDataBuilder.of(EntityType.ZOMBIE)
                                 .maxHealth(40)
                                 .name(Component.translatable(ZOMBIE_KING_TRANSLATION_KEY)))
@@ -126,8 +126,8 @@ public final class DEFixturePresets {
                 .build());
 
         context.register(key("dark_prismarine_wall"), FixturePreset.builder()
-                        .add(1000, new BlockStateFixture(BVOtherBlocks.DARK_PRISMARINE_WALL.get().defaultBlockState()), new FixtureConditions.NeoForge(new ModLoadedCondition(BlockVariants.MOD_ID)))
-                        .add(1, new BlockStateFixture(Blocks.PRISMARINE_WALL.defaultBlockState()))
+                .add(1000, new BlockStateFixture(BVOtherBlocks.DARK_PRISMARINE_WALL.get().defaultBlockState()), new FixtureConditions.NeoForge(new ModLoadedCondition(BlockVariants.MOD_ID)))
+                .add(1, new BlockStateFixture(Blocks.PRISMARINE_WALL.defaultBlockState()))
                 .build());
     }
 

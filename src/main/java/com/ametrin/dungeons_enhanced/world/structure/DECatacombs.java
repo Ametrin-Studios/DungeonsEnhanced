@@ -1,6 +1,7 @@
 package com.ametrin.dungeons_enhanced.world.structure;
 
 import com.ametrin.dungeons_enhanced.DungeonsEnhanced;
+import com.ametrin.dungeons_enhanced.registry.DEStructureIDs;
 import com.ametrin.structures.structure.jigsaw.JigsawPools;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
@@ -9,9 +10,9 @@ import java.util.List;
 
 public final class DECatacombs {
     public static void pool(BootstrapContext<StructureTemplatePool> context) {
-        var pools = new JigsawPools(context, DungeonsEnhanced.MOD_ID, "large_dungeon/");
+        var pools = new JigsawPools(context, DungeonsEnhanced.MOD_ID, DEStructureIDs.CATACOMBS + "/");
 
-        pools.pool("root", p -> p.element("root").element("root2"));
+        pools.pool("root", p -> p.element("root_ruin").element("root_tower"));
         pools.pool("cross", p -> p.element("cross"));
         pools.pool("main", p -> p
                 .element("tunnel", e -> e.weight(4))

@@ -3,7 +3,7 @@
     {
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
-        "location": "dungeons_enhanced:large_dungeon/root",
+        "location": "dungeons_enhanced:catacombs/root_ruin",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
@@ -12,7 +12,7 @@
     {
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
-        "location": "dungeons_enhanced:large_dungeon/root2",
+        "location": "dungeons_enhanced:catacombs/root_tower",
         "processors": "minecraft:empty",
         "projection": "rigid"
       },
