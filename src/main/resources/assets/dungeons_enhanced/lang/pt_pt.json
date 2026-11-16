@@ -1,5 +1,4 @@
 {
-    "advancements.dungeons_enhanced.root.title": "Masmorras Melhores",
     "advancements.dungeons_enhanced.root.description": "A História de um explorador",
     "advancements.dungeons_enhanced.hidden_under_roots.title": "Escondido sob as raízes",
     "advancements.dungeons_enhanced.hidden_under_roots.description": "Encontre um labirinto de monstros",
@@ -27,7 +26,6 @@
     "advancements.dungeons_enhanced.sunken_depths.description": "Encontre um Templo dos Anciões",
     "advancements.dungeons_enhanced.spooky_scary_citadel.title": "Cidadela Assustadora",
     "advancements.dungeons_enhanced.spooky_scary_citadel.description": "Encontre uma Cidadela Negra",
-    "entity.dungeons_enhanced.catacombs.victor": "Vencedor",
     "entity.dungeons_enhanced.flying_dutchman.captain": "Hendrick van der Decken",
     "entity.dungeons_enhanced.monster_maze.zombie_king": "Rei dos Zumbis",
     "filled_map.dungeons_enhanced.castle": "Mapa de Exploração do Castelo",
