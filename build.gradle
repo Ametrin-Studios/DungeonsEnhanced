@@ -16,10 +16,15 @@ base {
     archivesName = "$mod_id-$minecraft_version"
 }
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(25)
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
 neoForge {
     version = project.neo_version
+
+    parchment {
+        mappingsVersion = project.parchment_mappings_version
+        minecraftVersion = project.parchment_minecraft_version
+    }
 
     runs {
         client {
@@ -35,8 +40,7 @@ neoForge {
         }
 
         data {
-            clientData()
-            serverData()
+            data()
             programArguments.addAll '--mod', project.mod_id, '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
         }
 
@@ -78,17 +82,17 @@ repositories {
         name "Ametrin Studios Maven"
         url "https://github.com/Ametrin-Studios/maven/raw/main/"
     }
-//    maven {
-//        url uri(rootProject.file("../maven"))
-//    }
+    maven {
+        url uri(rootProject.file("../maven"))
+    }
 }
 
 dependencies {
     implementation "com.ametrinstudios:ametrin-${minecraft_version}:${ametrin_version}"
     interfaceInjectionData "com.ametrinstudios:ametrin-${minecraft_version}:${ametrin_version}"
     implementation "com.ametrin:ametrin_structures-${minecraft_version}:${ametrin_structures_version}"
-    compileOnly "com.ametrin:block_variants-${minecraft_version}:${bv_version}"
-    localRuntime "com.ametrin:block_variants-${minecraft_version}:${bv_version}"
+    compileOnly "com.ametrinstudios:block_variants:${minecraft_version}-${bv_version}"
+    localRuntime "com.ametrinstudios:block_variants:${minecraft_version}-${bv_version}"
 
     localRuntime "curse.maven:xaeros-world-map-317780:9323204"
     localRuntime "curse.maven:xaeros-minimap-263420:9323140"
@@ -103,6 +107,7 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
             minecraft_version_range         : minecraft_version_range,
             neo_version                     : neo_version,
             neo_version_range               : neo_version_range,
+            loader_version_range            : loader_version_range,
 
             ametrin_version                 : ametrin_version,
             ametrin_version_range           : ametrin_version_range,

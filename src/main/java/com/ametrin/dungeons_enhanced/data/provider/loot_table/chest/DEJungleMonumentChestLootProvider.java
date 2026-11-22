@@ -1,15 +1,20 @@
 package com.ametrin.dungeons_enhanced.data.provider.loot_table.chest;
 
 import com.ametrin.dungeons_enhanced.registry.DELootTables;
+import net.minecraft.Util;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.LootTableSubProvider;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.animal.axolotl.Axolotl;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.functions.LootItemConditionalFunction;
 
 import java.util.function.BiConsumer;
 
@@ -74,7 +79,6 @@ public record DEJungleMonumentChestLootProvider(HolderLookup.Provider registries
                 .withPool(lootPool().setRolls(one())
                         .add(empty(9))
                         .add(item(Items.FLOWER_BANNER_PATTERN))
-                        .add(item(Items.BORDURE_INDENTED_BANNER_PATTERN))
                 )
                 .withPool(lootPool().setRolls(between(4, 7))
                         .add(item(Items.GOLD_NUGGET, between(2, 6)).setWeight(7))
@@ -117,12 +121,12 @@ public record DEJungleMonumentChestLootProvider(HolderLookup.Provider registries
                         .add(potion(Potions.WATER_BREATHING, one()).setWeight(10))
                         .add(lootTableItem(Items.GOLDEN_APPLE).setWeight(8))
                         .add(lootTableItem(Items.BOOK).setWeight(8).apply(randomEnchantment()
-                                .withEnchantment(registries.getOrThrow(Enchantments.AQUA_AFFINITY))
-                                .withEnchantment(registries.getOrThrow(Enchantments.RESPIRATION))
-                                .withEnchantment(registries.getOrThrow(Enchantments.DEPTH_STRIDER))
-                                .withEnchantment(registries.getOrThrow(Enchantments.PROJECTILE_PROTECTION))
-                                .withEnchantment(registries.getOrThrow(Enchantments.LOYALTY))
-                                .withEnchantment(registries.getOrThrow(Enchantments.RIPTIDE))))
+                                .withEnchantment(registries.lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.AQUA_AFFINITY))
+                                .withEnchantment(registries.lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.RESPIRATION))
+                                .withEnchantment(registries.lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.DEPTH_STRIDER))
+                                .withEnchantment(registries.lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.PROJECTILE_PROTECTION))
+                                .withEnchantment(registries.lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.LOYALTY))
+                                .withEnchantment(registries.lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.RIPTIDE))))
                         .add(lootTableItem(Items.DIAMOND).setWeight(6)
                                 .apply(setCount(between(1, 3))))
                         .add(lootTableItem(Items.EMERALD_BLOCK).setWeight(3))
@@ -137,12 +141,11 @@ public record DEJungleMonumentChestLootProvider(HolderLookup.Provider registries
                         .add(lootTableItem(Items.SPORE_BLOSSOM).setWeight(1))
                 )
                 .withPool(lootPool().setRolls(one()).setBonusRolls(one())
-                        .add(lootTableItem(Items.AXOLOTL_BUCKET).apply(setComponent(DataComponents.AXOLOTL_VARIANT, Axolotl.Variant.LUCY)).setWeight(22))
-                        .add(lootTableItem(Items.AXOLOTL_BUCKET).apply(setComponent(DataComponents.AXOLOTL_VARIANT, Axolotl.Variant.WILD)).setWeight(22))
-                        .add(lootTableItem(Items.AXOLOTL_BUCKET).apply(setComponent(DataComponents.AXOLOTL_VARIANT, Axolotl.Variant.GOLD)).setWeight(22))
-                        .add(lootTableItem(Items.AXOLOTL_BUCKET).apply(setComponent(DataComponents.AXOLOTL_VARIANT, Axolotl.Variant.CYAN)).setWeight(22))
-                        .add(lootTableItem(Items.AXOLOTL_BUCKET).apply(setComponent(DataComponents.AXOLOTL_VARIANT, Axolotl.Variant.BLUE)).setWeight(12))
-//                        .add(lootTableItem(Items.AXOLOTL_BUCKET).apply(setComponent(DataComponents.BUCKET_ENTITY_DATA, CustomData.of(Util.make(new CompoundTag(), tag -> tag.putInt("Variant", Axolotl.Variant.BLUE.getId())))))
+                        .add(lootTableItem(Items.AXOLOTL_BUCKET).apply(setAxolotlVariant(Axolotl.Variant.LUCY)).setWeight(22))
+                        .add(lootTableItem(Items.AXOLOTL_BUCKET).apply(setAxolotlVariant(Axolotl.Variant.WILD)).setWeight(22))
+                        .add(lootTableItem(Items.AXOLOTL_BUCKET).apply(setAxolotlVariant(Axolotl.Variant.GOLD)).setWeight(22))
+                        .add(lootTableItem(Items.AXOLOTL_BUCKET).apply(setAxolotlVariant(Axolotl.Variant.CYAN)).setWeight(22))
+                        .add(lootTableItem(Items.AXOLOTL_BUCKET).apply(setAxolotlVariant(Axolotl.Variant.BLUE)).setWeight(12))
                 )
         );
 
@@ -155,5 +158,9 @@ public record DEJungleMonumentChestLootProvider(HolderLookup.Provider registries
                         .add(lootTableItem(Items.ARROW).setWeight(1).apply(setCount(between(1, 3))))
                 )
         );
+    }
+
+    private static LootItemConditionalFunction.Builder<?> setAxolotlVariant(Axolotl.Variant variant) {
+        return setComponent(DataComponents.BUCKET_ENTITY_DATA, CustomData.of(Util.make(new CompoundTag(), tag -> tag.putInt("Variant", variant.getId()))));
     }
 }

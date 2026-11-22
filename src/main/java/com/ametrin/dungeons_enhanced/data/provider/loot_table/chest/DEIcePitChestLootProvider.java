@@ -28,7 +28,7 @@ public record DEIcePitChestLootProvider(HolderLookup.Provider registries) implem
                         .add(item(Items.LEATHER, between(3, 7)).setWeight(6))
                         .add(item(Items.IRON_NUGGET, between(4, 9)).setWeight(5))
                         .add(item(Items.STRING, between(1, 6)).setWeight(6))
-                        .add(item(Items.IRON_CHAIN).setWeight(6))
+                        .add(item(Items.CHAIN).setWeight(6))
                         .add(item(Items.IRON_HORSE_ARMOR))
                         .add(item(Items.GOLDEN_APPLE))
                         .add(item(Items.TIPPED_ARROW, between(3, 7)).apply(SetPotionFunction.setPotion(Potions.SLOWNESS)).setWeight(4))

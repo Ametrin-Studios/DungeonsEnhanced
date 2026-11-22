@@ -10,8 +10,7 @@ import com.ametrin.structures.structure.modular.TemplateEntry;
 import com.mojang.datafixers.util.Either;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
-import net.minecraft.util.random.Weighted;
-import net.minecraft.util.random.WeightedList;
+import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePiecesBuilder;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
@@ -24,11 +23,11 @@ public final class DEIcePitPieceSource implements PieceSource {
     public static final DEIcePitPieceSource INSTANCE = new DEIcePitPieceSource();
     public static final MapCodec<DEIcePitPieceSource> CODEC = MapCodec.unit(INSTANCE);
 
-    private static final PieceSources.WeightedSource ROOMS = new PieceSources.WeightedSource(WeightedList.of(
-            new Weighted<>(new PieceSources.SingleSource(new TemplateEntry(new ExtendedSinglePoolElement(Either.left(locate("ice_pit/var1")), ExtendedSinglePoolElement.NO_PROCESSORS, StructureTemplatePool.Projection.RIGID, Optional.empty(), true, Optional.empty(), TerrainBox.template()), new BlockPos(-17, -31, -17))), 1),
-            new Weighted<>(new PieceSources.SingleSource(new TemplateEntry(new ExtendedSinglePoolElement(Either.left(locate("ice_pit/var2")), ExtendedSinglePoolElement.NO_PROCESSORS, StructureTemplatePool.Projection.RIGID, Optional.empty(), true, Optional.empty(), TerrainBox.template()), new BlockPos(-17, -31, -17))), 1),
-            new Weighted<>(new PieceSources.SingleSource(new TemplateEntry(new ExtendedSinglePoolElement(Either.left(locate("ice_pit/var3")), ExtendedSinglePoolElement.NO_PROCESSORS, StructureTemplatePool.Projection.RIGID, Optional.empty(), true, Optional.empty(), TerrainBox.template()), new BlockPos(-17, -36, -17))), 1)
-    ));
+    private static final PieceSources.WeightedSource ROOMS = new PieceSources.WeightedSource(SimpleWeightedRandomList.<PieceSource>builder()
+            .add(new PieceSources.SingleSource(new TemplateEntry(new ExtendedSinglePoolElement(Either.left(locate("ice_pit/var1")), ExtendedSinglePoolElement.NO_PROCESSORS, StructureTemplatePool.Projection.RIGID, Optional.empty(), true, Optional.empty(), TerrainBox.template()), new BlockPos(-17, -31, -17))), 1)
+            .add(new PieceSources.SingleSource(new TemplateEntry(new ExtendedSinglePoolElement(Either.left(locate("ice_pit/var2")), ExtendedSinglePoolElement.NO_PROCESSORS, StructureTemplatePool.Projection.RIGID, Optional.empty(), true, Optional.empty(), TerrainBox.template()), new BlockPos(-17, -31, -17))), 1)
+            .add(new PieceSources.SingleSource(new TemplateEntry(new ExtendedSinglePoolElement(Either.left(locate("ice_pit/var3")), ExtendedSinglePoolElement.NO_PROCESSORS, StructureTemplatePool.Projection.RIGID, Optional.empty(), true, Optional.empty(), TerrainBox.template()), new BlockPos(-17, -36, -17))), 1)
+            .build());
 
     private static final TemplateEntry ENTRANCE = new TemplateEntry(new ExtendedSinglePoolElement(Either.left(locate("ice_pit/top")), ExtendedSinglePoolElement.NO_PROCESSORS, StructureTemplatePool.Projection.RIGID, Optional.empty(), true, Optional.empty(), TerrainBox.template()), new BlockPos(0, -25, 0));
 

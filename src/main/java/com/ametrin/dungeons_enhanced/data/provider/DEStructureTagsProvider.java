@@ -14,13 +14,13 @@ import java.util.concurrent.CompletableFuture;
 
 public final class DEStructureTagsProvider extends StructureTagsProvider {
     public DEStructureTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
-        super(output, lookup, DungeonsEnhanced.MOD_ID);
+        super(output, lookup, DungeonsEnhanced.MOD_ID, null);
     }
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         tag(ASTags.Structures.LAKE_PROOF)
-                .addAll(DEStructures.BOOTSTRAP.structures())
+                .addAll(DEStructures.BOOTSTRAP.structures().toList())
         ;
         tag(DETags.Structures.CASTLE).addAll(DEStructures.CASTLE.structures());
         tag(DETags.Structures.DUNGEON_VARIANT).addAll(DEStructures.DUNGEON_VARIANT.structures());

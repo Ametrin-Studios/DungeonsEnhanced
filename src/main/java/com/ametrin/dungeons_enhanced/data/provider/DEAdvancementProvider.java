@@ -11,7 +11,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.advancements.AdvancementProvider;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.entity.BannerPatterns;
@@ -35,7 +35,7 @@ public final class DEAdvancementProvider extends AdvancementProvider {
             var bannerLookup = provider.lookupOrThrow(Registries.BANNER_PATTERN);
 
             var root = builder(provider, "root")
-                    .background(Identifier.withDefaultNamespace("block/mossy_cobblestone"))
+                    .background(ResourceLocation.withDefaultNamespace("block/mossy_cobblestone"))
                     .hideToast().hideInChat()
                     .displayItem(Items.MAP)
                     .orCriteria()
@@ -92,7 +92,7 @@ public final class DEAdvancementProvider extends AdvancementProvider {
 
             builder(provider, "flying_dutchman")
                     .parent(root)
-                    .displayItem(Items.COPPER_LANTERN.oxidized())
+                    .displayItem(Items.SOUL_LANTERN)
                     .onEnterStructure(DEStructures.FLYING_DUTCHMAN.structure())
                     .save(consumer);
 

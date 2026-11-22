@@ -5,7 +5,7 @@ import com.ametrin.dungeons_enhanced.registry.*;
 import com.ametrin.structures.registry.ASRegistries;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
@@ -21,9 +21,8 @@ public final class DungeonsEnhanced {
         DEProcessorTypes.REGISTER.register(modEventBus);
     }
 
-    public static void gatherData(GatherDataEvent.Server event) {
+    public static void gatherData(GatherDataEvent event) {
         var builder = new RegistrySetBuilder()
-                .add(Registries.VILLAGER_TRADE, DEVillagerTrades::bootstrap)
                 .add(Registries.PROCESSOR_LIST, DEProcessorLists::bootstrap)
                 .add(Registries.TEMPLATE_POOL, DETemplatePools::bootstrap)
                 .add(ASRegistries.FIXTURE_PRESET, DEFixturePresets::bootstrap)
@@ -33,7 +32,6 @@ public final class DungeonsEnhanced {
         event.createDatapackRegistryObjects(builder);
 
         event.createProvider(DEBiomeTagsProvider::new);
-        event.createProvider(DEVillagerTradesTagsProvider::new);
         event.createProvider(DELootTableProvider::new);
         event.createProvider(DEAdvancementProvider::new);
         event.createProvider(DEStructureTagsProvider::new);
@@ -41,7 +39,7 @@ public final class DungeonsEnhanced {
 //        event.addProvider(new StructureTemplateUpdater(event.getInputs()));
     }
 
-    public static Identifier locate(String path) {
-        return Identifier.fromNamespaceAndPath(DungeonsEnhanced.MOD_ID, path);
+    public static ResourceLocation locate(String path) {
+        return ResourceLocation.fromNamespaceAndPath(DungeonsEnhanced.MOD_ID, path);
     }
 }

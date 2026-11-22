@@ -17,7 +17,7 @@ import java.util.concurrent.CompletableFuture;
 public final class DELootTableProvider extends LootTableProvider {
 
     public DELootTableProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
-        var tables = List.of(
+        super(output, Set.of(), List.of(
                 new SubProviderEntry(DEStructureChestLootProvider::new, LootContextParamSets.CHEST),
                 new SubProviderEntry(DECastleChestLootProvider::new, LootContextParamSets.CHEST),
                 new SubProviderEntry(DEJungleMonumentChestLootProvider::new, LootContextParamSets.CHEST),
@@ -28,7 +28,6 @@ public final class DELootTableProvider extends LootTableProvider {
                 new SubProviderEntry(DECastleEquipmentLootProvider::new, LootContextParamSets.EQUIPMENT),
                 new SubProviderEntry(DEMonsterMazeEquipmentLootProvider::new, LootContextParamSets.EQUIPMENT),
                 new SubProviderEntry(DEArcheologyLootProvider::new, LootContextParamSets.ARCHAEOLOGY)
-        );
-        super(output, Set.of(), tables, registries);
+        ), registries);
     }
 }

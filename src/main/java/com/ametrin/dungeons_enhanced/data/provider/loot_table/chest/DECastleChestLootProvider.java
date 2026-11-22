@@ -45,7 +45,7 @@ public record DECastleChestLootProvider(HolderLookup.Provider registries) implem
                         .add(lootTableItem(Items.ROTTEN_FLESH).setWeight(6))
                         .add(lootTableItem(Items.EXPERIENCE_BOTTLE).setWeight(3))
                         .add(lootTableItem(Items.IRON_INGOT).setWeight(3))
-                        .add(lootTableItem(Items.IRON_CHAIN).setWeight(5))));
+                        .add(lootTableItem(Items.CHAIN).setWeight(5))));
 
         output.accept(DELootTables.Castle.BEDROOM, lootTable()
                 .withPool(lootPool().setRolls(between(8, 14))
@@ -90,7 +90,7 @@ public record DECastleChestLootProvider(HolderLookup.Provider registries) implem
                         .add(lootTableItem(Items.COBWEB).setWeight(2))
                         .add(lootTableItem(Items.SPIDER_EYE).setWeight(5))
                         .add(lootTableItem(Items.LEAD))
-                        .add(lootTableItem(Items.IRON_CHAIN).setWeight(6))
+                        .add(lootTableItem(Items.CHAIN).setWeight(6))
                         .add(lootTableItem(Items.STRING).setWeight(7)))
                 .withPool(lootPool().setRolls(between(1, 3))
                         .add(lootTableItem(Items.DIAMOND))
@@ -150,7 +150,7 @@ public record DECastleChestLootProvider(HolderLookup.Provider registries) implem
 
         output.accept(DELootTables.Castle.PRISON, lootTable()
                 .withPool(lootPool().setRolls(between(10, 16))
-                        .add(lootTableItem(Items.IRON_CHAIN).setWeight(2))
+                        .add(lootTableItem(Items.CHAIN).setWeight(2))
                         .add(lootTableItem(Items.PAPER).setWeight(2))
                         .add(lootTableItem(Items.ROTTEN_FLESH).setWeight(3))
                         .add(lootTableItem(Items.POISONOUS_POTATO).setWeight(2))
@@ -172,9 +172,7 @@ public record DECastleChestLootProvider(HolderLookup.Provider registries) implem
                         .add(lootTableItem(Items.EMERALD).setWeight(3))
                         .add(lootTableItem(Items.NAME_TAG))
                         .add(lootTableItem(Items.BOOK).setWeight(3)))
-                .withPool(lootPool().setRolls(one())
-                        .add(empty(18))
-                        .add(lootTableItem(Items.FIELD_MASONED_BANNER_PATTERN))));
+        );
 
         output.accept(DELootTables.Castle.WELL, lootTable()
                 .withPool(lootPool().setRolls(between(11, 22))

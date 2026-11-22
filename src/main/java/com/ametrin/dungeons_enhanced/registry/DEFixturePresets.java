@@ -5,7 +5,7 @@ import com.ametrin.structures.fixture.*;
 import com.ametrin.structures.registry.ASRegistries;
 import com.ametrin.structures.spawner.EntityDataBuilder;
 import com.barion.block_variants.BlockVariants;
-import com.barion.block_variants.registry.BVOtherBlocks;
+import com.barion.block_variants.registry.BVBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.network.chat.Component;
@@ -31,8 +31,8 @@ public final class DEFixturePresets {
         context.register(key(DEStructureIDs.CATACOMBS + "/victor"), FixturePreset.builder()
                 .add(1, EntityFixture.of(EntityDataBuilder.of(EntityType.ZOMBIE_VILLAGER)
                         .maxHealth(40)
-                                .equip(EquipmentSlot.MAINHAND, Items.COPPER_AXE)
-                        .deathLootTable(Blocks.LIGHTNING_ROD.getLootTable().orElseThrow())
+                                .equip(EquipmentSlot.MAINHAND, Items.STONE_AXE)
+                        .deathLootTable(Blocks.LIGHTNING_ROD.getLootTable())
                         .name(Component.translatable(VIKTOR_TRANSLATION_KEY)))
                 ).build());
 
@@ -84,7 +84,6 @@ public final class DEFixturePresets {
         context.register(key("biome_based_skeleton_spawner"), FixturePreset.builder()
                 .add(1000, SpawnerFixture.of(EntityType.BOGGED), new FixtureConditions.InBiome(biomes.getOrThrow(Tags.Biomes.IS_SWAMP)))
                 .add(1000, SpawnerFixture.of(EntityType.STRAY), new FixtureConditions.InBiome(biomes.getOrThrow(Tags.Biomes.IS_COLD_OVERWORLD)))
-                .add(1000, SpawnerFixture.of(EntityType.PARCHED), new FixtureConditions.InBiome(biomes.getOrThrow(Tags.Biomes.IS_HOT_OVERWORLD)))
                 .add(1, SpawnerFixture.of(EntityType.SKELETON))
                 .build());
 
@@ -130,7 +129,7 @@ public final class DEFixturePresets {
                 .build());
 
         context.register(key("dark_prismarine_wall"), FixturePreset.builder()
-                .add(1000, new BlockStateFixture(BVOtherBlocks.DARK_PRISMARINE_WALL.get().defaultBlockState()), new FixtureConditions.NeoForge(new ModLoadedCondition(BlockVariants.MOD_ID)))
+                .add(1000, new BlockStateFixture(BVBlocks.DARK_PRISMARINE_WALL.get().defaultBlockState()), new FixtureConditions.NeoForge(new ModLoadedCondition(BlockVariants.MOD_ID)))
                 .add(1, new BlockStateFixture(Blocks.PRISMARINE_WALL.defaultBlockState()))
                 .build());
     }

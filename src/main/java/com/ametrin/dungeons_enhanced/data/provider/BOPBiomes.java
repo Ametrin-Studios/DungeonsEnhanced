@@ -1,16 +1,17 @@
 package com.ametrin.dungeons_enhanced.data.provider;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 
 
 //  I don't want a dependency on bop...
-// TODO: Update regularly https://github.com/Glitchfiend/BiomesOPlenty/blob/26.1.2/common/src/main/java/biomesoplenty/api/biome/BOPBiomes.java
+// TODO: Update regularly https://github.com/Glitchfiend/BiomesOPlenty/blob/1.21.1/common/src/main/java/biomesoplenty/api/biome/BOPBiomes.java
 
 public final class BOPBiomes
 {
+    public static final ResourceKey<Biome> ASPEN_GLADE = registerOverworld("aspen_glade");
     public static final ResourceKey<Biome> AURORAL_GARDEN = registerOverworld("auroral_garden");
     public static final ResourceKey<Biome> BAYOU = registerOverworld("bayou");
     public static final ResourceKey<Biome> BOG = registerOverworld("bog");
@@ -23,8 +24,6 @@ public final class BOPBiomes
     public static final ResourceKey<Biome> DUNE_BEACH = registerOverworld("dune_beach");
     public static final ResourceKey<Biome> END_WILDS = registerOverworld("end_wilds");
     public static final ResourceKey<Biome> END_REEF = registerOverworld("end_reef");
-    //public static final ResourceKey<Biome> END_MYCOSIS = registerOverworld("end_mycosis");
-    public static final ResourceKey<Biome> END_FLATS = registerOverworld("end_flats");
     public static final ResourceKey<Biome> END_CORRUPTION = registerOverworld("end_corruption");
     public static final ResourceKey<Biome> ERUPTING_INFERNO = register("erupting_inferno");
     public static final ResourceKey<Biome> FIELD = registerOverworld("field");
@@ -33,9 +32,11 @@ public final class BOPBiomes
     public static final ResourceKey<Biome> FORESTED_FIELD = registerOverworld("forested_field");
     public static final ResourceKey<Biome> FUNGAL_JUNGLE = registerOverworld("fungal_jungle");
     public static final ResourceKey<Biome> GLOWING_GROTTO = register("glowing_grotto");
+    public static final ResourceKey<Biome> GRASSLAND = registerOverworld("grassland");
     public static final ResourceKey<Biome> GRAVEL_BEACH = registerOverworld("gravel_beach");
     public static final ResourceKey<Biome> HIGHLAND = registerOverworld("highland");
     public static final ResourceKey<Biome> HOT_SPRINGS = registerOverworld("hot_springs");
+    public static final ResourceKey<Biome> JACARANDA_GLADE = registerOverworld("jacaranda_glade");
     public static final ResourceKey<Biome> JADE_CLIFFS = registerOverworld("jade_cliffs");
     public static final ResourceKey<Biome> LAVENDER_FIELD = registerOverworld("lavender_field");
     public static final ResourceKey<Biome> LUSH_DESERT = registerOverworld("lush_desert");
@@ -67,7 +68,6 @@ public final class BOPBiomes
     public static final ResourceKey<Biome> SNOWY_FIR_CLEARING = registerOverworld("snowy_fir_clearing");
     public static final ResourceKey<Biome> SNOWY_MAPLE_WOODS = registerOverworld("snowy_maple_woods");
     public static final ResourceKey<Biome> SPIDER_NEST = register("spider_nest");
-    public static final ResourceKey<Biome> SUBTROPICS = registerOverworld("subtropics");
     public static final ResourceKey<Biome> TROPICS = registerOverworld("tropics");
     public static final ResourceKey<Biome> TUNDRA = registerOverworld("tundra");
     public static final ResourceKey<Biome> UNDERGROWTH = register("undergrowth");
@@ -83,11 +83,11 @@ public final class BOPBiomes
 
     private static ResourceKey<Biome> registerOverworld(String name)
     {
-        return ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath("biomesoplenty", name));
+        return ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("biomesoplenty", name));
     }
 
     private static ResourceKey<Biome> register(String name)
     {
-        return ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath("biomesoplenty", name));
+        return ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("biomesoplenty", name));
     }
 }

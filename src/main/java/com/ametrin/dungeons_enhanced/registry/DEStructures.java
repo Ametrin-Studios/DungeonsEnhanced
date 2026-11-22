@@ -11,8 +11,7 @@ import com.ametrin.structures.structure.StructureSetKeys;
 import com.ametrin.structures.structure.TerrainBox;
 import com.ametrin.structures.structure.modular.HeightAnchor;
 import com.ametrin.structures.structure.modular.HeightMode;
-import net.minecraft.util.random.Weighted;
-import net.minecraft.util.random.WeightedList;
+import net.minecraft.util.random.WeightedRandomList;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.MobSpawnSettings;
@@ -205,7 +204,7 @@ public final class DEStructures {
                         .biomes(DETags.Biomes.HAS_ICE_PIT)
                         .surface()
                         .filterHeightRange(0, 110)
-                        .pieces(_ -> DEIcePitPieceSource.INSTANCE)
+                        .pieces(r -> DEIcePitPieceSource.INSTANCE)
                 )
         );
 
@@ -397,12 +396,11 @@ public final class DEStructures {
         );
     }
 
-    @SafeVarargs
-    private static WeightedList<MobSpawnSettings.SpawnerData> spawns(Weighted<MobSpawnSettings.SpawnerData>... spawns) {
-        return WeightedList.of(spawns);
+    private static WeightedRandomList<MobSpawnSettings.SpawnerData> spawns(MobSpawnSettings.SpawnerData... spawns) {
+        return WeightedRandomList.create(spawns);
     }
 
-    private static Weighted<MobSpawnSettings.SpawnerData> spawn(EntityType<?> entity, int weight, int min, int max) {
-        return new Weighted<>(new MobSpawnSettings.SpawnerData(entity, min, max), weight);
+    private static MobSpawnSettings.SpawnerData spawn(EntityType<?> entity, int weight, int min, int max) {
+        return new MobSpawnSettings.SpawnerData(entity, weight, min, max);
     }
 }

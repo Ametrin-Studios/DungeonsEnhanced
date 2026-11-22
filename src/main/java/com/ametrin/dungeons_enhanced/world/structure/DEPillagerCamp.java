@@ -3,7 +3,7 @@ package com.ametrin.dungeons_enhanced.world.structure;
 import com.ametrin.dungeons_enhanced.DungeonsEnhanced;
 import com.ametrin.structures.structure.jigsaw.JigsawPools;
 import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
 import java.util.List;
@@ -24,7 +24,7 @@ public final class DEPillagerCamp {
         );
     }
 
-    private static Identifier mcPiece(String key) {
-        return Identifier.withDefaultNamespace("pillager_outpost/feature_" + key);
+    private static ResourceLocation mcPiece(String key) {
+        return ResourceLocation.withDefaultNamespace("pillager_outpost/feature_" + key);
     }
 }
