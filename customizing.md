@@ -81,8 +81,7 @@ To block a structure from a dimension add all the dimensions biomes to the `no_s
 If the dimension uses biomes that should contain structures but only in a different dimension you can exclude structure sets from a dimension using [Ametrin Structures excluded dimensions feature](https://github.com/Ametrin-Studios/AmetrinStructures/blob/main/docs/extending.md#excluding-dimensions)
 
 ## Spawners
-- normal spawners: `ametrin_structures/spawner_profile`
-- trial spawners: `trial_spawner`
+- spawners: `ametrin_structures/spawner_profile`
 - To change a mob's armor and weapons, edit its equipment loot table (`loot_table/equipment`), not the spawner.
 
 Not every structure uses spawner profiles yet.

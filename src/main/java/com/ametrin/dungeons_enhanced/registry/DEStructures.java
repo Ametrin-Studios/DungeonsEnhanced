@@ -231,12 +231,6 @@ public final class DEStructures {
                         .jigsaw(DETemplatePools.MONSTER_MAZE_DARK, j -> j.size(11))
                         .processors(DEProcessorLists.MONSTER_MAZE_DARK)
                 )
-                .modular("pale", 1, s -> s
-                        .biomes(DETags.Biomes.HAS_MONSTER_MAZE_PALE)
-                        .surface(-32, HeightMode.CENTER)
-                        .jigsaw(DETemplatePools.MONSTER_MAZE_PALE, j -> j.size(11).maxDistanceFromCenter(116))
-                        .processors(DEProcessorLists.MONSTER_MAZE_PALE)
-                )
         );
 
         MUSHROOM_HOUSE = BOOTSTRAP.registerSet(DEStructureIDs.MUSHROOM_HOUSE, set -> set

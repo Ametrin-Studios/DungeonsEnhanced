@@ -68,6 +68,25 @@ public final class DESpawnerProfiles {
         context.register(key("undead_frozen"), SpawnerProfile.builder()
                 .add(EntityType.STRAY, 2)
                 .build());
+
+        context.register(key("dungeon_variant/copper_shrine"), SpawnerProfile.builder()
+                .add(SpawnDataBuilder.of(EntityType.BREEZE).noLightLimit(), 1)
+                .add(SpawnDataBuilder.of(EntityType.BOGGED).noLightLimit(), 2)
+                .add(SpawnDataBuilder.of(EntityType.CAVE_SPIDER).noLightLimit(), 1)
+                .requiredPlayerRange(6)
+                .spawnRange(6)
+                .build());
+
+        context.register(key("tower_of_the_undead/zombie"), SpawnerProfile.builder()
+                .add(createSpawnDataWithEquipment(EntityType.ZOMBIE, DELootTables.Castle.EQUIPMENT_ZOMBIE).noLightLimit(), 1)
+                .requiredPlayerRange(4)
+                .build());
+
+        context.register(key("tower_of_the_undead/mixed"), SpawnerProfile.builder()
+                .add(createSpawnDataWithEquipment(EntityType.ZOMBIE, DELootTables.Castle.EQUIPMENT_ZOMBIE).noLightLimit(), 1)
+                .add(createSpawnDataWithEquipment(EntityType.SKELETON, DELootTables.Castle.EQUIPMENT_SKELETON).noLightLimit(), 1)
+                .requiredPlayerRange(4)
+                .build());
     }
 
     private static SpawnDataBuilder createSpawnDataWithEquipment(EntityType<?> entityType, ResourceKey<LootTable> equipmentTable) {

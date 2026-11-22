@@ -96,10 +96,6 @@ public final class DEBiomeTagsProvider extends BiomeTagsProvider {
                 .addOptional(BOPBiomes.PUMPKIN_PATCH)
                 .addOptional(BOPBiomes.SEASONAL_FOREST)
         ;
-        tag(DETags.Biomes.HAS_MONSTER_MAZE_PALE)
-                .add(Biomes.PALE_GARDEN)
-                .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
-        ;
         tag(DETags.Biomes.HAS_MUSHROOM_HOUSE)
                 .add(Biomes.MUSHROOM_FIELDS)
                 .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)

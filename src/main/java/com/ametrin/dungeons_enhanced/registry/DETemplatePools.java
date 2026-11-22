@@ -13,7 +13,6 @@ public final class DETemplatePools {
     public static final ResourceKey<StructureTemplatePool> DESERT_TOMB = resourceKey("desert_tomb/root");
     public static final ResourceKey<StructureTemplatePool> CATACOMBS = resourceKey(DEStructureIDs.CATACOMBS + "/root");
     public static final ResourceKey<StructureTemplatePool> MONSTER_MAZE_DARK = resourceKey(DEStructureIDs.MONSTER_MAZE + "/dark_root");
-    public static final ResourceKey<StructureTemplatePool> MONSTER_MAZE_PALE = resourceKey(DEStructureIDs.MONSTER_MAZE + "/pale_root");
     public static final ResourceKey<StructureTemplatePool> PILLAGER_CAMP = resourceKey("pillager_camp/root");
 
     // Nether

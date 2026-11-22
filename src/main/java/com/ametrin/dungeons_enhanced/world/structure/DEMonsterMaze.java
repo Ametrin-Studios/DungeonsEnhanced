@@ -12,10 +12,7 @@ public final class DEMonsterMaze {
         var builder = new JigsawPools(context, DungeonsEnhanced.MOD_ID, "monster_maze/");
 
         builder.pool("dark_root", p -> p.element("dark_root"));
-        builder.pool("pale_root", p -> p.element("pale_root"));
-
         builder.pool("dark_tree", p -> p.element("dark_tree"));
-        builder.pool("pale_tree", p -> p.element("pale_tree"));
 
         var crossTunnels = List.of("tunnels/cross1", "tunnels/cross2");
         var edgeTunnels = List.of("tunnels/edge1", "tunnels/edge2");
