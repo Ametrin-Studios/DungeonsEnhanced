@@ -3,8 +3,15 @@
     {
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
-        "location": "dungeons_enhanced:desert_tomb/root",
-        "processors": "minecraft:empty",
+        "location": "dungeons_enhanced:desert_tomb/root_default",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "ametrin_structures:single_pool_element",
+        "location": "dungeons_enhanced:desert_tomb/root_broken",
         "projection": "rigid"
       },
       "weight": 1

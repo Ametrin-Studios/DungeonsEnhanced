@@ -1,5 +1,5 @@
 {
-  "type": "ametrin_structures:simple",
+  "type": "ametrin_structures:modular",
   "biomes": "#dungeons_enhanced:has_structure/miners_house",
   "pieces": {
     "template": "dungeons_enhanced:ruined_building/miners_house"

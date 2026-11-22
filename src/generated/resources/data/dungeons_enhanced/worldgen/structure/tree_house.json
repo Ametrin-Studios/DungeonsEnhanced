@@ -1,5 +1,5 @@
 {
-  "type": "ametrin_structures:simple",
+  "type": "ametrin_structures:modular",
   "biomes": "#dungeons_enhanced:has_structure/tree_house",
   "pieces": {
     "template": "dungeons_enhanced:tree_house",

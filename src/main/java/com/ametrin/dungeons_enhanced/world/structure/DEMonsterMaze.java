@@ -24,7 +24,8 @@ public final class DEMonsterMaze {
         var bigTunnels = List.of("tunnels/big1", "tunnels/big2", "tunnels/big3", "tunnels/big4", "tunnels/big5");
         var startStairs = List.of("stairs/big1", "stairs/big2");
         var stairs = List.of("stairs/big1", "stairs/big2", "stairs/big3");
-        var rooms = List.of("big_room", "church", "prison", "room1", "storage", "brewery");
+        var rooms = List.of("big_room", "room1", "storage");
+        var limited_rooms = List.of("church", "prison", "brewery");
 
         builder.pool("tunnels/cross", p -> p
                 .elements(crossTunnels)
@@ -56,6 +57,7 @@ public final class DEMonsterMaze {
 
         builder.pool("rooms", p -> p
                 .elements(rooms)
+                .elements(limited_rooms, e -> e.maxCount(2))
         );
 
         builder.pool("tunnels", p -> p
@@ -69,11 +71,14 @@ public final class DEMonsterMaze {
                 .elements(edgeTunnels, e -> e.weight(4))
                 .elements(roomTunnels, e -> e.weight(3))
                 .elements(smallTunnels, e -> e.weight(2))
-                .elements(bigTunnels, e -> e.weight(3))
+                .elements(bigTunnels, e -> e.weight(2))
                 .elements(crossTunnels, e -> e.weight(5))
                 .elements(rooms, e -> e.weight(2))
+                .elements(limited_rooms, e -> e.weight(2).maxCount(2))
+                .fallback("fallback")
         );
 
-        builder.pool("boss", p -> p.element("boss"));
+        builder.pool("boss", p -> p.element("boss", e -> e.maxCount(1).minDepth(7)));
+        builder.pool("fallback", p -> p.element("fallback"));
     }
 }

@@ -64,13 +64,11 @@
       }
     },
     {
-      "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "chance": 0.7,
-          "condition": "minecraft:random_chance"
-        }
-      ],
+      "bonus_rolls": {
+        "type": "minecraft:uniform",
+        "max": 1.0,
+        "min": 0.0
+      },
       "entries": [
         {
           "type": "minecraft:item",
@@ -137,6 +135,11 @@
           ],
           "name": "minecraft:diamond_boots",
           "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:totem_of_undying",
+          "weight": 3
         }
       ],
       "rolls": {

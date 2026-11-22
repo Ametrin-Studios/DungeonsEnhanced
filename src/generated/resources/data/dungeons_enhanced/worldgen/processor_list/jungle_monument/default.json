@@ -1,0 +1,57 @@
+{
+  "processors": [
+    {
+      "chance": 0.4,
+      "change_to": {
+        "Name": "minecraft:mossy_cobblestone"
+      },
+      "condition": "minecraft:cobblestone",
+      "processor_type": "ametrin_structures:replace_block"
+    },
+    {
+      "chance": 0.4,
+      "change_to": {
+        "Name": "minecraft:mossy_cobblestone_stairs",
+        "Properties": {
+          "facing": "north",
+          "half": "bottom",
+          "shape": "straight",
+          "waterlogged": "false"
+        }
+      },
+      "condition": "minecraft:cobblestone_stairs",
+      "preserve_state": true,
+      "processor_type": "ametrin_structures:replace_block"
+    },
+    {
+      "chance": 0.4,
+      "change_to": {
+        "Name": "minecraft:mossy_cobblestone_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
+      },
+      "condition": "minecraft:cobblestone_slab",
+      "preserve_state": true,
+      "processor_type": "ametrin_structures:replace_block"
+    },
+    {
+      "chance": 0.4,
+      "change_to": {
+        "Name": "minecraft:mossy_cobblestone_wall",
+        "Properties": {
+          "east": "none",
+          "north": "none",
+          "south": "none",
+          "up": "true",
+          "waterlogged": "false",
+          "west": "none"
+        }
+      },
+      "condition": "minecraft:cobblestone_wall",
+      "preserve_state": true,
+      "processor_type": "ametrin_structures:replace_block"
+    }
+  ]
+}

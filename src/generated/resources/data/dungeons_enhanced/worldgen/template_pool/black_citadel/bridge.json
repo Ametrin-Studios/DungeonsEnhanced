@@ -4,7 +4,6 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:black_citadel/bridge/normal",
-        "processors": "dungeons_enhanced:black_citadel/default",
         "projection": "rigid"
       },
       "weight": 2
@@ -13,7 +12,6 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:black_citadel/bridge/bones",
-        "processors": "dungeons_enhanced:black_citadel/default",
         "projection": "rigid"
       },
       "weight": 1
@@ -22,7 +20,6 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:black_citadel/bridge/broken",
-        "processors": "dungeons_enhanced:black_citadel/default",
         "projection": "rigid"
       },
       "weight": 1
@@ -31,7 +28,6 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:black_citadel/bridge/short",
-        "processors": "dungeons_enhanced:black_citadel/default",
         "projection": "rigid"
       },
       "weight": 2
@@ -40,11 +36,10 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:black_citadel/bridge/shorter",
-        "processors": "dungeons_enhanced:black_citadel/default",
         "projection": "rigid"
       },
       "weight": 1
     }
   ],
-  "fallback": "minecraft:empty"
+  "fallback": "dungeons_enhanced:black_citadel/fallback"
 }

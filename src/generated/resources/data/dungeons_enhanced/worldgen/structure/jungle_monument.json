@@ -1,5 +1,5 @@
 {
-  "type": "ametrin_structures:simple",
+  "type": "ametrin_structures:modular",
   "biomes": "#dungeons_enhanced:has_structure/jungle_monument",
   "filters": [
     {
@@ -8,14 +8,34 @@
     }
   ],
   "pieces": {
-    "offset": [
-      0,
-      -9,
-      0
-    ],
-    "template": "dungeons_enhanced:jungle_monument"
+    "type": "ametrin_structures:weighted",
+    "sources": [
+      {
+        "data": {
+          "offset": [
+            0,
+            -9,
+            0
+          ],
+          "processors": "dungeons_enhanced:jungle_monument/default",
+          "template": "dungeons_enhanced:jungle_monument/default"
+        },
+        "weight": 1
+      },
+      {
+        "data": {
+          "offset": [
+            0,
+            -9,
+            0
+          ],
+          "processors": "dungeons_enhanced:jungle_monument/axolotl",
+          "template": "dungeons_enhanced:jungle_monument/axolotl"
+        },
+        "weight": 1
+      }
+    ]
   },
-  "processors": "dungeons_enhanced:jungle_monument",
   "spawn_overrides": {},
   "start_height": {
     "heightmap": "WORLD_SURFACE_WG",

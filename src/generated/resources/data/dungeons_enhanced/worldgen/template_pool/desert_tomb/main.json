@@ -4,7 +4,6 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:desert_tomb/tunnel",
-        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 3
@@ -13,25 +12,6 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:desert_tomb/t-cross",
-        "processors": "minecraft:empty",
-        "projection": "rigid"
-      },
-      "weight": 4
-    },
-    {
-      "element": {
-        "element_type": "ametrin_structures:single_pool_element",
-        "location": "dungeons_enhanced:desert_tomb/room",
-        "processors": "minecraft:empty",
-        "projection": "rigid"
-      },
-      "weight": 4
-    },
-    {
-      "element": {
-        "element_type": "ametrin_structures:single_pool_element",
-        "location": "dungeons_enhanced:desert_tomb/tomb",
-        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 3
@@ -39,8 +19,63 @@
     {
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
+        "location": "dungeons_enhanced:desert_tomb/x-cross",
+        "projection": "rigid"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "ametrin_structures:single_pool_element",
+        "location": "dungeons_enhanced:desert_tomb/room",
+        "projection": "rigid"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "ametrin_structures:single_pool_element",
+        "location": "dungeons_enhanced:desert_tomb/room_statue",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "ametrin_structures:single_pool_element",
+        "location": "dungeons_enhanced:desert_tomb/arrow_trap",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "ametrin_structures:single_pool_element",
+        "location": "dungeons_enhanced:desert_tomb/room_well",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "ametrin_structures:single_pool_element",
+        "location": "dungeons_enhanced:desert_tomb/dead_end",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "ametrin_structures:single_pool_element",
+        "location": "dungeons_enhanced:desert_tomb/tomb",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:desert_tomb/exit",
-        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 1

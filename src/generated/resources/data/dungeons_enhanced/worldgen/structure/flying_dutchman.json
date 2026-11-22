@@ -1,5 +1,5 @@
 {
-  "type": "ametrin_structures:simple",
+  "type": "ametrin_structures:modular",
   "biomes": "#dungeons_enhanced:has_structure/flying_dutchman",
   "pieces": {
     "template": "dungeons_enhanced:flying_dutchman"

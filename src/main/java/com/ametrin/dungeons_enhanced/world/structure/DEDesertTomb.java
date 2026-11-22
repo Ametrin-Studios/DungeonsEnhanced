@@ -9,16 +9,27 @@ public final class DEDesertTomb {
     public static void pool(BootstrapContext<StructureTemplatePool> context) {
         var pools = new JigsawPools(context, DungeonsEnhanced.MOD_ID, "desert_tomb/");
 
-        pools.pool("root", p -> p.element("root"));
+        pools.pool("root", p -> p
+                .element("root_default")
+                .element("root_broken")
+        );
 
         pools.pool("down", p -> p.element("down"));
         pools.pool("trap", p -> p.element("trap"));
-        pools.pool("cross", p -> p.element("t-cross"));
+        pools.pool("cross", p -> p
+                .element("t-cross")
+                .element("x-cross")
+        );
         pools.pool("main", p -> p
                 .element("tunnel", e -> e.weight(3))
-                .element("t-cross", e -> e.weight(4))
+                .element("t-cross", e -> e.weight(3))
+                .element("x-cross", e -> e.weight(3))
                 .element("room", e -> e.weight(4))
-                .element("tomb", e -> e.weight(3))
+                .element("room_statue", e -> e.weight(2))
+                .element("arrow_trap", e -> e.weight(2))
+                .element("room_well", e -> e.weight(2))
+                .element("dead_end", e -> e.weight(2))
+                .element("tomb", e -> e.weight(2))
                 .element("exit", e -> e.weight(1))
         );
     }

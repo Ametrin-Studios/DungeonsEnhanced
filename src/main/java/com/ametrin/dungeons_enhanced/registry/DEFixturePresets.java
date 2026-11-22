@@ -11,6 +11,8 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ChestBlock;
 import net.minecraft.world.level.block.ComposterBlock;
@@ -29,6 +31,7 @@ public final class DEFixturePresets {
         context.register(key(DEStructureIDs.CATACOMBS + "/victor"), FixturePreset.builder()
                 .add(1, EntityFixture.of(EntityDataBuilder.of(EntityType.ZOMBIE_VILLAGER)
                         .maxHealth(40)
+                                .equip(EquipmentSlot.MAINHAND, Items.COPPER_AXE)
                         .deathLootTable(Blocks.LIGHTNING_ROD.getLootTable().orElseThrow())
                         .name(Component.translatable(VIKTOR_TRANSLATION_KEY)))
                 ).build());
@@ -81,6 +84,7 @@ public final class DEFixturePresets {
         context.register(key("biome_based_skeleton_spawner"), FixturePreset.builder()
                 .add(1000, SpawnerFixture.of(EntityType.BOGGED), new FixtureConditions.InBiome(biomes.getOrThrow(Tags.Biomes.IS_SWAMP)))
                 .add(1000, SpawnerFixture.of(EntityType.STRAY), new FixtureConditions.InBiome(biomes.getOrThrow(Tags.Biomes.IS_COLD_OVERWORLD)))
+                .add(1000, SpawnerFixture.of(EntityType.PARCHED), new FixtureConditions.InBiome(biomes.getOrThrow(Tags.Biomes.IS_HOT_OVERWORLD)))
                 .add(1, SpawnerFixture.of(EntityType.SKELETON))
                 .build());
 

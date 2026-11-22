@@ -3,8 +3,7 @@
     {
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
-        "location": "dungeons_enhanced:catacombs/root_ruin",
-        "processors": "minecraft:empty",
+        "location": "dungeons_enhanced:catacombs/entry_ruin",
         "projection": "rigid"
       },
       "weight": 1
@@ -12,8 +11,7 @@
     {
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
-        "location": "dungeons_enhanced:catacombs/root_tower",
-        "processors": "minecraft:empty",
+        "location": "dungeons_enhanced:catacombs/entry_tower",
         "projection": "rigid"
       },
       "weight": 1

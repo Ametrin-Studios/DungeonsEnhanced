@@ -1,0 +1,79 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element": {
+          "element_type": "ametrin_structures:single_pool_element",
+          "location": "dungeons_enhanced:catacombs/cross",
+          "projection": "rigid"
+        },
+        "element_type": "ametrin_structures:conditional",
+        "max_count": 8
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "ametrin_structures:single_pool_element",
+        "location": "dungeons_enhanced:catacombs/room_small1",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "ametrin_structures:single_pool_element",
+        "location": "dungeons_enhanced:catacombs/room_small2",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "ametrin_structures:single_pool_element",
+        "location": "dungeons_enhanced:catacombs/room1",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "ametrin_structures:single_pool_element",
+        "location": "dungeons_enhanced:catacombs/room2",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "ametrin_structures:single_pool_element",
+        "location": "dungeons_enhanced:catacombs/room_big",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "ametrin_structures:single_pool_element",
+        "location": "dungeons_enhanced:catacombs/storage",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element": {
+          "element_type": "ametrin_structures:single_pool_element",
+          "location": "dungeons_enhanced:catacombs/laboratory",
+          "projection": "rigid"
+        },
+        "element_type": "ametrin_structures:conditional",
+        "max_count": 1,
+        "min_depth": 6,
+        "soft_min_count": 1
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "dungeons_enhanced:catacombs/fallback"
+}

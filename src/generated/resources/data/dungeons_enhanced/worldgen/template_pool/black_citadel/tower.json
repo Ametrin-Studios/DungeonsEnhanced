@@ -4,7 +4,6 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:black_citadel/tower/broken",
-        "processors": "dungeons_enhanced:black_citadel/default",
         "projection": "rigid"
       },
       "weight": 1
@@ -13,7 +12,6 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:black_citadel/tower/normal",
-        "processors": "dungeons_enhanced:black_citadel/default",
         "projection": "rigid"
       },
       "weight": 1

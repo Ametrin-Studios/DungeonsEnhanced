@@ -20,6 +20,7 @@ public final class DELootTableProvider extends LootTableProvider {
         var tables = List.of(
                 new SubProviderEntry(DEStructureChestLootProvider::new, LootContextParamSets.CHEST),
                 new SubProviderEntry(DECastleChestLootProvider::new, LootContextParamSets.CHEST),
+                new SubProviderEntry(DEJungleMonumentChestLootProvider::new, LootContextParamSets.CHEST),
                 new SubProviderEntry(DEMonsterMazeChestLootProvider::new, LootContextParamSets.CHEST),
                 new SubProviderEntry(DEIcePitChestLootProvider::new, LootContextParamSets.CHEST),
                 new SubProviderEntry(DEBlackCitadelChestLootProvider::new, LootContextParamSets.CHEST),

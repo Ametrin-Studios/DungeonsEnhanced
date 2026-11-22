@@ -1,0 +1,24 @@
+{
+  "elements": [
+    {
+      "element": {
+        "count": 4,
+        "direction": "down",
+        "element": {
+          "element_type": "ametrin_structures:single_pool_element",
+          "location": "dungeons_enhanced:catacombs/entry_stairs",
+          "projection": "rigid"
+        },
+        "element_type": "ametrin_structures:repeated",
+        "filters": [
+          {
+            "type": "ametrin_structures:height_range",
+            "min": 45
+          }
+        ]
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

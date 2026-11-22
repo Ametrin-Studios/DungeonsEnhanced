@@ -24,6 +24,17 @@
     },
     {
       "type": "ametrin_structures:spawner",
+      "conditions": [
+        {
+          "type": "ametrin_structures:biome",
+          "biomes": "#c:is_hot/overworld"
+        }
+      ],
+      "entity": "minecraft:parched",
+      "weight": 1000
+    },
+    {
+      "type": "ametrin_structures:spawner",
       "entity": "minecraft:skeleton"
     }
   ]

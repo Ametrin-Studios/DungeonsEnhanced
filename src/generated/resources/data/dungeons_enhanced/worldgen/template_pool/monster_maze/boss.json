@@ -2,10 +2,14 @@
   "elements": [
     {
       "element": {
-        "element_type": "ametrin_structures:single_pool_element",
-        "location": "dungeons_enhanced:monster_maze/boss",
-        "processors": "minecraft:empty",
-        "projection": "rigid"
+        "element": {
+          "element_type": "ametrin_structures:single_pool_element",
+          "location": "dungeons_enhanced:monster_maze/boss",
+          "projection": "rigid"
+        },
+        "element_type": "ametrin_structures:conditional",
+        "max_count": 1,
+        "min_depth": 7
       },
       "weight": 1
     }

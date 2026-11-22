@@ -22,7 +22,6 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:deep_crypt/big_tunnel",
-        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 2
@@ -31,7 +30,6 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:deep_crypt/large_tomb",
-        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 2
@@ -40,7 +38,6 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:deep_crypt/prison",
-        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 2
@@ -49,7 +46,6 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:deep_crypt/tomb",
-        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 2
@@ -58,7 +54,6 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:deep_crypt/tombs",
-        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 2
@@ -67,7 +62,6 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:deep_crypt/root",
-        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 2
@@ -76,7 +70,6 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:deep_crypt/treasure",
-        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 1

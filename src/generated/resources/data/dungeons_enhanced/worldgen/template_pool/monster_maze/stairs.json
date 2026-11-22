@@ -4,7 +4,6 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/stairs/big1",
-        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 1
@@ -13,7 +12,6 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/stairs/big2",
-        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 1
@@ -22,7 +20,6 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:monster_maze/stairs/big3",
-        "processors": "minecraft:empty",
         "projection": "rigid"
       },
       "weight": 1

@@ -1,15 +1,17 @@
 {
-  "type": "ametrin_structures:extended_jigsaw",
+  "type": "ametrin_structures:modular",
   "biomes": "#dungeons_enhanced:has_structure/catacombs",
-  "max_distance_from_center": 80,
-  "processors": "dungeons_enhanced:jungle_monument",
-  "project_start_to_heightmap": "WORLD_SURFACE_WG",
-  "size": 5,
+  "pieces": {
+    "type": "ametrin_structures:jigsaw",
+    "size": 9,
+    "start_pool": "dungeons_enhanced:catacombs/root"
+  },
+  "processors": "dungeons_enhanced:catacombs",
   "spawn_overrides": {},
   "start_height": {
-    "absolute": -16
+    "heightmap": "WORLD_SURFACE_WG",
+    "mode": "center",
+    "offset": -1
   },
-  "start_pool": "dungeons_enhanced:catacombs/root",
-  "step": "surface_structures",
-  "use_expansion_hack": false
+  "step": "surface_structures"
 }

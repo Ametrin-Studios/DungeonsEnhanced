@@ -4,6 +4,9 @@
       "type": "ametrin_structures:entity",
       "death_loot_table": "minecraft:blocks/lightning_rod",
       "entity": "minecraft:zombie_villager",
+      "mainhand": {
+        "id": "minecraft:copper_axe"
+      },
       "nbt": "{CustomName:{translate:\"entity.dungeons_enhanced.catacombs.victor\"},Health:40.0f,attributes:[{base:40.0d,id:\"minecraft:max_health\"}]}"
     }
   ]

@@ -1,29 +1,14 @@
 package com.ametrin.dungeons_enhanced.world.structure;
 
 import com.ametrin.dungeons_enhanced.DungeonsEnhanced;
-import com.ametrin.dungeons_enhanced.registry.DEProcessorLists;
 import com.ametrin.dungeons_enhanced.registry.DEStructureIDs;
 import com.ametrin.structures.structure.jigsaw.JigsawPools;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
 public final class DEBlackCitadel {
-//        @Override
-//        @ParametersAreNonnullByDefault
-//        public void place(WorldGenLevel level, StructureManager structureManager, ChunkGenerator generator, RandomSource random, BoundingBox bounds, BlockPos pos, boolean keepJigsaws) {
-//            super.place(level, structureManager, generator, random, bounds, pos, keepJigsaws);
-//            if (getLocation().getPath().contains("pillar") || getLocation().getPath().contains("tower")) {
-//                this.extendDown(level, Blocks.POLISHED_BLACKSTONE_BRICKS.defaultBlockState(), bounds, rotation, random);
-//            }
-//        }
-//
-//        @Override
-//        public void handleDataMarker(String key, BlockPos blockPos, ServerLevelAccessor levelAccessor, RandomSource random, BoundingBox box) { }
-//    }
-
     public static void pool(BootstrapContext<StructureTemplatePool> context) {
         var builder = new JigsawPools(context, DungeonsEnhanced.MOD_ID, DEStructureIDs.BLACK_CITADEL + "/");
-        builder.defaultElementSettings(e -> e.processors(DEProcessorLists.BLACK_CITADEL));
 
         builder.pool("root", p -> p.element("main"));
         builder.pool("main_extension", p -> p.element("main_bridge_extension"));
@@ -39,6 +24,7 @@ public final class DEBlackCitadel {
                 .element("bridge/broken", e -> e.weight(1))
                 .element("bridge/short", e -> e.weight(2))
                 .element("bridge/shorter", e -> e.weight(1))
+                .fallback("fallback")
         );
 
         builder.pool("short_bridge", p -> p
@@ -55,6 +41,10 @@ public final class DEBlackCitadel {
 
         builder.pool("thick_pillar", p -> p
                 .element("bridge_tower/normal", e -> e.foundation())
+        );
+
+        builder.pool("fallback", p -> p
+                .element("bridge/broken")
         );
     }
 }
