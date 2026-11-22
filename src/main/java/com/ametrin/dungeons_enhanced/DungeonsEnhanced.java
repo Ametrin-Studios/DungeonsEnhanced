@@ -9,6 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 @Mod(DungeonsEnhanced.MOD_ID)
@@ -17,6 +18,7 @@ public final class DungeonsEnhanced {
 
     public DungeonsEnhanced(IEventBus modEventBus, ModContainer container) {
         modEventBus.addListener(DungeonsEnhanced::gatherData);
+        NeoForge.EVENT_BUS.addListener(DEVillagerTrades::addTrades);
         DEPieceSources.REGISTER.register(modEventBus);
         DEProcessorTypes.REGISTER.register(modEventBus);
     }

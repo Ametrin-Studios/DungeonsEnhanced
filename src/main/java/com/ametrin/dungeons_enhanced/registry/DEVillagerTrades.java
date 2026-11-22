@@ -1,106 +1,30 @@
 package com.ametrin.dungeons_enhanced.registry;
 
-import com.ametrin.dungeons_enhanced.DungeonsEnhanced;
-import net.minecraft.advancements.criterion.DataComponentMatchers;
-import net.minecraft.advancements.criterion.ItemPredicate;
-import net.minecraft.core.Holder;
-import net.minecraft.core.HolderGetter;
-import net.minecraft.core.component.DataComponents;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStackTemplate;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.trading.TradeCost;
-import net.minecraft.world.item.trading.VillagerTrade;
-import net.minecraft.world.level.storage.loot.functions.DiscardItem;
-import net.minecraft.world.level.storage.loot.functions.FilteredFunction;
-import net.minecraft.world.level.storage.loot.functions.LootItemFunction;
-
-import java.util.List;
-import java.util.Optional;
+import com.ametrin.dungeons_enhanced.data.DETags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.npc.VillagerProfession;
+import net.minecraft.world.entity.npc.VillagerTrades;
+import net.minecraft.world.level.levelgen.structure.Structure;
+import net.minecraft.world.level.saveddata.maps.MapDecorationTypes;
+import net.neoforged.neoforge.event.village.VillagerTradesEvent;
 
 public interface DEVillagerTrades {
-    ResourceKey<VillagerTrade> ELDERS_EXPLORER_MAP_TRADE = resourceKey("cartographer/2/emerald_and_compass_elders_explorer_map");
-    ResourceKey<VillagerTrade> CASTLE_EXPLORER_MAP_TRADE = resourceKey("cartographer/3/emerald_and_compass_castle_explorer_map");
-    ResourceKey<VillagerTrade> MONSTER_MAZE_EXPLORER_MAP_TRADE = resourceKey("cartographer/4/emerald_and_compass_monster_maze_explorer_map");
-    ResourceKey<VillagerTrade> DESERT_EXPLORER_MAP_TRADE = resourceKey("cartographer/5/emerald_and_compass_desert_explorer_map");
+    VillagerTrades.ItemListing ELDERS_EXPLORER_MAP_TRADE = explorerMap(13, DETags.Structures.ON_ELDERS_TEMPLE_EXPLORER_MAPS, DEStructureIDs.ELDERS_TEMPLE);
+    VillagerTrades.ItemListing CASTLE_EXPLORER_MAP_TRADE = explorerMap(13, DETags.Structures.ON_CASTLE_EXPLORER_MAPS, DEStructureIDs.CASTLE);
+    VillagerTrades.ItemListing MONSTER_MAZE_EXPLORER_MAP_TRADE = explorerMap(15, DETags.Structures.ON_MONSTER_MAZE_EXPLORER_MAPS, DEStructureIDs.MONSTER_MAZE);
+    VillagerTrades.ItemListing DESERT_EXPLORER_MAP_TRADE = explorerMap(14, DETags.Structures.ON_DESERT_TEMPLE_EXPLORER_MAPS, DEStructureIDs.DESERT_TEMPLE);
 
-    static Holder<VillagerTrade> bootstrap(BootstrapContext<VillagerTrade> context) {
-        var items = context.lookup(Registries.ITEM);
+    static void addTrades(VillagerTradesEvent event) {
+        if (event.getType() != VillagerProfession.CARTOGRAPHER) return;
 
-        context.register(ELDERS_EXPLORER_MAP_TRADE, new VillagerTrade(
-                new TradeCost(Items.EMERALD, 13),
-                Optional.of(new TradeCost(Items.COMPASS, 1)),
-                new ItemStackTemplate(Items.MAP),
-                12,
-                10,
-                0.2F,
-                Optional.empty(),
-                List.of(
-                        DEExplorerMaps.ELDERS_TEMPLE,
-                        removeNotFound(items)
-                )
-        ));
-
-        context.register(CASTLE_EXPLORER_MAP_TRADE, new VillagerTrade(
-                new TradeCost(Items.EMERALD, 13),
-                Optional.of(new TradeCost(Items.COMPASS, 1)),
-                new ItemStackTemplate(Items.MAP),
-                12,
-                10,
-                0.2F,
-                Optional.empty(),
-                List.of(
-                        DEExplorerMaps.CASTLE,
-                        removeNotFound(items)
-                )
-        ));
-
-        context.register(MONSTER_MAZE_EXPLORER_MAP_TRADE, new VillagerTrade(
-                new TradeCost(Items.EMERALD, 15),
-                Optional.of(new TradeCost(Items.COMPASS, 1)),
-                new ItemStackTemplate(Items.MAP),
-                12,
-                10,
-                0.2F,
-                Optional.empty(),
-                List.of(
-                        DEExplorerMaps.MONSTER_MAZE,
-                        removeNotFound(items)
-                )
-        ));
-
-        context.register(DESERT_EXPLORER_MAP_TRADE, new VillagerTrade(
-                new TradeCost(Items.EMERALD, 14),
-                Optional.of(new TradeCost(Items.COMPASS, 1)),
-                new ItemStackTemplate(Items.MAP),
-                12,
-                10,
-                0.2F,
-                Optional.empty(),
-                List.of(
-                        DEExplorerMaps.DESERT_TEMPLE,
-                        removeNotFound(items)
-                )
-        ));
-
-        return null;
+        var trades = event.getTrades();
+        trades.get(2).add(ELDERS_EXPLORER_MAP_TRADE);
+        trades.get(3).add(CASTLE_EXPLORER_MAP_TRADE);
+        trades.get(4).add(MONSTER_MAZE_EXPLORER_MAP_TRADE);
+        trades.get(5).add(DESERT_EXPLORER_MAP_TRADE);
     }
 
-    static ResourceKey<VillagerTrade> resourceKey(String path) {
-        return ResourceKey.create(Registries.VILLAGER_TRADE, DungeonsEnhanced.locate(path));
-    }
-
-    static LootItemFunction removeNotFound(HolderGetter<Item> items) {
-        return FilteredFunction.filtered(
-                        new ItemPredicate.Builder()
-                                .of(items, Items.FILLED_MAP)
-                                .withComponents(DataComponentMatchers.Builder.components().any(DataComponents.MAP_ID).build())
-                                .build()
-                )
-                .onFail(Optional.of(DiscardItem.discardItem().build()))
-                .build();
+    private static VillagerTrades.ItemListing explorerMap(int emeraldCost, TagKey<Structure> destination, String structureId) {
+        return new VillagerTrades.TreasureMapForEmeralds(emeraldCost, destination, "filled_map.dungeons_enhanced." + structureId, MapDecorationTypes.TARGET_X, 12, 10);
     }
 }
