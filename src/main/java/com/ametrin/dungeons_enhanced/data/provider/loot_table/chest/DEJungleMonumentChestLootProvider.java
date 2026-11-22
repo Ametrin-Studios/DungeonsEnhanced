@@ -2,8 +2,10 @@ package com.ametrin.dungeons_enhanced.data.provider.loot_table.chest;
 
 import com.ametrin.dungeons_enhanced.registry.DELootTables;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.entity.animal.axolotl.Axolotl;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -17,6 +19,7 @@ import static net.minecraft.world.level.storage.loot.LootTable.lootTable;
 import static net.minecraft.world.level.storage.loot.entries.LootItem.lootTableItem;
 import static net.minecraft.world.level.storage.loot.functions.EnchantRandomlyFunction.randomEnchantment;
 import static net.minecraft.world.level.storage.loot.functions.EnchantWithLevelsFunction.enchantWithLevels;
+import static net.minecraft.world.level.storage.loot.functions.SetComponentsFunction.setComponent;
 import static net.minecraft.world.level.storage.loot.functions.SetItemCountFunction.setCount;
 import static net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition.randomChance;
 import static net.minecraft.world.level.storage.loot.providers.number.ConstantValue.exactly;
@@ -126,11 +129,20 @@ public record DEJungleMonumentChestLootProvider(HolderLookup.Provider registries
                         .add(lootTableItem(Items.ENCHANTED_GOLDEN_APPLE).setWeight(1))
                 )
                 .withPool(lootPool().setRolls(between(2, 4))
-                        .add(lootTableItem(Items.GLOW_BERRIES).setWeight(10).apply(setCount(between(3, 8))))
-                        .add(lootTableItem(Items.COCOA_BEANS).setWeight(8).apply(setCount(between(2, 5))))
-                        .add(lootTableItem(Items.PRISMARINE_SHARD).setWeight(6).apply(setCount(between(2, 6))))
+                        .add(lootTableItem(Items.GLOW_BERRIES).setWeight(9).apply(setCount(between(3, 8))))
+                        .add(lootTableItem(Items.COCOA_BEANS).setWeight(7).apply(setCount(between(2, 5))))
+                        .add(lootTableItem(Items.PRISMARINE_SHARD).setWeight(5).apply(setCount(between(2, 6))))
+                        .add(lootTableItem(Items.DRIED_KELP).setWeight(6).apply(setCount(between(1, 4))))
                         .add(lootTableItem(Items.TROPICAL_FISH_BUCKET).setWeight(2))
                         .add(lootTableItem(Items.SPORE_BLOSSOM).setWeight(1))
+                )
+                .withPool(lootPool().setRolls(one()).setBonusRolls(one())
+                        .add(lootTableItem(Items.AXOLOTL_BUCKET).apply(setComponent(DataComponents.AXOLOTL_VARIANT, Axolotl.Variant.LUCY)).setWeight(22))
+                        .add(lootTableItem(Items.AXOLOTL_BUCKET).apply(setComponent(DataComponents.AXOLOTL_VARIANT, Axolotl.Variant.WILD)).setWeight(22))
+                        .add(lootTableItem(Items.AXOLOTL_BUCKET).apply(setComponent(DataComponents.AXOLOTL_VARIANT, Axolotl.Variant.GOLD)).setWeight(22))
+                        .add(lootTableItem(Items.AXOLOTL_BUCKET).apply(setComponent(DataComponents.AXOLOTL_VARIANT, Axolotl.Variant.CYAN)).setWeight(22))
+                        .add(lootTableItem(Items.AXOLOTL_BUCKET).apply(setComponent(DataComponents.AXOLOTL_VARIANT, Axolotl.Variant.BLUE)).setWeight(12))
+//                        .add(lootTableItem(Items.AXOLOTL_BUCKET).apply(setComponent(DataComponents.BUCKET_ENTITY_DATA, CustomData.of(Util.make(new CompoundTag(), tag -> tag.putInt("Variant", Axolotl.Variant.BLUE.getId())))))
                 )
         );
 
