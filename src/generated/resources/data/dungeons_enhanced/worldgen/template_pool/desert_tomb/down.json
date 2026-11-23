@@ -4,7 +4,8 @@
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:desert_tomb/down",
-        "projection": "rigid"
+        "projection": "rigid",
+        "terrain_box": "none"
       },
       "weight": 1
     }
