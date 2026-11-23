@@ -115,10 +115,11 @@ public final class DEStructures {
         );
 
         DESERT_TOMB = BOOTSTRAP.registerSet(DEStructureIDs.DESERT_TOMB, set -> set
-                .scatteredGridPlacement(p -> p.spacing(31).probability(0.71f))
+                .scatteredGridPlacement(p -> p.spacing(33).probability(0.71f))
                 .modular(s -> s
                         .biomes(DETags.Biomes.HAS_DESERT_TOMB)
-                        .surface()
+                        .surface(0, HeightMode.CENTER)
+                        .filterHeightRange(40, 100)
                         .jigsaw(DETemplatePools.DESERT_TOMB, j -> j.size(5))
                 )
         );

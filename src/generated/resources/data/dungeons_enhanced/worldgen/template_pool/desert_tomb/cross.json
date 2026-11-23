@@ -3,14 +3,6 @@
     {
       "element": {
         "element_type": "ametrin_structures:single_pool_element",
-        "location": "dungeons_enhanced:desert_tomb/t-cross",
-        "projection": "rigid"
-      },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "ametrin_structures:single_pool_element",
         "location": "dungeons_enhanced:desert_tomb/x-cross",
         "projection": "rigid"
       },

@@ -22,7 +22,7 @@
         "location": "dungeons_enhanced:desert_tomb/x-cross",
         "projection": "rigid"
       },
-      "weight": 3
+      "weight": 1
     },
     {
       "element": {
@@ -30,7 +30,7 @@
         "location": "dungeons_enhanced:desert_tomb/room",
         "projection": "rigid"
       },
-      "weight": 4
+      "weight": 3
     },
     {
       "element": {
@@ -39,6 +39,14 @@
         "projection": "rigid"
       },
       "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "ametrin_structures:single_pool_element",
+        "location": "dungeons_enhanced:desert_tomb/room_collapsed",
+        "projection": "rigid"
+      },
+      "weight": 1
     },
     {
       "element": {
@@ -79,7 +87,15 @@
         "projection": "rigid"
       },
       "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "ametrin_structures:single_pool_element",
+        "location": "dungeons_enhanced:desert_tomb/pot_corner",
+        "projection": "rigid"
+      },
+      "weight": 1
     }
   ],
-  "fallback": "minecraft:empty"
+  "fallback": "dungeons_enhanced:desert_tomb/fallback"
 }

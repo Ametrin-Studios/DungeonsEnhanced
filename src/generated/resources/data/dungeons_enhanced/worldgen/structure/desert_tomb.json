@@ -1,11 +1,22 @@
 {
   "type": "ametrin_structures:modular",
   "biomes": "#dungeons_enhanced:has_structure/desert_tomb",
+  "filters": [
+    {
+      "type": "ametrin_structures:height_range",
+      "max": 100,
+      "min": 40
+    }
+  ],
   "pieces": {
     "type": "ametrin_structures:jigsaw",
     "size": 5,
     "start_pool": "dungeons_enhanced:desert_tomb/root"
   },
   "spawn_overrides": {},
+  "start_height": {
+    "heightmap": "WORLD_SURFACE_WG",
+    "mode": "center"
+  },
   "step": "surface_structures"
 }

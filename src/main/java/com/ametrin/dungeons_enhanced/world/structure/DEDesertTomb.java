@@ -17,20 +17,25 @@ public final class DEDesertTomb {
         pools.pool("down", p -> p.element("down"));
         pools.pool("trap", p -> p.element("trap"));
         pools.pool("cross", p -> p
-                .element("t-cross")
+//                .element("t-cross")
                 .element("x-cross")
         );
         pools.pool("main", p -> p
                 .element("tunnel", e -> e.weight(3))
                 .element("t-cross", e -> e.weight(3))
-                .element("x-cross", e -> e.weight(3))
-                .element("room", e -> e.weight(4))
+                .element("x-cross", e -> e.weight(1))
+                .element("room", e -> e.weight(3))
                 .element("room_statue", e -> e.weight(2))
+                .element("room_collapsed", e -> e.weight(1))
                 .element("arrow_trap", e -> e.weight(2))
                 .element("room_well", e -> e.weight(2))
                 .element("dead_end", e -> e.weight(2))
                 .element("tomb", e -> e.weight(2))
                 .element("exit", e -> e.weight(1))
+                .element("pot_corner", e -> e.weight(1))
+                .fallback("fallback")
         );
+
+        pools.pool("fallback", p -> p.element("fallback"));
     }
 }
