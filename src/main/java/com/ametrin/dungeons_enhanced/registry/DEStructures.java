@@ -120,7 +120,7 @@ public final class DEStructures {
                 .modular(s -> s
                         .biomes(DETags.Biomes.HAS_DESERT_TOMB)
                         .surface(0, HeightMode.CENTER)
-                        .filterHeightRange(0, 120)
+                        .filterHeightRange(40, 100)
                         .jigsaw(DETemplatePools.DESERT_TOMB, j -> j.size(5))
                         .terrainAdaptation(TerrainAdjustment.BEARD_THIN)
                 )
