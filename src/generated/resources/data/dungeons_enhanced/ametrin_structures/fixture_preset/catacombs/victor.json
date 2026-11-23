@@ -7,7 +7,7 @@
       "mainhand": {
         "id": "minecraft:stone_axe"
       },
-      "nbt": "{CustomName:{translate:\"entity.dungeons_enhanced.catacombs.victor\"},Health:40.0f,attributes:[{base:40.0d,id:\"minecraft:generic.max_health\"}]}"
+      "nbt": "{CustomName:'{\"translate\":\"entity.dungeons_enhanced.catacombs.victor\"}',Health:40.0f,attributes:[{base:40.0d,id:\"minecraft:generic.max_health\"}]}"
     }
   ]
 }

@@ -14,7 +14,9 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProc
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.neoforged.neoforge.common.Tags;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,8 +38,8 @@ public class DEBadlandsFromDesertProcessor extends StructureProcessor {
             .put(Blocks.SMOOTH_SANDSTONE_SLAB, Blocks.SMOOTH_RED_SANDSTONE_SLAB)
             .build();
 
-    @Override
-    public List<StructureTemplate.StructureBlockInfo> finalizeProcessing(
+    @Override @ParametersAreNonnullByDefault
+    public @NotNull List<StructureTemplate.StructureBlockInfo> finalizeProcessing(
             ServerLevelAccessor level, BlockPos offset, BlockPos pos,
             List<StructureTemplate.StructureBlockInfo> originalBlockInfos,
             List<StructureTemplate.StructureBlockInfo> processedBlockInfos,
@@ -68,7 +70,7 @@ public class DEBadlandsFromDesertProcessor extends StructureProcessor {
     }
 
     @Override
-    protected StructureProcessorType<?> getType() {
+    protected @NotNull StructureProcessorType<?> getType() {
         return DEProcessorTypes.BADLANDS_FROM_DESERT.get();
     }
 }

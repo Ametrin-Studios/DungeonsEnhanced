@@ -31,7 +31,7 @@ public final class DEFixturePresets {
         context.register(key(DEStructureIDs.CATACOMBS + "/victor"), FixturePreset.builder()
                 .add(1, EntityFixture.of(EntityDataBuilder.of(EntityType.ZOMBIE_VILLAGER)
                         .maxHealth(40)
-                                .equip(EquipmentSlot.MAINHAND, Items.STONE_AXE)
+                        .equip(EquipmentSlot.MAINHAND, Items.STONE_AXE)
                         .deathLootTable(Blocks.LIGHTNING_ROD.getLootTable())
                         .name(Component.translatable(VIKTOR_TRANSLATION_KEY)))
                 ).build());
@@ -41,8 +41,8 @@ public final class DEFixturePresets {
                                 .leftHanded()
                                 .maxHealth(40)
                                 .name(Component.translatable(HENDRIK_VAN_DER_DECKEN_TRANSLATION_KEY))
-                                .nameVisible())
-                        .withEquipment(DELootTables.EQUIPMENT_HENDRICK_VAN_DER_DECKEN)
+                                .nameVisible()
+                        ).withEquipment(DELootTables.EQUIPMENT_HENDRICK_VAN_DER_DECKEN)
                 ).build());
 
         context.register(key(DEStructureIDs.MONSTER_MAZE + "/zombie_king"), FixturePreset.builder()
