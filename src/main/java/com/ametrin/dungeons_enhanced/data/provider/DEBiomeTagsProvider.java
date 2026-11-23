@@ -5,16 +5,18 @@ import com.ametrin.dungeons_enhanced.data.DETags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BiomeTagsProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.biome.Biomes;
 import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.CompletableFuture;
 
 public final class DEBiomeTagsProvider extends BiomeTagsProvider {
-    public DEBiomeTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> provider) {
-        super(output, provider, DungeonsEnhanced.MOD_ID, null);
+    public DEBiomeTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> provider, ExistingFileHelper existingFileHelper) {
+        super(output, provider, DungeonsEnhanced.MOD_ID, existingFileHelper);
     }
 
     @Override
@@ -89,12 +91,13 @@ public final class DEBiomeTagsProvider extends BiomeTagsProvider {
                 .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
         ;
         tag(DETags.Biomes.HAS_MONSTER_MAZE_DARK)
-                .addTag(Tags.Biomes.IS_DARK_FOREST)
+                .add(Biomes.DARK_FOREST)
                 .remove(DETags.Biomes.NO_STRUCTURES_OVERWORLD_SURFACE_EXTENDED)
-                .addOptional(BOPBiomes.CONIFEROUS_FOREST)
-                .addOptional(BOPBiomes.REDWOOD_FOREST)
-                .addOptional(BOPBiomes.PUMPKIN_PATCH)
-                .addOptional(BOPBiomes.SEASONAL_FOREST)
+                .addOptionalTag(ResourceLocation.fromNamespaceAndPath("c", "is_dark_forest"))
+                .addOptional(BOPBiomes.CONIFEROUS_FOREST.location())
+                .addOptional(BOPBiomes.REDWOOD_FOREST.location())
+                .addOptional(BOPBiomes.PUMPKIN_PATCH.location())
+                .addOptional(BOPBiomes.SEASONAL_FOREST.location())
         ;
         tag(DETags.Biomes.HAS_MUSHROOM_HOUSE)
                 .add(Biomes.MUSHROOM_FIELDS)

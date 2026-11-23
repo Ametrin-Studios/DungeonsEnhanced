@@ -7,8 +7,7 @@
           "id": "minecraft:skeleton"
         },
         "equipment": {
-          "loot_table": "dungeons_enhanced:equipment/flying_dutchman/skeletons",
-          "slot_drop_chances": 0.085
+          "loot_table": "dungeons_enhanced:equipment/flying_dutchman/skeletons"
         }
       },
       "weight": 1

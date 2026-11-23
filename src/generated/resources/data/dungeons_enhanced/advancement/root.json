@@ -55,6 +55,7 @@
       "translate": "advancements.dungeons_enhanced.root.description"
     },
     "icon": {
+      "count": 1,
       "id": "minecraft:map"
     },
     "show_toast": false,

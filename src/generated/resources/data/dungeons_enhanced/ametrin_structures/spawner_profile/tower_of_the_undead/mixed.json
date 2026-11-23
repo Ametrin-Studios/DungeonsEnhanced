@@ -8,8 +8,7 @@
           "id": "minecraft:zombie"
         },
         "equipment": {
-          "loot_table": "dungeons_enhanced:equipment/castle/zombie",
-          "slot_drop_chances": 0.085
+          "loot_table": "dungeons_enhanced:equipment/castle/zombie"
         }
       },
       "weight": 1
@@ -21,8 +20,7 @@
           "id": "minecraft:skeleton"
         },
         "equipment": {
-          "loot_table": "dungeons_enhanced:equipment/castle/skeleton",
-          "slot_drop_chances": 0.085
+          "loot_table": "dungeons_enhanced:equipment/castle/skeleton"
         }
       },
       "weight": 1

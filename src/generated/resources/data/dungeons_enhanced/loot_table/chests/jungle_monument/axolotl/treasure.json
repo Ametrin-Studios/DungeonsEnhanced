@@ -6,8 +6,13 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:golden_dandelion",
-          "weight": 8
+          "name": "minecraft:turtle_helmet",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:nautilus_shell",
+          "weight": 4
         },
         {
           "type": "minecraft:item",
@@ -207,7 +212,9 @@
           "functions": [
             {
               "components": {
-                "minecraft:axolotl/variant": "lucy"
+                "minecraft:bucket_entity_data": {
+                  "Variant": 0
+                }
               },
               "function": "minecraft:set_components"
             }
@@ -220,7 +227,9 @@
           "functions": [
             {
               "components": {
-                "minecraft:axolotl/variant": "wild"
+                "minecraft:bucket_entity_data": {
+                  "Variant": 1
+                }
               },
               "function": "minecraft:set_components"
             }
@@ -233,7 +242,9 @@
           "functions": [
             {
               "components": {
-                "minecraft:axolotl/variant": "gold"
+                "minecraft:bucket_entity_data": {
+                  "Variant": 2
+                }
               },
               "function": "minecraft:set_components"
             }
@@ -246,7 +257,9 @@
           "functions": [
             {
               "components": {
-                "minecraft:axolotl/variant": "cyan"
+                "minecraft:bucket_entity_data": {
+                  "Variant": 3
+                }
               },
               "function": "minecraft:set_components"
             }
@@ -259,7 +272,9 @@
           "functions": [
             {
               "components": {
-                "minecraft:axolotl/variant": "blue"
+                "minecraft:bucket_entity_data": {
+                  "Variant": 4
+                }
               },
               "function": "minecraft:set_components"
             }

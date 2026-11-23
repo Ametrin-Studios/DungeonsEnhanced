@@ -11,19 +11,13 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:stone_sword"
+          "name": "minecraft:stone_sword",
+          "weight": 2
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:stone_spear"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:copper_sword"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:iron_sword"
+          "name": "minecraft:iron_sword",
+          "weight": 2
         }
       ],
       "rolls": 1.0
@@ -42,7 +36,9 @@
           "functions": [
             {
               "components": {
-                "minecraft:dyed_color": 1908001
+                "minecraft:dyed_color": {
+                  "rgb": 1908001
+                }
               },
               "function": "minecraft:set_components"
             }
@@ -55,7 +51,9 @@
           "functions": [
             {
               "components": {
-                "minecraft:dyed_color": 11546150
+                "minecraft:dyed_color": {
+                  "rgb": 11546150
+                }
               },
               "function": "minecraft:set_components"
             }
@@ -73,7 +71,9 @@
           "functions": [
             {
               "components": {
-                "minecraft:dyed_color": 1908001
+                "minecraft:dyed_color": {
+                  "rgb": 1908001
+                }
               },
               "function": "minecraft:set_components"
             }
@@ -91,7 +91,9 @@
           "functions": [
             {
               "components": {
-                "minecraft:dyed_color": 1908001
+                "minecraft:dyed_color": {
+                  "rgb": 1908001
+                }
               },
               "function": "minecraft:set_components"
             }
@@ -104,7 +106,9 @@
           "functions": [
             {
               "components": {
-                "minecraft:dyed_color": 11546150
+                "minecraft:dyed_color": {
+                  "rgb": 11546150
+                }
               },
               "function": "minecraft:set_components"
             }
@@ -128,7 +132,9 @@
           "functions": [
             {
               "components": {
-                "minecraft:dyed_color": 1908001
+                "minecraft:dyed_color": {
+                  "rgb": 1908001
+                }
               },
               "function": "minecraft:set_components"
             }

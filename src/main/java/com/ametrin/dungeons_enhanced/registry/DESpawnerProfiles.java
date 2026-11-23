@@ -61,7 +61,6 @@ public final class DESpawnerProfiles {
                 .build());
 
         context.register(key("undead_desert"), SpawnerProfile.builder()
-                .add(EntityType.PARCHED, 2)
                 .add(EntityType.HUSK, 3)
                 .build());
 

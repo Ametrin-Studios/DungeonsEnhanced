@@ -7,8 +7,7 @@
           "id": "minecraft:zombie"
         },
         "equipment": {
-          "loot_table": "dungeons_enhanced:equipment/castle/zombie_guard",
-          "slot_drop_chances": 0.085
+          "loot_table": "dungeons_enhanced:equipment/castle/zombie_guard"
         }
       },
       "weight": 1

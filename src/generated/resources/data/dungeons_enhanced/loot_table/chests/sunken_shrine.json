@@ -206,26 +206,6 @@
     },
     {
       "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "chance": 0.45,
-          "condition": "minecraft:random_chance"
-        }
-      ],
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:copper_nautilus_armor"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:golden_nautilus_armor"
-        }
-      ],
-      "rolls": 1.0
-    },
-    {
-      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:empty",

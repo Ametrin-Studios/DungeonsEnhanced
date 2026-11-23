@@ -34,9 +34,8 @@
           "name": "minecraft:spyglass"
         },
         {
-          "type": "minecraft:tag",
-          "expand": true,
-          "name": "minecraft:bundles"
+          "type": "minecraft:item",
+          "name": "minecraft:bundle"
         },
         {
           "type": "minecraft:item",

@@ -15,22 +15,24 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.functions.SetComponentsFunction;
 import net.minecraft.world.level.storage.loot.functions.SetEnchantmentsFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.BiConsumer;
 
 import static com.ametrinstudios.ametrin.data.LootTableProviderHelper.*;
+import static net.minecraft.world.level.storage.loot.providers.number.ConstantValue.exactly;
 
 public record DEStructureEquipmentLootProvider(HolderLookup.Provider registries) implements LootTableSubProvider {
     @Override
-    public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output) {
+    public void generate(@NotNull BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output) {
         deepCrypt(output);
         flyingDutchman(output);
         icePit(output);
     }
 
     private void deepCrypt(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output) {
-        var black = new DyedItemColor(DyeColor.BLACK.getTextureDiffuseColor() & 0xFFFFFF);
-        var red = new DyedItemColor(DyeColor.RED.getTextureDiffuseColor() & 0xFFFFFF);
+        var black = new DyedItemColor(DyeColor.BLACK.getTextureDiffuseColor() & 0xFFFFFF, true);
+        var red = new DyedItemColor(DyeColor.RED.getTextureDiffuseColor() & 0xFFFFFF, true);
         output.accept(DELootTables.DeepCrypt.EQUIPMENT_SKELETON, LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(one())
                         .add(item(Items.BOW).setWeight(3))
@@ -64,20 +66,20 @@ public record DEStructureEquipmentLootProvider(HolderLookup.Provider registries)
                         .add(item(Items.BOW).apply(new SetEnchantmentsFunction.Builder()
                                 .withEnchantment(enchantments.getOrThrow(Enchantments.FLAME), one())
                                 .withEnchantment(enchantments.getOrThrow(Enchantments.PUNCH), one())
-                                .withEnchantment(enchantments.getOrThrow(Enchantments.POWER), number(4))
+                                .withEnchantment(enchantments.getOrThrow(Enchantments.POWER), exactly(4))
                         ))
                 )
                 .withPool(LootPool.lootPool().setRolls(one())
                         .add(item(Items.IRON_HELMET))
                 )
                 .withPool(LootPool.lootPool().setRolls(one())
-                        .add(item(Items.LEATHER_CHESTPLATE).apply(SetComponentsFunction.setComponent(DataComponents.DYED_COLOR, new DyedItemColor(953344))))
+                        .add(item(Items.LEATHER_CHESTPLATE).apply(SetComponentsFunction.setComponent(DataComponents.DYED_COLOR, new DyedItemColor(953344, false))))
                 )
                 .withPool(LootPool.lootPool().setRolls(one())
                         .add(item(Items.LEATHER_LEGGINGS))
                 )
                 .withPool(LootPool.lootPool().setRolls(one())
-                        .add(item(Items.LEATHER_BOOTS).apply(SetComponentsFunction.setComponent(DataComponents.DYED_COLOR, new DyedItemColor(953344))))
+                        .add(item(Items.LEATHER_BOOTS).apply(SetComponentsFunction.setComponent(DataComponents.DYED_COLOR, new DyedItemColor(953344, false))))
                 )
         );
 
@@ -87,10 +89,10 @@ public record DEStructureEquipmentLootProvider(HolderLookup.Provider registries)
                         .add(item(Items.STONE_SWORD).setWeight(2))
                 )
                 .withPool(LootPool.lootPool().setRolls(one())
-                        .add(item(Items.LEATHER_HELMET).apply(SetComponentsFunction.setComponent(DataComponents.DYED_COLOR, new DyedItemColor(65322))))
+                        .add(item(Items.LEATHER_HELMET).apply(SetComponentsFunction.setComponent(DataComponents.DYED_COLOR, new DyedItemColor(65322, false))))
                 )
                 .withPool(LootPool.lootPool().setRolls(one())
-                        .add(item(Items.LEATHER_CHESTPLATE).apply(SetComponentsFunction.setComponent(DataComponents.DYED_COLOR, new DyedItemColor(65322))))
+                        .add(item(Items.LEATHER_CHESTPLATE).apply(SetComponentsFunction.setComponent(DataComponents.DYED_COLOR, new DyedItemColor(65322, false))))
                 )
         );
     }

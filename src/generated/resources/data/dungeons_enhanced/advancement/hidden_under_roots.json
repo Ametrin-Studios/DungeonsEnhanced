@@ -23,6 +23,7 @@
       "translate": "advancements.dungeons_enhanced.hidden_under_roots.description"
     },
     "icon": {
+      "count": 1,
       "id": "minecraft:jack_o_lantern"
     },
     "title": {

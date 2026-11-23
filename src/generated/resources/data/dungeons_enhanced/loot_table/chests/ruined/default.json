@@ -47,10 +47,6 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:field_masoned_banner_pattern"
-        },
-        {
-          "type": "minecraft:item",
           "name": "minecraft:bundle"
         },
         {

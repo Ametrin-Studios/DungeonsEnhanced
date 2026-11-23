@@ -7,10 +7,6 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:stone_axe"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:stone_spear"
         }
       ],
       "rolls": 1.0
@@ -24,7 +20,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:copper_helmet"
+          "name": "minecraft:chainmail_helmet"
         },
         {
           "type": "minecraft:empty"
@@ -41,7 +37,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:copper_chestplate"
+          "name": "minecraft:chainmail_chestplate"
         },
         {
           "type": "minecraft:empty"
@@ -58,7 +54,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:copper_leggings"
+          "name": "minecraft:chainmail_leggings"
         },
         {
           "type": "minecraft:empty"
@@ -75,7 +71,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:copper_boots"
+          "name": "minecraft:chainmail_boots"
         },
         {
           "type": "minecraft:empty"

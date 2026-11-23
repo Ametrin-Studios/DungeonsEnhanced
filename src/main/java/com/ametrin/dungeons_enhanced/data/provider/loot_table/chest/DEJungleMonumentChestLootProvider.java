@@ -111,7 +111,8 @@ public record DEJungleMonumentChestLootProvider(HolderLookup.Provider registries
 
         output.accept(DELootTables.JungleMonument.AXOLOTL_TREASURE, lootTable()
                 .withPool(lootPool().setRolls(one())
-                        .add(lootTableItem(Items.GOLDEN_DANDELION).setWeight(8))
+                        .add(lootTableItem(Items.TURTLE_HELMET).setWeight(4))
+                        .add(lootTableItem(Items.NAUTILUS_SHELL).setWeight(4))
                         .add(lootTableItem(Items.WILD_ARMOR_TRIM_SMITHING_TEMPLATE).setWeight(5))
                         .add(lootTableItem(Items.HEART_OF_THE_SEA).setWeight(3))
                 )

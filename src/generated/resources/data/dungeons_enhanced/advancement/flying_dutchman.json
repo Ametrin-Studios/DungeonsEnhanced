@@ -23,7 +23,8 @@
       "translate": "advancements.dungeons_enhanced.flying_dutchman.description"
     },
     "icon": {
-      "id": "minecraft:oxidized_copper_lantern"
+      "count": 1,
+      "id": "minecraft:soul_lantern"
     },
     "title": {
       "translate": "advancements.dungeons_enhanced.flying_dutchman.title"

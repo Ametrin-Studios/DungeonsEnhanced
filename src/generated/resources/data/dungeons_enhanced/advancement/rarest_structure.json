@@ -23,6 +23,7 @@
       "translate": "advancements.dungeons_enhanced.rarest_structure.description"
     },
     "icon": {
+      "count": 1,
       "id": "minecraft:red_mushroom"
     },
     "title": {

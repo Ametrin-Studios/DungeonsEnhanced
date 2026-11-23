@@ -16,15 +16,10 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:copper_helmet"
-        },
-        {
-          "type": "minecraft:item",
           "name": "minecraft:chainmail_helmet"
         },
         {
-          "type": "minecraft:empty",
-          "weight": 2
+          "type": "minecraft:empty"
         }
       ],
       "rolls": 1.0
@@ -32,17 +27,12 @@
     {
       "bonus_rolls": 0.0,
       "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:copper_chestplate"
-        },
         {
           "type": "minecraft:item",
           "name": "minecraft:chainmail_chestplate"
         },
         {
-          "type": "minecraft:empty",
-          "weight": 2
+          "type": "minecraft:empty"
         }
       ],
       "rolls": 1.0
@@ -50,17 +40,12 @@
     {
       "bonus_rolls": 0.0,
       "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:copper_leggings"
-        },
         {
           "type": "minecraft:item",
           "name": "minecraft:chainmail_leggings"
         },
         {
-          "type": "minecraft:empty",
-          "weight": 2
+          "type": "minecraft:empty"
         }
       ],
       "rolls": 1.0
@@ -70,15 +55,10 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:copper_boots"
-        },
-        {
-          "type": "minecraft:item",
           "name": "minecraft:chainmail_boots"
         },
         {
-          "type": "minecraft:empty",
-          "weight": 2
+          "type": "minecraft:empty"
         }
       ],
       "rolls": 1.0

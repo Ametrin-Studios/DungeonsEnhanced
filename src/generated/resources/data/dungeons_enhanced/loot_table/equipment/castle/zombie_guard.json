@@ -6,11 +6,8 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:stone_spear"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:stone_sword"
+          "name": "minecraft:stone_sword",
+          "weight": 3
         },
         {
           "type": "minecraft:item",
@@ -18,27 +15,13 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:copper_spear"
+          "name": "minecraft:iron_sword",
+          "weight": 3
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:copper_sword"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:copper_axe"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:iron_spear"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:iron_sword"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:iron_axe"
+          "name": "minecraft:iron_axe",
+          "weight": 2
         },
         {
           "type": "minecraft:empty",
@@ -53,15 +36,11 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:chainmail_helmet",
-          "weight": 2
+          "weight": 3
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:golden_helmet"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:copper_helmet"
         },
         {
           "type": "minecraft:item",
@@ -80,15 +59,11 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:chainmail_chestplate",
-          "weight": 2
+          "weight": 3
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:golden_chestplate"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:copper_chestplate"
         },
         {
           "type": "minecraft:item",
@@ -107,15 +82,11 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:chainmail_leggings",
-          "weight": 2
+          "weight": 3
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:golden_leggings"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:copper_leggings"
         },
         {
           "type": "minecraft:item",
@@ -134,15 +105,11 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:chainmail_boots",
-          "weight": 2
+          "weight": 3
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:golden_boots"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:copper_boots"
         },
         {
           "type": "minecraft:item",

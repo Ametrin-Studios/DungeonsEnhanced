@@ -74,10 +74,6 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:flower_banner_pattern"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:bordure_indented_banner_pattern"
         }
       ],
       "rolls": 1.0

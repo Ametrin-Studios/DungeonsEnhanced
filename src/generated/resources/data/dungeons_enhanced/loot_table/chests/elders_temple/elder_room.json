@@ -175,15 +175,8 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:heart_of_the_sea"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:copper_nautilus_armor"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:diamond_nautilus_armor"
+          "name": "minecraft:heart_of_the_sea",
+          "weight": 2
         },
         {
           "type": "minecraft:item",

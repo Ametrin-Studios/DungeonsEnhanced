@@ -11,11 +11,8 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:stone_sword"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:stone_spear"
+          "name": "minecraft:stone_sword",
+          "weight": 2
         }
       ],
       "rolls": 1.0
@@ -28,7 +25,10 @@
           "functions": [
             {
               "components": {
-                "minecraft:dyed_color": 65322
+                "minecraft:dyed_color": {
+                  "rgb": 65322,
+                  "show_in_tooltip": false
+                }
               },
               "function": "minecraft:set_components"
             }
@@ -46,7 +46,10 @@
           "functions": [
             {
               "components": {
-                "minecraft:dyed_color": 65322
+                "minecraft:dyed_color": {
+                  "rgb": 65322,
+                  "show_in_tooltip": false
+                }
               },
               "function": "minecraft:set_components"
             }

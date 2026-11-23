@@ -40,16 +40,8 @@
           "weight": 3
         },
         {
-          "type": "minecraft:tag",
-          "expand": true,
-          "functions": [
-            {
-              "add": false,
-              "count": 1.0,
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:bundles",
+          "type": "minecraft:item",
+          "name": "minecraft:bundle",
           "weight": 3
         }
       ],

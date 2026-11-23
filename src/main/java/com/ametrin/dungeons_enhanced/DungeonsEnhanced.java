@@ -7,7 +7,6 @@ import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
@@ -16,7 +15,7 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 public final class DungeonsEnhanced {
     public static final String MOD_ID = "dungeons_enhanced";
 
-    public DungeonsEnhanced(IEventBus modEventBus, ModContainer container) {
+    public DungeonsEnhanced(IEventBus modEventBus) {
         modEventBus.addListener(DungeonsEnhanced::gatherData);
         NeoForge.EVENT_BUS.addListener(DEVillagerTrades::addTrades);
         DEPieceSources.REGISTER.register(modEventBus);
@@ -33,10 +32,10 @@ public final class DungeonsEnhanced {
 
         event.createDatapackRegistryObjects(builder);
 
-        event.createProvider(DEBiomeTagsProvider::new);
+        event.createProvider((output, provider) -> new DEBiomeTagsProvider(output, provider, event.getExistingFileHelper()));
         event.createProvider(DELootTableProvider::new);
         event.createProvider(DEAdvancementProvider::new);
-        event.createProvider(DEStructureTagsProvider::new);
+        event.createProvider((output, provider) -> new DEStructureTagsProvider(output, provider, event.getExistingFileHelper()));
         event.createProvider(DEDataMapProvider::new);
 //        event.addProvider(new StructureTemplateUpdater(event.getInputs()));
     }

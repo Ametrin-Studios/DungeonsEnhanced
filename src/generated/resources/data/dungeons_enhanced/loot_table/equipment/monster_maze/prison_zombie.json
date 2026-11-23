@@ -15,16 +15,7 @@
           "weight": 2
         },
         {
-          "type": "minecraft:item",
-          "name": "minecraft:copper_pickaxe"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:copper_shovel"
-        },
-        {
-          "type": "minecraft:empty",
-          "weight": 3
+          "type": "minecraft:empty"
         }
       ],
       "rolls": 1.0
@@ -34,11 +25,8 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:copper_helmet"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:leather_helmet"
+          "name": "minecraft:leather_helmet",
+          "weight": 2
         },
         {
           "type": "minecraft:item",
@@ -54,10 +42,6 @@
     {
       "bonus_rolls": 0.0,
       "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:copper_chestplate"
-        },
         {
           "type": "minecraft:item",
           "functions": [
@@ -81,7 +65,8 @@
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:chainmail_chestplate"
+          "name": "minecraft:chainmail_chestplate",
+          "weight": 2
         },
         {
           "type": "minecraft:empty",

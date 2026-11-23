@@ -9,16 +9,18 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.StructureTagsProvider;
 import net.minecraft.tags.StructureTags;
 import net.minecraft.world.level.levelgen.structure.BuiltinStructures;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.CompletableFuture;
 
 public final class DEStructureTagsProvider extends StructureTagsProvider {
-    public DEStructureTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
-        super(output, lookup, DungeonsEnhanced.MOD_ID, null);
+    public DEStructureTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookup, ExistingFileHelper existingFileHelper) {
+        super(output, lookup, DungeonsEnhanced.MOD_ID, existingFileHelper);
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider provider) {
+    protected void addTags(@NotNull HolderLookup.Provider provider) {
         tag(ASTags.Structures.LAKE_PROOF)
                 .addAll(DEStructures.BOOTSTRAP.structures().toList())
         ;
