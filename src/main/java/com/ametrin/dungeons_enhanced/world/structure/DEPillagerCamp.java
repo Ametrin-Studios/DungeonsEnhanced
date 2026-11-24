@@ -13,7 +13,11 @@ public final class DEPillagerCamp {
         var builder = new JigsawPools(context, DungeonsEnhanced.MOD_ID, "pillager_camp/");
 
         builder.pool("root", p -> p.element("tent/general"));
-        builder.pool("feature_plates", p -> p.element("plate/var1").element("plate/var2").terrainMatching());
+        builder.pool("feature_plates", p -> p
+                .element("plate/var1")
+                .element("plate/var2")
+                .terrainMatching()
+        );
 
         builder.pool("features", p -> p
                 .elements(List.of("tent/sleep1", "tent/sleep2"), e -> e.weight(2))

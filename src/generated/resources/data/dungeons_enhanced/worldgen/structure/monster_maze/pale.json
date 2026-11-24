@@ -12,7 +12,7 @@
   "start_height": {
     "heightmap": "WORLD_SURFACE_WG",
     "mode": "center",
-    "offset": -32
+    "offset": -33
   },
   "step": "surface_structures"
 }
