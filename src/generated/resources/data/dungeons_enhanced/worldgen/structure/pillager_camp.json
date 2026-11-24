@@ -3,7 +3,7 @@
   "biomes": "#dungeons_enhanced:has_structure/pillager_camp",
   "pieces": {
     "type": "ametrin_structures:jigsaw",
-    "size": 4,
+    "size": 3,
     "start_pool": "dungeons_enhanced:pillager_camp/root"
   },
   "spawn_overrides": {
