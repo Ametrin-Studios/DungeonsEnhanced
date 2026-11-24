@@ -83,7 +83,7 @@ public final class DEStructures {
                 .scatteredGridPlacement(p -> p.spacing(59).probability(0.56f))
                 .modular(s -> s
                         .biomes(DETags.Biomes.HAS_CATACOMBS)
-                        .surface(-1, HeightMode.CENTER)
+                        .surface(-2, HeightMode.CENTER)
                         .jigsaw(DETemplatePools.CATACOMBS, b -> b.size(9))
                         .processors(DEProcessorLists.CATACOMBS)
                 )
@@ -227,7 +227,7 @@ public final class DEStructures {
                 .scatteredGridPlacement(p -> p.spacing(28).probability(0.62f).minChunksFromCenter(12))
                 .modular("dark", 1, s -> s
                         .biomes(DETags.Biomes.HAS_MONSTER_MAZE_DARK)
-                        .surface(-26, HeightMode.CENTER)
+                        .surface(-27, HeightMode.CENTER)
                         .jigsaw(DETemplatePools.MONSTER_MAZE_DARK, j -> j.size(11))
                         .processors(DEProcessorLists.MONSTER_MAZE_DARK)
                 )
