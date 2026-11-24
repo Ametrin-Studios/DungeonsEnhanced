@@ -3,14 +3,6 @@
     {
       "data": {
         "entity": {
-          "id": "minecraft:parched"
-        }
-      },
-      "weight": 2
-    },
-    {
-      "data": {
-        "entity": {
           "id": "minecraft:husk"
         }
       },

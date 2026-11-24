@@ -1,10 +1,6 @@
 {
   "pack": {
     "description": "Dungeons Enhanced modifiers",
-    "min_format": [
-      101,
-      1
-    ],
-    "max_format": 101
+    "pack_format": 48
   }
 }

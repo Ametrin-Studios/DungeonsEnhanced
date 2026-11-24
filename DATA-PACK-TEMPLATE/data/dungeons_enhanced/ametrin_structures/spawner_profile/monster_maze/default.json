@@ -7,8 +7,7 @@
           "id": "minecraft:zombie"
         },
         "equipment": {
-          "loot_table": "dungeons_enhanced:equipment/monster_maze/zombie",
-          "slot_drop_chances": 0.085
+          "loot_table": "dungeons_enhanced:equipment/monster_maze/zombie"
         }
       },
       "weight": 1
@@ -20,8 +19,7 @@
           "id": "minecraft:skeleton"
         },
         "equipment": {
-          "loot_table": "dungeons_enhanced:equipment/monster_maze/skeleton",
-          "slot_drop_chances": 0.085
+          "loot_table": "dungeons_enhanced:equipment/monster_maze/skeleton"
         }
       },
       "weight": 1
@@ -32,11 +30,12 @@
         "entity": {
           "Passengers": [
             {
-              "equipment": {
-                "mainhand": {
+              "HandItems": [
+                {
                   "id": "minecraft:bow"
-                }
-              },
+                },
+                {}
+              ],
               "id": "minecraft:skeleton"
             }
           ],
