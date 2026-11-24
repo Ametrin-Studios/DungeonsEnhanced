@@ -1,6 +1,7 @@
 {
   "placement": {
     "type": "ametrin_structures:even_spread",
+    "min_chunks_from_center": 6,
     "min_distance": 50,
     "probability": 0.66,
     "salt": 1045189476
