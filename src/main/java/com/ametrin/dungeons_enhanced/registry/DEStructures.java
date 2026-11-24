@@ -258,7 +258,7 @@ public final class DEStructures {
                 .modular(s -> s
                         .biomes(DETags.Biomes.HAS_PILLAGER_CAMP)
                         .surface()
-                        .jigsaw(DETemplatePools.PILLAGER_CAMP, j -> j.size(4))
+                        .jigsaw(DETemplatePools.PILLAGER_CAMP, j -> j.size(3))
                         .terrainAdaptation(TerrainAdjustment.BEARD_BOX)
                         .spawnOverride(MobCategory.MONSTER, new StructureSpawnOverride(StructureSpawnOverride.BoundingBoxType.STRUCTURE, spawns(spawn(EntityType.PILLAGER, 4, 2, 3), spawn(EntityType.VINDICATOR, 2, 1, 2))))
                 )

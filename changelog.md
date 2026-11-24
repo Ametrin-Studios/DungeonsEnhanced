@@ -3,7 +3,8 @@
 - Jungle Monument variant
 - add 6 new Desert Tomb pieces
 - use blocks from Block Variants when installed
-- requires Ametrin Structures 0.4.0-beta or above
+- made Pillager Camps a little smaller
+- requires Ametrin Structures 0.4.1-beta or above
 - required NeoForge 26.1.2.129 or above
 
 ## 7.0.2-beta
