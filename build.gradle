@@ -79,7 +79,7 @@ repositories {
         url "https://github.com/Ametrin-Studios/maven/raw/main/"
     }
     maven {
-        url uri(rootProject.file("../maven"))
+        url uri(rootProject.file("../../maven"))
     }
 }
 
