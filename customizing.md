@@ -19,7 +19,7 @@ You can ask question on the [Ametrin Studios discord](https://discord.gg/Ye6WxRV
 2. Edit the files you want (see below).
 3. Delete every file you did not change.
 
-(Alternatively you can just download the files you wan't to change and put them into a datapack youself)
+(Alternatively you can just download the files you want to change and put them into a datapack yourself)
 
 All file references below are in `data/dungeons_enhanced`.  
 All default files (loot tables, structures, processors, advancements, …) are in [src/generated/resources/data/dungeons_enhanced](src/generated/resources/data/dungeons_enhanced). Copy any additional file you need into your data pack at the same path to overwrite it.

@@ -130,7 +130,7 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
 sourceSets.main.resources.srcDir generateModMetadata
 neoForge.ideSyncTask generateModMetadata
 
-// run manually on release, the template should match the latest published version
+// run manually on release
 tasks.register("updateDataPackTemplate") {
     group = "datagen"
     var generated = file("src/generated/resources/data/${mod_id}")
