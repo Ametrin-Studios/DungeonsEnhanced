@@ -125,6 +125,40 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
 sourceSets.main.resources.srcDir generateModMetadata
 neoForge.ideSyncTask generateModMetadata
 
+// run manually on release
+tasks.register("updateDataPackTemplate") {
+    group = "datagen"
+    var generated = file("src/generated/resources/data/${mod_id}")
+    var template = file("DATA-PACK-TEMPLATE/data/${mod_id}")
+    doLast {
+        var copyAll = { File source, File target ->
+            if (!source.exists()) return
+            source.eachFileRecurse(groovy.io.FileType.FILES) { file ->
+                var out = target.toPath().resolve(source.toPath().relativize(file.toPath())).toFile()
+                out.parentFile.mkdirs()
+                out.bytes = file.bytes
+            }
+        }
+        for (path in ["ametrin_structures/spawner_profile", "trial_spawner", "worldgen/structure_set"]) {
+            new File(template, path).deleteDir()
+            copyAll(new File(generated, path), new File(template, path))
+        }
+
+        var biomeTags = new File(generated, "tags/worldgen/biome")
+        var biomeTagTemplates = new File(template, "tags/worldgen/biome")
+        biomeTagTemplates.deleteDir()
+        biomeTags.eachFileRecurse(groovy.io.FileType.FILES) { file ->
+            var path = biomeTags.toPath().relativize(file.toPath()).toString().replace('\\', '/')
+            if (!path.startsWith("has_structure") && !path.startsWith("no_structures")) return
+            var out = new File(biomeTagTemplates, path)
+            out.parentFile.mkdirs()
+            out.text = file.text.contains('"remove"')
+                    ? '{\n  "values": [\n\n  ],\n  "remove": [\n\n  ]\n}'
+                    : '{\n  "values": [\n\n  ]\n}'
+        }
+    }
+}
+
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }
