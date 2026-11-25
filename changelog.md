@@ -1,6 +1,5 @@
 ## 7.0.3-beta
 - rename Large Dungeon to Catacombs and add 4 new pieces
-- Jungle Monument variant
 - add 6 new Desert Tomb pieces
 - use blocks from Block Variants when installed
 - made Pillager Camps a little smaller
