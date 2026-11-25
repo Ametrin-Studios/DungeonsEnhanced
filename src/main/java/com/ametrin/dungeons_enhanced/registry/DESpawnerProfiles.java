@@ -22,6 +22,7 @@ public final class DESpawnerProfiles {
         context.register(key("castle/default"), SpawnerProfile.builder()
                 .add(createSpawnDataWithEquipment(EntityType.ZOMBIE, DELootTables.Castle.EQUIPMENT_ZOMBIE), 3)
                 .add(createSpawnDataWithEquipment(EntityType.SKELETON, DELootTables.Castle.EQUIPMENT_SKELETON), 2)
+                .requiredPlayerRange(10)
                 .build());
 
         context.register(key("deep_crypt"), SpawnerProfile.builder()

@@ -1,4 +1,5 @@
 {
+  "required_player_range": 10,
   "spawn_potentials": [
     {
       "data": {
