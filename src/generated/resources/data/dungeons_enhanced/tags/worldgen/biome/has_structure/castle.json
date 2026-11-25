@@ -3,14 +3,8 @@
     "#dungeons_enhanced:no_structures/overworld/surface_extended"
   ],
   "values": [
-    {
-      "id": "#c:is_cold/overworld",
-      "required": false
-    },
-    {
-      "id": "#c:is_snowy",
-      "required": false
-    },
+    "#c:is_cold/overworld",
+    "#c:is_snowy",
     {
       "id": "biomesoplenty:mediterranean_forest",
       "required": false

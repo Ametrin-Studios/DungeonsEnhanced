@@ -217,7 +217,7 @@ public final class DEStructures {
                         .filterWithinBiome(12)
                         .weighted(w -> w
                                 .single(1, t -> t.template("jungle_monument/default").yOffset(-9).processors(DEProcessorLists.JUNGLE_MONUMENT_DEFAULT))
-                                .single(1, t -> t.template("jungle_monument/axolotl").yOffset(-9).processors(DEProcessorLists.JUNGLE_MONUMENT_AXOLOTL))
+//                                .single(1, t -> t.template("jungle_monument/axolotl").yOffset(-9).processors(DEProcessorLists.JUNGLE_MONUMENT_AXOLOTL))
                         )
 
                 )
